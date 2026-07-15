@@ -1,0 +1,13 @@
+# Stata temp/swap files
+*.stswp
+~*
+*.log
+*.smcl
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Data files stay in Box, not git
+*.dta
