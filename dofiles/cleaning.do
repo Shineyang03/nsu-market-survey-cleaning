@@ -127,29 +127,28 @@ drop caseid uuid
 
 preserve
 
-** 3-panel table (panels = weighing_approach): obs counts by item x NSU x province-municipality x market type
-* province kept alongside municipality: PONTEVEDRA and SAN ENRIQUE exist in two provinces
+** Panel table (panels = weighing_approach x province): obs counts by item x NSU x municipality x market type
 decode weighing_approach, gen(wa_str)
 decode market_type, gen(mkt_str)
-contract wa_str pull_item pull_nsu_unit pull_province pull_municipal_city mkt_str, freq(n_obs)
-rename (pull_item pull_nsu_unit pull_province pull_municipal_city mkt_str) ///
-    (item nsu province municipality market_type)
-sort wa_str item nsu province municipality market_type
+contract wa_str pull_province pull_item pull_nsu_unit pull_municipal_city mkt_str, freq(n_obs)
+rename (pull_item pull_nsu_unit pull_municipal_city mkt_str) (item nsu municipality market_type)
+gen panel_key = wa_str + " - " + pull_province
+sort panel_key item nsu municipality market_type
 
 * one header row above each panel; data rows leave the panel column blank
 gen seq = _n
-bysort wa_str (seq): gen byte first = _n == 1
+bysort panel_key (seq): gen byte first = _n == 1
 expand 2 if first, gen(hdr)
 gsort seq -hdr
-gen panel = "Panel: " + wa_str if hdr
-foreach v of varlist item nsu province municipality market_type {
+gen panel = "Panel: " + panel_key if hdr
+foreach v of varlist item nsu municipality market_type {
     replace `v' = "" if hdr
 }
 replace n_obs = . if hdr
-drop seq first hdr wa_str
+drop seq first hdr wa_str pull_province panel_key
 
-order panel item nsu province municipality market_type n_obs
-export excel panel item nsu province municipality market_type n_obs using ///
+order panel item nsu municipality market_type n_obs
+export excel panel item nsu municipality market_type n_obs using ///
     "${tables}\prov_mun_by_nsu_item_cnt.xlsx", sheet("cnt_by_weighing_approach", replace) firstrow(variables)
 
 
