@@ -208,13 +208,15 @@ $$\widehat{CF}_h = w_{s(h)}$$
    standard within its locality; it may still vary *across* municipalities —
    where the market survey weighed the same conventional unit in several
    municipalities, this is testable.
-5. **Measurement error in $p_h$** (A2, A3). $p_h = e_h / q_h$ is a derived unit
-   value: misreporting in either the total value $e_h$ or the quantity $q_h$
-   propagates into $p_h$, and from there into the gram imputation — e.g., a
-   household that rounds its total expenditure looks like it bought a
-   different-sized unit. Under the price-based approach the error passes
-   through proportionally into $\hat g_h$; under the size-based approach it can
-   flip the household across a quantile boundary into the wrong size bin.
+## Warning for downstream use of the CFs
+
+**Measurement error in $p_h$ propagates into imputed grams.** $p_h = e_h / q_h$
+is a derived unit value: misreporting in either the total value $e_h$ or the
+quantity $q_h$ propagates into $p_h$, and from there into the gram imputation —
+e.g., a household that rounds its total expenditure looks like it bought a
+different-sized unit. Under the price-based approach the error passes through
+proportionally into $\hat g_h$; under the size-based approach it can flip the
+household across a quantile boundary into the wrong size bin.
 
 ## Practical prerequisites / open decisions
 
