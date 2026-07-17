@@ -39,12 +39,17 @@ type $M$ where available).
 
 **Market survey (MS), within cell $c$:**
 
+$w$ always denotes **weight in grams per 1 unit of $n$**. Its subscript says at
+which variant of the unit it was measured, depending on the unit's type:
+
+$$w = \begin{cases} w_c & \text{conventional NSU: one weighing characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU: measured at price point } \tau \text{ of the vendor's offer distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU: measured per size label} \end{cases}$$
+
+Two auxiliary MS objects (price-varying units only):
+
 | Symbol | Definition |
 |---|---|
-| $w_c$ | grams per 1 unit of $n$ (conventional-NSU weighing) |
-| $p_\tau,\; w_\tau$ | price (PHP per 1 $n$) and weight (g per 1 $n$) measured at price point $\tau \in \{25, 50, 75\}$ of the vendor's offer distribution |
+| $p_\tau$ | price (PHP per 1 $n$) at price point $\tau$ |
 | $v_\tau \equiv p_\tau / w_\tau$ | unit value (PHP per gram) at price point $\tau$ |
-| $w_s$ | grams per 1 unit of $n$ of size $s \in \{S, M, L\}$ |
 
 **PSPS, household $h$ in cell $c$:**
 
