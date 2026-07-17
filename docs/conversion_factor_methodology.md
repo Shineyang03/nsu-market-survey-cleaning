@@ -240,5 +240,5 @@ $$\widehat{CF}_h = w_{s(h)}$$
 - **Multiple vendors per cell.** Within item-NSU-municipality × market type, 98%
   of cells have 1–3 distinct vendors (32% / 23% / 43% for 1/2/3), with 63 cells
   (1.7%) at 4–5; only 24% of item-NSU-municipality cases cover all three market
-  types (41% have one). Aggregate vendor-level $w$ (median across vendors) before
-  applying, or keep vendor spread as an uncertainty band.
+  types (41% have one). Aggregation rule: vendor-level $w$ is aggregated via
+  **mean after dropping outliers**.
