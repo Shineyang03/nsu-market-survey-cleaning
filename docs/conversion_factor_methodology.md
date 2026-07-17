@@ -66,7 +66,7 @@ never interchangeable:
 $w$ always denotes **weight in grams per 1 unit of $n$** [observed]. Its
 subscript says at which variant of the unit it was measured:
 
-$$w = \begin{cases} w_c & \text{conventional NSU (weighing\_approach == 1): standard within the locality, so a single weight characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU (weighing\_approach == 2): measured at price point } \tau \text{ of the vendor's offer distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU (weighing\_approach == 3): measured per size label} \end{cases}$$
+$$w = \begin{cases} w_c & \text{conventional NSU (weighing approach == 1): standard within the locality, so a single weight characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU (weighing approach == 2): measured at price point } \tau \text{ of the vendor's offer distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU (weighing approach == 3): measured per size label} \end{cases}$$
 
 Two auxiliary MS objects (price-varying units only):
 
@@ -122,19 +122,19 @@ points). The MS provides pairs $(p_\tau, w_\tau)$, $\tau \in \{25, 50, 75\}$.
 
 **Step 1.** Match the household to the nearest MS price point:
 
-$$\tau^* = \arg\min_{\tau \in \{25,50,75\}} \; \lvert p_h - p_\tau \rvert$$
+$$\tau^\ast = \arg\min_{\tau \in \{25,50,75\}} \; \lvert p_h - p_\tau \rvert$$
 
 **Step 2.** Take the unit value at that point:
 
-$$v_{\tau^*} = p_{\tau^*} / w_{\tau^*}$$
+$$v_{\tau^\ast} = p_{\tau^\ast} / w_{\tau^\ast}$$
 
 **Step 3.** Invert price into grams per unit: $\;$ (by A2)
 
-$$\widehat{CF}_h = \frac{p_h}{v_{\tau^*}}$$
+$$\widehat{CF}_h = \frac{p_h}{v_{\tau^\ast}}$$
 
 > **A2** — local price–quantity equivalence: in a neighborhood of price point
-> $\tau^*$, variation in price per NSU reflects variation in grams at a constant
-> PHP-per-gram, i.e. $w(p) = p / v_{\tau^*}$. In plain terms: *extrapolate
+> $\tau^\ast$, variation in price per NSU reflects variation in grams at a constant
+> PHP-per-gram, i.e. $w(p) = p / v_{\tau^\ast}$. In plain terms: *extrapolate
 > proportionally along the price-per-gram ratio measured at the closest price
 > point.* The resulting $p \mapsto w$ mapping is piecewise-proportional — each
 > price point has its own $v_\tau$, so non-linearity in the price–gram
@@ -144,7 +144,7 @@ $$\widehat{CF}_h = \frac{p_h}{v_{\tau^*}}$$
 > Price differences due to price level, timing, quality, or bargaining violate
 > A2 (see caveats).
 
-Consistency check: if $p_h = p_{\tau^*}$ exactly, then $\widehat{CF}_h = w_{\tau^*}$
+Consistency check: if $p_h = p_{\tau^\ast}$ exactly, then $\widehat{CF}_h = w_{\tau^\ast}$
 — the household is assigned exactly the weight measured at that price point.
 
 ### 3. Size-based (`weighing_approach == 3`; obs_type `small/medium/large_size`)
@@ -179,8 +179,8 @@ $$\widehat{CF}_h = w_{s(h)}$$
    prices for the same grams (bargaining, quality, timing, vendor differences
    would violate this). Two remarks:
    - *Within a kink, price variation converts to grams one-for-one.* Matching
-     to the nearest price point only selects the local slope $v_{\tau^*}$; the
-     weight itself is $p_h / v_{\tau^*}$, so two households matched to the same
+     to the nearest price point only selects the local slope $v_{\tau^\ast}$; the
+     weight itself is $p_h / v_{\tau^\ast}$, so two households matched to the same
      price point but paying different unit prices are assigned proportionally different
      grams. Any within-kink price variation that is *not* quantity (bargaining,
      quality, misreporting) passes through proportionally into $\hat g_h$ —
@@ -195,7 +195,7 @@ $$\widehat{CF}_h = w_{s(h)}$$
    (A2). PSPS prices come from recall periods that need not coincide with the
    market-survey field dates; under general price inflation the *price-based*
    method mechanically inflates implied grams (a nominally higher $p_h$ maps to
-   more grams at fixed $v_{\tau^*}$). So deflate/inflate $p_h$ to the MS field
+   more grams at fixed $v_{\tau^\ast}$). So deflate/inflate $p_h$ to the MS field
    window (e.g., regional CPI for the item group) as a pre-processing step, before
    any nearest-price-point matching. The *size-based* method is immune to proportional
    price-level shifts (quantiles shift together; the S/M/L weights are fixed) — a
