@@ -176,8 +176,20 @@ $$\widehat{CF}_h = w_{s(h)}$$
    it is because they bought at different points (kinks) of that schedule —
    i.e., units containing different grams — not because they paid different
    prices for the same grams (bargaining, quality, timing, vendor differences
-   would violate this). Mitigation: match within municipality × market type
-   where possible.
+   would violate this). Two remarks:
+   - *Within a kink, price variation converts to grams one-for-one.* Matching
+     to the nearest mark only selects the local slope $v_{\tau^*}$; the weight
+     itself is $p_h / v_{\tau^*}$, so two households matched to the same mark
+     but paying different unit prices are assigned proportionally different
+     grams. Any within-kink price variation that is *not* quantity (bargaining,
+     quality, misreporting) passes through proportionally into $\hat g_h$ —
+     finer matching cannot fix this.
+   - *The pooling level determines the strength of the assumption.* The finer
+     the cell at which schedules are estimated and matched, the weaker the
+     assumption needs to be. Since market type of purchase is missing in PSPS,
+     matching is effectively at municipality × item-NSU pooled across market
+     types (unless an assignment rule is adopted — see open decisions), and the
+     single-schedule assumption must hold at that coarser level.
 2. **Temporal alignment** (A2). PSPS prices come from recall periods that may not
    coincide with the market-survey field dates. Under general price inflation the
    *price-based* method mechanically inflates implied grams (a nominally higher
@@ -193,6 +205,13 @@ $$\widehat{CF}_h = w_{s(h)}$$
    standard within its locality; it may still vary *across* municipalities —
    where the market survey weighed the same conventional unit in several
    municipalities, this is testable.
+5. **Measurement error in $p_h$** (A2, A3). $p_h = e_h / q_h$ is a derived unit
+   value: misreporting in either the total value $e_h$ or the quantity $q_h$
+   propagates into $p_h$, and from there into the gram imputation — e.g., a
+   household that rounds its total expenditure looks like it bought a
+   different-sized unit. Under the price-based approach the error passes
+   through proportionally into $\hat g_h$; under the size-based approach it can
+   flip the household across a quantile boundary into the wrong size bin.
 
 ## Practical prerequisites / open decisions
 
