@@ -95,8 +95,14 @@ $$\widehat{CF}_h = \frac{p_h}{v_{\tau^*}}$$
 
 > **A2** — local price–quantity equivalence: in a neighborhood of price point
 > $\tau^*$, variation in price per NSU reflects variation in grams at a constant
-> PHP-per-gram, i.e. $w(p) = p / v_{\tau^*}$. Price differences due to price
-> level, timing, quality, or bargaining violate A2 (see caveats).
+> PHP-per-gram, i.e. $w(p) = p / v_{\tau^*}$. In plain terms: *extrapolate
+> proportionally along the price-per-gram ratio measured at the closest price
+> mark.* The resulting $p \mapsto w$ mapping is piecewise-proportional — each
+> price mark has its own $v_\tau$, so non-linearity in the price–gram
+> relationship (e.g., bulk discounting) is captured *across* the three marks,
+> while proportionality is only assumed *within* each mark's neighborhood.
+> Price differences due to price level, timing, quality, or bargaining violate
+> A2 (see caveats).
 
 Consistency check: if $p_h = p_{\tau^*}$ exactly, then $\widehat{CF}_h = w_{\tau^*}$
 — the household is assigned exactly the weight measured at that price point.
