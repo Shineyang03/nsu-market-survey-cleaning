@@ -20,9 +20,12 @@ household panel into grams, using the NSU Market Survey as the measurement sourc
 Example query: *how many grams is a small mango (or a mango costing P xx) bought in
 municipality m at market type M?*
 
-Note: PSPS uses only the **quantiles** of its own price distribution (and each
-household's reported price), never the market survey's raw price levels as
-quantities of interest — market survey prices only serve to anchor weights.
+Note (applies to outcome 2 only): when converting PSPS quantities, market-survey
+**price levels are never the quantity of interest** — the deliverable is grams.
+Prices enter only as matching devices that select which measured weight applies:
+the household's own reported price (and, in the size-based approach, its position
+in the PSPS price distribution) is matched against market-survey price points to
+pick the corresponding gram weight.
 
 ---
 
