@@ -40,24 +40,31 @@ type $M$ where available).
 **Market survey (MS), within cell $c$:**
 
 $w$ always denotes **weight in grams per 1 unit of $n$**. Its subscript says at
-which variant of the unit it was measured, depending on the unit's type:
+which variant of the unit it was measured. The three cases map one-to-one to
+`weighing_approach` in the MS data:
 
 $$w = \begin{cases} w_c & \text{conventional NSU: standard within the locality, so a single weight characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU: measured at price point } \tau \text{ of the vendor's offer distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU: measured per size label} \end{cases}$$
 
-Two auxiliary MS objects (price-varying units only):
+| Case | `weighing_approach` | `obs_type` values |
+|---|---|---|
+| $w_c$ — conventional | 1 (Conventional NSU) | `conventional_nsu` |
+| $w_\tau$ — price-varying | 2 (Price-quantity based) | `mp25_price`, `mp50_price`, `mp75_price` |
+| $w_s$ — size-labeled | 3 (Size-based) | `small_size`, `medium_size`, `large_size` |
 
-| Symbol | Definition |
-|---|---|
-| $p_\tau$ | price (PHP per 1 $n$) at price point $\tau$ |
-| $v_\tau \equiv p_\tau / w_\tau$ | unit value (PHP per gram) at price point $\tau$ |
+**All quantities, by source and status:**
 
-**PSPS, household $h$ in cell $c$:**
-
-| Symbol | Definition |
-|---|---|
-| $q_h$ | reported quantity, in units of $n$ |
-| $p_h$ | reported price paid, PHP per 1 unit of $n$ |
-| $P^{25}_c, P^{50}_c, P^{75}_c$ | quantiles of the PSPS distribution of $p_h$ within cell $c$ |
+| Symbol | Definition | Source | Status |
+|---|---|---|---|
+| $w_c,\; w_\tau,\; w_s$ | grams per 1 unit of $n$ (per case above) | MS | observed (weighed in the field) |
+| $p_\tau$ | price (PHP per 1 $n$) at price point $\tau$ | MS | observed |
+| $v_\tau \equiv p_\tau / w_\tau$ | unit value (PHP per gram) at price point $\tau$ | MS | derived |
+| $q_h$ | quantity, in units of $n$ | PSPS | observed (reported by household) |
+| $p_h$ | price paid, PHP per 1 unit of $n$ | PSPS | observed |
+| $P^{25}_c, P^{50}_c, P^{75}_c$ | quantiles of $p_h$ within cell $c$ | PSPS | derived |
+| $s(h)$ | size of the unit household $h$ bought | PSPS | **missing** — imputed via A3 |
+| market type $M$ of purchase | where household $h$ bought | PSPS | **missing** — aggregation rule needed (see open decisions) |
+| $\widehat{CF}_h$ | grams per 1 unit of $n$ for household $h$ | both | derived (the estimator; true $CF_h$ unobserved) |
+| $\hat g_h$ | implied grams $= q_h \cdot \widehat{CF}_h$ | both | derived (deliverable) |
 
 **Target object.** The conversion factor is defined as
 
