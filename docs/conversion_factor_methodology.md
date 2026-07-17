@@ -190,13 +190,15 @@ $$\widehat{CF}_h = w_{s(h)}$$
      matching is effectively at municipality × item-NSU pooled across market
      types (unless an assignment rule is adopted — see open decisions), and the
      single-schedule assumption must hold at that coarser level.
-2. **Temporal alignment** (A2). PSPS prices come from recall periods that may not
-   coincide with the market-survey field dates. Under general price inflation the
-   *price-based* method mechanically inflates implied grams (a nominally higher
-   $p_h$ maps to more grams at fixed $v_{\tau^*}$). The *size-based* method is
-   immune to proportional price-level shifts (quantiles shift together; the S/M/L
-   weights are fixed) — a point in its favor as the workhorse (85% of
-   market-survey obs are size-based).
+2. **Temporal alignment — PSPS prices must be inflation-adjusted before matching**
+   (A2). PSPS prices come from recall periods that need not coincide with the
+   market-survey field dates; under general price inflation the *price-based*
+   method mechanically inflates implied grams (a nominally higher $p_h$ maps to
+   more grams at fixed $v_{\tau^*}$). So deflate/inflate $p_h$ to the MS field
+   window (e.g., regional CPI for the item group) as a pre-processing step, before
+   any nearest-mark matching. The *size-based* method is immune to proportional
+   price-level shifts (quantiles shift together; the S/M/L weights are fixed) — a
+   point in its favor as the workhorse (85% of market-survey obs are size-based).
 3. **Quantile ↔ size mapping** (A3). "P25 = small" is a convention, not a
    measurement. If most transactions are, say, medium, the mapping misallocates
    the tails. Worth a robustness check (e.g., alternative mapping P33/P50/P67, or
@@ -219,17 +221,24 @@ $$\widehat{CF}_h = w_{s(h)}$$
   spellings for 19 items (Bilog/Binilog/…; municipality-specific variants). PSPS
   NSU strings must be mapped into these — likely after consolidating spelling
   variants. This is the reference-set deliverable (outcome 1).
-- **Coverage gaps and fallback hierarchy.** Many item-NSU pairs are observed under
-  only one approach or only in some municipality × market-type cells (see
-  `outputs/graphs/heatmap_*`). Proposed fallback when the target cell is empty:
-  own municipality (pooling market types) → `municipality_median` /
-  `province_median` observations (already collected as obs_types) → province pool.
-  To be finalized.
+- **Incomplete mark sets degrade gracefully via nearest-neighbor matching.** Not
+  every cell has the full set of marks (all of S/M/L, or all three price points):
+  some have, e.g., only a medium weighing, a single unique municipal price
+  (`unique_mun_price6/7`), or only a `municipality_median` / `province_median`
+  price. No special-casing is needed: the matching step is nearest-neighbor over
+  whatever marks exist, so with a single mark every household maps to it (the
+  cell-level scalar case). The cost is assumption strength, not mechanics — with
+  one mark, the piecewise schedule collapses to one proportional segment (price-
+  based) or one size bin (size-based) for the whole cell.
+- **Fallback hierarchy for empty cells.** When an item-NSU-municipality cell has
+  no marks at all: own municipality (pooling market types) →
+  `municipality_median` / `province_median` observations → province pool. To be
+  finalized.
 - **Market type in PSPS.** If PSPS does not record where the household bought the
   item, a weighting/priority rule across market types is needed (e.g., public
   market first, or obs-weighted average across types).
-- **Multiple vendors per cell.** Within item-NSU-municipality-market type, weights
-  come from up to 3 vendors × 3 market types — aggregate vendor-level `w` (median
-  across vendors) before applying, or keep vendor spread as an uncertainty band.
-- **`unique_mun_price6/7` obs_types** (36 obs): role in this scheme to be
-  clarified.
+- **Multiple vendors per cell.** Within item-NSU-municipality × market type, 98%
+  of cells have 1–3 distinct vendors (32% / 23% / 43% for 1/2/3), with 63 cells
+  (1.7%) at 4–5; only 24% of item-NSU-municipality cases cover all three market
+  types (41% have one). Aggregate vendor-level $w$ (median across vendors) before
+  applying, or keep vendor spread as an uncertainty band.
