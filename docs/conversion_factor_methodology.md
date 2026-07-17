@@ -32,82 +32,109 @@ corresponding gram weight.
 Within each item-NSU-municipality, the conversion rule follows the protocol under
 which the market survey measured that pair (one or more of three).
 
+### Notation
+
+Fix a cell $c = (x, n, m)$: item $x$, NSU $n$, municipality $m$ (refined by market
+type $M$ where available).
+
+**Market survey (MS), within cell $c$:**
+
+| Symbol | Definition |
+|---|---|
+| $w_c$ | grams per 1 unit of $n$ (conventional-NSU weighing) |
+| $p_\tau,\; w_\tau$ | price (PHP per 1 $n$) and weight (g per 1 $n$) measured at price point $\tau \in \{25, 50, 75\}$ of the vendor's offer distribution |
+| $v_\tau \equiv p_\tau / w_\tau$ | unit value (PHP per gram) at price point $\tau$ |
+| $w_s$ | grams per 1 unit of $n$ of size $s \in \{S, M, L\}$ |
+
+**PSPS, household $h$ in cell $c$:**
+
+| Symbol | Definition |
+|---|---|
+| $q_h$ | reported quantity, in units of $n$ |
+| $p_h$ | reported price paid, PHP per 1 unit of $n$ |
+| $P^{25}_c, P^{50}_c, P^{75}_c$ | quantiles of the PSPS distribution of $p_h$ within cell $c$ |
+| $\hat g_h$ | deliverable: implied grams |
+
 ### 1. Conventional NSU (`weighing_approach == 1`, e.g. gantang, salop, salmon)
 
-These units are physically standardized, so one weighing suffices.
+There is no within-unit heterogeneity to model: the unit is essentially standard
+within the locality, so a single gram weight $w_c$ characterizes it (measured
+weighings within the cell are averaged/medianed into $w_c$).
 
-- **From the market survey:** weigh the unit once → `cf = g per 1 n` (e.g., 1
-  gantang of rice = *w* g).
-- **Apply to PSPS:** by definition of "conventional," the gantang a PSPS household
-  reports is the same physical unit as the gantang weighed in the market survey
-  (`n_psps == n_nsu`). So:
+$$\hat g_h = q_h \cdot w_c \qquad \text{(by A1)}$$
 
-  `qty_g = qty_n × cf`
-
-- No heterogeneity within the unit — the cf is a scalar.
+> **A1** — $n^{PSPS} = n^{MS}$: the unit the household reports is the same
+> physical unit the market survey weighed (by definition of "conventional,"
+> standard within the locality).
 
 ### 2. Price-based (`weighing_approach == 2`; obs_type `mp25/mp50/mp75_price`)
 
-For NSUs whose size scales with price (e.g., a "pile"/tumpok at different price
-points). The market survey observed, at each of three price points of the vendor's
-offer distribution (P25/P50/P75), the **price per NSU** and the **weight in grams**
-of what that price buys.
+For NSUs whose size scales with price (e.g., a pile/tumpok at different price
+points). The MS provides pairs $(p_\tau, w_\tau)$, $\tau \in \{25, 50, 75\}$.
 
-- **From the market survey:** for each price point q ∈ {25, 50, 75}:
-  `p_q = PHP per 1 n` and `w_q = grams per 1 n` → unit value `v_q = p_q / w_q`
-  (PHP per gram).
-- **Apply to PSPS**, for a household reporting price `p_psps` per NSU:
-  1. Find the market-survey price point `q*` with `p_q` closest to `p_psps`.
-  2. Take the PHP-per-gram at that point: `v_q* = p_q* / w_q*`.
-  3. Convert: `grams per NSU_psps = p_psps / v_q*`.
+**Step 1.** Match the household to the nearest MS price point:
 
-  I.e., a household paying more per unit is inferred to receive proportionally
-  more grams, locally anchored at the nearest observed price point.
+$$\tau^* = \arg\min_{\tau \in \{25,50,75\}} \; \lvert p_h - p_\tau \rvert$$
 
-- **Key assumption:** within a neighborhood of a price point, price variation
-  across transactions reflects **quantity** variation (bigger pile), not price-level
-  or quality variation. See caveats below.
+**Step 2.** Take the unit value at that point:
+
+$$v_{\tau^*} = p_{\tau^*} / w_{\tau^*}$$
+
+**Step 3.** Invert price into grams: $\;$ (by A2)
+
+$$\hat w_h = \frac{p_h}{v_{\tau^*}}, \qquad \hat g_h = q_h \cdot \hat w_h$$
+
+> **A2** — local price–quantity equivalence: in a neighborhood of price point
+> $\tau^*$, variation in price per NSU reflects variation in grams at a constant
+> PHP-per-gram, i.e. $w(p) = p / v_{\tau^*}$. Price differences due to price
+> level, timing, quality, or bargaining violate A2 (see caveats).
+
+Consistency check: if $p_h = p_{\tau^*}$ exactly, then $\hat w_h = w_{\tau^*}$ —
+the household is assigned exactly the weight measured at that price point.
 
 ### 3. Size-based (`weighing_approach == 3`; obs_type `small/medium/large_size`)
 
-For NSUs sold in labeled sizes (small/medium/large piece, bilog, etc.). The market
-survey weighed one specimen of each size: `w_S, w_M, w_L` grams.
+The MS weighed one specimen per size label: $w_S, w_M, w_L$. PSPS does not record
+size, so size is imputed from the household's position in the *PSPS* price
+distribution within cell $c$.
 
-PSPS does not record "small/medium/large" — so size is *imputed from the
-household's position in the local price distribution*:
+**Step 1.** Compute PSPS price quantiles $P^{25}_c, P^{50}_c, P^{75}_c$.
 
-- **From PSPS:** within each item-NSU-municipality cell, compute the P25/P50/P75
-  of the *PSPS* price-per-NSU distribution.
-- **Bridging assumption:** the household at the 25th percentile of the PSPS price
-  distribution bought the "small" specimen, P50 ↔ medium, P75 ↔ large:
+**Step 2.** Assign the household to a size via its nearest quantile: $\;$ (by A3)
 
-  `NSU_P25_psps == NSU_Small_market_survey` (and correspondingly for M, L)
+$$s(h) = \begin{cases} S & \text{if } \lvert p_h - P^{25}_c \rvert \text{ is smallest} \\ M & \text{if } \lvert p_h - P^{50}_c \rvert \text{ is smallest} \\ L & \text{if } \lvert p_h - P^{75}_c \rvert \text{ is smallest} \end{cases}$$
 
-- **Apply:** a household is assigned to the nearest PSPS price quantile and
-  receives the corresponding market-survey weight (`w_S`, `w_M`, or `w_L`).
+**Step 3.** Apply the size's measured weight:
+
+$$\hat g_h = q_h \cdot w_{s(h)}$$
+
+> **A3** — quantile–size equivalence: the household at the 25th percentile of the
+> PSPS price distribution bought the "small" specimen, P50 ↔ M, P75 ↔ L; i.e.
+> $NSU_{P25}^{PSPS} = NSU_{S}^{MS}$ (and correspondingly for M, L).
 
 ---
 
 ## Assumptions to keep visible
 
-1. **Price ↔ quantity, not price ↔ quality/price-level** (approaches 2 & 3).
+1. **Price ↔ quantity, not price ↔ quality/price-level** (A2, A3).
    If two households pay different prices for the same grams (different market
    type, bargaining, timing, quality), the method attributes the difference to
    size. Mitigation: match within municipality × market type where possible.
-2. **Temporal alignment.** PSPS prices come from recall periods that may not
+2. **Temporal alignment** (A2). PSPS prices come from recall periods that may not
    coincide with the market-survey field dates. Under general price inflation the
    *price-based* method mechanically inflates implied grams (a nominally higher
-   `p_psps` maps to more grams at fixed `v_q`). The *size-based* method is immune
-   to proportional price-level shifts (quantiles shift together; the S/M/L weights
-   are fixed) — a point in its favor as the workhorse (85% of market-survey obs
-   are size-based).
-3. **Quantile ↔ size mapping** (approach 3). "P25 = small" is a convention, not a
+   $p_h$ maps to more grams at fixed $v_{\tau^*}$). The *size-based* method is
+   immune to proportional price-level shifts (quantiles shift together; the S/M/L
+   weights are fixed) — a point in its favor as the workhorse (85% of
+   market-survey obs are size-based).
+3. **Quantile ↔ size mapping** (A3). "P25 = small" is a convention, not a
    measurement. If most transactions are, say, medium, the mapping misallocates
    the tails. Worth a robustness check (e.g., alternative mapping P33/P50/P67, or
    modal-size assumption).
-4. **Conventional NSU homogeneity** (approach 1). Assumes the standardized unit
-   does not vary across municipalities; where the market survey weighed it in
-   several municipalities, this is testable.
+4. **Conventional NSU standard within locality** (A1). The unit is taken as
+   standard within its locality; it may still vary *across* municipalities —
+   where the market survey weighed the same conventional unit in several
+   municipalities, this is testable.
 
 ## Practical prerequisites / open decisions
 
