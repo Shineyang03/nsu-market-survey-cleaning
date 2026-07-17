@@ -7,9 +7,12 @@ household panel into grams, using the NSU Market Survey as the measurement sourc
 
 ### Outcome 1 — Reference set for future data collection
 
-A lookup table of gram weights per item-NSU, by municipality × market type,
-**keeping within item-NSU heterogeneity** (separate entries per size or price
-point, not one averaged scalar).
+A lookup key with columns
+
+> municipality | market type | Item | NSU | Heterogeneity | Grams per unit (CF)
+
+with one such key per province — **keeping within item-NSU heterogeneity**
+(separate rows per size or price point, not one averaged scalar).
 
 Use case: a respondent reports consuming 1 mango; the enumerator asks which size
 (small/medium/large, e.g. with reference pictures) — or at what price — and the
@@ -17,7 +20,8 @@ answer is logged directly in grams (e.g., 1 small mango → 500 g of mango).
 
 ### Outcome 2 — Conversion factors for PSPS
 
-Convert PSPS-reported NSU quantities into grams. PSPS does not need the market
+A crosswalk: for each item-NSU-municipality observed in PSPS, a grams-per-unit
+(CF) value — converting PSPS-reported NSU quantities into grams. PSPS does not need the market
 survey's unique price values — **only the quantiles**: market-survey price levels
 are never the quantity of interest (the deliverable is grams). Prices enter only
 as matching devices that select which measured weight applies: the household's
