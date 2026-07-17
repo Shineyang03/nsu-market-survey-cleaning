@@ -45,7 +45,7 @@ reality PHP per gram varies with how many grams one unit contains (e.g., bulk
 discounting: a large pile is cheaper per gram than a small one) — equivalently,
 the estimand $CF$ faced by households is **non-linear in the unit's price**.
 This non-linearity is why the MS measured $w$ at several points of each unit's
-range (price marks or size labels), and why approaches 2–3 must first locate the
+range (price points or size labels), and why approaches 2–3 must first locate the
 household on that range before converting.
 
 ### Notation
@@ -136,10 +136,11 @@ $$\widehat{CF}_h = \frac{p_h}{v_{\tau^*}}$$
 > $\tau^*$, variation in price per NSU reflects variation in grams at a constant
 > PHP-per-gram, i.e. $w(p) = p / v_{\tau^*}$. In plain terms: *extrapolate
 > proportionally along the price-per-gram ratio measured at the closest price
-> mark.* The resulting $p \mapsto w$ mapping is piecewise-proportional — each
-> price mark has its own $v_\tau$, so non-linearity in the price–gram
-> relationship (e.g., bulk discounting) is captured *across* the three marks,
-> while proportionality is only assumed *within* each mark's neighborhood.
+> point.* The resulting $p \mapsto w$ mapping is piecewise-proportional — each
+> price point has its own $v_\tau$, so non-linearity in the price–gram
+> relationship (e.g., bulk discounting) is captured *across* the three price
+> points, while proportionality is only assumed *within* each point's
+> neighborhood.
 > Price differences due to price level, timing, quality, or bargaining violate
 > A2 (see caveats).
 
@@ -178,9 +179,9 @@ $$\widehat{CF}_h = w_{s(h)}$$
    prices for the same grams (bargaining, quality, timing, vendor differences
    would violate this). Two remarks:
    - *Within a kink, price variation converts to grams one-for-one.* Matching
-     to the nearest mark only selects the local slope $v_{\tau^*}$; the weight
-     itself is $p_h / v_{\tau^*}$, so two households matched to the same mark
-     but paying different unit prices are assigned proportionally different
+     to the nearest price point only selects the local slope $v_{\tau^*}$; the
+     weight itself is $p_h / v_{\tau^*}$, so two households matched to the same
+     price point but paying different unit prices are assigned proportionally different
      grams. Any within-kink price variation that is *not* quantity (bargaining,
      quality, misreporting) passes through proportionally into $\hat g_h$ —
      finer matching cannot fix this.
@@ -196,7 +197,7 @@ $$\widehat{CF}_h = w_{s(h)}$$
    method mechanically inflates implied grams (a nominally higher $p_h$ maps to
    more grams at fixed $v_{\tau^*}$). So deflate/inflate $p_h$ to the MS field
    window (e.g., regional CPI for the item group) as a pre-processing step, before
-   any nearest-mark matching. The *size-based* method is immune to proportional
+   any nearest-price-point matching. The *size-based* method is immune to proportional
    price-level shifts (quantiles shift together; the S/M/L weights are fixed) — a
    point in its favor as the workhorse (85% of market-survey obs are size-based).
 3. **Quantile ↔ size mapping** (A3). "P25 = small" is a convention, not a
@@ -221,19 +222,16 @@ $$\widehat{CF}_h = w_{s(h)}$$
   spellings for 19 items (Bilog/Binilog/…; municipality-specific variants). PSPS
   NSU strings must be mapped into these — likely after consolidating spelling
   variants. This is the reference-set deliverable (outcome 1).
-- **Incomplete mark sets degrade gracefully via nearest-neighbor matching.** Not
-  every cell has the full set of marks (all of S/M/L, or all three price points):
-  some have, e.g., only a medium weighing, a single unique municipal price
-  (`unique_mun_price6/7`), or only a `municipality_median` / `province_median`
-  price. No special-casing is needed: the matching step is nearest-neighbor over
-  whatever marks exist, so with a single mark every household maps to it (the
-  cell-level scalar case). The cost is assumption strength, not mechanics — with
-  one mark, the piecewise schedule collapses to one proportional segment (price-
-  based) or one size bin (size-based) for the whole cell.
-- **Fallback hierarchy for empty cells.** When an item-NSU-municipality cell has
-  no marks at all: own municipality (pooling market types) →
-  `municipality_median` / `province_median` observations → province pool. To be
-  finalized.
+- **Incomplete heterogeneity levels degrade gracefully via nearest-neighbor
+  matching.** Not every cell has the full set of heterogeneity levels (all of
+  S/M/L, or all three price points): some have, e.g., only a medium weighing, a
+  single unique municipal price (`unique_mun_price6/7`), or only a
+  `municipality_median` / `province_median` price. No special-casing is needed:
+  the matching step is nearest-neighbor over whatever levels exist, so with a
+  single level every household maps to it (the cell-level scalar case). The cost
+  is assumption strength, not mechanics — with one level, the piecewise schedule
+  collapses to one proportional segment (price-based) or one size bin
+  (size-based) for the whole cell.
 - **Market type in PSPS.** If PSPS does not record where the household bought the
   item, a weighting/priority rule across market types is needed (e.g., public
   market first, or obs-weighted average across types).
