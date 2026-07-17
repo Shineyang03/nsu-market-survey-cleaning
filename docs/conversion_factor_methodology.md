@@ -7,18 +7,13 @@ household panel into grams, using the NSU Market Survey as the measurement sourc
 
 ### Outcome 1 — Reference set for future data collection
 
-A queryable reference of item-NSU weights that **preserves within item-NSU pair
-heterogeneity** — a "small mango" and a "large mango" sold as the same NSU
-(piece/bilog) remain distinct entries rather than being averaged into one scalar.
+A lookup table of gram weights per item-NSU, by municipality × market type,
+**keeping within item-NSU heterogeneity** (separate entries per size or price
+point, not one averaged scalar).
 
-The reference set should answer queries of the form:
-
-> *How many grams is a small mango (or, if price-based: how many grams is a mango
-> of xxx PHP) — in municipality x × market type M?*
-
-I.e., for item *x*, NSU *n*, municipality *m*, market type *M*:
-cf_xn(·) = grams per 1 unit of *n* of item *x* in (*m*, *M*), indexed by the
-size label or price point at which the unit was measured.
+Use case: a respondent reports consuming 1 mango; the enumerator asks which size
+(small/medium/large, e.g. with reference pictures) — or at what price — and the
+answer is logged directly in grams (e.g., 1 small mango → 500 g of mango).
 
 ### Outcome 2 — Conversion factors for PSPS
 
