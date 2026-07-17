@@ -32,10 +32,29 @@ corresponding gram weight.
 Within each item-NSU-municipality, the conversion rule follows the protocol under
 which the market survey measured that pair (one or more of three).
 
+**Why $w$ is measured at multiple points (the motivation for everything below).**
+PSPS observes quantities only in NSUs, plus the price paid — so grams must be
+inferred *through prices*. If PHP per gram were constant within a cell, one
+scalar would convert any price to grams and a single $w$ would suffice. In
+reality PHP per gram varies with how many grams one unit contains (e.g., bulk
+discounting: a large pile is cheaper per gram than a small one) — equivalently,
+the estimand $CF$ faced by households is **non-linear in the unit's price**.
+This non-linearity is why the MS measured $w$ at several points of each unit's
+range (price marks or size labels), and why approaches 2–3 must first locate the
+household on that range before converting.
+
 ### Notation
 
 Fix a cell $c = (x, n, m)$: item $x$, NSU $n$, municipality $m$ (refined by market
 type $M$ where available).
+
+**Price-unit convention.** Two different "prices" appear throughout; they are
+never interchangeable:
+
+- $p$ (and its variants $p_\tau$, $p_h$, $P^{25}_c$…) is always **PHP per 1 unit
+  of $n$** — the sticker price of one pile/piece/pack.
+- $v$ is always **PHP per gram** — a unit value, only ever *derived* as
+  $v = p / w$.
 
 **Market survey (MS), within cell $c$:**
 
@@ -48,15 +67,15 @@ Two auxiliary MS objects (price-varying units only):
 
 | Symbol | Definition |
 |---|---|
-| $p_\tau$ | price (PHP per 1 $n$) at price point $\tau$ [observed] |
-| $v_\tau \equiv p_\tau / w_\tau$ | unit value (PHP per gram) at price point $\tau$ [derived] |
+| $p_\tau$ | price, **PHP per 1 $n$**, at price point $\tau$ [observed] |
+| $v_\tau \equiv p_\tau / w_\tau$ | unit value, **PHP per gram**, at price point $\tau$ [derived] |
 
 **PSPS, household $h$ in cell $c$:**
 
 | Symbol | Definition |
 |---|---|
 | $q_h$ | reported quantity, in units of $n$ [observed] |
-| $p_h$ | reported price paid, PHP per 1 unit of $n$ [observed] |
+| $p_h$ | reported price paid, **PHP per 1 unit of $n$** [observed] |
 | $P^{25}_c, P^{50}_c, P^{75}_c$ | quantiles of the PSPS distribution of $p_h$ within cell $c$ [derived] |
 | $s(h)$ | size of the unit bought [missing — imputed via A3] |
 
@@ -145,10 +164,14 @@ $$\widehat{CF}_h = w_{s(h)}$$
 
 ## Assumptions to keep visible
 
-1. **Price ↔ quantity, not price ↔ quality/price-level** (A2, A3).
-   If two households pay different prices for the same grams (different market
-   type, bargaining, timing, quality), the method attributes the difference to
-   size. Mitigation: match within municipality × market type where possible.
+1. **Single price schedule within cell** (A2, A3). We assume that within a
+   municipality × market type × item-NSU pair, all households face the *same*
+   non-linear price schedule; so if two households pay different PHP per gram,
+   it is because they bought at different points (kinks) of that schedule —
+   i.e., units containing different grams — not because they paid different
+   prices for the same grams (bargaining, quality, timing, vendor differences
+   would violate this). Mitigation: match within municipality × market type
+   where possible.
 2. **Temporal alignment** (A2). PSPS prices come from recall periods that may not
    coincide with the market-survey field dates. Under general price inflation the
    *price-based* method mechanically inflates implied grams (a nominally higher
