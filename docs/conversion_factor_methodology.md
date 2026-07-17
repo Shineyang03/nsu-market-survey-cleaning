@@ -53,7 +53,16 @@ type $M$ where available).
 | $q_h$ | reported quantity, in units of $n$ |
 | $p_h$ | reported price paid, PHP per 1 unit of $n$ |
 | $P^{25}_c, P^{50}_c, P^{75}_c$ | quantiles of the PSPS distribution of $p_h$ within cell $c$ |
-| $\hat g_h$ | deliverable: implied grams |
+
+**Target object.** The conversion factor is defined as
+
+$$CF \equiv \text{grams per 1 unit of } n .$$
+
+Each approach below produces an estimate $\widehat{CF}_h$ for household $h$ —
+scalar within the cell under approach 1, household-specific under approaches
+2 and 3. The deliverable (implied grams) is then always
+
+$$\hat g_h = q_h \cdot \widehat{CF}_h .$$
 
 ### 1. Conventional NSU (`weighing_approach == 1`, e.g. gantang, salop, salmon)
 
@@ -61,7 +70,7 @@ There is no within-unit heterogeneity to model: the unit is essentially standard
 within the locality, so a single gram weight $w_c$ characterizes it (measured
 weighings within the cell are averaged/medianed into $w_c$).
 
-$$\hat g_h = q_h \cdot w_c \qquad \text{(by A1)}$$
+$$\widehat{CF}_h = w_c \quad \text{for all } h \text{ in cell } c \qquad \text{(by A1)}$$
 
 > **A1** — $n^{PSPS} = n^{MS}$: the unit the household reports is the same
 > physical unit the market survey weighed (by definition of "conventional,"
@@ -80,17 +89,17 @@ $$\tau^* = \arg\min_{\tau \in \{25,50,75\}} \; \lvert p_h - p_\tau \rvert$$
 
 $$v_{\tau^*} = p_{\tau^*} / w_{\tau^*}$$
 
-**Step 3.** Invert price into grams: $\;$ (by A2)
+**Step 3.** Invert price into grams per unit: $\;$ (by A2)
 
-$$\hat w_h = \frac{p_h}{v_{\tau^*}}, \qquad \hat g_h = q_h \cdot \hat w_h$$
+$$\widehat{CF}_h = \frac{p_h}{v_{\tau^*}}$$
 
 > **A2** — local price–quantity equivalence: in a neighborhood of price point
 > $\tau^*$, variation in price per NSU reflects variation in grams at a constant
 > PHP-per-gram, i.e. $w(p) = p / v_{\tau^*}$. Price differences due to price
 > level, timing, quality, or bargaining violate A2 (see caveats).
 
-Consistency check: if $p_h = p_{\tau^*}$ exactly, then $\hat w_h = w_{\tau^*}$ —
-the household is assigned exactly the weight measured at that price point.
+Consistency check: if $p_h = p_{\tau^*}$ exactly, then $\widehat{CF}_h = w_{\tau^*}$
+— the household is assigned exactly the weight measured at that price point.
 
 ### 3. Size-based (`weighing_approach == 3`; obs_type `small/medium/large_size`)
 
@@ -106,7 +115,7 @@ $$s(h) = \begin{cases} S & \text{if } \lvert p_h - P^{25}_c \rvert \text{ is sma
 
 **Step 3.** Apply the size's measured weight:
 
-$$\hat g_h = q_h \cdot w_{s(h)}$$
+$$\widehat{CF}_h = w_{s(h)}$$
 
 > **A3** — quantile–size equivalence: the household at the 25th percentile of the
 > PSPS price distribution bought the "small" specimen, P50 ↔ M, P75 ↔ L; i.e.
