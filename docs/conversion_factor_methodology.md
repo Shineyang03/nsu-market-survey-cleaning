@@ -70,7 +70,9 @@ never interchangeable:
 $w$ always denotes **weight in grams per 1 unit of $n$** [observed]. Its
 subscript says at which variant of the unit it was measured:
 
-$$w = \begin{cases} w_c & \text{conventional NSU (weighing approach == 1): standard within the locality, so a single weight characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU (weighing approach == 2): measured at price point } \tau \text{ of the vendor's offer distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU (weighing approach == 3): measured per size label} \end{cases}$$
+```math
+w = \begin{cases} w_c & \text{conventional NSU (weighing approach == 1): standard within the locality, so a single weight characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU (weighing approach == 2): measured at price point } \tau \text{ of the vendor's offer distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU (weighing approach == 3): measured per size label} \end{cases}
+```
 
 Two auxiliary MS objects (price-varying units only):
 
@@ -126,13 +128,15 @@ points). The MS provides pairs $(p_\tau, w_\tau)$, $\tau \in \{25, 50, 75\}$.
 
 **Step 1.** Match the household to the nearest MS price point:
 
-$$\tau^\ast = \arg\min_{\tau \in \{25,50,75\}} \; \lvert p_h - p_\tau \rvert$$
+```math
+\tau^\ast = \begin{cases} 25 & \text{if } \lvert p_h - p_{25} \rvert \text{ is smallest} \\ 50 & \text{if } \lvert p_h - p_{50} \rvert \text{ is smallest} \\ 75 & \text{if } \lvert p_h - p_{75} \rvert \text{ is smallest} \end{cases}
+```
 
 **Step 2.** Take the unit value at that point:
 
 $$v_{\tau^\ast} = p_{\tau^\ast} / w_{\tau^\ast}$$
 
-**Step 3.** Invert price into grams per unit: $\;$ (by A2)
+**Step 3.** Invert price into grams per unit (by A2):
 
 $$\widehat{CF}_h = \frac{p_h}{v_{\tau^\ast}}$$
 
@@ -148,7 +152,7 @@ $$\widehat{CF}_h = \frac{p_h}{v_{\tau^\ast}}$$
 > Price differences due to price level, timing, quality, or bargaining violate
 > A2 (see caveats).
 
-Consistency check: if $p_h = p_{\tau^\ast}$ exactly, then $\widehat{CF}_h = w_{\tau^\ast}$
+Consistency check: if $`p_h = p_{\tau^\ast}`$ exactly, then $`\widehat{CF}_h = w_{\tau^\ast}`$
 — the household is assigned exactly the weight measured at that price point.
 
 ### 3. Size-based (`weighing_approach == 3`; obs_type `small/medium/large_size`)
@@ -159,9 +163,11 @@ distribution within cell $c$.
 
 **Step 1.** Compute PSPS price quantiles $P^{25}_c, P^{50}_c, P^{75}_c$.
 
-**Step 2.** Assign the household to a size via its nearest quantile: $\;$ (by A3)
+**Step 2.** Assign the household to a size via its nearest quantile (by A3):
 
-$$s(h) = \begin{cases} S & \text{if } \lvert p_h - P^{25}_c \rvert \text{ is smallest} \\ M & \text{if } \lvert p_h - P^{50}_c \rvert \text{ is smallest} \\ L & \text{if } \lvert p_h - P^{75}_c \rvert \text{ is smallest} \end{cases}$$
+```math
+s(h) = \begin{cases} S & \text{if } \lvert p_h - P^{25}_c \rvert \text{ is smallest} \\ M & \text{if } \lvert p_h - P^{50}_c \rvert \text{ is smallest} \\ L & \text{if } \lvert p_h - P^{75}_c \rvert \text{ is smallest} \end{cases}
+```
 
 **Step 3.** Apply the size's measured weight:
 
