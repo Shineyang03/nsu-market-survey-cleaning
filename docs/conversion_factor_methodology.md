@@ -64,7 +64,11 @@ Two auxiliary MS objects (price-varying units only):
 
 $$CF \equiv \text{grams per 1 unit of } n .$$
 
-Each approach below produces an estimate $\widehat{CF}_h$ for household $h$ —
+$CF$ and $w$ share the same units; the distinction is estimand vs. data.
+$CF_h$ is the grams-per-unit of household $h$'s *actual transaction* —
+unobserved. The $w$'s are grams-per-unit of *specimens the MS weighed* —
+observed. Each approach below is an estimator $\widehat{CF}_h$ that selects
+(approaches 1, 3) or rescales (approach 2) a $w$ to stand in for $CF_h$ —
 scalar within the cell under approach 1, household-specific under approaches
 2 and 3. The deliverable (implied grams) is then always
 
