@@ -234,9 +234,14 @@ household across a quantile boundary into the wrong size bin.
   is assumption strength, not mechanics — with one level, the piecewise schedule
   collapses to one proportional segment (price-based) or one size bin
   (size-based) for the whole cell.
-- **Market type in PSPS.** If PSPS does not record where the household bought the
-  item, a weighting/priority rule across market types is needed (e.g., public
-  market first, or obs-weighted average across types).
+- **Market type as a heterogeneity dimension.** Market type of purchase is not
+  recorded in PSPS. The open question is whether to treat market type as a
+  separate dimension of heterogeneity in the matching: instead of
+  nearest-neighbor over 3 price points (pooled across market types), match over
+  all market type × price point combinations where available — up to 9 candidate
+  points ($P25_{M_1}, P25_{M_2}, P25_{M_3}, P50_{M_1}, \ldots$) — letting the
+  household's price implicitly select the market type along with the point on
+  the schedule.
 - **Multiple vendors per cell.** Within item-NSU-municipality × market type, 98%
   of cells have 1–3 distinct vendors (32% / 23% / 43% for 1/2/3), with 63 cells
   (1.7%) at 4–5; only 24% of item-NSU-municipality cases cover all three market
