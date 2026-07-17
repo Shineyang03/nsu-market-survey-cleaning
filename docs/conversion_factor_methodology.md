@@ -5,34 +5,37 @@ household panel into grams, using the NSU Market Survey as the measurement sourc
 
 **Two desired outcomes:**
 
-1. A **reference set** of item-NSU conversion factors for future data collection.
-2. Conversion factors that **preserve within item-NSU heterogeneity** — a "small
-   mango" and a "large mango" sold as the same NSU (piece/bilog) should convert to
-   different gram amounts. The conversion factor is therefore a *function* of an
-   observable in PSPS (price paid, or price quantile), not a single scalar per
-   item-NSU.
+### Outcome 1 — Reference set for future data collection
 
-**Target object.** For item *x*, NSU *n*, municipality *m*, market type *M*:
+A queryable reference of item-NSU weights that **preserves within item-NSU pair
+heterogeneity** — a "small mango" and a "large mango" sold as the same NSU
+(piece/bilog) remain distinct entries rather than being averaged into one scalar.
 
-> cf_xn(·) = grams per 1 unit of *n* of item *x*, in (*m*, *M*), possibly varying
-> with the price/size at which the unit is transacted.
+The reference set should answer queries of the form:
 
-Example query: *how many grams is a small mango (or a mango costing P xx) bought in
-municipality m at market type M?*
+> *How many grams is a small mango (or, if price-based: how many grams is a mango
+> of xxx PHP) — in municipality x × market type M?*
 
-Note (applies to outcome 2 only): when converting PSPS quantities, market-survey
-**price levels are never the quantity of interest** — the deliverable is grams.
-Prices enter only as matching devices that select which measured weight applies:
-the household's own reported price (and, in the size-based approach, its position
-in the PSPS price distribution) is matched against market-survey price points to
-pick the corresponding gram weight.
+I.e., for item *x*, NSU *n*, municipality *m*, market type *M*:
+cf_xn(·) = grams per 1 unit of *n* of item *x* in (*m*, *M*), indexed by the
+size label or price point at which the unit was measured.
+
+### Outcome 2 — Conversion factors for PSPS
+
+Convert PSPS-reported NSU quantities into grams. PSPS does not need the market
+survey's unique price values — **only the quantiles**: market-survey price levels
+are never the quantity of interest (the deliverable is grams). Prices enter only
+as matching devices that select which measured weight applies: the household's
+own reported price (and, in the size-based approach, its position in the PSPS
+price distribution) is matched against market-survey price points to pick the
+corresponding gram weight.
 
 ---
 
-## Three approaches, keyed to `weighing_approach`
+## Outcome 2 in detail: three approaches, keyed to `weighing_approach`
 
-Each item-NSU-municipality in the market survey was measured under one (or more)
-of three protocols. The conversion rule in PSPS mirrors the protocol.
+Within each item-NSU-municipality, the conversion rule follows the protocol under
+which the market survey measured that pair (one or more of three).
 
 ### 1. Conventional NSU (`weighing_approach == 1`, e.g. gantang, salop, salmon)
 
