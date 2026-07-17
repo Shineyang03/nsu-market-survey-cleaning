@@ -33,8 +33,13 @@ Within each item-NSU-municipality, the conversion rule follows the protocol unde
 which the market survey measured that pair (one or more of three).
 
 **Why $w$ is measured at multiple points (the motivation for everything below).**
-PSPS observes quantities only in NSUs, plus the price paid — so grams must be
-inferred *through prices*. If PHP per gram were constant within a cell, one
+When a household records consumption of an item in an NSU, PSPS observes the
+total value paid ($e_h$, PHP) and the quantity ($q_h$, number of NSU units that
+cost that total) — from which the price per unit $p_h = e_h / q_h$ is derived.
+Grams are never recorded, and within a cell the only household-level observable
+that co-varies with the gram content of a unit (a small vs. a large pile) is
+this unit price — so grams must be inferred *through prices*. If PHP per gram
+were constant within a cell, one
 scalar would convert any price to grams and a single $w$ would suffice. In
 reality PHP per gram varies with how many grams one unit contains (e.g., bulk
 discounting: a large pile is cheaper per gram than a small one) — equivalently,
@@ -74,8 +79,9 @@ Two auxiliary MS objects (price-varying units only):
 
 | Symbol | Definition |
 |---|---|
+| $e_h$ | reported total value of consumption, PHP [observed] |
 | $q_h$ | reported quantity, in units of $n$ [observed] |
-| $p_h$ | reported price paid, **PHP per 1 unit of $n$** [observed] |
+| $p_h = e_h / q_h$ | price per unit, **PHP per 1 unit of $n$** [derived] |
 | $P^{25}_c, P^{50}_c, P^{75}_c$ | quantiles of the PSPS distribution of $p_h$ within cell $c$ [derived] |
 | $s(h)$ | size of the unit bought [missing — imputed via A3] |
 
