@@ -34,7 +34,10 @@ corresponding gram weight.
 ## Outcome 2 in detail: three approaches, keyed to `weighing_approach`
 
 Within each item-NSU-municipality, the conversion rule follows the protocol under
-which the market survey measured that pair (one or more of three).
+which the market survey measured that pair. Empirically the protocols partition
+the cases — each of the 2,001 item-NSU-municipality cases uses exactly one
+approach (conventional 124, price-based 319, size-based 1,558; no case mixes
+approaches) — so the estimator choice is fully determined by the cell.
 
 **Why $w$ is measured at multiple points (the motivation for everything below).**
 When a household records consumption of an item in an NSU, PSPS observes the
