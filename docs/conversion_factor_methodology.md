@@ -42,7 +42,7 @@ type $M$ where available).
 $w$ always denotes **weight in grams per 1 unit of $n$**. Its subscript says at
 which variant of the unit it was measured, depending on the unit's type:
 
-$$w = \begin{cases} w_c & \text{conventional NSU: one weighing characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU: measured at price point } \tau \text{ of the vendor's offer distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU: measured per size label} \end{cases}$$
+$$w = \begin{cases} w_c & \text{conventional NSU: standard within the locality, so a single weight characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU: measured at price point } \tau \text{ of the vendor's offer distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU: measured per size label} \end{cases}$$
 
 Two auxiliary MS objects (price-varying units only):
 
