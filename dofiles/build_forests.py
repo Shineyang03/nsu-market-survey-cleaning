@@ -59,9 +59,10 @@ VERSIONS = {
             label=lambda r: f"{r['pull_municipal_city']} | {r['hetero_lbl']}",
             desc='Ver 2 - level: prov_mun_nsu_item x item_nsu_hetero_type',
             fname='forest_v2_prov_mun_nsu_item_x_hetero'),
-    3: dict(keys=['prov_mun_nsu_item','item_nsu_hetero_type','market_type'], block_col='prov_mun_nsu_item', band_col='pull_province',
-            label=lambda r: f"{r['pull_municipal_city']} | {r['hetero_lbl']} | {r['market_lbl']}",
-            desc='Ver 3 - level: prov_mun_nsu_item x item_nsu_hetero_type x market_type',
+    3: dict(keys=['prov_mun_nsu_item','market_type','item_nsu_hetero_type'], block_col='prov_mun_nsu_item',
+            nest_col='market_type', band_col='pull_province',
+            label=lambda r: f"{r['pull_municipal_city']} | {r['market_lbl']} | {r['hetero_lbl']}",
+            desc='Ver 3 - level: prov_mun_nsu_item x market_type x item_nsu_hetero_type',
             fname='forest_v3_prov_mun_nsu_item_x_hetero_x_market'),
     4: dict(keys=['pull_province','corrected_unit'], block_col=None, band_col='pull_province',
             label=lambda r: r['corrected_unit'],
@@ -73,7 +74,7 @@ VERSIONS = {
             fname='forest_v5_pull_province_x_hetero_x_corrected_unit'),
 }
 
-def facet_stats(sub, keys, block_col):
+def facet_stats(sub, keys, block_col, nest_col=None):
     g = sub.groupby(keys, dropna=False)
     st = g['corrected_weight'].agg(n='size', med='median', q1=q1, q3=q3,
                                    lo='min', hi='max').reset_index()
@@ -85,8 +86,16 @@ def facet_stats(sub, keys, block_col):
     if block_col:
         block_med = sub.groupby(block_col)['corrected_weight'].median()
         st['block_med'] = st[block_col].map(block_med)
-        st = st.sort_values(['pull_province','block_med',block_col,'med'],
-                            ascending=[True,False,True,False]).reset_index(drop=True)
+        if nest_col:
+            # keep block_col's rows together, then group nest_col (e.g. market_type)
+            # adjacently within the block, ordered by median within each nest group
+            nest_med = sub.groupby([block_col, nest_col])['corrected_weight'].median()
+            st['nest_med'] = st.set_index([block_col, nest_col]).index.map(nest_med)
+            st = st.sort_values(['pull_province','block_med',block_col,'nest_med',nest_col,'med'],
+                                ascending=[True,False,True,False,True,False]).reset_index(drop=True)
+        else:
+            st = st.sort_values(['pull_province','block_med',block_col,'med'],
+                                ascending=[True,False,True,False]).reset_index(drop=True)
     else:
         st = st.sort_values(['pull_province','med'], ascending=[True,False]).reset_index(drop=True)
     return st
@@ -194,7 +203,7 @@ def build(version, sample_items=None, out_png_dir=None):
         units = sorted({str(u) for u in sub['corrected_unit'].dropna().unique() if str(u) not in ('','nan')})
         ulab = '/'.join(units) or 'unit'
         xlabel = f"corrected_weight ({ulab})   [each row = mini histogram, bar width={BINWIDTH}{ulab if len(units)==1 else ''}, scaled to its own peak; dot = median]"
-        st = facet_stats(sub, cfg['keys'], cfg['block_col'])
+        st = facet_stats(sub, cfg['keys'], cfg['block_col'], cfg.get('nest_col'))
         singles.append(st[st['n']==1])                 # n=1 units -> table, not plotted
         st = st[st['n']>=2].reset_index(drop=True)      # ridgeline: multi-obs units only
         if len(st)==0: continue
