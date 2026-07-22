@@ -14,8 +14,9 @@ HETERO = {1:'conventional_nsu',2:'large_size',3:'medium_size',4:'mp25_price',5:'
           10:'unique_mun_price6',11:'unique_mun_price7'}
 MARKET = {1:'Public Market',2:'Talipapa',3:'Roadside'}
 
-ROWS_PER_PAGE = 50
-ROWH = 0.34
+ROWS_PER_PAGE = 42
+ROWH = 0.44          # inches per row (bigger => wider spacing between distributions)
+BAND = 0.5           # max histogram height within a row's slot (smaller => thinner ridgelines)
 NBINS = 30
 q1 = lambda s: s.quantile(.25)
 q3 = lambda s: s.quantile(.75)
@@ -72,7 +73,6 @@ def draw_page(st, title, xlabel, labeller, edges):
     fig_h = max(2.5, ROWH*n + 1.6)
     fig, ax = plt.subplots(figsize=(12, fig_h))
     y = np.arange(n)[::-1]
-    BAND = 0.9   # max histogram height within a row's slot
     for yi,(_,r) in zip(y, st.iterrows()):
         ax.hlines(yi, edges[0], edges[-1], color='#e3e3e3', lw=0.4, zorder=1)   # baseline
         v = np.asarray(r['vals'], float)
@@ -92,7 +92,7 @@ def draw_page(st, title, xlabel, labeller, edges):
     while k<n:
         j=k
         while j<n and provs[j]==provs[k]: j+=1
-        top=y[k]+0.98; bot=y[j-1]-0.15
+        top=y[k]+BAND+0.30; bot=y[j-1]-0.30
         if band: ax.axhspan(bot, top, color='k', alpha=0.04, zorder=0)
         band=not band
         ax.axhline(top, color='#cfcfcf', lw=0.7, zorder=1)
