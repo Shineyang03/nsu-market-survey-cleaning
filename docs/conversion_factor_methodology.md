@@ -74,7 +74,7 @@ $w$ always denotes **weight in grams per 1 unit of $n$** [observed]. Its
 subscript says at which variant of the unit it was measured:
 
 ```math
-w = \begin{cases} w_c & \text{conventional NSU (weighing approach == 1): standard within the locality, so a single weight characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU (weighing approach == 2): measured at price point } \tau \text{ of the vendor's offer distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU (weighing approach == 3): measured per size label} \end{cases}
+w = \begin{cases} w_c & \text{conventional NSU (weighing approach == 1): standard within the locality, so a single weight characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU (weighing approach == 2): measured at price point } \tau \text{ of the municipality price distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU (weighing approach == 3): measured per size label} \end{cases}
 ```
 
 Two auxiliary MS objects (price-varying units only):
@@ -124,10 +124,25 @@ $$\widehat{CF}_h = w_c \quad \text{for all } h \text{ in cell } c \qquad \text{(
 > physical unit the market survey weighed (by definition of "conventional,"
 > standard within the locality).
 
-### 2. Price-based (`weighing_approach == 2`; obs_type `mp25/mp50/mp75_price`)
+### 2. Price-based (`weighing_approach == 2`; obs_type `mp25/mp50/mp75_price`, `municipality_median`, `province_median`)
 
 For NSUs whose size scales with price (e.g., a pile/tumpok at different price
-points). The MS provides pairs $(p_\tau, w_\tau)$, $\tau \in \{25, 50, 75\}$.
+points). The price points $p_\tau$ are quantiles of the **municipality-level**
+price distribution for the item-NSU (the P25/P50/P75 over all vendors in the
+municipality), *not* any single vendor's prices; at each such municipal price
+point the MS records the weight of what that price buys, giving pairs
+$(p_\tau, w_\tau)$.
+
+> **Empirical caveat — the three-point spread is the exception, not the rule.**
+> In the launch data only ~11% of price-based cells carry ≥2 distinct price
+> points and ~4% carry all three; **89% have a single price mark**, overwhelmingly
+> `municipality_median` (or `province_median` as a fallback when the municipality
+> was thin). So for most cells the machinery below collapses to a single
+> proportional segment (one $v_\tau$ at the median), and the piecewise
+> non-linearity it is designed to capture is *unobserved*. The full $p \mapsto w$
+> curve is only identified in the minority of cells with multiple marks. This
+> weakens the case for the price-based approach over simply anchoring PHP-per-gram
+> at the median.
 
 **Step 1.** Match the household to the nearest MS price point:
 
@@ -147,11 +162,13 @@ $$\widehat{CF}_h = \frac{p_h}{v_{\tau^\ast}}$$
 > $\tau^\ast$, variation in price per NSU reflects variation in grams at a constant
 > PHP-per-gram, i.e. $w(p) = p / v_{\tau^\ast}$. In plain terms: *extrapolate
 > proportionally along the price-per-gram ratio measured at the closest price
-> point.* The resulting $p \mapsto w$ mapping is piecewise-proportional — each
-> price point has its own $v_\tau$, so non-linearity in the price–gram
-> relationship (e.g., bulk discounting) is captured *across* the three price
-> points, while proportionality is only assumed *within* each point's
-> neighborhood.
+> point.* Where a cell has multiple price points the resulting $p \mapsto w$
+> mapping is piecewise-proportional — each point has its own $v_\tau$, so
+> non-linearity in the price–gram relationship (e.g., bulk discounting) is
+> captured *across* the points, while proportionality is only assumed *within*
+> each point's neighborhood. Where a cell has a single point (the common case —
+> see empirical caveat above), the mapping is a single proportional segment and
+> no non-linearity is captured.
 > Price differences due to price level, timing, quality, or bargaining violate
 > A2 (see caveats).
 
