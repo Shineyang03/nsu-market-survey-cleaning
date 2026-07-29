@@ -60,11 +60,16 @@ its size / price.
 ### Step A — build the reference from the market survey
 
 Within a case, **pool all weighings** — across market types, vendors, and the
-survey's original heterogeneity labels — into one weight distribution, then
-**relabel by empirical weight terciles**:
+survey's original heterogeneity labels — into one weight distribution. Let $w$ be
+a pooled weighing and let $Q_{1/3}, Q_{2/3}$ be the terciles of that distribution.
+**Relabel each weighing by its weight tercile:**
 
 ```math
-S = \text{bottom third}, \qquad M = \text{middle third}, \qquad L = \text{top third}
+\text{size}(w) = \begin{cases}
+S & \text{if } w \le Q_{1/3} \\[4pt]
+M & \text{if } Q_{1/3} < w \le Q_{2/3} \\[4pt]
+L & \text{if } w > Q_{2/3}
+\end{cases}
 ```
 
 For each size $s$, take its representative weight $w_s$ (the tercile median) and
