@@ -88,7 +88,7 @@ than trust the labels.
 **B2. Match** to the nearest MS price point — this decides the size:
 
 ```math
-s(h) = \operatorname*{arg\,min}_{s \in \{S, M, L\}} \; \bigl\lvert \tilde p_h - p_s \bigr\rvert
+s(h) = \underset{s \in \{S, M, L\}}{\arg\min} \; \bigl\lvert \tilde p_h - p_s \bigr\rvert
 ```
 
 **B3. Convert** price into grams using that size's PHP-per-gram value:
