@@ -110,7 +110,9 @@ total grams.
 > **Why inflation only touches $p_h$ (the doubt, resolved).** Grams are physical —
 > they do not inflate — so the division returns grams only if numerator and
 > denominator are in the *same* peso-frame, letting pesos cancel:
-> $(\text{PHP}_{\text{MS}}/\text{NSU}) \div (\text{PHP}_{\text{MS}}/\text{g}) = \text{g}/\text{NSU}$.
+> ```math
+> \frac{\text{PHP}_{\text{MS}} / \text{NSU}}{\text{PHP}_{\text{MS}} / \text{g}} = \text{g} / \text{NSU}.
+> ```
 > $v_s$ stays in native MS pesos and is **not** separately adjusted; inflating
 > $p_h$ into the MS frame is exactly what aligns the two. Equivalently, deflating
 > $v_s$ into PSPS pesos and dividing the raw $p_h$ gives the identical grams:
