@@ -3,277 +3,160 @@
 **Purpose.** Convert quantities reported in non-standard units (NSUs) in the PSPS
 household panel into grams, using the NSU Market Survey as the measurement source.
 
-**Two desired outcomes:**
+## Two deliverables
 
-### Outcome 1 — Reference set for future data collection
+**Outcome 1 — reference set for future data collection.** A lookup key, one per
+province, with columns
 
-A lookup key with columns
+> municipality | market type | item | NSU | size | grams per unit
 
-> municipality | market type | Item | NSU | Heterogeneity | Grams per unit (CF)
+keeping within-item heterogeneity (a row per size, not one averaged scalar). Use
+case: a respondent reports 1 mango; the enumerator asks the size (small / medium /
+large, e.g. with reference pictures) and logs the answer directly in grams.
 
-with one such key per province — **keeping within item-NSU heterogeneity**
-(separate rows per size or price point, not one averaged scalar).
-
-Use case: a respondent reports consuming 1 mango; the enumerator asks which size
-(small/medium/large, e.g. with reference pictures) — or at what price — and the
-answer is logged directly in grams (e.g., 1 small mango → 500 g of mango).
-
-### Outcome 2 — Conversion factors for PSPS
-
-A crosswalk: for each item-NSU-municipality observed in PSPS, a grams-per-unit
-(CF) value — converting PSPS-reported NSU quantities into grams. PSPS does not need the market
-survey's unique price values — **only the quantiles**: market-survey price levels
-are never the quantity of interest (the deliverable is grams). Prices enter only
-as matching devices that select which measured weight applies: the household's
-own reported price (and, in the size-based approach, its position in the PSPS
-price distribution) is matched against market-survey price points to pick the
-corresponding gram weight.
+**Outcome 2 — conversion factors for PSPS.** For each item-NSU-municipality
+observed in PSPS, a grams-per-unit value, so PSPS NSU quantities can be turned
+into grams retrospectively. This is the pipeline documented below.
 
 ---
 
-## Outcome 2 in detail: three approaches, keyed to `weighing_approach`
+## Notation
 
-Within each item-NSU-municipality, the conversion rule follows the protocol under
-which the market survey measured that pair. Empirically the protocols partition
-the cases — each of the 2,001 item-NSU-municipality cases uses exactly one
-approach (conventional 124, price-based 319, size-based 1,558; no case mixes
-approaches) — so the estimator choice is fully determined by the cell.
+A **case** $c$ is a province × municipality × item × NSU combination.
 
-**Why $w$ is measured at multiple points (the motivation for everything below).**
-When a household records consumption of an item in an NSU, PSPS observes the
-total value paid ($e_h$, PHP) and the quantity ($q_h$, number of NSU units that
-cost that total) — from which the price per unit $p_h = e_h / q_h$ is derived.
-Grams are never recorded, and within a cell the only household-level observable
-that co-varies with the gram content of a unit (a small vs. a large pile) is
-this unit price — so grams must be inferred *through prices*. If PHP per gram
-were constant within a cell, one
-scalar would convert any price to grams and a single $w$ would suffice. In
-reality PHP per gram varies with how many grams one unit contains (e.g., bulk
-discounting: a large pile is cheaper per gram than a small one) — equivalently,
-the estimand $CF$ faced by households is **non-linear in the unit's price**.
-This non-linearity is why the MS measured $w$ at several points of each unit's
-range (price points or size labels), and why approaches 2–3 must first locate the
-household on that range before converting.
+**Market survey (MS) side**, per size $s \in \{S, M, L\}$ within a case:
 
-### Notation
+- $w_s$ — grams per NSU (the weight of a size-$s$ unit)
+- $p_s$ — price, **PHP per NSU**, of a size-$s$ unit (in MS-round pesos)
+- $v_s \equiv p_s / w_s$ — unit value, **PHP per gram**
 
-Fix a cell $c = (x, n, m)$: item $x$, NSU $n$, municipality $m$ (refined by market
-type $M$ where available).
+**PSPS side**, household $h$ in case $c$:
 
-**Price-unit convention.** Two different "prices" appear throughout; they are
-never interchangeable:
+- $e_h$ — total value paid (PHP); $q_h$ — quantity bought (NSU)
+- $p_h \equiv e_h / q_h$ — price, **PHP per NSU** (in PSPS-round pesos)
+- $R$ — inflation factor of the MS round relative to the PSPS round (the MS was
+  fielded ~2 years *after* PSPS), and $\tilde p_h \equiv R\,p_h$ is the PSPS price
+  restated in MS-round pesos
 
-- $p$ (and its variants $p_\tau$, $p_h$, $P^{25}_c$…) is always **PHP per 1 unit
-  of $n$** — the sticker price of one pile/piece/pack.
-- $v$ is always **PHP per gram** — a unit value, only ever *derived* as
-  $v = p / w$.
+Throughout, **$p$ is always PHP per NSU** and **$v$ is always PHP per gram** — they
+are never interchangeable.
 
-**Market survey (MS), within cell $c$:**
+---
 
-$w$ always denotes **weight in grams per 1 unit of $n$** [observed]. Its
-subscript says at which variant of the unit it was measured:
+## Conventional NSU (the simple case)
 
-```math
-w = \begin{cases} w_c & \text{conventional NSU (weighing approach == 1): standard within the locality, so a single weight characterizes the cell} \\[4pt] w_\tau, \;\; \tau \in \{25, 50, 75\} & \text{price-varying NSU (weighing approach == 2): measured at price point } \tau \text{ of the municipality price distribution} \\[4pt] w_s, \;\; s \in \{S, M, L\} & \text{size-labeled NSU (weighing approach == 3): measured per size label} \end{cases}
-```
+Some NSUs are effectively standard within a locality (gantang, salop, salmon …).
+There is no size to resolve: a single weight $w_c$ characterizes the unit, so
 
-Two auxiliary MS objects (price-varying units only):
+$$\widehat{CF}_h = w_c \quad\text{for every household in the case.}$$
 
-| Symbol | Definition |
-|---|---|
-| $p_\tau$ | price, **PHP per 1 $n$**, at price point $\tau$ [observed] |
-| $v_\tau \equiv p_\tau / w_\tau$ | unit value, **PHP per gram**, at price point $\tau$ [derived] |
+Everything below concerns the non-standard case, where a unit's grams vary with
+its size / price.
 
-**PSPS, household $h$ in cell $c$:**
+---
 
-| Symbol | Definition |
-|---|---|
-| $e_h$ | reported total value of consumption, PHP [observed] |
-| $q_h$ | reported quantity, in units of $n$ [observed] |
-| $p_h = e_h / q_h$ | price per unit, **PHP per 1 unit of $n$** [derived] |
-| $P^{25}_c, P^{50}_c, P^{75}_c$ | quantiles of the PSPS distribution of $p_h$ within cell $c$ [derived] |
-| $s(h)$ | size of the unit bought [missing — imputed via A3] |
+## The pipeline (size / price-varying NSUs)
 
-**Target object.** The conversion factor is defined as
+### Step A — build the reference from the market survey
 
-$$CF \equiv \text{grams per 1 unit of } n .$$
-
-$CF$ and $w$ share the same units (grams per 1 unit of $n$) but play different
-roles:
-
-- **Estimand** — $CF_h$: grams per unit in household $h$'s actual transaction.
-  Never observed.
-- **Data** — the $w$'s: weights of the specimens the MS weighed.
-- **Estimator** — $\widehat{CF}_h$: each approach below is a rule mapping the
-  data to an estimate of the estimand (scalar within the cell under approach 1,
-  household-specific under approaches 2 and 3).
-
-The deliverable (implied grams) is then always
-
-$$\hat g_h = q_h \cdot \widehat{CF}_h .$$
-
-### 1. Conventional NSU (`weighing_approach == 1`, e.g. gantang, salop, salmon)
-
-There is no within-unit heterogeneity to model: the unit is essentially standard
-within the locality, so a single gram weight $w_c$ characterizes it (measured
-weighings within the cell are averaged/medianed into $w_c$).
-
-$$\widehat{CF}_h = w_c \quad \text{for all } h \text{ in cell } c \qquad \text{(by A1)}$$
-
-> **A1** — $n^{PSPS} = n^{MS}$: the unit the household reports is the same
-> physical unit the market survey weighed (by definition of "conventional,"
-> standard within the locality).
-
-### 2. Price-based (`weighing_approach == 2`; obs_type `mp25/mp50/mp75_price`, `municipality_median`, `province_median`)
-
-For NSUs whose size scales with price (e.g., a pile/tumpok at different price
-points). The price points $p_\tau$ are quantiles of the **municipality-level**
-price distribution for the item-NSU (the P25/P50/P75 over all vendors in the
-municipality), *not* any single vendor's prices; at each such municipal price
-point the MS records the weight of what that price buys, giving pairs
-$(p_\tau, w_\tau)$.
-
-> **Empirical caveat — the three-point spread is the exception, not the rule.**
-> In the launch data only ~11% of price-based cells carry ≥2 distinct price
-> points and ~4% carry all three; **89% have a single price mark**, overwhelmingly
-> `municipality_median` (or `province_median` as a fallback when the municipality
-> was thin). So for most cells the machinery below collapses to a single
-> proportional segment (one $v_\tau$ at the median), and the piecewise
-> non-linearity it is designed to capture is *unobserved*. The full $p \mapsto w$
-> curve is only identified in the minority of cells with multiple marks. This
-> weakens the case for the price-based approach over simply anchoring PHP-per-gram
-> at the median.
-
-**Step 1.** Match the household to the nearest MS price point:
+Within a case, **pool all weighings** — across market types, vendors, and the
+survey's original heterogeneity labels — into one weight distribution, then
+**relabel by empirical weight terciles**:
 
 ```math
-\tau^\ast = \begin{cases} 25 & \text{if } \lvert p_h - p_{25} \rvert \text{ is smallest} \\ 50 & \text{if } \lvert p_h - p_{50} \rvert \text{ is smallest} \\ 75 & \text{if } \lvert p_h - p_{75} \rvert \text{ is smallest} \end{cases}
+S = \text{bottom third}, \qquad M = \text{middle third}, \qquad L = \text{top third}
 ```
 
-**Step 2.** Take the unit value at that point:
+For each size $s$, take its representative weight $w_s$ (the tercile median) and
+its price $p_s$ (PHP per NSU), giving the unit value $v_s = p_s / w_s$. Because
+bigger units cost more, the three prices order as $p_S \le p_M \le p_L$; these are
+the case's price points (**$S \leftrightarrow$ MP25, $M \leftrightarrow$ MP50,
+$L \leftrightarrow$ MP75**).
 
-$$v_{\tau^\ast} = p_{\tau^\ast} / w_{\tau^\ast}$$
+This re-terciling is deliberate: the survey's own S/M/L labels overlap heavily in
+weight across vendors, so we re-derive the sizes from the pooled weights rather
+than trust the labels.
 
-**Step 3.** Invert price into grams per unit (by A2):
+### Step B — apply to a PSPS household
 
-$$\widehat{CF}_h = \frac{p_h}{v_{\tau^\ast}}$$
-
-> **A2** — local price–quantity equivalence: in a neighborhood of price point
-> $\tau^\ast$, variation in price per NSU reflects variation in grams at a constant
-> PHP-per-gram, i.e. $w(p) = p / v_{\tau^\ast}$. In plain terms: *extrapolate
-> proportionally along the price-per-gram ratio measured at the closest price
-> point.* Where a cell has multiple price points the resulting $p \mapsto w$
-> mapping is piecewise-proportional — each point has its own $v_\tau$, so
-> non-linearity in the price–gram relationship (e.g., bulk discounting) is
-> captured *across* the points, while proportionality is only assumed *within*
-> each point's neighborhood. Where a cell has a single point (the common case —
-> see empirical caveat above), the mapping is a single proportional segment and
-> no non-linearity is captured.
-> Price differences due to price level, timing, quality, or bargaining violate
-> A2 (see caveats).
-
-Consistency check: if $`p_h = p_{\tau^\ast}`$ exactly, then $`\widehat{CF}_h = w_{\tau^\ast}`$
-— the household is assigned exactly the weight measured at that price point.
-
-### 3. Size-based (`weighing_approach == 3`; obs_type `small/medium/large_size`)
-
-The MS weighed one specimen per size label: $w_S, w_M, w_L$. PSPS does not record
-size, so size is imputed from the household's position in the *PSPS* price
-distribution within cell $c$.
-
-**Step 1.** Compute PSPS price quantiles $P^{25}_c, P^{50}_c, P^{75}_c$.
-
-**Step 2.** Assign the household to a size via its nearest quantile (by A3):
+**B1. Inflation-adjust** the household's price into MS-round pesos:
 
 ```math
-s(h) = \begin{cases} S & \text{if } \lvert p_h - P^{25}_c \rvert \text{ is smallest} \\ M & \text{if } \lvert p_h - P^{50}_c \rvert \text{ is smallest} \\ L & \text{if } \lvert p_h - P^{75}_c \rvert \text{ is smallest} \end{cases}
+\tilde p_h = R\,p_h
 ```
 
-**Step 3.** Apply the size's measured weight:
+**B2. Match** to the nearest MS price point — this decides the size:
 
-$$\widehat{CF}_h = w_{s(h)}$$
+```math
+s(h) = \operatorname*{arg\,min}_{s \in \{S, M, L\}} \; \bigl\lvert \tilde p_h - p_s \bigr\rvert
+```
 
-> **A3** — quantile–size equivalence: the household at the 25th percentile of the
-> PSPS price distribution bought the "small" specimen, P50 ↔ M, P75 ↔ L; i.e.
-> $NSU_{P25}^{PSPS} = NSU_{S}^{MS}$ (and correspondingly for M, L).
+**B3. Convert** price into grams using that size's PHP-per-gram value:
+
+```math
+\widehat{CF}_h = \frac{\tilde p_h}{v_{s(h)}}
+\qquad\Longrightarrow\qquad
+\widehat g_h = q_h \cdot \widehat{CF}_h
+```
+
+$\widehat{CF}_h$ is the grams in one NSU unit; $\widehat g_h$ is the household's
+total grams.
+
+> **Why inflation only touches $p_h$ (the doubt, resolved).** Grams are physical —
+> they do not inflate — so the division returns grams only if numerator and
+> denominator are in the *same* peso-frame, letting pesos cancel:
+> $(\text{PHP}_{\text{MS}}/\text{NSU}) \div (\text{PHP}_{\text{MS}}/\text{g}) = \text{g}/\text{NSU}$.
+> $v_s$ stays in native MS pesos and is **not** separately adjusted; inflating
+> $p_h$ into the MS frame is exactly what aligns the two. Equivalently, deflating
+> $v_s$ into PSPS pesos and dividing the raw $p_h$ gives the identical grams:
+> ```math
+> \frac{R\,p_h}{v_s} \;=\; \frac{p_h}{v_s / R}.
+> ```
+> Two rules follow: **use the same $\tilde p_h$ in B2 and B3** (matching on the
+> adjusted price but dividing by the raw price reintroduces the 2-year gap), and
+> the method assumes PHP-per-gram for the item moved only with the general index
+> $R$ (no differential *real* price change) — this is what makes both the match
+> and the division valid.
+
+**Consistency check.** If $\tilde p_h = p_{s(h)}$ exactly, then
+$\widehat{CF}_h = w_{s(h)}$ — the household is assigned exactly the weight the MS
+measured for that size.
 
 ---
 
 ## Assumptions to keep visible
 
-1. **Single price schedule within cell** (A2, A3). We assume that within a
-   municipality × market type × item-NSU pair, all households face the *same*
-   non-linear price schedule; so if two households pay different PHP per gram,
-   it is because they bought at different points (kinks) of that schedule —
-   i.e., units containing different grams — not because they paid different
-   prices for the same grams (bargaining, quality, timing, vendor differences
-   would violate this). Two remarks:
-   - *Within a kink, price variation converts to grams one-for-one.* Matching
-     to the nearest price point only selects the local slope $v_{\tau^\ast}$; the
-     weight itself is $p_h / v_{\tau^\ast}$, so two households matched to the same
-     price point but paying different unit prices are assigned proportionally different
-     grams. Any within-kink price variation that is *not* quantity (bargaining,
-     quality, misreporting) passes through proportionally into $\hat g_h$ —
-     finer matching cannot fix this.
-   - *The pooling level determines the strength of the assumption.* The finer
-     the cell at which schedules are estimated and matched, the weaker the
-     assumption needs to be. Since market type of purchase is missing in PSPS,
-     matching is effectively at municipality × item-NSU pooled across market
-     types (unless an assignment rule is adopted — see open decisions), and the
-     single-schedule assumption must hold at that coarser level.
-2. **Temporal alignment — PSPS prices must be inflation-adjusted before matching**
-   (A2). PSPS prices come from recall periods that need not coincide with the
-   market-survey field dates; under general price inflation the *price-based*
-   method mechanically inflates implied grams (a nominally higher $p_h$ maps to
-   more grams at fixed $v_{\tau^\ast}$). So deflate/inflate $p_h$ to the MS field
-   window (e.g., regional CPI for the item group) as a pre-processing step, before
-   any nearest-price-point matching. The *size-based* method is immune to proportional
-   price-level shifts (quantiles shift together; the S/M/L weights are fixed) — a
-   point in its favor as the workhorse (85% of market-survey obs are size-based).
-3. **Quantile ↔ size mapping** (A3). "P25 = small" is a convention, not a
-   measurement. If most transactions are, say, medium, the mapping misallocates
-   the tails. Worth a robustness check (e.g., alternative mapping P33/P50/P67, or
-   modal-size assumption).
-4. **Conventional NSU standard within locality** (A1). The unit is taken as
-   standard within its locality; it may still vary *across* municipalities —
-   where the market survey weighed the same conventional unit in several
-   municipalities, this is testable.
-## Warning for downstream use of the CFs
+1. **Single price schedule within the case.** All households in a case face the
+   same price-per-gram schedule, so different PHP-per-gram means different sizes
+   bought, not different prices for the same grams. Bargaining, quality, and
+   vendor differences violate this; within a matched size, any price variation
+   that is *not* size passes proportionally into $\widehat g_h$.
+2. **Temporal alignment.** PSPS prices must be inflation-adjusted to the MS field
+   window before matching (Step B1); the item's real price-per-gram is assumed to
+   have moved only with the general index between rounds.
+3. **Weight terciles ↔ sizes.** Defining S / M / L as bottom / middle / top thirds
+   of the pooled weights is a convention; if transactions concentrate in one size,
+   the tercile cut misallocates the tails. Worth a robustness check (alternative
+   cuts, or a modal-size assumption).
+4. **Conventional units standard within locality.** Taken as standard within a
+   locality; they may still vary *across* municipalities, which is testable where
+   the MS weighed the same unit in several municipalities.
 
-**Measurement error in $p_h$ propagates into imputed grams.** $p_h = e_h / q_h$
-is a derived unit value: misreporting in either the total value $e_h$ or the
-quantity $q_h$ propagates into $p_h$, and from there into the gram imputation —
-e.g., a household that rounds its total expenditure looks like it bought a
-different-sized unit. Under the price-based approach the error passes through
-proportionally into $\hat g_h$; under the size-based approach it can flip the
-household across a quantile boundary into the wrong size bin.
+## Warning for downstream use
 
-## Practical prerequisites / open decisions
+**Measurement error in $p_h$ propagates into grams.** $p_h = e_h / q_h$ is a
+derived unit value: misreporting $e_h$ or $q_h$ feeds into $p_h$, which can flip
+the household across a size boundary in B2 and scales $\widehat g_h$
+proportionally in B3.
 
-- **Unit-name harmonization.** The market survey has ~173 raw item × NSU-unit
-  spellings for 19 items (Bilog/Binilog/…; municipality-specific variants). PSPS
-  NSU strings must be mapped into these — likely after consolidating spelling
-  variants. This is the reference-set deliverable (outcome 1).
-- **Incomplete heterogeneity levels degrade gracefully via nearest-neighbor
-  matching.** Not every cell has the full set of heterogeneity levels (all of
-  S/M/L, or all three price points): some have, e.g., only a medium weighing, a
-  single unique municipal price (`unique_mun_price6/7`), or only a
-  `municipality_median` / `province_median` price. No special-casing is needed:
-  the matching step is nearest-neighbor over whatever levels exist, so with a
-  single level every household maps to it (the cell-level scalar case). The cost
-  is assumption strength, not mechanics — with one level, the piecewise schedule
-  collapses to one proportional segment (price-based) or one size bin
-  (size-based) for the whole cell.
-- **Market type as a heterogeneity dimension.** Market type of purchase is not
-  recorded in PSPS. The open question is whether to treat market type as a
-  separate dimension of heterogeneity in the matching: instead of
-  nearest-neighbor over 3 price points (pooled across market types), match over
-  all market type × price point combinations where available — up to 9 candidate
-  points ($P25_{M_1}, P25_{M_2}, P25_{M_3}, P50_{M_1}, \ldots$) — letting the
-  household's price implicitly select the market type along with the point on
-  the schedule.
-- **Multiple vendors per cell.** Within item-NSU-municipality × market type, 98%
-  of cells have 1–3 distinct vendors (32% / 23% / 43% for 1/2/3), with 63 cells
-  (1.7%) at 4–5; only 24% of item-NSU-municipality cases cover all three market
-  types (41% have one). Aggregation rule: vendor-level $w$ is aggregated via
-  **mean after dropping outliers**.
+## Practical prerequisites
+
+- **Unit-name harmonization.** The MS has ~173 raw item × NSU spellings for 19
+  items; PSPS NSU strings must be mapped onto these after consolidating spelling
+  variants (this is Outcome 1).
+- **Incomplete sizes degrade gracefully.** Not every case has all of S / M / L;
+  matching is nearest-neighbor over whatever price points exist, so a case with a
+  single point maps every household to it (a case-level scalar).
+- **Multiple vendors.** Vendor-level weights within a case are aggregated with a
+  robust estimator (median, or a fixed light-trimmed mean); the pooling in Step A
+  already dilutes single-vendor outliers.
