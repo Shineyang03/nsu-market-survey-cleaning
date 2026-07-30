@@ -35,9 +35,11 @@ A **case** $`c`$ is a province × municipality × item × NSU combination.
 - $`q_h`$ — quantity the household reports buying, in NSU units
 - $`e_h`$ — total value it paid for that quantity (PHP)
 - $`p_h \equiv e_h / q_h`$ — implied price, **PHP per NSU** (in PSPS-round pesos)
-- $`\pi`$ — inflation factor of the MS round relative to the PSPS round (the MS
-  was fielded ~2 years *after* PSPS), and $`\tilde p_h \equiv \pi\,p_h`$ is the
-  PSPS price restated in MS-round pesos
+- $`\pi`$ — cumulative inflation *rate* between the PSPS round and the MS round
+  (the MS was fielded ~2 years *after* PSPS), so $`1+\pi`$ is the price factor;
+  dividing an MS-round price by $`1+\pi`$ restates it in PSPS-round pesos. A tilde
+  marks such a deflated MS quantity: $`\tilde p_s \equiv p_s / (1+\pi)`$ and
+  $`\tilde v_s \equiv v_s / (1+\pi)`$
 
 Throughout, **$`p`$ is always PHP per NSU** and **$`v`$ is always PHP per gram** —
 they are never interchangeable.
@@ -87,22 +89,26 @@ than trust the labels.
 
 ### Step B — apply to a PSPS household
 
-**B1. Inflation-adjust** the household's price into MS-round pesos:
+**B1. Deflate the MS price points** into PSPS-round pesos (we adjust the MS side,
+not each household: a case has at most three MS price points but many households,
+so this is fewer operations). The weights $`w_s`$ are unchanged — grams do not
+inflate:
 
 ```math
-\tilde p_h = \pi\,p_h
+\tilde p_s = \frac{p_s}{1+\pi}, \qquad \tilde v_s = \frac{v_s}{1+\pi} = \frac{\tilde p_s}{w_s}
 ```
 
-**B2. Match** to the nearest MS price point — this decides the size:
+**B2. Match** the household's price to the nearest deflated MS price point — this
+decides the size:
 
 ```math
-s(h) = \underset{s \in \{S, M, L\}}{\arg\min} \; \bigl\lvert \tilde p_h - p_s \bigr\rvert
+s(h) = \underset{s \in \{S, M, L\}}{\arg\min} \; \bigl\lvert p_h - \tilde p_s \bigr\rvert
 ```
 
-**B3. Convert** price into grams using that size's PHP-per-gram value:
+**B3. Convert** price into grams using that size's (deflated) PHP-per-gram value:
 
 ```math
-\widehat{CF}_h = \frac{\tilde p_h}{v_{s(h)}}
+\widehat{CF}_h = \frac{p_h}{\tilde v_{s(h)}}
 \qquad\Longrightarrow\qquad
 \widehat g_h = q_h \cdot \widehat{CF}_h
 ```
@@ -110,25 +116,28 @@ s(h) = \underset{s \in \{S, M, L\}}{\arg\min} \; \bigl\lvert \tilde p_h - p_s \b
 $`\widehat{CF}_h`$ is the grams in one NSU unit; $`\widehat g_h`$ is the
 household's total grams.
 
-> **Why inflation only touches $`p_h`$ (the doubt, resolved).** Grams are physical
-> — they do not inflate — so the division returns grams only if numerator and
-> denominator are in the *same* peso-frame, letting pesos cancel:
+> **Why we adjust only once, on the MS side (the doubt, resolved).** Grams are
+> physical — they do not inflate — so the division returns grams only if numerator
+> and denominator are in the *same* peso-frame, letting pesos cancel:
 > ```math
-> \frac{\text{PHP}_{\text{MS}} / \text{NSU}}{\text{PHP}_{\text{MS}} / \text{g}} = \text{g} / \text{NSU}.
+> \frac{\text{PHP}_{\text{PSPS}} / \text{NSU}}{\text{PHP}_{\text{PSPS}} / \text{g}} = \text{g} / \text{NSU}.
 > ```
-> $`v_s`$ stays in native MS pesos and is **not** separately adjusted; inflating
-> $`p_h`$ into the MS frame is exactly what aligns the two. Equivalently, deflating
-> $`v_s`$ into PSPS pesos and dividing the raw $`p_h`$ gives the identical grams:
+> Deflating the MS price points to PSPS pesos in B1 puts everything — the
+> household's raw $`p_h`$, the matched price $`\tilde p_s`$, and the unit value
+> $`\tilde v_s`$ — in one frame, so no further adjustment happens at the division.
+> Inflating each household's $`p_h`$ into MS pesos instead would give the identical
+> grams (grams are frame-invariant); we deflate the MS side only because it has
+> fewer points:
 > ```math
-> \frac{\pi\,p_h}{v_s} \;=\; \frac{p_h}{v_s / \pi}.
+> \frac{p_h}{v_s / (1+\pi)} \;=\; \frac{(1+\pi)\,p_h}{v_s}.
 > ```
-> Two rules follow: **use the same $`\tilde p_h`$ in B2 and B3** (matching on the
-> adjusted price but dividing by the raw price reintroduces the 2-year gap), and
-> the method assumes PHP-per-gram for the item moved only with the general index
-> $`\pi`$ (no differential *real* price change) — this is what makes both the match
-> and the division valid.
+> Two rules follow: **match and divide in the same frame** (deflate the MS points
+> once in B1 and reuse $`\tilde v_s`$ in B3 — dividing by the un-deflated $`v_s`$
+> would reintroduce the 2-year gap), and the method assumes PHP-per-gram for the
+> item moved only with the general index $`1+\pi`$ (no differential *real* price
+> change) — this is what makes both the match and the division valid.
 
-**Consistency check.** If $`\tilde p_h = p_{s(h)}`$ exactly, then
+**Consistency check.** If $`p_h = \tilde p_{s(h)}`$ exactly, then
 $`\widehat{CF}_h = w_{s(h)}`$ — the household is assigned exactly the weight the MS
 measured for that size.
 
@@ -141,9 +150,10 @@ measured for that size.
    bought, not different prices for the same grams. Bargaining, quality, and
    vendor differences violate this; within a matched size, any price variation
    that is *not* size passes proportionally into $`\widehat g_h`$.
-2. **Temporal alignment.** PSPS prices must be inflation-adjusted to the MS field
-   window before matching (Step B1); the item's real price-per-gram is assumed to
-   have moved only with the general index between rounds.
+2. **Temporal alignment.** The two rounds are ~2 years apart, so prices must be
+   put in a common frame before matching (Step B1 deflates the MS price points to
+   PSPS terms); the item's real price-per-gram is assumed to have moved only with
+   the general index between rounds.
 3. **Weight terciles ↔ sizes.** Defining S / M / L as bottom / middle / top thirds
    of the pooled weights is a convention; if transactions concentrate in one size,
    the tercile cut misallocates the tails. Worth a robustness check (alternative
