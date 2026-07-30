@@ -32,8 +32,9 @@ A **case** $`c`$ is a province × municipality × item × NSU combination.
 
 **PSPS side**, household $`h`$ in case $`c`$:
 
-- $`e_h`$ — total value paid (PHP); $`q_h`$ — quantity bought (NSU)
-- $`p_h \equiv e_h / q_h`$ — price, **PHP per NSU** (in PSPS-round pesos)
+- $`q_h`$ — quantity the household reports buying, in NSU units
+- $`e_h`$ — total value it paid for that quantity (PHP)
+- $`p_h \equiv e_h / q_h`$ — implied price, **PHP per NSU** (in PSPS-round pesos)
 - $`R`$ — inflation factor of the MS round relative to the PSPS round (the MS was
   fielded ~2 years *after* PSPS), and $`\tilde p_h \equiv R\,p_h`$ is the PSPS
   price restated in MS-round pesos
