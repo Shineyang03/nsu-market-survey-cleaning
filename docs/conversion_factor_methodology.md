@@ -35,9 +35,9 @@ A **case** $`c`$ is a province × municipality × item × NSU combination.
 - $`q_h`$ — quantity the household reports buying, in NSU units
 - $`e_h`$ — total value it paid for that quantity (PHP)
 - $`p_h \equiv e_h / q_h`$ — implied price, **PHP per NSU** (in PSPS-round pesos)
-- $`R`$ — inflation factor of the MS round relative to the PSPS round (the MS was
-  fielded ~2 years *after* PSPS), and $`\tilde p_h \equiv R\,p_h`$ is the PSPS
-  price restated in MS-round pesos
+- $`\pi`$ — inflation factor of the MS round relative to the PSPS round (the MS
+  was fielded ~2 years *after* PSPS), and $`\tilde p_h \equiv \pi\,p_h`$ is the
+  PSPS price restated in MS-round pesos
 
 Throughout, **$`p`$ is always PHP per NSU** and **$`v`$ is always PHP per gram** —
 they are never interchangeable.
@@ -90,7 +90,7 @@ than trust the labels.
 **B1. Inflation-adjust** the household's price into MS-round pesos:
 
 ```math
-\tilde p_h = R\,p_h
+\tilde p_h = \pi\,p_h
 ```
 
 **B2. Match** to the nearest MS price point — this decides the size:
@@ -120,12 +120,12 @@ household's total grams.
 > $`p_h`$ into the MS frame is exactly what aligns the two. Equivalently, deflating
 > $`v_s`$ into PSPS pesos and dividing the raw $`p_h`$ gives the identical grams:
 > ```math
-> \frac{R\,p_h}{v_s} \;=\; \frac{p_h}{v_s / R}.
+> \frac{\pi\,p_h}{v_s} \;=\; \frac{p_h}{v_s / \pi}.
 > ```
 > Two rules follow: **use the same $`\tilde p_h`$ in B2 and B3** (matching on the
 > adjusted price but dividing by the raw price reintroduces the 2-year gap), and
 > the method assumes PHP-per-gram for the item moved only with the general index
-> $`R`$ (no differential *real* price change) — this is what makes both the match
+> $`\pi`$ (no differential *real* price change) — this is what makes both the match
 > and the division valid.
 
 **Consistency check.** If $`\tilde p_h = p_{s(h)}`$ exactly, then
