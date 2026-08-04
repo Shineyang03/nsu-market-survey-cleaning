@@ -60,6 +60,7 @@ One row per `(province, municipality, item, unit)` present in the **price** data
 |---|---|
 | `province`, `pull_municipal_city`, `cons_name`, `unit_lbl` | The price-only case key (normalized). |
 | `harmonized_nsu_unit` | Single "maps-to" target — the **pooling key** for the conversion factor. Cause 3: the harmonized unit of the in-cell unit it folds to. Cause 2: the label's own harmonized unit. Cause 1 **unmappable**: `.c` (Stata missing). Cause 1 **recoverable** (quantity-prefixed, e.g. `14 tasa`): the base unit (`tasa`); count multiplier in `detail`. |
+| `fallback_harmonized_nsu_unit` | **Cause 2 only** (blank otherwise). If a translation-group sibling that was kept separate from this unit on weight grounds (e.g. `bundle` vs `bugkos`) is nonetheless **present with data in this exact cell**, its harmonized unit is surfaced here as the best locally-available conversion target. Use only as a fallback when `harmonized_nsu_unit`'s own pool is too thin for this cell/item — it does **not** change `harmonized_nsu_unit`, which stays the item-conditioned, cell-independent pooling key. Blank when no such in-cell sibling exists (most cause-2 rows: the item is simply absent from the cell). |
 | `fold_verdict` | Provenance of the fold — see table above. |
 | `in_MS_as` | For harmonizable cases, the **concrete MS unit already present in the same `(prov,mun,item)` cell** that this case matched; empty otherwise. Evidence of the match — NOT the pooling key. |
 | `freq_price` | Number of price-data rows for this case. |

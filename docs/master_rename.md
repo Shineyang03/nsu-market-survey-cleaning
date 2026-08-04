@@ -1,6 +1,6 @@
 # The master NSU rename sheet — construction & use
 
-**File:** `outputs/tables/master_nsu_rename.csv`
+**File:** `outputs/tables/master_nsu_rename.csv` (also published as `.xlsx`, see §9)
 **Built by:** `dofiles/diagnose_price_only.py`
 
 This is the authoritative map from every raw non-standard unit (NSU) recorded in the survey to a
@@ -82,9 +82,10 @@ found in that one cell), and the conversion *weight in grams* is still estimated
 | `n_cell_merged` | count of raw spellings in this cell collapsing to this `harmonized_nsu_unit` (this row + `cell_merge_with`). `>1` means an in-cell merge occurred. |
 | `cause_label` | `Price Only` rows only: why the unit was missing from MS — `harmonizable`, `empty/uncommon`, `nonsensical (recoverable)`, or `nonsensical (unmappable)`. Blank otherwise. |
 | `in_MS_as` | `Price Only` **harmonizable** rows only: the concrete MS unit already present in that exact cell that the case matched — the evidence the case is not a real gap. Cell-specific, so it generally differs from `harmonized_nsu_unit` (e.g. cabbage `binilog` → `in_MS_as = bilog` but `harmonized_nsu_unit = pieces or units`). Blank otherwise. |
+| `fallback_harmonized_nsu_unit` | `Price Only` rows with `cause_label = empty/uncommon` only: if a translation-group sibling kept separate from this unit on weight grounds (§6) is nonetheless present with data in this exact cell, its harmonized unit is surfaced here as a best-available local conversion target — see §7. Does not change `harmonized_nsu_unit`. Blank otherwise. |
 
-`cause_label` and `in_MS_as` are documented in full in `cases_in_price_not_in_MS_diagnosed.csv`
-(see `data_dictionary.md`).
+`cause_label`, `in_MS_as`, and `fallback_harmonized_nsu_unit` are documented in full in
+`cases_in_price_not_in_MS_diagnosed.csv` (see `data_dictionary.md`).
 
 ---
 
@@ -171,6 +172,37 @@ to see every cell where two or more raw spellings/translations collapse to one r
 `nonsensical (unmappable)` = free-text junk routed to `.c`; `nonsensical (recoverable)` = a
 quantity-prefixed string whose base unit was recovered.
 
+**Maximizing price-data coverage with `fallback_harmonized_nsu_unit`.** `harmonized_nsu_unit` is
+deliberately cell-independent (§3), so an `empty/uncommon` case's own harmonized unit may have too few
+(or zero) MS weighings in *this particular* cell, even though the pooling key is correct in principle. If
+a sibling that was split off from the same translation group on weight grounds (§6) happens to be present
+with data in that exact cell, `fallback_harmonized_nsu_unit` names it. Use it as a **last-resort**
+conversion target — only when `harmonized_nsu_unit`'s own pool is too thin to estimate a weight for this
+item — not as a replacement for `harmonized_nsu_unit` in general. Example: camote-tops `bugkos` at
+LEMERY is `Price Only`, `cause_label = empty/uncommon` (no MS `bugkos` observations in that cell), but
+LEMERY has MS `bundle` data; `fallback_harmonized_nsu_unit = bundle` for that row. `bundle` and `bugkos`
+are still recorded as different referents everywhere else — this is only a coverage-of-last-resort
+substitution for a cell that would otherwise contribute no conversion factor at all.
+
+**Fallback across an ungrouped synonym.** The fallback search normally only looks within a unit's own
+translation group (§6). Some raw units are plain-language size synonyms that were simply never added to
+a group in the crosswalk, so they'd never surface as a fallback match at all. `tama-tama nga putos`
+("medium" in Kinaray-a/Hiligaynon, for loaf bread) is one such case: it is ungrouped, so its own
+`harmonized_nsu_unit` is itself, but for **fallback matching only** it is treated as a `medium packs`
+member (`FALLBACK_GROUP_OVERRIDE` in `diagnose_price_only.py`) — in both directions: a price-only
+`tama-tama nga putos` case can fall back onto an in-cell `medium packs`/`medium nga putos`/etc. sibling,
+and a price-only `medium`-family case can fall back onto an in-cell `tama-tama nga putos`. This does not
+change `harmonized_nsu_unit`, `cleaned_nsu_unit`, or the translation-group crosswalk — only the fallback
+search space.
+
+The same mechanism also links two units that are **already grouped, just under different groups**:
+chicken `bilog` (whole bird, ~1,095 g, n=233) and `whole (chicken)` (~1,120 g, n=476) are kept as separate
+harmonized units only because they come from different official translation-group entries — weights agree
+to within 2%. `FALLBACK_GROUP_OVERRIDE` maps both to a synthetic tag (`FALLBACK:chicken_whole_bird`, not a
+real `translation_group` name) so they match each other for fallback purposes without pulling in any other
+group's members. Add further entries for other pairs as they turn up — either an ungrouped synonym (as
+`tama-tama nga putos`) or two already-grouped units whose weights turn out to agree despite the split.
+
 ---
 
 ## 8. Manually reconciling a `pull_nsu_unit`
@@ -203,3 +235,16 @@ row's `harmonized_nsu_unit`, then — because `cell_merge_with` / `n_cell_merged
 aggregates — recompute those two columns for **every** row sharing the same
 `(province, pull_municipal_city, cons_name)` cell, not just the row you changed. Leaving the siblings
 untouched makes the cell internally inconsistent.
+
+---
+
+## 9. Opening the sheet in Excel
+
+`.csv` has no stored cell formatting, so Excel guesses each cell's type on open and will silently
+reinterpret a raw unit that looks like a date or a fraction — e.g. `1/2` becomes the date `2-Jan`. This
+corrupts `pull_nsu_unit` (and, if re-saved, the file on disk) without any error.
+
+Use **`outputs/tables/master_nsu_rename.xlsx`** instead: the raw-unit columns (`pull_nsu_unit`,
+`cleaned_nsu_unit`, `harmonized_nsu_unit`, `fallback_harmonized_nsu_unit`) are pre-formatted as Text, so
+Excel displays and preserves them as literal strings. Prefer it whenever you plan to open the sheet in
+Excel; use the `.csv` for programmatic joins.

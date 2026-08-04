@@ -147,6 +147,36 @@ def match_unit(I,cleaned,h,units):                 # exact canonical match, else
         if close: return max(close,key=lambda x:ts(cleaned,x))
     return None
 
+# FALLBACK-ONLY group membership: 'tama-tama nga putos' (loaf bread) is a plain-language "medium size"
+# descriptor but was never added to the 'medium packs' translation group in the crosswalk, so it is
+# ungrouped (grp()==None) and its harmonized_nsu_unit is itself. This override does NOT change that --
+# canonical()/grp()/harmonized_nsu_unit are untouched -- it only lets fallback_unit() treat it as a
+# 'medium packs' member when searching for an in-cell fallback, in BOTH directions: a price-only
+# 'tama-tama nga putos' case can fall back onto an in-cell 'medium packs' sibling, and a price-only
+# 'medium nga putos'/'medium'/etc. case can fall back onto an in-cell 'tama-tama nga putos'.
+FALLBACK_GROUP_OVERRIDE={('loaf bread','tama-tama nga putos'):'medium packs',
+    # chicken 'bilog' (whole bird, ~1,095g, n=233) and 'whole (chicken)' (~1,120g, n=476) are kept as
+    # separate harmonized units only because they come from different official translation-group
+    # entries -- weights agree to within 2%. Fallback-only, both directions; a synthetic group tag
+    # (not a real translation_group name) so this pairing can't accidentally pick up other members.
+    ('chicken','bilog'):'FALLBACK:chicken_whole_bird',
+    ('chicken','whole (chicken)'):'FALLBACK:chicken_whole_bird'}
+def eff_grp(item,u): return FALLBACK_GROUP_OVERRIDE.get((item,nz(u)), grp(u))
+
+def fallback_unit(P,C,I,U):
+    """For an 'empty/uncommon' case only: if a translation-group sibling that was kept separate on
+    weight grounds is nonetheless PRESENT with data in this exact cell, surface its harmonized unit as
+    the best locally-available conversion target -- rather than leaving the case to fall back on the
+    (possibly thin) global pool for its own harmonized_nsu_unit. harmonized_nsu_unit itself is untouched
+    (stays item-conditioned, cell-independent); this is a separate, cell-specific fallback."""
+    cleaned,_=to_cleaned(I,U)
+    g=eff_grp(I,cleaned)
+    if g is None: return ''
+    own_h=canonical(I,cleaned)
+    cell=cell_cleaned.get((P,C,I),set())
+    cands=sorted({canonical(I,x) for x in cell if eff_grp(I,x)==g} - {own_h})
+    return cands[0] if cands else ''
+
 def classify(P,C,I,U):
     u=nz(U)
     if (I,u) in FORCE_JUNK: return 1,'nonsensical','','manual override: ambiguous / mixed-content -> .c',''
@@ -192,6 +222,8 @@ po['P']=po.province.map(ng); po['C']=po.pull_municipal_city.map(ng); po['I']=po.
 r=[classify(p,c,i,u) for p,c,i,u in zip(po.P,po.C,po.I,po.U)]
 po['cause']=[x[0] for x in r]; po['cause_label']=[x[1] for x in r]; po['link_target']=[x[2] for x in r]; po['detail']=[x[3] for x in r]; po['_h']=[x[4] for x in r]
 po['harmonizable']=(po.cause==3); po['fold_verdict']=[fold_verdict(i,u) for i,u in zip(po.I,po.U)]
+po['fallback_harmonized_nsu_unit']=[fallback_unit(p,c,i,u) if cz==2 else ''
+                                     for p,c,i,u,cz in zip(po.P,po.C,po.I,po.U,po.cause)]
 new_can=[]; new_lab=[]; new_det=[]
 for i,u,cz,h,lab,det in zip(po.I,po.U,po.cause,po._h,po.cause_label,po.detail):
     if cz!=1: new_can.append(h); new_lab.append(lab); new_det.append(det); continue
@@ -205,8 +237,9 @@ print('=== v5 cause distribution ==='); print(po.cause_label.value_counts().to_s
 
 out=BOX+r'\Data Cleaning\outputs\temp\cases_in_price_not_in_MS_diagnosed.csv'
 po=po.rename(columns={'canonical_unit':'harmonized_nsu_unit','link_target':'in_MS_as'})
-cols=['province','pull_municipal_city','cons_name','unit_lbl','harmonized_nsu_unit','fold_verdict','in_MS_as',
-      'freq_price','mn_item_unit_pairs','pn_item_unit_pairs','cause','cause_label','harmonizable','detail']
+cols=['province','pull_municipal_city','cons_name','unit_lbl','harmonized_nsu_unit','fallback_harmonized_nsu_unit',
+      'fold_verdict','in_MS_as','freq_price','mn_item_unit_pairs','pn_item_unit_pairs','cause','cause_label',
+      'harmonizable','detail']
 po[cols].sort_values(['cause','province','cons_name','pull_municipal_city']).to_csv(out,index=False,encoding='utf-8-sig')
 print('wrote',out)
 
@@ -220,7 +253,8 @@ pr_cell_raw=defaultdict(set)
 _cN=cases.copy(); _cN['P']=_cN.province.map(ng); _cN['C']=_cN.pull_municipal_city.map(ng); _cN['I']=_cN.cons_name.map(ni); _cN['U']=_cN.unit_lbl.map(nz)
 for P,C,I,U in zip(_cN.P,_cN.C,_cN.I,_cN.U): pr_cell_raw[(P,C,I)].add(U)
 SRC_MAP={(p,c,i,u):s for p,c,i,u,s in zip(_cN.P,_cN.C,_cN.I,_cN.U,_cN.source)}   # authoritative Stata source
-diag={(p,c,i,u):(lab,inms) for p,c,i,u,lab,inms in zip(po.P,po.C,po.I,po.U,po.cause_label,po.in_MS_as)}
+diag={(p,c,i,u):(lab,inms,fb) for p,c,i,u,lab,inms,fb in
+      zip(po.P,po.C,po.I,po.U,po.cause_label,po.in_MS_as,po.fallback_harmonized_nsu_unit)}
 
 mrows=[]
 for cell in sorted(set(ms_cell_raw)|set(pr_cell_raw)):
@@ -231,15 +265,29 @@ for cell in sorted(set(ms_cell_raw)|set(pr_cell_raw)):
         h=hmap[u]; cl=to_cleaned(I,u)[0]
         sibs=sorted(x for x in raws if hmap[x]==h and x!=u)      # other spellings in THIS cell that pool with u
         src=SRC_MAP.get((P,C,I,u),'MS')                          # authoritative source; 'MS' = raw only in ${data}, not price
-        lab,inms=diag.get((P,C,I,u),('',''))
-        mrows.append([P,C,I,u,cl,h,src,'; '.join(sibs),len(sibs)+1,lab,inms])
+        lab,inms,fb=diag.get((P,C,I,u),('','',''))
+        mrows.append([P,C,I,u,cl,h,src,'; '.join(sibs),len(sibs)+1,lab,inms,fb])
 # No past_rename column: cleaned_nsu_unit already IS the rename-crosswalk output (with the item-specific
 # putos separations of docs/master_rename.md sec.6 applied), so a raw copy of the old hand-rename would
 # duplicate it. cleaned_nsu_unit is reference-only; harmonized_nsu_unit is the operational pooling key.
 master=pd.DataFrame(mrows,columns=['province','pull_municipal_city','cons_name','pull_nsu_unit','cleaned_nsu_unit',
-    'harmonized_nsu_unit','source','cell_merge_with','n_cell_merged','cause_label','in_MS_as'])
+    'harmonized_nsu_unit','source','cell_merge_with','n_cell_merged','cause_label','in_MS_as',
+    'fallback_harmonized_nsu_unit'])
 out3=BOX+r'\Data Cleaning\outputs\tables\master_nsu_rename.csv'
 master.sort_values(['cons_name','province','pull_municipal_city','harmonized_nsu_unit','pull_nsu_unit']).to_csv(out3,index=False,encoding='utf-8-sig')
 print('wrote',out3, master.shape)
 print('rows in an in-cell merge (n_cell_merged>1):',(master.n_cell_merged>1).sum(),'/',len(master))
 print(master.source.value_counts().to_string())
+
+# ---- Excel-safe copy: format the raw-unit columns as Text so Excel won't coerce strings like '1/2'
+# into a date on open (the plain .csv has no stored cell format, so Excel guesses the type at open time).
+import openpyxl
+xout=BOX+r'\Data Cleaning\outputs\tables\master_nsu_rename.xlsx'
+with pd.ExcelWriter(xout, engine='openpyxl') as xw:
+    master.sort_values(['cons_name','province','pull_municipal_city','harmonized_nsu_unit','pull_nsu_unit']).to_excel(xw, index=False, sheet_name='master_nsu_rename')
+    ws=xw.sheets['master_nsu_rename']
+    for colname in ['pull_nsu_unit','cleaned_nsu_unit','harmonized_nsu_unit','fallback_harmonized_nsu_unit']:
+        ci=list(master.columns).index(colname)+1
+        for row in ws.iter_rows(min_row=2, min_col=ci, max_col=ci):
+            for cell in row: cell.number_format='@'
+print('wrote',xout)
