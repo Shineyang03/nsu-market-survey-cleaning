@@ -122,8 +122,8 @@ variants are different referents:
 
 | item | units kept separate | reason |
 |---|---|---|
-| chicken | `bilog` (whole bird) vs `piraso`/pieces | whole bird ≈ 1,045 g vs a portion ≈ 500 g (confirmed, size-stratified) |
-| preserved/processed meat | `bilog` vs pieces | piece-vs-whole; weight test inconclusive, kept separate conservatively |
+| chicken | `bilog` (whole bird) vs `binilog`/`piraso`/`pieces or units` (portion) | whole bird ≈ 1,045 g vs a portion ≈ 500 g (confirmed, size-stratified). Only `bilog` is pulled out; the other pieces-variants stay folded together. |
+| preserved/processed meat | `bilog` vs `binilog`/`piraso`/`pieces or units` (portion) | piece-vs-whole; weight test inconclusive, `bilog` kept separate conservatively while the other pieces-variants fold together |
 | ice cream | `putos` (~65 g) vs `pack` | sachet vs pack (confirmed) |
 | crackers/cookies | `putos` (~78 g) vs `pack` (~135 g) | sachet vs pack (confirmed) |
 | camote | `bilog` vs `binilog` (whole pieces group unfolded) | test flagged a difference but on thin data → low confidence → not folded |
