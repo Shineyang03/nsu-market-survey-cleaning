@@ -132,6 +132,15 @@ variants are different referents:
 `pack` and `packs` (singular/plural of one word) are merged to `pack`. These decisions are recorded in
 `unit_fold_map.csv` via the `fold_verdict` column.
 
+**Chicken resolves to three distinct units, none folded into another:**
+
+- `bilog` (~1,095 g) — a whole bird, kept as its own harmonized unit.
+- `pieces or units` (~270–540 g) — a portion; the pieces-variants `binilog`, `piraso`, `pieces or units` fold here.
+- `whole (chicken)` (~1,120 g) — the explicit whole-chicken translation group (`bilog nga manok`, `buong (manok)`, `tibuok na manok`, `whole`).
+
+`bilog` and `whole (chicken)` are both whole-bird-scale but are recorded as separate units and kept
+separate; `bilog` is not merged into either the pieces group or `whole (chicken)`.
+
 **Fold policy — when the weight evidence is weak, do not fold.** Translation-group folding
 (`bilog`/`binilog`/`piraso` → `pieces or units`, etc.) is validated against the size-stratified weight
 test in `validate_folds.py` (comparing labels within province × size × measurement-unit). A group is kept

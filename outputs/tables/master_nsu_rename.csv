@@ -1,6 +1,6 @@
 ﻿province,pull_municipal_city,cons_name,pull_nsu_unit,cleaned_nsu_unit,harmonized_nsu_unit,source,cell_merge_with,n_cell_merged,cause_label,in_MS_as
 ANTIQUE,PANDAN,beef,patupa,patupa,patupa,Price Only,,1,empty/uncommon,
-ILOILO,BAROTAC VIEJO,beef,2-Jan,half,half,MS & Price,,1,,
+ILOILO,BAROTAC VIEJO,beef,1/2,half,half,MS & Price,,1,,
 ILOILO,IGBARAS,beef,intestine,intestine,intestine,MS & Price,,1,,
 ILOILO,MINA,beef,bilog,bilog,pieces or units,MS & Price,,1,,
 ILOILO,OTON,beef,bilog,bilog,pieces or units,MS & Price,,1,,
@@ -775,7 +775,7 @@ ILOILO,BANATE,chicken,whole (chicken),whole (chicken),whole (chicken),Price Only
 ILOILO,BAROTAC NUEVO,chicken,bilog,bilog,bilog,MS & Price,,1,,
 ILOILO,BAROTAC NUEVO,chicken,whole (chicken),whole (chicken),whole (chicken),MS & Price,,1,,
 ILOILO,BAROTAC VIEJO,chicken,bilog,bilog,bilog,MS & Price,,1,,
-ILOILO,BAROTAC VIEJO,chicken,2-Jan,half,half,Price Only,,1,nonsensical (unmappable),
+ILOILO,BAROTAC VIEJO,chicken,1/2,half,half,Price Only,,1,nonsensical (unmappable),
 ILOILO,BAROTAC VIEJO,chicken,pieces or units,pieces or units,pieces or units,Price Only,,1,empty/uncommon,
 ILOILO,BAROTAC VIEJO,chicken,whole (chicken),whole (chicken),whole (chicken),Price Only,,1,empty/uncommon,
 ILOILO,BATAD,chicken,bilog,bilog,bilog,Price Only,,1,empty/uncommon,
