@@ -1,0 +1,950 @@
+﻿province,pull_municipal_city,cons_name,unit_lbl,harmonized_nsu_unit,fold_verdict,in_MS_as,freq_price,mn_item_unit_pairs,pn_item_unit_pairs,cause,cause_label,harmonizable,detail
+AKLAN,ALTAVAS,fresh fish,he buy cooked food for his meals,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['binilog']
+AKLAN,MALINAO,loaf bread,100pcs of pandesal,pieces,identity(ungrouped),,1,1.0,1.0,1,nonsensical (recoverable),False,"recoverable: 100 x pieces (verify); no MS referent for item (heuristic); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,SIBALOM,carrot,tumpok / plastic,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone ( dirty ice cream ) 10 pesos per cone,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'cone', 'putos', 'small cup']"
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",apa,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'putos', 'small cup']"
+ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",bul,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['gin', 'lipid / lapad', 'long-neck']"
+ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",jr,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['gin', 'lipid / lapad', 'long-neck']"
+ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",ball (tuba),.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['lipid / lapad', 'long-neck']"
+ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",glass,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['lipid / lapad', 'long-neck']"
+ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",14 tasa,tasa,identity(ungrouped),,1,1.0,1.0,1,nonsensical (recoverable),False,"recoverable: 14 x tasa (verify); no MS referent for item (heuristic); cell has ['lipid / lapad', 'long-neck']"
+ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",7 ball,ball,identity(ungrouped),,1,1.0,1.0,1,nonsensical (recoverable),False,"recoverable: 7 x ball (verify); no MS referent for item (heuristic); cell has ['lipid / lapad', 'long-neck']"
+ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",boll,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['lipid / lapad', 'long-neck']"
+ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",coconut wine,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['lipid / lapad', 'long-neck']"
+ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",takal ng tuba,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['lipid / lapad', 'long-neck']"
+ANTIQUE,HAMTIC,"mineral or spring water, all drinking water sold in containers",tab,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bottle (500 ml)']
+CAPIZ,PANAY,cabbage,tumpok,.c,safe-fold,,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'putos (mix vegetable)']"
+CAPIZ,PILAR,cabbage,mix vegetables (per tumbok),.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+CAPIZ,MA-AYON,camote,small size plastic,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+CAPIZ,JAMINDAN,camote tops,cassava leaves,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bugkos', 'bundle']"
+CAPIZ,PANAY,camote tops,"cassava & malunggay leaves, paco or fern, squash leaves",.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bugkos']
+CAPIZ,PANAY,carrot,tumpok,.c,safe-fold,,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+CAPIZ,PILAR,carrot,mix vegetables (per tumpok),.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+CAPIZ,SIGMA,carrot,mix slice of carrot,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+CAPIZ,MA-AYON,chicken,1order,order,identity(ungrouped),,1,1.0,1.0,1,nonsensical (recoverable),False,"recoverable: 1 x order (verify); no MS referent for item (heuristic); cell has ['pack', 'whole (chicken)']"
+CAPIZ,MA-AYON,chicken,tingi tingi,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['pack', 'whole (chicken)']"
+CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",large packs,.c,safe-fold,,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'putos']"
+CAPIZ,PILAR,fresh fish,puts or plastic,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'pinutos / plastic']"
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ice cream stick,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",per bowl serving of halo halo,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'small cup', 'tub']"
+CAPIZ,JAMINDAN,loaf bread,pieces,.c,identity(ungrouped),,2,1.0,3.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['individual', 'large packs', 'medium packs', 'small packs']"
+CAPIZ,MAMBUSAO,loaf bread,pieces,.c,identity(ungrouped),,1,2.0,3.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['large packs', 'small packs']"
+CAPIZ,PANAY,loaf bread,per piece,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['medium packs', 'small packs']"
+CAPIZ,PANAY,loaf bread,piece,.c,identity(ungrouped),,1,1.0,2.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['medium packs', 'small packs']"
+CAPIZ,PILAR,loaf bread,piece,.c,identity(ungrouped),,1,1.0,2.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['large packs']
+CAPIZ,IVISAN,"prawns, lobster, shrimp",1 pc. prawn,pieces,identity(ungrouped),,1,1.0,1.0,1,nonsensical (recoverable),False,recoverable: 1 x pieces (verify); no MS referent for item (heuristic); cell has ['tumpok']
+CAPIZ,PANAY,"prawns, lobster, shrimp",caltex,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['cup', 'tumpok']"
+CAPIZ,PONTEVEDRA,"prawns, lobster, shrimp",1 k caltex(kabo),.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['tumpok']
+ILOILO,BAROTAC VIEJO,cabbage,1 chop,chop,identity(ungrouped),,1,1.0,1.0,1,nonsensical (recoverable),False,"recoverable: 1 x chop (verify); no MS referent for item (heuristic); cell has ['bilog', 'pack']"
+ILOILO,LEMERY,cabbage,buskos,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+ILOILO,DUEAS,camote,bundle,.c,keep-separate,,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+ILOILO,MINA,camote,putos,.c,keep-separate,,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+ILOILO,MAASIN,camote tops,bilog,.c,safe-fold,,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bugkos', 'bundle']"
+ILOILO,BAROTAC VIEJO,carrot,pack of slices,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; manual override: ambiguous / mixed-content -> .c
+ILOILO,DINGLE,carrot,slice,.c,identity(ungrouped),,1,1.0,2.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+ILOILO,IGBARAS,carrot,putos or pack,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; manual override: ambiguous / mixed-content -> .c
+ILOILO,SAN DIONISIO,carrot,sliced,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+ILOILO,SAN ENRIQUE,carrot,pack of ice wrapper,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (generic); cell has ['bilog']
+ILOILO,TIGBAUAN,carrot,slice,.c,identity(ungrouped),,1,1.0,2.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'pack', 'pieces or units']"
+ILOILO,ALIMODIAN,chicken,patupong,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'binilog']"
+ILOILO,BAROTAC VIEJO,chicken,1/2,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (generic); cell has ['bilog']
+ILOILO,DUEAS,chicken,patopung,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['whole (chicken)']
+ILOILO,AJUY,"crackers, cookies, buiscuits, chips/curls",can,.c,safe-fold,,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'putos']"
+ILOILO,ALIMODIAN,"crackers, cookies, buiscuits, chips/curls",tupper ware,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'putos']"
+ILOILO,BADIANGAN,"crackers, cookies, buiscuits, chips/curls",tupperware,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'pieces or units', 'putos']"
+ILOILO,CABATUAN,"crackers, cookies, buiscuits, chips/curls",can o lata,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'pack', 'putos']"
+ILOILO,OTON,"crackers, cookies, buiscuits, chips/curls",small box,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'putos']"
+ILOILO,JANIUAY,fresh fish,patupa,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bilog']
+ILOILO,LEMERY,fresh fish,pack/ putos,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; manual override: ambiguous / mixed-content -> .c
+ILOILO,IGBARAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2 bowls halohalo and 10 popcicle  sticks,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'putos', 'small cup']"
+ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3 serving of halo-halo in a bowl,serving,identity(ungrouped),,1,1.0,1.0,1,nonsensical (recoverable),False,"recoverable: 3 x serving (verify); no MS referent for item (heuristic); cell has ['bilog', 'putos', 'small cup']"
+ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pitcher,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['bilog', 'putos', 'small cup']"
+ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",4 later galon,galon,identity(ungrouped),,1,1.0,1.0,1,nonsensical (recoverable),False,"recoverable: 4 x galon (verify); no MS referent for item (heuristic); cell has ['lipid / lapad', 'long-neck']"
+ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",cup,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['junior lapad', 'lipid / lapad', 'long-neck']"
+ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",glass/shots,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['junior lapad', 'lipid / lapad', 'long-neck']"
+ILOILO,BADIANGAN,loaf bread,plastic bag,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['large packs', 'medium packs']"
+ILOILO,MAASIN,loaf bread,pieces,.c,identity(ungrouped),,1,2.0,2.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['large packs', 'medium packs']"
+ILOILO,CABATUAN,pork,pcs,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['pieces or units']
+ILOILO,POTOTAN,pork,1 bowl cooked,bowl,identity(ungrouped),,1,1.0,1.0,1,nonsensical (recoverable),False,recoverable: 1 x bowl (verify); no MS referent for item (heuristic); cell has ['pieces or units']
+ILOILO,ESTANCIA,"prawns, lobster, shrimp",putos,.c,keep-separate,,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['tumpok']
+ILOILO,OTON,rice,rice cooker cup (small),.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['salmon']
+ILOILO,OTON,rice,"rice cooker cup, small",.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['salmon']
+ILOILO,OTON,rice,small rice cooker cup,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['salmon']
+NEGROS OCCIDENTAL,CAUAYAN,camote tops,tumpok,.c,safe-fold,,1,1.0,1.0,1,nonsensical (unmappable),False,unmappable free-text; no MS referent for item (heuristic); cell has ['bugkos']
+NEGROS OCCIDENTAL,ISABELA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cup,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['putos', 'small cup']"
+NEGROS OCCIDENTAL,CALATRAVA,"liquor (e.g, whisky, coconut wine)",cup,.c,identity(ungrouped),,1,1.0,1.0,1,nonsensical (unmappable),False,"unmappable free-text; no MS referent for item (heuristic); cell has ['lipid / lapad', 'long-neck']"
+AKLAN,ALTAVAS,camote,binilog,,kept-separate(low-confidence weight test),,1,1.0,5.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,BATAN,camote tops,bundle,bundle,keep-separate,,1,114.0,1041.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+AKLAN,IBAJAY,camote tops,bundle,bundle,keep-separate,,1,204.0,1041.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+AKLAN,MADALAG,camote tops,bundle,bundle,keep-separate,,1,86.0,1041.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+AKLAN,MALAY,camote tops,bundle,bundle,keep-separate,,1,60.0,1041.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+AKLAN,NABAS,camote tops,bundle,bundle,keep-separate,,1,24.0,1041.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+AKLAN,ALTAVAS,chicken,bilog,bilog,reassigned-separate(item-specific),,1,3.0,7.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'whole (chicken)']"
+AKLAN,LIBACAO,chicken,bilog,bilog,reassigned-separate(item-specific),,1,1.0,7.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'whole (chicken)']"
+AKLAN,MALAY,chicken,bilog,bilog,reassigned-separate(item-specific),,3,3.0,7.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+AKLAN,BATAN,"crackers, cookies, buiscuits, chips/curls",packs,pack,keep-separate,,1,1.0,2.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
+AKLAN,BURUANGA,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,safe-fold,,1,1.0,2.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['pack', 'putos']"
+AKLAN,BURUANGA,"crackers, cookies, buiscuits, chips/curls",binilog,pieces or units,safe-fold,,1,6.0,158.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['pack', 'putos']"
+AKLAN,BURUANGA,"crackers, cookies, buiscuits, chips/curls",pieces or units,pieces or units,safe-fold,,1,2.0,3.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['pack', 'putos']"
+AKLAN,MALINAO,"crackers, cookies, buiscuits, chips/curls",packs,pack,keep-separate,,1,1.0,2.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+AKLAN,ALTAVAS,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,1,9.0,15.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+AKLAN,MALAY,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,1,3.0,15.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+AKLAN,MALINAO,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,1,3.0,15.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+AKLAN,ALTAVAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,,3,62.0,269.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+AKLAN,ALTAVAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),,1,4.0,12.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+AKLAN,ALTAVAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,fold(untested/minor-flag),,3,22.0,83.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+AKLAN,ALTAVAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",piraso,pieces or units,safe-fold,,2,1.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+AKLAN,BANGA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,fold(untested/minor-flag),,3,5.0,83.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
+AKLAN,BURUANGA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,,1,4.0,269.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['pack', 'small cup']"
+AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,,1,27.0,269.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,fold(untested/minor-flag),,1,4.0,83.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
+AKLAN,NABAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,fold(untested/minor-flag),,1,3.0,83.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
+AKLAN,BURUANGA,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+AKLAN,LIBACAO,loaf bread,kasarangan nga putos,,safe-fold,,3,10.0,161.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,LIBACAO,loaf bread,mabahoe nga putos,,safe-fold,,3,11.0,161.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,LIBACAO,loaf bread,maisot nga putos,,fold(untested/minor-flag),,1,15.0,134.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,LIBACAO,loaf bread,medium,,safe-fold,,1,1.0,8.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,LIBACAO,loaf bread,small,,fold(untested/minor-flag),,1,1.0,6.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,ALTAVAS,mango,binilog,,safe-fold,,3,3.0,19.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,BURUANGA,"prawns, lobster, shrimp",tumpok,,safe-fold,,1,1.0,46.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,LIBACAO,"prawns, lobster, shrimp",tumpok,,safe-fold,,1,3.0,46.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,MADALAG,"prawns, lobster, shrimp",tumpok,,safe-fold,,1,1.0,46.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,MALINAO,"prawns, lobster, shrimp",tumpok,,safe-fold,,1,2.0,46.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,TANGALAN,"prawns, lobster, shrimp",tumpok,,safe-fold,,2,1.0,46.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+AKLAN,ALTAVAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,3.0,8.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
+AKLAN,ALTAVAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",lata,cans,safe-fold,,2,1.0,2.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
+AKLAN,BANGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,9.0,138.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+AKLAN,BATAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,3.0,8.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'lata', 'putos']"
+AKLAN,IBAJAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,keep-separate,,1,2.0,2.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
+AKLAN,LIBACAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,2,1.0,8.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
+AKLAN,MALAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,8.0,138.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+AKLAN,MALINAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,11.0,138.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+AKLAN,ALTAVAS,rice,ganta,,safe-fold,,2,1.0,4.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+AKLAN,ALTAVAS,rice,letse,,safe-fold,,2,1.0,2.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+AKLAN,BATAN,rice,ganta,,safe-fold,,2,1.0,4.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+AKLAN,BURUANGA,rice,letse,,safe-fold,,2,1.0,2.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+AKLAN,LIBACAO,rice,salmon,,safe-fold,,1,2.0,2.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+AKLAN,MALAY,rice,ganta,,safe-fold,,2,1.0,4.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+AKLAN,MALINAO,rice,ganta,,safe-fold,,2,1.0,4.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+ANTIQUE,PANDAN,beef,patupa,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=heuristic
+ANTIQUE,TIBIAO,beer,1 case,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+ANTIQUE,LIBERTAD,cabbage,pack,pack,keep-separate,,1,1.0,2.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ANTIQUE,LIBERTAD,cabbage,per pack,pack,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (rename+reduce); cell has ['bilog']
+ANTIQUE,HAMTIC,camote,tupok,tumpok,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (rename-fuzzy); cell has ['bilog']
+ANTIQUE,BUGASONG,camote tops,bundle,bundle,keep-separate,,1,59.0,545.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ANTIQUE,CULASI,camote tops,bundle,bundle,keep-separate,,1,24.0,545.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ANTIQUE,HAMTIC,camote tops,bundle,bundle,keep-separate,,1,22.0,545.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ANTIQUE,LIBERTAD,camote tops,bundle,bundle,keep-separate,,1,26.0,545.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ANTIQUE,PANDAN,camote tops,bundle,bundle,keep-separate,,1,14.0,545.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ANTIQUE,PATNONGON,camote tops,bundle,bundle,keep-separate,,1,45.0,545.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ANTIQUE,SAN REMIGIO,camote tops,bundle,bundle,keep-separate,,1,24.0,545.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ANTIQUE,SEBASTE,camote tops,bundle,bundle,keep-separate,,1,49.0,545.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ANTIQUE,SIBALOM,camote tops,bundle,bundle,keep-separate,,1,57.0,545.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ANTIQUE,TIBIAO,camote tops,bundle,bundle,keep-separate,,1,13.0,545.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ANTIQUE,LIBERTAD,carrot,pack,pack,keep-separate,,2,1.0,2.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ANTIQUE,PANDAN,carrot,pack,pack,keep-separate,,1,1.0,2.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ANTIQUE,BARBAZA,chicken,bilog,bilog,reassigned-separate(item-specific),,3,2.0,77.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ANTIQUE,BUGASONG,chicken,bilog,bilog,reassigned-separate(item-specific),,3,2.0,77.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'whole (chicken)']"
+ANTIQUE,CULASI,chicken,bilog,bilog,reassigned-separate(item-specific),,3,6.0,77.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ANTIQUE,HAMTIC,chicken,bilog,bilog,reassigned-separate(item-specific),,3,10.0,77.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ANTIQUE,HAMTIC,chicken,binilog,pieces or units,safe-fold,,3,4.0,70.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ANTIQUE,LAUA-AN,chicken,bilog,bilog,reassigned-separate(item-specific),,3,8.0,77.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ANTIQUE,LAUA-AN,chicken,pieces or units,pieces or units,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ANTIQUE,LIBERTAD,chicken,bilog,bilog,reassigned-separate(item-specific),,3,3.0,77.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['piraso', 'whole (chicken)']"
+ANTIQUE,PANDAN,chicken,bilog,bilog,reassigned-separate(item-specific),,3,5.0,77.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ANTIQUE,PATNONGON,chicken,bilog,bilog,reassigned-separate(item-specific),,3,15.0,77.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'whole (chicken)']"
+ANTIQUE,SAN REMIGIO,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),,3,18.0,116.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'binilog']"
+ANTIQUE,SAN REMIGIO,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,4.0,84.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'binilog']"
+ANTIQUE,SEBASTE,chicken,bilog,bilog,reassigned-separate(item-specific),,3,2.0,77.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ANTIQUE,SEBASTE,chicken,binilog,pieces or units,safe-fold,,3,5.0,70.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ANTIQUE,SIBALOM,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),,3,14.0,116.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'binilog']"
+ANTIQUE,SIBALOM,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,16.0,84.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'binilog']"
+ANTIQUE,TIBIAO,chicken,bilog,bilog,reassigned-separate(item-specific),,1,2.0,77.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'whole (chicken)']"
+ANTIQUE,TOBIAS FORNIER,chicken,bilog,bilog,reassigned-separate(item-specific),,3,10.0,77.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'whole (chicken)']"
+ANTIQUE,VALDERRAMA,chicken,bilog,bilog,reassigned-separate(item-specific),,3,2.0,77.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'whole (chicken)']"
+ANTIQUE,HAMTIC,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,safe-fold,,3,5.0,167.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['balde', 'pack']"
+ANTIQUE,HAMTIC,"crackers, cookies, buiscuits, chips/curls",putos,putos,keep-separate,,3,14.0,231.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['balde', 'pack']"
+ANTIQUE,LAUA-AN,"crackers, cookies, buiscuits, chips/curls",putos,putos,keep-separate,,3,33.0,231.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ANTIQUE,LIBERTAD,"crackers, cookies, buiscuits, chips/curls",putos,putos,keep-separate,,3,24.0,231.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ANTIQUE,TOBIAS FORNIER,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,safe-fold,,3,9.0,167.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ANTIQUE,BARBAZA,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,1,3.0,57.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,3,2.0,69.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,,1,5.0,113.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,16.0,69.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,,1,13.0,113.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,3,6.0,69.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,,1,19.0,113.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ANTIQUE,BUGASONG,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),,1,10.0,134.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,6.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ANTIQUE,CULASI,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,2,1.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,5.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,LAUA-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,4.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,7.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,PANDAN,loaf bread,dalagku nga putos,large packs,safe-fold,,1,1.0,12.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
+ANTIQUE,PANDAN,loaf bread,daragkul nga putos,large packs,safe-fold,,1,3.0,83.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
+ANTIQUE,PANDAN,loaf bread,malaking packs,large packs,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (heuristic); cell has ['small packs']
+ANTIQUE,PANDAN,loaf bread,medium nga putos,medium packs,safe-fold,,1,1.0,75.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
+ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,6.0,56.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
+ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,4.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,5.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,5.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,SIBALOM,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,3.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,TIBIAO,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,2,1.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,TOBIAS FORNIER,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,3.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,TIBIAO,"mineral or spring water, all drinking water sold in containers",7 liters of gallons,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
+ANTIQUE,PANDAN,pork,pieces barbeque,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=heuristic
+ANTIQUE,BUGASONG,"prawns, lobster, shrimp",tumpok,,safe-fold,,1,1.0,7.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,SAN REMIGIO,"prawns, lobster, shrimp",tumpok,,safe-fold,,2,1.0,7.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,VALDERRAMA,"prawns, lobster, shrimp",plastic,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
+ANTIQUE,CULASI,"preserved or processed meat (tocino, tapa, longaniza, etc)",piraso,pieces or units,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (heuristic); cell has ['bilog', 'putos']"
+ANTIQUE,HAMTIC,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,48.0,515.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ANTIQUE,LAUA-AN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,2.0,27.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ANTIQUE,LAUA-AN,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,1.0,18.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ANTIQUE,LIBERTAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,4.0,27.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
+ANTIQUE,PANDAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,1.0,27.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ANTIQUE,PANDAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,2,1.0,18.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ANTIQUE,PATNONGON,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,4.0,27.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ANTIQUE,PATNONGON,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,3.0,18.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ANTIQUE,SAN REMIGIO,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,3.0,18.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+ANTIQUE,SEBASTE,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,3.0,18.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'lata', 'putos']"
+ANTIQUE,SIBALOM,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,2.0,18.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+ANTIQUE,TOBIAS FORNIER,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,1.0,27.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['lata', 'pack', 'putos']"
+ANTIQUE,TOBIAS FORNIER,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,1.0,18.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['lata', 'pack', 'putos']"
+ANTIQUE,VALDERRAMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,2.0,18.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['lata', 'putos']"
+ANTIQUE,BARBAZA,rice,letse,,safe-fold,,2,1.0,72.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,BARBAZA,rice,salmon,,safe-fold,,3,4.0,53.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,BUGASONG,rice,letse,,safe-fold,,1,1.0,72.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,BUGASONG,rice,salmon,,safe-fold,,2,1.0,53.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,CULASI,rice,ganta,,safe-fold,,1,2.0,8.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,CULASI,rice,letse,,safe-fold,,2,1.0,72.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,HAMTIC,rice,letse,letse,safe-fold,,1,3.0,72.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['ganta']
+ANTIQUE,HAMTIC,rice,salmon,salmon,safe-fold,,3,2.0,53.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['ganta']
+ANTIQUE,LAUA-AN,rice,letse,,safe-fold,,3,7.0,72.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,LAUA-AN,rice,salmon,,safe-fold,,3,15.0,53.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,LIBERTAD,rice,ganta,,safe-fold,,3,3.0,8.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,PANDAN,rice,letse,,safe-fold,,3,2.0,72.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,PATNONGON,rice,letse,,safe-fold,,3,19.0,72.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,PATNONGON,rice,salmon,,safe-fold,,3,5.0,53.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,SAN REMIGIO,rice,letse,,safe-fold,,3,4.0,72.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,SEBASTE,rice,letse,,safe-fold,,3,2.0,72.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,SIBALOM,rice,ganta,,safe-fold,,2,1.0,8.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,SIBALOM,rice,letse,,safe-fold,,3,15.0,72.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,SIBALOM,rice,salmon,,safe-fold,,3,10.0,53.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,TIBIAO,rice,letse,,safe-fold,,3,2.0,72.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,TIBIAO,rice,salmon,,safe-fold,,2,1.0,53.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ANTIQUE,TOBIAS FORNIER,rice,letse,letse,safe-fold,,3,15.0,72.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['ganta']
+ANTIQUE,TOBIAS FORNIER,rice,salmon,salmon,safe-fold,,3,14.0,53.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['ganta']
+ANTIQUE,VALDERRAMA,rice,salmon,,safe-fold,,2,1.0,53.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,MAMBUSAO,beer,1 case,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,DAO,cabbage,small packs,small packs,fold(untested/minor-flag),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (heuristic); cell has ['bilog', 'putos (mix vegetable)']"
+CAPIZ,PANITAN,cabbage,shredded cabbage,pack,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename-fuzzy); cell has ['bilog', 'half', 'putos (mix vegetable)']"
+CAPIZ,SIGMA,cabbage,putos,pack,keep-separate,,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'half', 'putos (mix vegetable)']"
+CAPIZ,SIGMA,camote,bilog,,kept-separate(low-confidence weight test),,1,3.0,14.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,SIGMA,camote,tumpok,,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,DUMALAG,camote tops,bundle,bundle,keep-separate,,1,20.0,88.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+CAPIZ,DUMARAO,camote tops,bundle,bundle,keep-separate,,1,1.0,88.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+CAPIZ,IVISAN,camote tops,bugkos,bugkos,keep-separate,,1,84.0,2086.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bundle']
+CAPIZ,MA-AYON,camote tops,bundle,bundle,keep-separate,,1,2.0,88.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+CAPIZ,MAMBUSAO,camote tops,bundle,bundle,keep-separate,,1,1.0,88.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+CAPIZ,SAPI-AN,camote tops,bugkos,bugkos,keep-separate,,1,81.0,2086.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bundle']
+CAPIZ,SIGMA,camote tops,bundle,bundle,keep-separate,,2,1.0,88.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+CAPIZ,TAPAZ,camote tops,bundle,bundle,keep-separate,,3,30.0,88.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+CAPIZ,DAO,carrot,putos /mix mix,putos (mix vegetable),identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (heuristic); cell has ['bilog']
+CAPIZ,DUMARAO,carrot,pack,pack,keep-separate,,1,1.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,MA-AYON,carrot,pack,pack,keep-separate,,1,2.0,3.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['10', 'bilog']"
+CAPIZ,PANAY,carrot,packs of mix veges,putos (mix vegetable),identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (heuristic); cell has ['bilog']
+CAPIZ,PANITAN,carrot,mixmix,putos (mix vegetable),identity(ungrouped),,1,1.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,PRESIDENT ROXAS,carrot,mixmix,putos (mix vegetable),identity(ungrouped),,1,1.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,SAPI-AN,carrot,mixmix,putos (mix vegetable),identity(ungrouped),,1,1.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,DUMALAG,chicken,bilog,bilog,reassigned-separate(item-specific),,3,8.0,164.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+CAPIZ,DUMARAO,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,DUMARAO,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,35.0,280.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,IVISAN,chicken,bilog,bilog,reassigned-separate(item-specific),,3,11.0,164.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+CAPIZ,JAMINDAN,chicken,binilog,pieces or units,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'chicken wings', 'whole (chicken)']"
+CAPIZ,MA-AYON,chicken,bilog,bilog,reassigned-separate(item-specific),,3,36.0,164.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['pack', 'whole (chicken)']"
+CAPIZ,MA-AYON,chicken,slice,slice,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['pack', 'whole (chicken)']"
+CAPIZ,PANAY,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,8.0,280.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'slice']"
+CAPIZ,PANITAN,chicken,bilog,bilog,reassigned-separate(item-specific),,3,11.0,164.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+CAPIZ,PILAR,chicken,bilog,bilog,reassigned-separate(item-specific),,3,6.0,164.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+CAPIZ,PONTEVEDRA,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,3.0,280.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,PRESIDENT ROXAS,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,6.0,280.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,SIGMA,chicken,bilog,bilog,reassigned-separate(item-specific),,3,13.0,164.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+CAPIZ,TAPAZ,chicken,bilog,bilog,reassigned-separate(item-specific),,3,18.0,164.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",packs,pack,keep-separate,,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+CAPIZ,SAPI-AN,"crackers, cookies, buiscuits, chips/curls",putos,putos,keep-separate,,3,17.0,313.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+CAPIZ,MAMBUSAO,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,3,9.0,45.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,PONTEVEDRA,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,1,3.0,45.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,SIGMA,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,3,6.0,45.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,TAPAZ,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,1,3.0,45.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,DUMALAG,fresh fish,pack,pack,keep-separate,,3,2.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,MA-AYON,fresh fish,putos,pack,keep-separate,,2,1.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,PILAR,fresh fish,packs,pack,keep-separate,,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pinutos / plastic']"
+CAPIZ,PILAR,fresh fish,repack,pack,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename+reduce); cell has ['bilog', 'pinutos / plastic']"
+CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),,1,17.0,214.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'cone', 'putos', 'tupperware']"
+CAPIZ,IVISAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,12.0,218.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+CAPIZ,MA-AYON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,3,28.0,218.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+CAPIZ,MAMBUSAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,3,10.0,218.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bowl']
+CAPIZ,MAMBUSAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,cone,identity(ungrouped),,1,1.0,6.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bowl']
+CAPIZ,MAMBUSAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),,1,17.0,214.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bowl']
+CAPIZ,MAMBUSAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,putos,keep-separate,,3,2.0,45.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bowl']
+CAPIZ,PANAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,3,15.0,218.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,putos,keep-separate,,1,3.0,45.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'small cup']"
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,cone,identity(ungrouped),,1,1.0,6.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone of an ice cream,cone,identity(ungrouped),,1,1.0,2.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),,1,12.0,214.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,putos,keep-separate,,1,1.0,45.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+CAPIZ,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1 plastic  cup,plastic cup,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename-fuzzy); cell has ['bilog', 'putos', 'small cup']"
+CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,3,2.0,218.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,cone,identity(ungrouped),,1,2.0,6.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'small cup', 'tub']"
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,putos,keep-separate,,3,7.0,45.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'small cup', 'tub']"
+CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,putos,keep-separate,,1,2.0,45.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'cone', 'small cup']"
+CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,safe-fold,,1,2.0,57.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['lipid / lapad']
+CAPIZ,SIGMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,safe-fold,,3,15.0,57.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bottle (500 ml)', 'lipid / lapad']"
+CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,safe-fold,,1,9.0,57.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['lipid / lapad']
+CAPIZ,DUMALAG,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,4.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,18.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,11.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['individual', 'large packs', 'medium packs', 'small packs']"
+CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,13.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+CAPIZ,MAMBUSAO,loaf bread,medium,medium packs,safe-fold,,1,8.0,143.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'small packs']"
+CAPIZ,MAMBUSAO,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,4.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'small packs']"
+CAPIZ,PANAY,loaf bread,dalagku nga putos,large packs,safe-fold,,3,12.0,46.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'small packs']"
+CAPIZ,PANAY,loaf bread,large,large packs,safe-fold,,3,8.0,118.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'small packs']"
+CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,23.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'small packs']"
+CAPIZ,PANITAN,loaf bread,large,large packs,safe-fold,,3,13.0,118.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
+CAPIZ,PANITAN,loaf bread,medium,medium packs,safe-fold,,1,16.0,143.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
+CAPIZ,PANITAN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,3.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
+CAPIZ,PILAR,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),,1,10.0,212.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,PILAR,loaf bread,medium,medium packs,safe-fold,,1,3.0,143.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,PILAR,loaf bread,small,small packs,fold(untested/minor-flag),,1,9.0,76.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,12.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,SAPI-AN,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),,3,12.0,212.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+CAPIZ,SAPI-AN,loaf bread,maisot nga putos,small packs,fold(untested/minor-flag),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+CAPIZ,SAPI-AN,loaf bread,small,small packs,fold(untested/minor-flag),,1,2.0,76.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,6.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+CAPIZ,SIGMA,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),,3,36.0,212.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,SIGMA,loaf bread,medium,medium packs,safe-fold,,3,17.0,143.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,SIGMA,loaf bread,small,small packs,fold(untested/minor-flag),,1,8.0,76.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,9.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,TAPAZ,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),,1,21.0,212.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,TAPAZ,loaf bread,medium,medium packs,safe-fold,,1,6.0,143.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,TAPAZ,loaf bread,small,small packs,fold(untested/minor-flag),,1,1.0,76.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,12.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,MAMBUSAO,mango,bilog,,safe-fold,,3,2.0,39.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,TAPAZ,"mineral or spring water, all drinking water sold in containers",5 gallon black container,,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
+CAPIZ,PANAY,pork,pack,,keep-separate,,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
+CAPIZ,TAPAZ,"prawns, lobster, shrimp",tumpok,,safe-fold,,1,2.0,124.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,DAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",lata,cans,safe-fold,,2,1.0,3.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+CAPIZ,IVISAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,47.0,823.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+CAPIZ,MA-AYON,"preserved or processed meat (tocino, tapa, longaniza, etc)",lata,cans,safe-fold,,2,1.0,3.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+CAPIZ,SAPI-AN,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+CAPIZ,SAPI-AN,"preserved or processed meat (tocino, tapa, longaniza, etc)",piraso,pieces or units,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (heuristic); cell has ['bilog', 'putos']"
+CAPIZ,SIGMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,14.0,92.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+CAPIZ,SIGMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",lata,cans,safe-fold,,1,1.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+CAPIZ,CUARTERO,rice,salmon,,safe-fold,,2,1.0,12.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,DUMALAG,rice,letse,,safe-fold,,2,1.0,16.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,DUMARAO,rice,letse,,safe-fold,,2,1.0,16.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,DUMARAO,rice,salmon,,safe-fold,,3,2.0,12.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,JAMINDAN,rice,salmon,salmon,safe-fold,,1,2.0,12.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['letse']
+CAPIZ,MA-AYON,rice,salmon,,safe-fold,,2,1.0,12.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,MAMBUSAO,rice,letse,,safe-fold,,3,2.0,16.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,PANAY,rice,letse,,safe-fold,,2,1.0,16.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,PILAR,rice,letse,,safe-fold,,3,3.0,16.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,SAPI-AN,rice,letse,letse,safe-fold,,1,1.0,16.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['ganta']
+CAPIZ,SIGMA,rice,salmon,,safe-fold,,2,1.0,12.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+CAPIZ,TAPAZ,rice,salmon,,safe-fold,,3,5.0,12.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,CABATUAN,cabbage,putos,pack,keep-separate,,1,1.0,19.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos (mix vegetable)']"
+ILOILO,DINGLE,cabbage,slice,sliced,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename-fuzzy); cell has ['bilog', 'pack']"
+ILOILO,DUEAS,cabbage,putos,pack,keep-separate,,1,2.0,19.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['2 kapinutos nga cabbage/20pesos', '3 for 25 pesos (putos)', 'bilog']"
+ILOILO,DUMANGAS,cabbage,pack,pack,keep-separate,,1,3.0,12.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DUMANGAS,cabbage,putos,pack,keep-separate,,1,2.0,19.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,IGBARAS,cabbage,pack,pack,keep-separate,,1,1.0,12.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,IGBARAS,cabbage,putos,pack,keep-separate,,1,5.0,19.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,MIAGAO,cabbage,putos /supot,pack,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (rename+reduce); cell has ['bilog']
+ILOILO,OTON,cabbage,pack,pack,keep-separate,,1,1.0,12.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos (mix vegetable)']"
+ILOILO,SAN DIONISIO,cabbage,putos (pack),pack,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename+reduce); cell has ['bilog', 'sliced']"
+ILOILO,LEGANES,camote,tumpok,tumpok,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,BANATE,camote tops,bundle,bundle,keep-separate,,1,1.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,BAROTAC VIEJO,camote tops,bundle,bundle,keep-separate,,3,38.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,BATAD,camote tops,bundle,bundle,keep-separate,,1,22.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,CONCEPCION,camote tops,bundle,bundle,keep-separate,,1,1.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,DINGLE,camote tops,bundle,bundle,keep-separate,,1,1.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,DUEAS,camote tops,bundle,bundle,keep-separate,,1,1.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,DUMANGAS,camote tops,bundle,bundle,keep-separate,,1,1.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,LEMERY,camote tops,bugkos,bugkos,keep-separate,,1,210.0,4117.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bundle']
+ILOILO,MINA,camote tops,bundle,bundle,keep-separate,,1,1.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,NEW LUCENA,camote tops,bundle,bundle,keep-separate,,1,21.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,OTON,camote tops,bundle,bundle,keep-separate,,1,13.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,SAN JOAQUIN,camote tops,bundle,bundle,keep-separate,,1,2.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,SAN RAFAEL,camote tops,bundle,bundle,keep-separate,,1,15.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,SARA,camote tops,bundle,bundle,keep-separate,,1,3.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,TUBUNGAN,camote tops,bundle,bundle,keep-separate,,1,1.0,277.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+ILOILO,ALIMODIAN,carrot,mixmix,putos (mix vegetable),identity(ungrouped),,1,2.0,2.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'binilog']"
+ILOILO,CABATUAN,carrot,putos,pack,keep-separate,,1,1.0,15.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos (mix vegetable)']"
+ILOILO,DINGLE,carrot,pack,pack,keep-separate,,1,1.0,5.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DINGLE,carrot,putos,pack,keep-separate,,1,2.0,15.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DUEAS,carrot,putos,pack,keep-separate,,1,1.0,15.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DUMANGAS,carrot,putos,pack,keep-separate,,1,1.0,15.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,IGBARAS,carrot,pack,pack,keep-separate,,1,1.0,5.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos (mix vegetable)']"
+ILOILO,IGBARAS,carrot,putos,pack,keep-separate,,1,4.0,15.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos (mix vegetable)']"
+ILOILO,LEGANES,carrot,putos,pack,keep-separate,,1,1.0,15.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,NEW LUCENA,carrot,putos,pack,keep-separate,,2,1.0,15.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,OTON,carrot,pack of mixed vegetables,putos (mix vegetable),identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (heuristic); cell has ['bilog']
+ILOILO,SAN JOAQUIN,carrot,putos,pack,keep-separate,,1,1.0,15.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,SAN RAFAEL,carrot,putos,pack,keep-separate,,1,2.0,15.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,TUBUNGAN,carrot,pack,pack,keep-separate,,1,1.0,5.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,AJUY,chicken,bilog,bilog,reassigned-separate(item-specific),,3,10.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,ALIMODIAN,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),,3,3.0,27.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'binilog']"
+ILOILO,ALIMODIAN,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,18.0,630.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'binilog']"
+ILOILO,ANILAO,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,2,1.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,BADIANGAN,chicken,bilog,bilog,reassigned-separate(item-specific),,3,42.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,BALASAN,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,10.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,BANATE,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,4.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,BAROTAC VIEJO,chicken,pieces or units,pieces or units,safe-fold,,2,1.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,BAROTAC VIEJO,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,36.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,BATAD,chicken,bilog,bilog,reassigned-separate(item-specific),,3,7.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,BINGAWAN,chicken,bilog,bilog,reassigned-separate(item-specific),,3,9.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,CABATUAN,chicken,bilog,bilog,reassigned-separate(item-specific),,3,35.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,CALINOG,chicken,bilog,bilog,reassigned-separate(item-specific),,3,31.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,CARLES,chicken,bilog,bilog,reassigned-separate(item-specific),,2,1.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,CONCEPCION,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,11.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DINGLE,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,10.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DUEAS,chicken,bilog,bilog,reassigned-separate(item-specific),,3,32.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,DUMANGAS,chicken,bilog,,reassigned-separate(item-specific),,3,8.0,707.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,DUMANGAS,chicken,putos,,keep-separate,,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
+ILOILO,DUMANGAS,chicken,whole (chicken),,fold(untested/minor-flag),,3,7.0,630.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,GUIMBAL,chicken,binilog,pieces or units,safe-fold,,3,3.0,28.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'whole (chicken)']"
+ILOILO,IGBARAS,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,26.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,IGBARAS,chicken,whole chicken,whole (chicken),fold(untested/minor-flag),,2,1.0,2.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,JANIUAY,chicken,bilog,bilog,reassigned-separate(item-specific),,3,18.0,707.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['patupa', 'whole (chicken)']"
+ILOILO,JANIUAY,chicken,binilog,pieces or units,safe-fold,,2,1.0,28.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['patupa', 'whole (chicken)']"
+ILOILO,LAMBUNAO,chicken,bilog,bilog,reassigned-separate(item-specific),,3,21.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,LAMBUNAO,chicken,binilog,pieces or units,safe-fold,,1,6.0,28.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,LEGANES,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,10.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,LEMERY,chicken,bilog,bilog,reassigned-separate(item-specific),,3,13.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,LEON,chicken,bilog,bilog,reassigned-separate(item-specific),,3,33.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,MAASIN,chicken,bilog,bilog,reassigned-separate(item-specific),,3,35.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,MIAGAO,chicken,bilog,bilog,reassigned-separate(item-specific),,3,21.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,MIAGAO,chicken,binilog,pieces or units,safe-fold,,2,1.0,28.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,MINA,chicken,bilog,bilog,reassigned-separate(item-specific),,3,30.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,MINA,chicken,piraso,pieces or units,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,NEW LUCENA,chicken,bilog,bilog,reassigned-separate(item-specific),,3,15.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,OTON,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,20.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,POTOTAN,chicken,bilog,bilog,reassigned-separate(item-specific),,3,8.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,SAN DIONISIO,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,11.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,SAN ENRIQUE,chicken,bilog,bilog,reassigned-separate(item-specific),,33,30.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,SAN JOAQUIN,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),,1,2.0,27.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'binilog']"
+ILOILO,SAN JOAQUIN,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,11.0,630.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'binilog']"
+ILOILO,SAN MIGUEL,chicken,bilog,bilog,reassigned-separate(item-specific),,3,2.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,SANTA BARBARA,chicken,bilog,bilog,reassigned-separate(item-specific),,1,7.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,SARA,chicken,bilog,bilog,reassigned-separate(item-specific),,3,13.0,707.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+ILOILO,TUBUNGAN,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),,3,8.0,27.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,TUBUNGAN,chicken,binilog,pieces or units,safe-fold,,3,9.0,28.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,TUBUNGAN,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,5.0,630.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,BALASAN,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,safe-fold,,3,13.0,493.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['pack', 'putos']"
+ILOILO,BAROTAC VIEJO,"crackers, cookies, buiscuits, chips/curls",putos,putos,keep-separate,,3,18.0,727.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pieces or units']"
+ILOILO,BATAD,"crackers, cookies, buiscuits, chips/curls",putos,putos,keep-separate,,3,17.0,727.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ILOILO,DUEAS,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,safe-fold,,3,22.0,493.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['balde', 'putos']"
+ILOILO,JANIUAY,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,safe-fold,,3,21.0,493.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ILOILO,LEMERY,"crackers, cookies, buiscuits, chips/curls",packs,pack,keep-separate,,1,2.0,12.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bucket', 'pieces or units', 'putos']"
+ILOILO,MAASIN,"crackers, cookies, buiscuits, chips/curls",putos,putos,keep-separate,,3,36.0,727.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ILOILO,MIAGAO,"crackers, cookies, buiscuits, chips/curls",putos,putos,keep-separate,,3,7.0,727.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,MINA,"crackers, cookies, buiscuits, chips/curls",putos,putos,keep-separate,,3,11.0,727.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ILOILO,BADIANGAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,3,12.0,126.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,DUEAS,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,3,6.0,126.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,MAASIN,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,1,3.0,126.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,BADIANGAN,fresh fish,bilog,,safe-fold,,4,3.0,262.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,BALASAN,fresh fish,putos,pack,keep-separate,,2,1.0,66.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,BAROTAC VIEJO,fresh fish,pack,pack,keep-separate,,2,1.0,19.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'tumpok']"
+ILOILO,BAROTAC VIEJO,fresh fish,packs,pack,keep-separate,,3,3.0,9.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'tumpok']"
+ILOILO,BAROTAC VIEJO,fresh fish,putos,pack,keep-separate,,1,3.0,66.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'tumpok']"
+ILOILO,DINGLE,fresh fish,pack,pack,keep-separate,,2,1.0,19.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DINGLE,fresh fish,putos,pack,keep-separate,,2,1.0,66.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DINGLE,fresh fish,putos (pack),pack,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (rename+reduce); cell has ['bilog']
+ILOILO,DUEAS,fresh fish,pack,pack,keep-separate,,2,1.0,19.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DUEAS,fresh fish,putos,pack,keep-separate,,3,2.0,66.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DUMANGAS,fresh fish,bilog,,safe-fold,,3,9.0,262.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,DUMANGAS,fresh fish,pack,,keep-separate,,2,1.0,19.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,DUMANGAS,fresh fish,piraso,,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
+ILOILO,ESTANCIA,fresh fish,pack,pack,keep-separate,,3,7.0,19.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,ESTANCIA,fresh fish,packs,pack,keep-separate,,1,2.0,9.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,ESTANCIA,fresh fish,putos,pack,keep-separate,,1,1.0,66.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,JANIUAY,fresh fish,putos,pack,keep-separate,,3,7.0,66.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,MINA,fresh fish,bilog,,safe-fold,,3,5.0,262.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,MINA,fresh fish,putos,,keep-separate,,2,1.0,66.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,SAN RAFAEL,fresh fish,per pack,pack,identity(ungrouped),,3,2.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,SAN RAFAEL,fresh fish,per packs,pack,identity(ungrouped),,1,2.0,2.0,2,empty/uncommon,False,valid for item elsewhere (rename+reduce); cell has ['bilog']
+ILOILO,SAN RAFAEL,fresh fish,putos,pack,keep-separate,,3,9.0,66.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,AJUY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,48.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bowl', 'cone', 'putos', 'small cup']"
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",plastic cup,plastic cup,identity(ungrouped),,1,1.0,2.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos', 'small cup']"
+ILOILO,BALASAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,26.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,3,5.0,662.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),,1,1.0,337.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ILOILO,CALINOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,14.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['pack', 'putos', 'small cup']"
+ILOILO,CARLES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,putos,keep-separate,,3,5.0,102.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'small cup']"
+ILOILO,DINGLE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,16.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['cone', 'putos', 'small cup']"
+ILOILO,DUMANGAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bowl,bowl,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'cone', 'piraso', 'small cup']"
+ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,20.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,,1,3.0,19.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,15.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,,2,1.0,19.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,3,45.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,pieces or units,safe-fold,,2,1.0,7.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,5.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['cone', 'putos', 'small cup']"
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,,1,2.0,19.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['cone', 'putos', 'small cup']"
+ILOILO,MAASIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,3,27.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,11.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,,1,2.0,19.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,MINA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,putos,keep-separate,,2,1.0,102.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'container', 'pack', 'small cup']"
+ILOILO,NEW LUCENA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,4.0,662.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+ILOILO,SAN DIONISIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),,1,25.0,337.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,GUIMBAL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,,safe-fold,,3,9.0,1883.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",baso,baso,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['lipid / lapad', 'long-neck']"
+ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,23.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,4.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,BADIANGAN,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),,1,44.0,475.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,BADIANGAN,loaf bread,small,small packs,fold(untested/minor-flag),,1,13.0,222.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,23.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,8.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,BANATE,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),,3,6.0,475.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,BANATE,loaf bread,medium,medium packs,safe-fold,,1,2.0,412.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,BANATE,loaf bread,medium packs,medium packs,safe-fold,,1,2.0,7.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,BANATE,loaf bread,small,small packs,fold(untested/minor-flag),,2,1.0,222.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,BANATE,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,5.0,252.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,BAROTAC VIEJO,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,2,1.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,BATAD,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,5.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,16.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,CALINOG,loaf bread,small,small packs,fold(untested/minor-flag),,1,6.0,222.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,15.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,DINGLE,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,2.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,IGBARAS,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,2,1.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,JANIUAY,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,2,1.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,5.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,LEGANES,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),,3,11.0,475.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,8.0,252.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,14.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,MAASIN,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),,3,20.0,475.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,MAASIN,loaf bread,small,small packs,fold(untested/minor-flag),,1,28.0,222.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,10.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,MIAGAO,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,3.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,MINA,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,2.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,21.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,7.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,SAN DIONISIO,loaf bread,dalagku nga putos,large packs,safe-fold,,1,7.0,253.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'tama-tama nga putos']"
+ILOILO,SAN DIONISIO,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),,3,30.0,475.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'tama-tama nga putos']"
+ILOILO,SAN DIONISIO,loaf bread,large,large packs,safe-fold,,3,10.0,336.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'tama-tama nga putos']"
+ILOILO,SAN DIONISIO,loaf bread,small,small packs,fold(untested/minor-flag),,1,4.0,222.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'tama-tama nga putos']"
+ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,9.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,SAN JOAQUIN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,2.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,SAN RAFAEL,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,3.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,1,15.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,identity(ungrouped),,3,6.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,BADIANGAN,mango,bilog,,safe-fold,,1,2.0,112.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,CALINOG,"mineral or spring water, all drinking water sold in containers",black gallon,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
+ILOILO,MINA,pork,portion,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
+ILOILO,AJUY,"prawns, lobster, shrimp",packs,pack,keep-separate,,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (rename-fuzzy); cell has ['tumpok']
+ILOILO,DUMANGAS,"prawns, lobster, shrimp",pack,,keep-separate,,1,1.0,2.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,DUMANGAS,"prawns, lobster, shrimp",tumpok,,safe-fold,,4,4.0,93.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,MINA,"prawns, lobster, shrimp",tumpok,,safe-fold,,2,1.0,93.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,SAN RAFAEL,"prawns, lobster, shrimp",tumpok,,safe-fold,,2,1.0,93.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,BADIANGAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,3,5.0,129.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ILOILO,BALASAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,keep-separate,,2,1.0,19.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+ILOILO,BANATE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,12.0,2031.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['pack']
+ILOILO,BAROTAC NUEVO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,2.0,129.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,keep-separate,,2,1.0,19.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'lata']"
+ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,86.0,2031.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'lata']"
+ILOILO,BATAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,17.0,2031.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ILOILO,CABATUAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,64.0,2031.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ILOILO,CALINOG,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,70.0,2031.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ILOILO,CARLES,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,keep-separate,,2,1.0,19.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,CARLES,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,43.0,2031.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,CONCEPCION,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,27.0,2031.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,DINGLE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,85.0,2031.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ILOILO,DUEAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,keep-separate,,2,1.0,19.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+ILOILO,LAMBUNAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,2.0,129.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ILOILO,LEMERY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,108.0,2031.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,1.0,3.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+ILOILO,MAASIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,1.0,129.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['pack', 'putos']"
+ILOILO,MAASIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",lata,cans,safe-fold,,3,3.0,11.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['pack', 'putos']"
+ILOILO,MIAGAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,pieces or units,safe-fold,,1,1.0,3.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,MIAGAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,39.0,2031.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,MINA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,45.0,2031.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'pack']"
+ILOILO,SAN DIONISIO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,3,6.0,129.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['lata', 'putos']"
+ILOILO,SAN ENRIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,reassigned-separate(item-specific),,1,2.0,129.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['putos']
+ILOILO,SAN JOAQUIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,81.0,2031.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'pack']"
+ILOILO,SAN RAFAEL,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,keep-separate,,3,31.0,2031.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+ILOILO,AJUY,rice,letse,,safe-fold,,3,9.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,BADIANGAN,rice,letse,,safe-fold,,2,1.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,BADIANGAN,rice,salmon,,safe-fold,,3,24.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,BALASAN,rice,letse,letse,safe-fold,,3,3.0,43.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['ganta']
+ILOILO,BALASAN,rice,salmon,salmon,safe-fold,,2,1.0,310.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['ganta']
+ILOILO,BANATE,rice,letse,,safe-fold,,1,1.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,BANATE,rice,salmon,,safe-fold,,3,3.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,BAROTAC NUEVO,rice,salmon,salmon,safe-fold,,3,3.0,310.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['letse']
+ILOILO,BAROTAC VIEJO,rice,letse,,safe-fold,,2,1.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,BAROTAC VIEJO,rice,salmon,,safe-fold,,3,5.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,BINGAWAN,rice,salmon,,safe-fold,,3,6.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,CABATUAN,rice,salmon,,safe-fold,,3,17.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,CALINOG,rice,salmon,,safe-fold,,3,32.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,CARLES,rice,letse,,safe-fold,,2,1.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,CARLES,rice,salmon,,safe-fold,,2,1.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,CONCEPCION,rice,letse,,safe-fold,,3,4.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,DINGLE,rice,letse,,safe-fold,,2,1.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,DINGLE,rice,salmon,,safe-fold,,3,10.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,DUEAS,rice,salmon,salmon,safe-fold,,3,17.0,310.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['ganta']
+ILOILO,DUMANGAS,rice,1 sack is 2900/for salary/inkind,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
+ILOILO,DUMANGAS,rice,1/2 sack of rice,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename-fuzzy"
+ILOILO,DUMANGAS,rice,letse,,safe-fold,,3,3.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,DUMANGAS,rice,salmon,,safe-fold,,2,1.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,IGBARAS,rice,salmon,,safe-fold,,3,31.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,JANIUAY,rice,salmon,,safe-fold,,3,7.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,LAMBUNAO,rice,salmon,,safe-fold,,3,7.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,LEGANES,rice,salmon,,safe-fold,,3,5.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,LEMERY,rice,letse,,safe-fold,,3,2.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,LEMERY,rice,salmon,,safe-fold,,3,3.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,LEON,rice,salmon,,safe-fold,,3,12.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,MAASIN,rice,salmon,salmon,safe-fold,,3,6.0,310.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['sack of rice']
+ILOILO,MIAGAO,rice,salmon,,safe-fold,,3,5.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,MINA,rice,salmon,salmon,safe-fold,,3,7.0,310.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['1/2 sack of rice (25kls.)', 'ganta']"
+ILOILO,NEW LUCENA,rice,salmon,,safe-fold,,3,17.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,SAN DIONISIO,rice,letse,,safe-fold,,3,7.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,SAN DIONISIO,rice,salmon,,safe-fold,,2,1.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,SAN ENRIQUE,rice,letse,,safe-fold,,2,1.0,43.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,SAN ENRIQUE,rice,salmon,,safe-fold,,3,12.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,SAN RAFAEL,rice,salmon,,safe-fold,,3,3.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,SANTA BARBARA,rice,salmon,,safe-fold,,3,2.0,310.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+ILOILO,SARA,rice,letse,letse,safe-fold,,3,4.0,43.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['ganta']
+ILOILO,SARA,rice,salmon,salmon,safe-fold,,3,2.0,310.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['ganta']
+NEGROS OCCIDENTAL,PONTEVEDRA,camote,tumpok(pile),tumpok,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (rename+reduce); cell has ['bilog']
+NEGROS OCCIDENTAL,CALATRAVA,camote tops,bugkos,bugkos,keep-separate,,1,28.0,1037.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bundle']
+NEGROS OCCIDENTAL,SALVADOR BENEDICTO,camote tops,bundle,bundle,keep-separate,,1,1.0,35.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bugkos']
+NEGROS OCCIDENTAL,TOBOSO,camote tops,bugkos,,keep-separate,,1,60.0,1037.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+NEGROS OCCIDENTAL,TOBOSO,camote tops,bundle,,keep-separate,,1,6.0,35.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+NEGROS OCCIDENTAL,CALATRAVA,chicken,bilog,bilog,reassigned-separate(item-specific),,3,14.0,147.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+NEGROS OCCIDENTAL,CAUAYAN,chicken,bilog,bilog,reassigned-separate(item-specific),,3,16.0,147.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'whole (chicken)']"
+NEGROS OCCIDENTAL,ISABELA,chicken,bilog,bilog,reassigned-separate(item-specific),,3,15.0,147.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+NEGROS OCCIDENTAL,LA CASTELLANA,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,7.0,154.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+NEGROS OCCIDENTAL,MANAPLA,chicken,bilog,bilog,reassigned-separate(item-specific),,2,1.0,147.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+NEGROS OCCIDENTAL,MURCIA,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,7.0,154.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+NEGROS OCCIDENTAL,PULUPANDAN,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,2,1.0,154.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+NEGROS OCCIDENTAL,SALVADOR BENEDICTO,chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),,3,15.0,154.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+NEGROS OCCIDENTAL,SAN ENRIQUE,chicken,bilog,bilog,reassigned-separate(item-specific),,3,2.0,147.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['whole (chicken)']
+NEGROS OCCIDENTAL,PONTEVEDRA,"drinks at restaurant, hotel, cafe, or kiosk",pieces,,identity(ungrouped),,1,3.0,57.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+NEGROS OCCIDENTAL,CALATRAVA,fresh fish,cup,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
+NEGROS OCCIDENTAL,CAUAYAN,fresh fish,tumpok,tumpok,safe-fold,,1,2.0,2.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['bilog']
+NEGROS OCCIDENTAL,CANDONI,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,3,14.0,120.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['cone', 'putos', 'small cup']"
+NEGROS OCCIDENTAL,ISABELA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,13.0,120.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+NEGROS OCCIDENTAL,MANAPLA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,,1,2.0,120.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
+NEGROS OCCIDENTAL,CALATRAVA,loaf bread,small,small packs,fold(untested/minor-flag),,1,3.0,80.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),mango,bilog,,safe-fold,,1,1.0,6.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+NEGROS OCCIDENTAL,CAUAYAN,pork,1 whole pigs for  her grandson's birthday,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=heuristic
+NEGROS OCCIDENTAL,CALATRAVA,"prawns, lobster, shrimp",tumpok,,safe-fold,,2,1.0,19.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
+NEGROS OCCIDENTAL,CALATRAVA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pakete,pack,keep-separate,,1,8.0,12.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bilog', 'putos']"
+NEGROS OCCIDENTAL,CAUAYAN,rice,salmon,,safe-fold,,3,2.0,4.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+NEGROS OCCIDENTAL,HINIGARAN,rice,salmon,,safe-fold,,2,1.0,4.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+NEGROS OCCIDENTAL,LA CASTELLANA,rice,letse,,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),rice,salmon,,safe-fold,,2,1.0,4.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=rename
+AKLAN,ALTAVAS,cabbage,binilog,pieces or units,safe-fold,bilog,1,11.0,86.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,BATAN,cabbage,binilog,pieces or units,safe-fold,bilog,1,5.0,86.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,IBAJAY,cabbage,binilog,pieces or units,safe-fold,bilog,1,22.0,86.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,MADALAG,cabbage,binilog,pieces or units,safe-fold,bilog,3,3.0,86.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,MALAY,cabbage,binilog,pieces or units,safe-fold,bilog,1,9.0,86.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,ALTAVAS,carrot,binilog,pieces or units,safe-fold,bilog,1,18.0,135.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,BATAN,carrot,binilog,pieces or units,safe-fold,bilog,1,16.0,135.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,IBAJAY,carrot,binilog,pieces or units,safe-fold,bilog,1,32.0,135.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,IBAJAY,carrot,piraso,pieces or units,safe-fold,bilog,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'bilog'
+AKLAN,LIBACAO,carrot,binilog,pieces or units,safe-fold,bilog,1,8.0,135.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,MADALAG,carrot,binilog,pieces or units,safe-fold,bilog,1,3.0,135.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,MALAY,carrot,binilog,pieces or units,safe-fold,bilog,1,11.0,135.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,MALAY,carrot,piraso,pieces or units,safe-fold,bilog,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'bilog'
+AKLAN,MADALAG,"crackers, cookies, buiscuits, chips/curls",pieces or units,pieces or units,safe-fold,binilog,1,1.0,3.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'binilog'
+AKLAN,MALINAO,"crackers, cookies, buiscuits, chips/curls",binilog,pieces or units,safe-fold,bilog,3,41.0,158.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,fold(untested/minor-flag),small cup,3,9.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maliit na tasa,small cup,fold(untested/minor-flag),small cup,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small cup'
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,1,48.0,269.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,fold(untested/minor-flag),small cup,1,15.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",piraso,pieces or units,safe-fold,bilog,2,1.0,3.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,fold(untested/minor-flag),small cup,1,6.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,pieces or units,safe-fold,binilog,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'binilog'
+AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",piraso,pieces or units,safe-fold,binilog,1,1.0,3.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'binilog'
+AKLAN,MALAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,1,17.0,269.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+AKLAN,MALAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,fold(untested/minor-flag),small cup,3,6.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+AKLAN,ALTAVAS,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,safe-fold,lipid / lapad,3,40.0,177.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'lipid / lapad'
+AKLAN,BATAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,safe-fold,lipid / lapad,3,4.0,19.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'lipid / lapad'
+AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,safe-fold,lipid / lapad,1,3.0,177.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'lipid / lapad'
+AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,safe-fold,lipid / lapad,3,17.0,177.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'lipid / lapad'
+AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,safe-fold,lipid / lapad,3,22.0,177.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'lipid / lapad'
+AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,safe-fold,lipid / lapad,2,1.0,19.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'lipid / lapad'
+AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,safe-fold,lipid / lapad,3,9.0,177.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'lipid / lapad'
+AKLAN,ALTAVAS,loaf bread,kasarangan nga putos,medium packs,safe-fold,medium packs,3,33.0,161.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+AKLAN,ALTAVAS,loaf bread,mabahoe nga putos,large packs,safe-fold,large packs,3,16.0,161.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+AKLAN,ALTAVAS,loaf bread,malaking packs,large packs,safe-fold,large packs,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'large packs'
+AKLAN,BATAN,loaf bread,small,small packs,fold(untested/minor-flag),small packs,1,1.0,6.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+AKLAN,BURUANGA,loaf bread,small packs,small packs,fold(untested/minor-flag),small packs,3,4.0,5.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
+AKLAN,IBAJAY,loaf bread,large,large packs,safe-fold,large packs,1,1.0,5.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+AKLAN,IBAJAY,loaf bread,maisot nga putos,small packs,fold(untested/minor-flag),small packs,1,23.0,134.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+AKLAN,IBAJAY,loaf bread,medium,medium packs,safe-fold,medium packs,1,2.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+AKLAN,MADALAG,loaf bread,maisot nga putos,small packs,fold(untested/minor-flag),small packs,3,17.0,134.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+AKLAN,MADALAG,loaf bread,medium,medium packs,safe-fold,medium packs,1,2.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+AKLAN,MADALAG,loaf bread,small packs,small packs,fold(untested/minor-flag),small packs,1,1.0,5.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
+AKLAN,MALAY,loaf bread,kasarangan nga putos,medium packs,safe-fold,medium packs,1,10.0,161.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+AKLAN,MALAY,loaf bread,mabahoe nga putos,large packs,safe-fold,large packs,3,12.0,161.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+AKLAN,MALAY,loaf bread,maisot nga putos,small packs,fold(untested/minor-flag),small packs,1,8.0,134.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+AKLAN,MALINAO,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+AKLAN,NABAS,loaf bread,mabahoe nga putos,large packs,safe-fold,large packs,1,5.0,161.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+AKLAN,BATAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",piraso,pieces or units,safe-fold,binilog,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'binilog'
+AKLAN,MADALAG,"preserved or processed meat (tocino, tapa, longaniza, etc)",piraso,pieces or units,safe-fold,binilog,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'binilog'
+ANTIQUE,BELISON,cabbage,binilog,pieces or units,safe-fold,bilog,1,2.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,BUGASONG,cabbage,binilog,pieces or units,safe-fold,bilog,1,4.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,CULASI,cabbage,binilog,pieces or units,safe-fold,bilog,1,4.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,HAMTIC,cabbage,binilog,pieces or units,safe-fold,bilog,1,6.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,LAUA-AN,cabbage,binilog,pieces or units,safe-fold,bilog,1,7.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,LIBERTAD,cabbage,binilog,pieces or units,safe-fold,bilog,2,1.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,PANDAN,cabbage,binilog,pieces or units,safe-fold,bilog,1,1.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,PATNONGON,cabbage,binilog,pieces or units,safe-fold,bilog,1,4.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,SAN REMIGIO,cabbage,binilog,pieces or units,safe-fold,bilog,1,14.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,SEBASTE,cabbage,binilog,pieces or units,safe-fold,bilog,1,6.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,SIBALOM,cabbage,binilog,pieces or units,safe-fold,bilog,3,12.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,TOBIAS FORNIER,cabbage,binilog,pieces or units,safe-fold,bilog,1,19.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,VALDERRAMA,cabbage,binilog,pieces or units,safe-fold,bilog,1,3.0,84.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,BELISON,carrot,binilog,pieces or units,safe-fold,bilog,1,7.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,BUGASONG,carrot,binilog,pieces or units,safe-fold,bilog,1,4.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,CULASI,carrot,binilog,pieces or units,safe-fold,bilog,1,6.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,HAMTIC,carrot,binilog,pieces or units,safe-fold,bilog,1,7.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,LAUA-AN,carrot,binilog,pieces or units,safe-fold,bilog,1,6.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,LIBERTAD,carrot,binilog,pieces or units,safe-fold,bilog,1,1.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,PANDAN,carrot,binilog,pieces or units,safe-fold,bilog,1,1.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,PANDAN,carrot,piraso,pieces or units,safe-fold,bilog,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'bilog'
+ANTIQUE,PATNONGON,carrot,binilog,pieces or units,safe-fold,bilog,1,8.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,SAN REMIGIO,carrot,binilog,pieces or units,safe-fold,bilog,1,14.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,SEBASTE,carrot,binilog,pieces or units,safe-fold,bilog,1,9.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,SIBALOM,carrot,binilog,pieces or units,safe-fold,bilog,1,12.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,TOBIAS FORNIER,carrot,binilog,pieces or units,safe-fold,bilog,1,21.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,VALDERRAMA,carrot,binilog,pieces or units,safe-fold,bilog,1,3.0,100.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,BUGASONG,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),3,8.0,116.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,HAMTIC,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),1,3.0,116.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,LAUA-AN,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),1,3.0,116.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,LIBERTAD,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),1,1.0,116.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,PANDAN,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),1,4.0,116.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,PATNONGON,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),1,11.0,116.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,SEBASTE,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),3,10.0,116.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,TIBIAO,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),1,1.0,116.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,TOBIAS FORNIER,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),3,33.0,116.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,TOBIAS FORNIER,chicken,buong (manok),whole (chicken),fold(untested/minor-flag),whole (chicken),1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,VALDERRAMA,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),3,5.0,116.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ANTIQUE,CULASI,"crackers, cookies, buiscuits, chips/curls",piraso,pieces or units,safe-fold,bilog,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'bilog'
+ANTIQUE,LIBERTAD,fresh fish,binilog,pieces or units,safe-fold,bilog,2,1.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,PATNONGON,fresh fish,binilog,pieces or units,safe-fold,bilog,1,2.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,PATNONGON,fresh fish,tupok,tumpok,safe-fold,tumpok,1,1.0,1.0,3,harmonizable,True,folds (rename-fuzzy) to MS cleaned unit 'tumpok'
+ANTIQUE,BARBAZA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup (translate),small cup,identity(ungrouped),small cup,3,4.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,1,8.0,113.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,3,5.0,44.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,CULASI,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,2,1.0,44.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,pieces or units,safe-fold,bilog,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,LIBERTAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,1,3.0,113.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,3,2.0,113.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,1,2.0,44.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),small cup,1,2.0,14.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,1,2.0,44.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,1,18.0,113.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),small cup,1,2.0,14.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,1,7.0,44.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,SEBASTE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,1,6.0,113.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,SEBASTE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,3,9.0,44.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,1,17.0,113.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,1,5.0,44.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,small cup,fold(untested/minor-flag),small cup,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup (translate),small cup,identity(ungrouped),small cup,1,16.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,TIBIAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup (translate),small cup,identity(ungrouped),small cup,1,1.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),small cup,1,2.0,14.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,3,8.0,44.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,VALDERRAMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,1,7.0,113.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,VALDERRAMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,4,3.0,44.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,safe-fold,lipid / lapad,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'lipid / lapad'
+ANTIQUE,BELISON,loaf bread,daragkul nga putos,large packs,safe-fold,large packs,1,5.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,BUGASONG,loaf bread,daragkul nga putos,large packs,safe-fold,large packs,3,4.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,BUGASONG,loaf bread,medium nga putos,medium packs,safe-fold,medium packs,1,2.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ANTIQUE,CULASI,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,2,1.0,12.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,CULASI,loaf bread,daragkul nga putos,large packs,safe-fold,large packs,1,3.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,CULASI,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,8.0,134.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ANTIQUE,CULASI,loaf bread,medium nga putos,medium packs,safe-fold,medium packs,1,3.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ANTIQUE,HAMTIC,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,1,5.0,12.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,HAMTIC,loaf bread,daragkul nga putos,large packs,safe-fold,large packs,3,5.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,HAMTIC,loaf bread,medium nga putos,medium packs,safe-fold,medium packs,1,4.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ANTIQUE,LIBERTAD,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,4,3.0,12.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,LIBERTAD,loaf bread,maliit na packs,small packs,fold(untested/minor-flag),small packs,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
+ANTIQUE,PATNONGON,loaf bread,daragkul nga putos,large packs,safe-fold,large packs,3,5.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,PATNONGON,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,24.0,134.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ANTIQUE,PATNONGON,loaf bread,medium nga putos,medium packs,safe-fold,medium packs,1,8.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ANTIQUE,SAN REMIGIO,loaf bread,daragkul nga putos,large packs,safe-fold,large packs,1,6.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,SAN REMIGIO,loaf bread,large,large packs,safe-fold,large packs,2,1.0,20.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,SAN REMIGIO,loaf bread,medium,medium packs,safe-fold,medium packs,2,1.0,25.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ANTIQUE,SEBASTE,loaf bread,medium,medium packs,safe-fold,medium packs,1,1.0,25.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ANTIQUE,SIBALOM,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,6.0,134.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ANTIQUE,SIBALOM,loaf bread,large,large packs,safe-fold,large packs,1,6.0,20.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,SIBALOM,loaf bread,medium,medium packs,safe-fold,medium packs,1,4.0,25.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ANTIQUE,TIBIAO,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,1,1.0,12.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,TOBIAS FORNIER,loaf bread,daragkul nga putos,large packs,safe-fold,large packs,1,19.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ANTIQUE,SIBALOM,mango,binilog,pieces or units,safe-fold,bilog,2,1.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ANTIQUE,VALDERRAMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",can,cans,safe-fold,lata,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'lata'
+CAPIZ,DAO,cabbage,putos /mix mix,putos (mix vegetable),identity(ungrouped),putos (mix vegetable),1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'putos (mix vegetable)'
+CAPIZ,IVISAN,carrot,pieces or units,pieces or units,safe-fold,bilog,3,3.0,3.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,pieces or units,safe-fold,bilog,1,2.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+CAPIZ,JAMINDAN,fresh fish,binilog,pieces or units,safe-fold,bilog,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+CAPIZ,SIGMA,fresh fish,per putos ung binibili na isda,pack,identity(ungrouped),pack,1,1.0,1.0,3,harmonizable,True,folds (rename+reduce) to MS cleaned unit 'pack'
+CAPIZ,SIGMA,fresh fish,putos,pack,keep-separate,pack,1,2.0,3.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pack'
+CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gmay nga cup,small cup,fold(untested/minor-flag),small cup,2,1.0,5.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+CAPIZ,IVISAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gmay nga cup,small cup,fold(untested/minor-flag),small cup,1,1.0,5.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,fold(untested/minor-flag),small cup,1,2.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maliit na tasa,small cup,fold(untested/minor-flag),small cup,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small cup'
+CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gmay nga cup,small cup,fold(untested/minor-flag),small cup,1,3.0,5.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,safe-fold,lipid / lapad,3,20.0,762.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'lipid / lapad'
+CAPIZ,CUARTERO,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,5,4.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+CAPIZ,DUMALAG,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,3.0,46.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+CAPIZ,DUMALAG,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,3.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+CAPIZ,IVISAN,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,4.0,46.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+CAPIZ,IVISAN,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,46.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+CAPIZ,IVISAN,loaf bread,medium packs,medium packs,safe-fold,medium packs,1,2.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+CAPIZ,IVISAN,loaf bread,small packs,small packs,fold(untested/minor-flag),small packs,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
+CAPIZ,JAMINDAN,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,27.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+CAPIZ,MA-AYON,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,4.0,46.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+CAPIZ,MA-AYON,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,12.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+CAPIZ,MAMBUSAO,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,17.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+CAPIZ,PANAY,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,12.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+CAPIZ,PANITAN,loaf bread,small,small packs,fold(untested/minor-flag),small packs,1,10.0,76.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+CAPIZ,PILAR,loaf bread,large,large packs,safe-fold,large packs,3,5.0,118.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+CAPIZ,SIGMA,loaf bread,large,large packs,safe-fold,large packs,3,13.0,118.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+CAPIZ,TAPAZ,loaf bread,large,large packs,safe-fold,large packs,3,11.0,118.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+CAPIZ,JAMINDAN,mango,binilog,pieces or units,safe-fold,bilog,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,AJUY,cabbage,pack shredded cabbbage,pack,identity(ungrouped),pack,1,1.0,1.0,3,harmonizable,True,folds (rename-fuzzy) to MS cleaned unit 'pack'
+ILOILO,AJUY,cabbage,packs,pack,keep-separate,pack,1,1.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pack'
+ILOILO,ALIMODIAN,cabbage,binilog,pieces or units,safe-fold,bilog,1,2.0,28.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,BANATE,cabbage,pieces or units,pieces or units,safe-fold,bilog,1,1.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,BAROTAC VIEJO,cabbage,pack,pack,keep-separate,pack,1,1.0,12.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pack'
+ILOILO,BAROTAC VIEJO,cabbage,pieces or units,pieces or units,safe-fold,bilog,1,1.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,CONCEPCION,cabbage,pieces or units,pieces or units,safe-fold,bilog,1,1.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,DINGLE,cabbage,putos,pack,keep-separate,pack,1,2.0,19.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pack'
+ILOILO,DUMANGAS,cabbage,piraso,pieces or units,safe-fold,bilog,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'bilog'
+ILOILO,GUIMBAL,cabbage,binilog,pieces or units,safe-fold,bilog,1,5.0,28.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,JANIUAY,cabbage,binilog,pieces or units,safe-fold,bilog,1,2.0,28.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,LEGANES,cabbage,piraso,pieces or units,safe-fold,bilog,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'bilog'
+ILOILO,LEON,cabbage,binilog,pieces or units,safe-fold,bilog,1,1.0,28.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,MAASIN,cabbage,pieces or units,pieces or units,safe-fold,bilog,2,1.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,MIAGAO,cabbage,binilog,pieces or units,safe-fold,bilog,1,5.0,28.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,SAN ENRIQUE,cabbage,pieces or units,pieces or units,safe-fold,bilog,1,1.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,SAN JOAQUIN,cabbage,binilog,pieces or units,safe-fold,bilog,1,7.0,28.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,TIGBAUAN,cabbage,bilog,pieces or units,safe-fold,pieces or units,1,11.0,575.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pieces or units'
+ILOILO,TUBUNGAN,cabbage,binilog,pieces or units,safe-fold,bilog,1,2.0,28.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,BANATE,carrot,pieces or units,pieces or units,safe-fold,bilog,2,1.0,5.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,BAROTAC VIEJO,carrot,pieces or units,pieces or units,safe-fold,bilog,1,1.0,5.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,DUMANGAS,carrot,piraso,pieces or units,safe-fold,bilog,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'bilog'
+ILOILO,GUIMBAL,carrot,binilog,pieces or units,safe-fold,bilog,1,3.0,32.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,JANIUAY,carrot,binilog,pieces or units,safe-fold,bilog,1,3.0,32.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,LEGANES,carrot,piraso,pieces or units,safe-fold,bilog,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'bilog'
+ILOILO,LEON,carrot,binilog,pieces or units,safe-fold,bilog,1,2.0,32.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,MIAGAO,carrot,binilog,pieces or units,safe-fold,bilog,1,4.0,32.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,SAN ENRIQUE,carrot,pieces or units,pieces or units,safe-fold,bilog,1,1.0,5.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,SAN JOAQUIN,carrot,binilog,pieces or units,safe-fold,bilog,3,6.0,32.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,TUBUNGAN,carrot,binilog,pieces or units,safe-fold,bilog,1,7.0,32.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,JANIUAY,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),3,2.0,27.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ILOILO,LAMBUNAO,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),3,6.0,27.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ILOILO,LEON,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),1,3.0,27.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ILOILO,MIAGAO,chicken,bilog nga manok,whole (chicken),fold(untested/minor-flag),whole (chicken),3,3.0,27.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'whole (chicken)'
+ILOILO,CONCEPCION,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,safe-fold,pieces or units,3,11.0,493.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pieces or units'
+ILOILO,DINGLE,"crackers, cookies, buiscuits, chips/curls",pieces or units,pieces or units,safe-fold,bilog,1,3.0,25.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,LEMERY,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,safe-fold,pieces or units,3,26.0,493.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pieces or units'
+ILOILO,TIGBAUAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,pieces or units,safe-fold,bilog,3,3.0,25.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,AJUY,fresh fish,packs,pack,keep-separate,pack,3,2.0,9.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pack'
+ILOILO,BAROTAC VIEJO,fresh fish,tumpok,tumpok,safe-fold,tumpok,2,1.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'tumpok'
+ILOILO,LEMERY,fresh fish,putos,pack,keep-separate,pack,3,25.0,66.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pack'
+ILOILO,MIAGAO,fresh fish,binilog,pieces or units,safe-fold,bilog,2,1.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,SAN ENRIQUE,fresh fish,pack,pack,keep-separate,pack,3,4.0,19.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pack'
+ILOILO,SARA,fresh fish,pieces or units,pieces or units,safe-fold,bilog,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'bilog'
+ILOILO,SARA,fresh fish,putos,pack,keep-separate,pack,3,9.0,66.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'pack'
+ILOILO,TUBUNGAN,fresh fish,binilog,pieces or units,safe-fold,bilog,2,1.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,1,3.0,19.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),small cup,1,25.0,337.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,pieces or units,safe-fold,bilog,2,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,BATAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gmay nga cup,small cup,fold(untested/minor-flag),small cup,1,1.0,14.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,3,4.0,11.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maliit na tasa,small cup,fold(untested/minor-flag),small cup,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small cup'
+ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,small cup,fold(untested/minor-flag),small cup,1,1.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ice cream  in cone,cone,identity(ungrouped),cone,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'cone'
+ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga tasa,small cup,fold(untested/minor-flag),small cup,4,3.0,11.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,fold(untested/minor-flag),small cup,1,5.0,337.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small cup'
+ILOILO,SAN JOAQUIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,bilog,1,5.0,19.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,SAN JOAQUIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,pieces or units,safe-fold,bilog,2,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",piraso,pieces or units,safe-fold,bilog,1,1.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+ILOILO,AJUY,loaf bread,small,small packs,fold(untested/minor-flag),small packs,1,1.0,222.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,ALIMODIAN,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,1,1.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,ALIMODIAN,loaf bread,daragkul nga putos,large packs,safe-fold,large packs,1,1.0,14.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,ALIMODIAN,loaf bread,medium nga putos,medium packs,safe-fold,medium packs,1,1.0,26.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,BADIANGAN,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,28.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,BALASAN,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,6.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,BALASAN,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,24.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,BALASAN,loaf bread,large,large packs,safe-fold,large packs,1,3.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,BANATE,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,1,2.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,BAROTAC NUEVO,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,1,2.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,BAROTAC NUEVO,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,10.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,BAROTAC VIEJO,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,1,4.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,BAROTAC VIEJO,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,34.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,BAROTAC VIEJO,loaf bread,small packs,small packs,fold(untested/minor-flag),small packs,2,1.0,11.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
+ILOILO,BATAD,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,21.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,BATAD,loaf bread,small packs,small packs,fold(untested/minor-flag),small packs,2,1.0,11.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
+ILOILO,BINGAWAN,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,1,2.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,BINGAWAN,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,15.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,CALINOG,loaf bread,large packs,large packs,safe-fold,large packs,1,1.0,4.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,CALINOG,loaf bread,medium packs,medium packs,safe-fold,medium packs,1,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,CARLES,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,12.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,CARLES,loaf bread,small packs,small packs,fold(untested/minor-flag),small packs,2,1.0,11.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
+ILOILO,CONCEPCION,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,4.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,CONCEPCION,loaf bread,medium packs,medium packs,safe-fold,medium packs,1,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,CONCEPCION,loaf bread,small,small packs,fold(untested/minor-flag),small packs,1,3.0,222.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,DINGLE,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,15.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,DINGLE,loaf bread,large,large packs,safe-fold,large packs,3,12.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,DINGLE,loaf bread,medium packs,medium packs,safe-fold,medium packs,1,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,IGBARAS,loaf bread,large,large packs,safe-fold,large packs,3,33.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,IGBARAS,loaf bread,small,small packs,fold(untested/minor-flag),small packs,1,20.0,222.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,JANIUAY,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,16.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,JANIUAY,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,12.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,JANIUAY,loaf bread,medium nga putos,medium packs,safe-fold,medium packs,3,3.0,26.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,LAMBUNAO,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,15.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,LAMBUNAO,loaf bread,daragkul nga putos,large packs,safe-fold,large packs,1,1.0,14.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,LAMBUNAO,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,7.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,LAMBUNAO,loaf bread,medium,medium packs,safe-fold,medium packs,1,9.0,412.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,LEGANES,loaf bread,malaking packs,large packs,safe-fold,large packs,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'large packs'
+ILOILO,LEMERY,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,1,12.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,LEMERY,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,32.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,LEMERY,loaf bread,large packs,large packs,safe-fold,large packs,2,1.0,4.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,LEMERY,loaf bread,medium packs,medium packs,safe-fold,medium packs,2,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,LEMERY,loaf bread,small packs,small packs,fold(untested/minor-flag),small packs,1,1.0,11.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
+ILOILO,LEON,loaf bread,daragkul nga putos,large packs,safe-fold,large packs,1,2.0,14.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,LEON,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,2.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,LEON,loaf bread,medium,medium packs,safe-fold,medium packs,1,10.0,412.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,MAASIN,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,9.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,MIAGAO,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,2.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,MIAGAO,loaf bread,medium nga putos,medium packs,safe-fold,medium packs,1,2.0,26.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,MINA,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,3.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,MINA,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,2.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,MINA,loaf bread,malaking packs,large packs,safe-fold,large packs,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'large packs'
+ILOILO,OTON,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,13.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,OTON,loaf bread,large,large packs,safe-fold,large packs,1,6.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,POTOTAN,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,1,7.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,POTOTAN,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,17.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,SAN ENRIQUE,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,12.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,SAN ENRIQUE,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,3,4.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,SAN JOAQUIN,loaf bread,large,large packs,safe-fold,large packs,3,10.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,SAN JOAQUIN,loaf bread,large packs,large packs,safe-fold,large packs,1,1.0,4.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,SAN JOAQUIN,loaf bread,medium nga putos,medium packs,safe-fold,medium packs,1,7.0,26.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,SAN JOAQUIN,loaf bread,small,small packs,fold(untested/minor-flag),small packs,1,4.0,222.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,SAN RAFAEL,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,1.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,SARA,loaf bread,dalagku nga putos,large packs,safe-fold,large packs,3,2.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,SARA,loaf bread,gagmay nga putos,small packs,fold(untested/minor-flag),small packs,1,12.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,TIGBAUAN,loaf bread,small packs,small packs,fold(untested/minor-flag),small packs,3,7.0,11.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
+ILOILO,TUBUNGAN,loaf bread,large,large packs,safe-fold,large packs,1,5.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
+ILOILO,TUBUNGAN,loaf bread,medium nga putos,medium packs,safe-fold,medium packs,1,7.0,26.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+ILOILO,TUBUNGAN,loaf bread,small,small packs,fold(untested/minor-flag),small packs,3,6.0,222.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
+ILOILO,TUBUNGAN,mango,binilog,pieces or units,safe-fold,bilog,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
+NEGROS OCCIDENTAL,CALATRAVA,chicken,tibuok na manok,whole (chicken),fold(untested/minor-flag),whole (chicken),1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'whole (chicken)'
+NEGROS OCCIDENTAL,CALATRAVA,loaf bread,medium nga pakete,medium packs,safe-fold,medium packs,1,5.0,6.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
+NEGROS OCCIDENTAL,TOBOSO,loaf bread,gagmay nga pakete,small packs,fold(untested/minor-flag),small packs,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'

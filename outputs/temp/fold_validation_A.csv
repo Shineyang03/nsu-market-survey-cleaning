@@ -1,0 +1,9 @@
+﻿item,harmonized,label_ref,label_other,verdict,p,size_ctrl_ratio,n_strata,med_ref_med_g,med_other_med_g
+cabbage,pieces or units,bilog,binilog,agree,0.2249388596317181,0.97,10,668.0,755.0
+camote,pieces or units,bilog,binilog,DIFFER,0.004339101566681859,1.61,3,180.0,150.0
+carrot,pieces or units,bilog,binilog,agree,0.2402044406076581,0.77,9,150.0,170.0
+"crackers, cookies, buiscuits, chips/curls",pieces or units,bilog,binilog,insufficient,,,0,48.0,55.0
+"crackers, cookies, buiscuits, chips/curls",pieces or units,bilog,pieces or units,agree,0.22045236658597545,0.62,3,48.0,98.0
+fresh fish,pieces or units,bilog,binilog,agree,0.944256280695681,0.94,3,380.0,542.0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,bilog,binilog,agree,0.8801322454868259,1.05,4,85.0,140.0
+mango,pieces or units,bilog,binilog,sig-but-small,0.022820505289424257,1.09,3,240.0,230.0
