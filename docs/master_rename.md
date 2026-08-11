@@ -18,9 +18,9 @@ the union of the market survey (MS) and the price (PSPS-derived) data:
 |---|---|---|
 | `MS & Price` | raw NSU present in both the market survey and the price data | 2,001 |
 | `Price Only` | raw NSU in the price data but not in the raw MS data for that cell | 949 |
-| `MS` | raw NSU present only in the market survey, never in the price data | 2 |
+| `MS` | raw NSU present only in the market survey, never in the price data | 0 currently |
 
-Total **2,952 rows**; **759** are part of an in-cell merge (`n_cell_merged > 1`).
+Total **2,950 rows**; **757** are part of an in-cell merge (`n_cell_merged > 1`).
 
 ---
 
@@ -170,7 +170,9 @@ to see every cell where two or more raw spellings/translations collapse to one r
 
 **Auditing residual gaps.** Among `Price Only` rows: `empty/uncommon` = a real but empty/uncommon cell;
 `nonsensical (unmappable)` = free-text junk routed to `.c`; `nonsensical (recoverable)` = a
-quantity-prefixed string whose base unit was recovered.
+quantity-prefixed string whose base unit was recovered. See `docs/price_only_coverage.md` for the full
+breakdown of how many `Price Only` cases have no MS presence in their cell at all, with or without a
+fallback, and what that does and doesn't imply about whether they can still be converted.
 
 **Maximizing price-data coverage with `fallback_harmonized_nsu_unit`.** `harmonized_nsu_unit` is
 deliberately cell-independent (§3), so an `empty/uncommon` case's own harmonized unit may have too few

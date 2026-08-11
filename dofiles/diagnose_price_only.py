@@ -243,6 +243,24 @@ cols=['province','pull_municipal_city','cons_name','unit_lbl','harmonized_nsu_un
 po[cols].sort_values(['cause','province','cons_name','pull_municipal_city']).to_csv(out,index=False,encoding='utf-8-sig')
 print('wrote',out)
 
+# ---- coverage summary: how many price-only cases have NO MS presence in their exact cell at all,
+# direct match or fallback (see docs/price_only_coverage.md for the full write-up) ----
+direct=(po.cause_label=='harmonizable')
+fallback=(~direct)&(po.fallback_harmonized_nsu_unit!='')
+none=~direct & ~fallback
+cov=pd.DataFrame([
+    ['direct in-cell match (harmonizable)',int(direct.sum())],
+    ['resolved via in-cell fallback',int(fallback.sum())],
+    ['no MS presence in cell at all (no match, no fallback)',int(none.sum())],
+    ['  of which: nonsensical (unmappable) -- no weight at all (.c)',int((none&(po.cause_label=='nonsensical (unmappable)')).sum())],
+    ['  of which: nonsensical (recoverable) -- heuristic salvage only',int((none&(po.cause_label=='nonsensical (recoverable)')).sum())],
+    ['  of which: empty/uncommon, item absent from cell',int((none&(po.cause_label=='empty/uncommon')&po.detail.str.contains('item absent from this cell')).sum())],
+    ['  of which: empty/uncommon, valid for item elsewhere (has an item-level pool, just not local)',int((none&(po.cause_label=='empty/uncommon')&po.detail.str.contains('valid for item elsewhere')).sum())],
+    ['TOTAL price-only cases',len(po)],
+],columns=['category','n'])
+cov.to_csv(BOX+r'\Data Cleaning\outputs\temp\price_only_coverage_summary.csv',index=False,encoding='utf-8-sig')
+print('=== price-only coverage summary ==='); print(cov.to_string(index=False))
+
 # ================= MASTER rename: prov x mun x item x nsu (MS union Price), with in-cell merges =================
 # Universe = every (prov,mun,item,raw_nsu) observed in raw ${data} (MS) OR the price data. For each raw nsu
 # shows what it harmonizes to AND which sibling spellings/translations in the SAME cell it pools with --

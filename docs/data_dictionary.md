@@ -94,7 +94,7 @@ So for cabbage `binilog`: `in_MS_as = bilog` (the specific sibling in that cell)
 ## `outputs/tables/master_nsu_rename.csv` — master rename sheet (prov×mun×item×nsu)
 
 One row per **`(province, municipality, item, raw_nsu)`** observed in the raw `${data}` (MS) OR the
-price data — the union (2,952 rows: 2,001 MS & Price + 949 Price Only + 2 MS-only). Its purpose is to
+price data — the union (2,950 rows: 2,001 MS & Price + 949 Price Only + 0 MS-only currently). Its purpose is to
 identify, **within each prov-mun-item cell**, the nsus that are the same referent but recorded with a
 different spelling/translation, and show what they all pool to. 759 rows are part of such an in-cell
 merge.
