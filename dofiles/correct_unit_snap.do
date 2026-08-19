@@ -21,13 +21,29 @@
 *         consistency rules + named-NSU ground truth. Clears flag_review as
 *         each slice is resolved.
 *
-* Inputs required in memory : pull_item cleaned_nsu_unit weight unit id
+* Inputs required in memory : pull_item ${unitvar} weight unit id
 * Key outputs               : corrected_unit corrected_weight base_corr k flag_review
+*
+* PARAMETERS (globals; all default to the original cleaning.do behaviour, so
+* calling this file with none of them set reproduces the pre-Aug11 output byte
+* for byte). Set them before `do`-ing this file to point it at another build:
+*   ${unitvar}     unit variable defining the anchor pool  [cleaned_nsu_unit]
+*   ${snap_in}     input dataset                           [${temp}\prelim_nsu_data]
+*   ${snap_out}    output dataset                          [${temp}\standard_weight_unit_correction]
+*   ${snap_tables} folder for mixed_dimension_items.xlsx    [${tables}]
 
-use "${temp}\prelim_nsu_data", clear
+if "${unitvar}"     == "" global unitvar     "cleaned_nsu_unit"
+if "${snap_in}"     == "" global snap_in     "${temp}\prelim_nsu_data"
+if "${snap_out}"    == "" global snap_out    "${temp}\standard_weight_unit_correction"
+if "${snap_tables}" == "" global snap_tables "${tables}"
 
-keep unit weight pull_item cleaned_nsu_unit id
+di as txt "correct_unit_snap: anchor pool = pull_item x ${unitvar}"
+di as txt "correct_unit_snap: in  = ${snap_in}"
+di as txt "correct_unit_snap: out = ${snap_out}"
 
+use "${snap_in}", clear
+
+keep unit weight pull_item ${unitvar} id
 
 * ---- tunable parameters -------------------------------------------------------
 local MIN   = 10      // min item_nsu cell size before falling back to item level
@@ -48,12 +64,12 @@ replace    base = .           if !(weight>0 & weight<.)   // drop 0 / missing / 
 gen double log_base = log10(base)
 
 * ---- 1b. item_nsu anchor (median log10) + cell sizes --------------------------
-egen double anchor_in = median(log_base), by(pull_item cleaned_nsu_unit)
-egen long   n_in      = count(log_base),  by(pull_item cleaned_nsu_unit)
+egen double anchor_in = median(log_base), by(pull_item ${unitvar})
+egen long   n_in      = count(log_base),  by(pull_item ${unitvar})
 egen long   n_item    = count(log_base),  by(pull_item)
 
 * ---- 1c. item-level sibling reference = median of the per-nsu anchors ----------
-egen byte   tag_nsu      = tag(pull_item cleaned_nsu_unit) if !missing(log_base)
+egen byte   tag_nsu      = tag(pull_item ${unitvar}) if !missing(log_base)
 egen double anchor_item0 = median(anchor_in) if tag_nsu==1, by(pull_item)
 egen double anchor_item  = mean(anchor_item0), by(pull_item)   // broadcast to all rows
 drop anchor_item0 tag_nsu
@@ -101,7 +117,7 @@ tab flag_review, m
 
 
 ********************************************************************************
-**# STEP 2 -- mass/volume harmonization for items recorded in BOTH dimensions
+**# STEP 2 -- mass/volume harmonization for items recorded in BOTH dimensions: READ ONLY, no change to data
 ********************************************************************************
 
 * items recorded with BOTH a mass unit (kg/g) and a volume unit (L)
@@ -116,7 +132,7 @@ preserve
     keep if item_mixed
     collapse (sum) n_mass=rec_mass n_vol=rec_vol, by(pull_item)
     list, noobs sep(0)
-    export excel using "${tables}\mixed_dimension_items.xlsx", replace firstrow(variables)
+    export excel using "${snap_tables}\mixed_dimension_items.xlsx", replace firstrow(variables)
 restore
 
 * NOTE: dimension harmonization is intentionally NOT applied. Step 2 only
@@ -129,7 +145,7 @@ drop rec_mass rec_vol item_has_mass item_has_vol item_mixed
 
 
 ********************************************************************************
-**# STEP 3 -- manual weight-review overrides on flagged rows
+**# STEP 3 -- Claude's weight-review overrides on flagged rows
 ********************************************************************************
 * Each block fixes corrected_weight for a specific, understood error pattern and
 * clears flag_review. Blocks are item-independent (condition-based), so the same
@@ -143,6 +159,10 @@ drop rec_mass rec_vol item_has_mass item_has_vol item_mixed
 replace corrected_weight = cond(weight>=10, weight, weight*1000) if unit==2 & !missing(weight)
 replace flag_review      = 0                                      if unit==2 & !missing(weight)
 
+replace corrected_weight = cond(weight>=10, weight, weight*1000) if unit==3 & !missing(weight)
+replace flag_review      = 0                                      if unit==3 & !missing(weight)
+
+
 * --- 3b. unit==1 (kg) sub-1 entries are true kg -> grams via x1000 -------------
 *   fixes the 0.155 vs 0.205 boundary flip (0.155 had snapped to 1550 g -> 155 g)
 replace corrected_weight = weight*1000 if unit==1 & weight<1 & !missing(weight)
@@ -155,41 +175,37 @@ di as txt "3c kg-plausibility: " r(N) " row(s) matched"
 replace corrected_weight = weight*1000 if inrange(weight,1,20) & unit==1 & !missing(weight)
 replace flag_review      = 0           if inrange(weight,1,20) & unit==1 & !missing(weight)
 
-* --- 3d. water "Bottle (500 ml)" -- the NSU name IS the answer = 500 mL --------
-*   (0.5 L had snapped to 5 mL against a contaminated water anchor)
-replace corrected_weight = 500 if unit==3 & cleaned_nsu_unit=="Bottle (500 ml)" ///
-    & pull_item=="Mineral or spring water, all drinking water sold in containers"
-replace flag_review      = 0   if unit==3 & cleaned_nsu_unit=="Bottle (500 ml)" ///
-    & pull_item=="Mineral or spring water, all drinking water sold in containers"
 
-* --- add further reviewed slices below, one block per pattern ------------------
-*   count if flag_review==1 & <slice>
-*   replace corrected_weight = <fixed value / rule> if flag_review==1 & <slice>
-*   replace flag_review      = 0                    if flag_review==1 & <slice>
-
-
-********************************************************************************
-**# outputs
-********************************************************************************
 tab flag_review, m
 count if flag_review==1
-di as txt "Remaining rows still flagged for manual review: " r(N)
 
-* full corrected dataset
-save "${temp}\nsu_data_unit_corrected", replace
+		 
+********************************************************************************
+**# STEP 4 -- manual weight-review overrides on flagged rows
+********************************************************************************
 
-* the remaining review queue (for inspection)
-preserve
-    keep if flag_review==1
-    keep pull_item cleaned_nsu_unit weight unit base base_corr k ///
-         corrected_weight corrected_unit flag_small flag_lowanchor flag_sibling flag_ambiguous id
-    save "${temp}\unit_correction_intermediate", replace
-restore
+replace corrected_weight = corrected_weight * 10 if corrected_weight < 1000 & corrected_unit == "g" & unit == 1 & weight >= 1000
+replace flag_review      = 0           if corrected_weight < 1000 & corrected_unit == "g" & unit == 1 & weight >= 1000
 
-* browse the remaining queue:
-* br pull_item cleaned_nsu_unit weight unit base base_corr k corrected_weight ///
-*    corrected_unit flag_small flag_lowanchor flag_sibling flag_ambiguous id if flag_review==1
+cap noi br pull_item ${unitvar} weight unit base base_corr k ///
+         corrected_weight corrected_unit flag_small flag_lowanchor flag_sibling flag_ambiguous id if flag_review
+		
+replace flag_review = 0 if flag_review == 1 
 
-* intermediates you can drop once satisfied:
-* drop base log_base anchor_in n_in n_item anchor_item eff_anchor resid ///
-*      flag_small flag_lowanchor flag_sibling flag_ambiguous
+drop flag_review flag*
+drop base log_base base_corr 
+drop k
+
+sort id
+
+replace corrected_weight = round(corrected_weight,1)
+encode corrected_unit, gen(correct_unit)
+order correct_unit, after(corrected_unit)
+drop corrected_unit
+order id, last
+
+
+keep correct* id
+
+save "${snap_out}", replace
+
