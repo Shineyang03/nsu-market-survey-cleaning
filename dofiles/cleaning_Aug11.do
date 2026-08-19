@@ -12,7 +12,20 @@
 *    merged on the RAW-CASED strings. master_nsu_rename.csv is keyed on
 *    (province, municipality, item, raw NSU) with all keys already normalized
 *    (item/NSU lowercased+trimmed+ASCII-dropped, prov/mun UPPER+ASCII-dropped).
-*    So the rename merge now happens AFTER key normalization, not before.
+*
+*    THE MERGE KEY IS THE RAW, UNCLEANED NSU: pull_province x
+*    pull_municipal_city x pull_item x pull_nsu_unit. cleaned_nsu_unit and
+*    harmonized_nsu_unit are what the merge RETURNS, never what it matches on --
+*    master's whole job is (cell, raw label) -> pooling key.
+*
+*    Two independent consequences, easy to conflate:
+*      (a) casing -- master's key columns arrive already normalized, whereas the
+*          old crosswalk carried raw-cased strings and joined to the launch data
+*          as recorded. THIS is why the rename merge now has to run AFTER
+*          nsu_normalize rather than before. Nothing to do with the grain.
+*      (b) grain  -- the join is m:1 on four keys instead of two, and the
+*          harmonization is resolved per cell, so one raw label can pool with
+*          different siblings in different municipalities (see note 4).
 *
 * 2. OPERATIONAL UNIT. cleaned_nsu_unit -> harmonized_nsu_unit. cleaned_nsu_unit
 *    is carried through for reference only (canonical spelling); every pool,
@@ -20,16 +33,34 @@
 *    docs/master_rename.md section 2-3 for why the harmonized key is
 *    item-conditioned but cell-independent.
 *
-* 3. NOTHING IS DROPPED FOR BEING "MS ONLY" OR "STANDARD". cleaning.do built its
-*    crosswalk by merging the MS and PSPS item x NSU lists, dropped anything whose
-*    label looked like a standard unit ((Kg)/(g)/(L)/ml/kilo/litres/...), then
-*    kept only _merge==3 -- which silently dropped ~190 MS weighings. master
-*    already carries the authoritative MS-vs-price source flag per cell and has
-*    source=="MS" (MS-only) = 0 rows, so there is nothing to drop on that basis.
-*    Ten surviving labels contain a standard-unit substring but are genuine NSUs
-*    with descriptive size text ("bottle (500 ml)", "1/2 sack of rice (25kls.)",
-*    "each 10 litres of gallon"); they are KEPT. Section 3 counts them so the
-*    difference against the old build is visible rather than implicit.
+* 3. WHAT GETS DROPPED, AND WHY THE TWO OLD FILTERS ARE NOT THE SAME THING.
+*    cleaning.do built its crosswalk by merging the MS and PSPS item x NSU lists,
+*    applied a standard-unit label filter, then kept only _merge==3. Those are two
+*    separate exclusions and this build treats them differently:
+*
+*    (a) "MS only" -- NOT dropped any more. master carries the authoritative
+*        MS-vs-price source flag per cell and has source=="MS" (MS-only) = 0 rows,
+*        so there is nothing to drop on that basis. The old keep(_merge==3) was
+*        working at item x NSU grain and discarded MS weighings as collateral.
+*
+*    (b) STANDARD-QUANTITY LABELS -- still dropped, same substring rule
+*        ((Kg)/(g)/(L)/ml/kilo/litres/...), now applied at the weighing level.
+*        Ten raw labels / 33 weighings: "bottle (500 ml)", "1.5kg per balde",
+*        "1/2 sack of rice (25kls.)", "each 10 litres of gallon", etc. Each names
+*        its own quantity, so it needs no measured conversion factor; these are
+*        reconciled by hand on the PSPS side at merge time. Every dropped row is
+*        exported to tables/excluded_standard_unit_obs.xlsx first.
+*
+*        The drop is placed BEFORE correct_unit_snap.do deliberately, so these
+*        labels also stay out of the item-level anchor pool (step 1c). Mineral
+*        water's pools span a 500 mL bottle to a 10 L gallon; letting both vote on
+*        one item-level reference is what contaminated that anchor and turned a
+*        0.01 L reading of a 10 L gallon into 10 mL.
+*
+*    Do not confuse (b) with PSPS-side standard-unit RESPONSES -- households that
+*    answered in kg/g/L/mL need no conversion factor at all and are excluded on
+*    the PSPS side, not here. "The household answered in kg" and "this NSU's name
+*    mentions kg" are different conditions.
 *
 * 4. TWO ASSERTS BECOME DIAGNOSTICS. 757 master rows are in-cell merges
 *    (n_cell_merged>1): two or more raw NSU spellings in one prov-mun-item cell
@@ -294,9 +325,15 @@ assert !mi(harmonized_nsu_unit) & harmonized_nsu_unit != ".c"
 * reference-only annotations from the superseded crosswalk (never a rename here)
 merge m:1 pull_item pull_nsu_unit using "${btemp}\nsu_name_notes", keep(1 3) nogen
 
-* ---- what the old build dropped and this one keeps ---------------------------
-* labels containing a standard-unit substring: genuine NSUs with descriptive size
-* text, kept here (see header note 3). Counted so the difference is explicit.
+* ---- exclude raw labels that state a standard quantity ------------------------
+* Same substring rule the pre-Aug11 crosswalk used, applied here at the weighing
+* level. These labels name their own quantity ("bottle (500 ml)", "1.5kg per
+* balde", "each 10 litres of gallon"), so they do not need a measured conversion
+* factor -- they are handled by hand on the PSPS side at merge time. Dropping
+* them HERE, before correct_unit_snap.do, also keeps them out of the item-level
+* anchor pool (step 1c), which matters: mineral water's pools run from a 500 mL
+* bottle to a 10 L gallon, and letting both vote on one item-level reference is
+* what contaminated that anchor. Every dropped row is exported first.
 gen byte looks_standard = ///
 	strpos(pull_nsu_unit,"(kg)") > 0 | ///
 	strpos(pull_nsu_unit,"(g)")  > 0 | ///
@@ -309,9 +346,27 @@ gen byte looks_standard = ///
 	strpos(pull_nsu_unit,"litres") > 0 | ///
 	strpos(pull_nsu_unit,"liters") > 0
 
-label var looks_standard "1 = raw label contains a standard-unit substring (kept, not dropped)"
+label var looks_standard "1 = raw label states a standard quantity -> excluded from MS data"
 tab looks_standard, m
-list pull_item pull_nsu_unit harmonized_nsu_unit if looks_standard, noobs abbrev(30) sepby(pull_item)
+
+* the excluded set, for the manual PSPS-side treatment later
+preserve
+	keep if looks_standard == 1
+	decode item_nsu_hetero_type, gen(hetero_lbl)
+	keep pull_province pull_municipal_city pull_item pull_nsu_unit ///
+	     cleaned_nsu_unit harmonized_nsu_unit weighing_approach hetero_lbl ///
+	     market_type vendor_id pull_price weight unit
+	order pull_province pull_municipal_city pull_item pull_nsu_unit
+	sort pull_item pull_nsu_unit pull_province pull_municipal_city
+	list pull_item pull_nsu_unit harmonized_nsu_unit weight unit, ///
+		noobs abbrev(30) sepby(pull_item)
+	export excel using "${btables}\excluded_standard_unit_obs.xlsx", ///
+		sheet("excluded_from_MS", replace) firstrow(variables)
+	di as txt "excluded standard-quantity weighings exported: " _N
+restore
+
+drop if looks_standard == 1
+drop looks_standard
 
 count if notes != ""
 di as txt "weighings carrying a cleaning note: " r(N)
@@ -351,7 +406,7 @@ order item_nsu_hetero_type weight unit, after(pull_price)
 order fo_comments_cleaned nsu_name_notes cleaning_notes, last
 order actual_price approx_price, after(pull_price)
 order market_day, before(market_name)
-order source cell_merge_with n_cell_merged looks_standard, last
+order source cell_merge_with n_cell_merged, last
 
 
 * enumerators sometimes enter 0 weight when they don' t observe the item at the specified price / size (5 obs)
@@ -622,28 +677,9 @@ replace corrected_unit = .c if is_5g_cup
 drop is_5g_cup
 
 
-* ---- residual implausible volumes, NEW to this build --------------------------
-* The old crosswalk discarded every label containing litres/liters/kg/ml, which
-* removed a family of water NSUs whose label states a bulk volume ("6 liters of
-* water (2 blue container)", "each 10 litres of gallon") while the recorded value
-* is a sub-decilitre reading (0.006 / 0.01 L). This build keeps them (see header
-* note 3), so the snap now yields corrected weights of 6-22 mL for containers the
-* label says hold 6-10 L. They are LEFT AS RECORDED and flagged: the label and the
-* reading disagree by ~3 decades and picking a winner is a substantive decision,
-* not a port of the old pipeline. Filter on looks_standard to exclude them.
-count if looks_standard == 1 & corrected_unit == 2 & corrected_weight < 100 & !mi(corrected_weight)
-if r(N) > 0 {
-	di as err "implausible volume readings on newly-kept standard-unit labels: " r(N)
-	preserve
-		keep if looks_standard == 1 & corrected_unit == 2 & corrected_weight < 100 & !mi(corrected_weight)
-		keep pull_province pull_municipal_city pull_item pull_nsu_unit ///
-		     harmonized_nsu_unit item_nsu_hetero_type vendor_id weight unit corrected_weight
-		sort pull_province pull_municipal_city pull_nsu_unit
-		list, noobs abbrev(28)
-		export excel using "${btables}\implausible_volume_newly_kept.xlsx", ///
-			sheet("label_vs_reading_conflict", replace) firstrow(variables)
-	restore
-}
+* NOTE: the standard-quantity labels that used to produce implausible volumes here
+* ("each 10 litres of gallon" reading 0.01 L -> 10 mL) are excluded upstream now,
+* so there is no residual label-vs-reading conflict left to flag at this point.
 
 
 drop weight unit diagnostics
@@ -710,7 +746,9 @@ putexcel A`row' = "Notes", bold
 local ++row
 putexcel A`row' = "unit variable: harmonized_nsu_unit (new) vs cleaned_nsu_unit (pre-Aug11)"
 local ++row
-putexcel A`row' = "the new build drops nothing for being MS-only or standard-unit-looking; see cleaning_Aug11.do header note 3"
+putexcel A`row' = "MS-only rows are no longer dropped (master has 0 of them); standard-quantity labels ARE still dropped -- 10 labels / 33 weighings, listed in excluded_standard_unit_obs.xlsx"
+local ++row
+putexcel A`row' = "see cleaning_Aug11.do header note 3 for why those two old filters are separate exclusions"
 
 use "${btemp}\nsu_data_master", clear
 
