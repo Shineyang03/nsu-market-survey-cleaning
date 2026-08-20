@@ -40,9 +40,9 @@ flowchart TD
     WA -->|"size-based<br/>1,515 cases · 78%"| S1["MS recorded no price.<br/>p_r joined from the price file<br/>=> PSPS-round frame.<br/>w_r = weight tercile (Step A)."]
     S1 --> S2{"How many rungs?<br/>min(price points, weighings)"}
 
-    S2 -->|"3 price points<br/>AND >= 6 weighings"| R3["Three rungs S/M/L.<br/>Match p_h to nearest p_r.<br/>CF_h = p_h · w_r / p_r"]
-    S2 -->|"3 price points<br/>AND 3-5 weighings"| R2["Two rungs small/large.<br/>Pair with p25 and p75, drop p50.<br/>CF_h = p_h · w_r / p_r"]
-    S2 -->|"1 price point (67.5% of cases)<br/>OR < 3 weighings"| R1["One rung — no size resolution.<br/>Pool across S/M/L, vendors, markets.<br/>CF = median(w), same for every household."]
+    S2 -->|"3 price points (32.5%)<br/>AND >= 6 weighings"| R3["Three rungs S/M/L.<br/>Match p_h to nearest p_r.<br/>CF_h = p_h · w_r / p_r"]
+    S2 -->|"2 price points (3.3%), or<br/>3 points but only 3-5 weighings"| R2["Two rungs small/large.<br/>Pair with the 2 available points<br/>(p25 & p75 if from a triple).<br/>CF_h = p_h · w_r / p_r"]
+    S2 -->|"1 price point (64.2%)<br/>OR < 3 weighings"| R1["One rung — no size resolution.<br/>Pool across S/M/L, vendors, markets.<br/>CF = median(w), same for every household."]
 
     R3 --> PI["pi CANCELS on this branch.<br/>Apply it or not — identical CF."]
     R2 --> PI
@@ -57,7 +57,7 @@ flowchart TD
 | 2 | Outcome 2 | conventional | 1 | cell median | none | — | n/a | $`\operatorname{median}(w)`$ |
 | 3 | Outcome 2 | price-quantity | as fielded | weight bought at that point | `pull_price` (spent) | **MS** | **required** | $`p_h(1{+}\pi)\,w_r/p_r`$ |
 | 4 | Outcome 2 | size-based | 3 | tercile median | price file p25/p50/p75 | **PSPS** | cancels | $`p_h\,w_r/p_r`$ |
-| 5 | Outcome 2 | size-based | 2 | median-split median | price file p25, p75 | **PSPS** | cancels | $`p_h\,w_r/p_r`$ |
+| 5 | Outcome 2 | size-based | 2 | median-split median | the 2 available points (p25 & p75 from a triple, or 2 municipal price levels) | **PSPS** | cancels | $`p_h\,w_r/p_r`$ |
 | 6 | Outcome 2 | size-based | 1 | pooled cell median | the single median point | **PSPS** | cancels | $`\operatorname{median}(w)`$ |
 
 Scenario 6 is the most common outcome, and note that it makes rows 2 and 6 the same
@@ -246,23 +246,47 @@ into three sizes. Measured on the size-based cases:
 
 **Limit 2 — how many price points exist.** A size is only useful if there is a
 price to pair it with, so a cell with a single median price supports one rung no
-matter how often we weighed it. This limit turns out to be **binary**, a direct
-consequence of the field protocol above:
+matter how often we weighed it. The four dominant `price_type` combinations map
+one-to-one onto the four branches of the field protocol above, which is a useful
+confirmation that the protocol description and the file agree:
 
-| price points in the price file | cases | share |
+| `price_type` combination | protocol branch | cases | share |
+|---|---|---|---|
+| `mp25 + mp50 + mp75` | ≥3 unique prices, IQR > ₱40 | 954 | 32.3% |
+| `province median` only | ≤2 unique prices, within ₱20 of province median | 832 | 28.2% |
+| `municipality median` only | ≥3 unique prices, IQR ≤ ₱40 | 809 | 27.4% |
+| `province median` + `unique_mun_price` | ≤2 unique prices, > ₱20 from province median | 350 | 11.9% |
+| quartile triple + an extra point | — | 5 | 0.2% |
+
+Reading that as rungs needs one judgement call. In the fourth row the province
+median accompanies the municipal price *because* the municipal evidence is thin, so
+it is a **fallback reference, not a second rung** — the two are estimates of the
+same central tendency at different geographies, and pairing them as small/large
+would be meaningless. Of those 350 cases, 253 have one distinct municipal price
+level and 97 have two. So:
+
+| rungs available on price grounds | cases | share |
 |---|---|---|
-| full p25 / p50 / p75 triple | 959 | 32.5% |
-| a single median-type point (municipality median, province median, or a unique municipal price) | 1,991 | **67.5%** |
+| 3 | 959 | 32.5% |
+| 2 | 97 | 3.3% |
+| 1 | 1,894 | **64.2%** |
 
-**No case has exactly two quartile points.** So Limit 2 usually binds and it binds
-hard: roughly two thirds of cases collapse to a single rung on price grounds alone,
-whatever their weight distribution looks like. The two-size rung is reachable only
-where a case has the full price triple but just 3–5 weighings.
+(The alternative reading — every distinct price level is a rung — gives 33.6% / 10.7%
+/ 55.6%. Either way the qualitative conclusion is the same.) Tallied by
+`dofiles/tally_price_points.py`.
 
-*(These two tallies are not yet joined — the 67.5% is over all price-file cases,
-including price-only ones with no MS weighings. Joining them on
-`harmonized_nsu_unit` to get the true joint distribution is the first task of the
-implementation.)*
+**Limit 2 usually binds, and it binds harder than Limit 1**: about two thirds of
+cases collapse to a single rung on price grounds alone (64.2%) against a quarter on
+weight grounds (24.1%). The two-rung case is genuinely rare — 3.3% — so in practice
+a case has either the full three-rung ladder or no ladder at all.
+
+Two caveats on these numbers. They are **marginal, not joint**: the price-side
+tally covers all 2,950 price-file cases including the 949 price-only ones with no MS
+weighings, so joining the two limits on `harmonized_nsu_unit` to get the real joint
+distribution is the first task of the implementation. And **38 of the 350** two-label
+cases have their municipal price within ₱20 of the province median, which the stated
+protocol would have collapsed to province median only — worth confirming whether
+those are exceptions or a different threshold was applied.
 
 **When a case collapses to one rung** the sizes are not separated at all: pool every
 size-based weighing in the cell across vendors, market types **and** the original
