@@ -34,41 +34,42 @@ flowchart TD
 
     WA -->|"conventional<br/>123 cases · 6%"| C1["No size, no price.<br/>CF = median(w) over the cell.<br/>pi: not applicable"]
 
-    WA -->|"price-quantity based<br/>314 cases · 16%"| P1["p_r = pull_price, the amount actually SPENT<br/>=> MS-round frame.<br/>w_r = what that money bought."]
-    P1 --> P2["pi REQUIRED — it does not cancel.<br/>CF_h = p_h · (1+pi) · w_r / p_r<br/>pi from household PSPS month -> MS weighing month"]
+    WA -->|"price-quantity based<br/>314 cases · 16%"| P1["p_r = pull_price, the amount actually SPENT.<br/>w_r = what that money bought,<br/>so w_r moves with the price level."]
+    P1 --> P2["ADJUST THE WEIGHT: w_psps = w_r · (1+pi)<br/>CF_h = p_h · w_psps / p_r<br/>pi from household PSPS month -> MS weighing month"]
 
-    WA -->|"size-based<br/>1,515 cases · 78%"| S1["MS recorded no price.<br/>p_r joined from the price file<br/>=> PSPS-round frame.<br/>w_r = weight tercile (Step A)."]
+    WA -->|"size-based<br/>1,515 cases · 78%"| S1["MS recorded no price.<br/>p_r joined from the price file.<br/>w_r = weight tercile (Step A),<br/>a property of the object."]
     S1 --> S2{"How many rungs?<br/>min(price points, weighings)"}
 
     S2 -->|"3 price points (32.5%)<br/>AND >= 6 weighings"| R3["Three rungs S/M/L.<br/>Match p_h to nearest p_r.<br/>CF_h = p_h · w_r / p_r"]
     S2 -->|"2 price points (3.3%), or<br/>3 points but only 3-5 weighings"| R2["Two rungs small/large.<br/>Pair with the 2 available points<br/>(p25 & p75 if from a triple).<br/>CF_h = p_h · w_r / p_r"]
     S2 -->|"1 price point (64.2%)<br/>OR < 3 weighings"| R1["One rung — no size resolution.<br/>Pool across S/M/L, vendors, markets.<br/>CF = median(w), same for every household."]
 
-    R3 --> PI["pi CANCELS on this branch.<br/>Apply it or not — identical CF."]
+    R3 --> PI["NO weight adjustment.<br/>w_psps = w_r. pi not used."]
     R2 --> PI
     R1 --> PI
 ```
 
 ### The scenarios as a table
 
-| # | deliverable | branch | rungs | $`w_r`$ is | $`p_r`$ is | frame of $`p_r`$ | $`\pi`$ | conversion factor |
-|---|---|---|---|---|---|---|---|---|
-| 1 | Outcome 1 | any | as resolved | tercile / point median | *not reported* | — | never | $`w_r`$ itself |
-| 2 | Outcome 2 | conventional | 1 | cell median | none | — | n/a | $`\operatorname{median}(w)`$ |
-| 3 | Outcome 2 | price-quantity | as fielded | weight bought at that point | `pull_price` (spent) | **MS** | **required** | $`p_h(1{+}\pi)\,w_r/p_r`$ |
-| 4 | Outcome 2 | size-based | 3 | tercile median | price file p25/p50/p75 | **PSPS** | cancels | $`p_h\,w_r/p_r`$ |
-| 5 | Outcome 2 | size-based | 2 | median-split median | the 2 available points (p25 & p75 from a triple, or 2 municipal price levels) | **PSPS** | cancels | $`p_h\,w_r/p_r`$ |
-| 6 | Outcome 2 | size-based | 1 | pooled cell median | the single median point | **PSPS** | cancels | $`\operatorname{median}(w)`$ |
+All price points are nominal PSPS round throughout, in every scenario.
 
-Scenario 6 is the most common outcome, and note that it makes rows 2 and 6 the same
-object: once a case has only one rung, the size-based branch degenerates to exactly
-what the conventional branch does.
+| # | deliverable | branch | rungs | $`w_r`$ is | $`p_r`$ is | weight adjustment | conversion factor |
+|---|---|---|---|---|---|---|---|
+| 1 | Outcome 1 | any | as resolved | tercile / point median | *not reported* | none — report as measured | $`w_r`$ itself |
+| 2 | Outcome 2 | conventional | 1 | cell median | none | none | $`\operatorname{median}(w)`$ |
+| 3 | Outcome 2 | price-quantity | as fielded | weight bought at that point | `pull_price`, the amount spent | $`\times(1+\pi)`$ | $`p_h\,w_r(1{+}\pi)/p_r`$ |
+| 4 | Outcome 2 | size-based | 3 | tercile median | price file p25/p50/p75 | none | $`p_h\,w_r/p_r`$ |
+| 5 | Outcome 2 | size-based | 2 | median-split median | the 2 available points | none | $`p_h\,w_r/p_r`$ |
+| 6 | Outcome 2 | size-based | 1 | pooled cell median | the single median point | none | $`\operatorname{median}(w)`$ |
 
-Two things the tree deliberately makes visible. **Inflation is a branch property,
-not a global step** — it is required for scenario 3 and inert for 4–6. And **the
-ordinal ladder is not the same observable in every branch**: it is a weight tercile
-on the size-based branch and a given price point on the price-quantity branch, which
-is why $`p_r`$'s peso frame differs between them.
+Scenario 6 is the most common, and it makes rows 2 and 6 the same object: with one
+rung, the size-based branch degenerates to what the conventional branch does.
+
+Three things the tree makes visible. **Inflation is a branch property, not a global
+step** — scenario 3 only. **It applies to the weight, never to a price** — every
+$`p_r`$ stays PSPS round, so a rung means the same thing in every scenario. And
+**the ordinal ladder is not the same observable in every branch**: a weight tercile
+on the size-based branch, a given price point on the price-quantity branch.
 
 ---
 
@@ -78,48 +79,38 @@ A **case** $`c`$ is a province × municipality × item × NSU combination.
 
 **Market survey (MS) side.** A case is resolved into up to three **rungs** — an
 *ordinal* ladder from smallest/cheapest to largest/dearest, indexed
-$`r \in \{1, 2, 3\}`$. The rung is **not** intrinsically a size: which observable
-realizes it depends on the case's weighing approach.
+$`r \in \{1,2,3\}`$. A rung is not intrinsically a size; which observable realizes
+it depends on the weighing approach:
 
-| weighing approach | what a rung is, concretely |
-|---|---|
-| size-based | a weight tercile — the S / M / L relabelling of §Step A |
-| price-quantity based | a price point the enumerator was given — MP25 / MP50 / MP75 |
-| conventional | there is one rung and it has no size or price attached |
+| weighing approach | a rung is | $`w_r`$ | $`p_r`$, and the round it belongs to |
+|---|---|---|---|
+| size-based | a weight tercile (S / M / L) | tercile median | joined from the price file → **PSPS round** |
+| price-quantity | a price point given to the enumerator (MP25/50/75) | weight that money bought | the amount **actually spent** → **MS round** |
+| conventional | the whole case | cell median | none |
 
-Per rung $`r`$ within a case:
+- $`w_r`$ — grams in one rung-$`r`$ unit
+- $`p_r`$ — **PHP per NSU** for a rung-$`r`$ unit. Its round is branch-specific, per
+  the table: the *same nominal number* can be an MS-round price in one case and a
+  PSPS-round price in another, because the round comes from how the number was used,
+  not from the number.
+- $`v_r \equiv p_r / w_r`$ — unit value, **PHP per gram**, in whatever round
+  $`p_r`$ belongs to
 
-- $`w_r`$ — grams per NSU (the weight of a rung-$`r`$ unit)
-- $`p_r`$ — price, **PHP per NSU**, of a rung-$`r`$ unit. **Its peso frame depends
-  on the branch** and this is the single easiest thing to get wrong:
-  - *price-quantity:* $`p_r`$ is the amount the enumerator **actually spent**, so
-    it is an **MS-round** price, and $`w_r`$ is what that money bought at MS-round
-    prices.
-  - *size-based:* the MS recorded no price at all, so $`p_r`$ is joined in from the
-    price file and is a **PSPS-round** price.
-
-  The *same nominal number* (e.g. ₱88) can therefore be an MS-round price in one
-  case and a PSPS-round price in another — the frame comes from how it was used,
-  not from the number. Carry it explicitly (see §Reporting prices in two frames).
-- $`v_r \equiv p_r / w_r`$ — unit value, **PHP per gram**, in whatever frame
-  $`p_r`$ is in
-
-The S / M / L notation is retained below where the discussion is specifically about
-the size-based branch; read $`s`$ as a rung index elsewhere.
+S / M / L are the *values* a rung takes on the size-based branch; $`r`$ is the index
+everywhere.
 
 **PSPS side**, household $`h`$ in case $`c`$:
 
-- $`q_h`$ — quantity the household reports buying, in NSU units
-- $`e_h`$ — total value it paid for that quantity (PHP)
-- $`p_h \equiv e_h / q_h`$ — implied price, **PHP per NSU** (in PSPS-round pesos)
-- $`\pi`$ — cumulative inflation *rate* between the PSPS round and the MS round
-  (the MS was fielded ~2 years *after* PSPS), so $`1+\pi`$ is the price factor;
-  dividing an MS-round price by $`1+\pi`$ restates it in PSPS-round pesos. A tilde
-  marks such a deflated MS quantity: $`\tilde p_s \equiv p_s / (1+\pi)`$ and
-  $`\tilde v_s \equiv v_s / (1+\pi)`$
+- $`q_h`$ — quantity reported, in NSU units
+- $`e_h`$ — total paid for that quantity (PHP)
+- $`p_h \equiv e_h / q_h`$ — implied price, **PHP per NSU**, always PSPS round
+- $`\pi`$ — cumulative price-index change between the household's PSPS interview
+  month and the MS weighing month, so $`1+\pi`$ is the factor between the rounds.
+  $`\pi`$ is **not a constant**: it is specific to province × COICOP group × month
+  pair, and it is negative for some items.
 
 Throughout, **$`p`$ is always PHP per NSU** and **$`v`$ is always PHP per gram** —
-they are never interchangeable.
+never interchangeable. Grams carry no round: they do not inflate.
 
 ---
 
@@ -147,26 +138,25 @@ be a pooled weighing and let $`Q_{1/3}, Q_{2/3}`$ be the terciles of that
 distribution. **Relabel each weighing by its weight tercile:**
 
 ```math
-\text{size}(w) = \begin{cases}
+\text{rung}(w) = \begin{cases}
 S & \text{if } w \le Q_{1/3} \\[4pt]
 M & \text{if } Q_{1/3} < w \le Q_{2/3} \\[4pt]
 L & \text{if } w > Q_{2/3}
 \end{cases}
 ```
 
-For each size $`s`$, take its representative weight $`w_s`$ (the tercile median)
-and its price $`p_s`$ (PHP per NSU), giving the unit value $`v_s = p_s / w_s`$.
-Because bigger units cost more, the three prices order as $`p_S \le p_M \le p_L`$;
-these are the case's price points (**$`S \leftrightarrow`$ MP25,
-$`M \leftrightarrow`$ MP50, $`L \leftrightarrow`$ MP75**).
+Each rung's representative weight $`w_r`$ is its tercile median. Pairing it with
+that rung's price $`p_r`$ gives $`v_r = p_r / w_r`$. Bigger units cost more, so the
+prices order $`p_1 \le p_2 \le p_3`$ and the ladder aligns by rank: S↔MP25, M↔MP50,
+L↔MP75. **That rank alignment is an assumption, not an observation** — see
+assumption 5.
 
-This re-terciling is deliberate: the survey's own S/M/L labels overlap heavily in
-weight across vendors, so we re-derive the sizes from the pooled weights rather
-than trust the labels.
+Re-terciling is deliberate: the survey's own S/M/L labels overlap heavily in weight
+across vendors, so the sizes are re-derived from the pooled weights rather than
+taken from the labels.
 
-**This follows the LSMS guidebook's own prescription**, not just our own reading of
-the data. Oseni, Durazo & McGee (2017), *The Use of Non-Standard Units for the
-Collection of Food Quantity*, §3 Step 3 "Calculating the conversion factors", p. 16
+**This follows the LSMS guidebook's prescription.** Oseni, Durazo & McGee (2017),
+*The Use of Non-Standard Units for the Collection of Food Quantity*, §3 Step 3, p. 16
 (`docs/WB-NSU-Guide.pdf`) states the problem in the same terms —
 
 > "the small size of a unit found in market X may be larger than the large version
@@ -192,24 +182,23 @@ measurement for each container unit can be used."* The guidebook also recommends
 reviewing the reference photos as a verification step; that check has not been done
 here and remains available.
 
-#### Where $`w_r`$ and $`p_r`$ actually come from
+#### Branch shares, and why size-based cases have no MS price
 
-The market survey used one of three **weighing approaches** per case, and a case
-uses exactly one of them. The approach decides what a rung *is*, where the pair
-$`(w_r, p_r)`$ comes from — and, critically, **which peso frame $`p_r`$ is already
-in**:
+A case uses **exactly one** weighing approach (verified: 1 case of 1,952 is an
+exception, exported to `tables/fold_multi_weighing_approach.xlsx` for a manual
+branch assignment).
 
-| approach | share of cases | a rung is | $`w_r`$ | $`p_r`$ | frame of $`p_r`$ |
-|---|---|---|---|---|---|
-| conventional | 123 (6%) | the whole case | the single $`w_c`$ | none needed | — |
-| price-quantity based | 314 (16%) | a given price point (MP25/50/75) | weight bought at that point | the peso amount the enumerator **actually spent**, recorded in the MS | **MS round** |
-| size-based | **1,515 (78%)** | a weight tercile (S/M/L) | tercile median (above) | **not in the MS at all** — must be joined from the price file | **PSPS round** |
+| approach | cases | weighings |
+|---|---|---|
+| size-based | **1,515 (78%)** | 9,770 (85%) |
+| price-quantity | 314 (16%) | 1,220 (11%) |
+| conventional | 123 (6%) | 468 (4%) |
 
-For size-based cases the enumerator was asked for a *small / medium / large* unit,
-never for a peso amount, so no price was recorded (the MS `pull_price` field is
-empty for them by construction). Their price points therefore have to be joined in
-from the price file, where they are PSPS-derived percentiles that were never spent
-in the MS round.
+On the size-based branch the enumerator was asked for a *small / medium / large*
+unit and never for a peso amount, so **no price was recorded** — `pull_price` is
+empty for those rows by construction. Their $`p_r`$ must be joined from the price
+file, where the values are PSPS-round percentiles that were never spent in the MS
+round. This is the origin of every frame question below.
 
 #### Which price points exist for a case
 
@@ -299,221 +288,147 @@ $`\widehat{CF} = \operatorname{median}(w)`$.
 
 ### Step B — apply to a PSPS household
 
-**B1. Restate the MS price points** into PSPS-round pesos. The weights $`w_s`$ are
-unchanged — grams do not inflate:
+**B1. Put the measured weight in PSPS terms.** Only one branch needs this. On the
+price-quantity branch $`w_r`$ is "what a fixed peso amount bought at MS-round
+prices", so it moves with the price level. On the size-based branch $`w_r`$ is a
+property of the object (a medium mango), so it does not:
 
 ```math
-\tilde p_s = \frac{p_s}{1+\pi}, \qquad \tilde v_s = \frac{v_s}{1+\pi} = \frac{\tilde p_s}{w_s}
+w_r^{\text{PSPS}} =
+\begin{cases}
+w_r \,(1+\pi) & \text{price-quantity branch} \\[4pt]
+w_r           & \text{size-based and conventional branches}
+\end{cases}
 ```
 
-Three things about this step that the notation hides:
+Every $`p_r`$ then stays at its nominal PSPS-round value, so a given rung means the
+same thing in every case.
 
-1. **Only the price-quantity branch needs it — for the size-based branch $`\pi`$
-   cancels.** In a size-based case both $`p_h`$ and $`p_r`$ are PSPS-frame (the
-   latter straight from the price file), and $`\pi`$ enters only as a common factor
-   on both sides. The match is unaffected, because for any $`\pi > -1`$
-   ```math
-   \operatorname*{arg\,min}_r \bigl|(1{+}\pi)p_h - (1{+}\pi)p_r\bigr|
-   = \operatorname*{arg\,min}_r \bigl|p_h - p_r\bigr|,
-   ```
-   and so is the division, because
-   $`\frac{(1+\pi)p_h}{(1+\pi)p_r / w_r} = \frac{p_h\,w_r}{p_r}`$. Restating the
-   size-based price points is therefore **harmless but has no effect** — it is a
-   no-op, not a double-count. (An earlier version of this doc called it
-   double-counting; that is only true if one restates $`p_r`$ and forgets $`p_h`$.)
-
-   In a price-quantity case there is nothing to cancel against: $`p_r`$ is a
-   nominal amount **spent at MS-round prices**, so $`v_r = p_r/w_r`$ is genuinely
-   PHP-2026 per gram while $`p_h`$ is PSPS-frame, and one factor of $`(1+\pi)`$
-   survives into the answer. The structural reason for the asymmetry: in a
-   size-based case $`w_r`$ is a property of *the unit* (a medium mango), assumed
-   time-invariant and paired with a PSPS-era price — already a coherent PSPS pair.
-   In a price-quantity case $`w_r`$ is not a property of any unit; it is "whatever
-   ₱88 buys", which is a function of the price level, so the pair is a coherent
-   *MS* pair and converting it costs a $`\pi`$.
-
-   **The single rule that covers both branches:** always restate $`p_h`$ into the MS
-   frame; additionally restate $`p_r`$ **only when it came from the price file**
-   (size-based). Whichever route is taken, apply the *same* $`\pi`$ to both sides —
-   mixing a household-level $`\pi`$ on $`p_h`$ with a cell-level one on $`p_r`$
-   fails to cancel and injects variation that is pure artefact.
-2. **$`\pi`$ is not one number, and it is often negative.** Measured on the PSA
-   province × COICOP food CPI over the median-to-median window (PSPS 2024m5 → MS
-   2026m4), the median across province × group is **+7.4%**, but the range is
-   **−18.1% to +58.1%**, and 6 of 16 groups have a negative median: rice −6.8%,
-   fresh meat −4.0%, other meat −2.9%, sugar/confectionery −2.4%, ice cream −1.9%,
-   water ≈ 0. Signs flip *within* a group across provinces — leafy vegetables run
-   −9.4% in Iloilo and +58.1% in Antique. So $`\pi`$ must be province × COICOP
-   specific; a pooled or national figure would be wrong in both directions, and
-   "deflate" is a misnomer for a factor that is frequently below 1. Prefer naming
-   any precomputed column `price_psps_frame` (or `_restated`) over `_deflated`.
-3. **$`\pi`$ is household-specific, so B1 does not save operations.** PSPS fielding
-   ran 2023m12–2025m1 and is **bimodal** (Dec 2023–Jul 2024, then Oct 2024–Jan
-   2025), and which mode a province sits in differs: Aklan appears only in the
-   early wave, Negros Occidental only in the late one. There is no single "PSPS
-   round" month, so $`\tilde p_s`$ varies household by household just as $`p_h`$
-   does. Moving the PSPS anchor across its range moves $`\pi`$ by **15.6 pp** for
-   other vegetables, 10.5 pp for tubers, 9.3 pp for fruits. Since the operation
-   count is the same either way and grams are frame-invariant, it is equivalent —
-   and cheaper in variables — to inflate $`p_h`$ into the MS frame instead:
-   $`p_h^{MS} = p_h(1+\pi)`$, match against the un-restated $`p_s`$, and divide by
-   $`v_s`$. That leaves $`p_s`$ and $`v_s`$ as clean case-level constants fit to
-   publish in the Outcome-1 reference table with no peso-frame caveat attached.
-
-The index itself is sound for this use: the PSA series is a fixed-base level index
-(range 83–308, median 137 at 2023m12 rising to 148 at 2026m1) with no base break at
-the 2026 boundary (median month-on-month change +1.3% there vs +0.0% elsewhere), so
-ratios across the window are valid. Coverage is **complete** — all 5 provinces × 16
-COICOP groups — because the `cons_name → item_group` crosswalk is province-specific
-by design: ice cream maps to `01.1.8.6` everywhere except Iloilo, which has only the
-parent `01.1.8`. The two rows are complementary, not redundant, so no fallback
-ladder is needed.
-
-**B2. Match** the household's price to the nearest MS price point, both sides in one
-frame — this decides the size:
+**B2. Match** the household to a rung by price. Both sides are PSPS round:
 
 ```math
-s(h) = \underset{s \in \{S, M, L\}}{\arg\min} \; \bigl\lvert p_h - \tilde p_s \bigr\rvert
+r(h) = \operatorname*{arg\,min}_{r} \; \lvert\, p_h - p_r \,\rvert
 ```
 
-**B3. Convert** price into grams using that size's (deflated) PHP-per-gram value:
+**B3. Convert** to grams:
 
 ```math
-\widehat{CF}_h = \frac{p_h}{\tilde v_{s(h)}}
+\widehat{CF}_h = p_h \cdot \frac{w_{r(h)}^{\text{PSPS}}}{p_{r(h)}}
 \qquad\Longrightarrow\qquad
 \widehat g_h = q_h \cdot \widehat{CF}_h
 ```
 
-$`\widehat{CF}_h`$ is the grams in one NSU unit; $`\widehat g_h`$ is the
-household's total grams.
+$`\widehat{CF}_h`$ is grams in one NSU unit; $`\widehat g_h`$ is the household's
+total grams.
 
-> **Why we adjust only once, on the MS side (the doubt, resolved).** Grams are
-> physical — they do not inflate — so the division returns grams only if numerator
-> and denominator are in the *same* peso-frame, letting pesos cancel:
-> ```math
-> \frac{\text{PHP}_{\text{PSPS}} / \text{NSU}}{\text{PHP}_{\text{PSPS}} / \text{g}} = \text{g} / \text{NSU}.
-> ```
-> Restating the MS price points into PSPS pesos in B1 puts everything — the
-> household's raw $`p_h`$, the matched price $`\tilde p_s`$, and the unit value
-> $`\tilde v_s`$ — in one frame, so no further adjustment happens at the division.
-> Inflating each household's $`p_h`$ into MS pesos instead gives the **identical**
-> grams, because grams are frame-invariant:
-> ```math
-> \frac{p_h}{v_s / (1+\pi)} \;=\; \frac{(1+\pi)\,p_h}{v_s}.
-> ```
-> **Which side you adjust is therefore free, and the original "the MS side has
-> fewer points" argument does not hold.** It assumed $`\pi`$ is constant within a
-> case, so that three $`\tilde p_s`$ values could be computed once and reused. They
-> cannot: $`\pi`$ depends on the household's own PSPS submission month, and those
-> months are spread over 2023m12–2025m1 *within* a cell (see B1 note 3), so
-> $`\tilde p_s`$ is as household-specific as $`p_h`$. Adjusting $`p_h`$ is the
-> cheaper of the two equivalent routes — one derived variable instead of up to
-> three — and it leaves $`p_s`$ and $`v_s`$ frame-free for the reference table.
->
-> Two rules follow regardless of which route is taken: **match and divide in the
-> same frame** (whichever side you move, use the moved values in *both* B2 and B3 —
-> matching on restated prices and then dividing by an un-restated $`v_s`$ would
-> reintroduce the whole gap), and the method assumes PHP-per-gram for the item
-> moved only with its province × COICOP index (no differential *real* price change
-> within the group) — this is what makes both the match and the division valid.
+**Consistency check.** If $`p_h = p_{r(h)}`$ then
+$`\widehat{CF}_h = w_{r(h)}^{\text{PSPS}}`$ — a household paying exactly a rung's
+price is assigned exactly that rung's weight.
 
-**Consistency check.** If $`p_h = \tilde p_{s(h)}`$ exactly, then
-$`\widehat{CF}_h = w_{s(h)}`$ — the household is assigned exactly the weight the MS
-measured for that size.
+#### Why the adjustment sits on the weight
 
----
+Adjusting the weight up by $`(1+\pi)`$ and deflating the price by $`(1+\pi)`$ are
+the same operation: $`p_h\,w_r(1+\pi)/p_r = p_h\,w_r/\bigl(p_r/(1+\pi)\bigr)`$.
+Putting it on the weight is a bookkeeping choice with two benefits — every price in
+the system stays PSPS round (so no column needs a frame label, and no two rows can
+be silently compared across frames), and $`\pi`$ touches exactly one column on 16%
+of rows, which is easy to audit and easy to switch off for a robustness check.
 
-## Reporting prices in two frames
+Two ways to get this wrong:
 
-A reasonable worry about the branch asymmetry: *within one case, at the same ordinal
-rung, could we end up with two different peso levels for the same period — one from
-a restated price-quantity observation and one from an un-restated size-based
-observation?*
+- **Adjusting the size-based price points.** They look like prices "used at market
+  survey time", but no money changes hands in a size-based interview — the value is
+  a PSPS statistic joined on afterwards. Deflating it inflates $`\widehat{CF}`$ by
+  $`(1+\pi)`$ *and* corrupts the match: with rungs at ₱6/₱10/₱16 deflated to
+  ₱3/₱5/₱8, a household paying ₱10 is nearest ₱8 and matches rung 3 instead of rung
+  2. Every household shifts systematically up the ladder.
+- **Adjusting one side of a comparison but not the other.** If prices are moved into
+  MS terms, $`p_h`$ must be too. A household-level $`\pi`$ on one side and a
+  cell-level $`\pi`$ on the other leaves a residue that is pure artefact.
 
-**Within a case, no — the branches partition the cases.** A case uses exactly one
-weighing approach; the MS never asked for both a size and a price point for the same
-prov × mun × item × NSU. Measured on the built data, **1 case out of 1,952** contains
-both (ILOILO / TIGBAUAN carrot, where two raw labels that fold to one harmonized unit
-were fielded under different approaches — 16 weighings). It is exported to
-`tables/fold_multi_weighing_approach.xlsx` and needs a branch assigned by hand.
+#### What $`\pi`$ actually looks like
 
-**Across cases, the concern is real**, because two cases for the same item × unit in
-different municipalities can sit on different branches, and then their price columns
-are quoted in different frames. Two rules keep that from becoming a silent error:
+Measured on the PSA province × COICOP food CPI, PSPS 2024m5 → MS 2026m4
+(`dofiles/plot_cpi_inflation.py`):
 
-1. **Grams are frame-free.** The Outcome-1 reference set contains only weights, so
-   the frame question does not arise there at all. It exists only for Outcome 2, and
-   only in the price columns.
-2. **Never publish a bare `price` column.** Carry **both** frames on every row, plus
-   the branch that determined them, so no reader has to infer which frame a number
-   is in:
+- Median across province × group **+7.4%**, range **−18.1% to +58.1%**.
+- **Six of 16 groups are negative**: rice −6.8%, fresh meat −4.0%, other meat −2.9%,
+  sugar −2.4%, ice cream −1.9%, water ≈ 0. "Deflate" is therefore a misnomer.
+- Signs flip *within* a group across provinces: leafy vegetables −9.4% in Iloilo,
+  +58.1% in Antique. $`\pi`$ must be province × COICOP specific.
+- PSPS fielding (2023m12–2025m1) is **bimodal** and province-dependent — Aklan only
+  in the early wave, Negros Occidental only in the late one — so there is no single
+  "PSPS round" month. Moving the anchor across its range moves $`\pi`$ by 15.6 pp
+  for other vegetables, 10.5 pp for tubers, 9.3 pp for fruits. Use the household's
+  own interview month rather than a cell proxy; it is available.
 
-| column | size-based row | price-quantity row |
-|---|---|---|
-| `price_psps_frame` | the price-file value, as is | $`p_r/(1+\pi)`$ |
-| `price_ms_frame` | price-file value $`\times (1+\pi)`$ | the recorded `pull_price`, as is |
-| `weighing_approach` | `size-based` | `price-quantity based` |
-| `pi_used`, `pi_psps_month`, `pi_ms_month` | populated (even though it cancels) | populated |
+The index is sound for ratio use: fixed-base levels (83–308, median 137 at 2023m12
+rising to 148 at 2026m1) with no base break at the 2026 boundary (median m/m change
++1.3% there vs +0.0% elsewhere). Coverage is complete for all 5 provinces × 16
+groups, because the `cons_name → item_group` crosswalk is province-specific by
+design: ice cream maps to `01.1.8.6` everywhere except Iloilo, which carries only
+the parent `01.1.8`. No fallback ladder is needed.
 
-Both columns are always populated and always mutually consistent, so any two rows
-are comparable in whichever frame the reader picks. This is what makes the asymmetry
-visible rather than hidden — which is the actual risk, not the asymmetry itself.
+**Exposure is confined to 16% of cases.** Because $`\pi`$ enters only on the
+price-quantity branch, the 78% size-based and 6% conventional cases are
+arithmetically immune to CPI mismeasurement — worth knowing given the spread above.
 
 ---
 
 ## Assumptions to keep visible
 
-1. **Single price schedule within the case.** All households in a case face the
-   same price-per-gram schedule, so different PHP-per-gram means different sizes
-   bought, not different prices for the same grams. Bargaining, quality, and
-   vendor differences violate this; within a matched size, any price variation
-   that is *not* size passes proportionally into $`\widehat g_h`$.
+Each is tagged with the branch it binds on. **The two load-bearing ones are 2 and 3,
+and they are mirror images** — the price-quantity branch assumes the *price* schedule
+moved only with the index; the size-based branch assumes the *quantity* schedule did
+not move at all. Neither branch is assumption-free, and they do not lean on the same
+thing.
 
-   **The LSMS guidebook flags this as the known weakness of price-based
-   conversion**, which is its stated reason for preferring direct weighing
-   (Oseni, Durazo & McGee 2017, §1.2, p. 3):
+1. **Single price schedule within a case.** *(all branches)* Households in a case
+   face the same price-per-gram schedule, so a higher PHP-per-gram means a bigger
+   unit, not a different deal. Bargaining, quality and vendor differences violate
+   it; within a matched rung, any price variation that is *not* size passes
+   proportionally into $`\widehat g_h`$.
 
-   > "unit prices can vary because of factors unrelated to the actual mass or
-   > volume of an item… quality differences… price discounts on larger units"
+   The LSMS guidebook names this as the known weakness of price-based conversion and
+   its reason for preferring direct weighing (Oseni, Durazo & McGee 2017, §1.2,
+   p. 3): *"unit prices can vary because of factors unrelated to the actual mass or
+   volume of an item… quality differences… price discounts on larger units."* Step A
+   does weigh directly, as recommended, but Step B reintroduces price as the
+   *matching* variable, so the caution applies to the rung assignment. The
+   quantity-discount point is why the method keeps a separate $`v_r`$ per rung
+   rather than one case-level scalar.
 
-   and separately that "prices can be subject to significant volatility due to
-   market forces." Our Step A does use direct weighing, as recommended — but Step
-   B reintroduces prices as the *matching* variable, so the caution applies to the
-   size assignment even though the weights themselves are measured. The price
-   discount point is the sharper one here: if larger units carry a per-gram
-   discount, $`v_r`$ is not constant across rungs, which is precisely why the
-   method keeps a separate $`v_r`$ per rung instead of one case-level scalar.
-2. **Temporal alignment.** The two rounds are ~2 years apart, so prices must be
-   put in a common frame before matching (Step B1 deflates the MS price points to
-   PSPS terms); the item's real price-per-gram is assumed to have moved only with
-   the general index between rounds.
-3. **Weight terciles ↔ sizes.** Defining S / M / L as bottom / middle / top thirds
-   of the pooled weights is a convention; if transactions concentrate in one size,
-   the tercile cut misallocates the tails. Worth a robustness check (alternative
-   cuts, or a modal-size assumption).
-4. **Conventional units standard within locality.** Taken as standard within a
-   locality; they may still vary *across* municipalities, which is testable where
-   the MS weighed the same unit in several municipalities.
-5. **Rank-pairing of sizes to price points (size-based cases only).** Pairing the
-   $`k`$-th weight tercile from the MS with the $`k`$-th price percentile from the
-   PSPS price file assumes the two distributions are *monotonically aligned* —
-   that the households who paid the 25th-percentile price are the ones who bought
-   the lightest units. Nothing in the data establishes this; the two distributions
-   come from different rounds and different respondents, and only their rank order
-   links them. If size and price are only weakly related in a cell (bargaining,
-   quality, vendor differences — see assumption 1), the pairing misassigns, and it
-   does so systematically rather than noisily. This assumption does **not** apply
-   to the price-quantity branch, where $`w_s`$ and $`p_s`$ were observed together
-   in the same transaction.
-6. **Unit size stable between rounds (size-based cases only).** Because $`w_s`$ is
-   measured in the MS round while $`p_s`$ comes from the PSPS round, the ratio
-   $`v_s = p_s/w_s`$ is only a valid PSPS-round price-per-gram if the physical size
-   of a "small"/"medium"/"large" unit did not change between rounds. Shrinkflation
-   — vendors holding the peso price and reducing the unit — would make $`w_s`$ too
-   small and $`v_s`$ too high. Note the symmetry with assumption 2: the
-   price-quantity branch assumes the *price* schedule moved only with the index,
-   while the size-based branch assumes the *quantity* schedule did not move at all.
-   Neither branch is assumption-free; they lean on different things.
+2. **Real price per gram moved only with the index.** *(price-quantity branch —
+   load-bearing)* This licenses $`w_r^{\text{PSPS}} = w_r(1+\pi)`$: the only reason a
+   fixed peso amount buys less now is general inflation for that item, not a change
+   in its real price. Since $`\pi`$ comes from a province × COICOP-group index, the
+   assumption is *within-group* — no differential real price change between, say,
+   cabbage and other leafy vegetables.
+
+3. **Unit size stable between rounds.** *(size-based branch — load-bearing)* This
+   licenses $`w_r^{\text{PSPS}} = w_r`$: a "medium" unit is assumed to have been the
+   same physical size in both rounds, so an MS-measured weight can be paired with a
+   PSPS-round price. Shrinkflation — vendors holding the peso price and reducing the
+   unit — violates it and would make size-based weights too small. No price
+   adjustment can repair this; it needs a size-comparability check against the
+   reference photos, which the guidebook recommends and which has not been done.
+
+4. **Rank alignment of the two ladders.** *(size-based branch)* Pairing the $`k`$-th
+   weight tercile with the $`k`$-th price percentile assumes households who paid
+   least bought the lightest units. Nothing in the data establishes it: the two
+   distributions come from different rounds and different respondents, and only rank
+   order links them. Where size and price are weakly related (assumption 1), the
+   pairing misassigns *systematically*, not noisily. Does **not** apply to the
+   price-quantity branch, where $`w_r`$ and $`p_r`$ were observed in the same
+   transaction.
+
+5. **Terciles are the right cut.** *(size-based branch)* Bottom / middle / top thirds
+   is a convention; if transactions concentrate in one size the cut misallocates the
+   tails. Worth a robustness check against alternative cuts or a modal-size rule.
+
+6. **Conventional units are standard within a locality.** *(conventional branch)*
+   They may still vary *across* municipalities, which is testable wherever the MS
+   weighed the same unit in several of them.
 
 ## Warning for downstream use
 
@@ -524,12 +439,13 @@ proportionally in B3.
 
 ## Practical prerequisites
 
-- **Unit-name harmonization.** The MS has ~173 raw item × NSU spellings for 19
-  items; PSPS NSU strings must be mapped onto these after consolidating spelling
-  variants (this is Outcome 1).
-- **Incomplete sizes degrade gracefully.** Not every case has all of S / M / L;
-  matching is nearest-neighbor over whatever price points exist, so a case with a
-  single point maps every household to it (a case-level scalar).
+- **Unit-name harmonization.** Raw NSU spellings must be folded to a pooling key
+  before anything here can run, and PSPS NSU strings mapped onto the same key.
+  `harmonized_nsu_unit` in `master_nsu_rename.csv` is that key — pool on it, not on
+  the raw or cleaned label. See `docs/master_rename.md`.
 - **Multiple vendors.** Vendor-level weights within a case are aggregated with a
-  robust estimator (median, or a fixed light-trimmed mean); the pooling in Step A
-  already dilutes single-vendor outliers.
+  robust estimator (median, or a light fixed-trim mean); the Step A pooling already
+  dilutes single-vendor outliers.
+- **Join the two rung limits.** The weighing-count and price-point tallies in
+  *Degrading gracefully* are marginal. Joining them on `harmonized_nsu_unit` gives
+  the real joint distribution and is the first implementation task.
