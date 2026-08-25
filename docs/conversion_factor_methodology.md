@@ -439,21 +439,55 @@ Two ways to get this wrong:
   MS terms, $`p_h`$ must be too. A household-level $`\pi`$ on one side and a
   cell-level $`\pi`$ on the other leaves a residue that is pure artefact.
 
-#### What $`\pi`$ actually looks like
+#### Why $`\pi`$ cannot just be set to zero
 
-Measured on the PSA province × COICOP food CPI, PSPS 2024m5 → MS 2026m4
-(`dofiles/plot_cpi_inflation.py`):
+The simplest thing to do about inflation is nothing, and that would be defensible if
+$`\pi`$ were small and roughly the same everywhere. It would then wash out of the
+rung matching in B2 and only rescale the conversion factors by a constant. So the
+question is whether that holds here. It does not, and the data say so in three
+separate ways.
 
-- Median across province × group **+7.4%**, range **−18.1% to +58.1%**.
-- **Six of 16 groups are negative**: rice −6.8%, fresh meat −4.0%, other meat −2.9%,
-  sugar −2.4%, ice cream −1.9%, water ≈ 0. "Deflate" is therefore a misnomer.
-- Signs flip *within* a group across provinces: leafy vegetables −9.4% in Iloilo,
-  +58.1% in Antique. $`\pi`$ must be province × COICOP specific.
-- PSPS fielding (2023m12–2025m1) is **bimodal** and province-dependent — Aklan only
-  in the early wave, Negros Occidental only in the late one — so there is no single
-  "PSPS round" month. Moving the anchor across its range moves $`\pi`$ by 15.6 pp
-  for other vegetables, 10.5 pp for tubers, 9.3 pp for fruits. Use the household's
-  own interview month rather than a cell proxy; it is available.
+All figures below are measured on the PSA province × COICOP food CPI over the anchor
+pair PSPS 2024m5 → MS 2026m4, by `dofiles/plot_cpi_inflation.py`, with the figures
+written to `outputs/master_rename_build/graphs/`.
+
+**It is not small.** The median correction across province × group is **+7.4%**, and
+the correction runs from **−18.1% to +58.1%**. For scale, field weights are recorded
+to the whole gram, so on a 200 g unit the median correction is around 15 g against a
+rounding error of 1 g. This is not a second-order term.
+
+**It is not one number, so no scalar can stand in for it.** Six of the sixteen
+groups moved the other way over this window: rice −6.8%, fresh meat −4.0%, other
+meat −2.9%, sugar −2.4%, ice cream −1.9%, and water at about zero. Signs also flip
+*within* a group across provinces, most sharply for leafy vegetables, which fell
+9.4% in Iloilo and rose 58.1% in Antique. Applying a single average correction would
+therefore be worse than applying none for every item that moved against it. This is
+also why "deflating" is the wrong word for what B1 does: a third of the groups need
+adjusting in the opposite direction.
+
+**Setting it to zero is not the neutral choice.** Because the sign is known per
+province × group, dropping the adjustment does not introduce noise that averages out
+across households. It biases every price-quantity household in a cell in one
+direction, and the direction differs by item: rice conversion factors would come out
+systematically too high, Antique leafy vegetables systematically too low. A
+known-sign bias is harder to live with than a variance cost, which is the argument
+for carrying $`\pi`$ even though it only touches 16% of rows.
+
+One further reason not to shortcut the join. PSPS fielding ran 2023m12–2025m1 and is
+bimodal and province-dependent, with Aklan appearing only in the early wave and
+Negros Occidental only in the late one, so there is no single "PSPS round" month to
+anchor on. Moving the anchor across its plausible range shifts $`\pi`$ by 15.6 pp
+for other vegetables, 10.5 pp for tubers and 9.3 pp for fruits. A cell-level proxy
+date would introduce an error of the same order as the adjustment itself, so use the
+household's own interview month. It is available on the PSPS side.
+
+**What is not yet measured.** All of the above says $`\pi`$ changes the *level* of a
+conversion factor. It does not establish how often $`\pi`$ is large enough to move a
+household across a rung boundary in B2 and change *which* weight it is assigned,
+which is the more consequential failure. That depends on the tercile spacing within
+each case, which only exists once Step A has run. Check it then: compare the
+distribution of $`\pi`$ against the within-case gaps between $`p_r`$ values, and
+report how many households switch rungs when the adjustment is switched off.
 
 The index is sound for ratio use: fixed-base levels (83–308, median 137 at 2023m12
 rising to 148 at 2026m1) with no base break at the 2026 boundary (median m/m change
