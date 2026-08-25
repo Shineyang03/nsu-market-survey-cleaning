@@ -1,4 +1,4 @@
-import sys, os, re
+import os, re
 import numpy as np, pandas as pd
 import matplotlib
 matplotlib.use("Agg")
@@ -238,14 +238,5 @@ def build(version, sample_items=None, out_png_dir=None):
     return sdf
 
 if __name__ == '__main__':
-    mode = sys.argv[1] if len(sys.argv)>1 else 'sample'
-    if mode == 'sample':
-        d = os.path.join(os.path.dirname(__file__), 'sample')
-        os.makedirs(d, exist_ok=True)
-        build(1, sample_items={'Cabbage_Bilog'}, out_png_dir=d)
-        build(4, sample_items={'Cabbage_Bilog'}, out_png_dir=d)
-        build(5, sample_items={'Cabbage_Bilog'}, out_png_dir=d)
-        print("sample ->", d)
-    else:
-        for v in (1,2,3,4,5):
-            build(v); print("done ver", v)
+    for v in (1,2,3,4,5):
+        build(v); print("done ver", v)

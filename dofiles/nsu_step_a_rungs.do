@@ -125,6 +125,11 @@ di as txt "cases: " r(N)
 bysort cell: gen int n_cell = _N
 label var n_cell "weighings pooled in this case"
 
+* one marker per distinct field label within a case, used below to count how many
+* different price points / size labels the case actually contains
+egen byte tag_lbl = tag(cell item_nsu_hetero_type)
+label var tag_lbl "1 = first weighing of this field label within the case"
+
 
 ********************************************************************************
 **# 3. Rung assignment, by branch
@@ -180,29 +185,50 @@ replace rung = 1 if weighing_approach == 3 & n_target == 1
 *-------------------------------------------------------------------------------
 * 3b. PRICE-QUANTITY -- the ladder is the price, already given
 *-------------------------------------------------------------------------------
-* Rank the DISTINCT prices within the case and use the rank as the rung. Ranking
-* on price rather than mapping the hetero labels by hand handles every label
-* combination that occurs (mp25/50/75, municipality median, province median,
-* unique_mun_price6/7) without a lookup table that could go stale.
+* These cases are NOT re-terciled. The enumerator was sent to a specific price
+* point, so the ladder already exists; re-deriving it would throw away the design.
+*
+* WHAT THE PRICE POINT MEANS AS A SIZE. The label says where in the PSPS price
+* distribution the point sits, and that IS the size claim:
+*
+*       mp25_price          -> rung 1   small
+*       mp50_price          -> rung 2   medium
+*       mp75_price          -> rung 3   large
+*       municipality median -> rung 2   medium   (a median IS the middle)
+*       province median     -> rung 2   medium
+*
+* DO NOT rank the points within the case instead. Ranking looks equivalent but
+* is not: 845 weighings sit in cases whose ONLY point is a municipality or
+* province median, and ranking would make each of them rung 1 (small) when the
+* whole meaning of a median is that it is the middle. That mis-sizes 470
+* mun_median + 375 prov_median weighings.
+*
+* unique_mun_price is the one label with no inherent position -- it means the
+* municipality had too few distinct prices to take percentiles, so the observed
+* price(s) were recorded as-is. One of them is a middle (rung 2); two of them
+* bracket a range, so they take the ends (rungs 1 and 3).
 *
 * Reality check on how much ladder there is here: only 38 of 315 price-quantity
-* cases have more than one rung. 277 are a single price point.
+* cases have more than one point. 277 are a single point, and under the mapping
+* above nearly all of those are a MEDIUM, not a small.
 
-tempvar pr
-egen double `pr' = mean(pull_price) if weighing_approach == 2, by(cell item_nsu_hetero_type)
+replace rung = 1 if weighing_approach == 2 & item_nsu_hetero_type == 5   // mp25
+replace rung = 2 if weighing_approach == 2 & item_nsu_hetero_type == 6   // mp50
+replace rung = 3 if weighing_approach == 2 & item_nsu_hetero_type == 7   // mp75
+replace rung = 2 if weighing_approach == 2 & inlist(item_nsu_hetero_type, 8, 9)
 
-* distinct price levels within the cell, ranked ascending
-tempvar tagp rankp
-egen byte `tagp' = tag(cell `pr')       if weighing_approach == 2
-bysort cell (`pr'): gen int `rankp' = sum(`tagp') if weighing_approach == 2
-replace rung = `rankp' if weighing_approach == 2
+* unique_mun_price (labels 10 and 11): position depends on how many the case has
+tempvar nuniq
+bysort cell: egen byte `nuniq' = total(inlist(item_nsu_hetero_type,10,11) & ///
+                                       weighing_approach == 2 & tag_lbl)
+replace rung = 2 if weighing_approach == 2 & inlist(item_nsu_hetero_type,10,11) & `nuniq' == 1
+replace rung = 1 if weighing_approach == 2 & item_nsu_hetero_type == 10 & `nuniq' > 1
+replace rung = 3 if weighing_approach == 2 & item_nsu_hetero_type == 11 & `nuniq' > 1
 
-* a case with more than 3 distinct price points would break the r in {1,2,3}
-* contract; check rather than assume
-qui su rung if weighing_approach == 2
-assert r(max) <= 3
+assert !missing(rung) & inrange(rung,1,3) if weighing_approach == 2
 
-bysort cell: egen byte np = max(cond(weighing_approach == 2, rung, .))
+* how many DISTINCT rungs this case actually has
+bysort cell: egen byte np = total(tag_lbl) if weighing_approach == 2
 replace n_target = np if weighing_approach == 2
 drop np
 
@@ -217,11 +243,17 @@ assert !missing(rung, n_target)
 
 
 ********************************************************************************
-**# 4. Demote cells whose ladder came back short
+**# 4. Cases that ended up with fewer sizes than we tried to give them
 ********************************************************************************
-* A cell can target three rungs and populate only two, if enough weights tie on a
-* cut point. Ship what actually exists, and export the discrepancies -- an empty
-* tercile is a real signal about the cell, not noise to be smoothed over.
+* We aim for three sizes when a case has enough weighings. Sometimes only two (or
+* one) actually come out. That happens because weights are recorded in whole
+* grams: if enough vendors report the same number, they all land on the same side
+* of a cut point and one size ends up with nobody in it.
+*
+* When that happens we report the sizes that really exist rather than an empty
+* one. An empty size is telling us something true about the case -- the units
+* there are more uniform than we assumed -- so it gets exported for inspection
+* rather than smoothed over.
 
 bysort cell rung: gen byte tag_rung = (_n == 1)
 bysort cell: egen byte n_actual = total(tag_rung)

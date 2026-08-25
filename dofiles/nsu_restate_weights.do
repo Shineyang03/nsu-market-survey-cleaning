@@ -78,13 +78,43 @@ preserve
 restore
 
 count if weighing_approach == 2 & !missing(actual_price)
-di as result "Vendor-priced price-quantity rows to drop: " r(N)
+di as result "Vendor-priced price-quantity rows: " r(N)
 assert r(N) == 95
 
-drop if weighing_approach == 2 & !missing(actual_price)
+* --- RESCUE RULE ---------------------------------------------------------------
+* Dropping all 95 would delete 6 cases outright, because the vendor-priced rows
+* were the case's ONLY rung. Losing a case entirely is worse than the problem the
+* drop is meant to solve.
+*
+* The objection to using actual_price was that it puts two different prices inside
+* one rung's median. That objection only bites where a preloaded-price rung
+* SURVIVES to be mixed with. Where nothing survives there is nothing to mix, so
+* the vendor's own price is simply the best available p_r for that case.
+*
+* So: drop where the case keeps at least one preloaded rung; keep and re-flag
+* where it would otherwise vanish. price_source records which is which so no
+* downstream step can confuse a vendor-quoted price for a preloaded one.
+
+gen byte n_pre = (weighing_approach == 2 & missing(actual_price))
+bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit: ///
+	egen byte has_preloaded = max(n_pre)
+drop n_pre
+
+gen str14 price_source = ""
+replace price_source = "preloaded"     if weighing_approach == 2 & missing(actual_price)
+replace price_source = "vendor_actual" if weighing_approach == 2 & !missing(actual_price) & has_preloaded == 0
+label var price_source "which peso figure is p_r for this row (price-quantity only)"
+
+count if weighing_approach == 2 & !missing(actual_price) & has_preloaded == 0
+di as result "  rescued (case would otherwise vanish): " r(N)
+count if weighing_approach == 2 & !missing(actual_price) & has_preloaded == 1
+di as result "  dropped (case keeps a preloaded rung): " r(N)
+
+drop if weighing_approach == 2 & !missing(actual_price) & has_preloaded == 1
+drop has_preloaded
+
 local n_dropped = `n_in' - _N
 di as result "Rows dropped: `n_dropped'"
-assert `n_dropped' == 95
 
 * --- capture the rung structure AFTER the drop and compare
 preserve
