@@ -73,6 +73,86 @@ on the size-based branch, a given price point on the price-quantity branch.
 
 ---
 
+## Harmonization stages: what the field fixed vs what cleaning imposes
+
+Everything above assumes cases are comparable across vendors, markets and
+municipalities. They are not, as collected. Four separate harmonizations make them
+so, at four different stages, and it matters which is which: a **field** fact is
+something we can only record and work around, while a **desk** rule is ours to
+change. The order is also load-bearing — the standard-quantity drop must precede the
+magnitude snap, and the name merge must follow key normalization.
+
+```mermaid
+flowchart TB
+    subgraph FIELD["STAGE 0 - FIELD. Fixed at collection; cleaning only records it"]
+        direction TB
+        F1["Instrument fixed the weighing approach per item x NSU.<br/>weighing_approach - exactly one per case, verified"]
+        F2["Vendor and enumerator judged small / medium / large LOCALLY.<br/>No cross-market standard, so a small in one market<br/>can outweigh a large in another.<br/>item_nsu_hetero_type"]
+        F3["MP25/50/75 peso amounts were printed on the form<br/>from PSPS-round prices, so the money handed over<br/>was already PSPS-frame when it was spent."]
+        F4["NSU name written as free text.<br/>pull_nsu_unit - spelling, dialect and descriptor variation"]
+        F5["Scale read in whichever unit was handy.<br/>weight plus unit, where 1=kg, 2=g, 3=L.<br/>Order-of-magnitude slips enter here."]
+        F6["Some NSU names state a STANDARD quantity,<br/>e.g. 1/2 sack of rice (25kls.) - not an NSU at all"]
+    end
+
+    subgraph UP["STAGE 1 - UPSTREAM. NSU vocabulary, built once for BOTH sources"]
+        direction TB
+        U1["cleaned_nsu_unit: spelling and vocabulary map.<br/>Exact match, then descriptor-reduced, then fuzzy,<br/>then heuristic. Reference only - never pooled on."]
+        U2["harmonized_nsu_unit: the POOLING KEY.<br/>Translation-group fold, item-conditioned but<br/>cell-independent, minus separations that MS<br/>weights showed are different referents."]
+        U3["PRICE SIDE mapped onto the SAME key,<br/>so price-file NSU strings and MS NSU strings<br/>become joinable. Source flagged per case."]
+        U1 --> U2 --> U3
+    end
+
+    subgraph DESK["STAGE 2 - DESK. cleaning_Aug11.do, in this order"]
+        direction TB
+        D1["Parse comments into obs_type / item_nsu_hetero_type.<br/>BEFORE normalization - the comment strings are case-sensitive."]
+        D2["Normalize the merge keys, then merge the rename sheet.<br/>ASCII-drop, casefold, trim, collapse whitespace, uppercase geo.<br/>Same rule applied to both sides, so the merge must come second."]
+        D3["DROP the standard-quantity labels.<br/>Before the snap, so they never pollute an anchor."]
+        D4["Rebuild identifiers on harmonized_nsu_unit,<br/>not on the cleaned or raw label."]
+        D5["Canonicalize dimension, then snap magnitude.<br/>kg to g and L to mL, then a log10 power-of-ten snap<br/>toward the item x harmonized anchor.<br/>corrected_weight, corrected_unit"]
+        D6["Resolve items recorded in BOTH mass and volume.<br/>One verdict per item; unverdicted items keep<br/>the dimension the enumerator recorded."]
+        D1 --> D2 --> D3 --> D4 --> D5 --> D6
+    end
+
+    subgraph PEND["STAGE 3 - PENDING. Not yet built"]
+        direction TB
+        P1["RE-TERCILE the sizes (Step A).<br/>Replaces the field S/M/L labels with terciles of<br/>the pooled weight distribution within the case."]
+        P2["Join pi on province x COICOP group x month pair,<br/>for the price-quantity branch only (Step B1)."]
+    end
+
+    F4 --> U1
+    F6 --> D3
+    F5 --> D5
+    U3 --> D2
+    F1 --> D1
+    D6 --> P1
+    F2 --> P1
+    F3 --> P2
+```
+
+| stage | harmonizes | from → to | where |
+|---|---|---|---|
+| 0 field | *nothing* — this is the input | — | the instrument and the enumerator |
+| 1 upstream | NSU **names**, MS and price side alike | `pull_nsu_unit` → `cleaned_nsu_unit` → `harmonized_nsu_unit` | `dofiles/diagnose_price_only.py` → `outputs/tables/master_nsu_rename.csv`; see `docs/master_rename.md` |
+| 2 desk | the **grain**, then the **unit of measure** | raw MS rows → `corrected_weight` in g or mL, keyed on `harmonized_nsu_unit` | `dofiles/cleaning_Aug11.do` → `dofiles/correct_unit_snap.do` |
+| 3 pending | **sizes**, and the price **round** | field S/M/L → weight terciles; nominal PSPS pesos → MS-frame weights | Step A and Step B1 below |
+
+Two consequences worth stating plainly.
+
+**The size labels are the one field artefact cleaning replaces outright.** Stage 0
+recorded S/M/L as a local, per-vendor judgement; Stage 3 discards those labels and
+re-derives the sizes from pooled weight. Everything else in Stage 2 repairs a
+recording error or a naming inconsistency — this is the only step that overrides a
+substantive field judgement, which is why it needs the guidebook citation it gets in
+Step A.
+
+**Name harmonization is upstream of everything and shared by both sources.** It is
+not part of the Stata cleaning at all: the cleaning run only *joins* a key that was
+already built, which is what makes the MS and price files joinable in the first
+place. Rebuilding the vocabulary means re-running the upstream script, not editing
+the do-file.
+
+---
+
 ## Notation
 
 A **case** $`c`$ is a province × municipality × item × NSU combination, where NSU
@@ -452,10 +532,10 @@ proportionally in B3.
 
 ## Practical prerequisites
 
-- **Unit-name harmonization.** Raw NSU spellings must be folded to a pooling key
-  before anything here can run, and PSPS NSU strings mapped onto the same key.
-  `harmonized_nsu_unit` in `master_nsu_rename.csv` is that key — pool on it, not on
-  the raw or cleaned label. See `docs/master_rename.md`.
+- **Unit-name harmonization.** Already done, upstream of everything here —
+  `harmonized_nsu_unit` in `master_nsu_rename.csv` is the pooling key, and the price
+  side is mapped onto it too. Pool on it, never on the raw or cleaned label. See
+  *Harmonization stages* above and `docs/master_rename.md`.
 - **Multiple vendors.** Vendor-level weights within a case are aggregated with a
   robust estimator (median, or a light fixed-trim mean); the Step A pooling already
   dilutes single-vendor outliers.
