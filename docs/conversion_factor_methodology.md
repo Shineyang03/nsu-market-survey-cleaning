@@ -75,7 +75,11 @@ on the size-based branch, a given price point on the price-quantity branch.
 
 ## Notation
 
-A **case** $`c`$ is a province × municipality × item × NSU combination.
+A **case** $`c`$ is a province × municipality × item × NSU combination, where NSU
+means **`harmonized_nsu_unit`** — the folded pooling key, not the raw `pull_nsu_unit`
+or the spelling-corrected `cleaned_nsu_unit`. Every count in this document is at
+that grain; the same tabulation on a different unit column gives different numbers
+(1,952 cases harmonized, 1,964 cleaned, 1,992 raw). See *Practical prerequisites*.
 
 **Market survey (MS) side.** A case is resolved into up to three **rungs** — an
 *ordinal* ladder from smallest/cheapest to largest/dearest, indexed
@@ -184,15 +188,24 @@ here and remains available.
 
 #### Branch shares, and why size-based cases have no MS price
 
-A case uses **exactly one** weighing approach (verified: 1 case of 1,952 is an
-exception, exported to `tables/fold_multi_weighing_approach.xlsx` for a manual
-branch assignment).
+A case uses **exactly one** weighing approach. This is a property of the fieldwork,
+not an artefact of the harmonization: at the raw and cleaned grains *every* case is
+single-branch, with zero exceptions, and it survives splitting the grain further by
+`corrected_unit` (grams vs millilitres).
 
 | approach | cases | weighings |
 |---|---|---|
 | size-based | **1,515 (78%)** | 9,770 (85%) |
 | price-quantity | 314 (16%) | 1,220 (11%) |
 | conventional | 123 (6%) | 468 (4%) |
+
+The fold introduces exactly one exception, so the table above assigns each case its
+modal approach: ILOILO / TIGBAUAN / carrot, where `bilog` (9 size-based weighings)
+and `pieces or units` (7 price-quantity weighings) both fold to harmonized
+`pieces or units`. It is exported to
+`outputs/master_rename_build/tables/fold_multi_weighing_approach.xlsx` and needs a
+manual branch assignment — either pick a branch for the pooled case, or keep the two
+raw labels apart for this cell.
 
 On the size-based branch the enumerator was asked for a *small / medium / large*
 unit and never for a peso amount, so **no price was recorded** — `pull_price` is
