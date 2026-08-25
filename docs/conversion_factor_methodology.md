@@ -16,20 +16,21 @@ large, e.g. with reference pictures) and logs the answer directly in grams.
 
 **Outcome 2 — conversion factors for PSPS.** For each item-NSU-municipality
 observed in PSPS, a grams-per-unit value, so PSPS NSU quantities can be turned
-into grams retrospectively. This is the pipeline documented below.
+into grams retrospectively.
 
 ---
 
 ## Decision tree
 
-The steps that apply to a given observation depend on **which deliverable** you are
-building and, for Outcome 2, on the case's **weighing approach** and how many
-**rungs** it can support. This is the map; the sections below are the detail.
-
 ```mermaid
 flowchart TD
     G{"What are you building?"}
-    G -->|"Outcome 1 — reference set"| O1["Grams only, by rung.<br/>No price enters, so no inflation, ever.<br/>Report w_r per prov x mun x market type x item x NSU x rung."]
+    G -->|"Outcome 1 — reference set"| WA1{"Case's weighing_approach?<br/>(case = prov x mun x item x harmonized_nsu_unit)"}
+
+    WA1 -->|"conventional"| OC["No size to resolve.<br/>Report median(w) for the case."]
+    WA1 -->|"price-quantity"| OP["MP25/50/75 price points map directly to S/M/L —<br/>no re-terciling needed.<br/>Report median(w) within case x rung."]
+    WA1 -->|"size-based"| OS["Re-tercile S/M/L from empirical weights (Step A).<br/>Report median(w) within case x rung."]
+
     G -->|"Outcome 2 — PSPS conversion factors"| WA{"Case's weighing_approach?<br/>(exactly one per case)"}
 
     WA -->|"conventional<br/>123 cases · 6%"| C1["No size, no price.<br/>CF = median(w) over the cell.<br/>pi: not applicable"]
@@ -56,16 +57,16 @@ All price points are nominal PSPS round throughout, in every scenario.
 | # | deliverable | branch | rungs | $`w_r`$ is | $`p_r`$ is | weight adjustment | conversion factor |
 |---|---|---|---|---|---|---|---|
 | 1 | Outcome 1 | any | as resolved | tercile / point median | *not reported* | none — report as measured | $`w_r`$ itself |
-| 2 | Outcome 2 | conventional | 1 | cell median | none | none | $`\operatorname{median}(w)`$ |
+| 2 | Outcome 2 | conventional | 1 | cell median | none | none | $`\text{median}(w)`$ |
 | 3 | Outcome 2 | price-quantity | as fielded | weight bought at that point | `pull_price`, the amount spent | $`\times(1+\pi)`$ | $`p_h\,w_r(1{+}\pi)/p_r`$ |
 | 4 | Outcome 2 | size-based | 3 | tercile median | price file p25/p50/p75 | none | $`p_h\,w_r/p_r`$ |
 | 5 | Outcome 2 | size-based | 2 | median-split median | the 2 available points | none | $`p_h\,w_r/p_r`$ |
-| 6 | Outcome 2 | size-based | 1 | pooled cell median | the single median point | none | $`\operatorname{median}(w)`$ |
+| 6 | Outcome 2 | size-based | 1 | pooled cell median | the single median point | none | $`\text{median}(w)`$ |
 
 Scenario 6 is the most common, and it makes rows 2 and 6 the same object: with one
 rung, the size-based branch degenerates to what the conventional branch does.
 
-Three things the tree makes visible. **Inflation is a branch property, not a global
+**Inflation is a branch property, not a global
 step** — scenario 3 only. **It applies to the weight, never to a price** — every
 $`p_r`$ stays PSPS round, so a rung means the same thing in every scenario. And
 **the ordinal ladder is not the same observable in every branch**: a weight tercile
@@ -136,8 +137,6 @@ flowchart TB
 | 2 desk | the **grain**, then the **unit of measure** | raw MS rows → `corrected_weight` in g or mL, keyed on `harmonized_nsu_unit` | `dofiles/cleaning_Aug11.do` → `dofiles/correct_unit_snap.do` |
 | 3 pending | **sizes**, and the price **round** | field S/M/L → weight terciles; nominal PSPS pesos → MS-frame weights | Step A and Step B1 below |
 
-Two consequences worth stating plainly.
-
 **The size labels are the one field artefact cleaning replaces outright.** Stage 0
 recorded S/M/L as a local, per-vendor judgement; Stage 3 discards those labels and
 re-derives the sizes from pooled weight. Everything else in Stage 2 repairs a
@@ -206,9 +205,6 @@ There is no size to resolve: a single weight $`w_c`$ characterizes the unit, so
 ```math
 \widehat{CF}_h = w_c \quad\text{for every household in the case.}
 ```
-
-Everything below concerns the non-standard case, where a unit's grams vary with
-its size / price.
 
 ---
 
@@ -362,7 +358,7 @@ cases collapse to a single rung on price grounds alone (64.2%) against a quarter
 weight grounds (24.1%). The two-rung case is genuinely rare — 3.3% — so in practice
 a case has either the full three-rung ladder or no ladder at all.
 
-Two caveats on these numbers. They are **marginal, not joint**: the price-side
+They are **marginal, not joint**: the price-side
 tally covers all 2,950 price-file cases including the 949 price-only ones with no MS
 weighings, so joining the two limits on `harmonized_nsu_unit` to get the real joint
 distribution is the first task of the implementation. And **38 of the 350** two-label
@@ -377,7 +373,7 @@ the one available price point. Every household in the cell gets that one number
 regardless of what it paid. Note what this is *not*: it is not "the small one" or
 "the medium one" — it is the middle of the whole pooled distribution, the same
 object the conventional-NSU branch produces,
-$`\widehat{CF} = \operatorname{median}(w)`$.
+$`\widehat{CF} = \text{median}(w)`$.
 
 ### Step B — apply to a PSPS household
 
@@ -400,7 +396,7 @@ same thing in every case.
 **B2. Match** the household to a rung by price. Both sides are PSPS round:
 
 ```math
-r(h) = \operatorname*{arg\,min}_{r} \; \lvert\, p_h - p_r \,\rvert
+r(h) = \text{arg\,min}_{r} \; \lvert\, p_h - p_r \,\rvert
 ```
 
 **B3. Convert** to grams:
