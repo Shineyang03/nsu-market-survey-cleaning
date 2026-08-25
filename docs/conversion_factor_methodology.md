@@ -391,6 +391,14 @@ w_r           & \text{size-based and conventional branches}
 \end{cases}
 ```
 
+**Reading the superscript.** $`w_r^{\text{PSPS}}`$ means "evaluated at PSPS-round
+prices", **not** "observed in PSPS". PSPS weighed nothing: every gram figure in this
+document is a market-survey measurement. On the price-quantity branch
+$`w_r^{\text{PSPS}}`$ is a counterfactual — the grams the same peso amount would have
+commanded at PSPS-time prices — and on the other two branches it equals the measured
+$`w_r`$ unchanged, because grams there are a property of the object and carry no
+price round at all.
+
 Every $`p_r`$ then stays at its nominal PSPS-round value, so a given rung means the
 same thing in every case.
 
