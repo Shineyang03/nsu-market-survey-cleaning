@@ -419,6 +419,21 @@ r(h) = \text{arg\,min}_{r} \; \lvert\, p_h - p_r \,\rvert
 $`\widehat{CF}_h`$ is grams in one NSU unit; $`\widehat g_h`$ is the household's
 total grams.
 
+**Same units as $`w_r`$, different unit referent.** Since $`p_h`$ and $`p_r`$ are
+both PHP per NSU, the ratio $`p_h/p_r`$ is dimensionless, so $`\widehat{CF}_h`$ and
+$`w_r`$ are both **grams per NSU unit**. What differs is *whose* unit: $`w_r`$ is
+grams in the rung's unit as weighed at the market, while $`\widehat{CF}_h`$ is grams
+in the household's unit, inferred from what it paid. Equivalently, in terms of the
+unit value $`v_r = p_r/w_r`$:
+
+```math
+\widehat{CF}_h = p_h \,/\, v_{r(h)}
+```
+
+PHP per unit divided by PHP per gram gives grams per unit. Read this way the rung
+contributes a *rate* ($`v_r`$, its price per gram) rather than a level, and $`w_r`$
+enters only through that rate.
+
 **Consistency check.** If $`p_h = p_{r(h)}`$ then
 $`\widehat{CF}_h = w_{r(h)}^{\text{PSPS}}`$ — a household paying exactly a rung's
 price is assigned exactly that rung's weight.
