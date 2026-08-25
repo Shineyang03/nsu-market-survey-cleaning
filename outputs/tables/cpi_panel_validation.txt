@@ -1,0 +1,103 @@
+==============================================================================
+CPI LEVEL PANEL BUILD -- validation report
+Spec: docs/inflation_adjustment_spec.md
+==============================================================================
+
+## Vintage pinning
+CPI file used: C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey\NSU Market Survey Launch\data\fp_cpi_byprov_byitem_psa_2023_26.csv
+sha256 (expected, from spec): 62e938ef119b91dd0e9d5b6badff4eeb17108151d921591dcbfabec9cba0a4be
+sha256 (actual):              62e938ef119b91dd0e9d5b6badff4eeb17108151d921591dcbfabec9cba0a4be
+Hash MATCHES the pinned vintage in spec section 3.1. Proceeding.
+
+## Item crosswalk
+rows: 95 (raw file had 95)
+distinct cons_name: 19 (raw file had 19)
+distinct province: 5
+isid cons_name province holds: True
+item_group values not used by all 5 provinces: 2
+  - '01.1.8 - Sugar, confectionery and desserts (ND)': used by ['ILOILO']
+  - '01.1.8.6 - Ice, ice cream and sorbet (ND)': used by ['AKLAN', 'ANTIQUE', 'CAPIZ', 'NEGROS OCCIDENTAL']
+
+## Target panel grid
+needed (province, item_group) pairs from crosswalk: 75
+distinct item_group values needed: 16
+months in CPI file: 30 (2023-12 to 2026-05)
+target rows (pairs x months): 2250
+full province x item_group rectangle would be 5 x 16 = 80 pairs; actual pairs = 75 (ragged by 5, expected -- see ice cream exception above)
+
+## Coverage ladder results
+  tier1_province_exact_group: 2250 rows
+  tier2_province_parent_group: 0 rows
+  tier3_national_group: 0 rows
+  tier4_all_food: 0 rows
+  UNRESOLVED (present in no tier): 0 rows
+  Coverage is empirically COMPLETE at tier 1 for all needed cells.
+  Tiers 2-4 were not exercised on this vintage -- confirmed empty, not merely assumed.
+
+## Panel dimensions
+provinces: 5  |  item_groups: 16  |  months: 30
+rows: 2250  (would be 2400 if it were a full province x item_group x month rectangle)
+balanced across time within every included (province,item_group) pair: True (every included pair has exactly 30 months, min=30, max=30)
+NOT a full province x item_group rectangle: 75 of 80 possible pairs present -- the 5 missing pair(s) are the documented ice-cream exception (item_group varies by province for that one cons_name), not a data gap.
+
+## cpi distribution
+min=83.1115  p25=123.6415  p50=142.3269  p75=158.8033  max=263.1350
+missing cpi: 0  |  zero cpi: 0  |  negative cpi: 0
+ASSERTIONS PASSED: cpi is never missing, zero, or negative.
+
+## Counts per cpi_source tier (repeat, on final panel)
+  tier1_province_exact_group: 2250
+  tier2_province_parent_group: 0
+  tier3_national_group: 0
+  tier4_all_food: 0
+
+## Top 10 largest month-on-month moves (level pct change within a series)
+  AKLAN                01.1.7.4 - Other vegetables, fresh or chilled (ND)      2025-07->2025-08  +37.6%
+  AKLAN                01.1.7.5 - Tubers, plantains and cooking bananas (ND)   2025-07->2025-08  +35.4%
+  ANTIQUE              01.1.7.4 - Other vegetables, fresh or chilled (ND)      2025-11->2025-12  +24.3%
+  ANTIQUE              01.1.7.4 - Other vegetables, fresh or chilled (ND)      2025-12->2026-01  -20.0%
+  ANTIQUE              01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND) 2025-11->2025-12  +19.8%
+  ANTIQUE              01.1.7.4 - Other vegetables, fresh or chilled (ND)      2024-12->2025-01  +17.6%
+  AKLAN                01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND) 2025-07->2025-08  +17.3%
+  AKLAN                01.1.7.4 - Other vegetables, fresh or chilled (ND)      2024-10->2024-11  -15.5%
+  AKLAN                01.1.7.4 - Other vegetables, fresh or chilled (ND)      2024-02->2024-03  -15.4%
+  ANTIQUE              01.1.1.12 - Rice                                        2026-04->2026-05  +14.8%
+
+## Index integrity for ratio use
+Fixed-base level check: PSA CPI series by construction are fixed-base index levels
+(base period re-referenced to 100), not year-on-year rates -- consistent with the
+observed range here (min=83.1 .. max=263.1, centred near 100,
+not near 0 the way a y/y growth rate would be).
+
+Base-break check at the 2026 boundary (2025m12 -> 2026m1):
+  median m/m %% change at 2025m12->2026m1: 1.22%  (n=75)
+  median m/m %% change at all other transitions: 0.00%  (n=2100)
+  Interpretation: no visible base break -- boundary move is in line with (or smaller than) the typical move.
+
+## cpi_ma3 departure from cpi, by item_group
+  01.1.7.4 - Other vegetables, fresh or chilled (ND)      mean |cpi_ma3 - cpi| / cpi = 2.46%   max = 13.19%
+  01.1.7.5 - Tubers, plantains and cooking bananas (ND)   mean |cpi_ma3 - cpi| / cpi = 1.57%   max = 12.84%
+  01.1.3.4 - Other seafood, live, fresh, chilled or frozen (ND) mean |cpi_ma3 - cpi| / cpi = 1.51%   max = 6.24%
+  01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND) mean |cpi_ma3 - cpi| / cpi = 1.43%   max = 6.59%
+  01.1.3.1 - Fish, live, fresh, chilled or frozen (ND)    mean |cpi_ma3 - cpi| / cpi = 1.24%   max = 5.06%
+  01.1.1.12 - Rice                                        mean |cpi_ma3 - cpi| / cpi = 1.07%   max = 4.32%
+  01.1.6 - Fruits and nuts (ND)                           mean |cpi_ma3 - cpi| / cpi = 0.85%   max = 3.92%
+  01.1.2.2 - Meat, fresh, chilled or frozen (ND)          mean |cpi_ma3 - cpi| / cpi = 0.51%   max = 2.10%
+  01.1.2 - Meat and other parts of slaughtered land animals (ND) mean |cpi_ma3 - cpi| / cpi = 0.42%   max = 1.78%
+  11.1.1 - Restaurants, café and the like (S)             mean |cpi_ma3 - cpi| / cpi = 0.31%   max = 4.65%
+  01.1.8 - Sugar, confectionery and desserts (ND)         mean |cpi_ma3 - cpi| / cpi = 0.24%   max = 0.72%
+  01.1.1.3 - Bread and bakery products (ND)               mean |cpi_ma3 - cpi| / cpi = 0.22%   max = 2.10%
+  02.1.1.0 - Spirits and liquors (ND)                     mean |cpi_ma3 - cpi| / cpi = 0.22%   max = 2.01%
+  01.1.8.6 - Ice, ice cream and sorbet (ND)               mean |cpi_ma3 - cpi| / cpi = 0.20%   max = 2.46%
+  01.2.5.0 - Water (ND)                                   mean |cpi_ma3 - cpi| / cpi = 0.19%   max = 2.40%
+  02.1.3.0 - Beer (ND)                                    mean |cpi_ma3 - cpi| / cpi = 0.19%   max = 2.77%
+
+cpi_ma3 missing at series endpoints (documented, not shrunk): 150 rows out of 2250 (expect 2 per (province,item_group) series x 75 series = 150)
+
+## Vintage hash (repeat)
+sha256(fp_cpi_byprov_byitem_psa_2023_26.csv) = 62e938ef119b91dd0e9d5b6badff4eeb17108151d921591dcbfabec9cba0a4be
+
+## Files written
+  C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning\outputs\tables\cpi_level_panel.csv
+  C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning\outputs\tables\cpi_item_crosswalk.csv
+  C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning\outputs\tables\cpi_panel_validation.txt

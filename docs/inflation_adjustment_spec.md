@@ -147,9 +147,15 @@ replace cons_name = subinstr(cons_name, "café", "cafe", .)
 ### 4.3 `cpi_ma3`
 
 A 3-month centred moving average of the **level** (never of a ratio). Motivation:
-individual series are violently volatile — Aklan green leguminous vegetables jumped
-**+77% in one month** (2025m7→08), Iloilo the same series +73% (2025m11→12) — so the
-pipeline needs a robustness variant.
+individual series are violently volatile. Among the series this panel actually
+carries, the largest single-month moves are Aklan *other vegetables* **+37.6%**
+(2025m8), Aklan *tubers and plantains* **+35.4%** (2025m8), and Antique *other
+vegetables* **+24.3%** (2025m12) immediately followed by **−20.0%** (2026m1) — a
+spike-and-reversion pair that is exactly what a centred average is meant to absorb.
+
+> Earlier drafts cited "green leguminous vegetables +77%". That series
+> (`01.1.7.3`) exists in the source CSV but **no survey item maps to it**, so it
+> never enters any calculation here. Do not use it as a motivating figure.
 
 Handle series endpoints explicitly and **document the choice** (leave missing, or
 shrink the window). Do not let the decision be implicit in whatever the function
