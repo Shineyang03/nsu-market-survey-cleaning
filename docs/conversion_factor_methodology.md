@@ -179,8 +179,9 @@ it depends on the weighing approach:
 - $`v_r \equiv p_r / w_r`$ — unit value, **PHP per gram**, in whatever round
   $`p_r`$ belongs to
 
-S / M / L are the *values* a rung takes on the size-based branch; $`r`$ is the index
-everywhere.
+S / M / L are the *values* a rung takes wherever there are three of them — a weight
+tercile on the size-based branch, a rank-aligned price point (MP25/50/75) on the
+price-quantity branch; $`r`$ is the index everywhere.
 
 **PSPS side**, household $`h`$ in case $`c`$:
 
