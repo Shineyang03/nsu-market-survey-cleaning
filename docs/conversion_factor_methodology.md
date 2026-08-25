@@ -3,6 +3,12 @@
 **Purpose.** Convert quantities reported in non-standard units (NSUs) in the PSPS
 household panel into grams, using the NSU Market Survey as the measurement source.
 
+**Companion documents.** `docs/data_oddities.md` holds the individual cases, coding
+conventions and small exclusions that would otherwise clutter this one — read it
+before treating any single-case discrepancy as a bug.
+`docs/inflation_adjustment_spec.md` is the build spec for the CPI inputs.
+`docs/master_rename.md` documents the NSU vocabulary.
+
 ## Two deliverables
 
 **Outcome 1 — reference set for future data collection.** A lookup key with columns
