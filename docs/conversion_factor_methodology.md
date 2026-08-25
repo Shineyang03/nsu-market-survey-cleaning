@@ -5,14 +5,20 @@ household panel into grams, using the NSU Market Survey as the measurement sourc
 
 ## Two deliverables
 
-**Outcome 1 — reference set for future data collection.** A lookup key, one per
-province, with columns
+**Outcome 1 — reference set for future data collection.** A lookup key with columns
 
-> municipality | market type | item | NSU | size | grams per unit
+> province | municipality | item | NSU | size | grams per unit
 
 keeping within-item heterogeneity (a row per size, not one averaged scalar). Use
 case: a respondent reports 1 mango; the enumerator asks the size (small / medium /
 large, e.g. with reference pictures) and logs the answer directly in grams.
+
+**Market type is not in the key.** The reference weight is aggregated *across*
+public market, talipapa and roadside vendors, exactly as Step A pools across them.
+This is deliberate: the future enumerator using this table asks a respondent what
+size they bought, not which market type the respondent's vendor belonged to, so a
+market-type-specific row could not be looked up. It also keeps Outcome 1 on the same
+grain as the Step A pool, so both come from one collapse rather than two.
 
 **Outcome 2 — conversion factors for PSPS.** For each item-NSU-municipality
 observed in PSPS, a grams-per-unit value, so PSPS NSU quantities can be turned
