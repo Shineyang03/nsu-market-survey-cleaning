@@ -444,8 +444,14 @@ question is whether that holds here. It does not, and the data say so in three
 separate ways.
 
 All figures below are measured on the PSA province × COICOP food CPI over the anchor
-pair PSPS 2024m5 → MS 2026m4, by `dofiles/plot_cpi_inflation.py`, with the figures
-written to `outputs/master_rename_build/graphs/`.
+pair PSPS 2024m5 → MS 2026m4, by `dofiles/plot_cpi_inflation.py`, which also writes
+the two figures shown here.
+
+![Cumulative food-price change from the PSPS round to the market survey, by province and COICOP group, with a panel showing how far the estimate moves when the PSPS anchor month is shifted across its range](../outputs/master_rename_build/graphs/cpi_inflation_psps_to_ms.png)
+
+*$`\pi`$ by province × COICOP group, PSPS 2024m5 → MS 2026m4. Read the columns for
+cross-province disagreement within a group and the right-hand panel for how much the
+estimate depends on the anchor month.*
 
 **It is not small.** The median correction across province × group is **+7.4%**, and
 the correction runs from **−18.1% to +58.1%**. For scale, field weights are recorded
@@ -476,6 +482,14 @@ anchor on. Moving the anchor across its plausible range shifts $`\pi`$ by 15.6 p
 for other vegetables, 10.5 pp for tubers and 9.3 pp for fruits. A cell-level proxy
 date would introduce an error of the same order as the adjustment itself, so use the
 household's own interview month. It is available on the PSPS side.
+
+![CPI paths for each COICOP food group, one line per province, indexed to December 2023, with the PSPS fieldwork window and the market survey window shaded](../outputs/master_rename_build/graphs/cpi_paths_by_coicop_group.png)
+
+*Index paths by group, each province a grey line and the cross-province median in
+blue, indexed to 2023m12 = 100. The grey band is the PSPS fieldwork window and the
+blue band the market survey. The width of the grey band is the problem the paragraph
+above describes: any single anchor month inside it is a choice, and for the volatile
+vegetable groups the paths move enough across that band to matter.*
 
 **What is not yet measured.** All of the above says $`\pi`$ changes the *level* of a
 conversion factor. It does not establish how often $`\pi`$ is large enough to move a
