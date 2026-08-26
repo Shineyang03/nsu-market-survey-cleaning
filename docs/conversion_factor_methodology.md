@@ -34,55 +34,73 @@ into grams retrospectively.
 
 ## Decision tree
 
+**How many hetero-groups a case gets is decided by different evidence in each
+outcome.** This is the single most important thing on this page:
+
+- **Outcome 1** counts the **field size-labels** the case actually contains. Three
+  of S/M/L recorded → three groups. Two → two. One → one.
+- **Outcome 2** reads the **price file's point structure** for that case. Three
+  quartile points → three groups. A single median → one.
+
+Neither uses the number of weighings. The same case can therefore yield three sizes
+in Outcome 1 and one weight in Outcome 2 — all three labels in the field, but only
+a municipal median priced. **That is the design, not an inconsistency.** It also
+means the two outputs cannot be derived from one another.
+
 ```mermaid
 flowchart TD
     G{"What are you building?"}
-    G -->|"Outcome 1 — reference set"| WA1{"Case's weighing_approach?<br/>(case = prov x mun x item x harmonized_nsu_unit)"}
 
+    G -->|"Outcome 1 — reference set"| WA1{"Case's weighing_approach?"}
     WA1 -->|"conventional"| OC["No size to resolve.<br/>Report median(w) for the case."]
-    WA1 -->|"price-quantity"| OP["MP25/50/75 price points map directly to S/M/L —<br/>no re-terciling needed.<br/>Report median(w) within case x hetero-group."]
-    WA1 -->|"size-based"| OS["Re-tercile S/M/L from empirical weights (Step A).<br/>Report median(w) within case x hetero-group."]
+    WA1 -->|"size-based"| OS1{"How many of S/M/L<br/>appear in the raw data?"}
+    WA1 -->|"price-quantity"| OP1["Read the size off the price label:<br/>mp25 = S, mp50 = M, mp75 = L,<br/>municipal or province median = M.<br/>EXCLUDE unique_mun_price."]
 
-    G -->|"Outcome 2 — PSPS conversion factors"| WA{"Case's weighing_approach?<br/>(exactly one per case)"}
+    OS1 -->|"all three (553 cases)"| OS3["Pool across vendors and markets,<br/>cut into 3 empirical terciles,<br/>report median within case x group."]
+    OS1 -->|"two (260 cases)"| OS2["Pool, cut into 2,<br/>report median within case x group."]
+    OS1 -->|"one (758 cases)"| OS0["Pool, one group,<br/>report the case median."]
 
-    WA -->|"conventional<br/>123 cases · 6%"| C1["No size, no price.<br/>CF = median(w) over the cell.<br/>pi: not applicable"]
+    G -->|"Outcome 2 — PSPS conversion factors"| WA2{"Case's weighing_approach?"}
+    WA2 -->|"conventional"| C1["CF = median(w) over the case.<br/>pi not applicable."]
+    WA2 -->|"price-quantity"| P1["Already priced. NO conversion.<br/>Keep the fielded price points.<br/>w_g moves with the price level, so<br/>ADJUST THE WEIGHT: w_psps = w_g(1+pi)"]
+    WA2 -->|"size-based"| S1{"What does the PRICE FILE<br/>hold for this case?"}
 
-    WA -->|"price-quantity based<br/>314 cases · 16%"| P1["p_g = pull_price, the amount actually SPENT.<br/>w_g = what that money bought,<br/>so w_g moves with the price level."]
-    P1 --> P2["ADJUST THE WEIGHT: w_psps = w_g · (1+pi)<br/>CF_h = p_h · w_psps / p_g<br/>pi from household PSPS month -> MS weighing month"]
+    S1 -->|"mp25 / mp50 / mp75"| S3["Pool the S/M/L weights, cut into terciles:<br/>lowest third -> mp25, middle -> mp50, top -> mp75.<br/>CF_h = p_h · w_g / p_g"]
+    S1 -->|"municipality median"| S2m["Median weight across sizes, within the case.<br/>One weight, paired with the municipal median price."]
+    S1 -->|"province median"| S2p["Median weight across sizes AND municipalities,<br/>within the province. Paired with the province<br/>median price. Output row is still per municipality."]
+    S1 -->|"unique_mun_price"| SU["Never occurs alone — always accompanied<br/>by a province median. See data_oddities.md."]
 
-    WA -->|"size-based<br/>1,515 cases · 78%"| S1["MS recorded no price.<br/>p_g joined from the price file.<br/>w_g = weight tercile (Step A),<br/>a property of the object."]
-    S1 --> S2{"How many hetero-groups?<br/>min(price points, weighings)"}
-
-    S2 -->|"3 price points (32.5%)<br/>AND >= 6 weighings"| R3["Three hetero-groups S/M/L.<br/>Match p_h to nearest p_g.<br/>CF_h = p_h · w_g / p_g"]
-    S2 -->|"2 price points (3.3%), or<br/>3 points but only 3-5 weighings"| R2["Two hetero-groups small/large.<br/>Pair with the 2 available points<br/>(p25 & p75 if from a triple).<br/>CF_h = p_h · w_g / p_g"]
-    S2 -->|"1 price point (64.2%)<br/>OR < 3 weighings"| R1["One hetero-group — no size resolution.<br/>Pool across S/M/L, vendors, markets.<br/>CF = median(w), same for every household."]
-
-    R3 --> PI["NO weight adjustment.<br/>w_psps = w_g. pi not used."]
-    R2 --> PI
-    R1 --> PI
+    S3 --> PI["NO weight adjustment on this branch.<br/>w_psps = w_g. Grams carry no price round."]
+    S2m --> PI
+    S2p --> PI
 ```
 
 ### The scenarios as a table
 
-All price points are nominal PSPS round throughout, in every scenario.
+All price points are nominal PSPS round throughout.
 
-| # | deliverable | branch | hetero-groups | $`w_g`$ is | $`p_g`$ is | weight adjustment | conversion factor |
+| # | outcome | branch | groups decided by | $`w_g`$ is | $`p_g`$ is | weight adj. | result |
 |---|---|---|---|---|---|---|---|
-| 1 | Outcome 1 | any | as resolved | tercile / point median | *not reported* | none — report as measured | $`w_g`$ itself |
-| 2 | Outcome 2 | conventional | 1 | cell median | none | none | $`\text{median}(w)`$ |
-| 3 | Outcome 2 | price-quantity | as fielded | weight bought at that point | `pull_price`, the amount spent | $`\times(1+\pi)`$ | $`p_h\,w_g(1{+}\pi)/p_g`$ |
-| 4 | Outcome 2 | size-based | 3 | tercile median | price file p25/p50/p75 | none | $`p_h\,w_g/p_g`$ |
-| 5 | Outcome 2 | size-based | 2 | median-split median | the 2 available points | none | $`p_h\,w_g/p_g`$ |
-| 6 | Outcome 2 | size-based | 1 | pooled cell median | the single median point | none | $`\text{median}(w)`$ |
+| 1 | 1 | size-based | field labels present (3 / 2 / 1) | median within case × tercile | *not used* | none | $`w_g`$ itself |
+| 2 | 1 | price-quantity | the price label (mp25→S, mp50→M, mp75→L, median→M) | median within case × label | *not used* | none | $`w_g`$ itself |
+| 3 | 1 | conventional | one | case median | *not used* | none | $`w_g`$ itself |
+| 4 | 2 | size-based, 3 price points | the price file | median within case × tercile | p25 / p50 / p75 | none | $`p_h\,w_g/p_g`$ |
+| 5 | 2 | size-based, municipal median | the price file | median across sizes, within case | municipal median | none | $`p_h\,w_g/p_g`$ |
+| 6 | 2 | size-based, province median | the price file | median across sizes **and municipalities** | province median | none | $`p_h\,w_g/p_g`$ |
+| 7 | 2 | price-quantity | already fielded | weight bought at that point | `pull_price` | $`\times(1+\pi)`$ | $`p_h\,w_g(1{+}\pi)/p_g`$ |
+| 8 | 2 | conventional | one | case median | none | none | $`\text{median}(w)`$ |
 
-Scenario 6 is the most common, and it makes rows 2 and 6 the same object: with one
-hetero-group, the size-based branch degenerates to what the conventional branch does.
+**Scenario 6 pools the weight province-wide but still emits a municipality-level
+row.** Every municipality in that province receives the same $`w_g`$ and the same
+$`p_g`$, so the same CF — but each gets its own row, and the output grain stays
+province × municipality × item × NSU throughout. The province median is a property
+of the *price*, never of the output key.
 
-**Inflation is a branch property, not a global
-step** — scenario 3 only. **It applies to the weight, never to a price** — every
-$`p_g`$ stays PSPS round, so a hetero-group means the same thing in every scenario. And
-**the ordinal ladder is not the same observable in every branch**: a weight tercile
-on the size-based branch, a given price point on the price-quantity branch.
+Two further things the table makes visible. **Inflation is a branch property, not a
+global step** — scenario 7 only, and it applies to the weight, never to a price, so
+every $`p_g`$ stays PSPS round. And **a hetero-group is not the same observable in
+every branch**: a weight tercile where sizes were recorded, a given price point
+where prices were.
 
 ---
 
@@ -161,6 +179,58 @@ not part of the Stata cleaning at all: the cleaning run only *joins* a key that 
 already built, which is what makes the MS and price files joinable in the first
 place. Rebuilding the vocabulary means re-running the upstream script, not editing
 the do-file.
+
+### String normalization: the exact rule, and why it must be identical everywhere
+
+Every join in this project matches on text — province, municipality, item, NSU. All
+of them go through one normalization, and **any re-implementation that differs by a
+character silently breaks a join**. The rule, in order:
+
+1. **Drop non-ASCII characters outright.** Stata `ustrto(v, "ascii", 2)`; Python
+   `str(s).encode('ascii','ignore').decode('ascii')`.
+2. **Case-fold** — lower for item and NSU, UPPER for province and municipality.
+3. **Trim** leading and trailing whitespace.
+4. **Collapse** internal whitespace runs to a single space.
+
+> **Do not Unicode-normalize before step 1.** `DUEÑAS` must become **`DUEAS`**, with
+> the Ñ *deleted*. Decomposing first (Python `unicodedata.normalize("NFKD", …)`)
+> splits Ñ into `n` + combining tilde, drops only the tilde, and yields `DUENAS` —
+> which matches nothing. Stata's `ustrto` deletes the whole character, so the price
+> file, `master_nsu_rename.csv` and the built data all carry `DUEAS`. A checking
+> script written with NFKD once reported 26 phantom unmatched cells for this reason.
+
+The authoritative implementation is `nz()` / `ni()` / `ng()` in
+`dofiles/diagnose_price_only.py`, mirrored operation-for-operation by the
+`nsu_normalize` program in `cleaning_Aug11.do`. **Import or call those. Never write
+a fourth copy**, including in throwaway diagnostics — a normalizer that disagrees
+produces findings that look like data problems and are not.
+
+Order also matters against the rest of the pipeline: comment parsing runs *before*
+normalization (the comment crosswalk carries raw-cased strings), and the rename
+merge runs *after* it (the master file's keys arrive pre-normalized).
+
+### What identifies a row, at each stage
+
+Three different keys do three different jobs, and conflating them is the most
+likely way to corrupt an aggregation.
+
+| purpose | key | unique? |
+|---|---|---|
+| **a weighing** (raw) | province × municipality × item × `pull_nsu_unit` × `market_type` × `vendor_id` × `obs_type` | **yes** — 11,495 rows, 11,495 groups |
+| **a weighing** (built) | province × municipality × item × `harmonized_nsu_unit` × `market_type` × `vendor_id` × `item_nsu_hetero_type` | **yes** — 11,384 rows, 11,384 groups |
+| **a case** (the pooling unit) | province × municipality × item × `harmonized_nsu_unit` × `corrected_unit` | **no, by design** — this is the pool |
+
+**Harmonization does not cost uniqueness.** Dropping `market_type` and `vendor_id`
+leaves 3,364 groups for 11,384 rows — but the same key on `pull_nsu_unit` leaves
+3,422 for 11,495. Multiple vendors across up to three market slots are what make a
+case non-unique, not the fold. Add market type and vendor and both levels identify a
+row exactly.
+
+> **`uuid` is not a safe key.** It is `item_unit_MUNICIPALITY` with **no province**,
+> and two municipality names recur across provinces — **PONTEVEDRA** (Capiz and
+> Negros Occidental) and **SAN ENRIQUE** (Iloilo and Negros Occidental) — making 33
+> price-file uuids ambiguous. Joining on it silently merges two provinces' prices.
+> Use province × municipality × item × NSU.
 
 ---
 
@@ -323,19 +393,32 @@ barely varied.
 
 #### Degrading gracefully: how many hetero-groups a case can support
 
-How many hetero-groups we can actually assign depends on two separate limits, and we take
-whichever is smaller.
+> **Superseded rule, recorded so it is not reintroduced.** Earlier drafts set the
+> group count to `min(price points, weighings)`, with a weighing-count ladder
+> (≥6 → three, 3–5 → two, <3 → one). **The weighing count no longer enters either
+> outcome.** It was a proxy for "can this distribution support a split", but it
+> demoted 77 of the 553 three-label cases that genuinely had all three sizes
+> recorded, and it has no bearing at all on how many prices exist to pair with.
 
-**Limit 1 — how many times the unit was weighed.** You cannot split three weighings
-into three sizes. Measured on the size-based cases:
+Each outcome counts something different, and neither counts weighings.
 
-| weighings in the cell | sizes the weights can support | cells |
+**Outcome 1 counts the field size-labels present in the case.** If the enumerators
+recorded all three of S/M/L, the case gets three groups — however few or many
+weighings sit behind them. Measured on the size-based cases:
+
+| distinct S/M/L labels recorded | groups | cases |
 |---|---|---|
-| ≥ 6 | three terciles, S / M / L | 700 (44.6%) |
-| 3–5 | two groups, small / large | 493 (31.4%) |
-| < 3 | one — no size resolution | 378 (24.1%) |
+| three | S / M / L | 553 |
+| two | the two present | 260 |
+| one | one | 758 |
 
-**Limit 2 — how many price points exist.** A size is only useful if there is a
+Re-terciling still runs in every one of these, including where a case holds exactly
+one weighing per label (33 cases). In 31 of those 33 the empirical order matches the
+field order, so terciling changes nothing; in 2 it corrects a genuine inversion where
+the vendor's "medium" outweighed their "large". Always re-tercile: the alternative
+publishes a reference table where M > L.
+
+**Outcome 2 counts the price points the price file holds.** A size is only useful if there is a
 price to pair it with, so a cell with a single median price supports one hetero-group no
 matter how often we weighed it. The four dominant `price_type` combinations map
 one-to-one onto the four branches of the field protocol above, which is a useful
@@ -366,18 +449,22 @@ level and 97 have two. So:
 / 55.6%. Either way the qualitative conclusion is the same.) Tallied by
 `dofiles/tally_price_points.py`.
 
-**Limit 2 usually binds, and it binds harder than Limit 1**: about two thirds of
-cases collapse to a single hetero-group on price grounds alone (64.2%) against a quarter on
-weight grounds (24.1%). The two-group case is genuinely rare — 3.3% — so in practice
-a case has either the full three-group ladder or no ladder at all.
+So on the Outcome 2 side about two thirds of cases collapse to a single group on
+price grounds (64.2%), and the two-group case is genuinely rare at 3.3% — in
+practice a case has either the full three-group ladder or no ladder at all.
 
-They are **marginal, not joint**: the price-side
-tally covers all 2,950 price-file cases including the 949 price-only ones with no MS
-weighings, so joining the two limits on `harmonized_nsu_unit` to get the real joint
-distribution is the first task of the implementation. And **38 of the 350** two-label
-cases have their municipal price within ₱20 of the province median, which the stated
-protocol would have collapsed to province median only — worth confirming whether
-those are exceptions or a different threshold was applied.
+Two caveats on those price-side figures. They cover all **2,950** price-file cases
+including the 949 price-only ones with no MS weighings, so the shares among cases
+that actually have weights will differ. And **38 of the 350** province-median-plus-
+municipal-price cases have their municipal price within ₱20 of the province median,
+which the stated protocol would have collapsed to province median only — still worth
+confirming whether those are exceptions or a different threshold was applied.
+
+**Every size-based case has a price-file row.** Checked directly: 1,552 of 1,552
+size-based cells match, so no case needs a fallback for a missing price. An earlier
+count of 26 unmatched cells was an artefact of a checking script that
+Unicode-normalized `DUEÑAS` differently from the pipeline — see the normalization
+rule above.
 
 **When a case collapses to one hetero-group** the sizes are not separated at all: pool every
 size-based weighing in the cell across vendors, market types **and** the original
