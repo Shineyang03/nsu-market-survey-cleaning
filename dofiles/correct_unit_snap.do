@@ -25,8 +25,9 @@
 * Key outputs               : corrected_unit corrected_weight base_corr k flag_review
 *
 * PARAMETERS (globals; all default to the original cleaning.do behaviour, so
-* calling this file with none of them set reproduces the pre-Aug11 output byte
-* for byte). Set them before `do`-ing this file to point it at another build:
+* calling this file with none of them set runs the CURRENT cleaning.do path. It does
+* NOT reproduce the pre-Aug11 output byte for byte -- since parameterization the file
+* also gained a unit==3 block, a round() and an encode, and lost two saves
 *   ${unitvar}     unit variable defining the anchor pool  [cleaned_nsu_unit]
 *   ${snap_in}     input dataset                           [${temp}\prelim_nsu_data]
 *   ${snap_out}    output dataset                          [${temp}\standard_weight_unit_correction]

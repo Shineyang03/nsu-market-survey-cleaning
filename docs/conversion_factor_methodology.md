@@ -158,7 +158,7 @@ flowchart TB
         D2["Normalize the merge keys, then merge the rename sheet.<br/>ASCII-drop, casefold, trim, collapse whitespace, uppercase geo.<br/>Same rule applied to both sides, so the merge must come second."]
         D3["DROP the standard-quantity labels.<br/>Before the snap, so they never pollute an anchor."]
         D4["Rebuild identifiers on harmonized_nsu_unit,<br/>not on the cleaned or raw label."]
-        D5["Canonicalize dimension, then snap magnitude.<br/>kg to g and L to mL, then a log10 power-of-ten snap<br/>toward the item x harmonized anchor.<br/>corrected_weight, corrected_unit"]
+        D5["Canonicalize dimension, then fix magnitude.<br/>kg to g and L to mL, then a threshold rule<br/>(a number below 10 is in the bigger unit) for 99.2%<br/>of rows; a log10 snap toward the item x harmonized<br/>anchor decides the remaining 89.<br/>corrected_weight, corrected_unit"]
         D6["Resolve items recorded in BOTH mass and volume.<br/>One verdict per item; unverdicted items keep<br/>the dimension the enumerator recorded."]
         D1 --> D2 --> D3 --> D4 --> D5 --> D6
     end
@@ -269,14 +269,18 @@ it depends on the weighing approach:
 | weighing approach | a hetero-group is | $`w_g`$ | $`p_g`$, and the round it belongs to |
 |---|---|---|---|
 | size-based | a weight tercile (S / M / L) | tercile median | joined from the price file → **PSPS round** |
-| price-quantity | a price point given to the enumerator (MP25/50/75) | weight that money bought | the amount **actually spent** → **MS round** |
+| price-quantity | a price point given to the enumerator (MP25/50/75) | weight that money bought | a PSPS-derived point, spent during MS → **PSPS round** |
 | conventional | the whole case | cell median | none |
 
 - $`w_g`$ — grams in one hetero-group-$`g`$ unit
-- $`p_g`$ — **PHP per NSU** for a hetero-group-$`g`$ unit. Its round is branch-specific, per
-  the table: the *same nominal number* can be an MS-round price in one case and a
-  PSPS-round price in another, because the round comes from how the number was used,
-  not from the number.
+- $`p_g`$ — **PHP per NSU** for a hetero-group-$`g`$ unit. **Always PSPS round, on
+  every branch.** On the size-based branch it is joined from the price file. On the
+  price-quantity branch it is `pull_price`, which is preloaded and system-filled from
+  PSPS prices — verified to match the SurveyCTO case-file preload in 1,176 of 1,176
+  matched rows, so it is the figure the enumerator was *sent to spend*, not one they
+  observed. That the money changed hands during the MS round does not make the
+  *number* an MS-round price; what is MS-round is the quantity it bought, which is
+  why $`(1+\pi)`$ lands on $`w_g`$ and never on $`p_g`$.
 - $`v_g \equiv p_g / w_g`$ — unit value, **PHP per gram**, in whatever round
   $`p_g`$ belongs to
 
