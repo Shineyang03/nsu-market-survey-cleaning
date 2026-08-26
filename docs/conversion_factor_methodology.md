@@ -23,6 +23,22 @@ Run in this order. Anything not listed here is not part of the pipeline.
 | *Outcome 2 — PSPS conversion factors* | | **not yet written** |
 | `dofiles/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
 
+Not part of the build, but not throwaway either — run these to check the build rather
+than to produce it:
+
+| file | does |
+|---|---|
+| `dofiles/verify_documented_claims.py` | re-derives every number in `docs/` that no build file produces, and prints the documented value beside the current one. Exits non-zero if any has moved. **Run it after any pipeline change.** |
+| `dofiles/diagnose_price_only.py` | the authoritative raw → cleaned → harmonized NSU crosswalk; writes `master_nsu_rename.csv`, which everything else reads instead of re-deriving the fold |
+| `dofiles/validate_folds.py` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
+| `dofiles/tally_price_points.py` | how many price points each case has, under both readings of the price file |
+| `dofiles/scope_multi_price_points.py` | measures the multi-price-point-within-a-case problem |
+| `dofiles/plot_cpi_inflation.py` | the two CPI figures embedded below, and the $`\pi`$ figures quoted with them |
+| `dofiles/summary_statistics.py` | raw vs cleaned summary tables |
+
+Any number quoted in this document should be traceable to one of the files above. If
+you find one that is not, it is unverified — treat it as a claim, not a measurement.
+
 > **`nsu_step_a_rungs.do` is kept only as a record of a rejected approach.** It set
 > the group count from the *weighing count*, which neither outcome uses, and assumed
 > one resolution could serve both deliverables, which it cannot. Its output
@@ -104,7 +120,7 @@ flowchart TD
     S1 -->|"mp25 / mp50 / mp75"| S3["Pool the S/M/L weights, cut into terciles:<br/>lowest third -> mp25, middle -> mp50, top -> mp75.<br/>CF_h = p_h · w_g / p_g"]
     S1 -->|"municipality median"| S2m["Median weight across sizes, within the case.<br/>One weight, paired with the municipal median price."]
     S1 -->|"province median"| S2p["Median weight across sizes AND municipalities,<br/>within the province. Paired with the province<br/>median price. Output row is still per municipality."]
-    S1 -->|"unique_mun_price"| SU["Never occurs alone — always accompanied<br/>by a province median. See data_oddities.md."]
+    S1 -->|"unique_mun_price"| SU["Never occurs alone: 350 cases carry a<br/>province median alongside it, 4 carry the<br/>full mp25/50/75 triple instead.<br/>See data_oddities.md."]
 
     S3 --> PI["NO weight adjustment on this branch.<br/>w_psps = w_g. Grams carry no price round."]
     S2m --> PI
@@ -293,7 +309,7 @@ it depends on the weighing approach:
 - $`p_g`$ — **PHP per NSU** for a hetero-group-$`g`$ unit. **Always PSPS round, on
   every branch.** On the size-based branch it is joined from the price file. On the
   price-quantity branch it is `pull_price`, which is preloaded and system-filled from
-  PSPS prices — verified to match the SurveyCTO case-file preload in 1,176 of 1,176
+  PSPS prices — verified to match the SurveyCTO case-file preload in 1,105 of 1,105
   matched rows, so it is the figure the enumerator was *sent to spend*, not one they
   observed. That the money changed hands during the MS round does not make the
   *number* an MS-round price; what is MS-round is the quantity it bought, which is
@@ -500,11 +516,18 @@ municipal-price cases have their municipal price within ₱20 of the province me
 which the stated protocol would have collapsed to province median only — still worth
 confirming whether those are exceptions or a different threshold was applied.
 
-**Every size-based case has a price-file row.** Checked directly: 1,552 of 1,552
-size-based cells match, so no case needs a fallback for a missing price. An earlier
-count of 26 unmatched cells was an artefact of a checking script that
+**Almost every size-based case has a price-file row.** Checked directly by
+`dofiles/verify_documented_claims.py`: **1,514 of 1,515** size-based cells match. The
+single exception is ILOILO / DUEÑAS / cabbage / `putos (mix vegetable)`, whose
+harmonized unit is the mixed-vegetable canonical label — a fold target that exists on
+the market-survey side but has no counterpart in the price file. That one cell needs
+either a fallback price or exclusion; nothing else does.
+
+An earlier count of 26 unmatched cells was an artefact of a checking script that
 Unicode-normalized `DUEÑAS` differently from the pipeline — see the normalization
-rule above.
+rule above. Re-run the verification script after any change to the fold rule, since a
+new fold target with no price-file counterpart would show up here as a second
+exception.
 
 **When a case collapses to one hetero-group** the sizes are not separated at all: pool every
 size-based weighing in the cell across vendors, market types **and** the original

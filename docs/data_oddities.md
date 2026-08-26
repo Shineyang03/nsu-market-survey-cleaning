@@ -66,7 +66,10 @@ handling.
 `NSU Market Survey Launch/data/nsu_long_data_description.pdf`, "the enumerator does
 not enter this" — and it is per-NSU. It is verified to be exactly the value the
 enumerator was sent to spend: `pull_price` matches the SurveyCTO case-file preload
-in **1,176 of 1,176** matched rows, at 98.6% coverage.
+in **1,105 of 1,105** matched rows, at 98.5% coverage. (The denominator is
+stage-dependent — it is counted on the restated file, after attrition. What matters is
+that agreement is exact on every row that matches: re-run
+`dofiles/verify_documented_claims.py` to confirm it still is.)
 
 The enumerator approached the vendor with that PSPS price. Sometimes the vendor no
 longer sold the item at it, and the data records **two different outcomes**:
