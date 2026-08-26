@@ -45,9 +45,26 @@ size they bought, not which market type the respondent's vendor belonged to, so 
 market-type-specific row could not be looked up. It also keeps Outcome 1 on the same
 grain as the Step A pool, so both come from one collapse rather than two.
 
-**Outcome 2 — conversion factors for PSPS.** For each item-NSU-municipality
-observed in PSPS, a grams-per-unit value, so PSPS NSU quantities can be turned
-into grams retrospectively.
+**Outcome 2 — conversion factors for PSPS.** A lookup that turns PSPS NSU
+quantities into grams retrospectively. It is a **case-level table that yields
+household-level answers**: the table is keyed at
+
+> case | PSPS interview month | price point | price per NSU (PHP) | PHP per gram
+
+and the household variation arrives at lookup time, not from the table having a
+household dimension. A household's own implied unit price $`p_h`$ enters the
+division in Step B3, so two households in the same case can receive different
+conversion factors from the same row.
+
+Read the last column as an exchange rate. `PHP per gram` is $`v_g = p_g/w_g`$; a
+household that spent $`p_h`$ per NSU is assigned $`p_h / v_g`$ grams per NSU. The
+term *conversion factor* stays reserved for the NSU → gram figure itself.
+
+Why a month dimension. Only the price-quantity branch carries one: its grams are
+"what a fixed peso amount bought", so they move with the price level and must be
+restated for the household's own interview month. Size-based and conventional grams
+are properties of an object and are constant across months. See "Outcome 2 as a
+table" under Step B for the resulting three-table structure.
 
 ---
 
@@ -530,6 +547,24 @@ same thing in every case.
 g(h) = \text{arg\,min}_{g} \; \lvert\, p_h - p_g \,\rvert
 ```
 
+Nominal $`p_g`$ on both sides, one adjustment only. The price points in the price
+file are computed across the whole PSPS wave, so one *could* also restate them from
+wave-average to the household's month. That is a second, distinct adjustment and it
+is **not** performed here. Only the MS → PSPS restatement of $`w_g`$ in B1 is. The
+reason to be explicit: applying both to the price would leave $`(1+\pi)^2`$ in the
+arithmetic, and applying the second to the match but not to the $`v`$ used for
+conversion would make the match and the division disagree.
+
+**Ties break toward fewer grams, and the rule is stated on $`v`$, not on the price
+point.** A household exactly equidistant between two points takes the one with the
+**higher** $`v_g`$ (pesos per gram), which yields the smaller $`p_h/v_g`$. Stating it
+on $`v`$ rather than "take the lower price point" matters because the two coincide
+only if $`v`$ falls monotonically across the ladder, and nothing guarantees that:
+$`v_g = p_g/w_g`$ is a ratio of two independently measured quantities, so a large
+unit that was cheap per gram can invert the order. Check monotonicity empirically
+rather than assuming it; where it fails, the $`v`$ rule is the one that delivers the
+intended conservatism.
+
 **B3. Convert** to grams:
 
 ```math
@@ -559,6 +594,78 @@ enters only through that rate.
 **Consistency check.** If $`p_h = p_{g(h)}`$ then
 $`\widehat{CF}_h = w_{g(h)}^{\text{PSPS}}`$ — a household paying exactly a hetero-group's
 price is assigned exactly that hetero-group's weight.
+
+**B4. Cap the extrapolation, and flag what was capped.** B3 is linear in $`p_h`$ with
+no upper bound, so a household whose implied unit price is ten times the matched
+hetero-group's price is handed ten times the grams of a unit that was actually
+weighed. Clamp the ratio before multiplying:
+
+```math
+r_h = \frac{p_h}{p_{g(h)}}, \qquad
+\tilde r_h = \min\!\bigl(\max(r_h,\ 1/t),\ t\bigr), \qquad
+\widehat{CF}_h = \tilde r_h \cdot w_{g(h)}^{\text{PSPS}}
+```
+
+Clamping the *input* rather than the output is what makes the bound legible: it puts
+$`\widehat{CF}_h`$ inside $`[\,w_g/t,\ w_g \cdot t\,]`$, a multiplicative window around
+the weight that was actually measured. Rows are retained, not dropped: keep the raw
+$`r_h`$ and a `d_cap` indicator alongside the clamped value, so an analyst can drop
+the affected households rather than use a clamped number.
+
+$`t`$ is set from the data, not chosen in advance — compute the $`r_h`$ distribution
+once the join exists, put the cap where it stops being credible, and report the share
+of rows that hit it. Report that share **split by how many price points the case
+has**, because the exposure is not uniform: about two thirds of cases carry a single
+price point, so there is no ladder to bracket a household and every household matches
+that one point however far its spend lies from it. Extrapolation is worst exactly
+where the price evidence is thinnest.
+
+One thing to check before treating the cap as a fix rather than a symptom: whether an
+extreme $`r_h`$ travels with $`q_h = 1`$ or with round-number expenditure. A household
+"spending ten times the top price point" is more often a quantity misreport than a
+bulk purchase. Where that is the pattern, the flag is the useful output and the clamp
+is only cosmetic.
+
+Two alternatives were considered. Bounding $`\widehat{CF}`$ against the case's own
+observed weight range, $`[\min(w_c)/t,\ \max(w_c)\cdot t]`$, is the more physical
+framing but rests on 3–9 vendors per case, so its band *widens* with vendor count and
+is loosest where the evidence is thickest. Winsorizing $`p_h`$ to the case price span
+is simplest but silently discards households that genuinely bought a larger unit. The
+ratio clamp is the operating rule; the weight-range variant is carried as a
+sensitivity check.
+
+#### Outcome 2 as a table: three branches, appended
+
+The deliverable is one row per **case × PSPS interview month × price point**, carrying
+the price per NSU and $`v`$ (PHP per gram). Build it branch by branch and append,
+rather than forcing one uniform grain:
+
+| branch | share of cases | rows per case | month dimension |
+|---|---|---|---|
+| price-quantity | 16% | price points × PSPS months in the case | real: $`v`$ moves with $`\pi`$ |
+| size-based | 78% | price points | degenerate: $`v`$ constant across months |
+| conventional NSU | 6% | 1 | degenerate |
+
+Appending rather than unifying keeps the table honest. A uniform case × month grain
+would repeat every size-based and conventional row once per month and invite a reader
+to believe those rates were month-specific when 84% of them are not. The join to the
+household file is unaffected — it is on case and month either way — so the only thing
+gained by uniformity is redundant rows.
+
+The size-based branch reaches this table through re-grouping, not through prices of
+its own. Step A pools the case's weighings and re-slices them into as many groups as
+the price file has points; each group is then paired with a price point in order, and
+$`v`$ follows as $`p_g/w_g`$. No inflation enters, because no money changed hands at
+market-survey time on that branch — see the two failure modes under "Why the
+adjustment sits on the weight".
+
+**Worked example.** A case with three price points, ₱50 / ₱80 / ₱100 per NSU, whose
+re-grouped size medians are 150 / 200 / 260 g, gives $`v`$ = 0.33 / 0.40 / 0.38 PHP
+per gram. Note the inversion at the top: the large unit is cheaper per gram than the
+medium one, which is exactly the case where "take the lower price point" and "take the
+higher $`v`$" diverge, and why the tie rule is stated on $`v`$. A household spending
+₱65 per NSU matches ₱50, and receives $`65 / 0.33 = 195`$ g per NSU — more than the
+150 g weighed for the small group, because it paid more than the small group's price.
 
 #### Why the adjustment sits on the weight
 
