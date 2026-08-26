@@ -247,3 +247,69 @@ nothing maps to them, not because data is missing.
 
 This is also why the item crosswalk must be joined on `(province, cons_name)` and
 never on `cons_name` alone.
+
+---
+
+## 9. Magnitude correction: which rule decides what, and the review queue
+
+`correct_unit_snap.do` turns the enumerator's `weight` + `unit` into
+`corrected_weight` in grams or millilitres. Two mechanisms do the work, and it is
+worth knowing which one actually decides a given row.
+
+**A threshold rule decides 99.2% of rows** (11,364 of 11,458). Its premise is that a
+number too small for the ticked unit means the enumerator meant the larger one:
+
+| ticked unit | rule | rows |
+|---|---|---|
+| grams | `weight >= 10` keep, else × 1000 | 9,151 |
+| litres | same rule, reading ≥ 10 as already mL | 1,620 |
+| kg, `< 1` | × 1000 | 15 |
+| kg, `[1, KGMAX]` | × 1000 — the tick is believed | 581 |
+| kg, `> KGMAX` | keep — the number is grams, the *tick* is the error | 86 |
+
+**A log10 anchor snap decides the remaining 89**, shifting a reading by whole powers
+of ten toward what that item × NSU usually weighs. Its tuning parameters (`MIN`,
+`FLOOR`, `SIB`, `AMB`) therefore govern well under 1% of the data — worth knowing
+before anyone tunes them expecting leverage.
+
+### Why `KGMAX = 30`
+
+The kg bands used to be `< 1`, `[1, 20]` and `>= 1000`, leaving **(20, 1000)
+handled by nothing**. Three ILOILO / MAASIN `sack of rice` rows at 25 kg fell through
+to the anchor, which pulled them toward the item-level rice anchor — dominated by
+gantang at ~2,250 g — and published them as **2,500 g, ten times too small**, in the
+Outcome 1 table. They did not look anomalous because legitimate rice rows nearby are
+genuinely ~2,230 g.
+
+The kg readings above 20 separate cleanly, which is what makes a threshold safe:
+
+| band | rows | what they are |
+|---|---|---|
+| (20, 30] | 3 | genuine — 25 kg rice sacks |
+| (30, 50] | **0** | empty, so the cut has margin either side |
+| > 30 | 86 | grams typed with kg ticked — a cabbage at "1,180 kg" |
+
+`KGMAX` is a named local so the cut is visible and tunable.
+
+### The review queue
+
+Rows the rules cannot resolve carry `flag_review` and are exported to
+`outputs/master_rename_build/tables/unit_correction_review_queue.xlsx`.
+
+This existed in the pre-Aug11 build, was lost during parameterization, and is
+restored. In between, the file called `br` — interactive-only, and silently a no-op
+in batch ("request ignored because of batch mode" in the log) — and then cleared
+every flag, so **22 rows were accepted unseen and three of them were wrong**.
+
+Unresolved rows are now **5**, and all five have no recorded weight at all, so there
+is genuinely nothing to resolve. A non-empty queue with resolvable rows in it means
+the rules above need extending, not that the queue should be cleared.
+
+### Known hazard, not yet fixed
+
+The litres rule reads `weight >= 10` as "already mL", so **a truthful 20 L reading
+would become 20 mL**. All 67 rows currently in that band are mL mis-ticked as L
+(liquor 335–750, a 24 × 320 mL beer case at 7,680), so nothing is wrong today — and
+the one cell that did carry genuine litre readings was removed by the
+standard-quantity exclusion in §5, so the protection is accidental rather than
+designed. Tracked as item 1 of the outstanding code-review findings.
