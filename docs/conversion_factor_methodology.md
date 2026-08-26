@@ -40,24 +40,24 @@ flowchart TD
     G -->|"Outcome 1 — reference set"| WA1{"Case's weighing_approach?<br/>(case = prov x mun x item x harmonized_nsu_unit)"}
 
     WA1 -->|"conventional"| OC["No size to resolve.<br/>Report median(w) for the case."]
-    WA1 -->|"price-quantity"| OP["MP25/50/75 price points map directly to S/M/L —<br/>no re-terciling needed.<br/>Report median(w) within case x rung."]
-    WA1 -->|"size-based"| OS["Re-tercile S/M/L from empirical weights (Step A).<br/>Report median(w) within case x rung."]
+    WA1 -->|"price-quantity"| OP["MP25/50/75 price points map directly to S/M/L —<br/>no re-terciling needed.<br/>Report median(w) within case x hetero-group."]
+    WA1 -->|"size-based"| OS["Re-tercile S/M/L from empirical weights (Step A).<br/>Report median(w) within case x hetero-group."]
 
     G -->|"Outcome 2 — PSPS conversion factors"| WA{"Case's weighing_approach?<br/>(exactly one per case)"}
 
     WA -->|"conventional<br/>123 cases · 6%"| C1["No size, no price.<br/>CF = median(w) over the cell.<br/>pi: not applicable"]
 
-    WA -->|"price-quantity based<br/>314 cases · 16%"| P1["p_r = pull_price, the amount actually SPENT.<br/>w_r = what that money bought,<br/>so w_r moves with the price level."]
-    P1 --> P2["ADJUST THE WEIGHT: w_psps = w_r · (1+pi)<br/>CF_h = p_h · w_psps / p_r<br/>pi from household PSPS month -> MS weighing month"]
+    WA -->|"price-quantity based<br/>314 cases · 16%"| P1["p_g = pull_price, the amount actually SPENT.<br/>w_g = what that money bought,<br/>so w_g moves with the price level."]
+    P1 --> P2["ADJUST THE WEIGHT: w_psps = w_g · (1+pi)<br/>CF_h = p_h · w_psps / p_g<br/>pi from household PSPS month -> MS weighing month"]
 
-    WA -->|"size-based<br/>1,515 cases · 78%"| S1["MS recorded no price.<br/>p_r joined from the price file.<br/>w_r = weight tercile (Step A),<br/>a property of the object."]
-    S1 --> S2{"How many rungs?<br/>min(price points, weighings)"}
+    WA -->|"size-based<br/>1,515 cases · 78%"| S1["MS recorded no price.<br/>p_g joined from the price file.<br/>w_g = weight tercile (Step A),<br/>a property of the object."]
+    S1 --> S2{"How many hetero-groups?<br/>min(price points, weighings)"}
 
-    S2 -->|"3 price points (32.5%)<br/>AND >= 6 weighings"| R3["Three rungs S/M/L.<br/>Match p_h to nearest p_r.<br/>CF_h = p_h · w_r / p_r"]
-    S2 -->|"2 price points (3.3%), or<br/>3 points but only 3-5 weighings"| R2["Two rungs small/large.<br/>Pair with the 2 available points<br/>(p25 & p75 if from a triple).<br/>CF_h = p_h · w_r / p_r"]
-    S2 -->|"1 price point (64.2%)<br/>OR < 3 weighings"| R1["One rung — no size resolution.<br/>Pool across S/M/L, vendors, markets.<br/>CF = median(w), same for every household."]
+    S2 -->|"3 price points (32.5%)<br/>AND >= 6 weighings"| R3["Three hetero-groups S/M/L.<br/>Match p_h to nearest p_g.<br/>CF_h = p_h · w_g / p_g"]
+    S2 -->|"2 price points (3.3%), or<br/>3 points but only 3-5 weighings"| R2["Two hetero-groups small/large.<br/>Pair with the 2 available points<br/>(p25 & p75 if from a triple).<br/>CF_h = p_h · w_g / p_g"]
+    S2 -->|"1 price point (64.2%)<br/>OR < 3 weighings"| R1["One hetero-group — no size resolution.<br/>Pool across S/M/L, vendors, markets.<br/>CF = median(w), same for every household."]
 
-    R3 --> PI["NO weight adjustment.<br/>w_psps = w_r. pi not used."]
+    R3 --> PI["NO weight adjustment.<br/>w_psps = w_g. pi not used."]
     R2 --> PI
     R1 --> PI
 ```
@@ -66,21 +66,21 @@ flowchart TD
 
 All price points are nominal PSPS round throughout, in every scenario.
 
-| # | deliverable | branch | rungs | $`w_r`$ is | $`p_r`$ is | weight adjustment | conversion factor |
+| # | deliverable | branch | hetero-groups | $`w_g`$ is | $`p_g`$ is | weight adjustment | conversion factor |
 |---|---|---|---|---|---|---|---|
-| 1 | Outcome 1 | any | as resolved | tercile / point median | *not reported* | none — report as measured | $`w_r`$ itself |
+| 1 | Outcome 1 | any | as resolved | tercile / point median | *not reported* | none — report as measured | $`w_g`$ itself |
 | 2 | Outcome 2 | conventional | 1 | cell median | none | none | $`\text{median}(w)`$ |
-| 3 | Outcome 2 | price-quantity | as fielded | weight bought at that point | `pull_price`, the amount spent | $`\times(1+\pi)`$ | $`p_h\,w_r(1{+}\pi)/p_r`$ |
-| 4 | Outcome 2 | size-based | 3 | tercile median | price file p25/p50/p75 | none | $`p_h\,w_r/p_r`$ |
-| 5 | Outcome 2 | size-based | 2 | median-split median | the 2 available points | none | $`p_h\,w_r/p_r`$ |
+| 3 | Outcome 2 | price-quantity | as fielded | weight bought at that point | `pull_price`, the amount spent | $`\times(1+\pi)`$ | $`p_h\,w_g(1{+}\pi)/p_g`$ |
+| 4 | Outcome 2 | size-based | 3 | tercile median | price file p25/p50/p75 | none | $`p_h\,w_g/p_g`$ |
+| 5 | Outcome 2 | size-based | 2 | median-split median | the 2 available points | none | $`p_h\,w_g/p_g`$ |
 | 6 | Outcome 2 | size-based | 1 | pooled cell median | the single median point | none | $`\text{median}(w)`$ |
 
 Scenario 6 is the most common, and it makes rows 2 and 6 the same object: with one
-rung, the size-based branch degenerates to what the conventional branch does.
+hetero-group, the size-based branch degenerates to what the conventional branch does.
 
 **Inflation is a branch property, not a global
 step** — scenario 3 only. **It applies to the weight, never to a price** — every
-$`p_r`$ stays PSPS round, so a rung means the same thing in every scenario. And
+$`p_g`$ stays PSPS round, so a hetero-group means the same thing in every scenario. And
 **the ordinal ladder is not the same observable in every branch**: a weight tercile
 on the size-based branch, a given price point on the price-quantity branch.
 
@@ -172,28 +172,28 @@ or the spelling-corrected `cleaned_nsu_unit`. Every count in this document is at
 that grain; the same tabulation on a different unit column gives different numbers
 (1,952 cases harmonized, 1,964 cleaned, 1,992 raw). See *Practical prerequisites*.
 
-**Market survey (MS) side.** A case is resolved into up to three **rungs** — an
+**Market survey (MS) side.** A case is resolved into up to three **hetero-groups** — an
 *ordinal* ladder from smallest/cheapest to largest/dearest, indexed
-$`r \in \{1,2,3\}`$. A rung is not intrinsically a size; which observable realizes
+$`g \in \{1,2,3\}`$. A hetero-group is not intrinsically a size; which observable realizes
 it depends on the weighing approach:
 
-| weighing approach | a rung is | $`w_r`$ | $`p_r`$, and the round it belongs to |
+| weighing approach | a hetero-group is | $`w_g`$ | $`p_g`$, and the round it belongs to |
 |---|---|---|---|
 | size-based | a weight tercile (S / M / L) | tercile median | joined from the price file → **PSPS round** |
 | price-quantity | a price point given to the enumerator (MP25/50/75) | weight that money bought | the amount **actually spent** → **MS round** |
 | conventional | the whole case | cell median | none |
 
-- $`w_r`$ — grams in one rung-$`r`$ unit
-- $`p_r`$ — **PHP per NSU** for a rung-$`r`$ unit. Its round is branch-specific, per
+- $`w_g`$ — grams in one hetero-group-$`g`$ unit
+- $`p_g`$ — **PHP per NSU** for a hetero-group-$`g`$ unit. Its round is branch-specific, per
   the table: the *same nominal number* can be an MS-round price in one case and a
   PSPS-round price in another, because the round comes from how the number was used,
   not from the number.
-- $`v_r \equiv p_r / w_r`$ — unit value, **PHP per gram**, in whatever round
-  $`p_r`$ belongs to
+- $`v_g \equiv p_g / w_g`$ — unit value, **PHP per gram**, in whatever round
+  $`p_g`$ belongs to
 
-S / M / L are the *values* a rung takes wherever there are three of them — a weight
+S / M / L are the *values* a hetero-group takes wherever there are three of them — a weight
 tercile on the size-based branch, a rank-aligned price point (MP25/50/75) on the
-price-quantity branch; $`r`$ is the index everywhere.
+price-quantity branch; $`g`$ is the index everywhere.
 
 **PSPS side**, household $`h`$ in case $`c`$:
 
@@ -231,15 +231,15 @@ be a pooled weighing and let $`Q_{1/3}, Q_{2/3}`$ be the terciles of that
 distribution. **Relabel each weighing by its weight tercile:**
 
 ```math
-\text{rung}(w) = \begin{cases}
+\text{hetero-group}(w) = \begin{cases}
 S & \text{if } w \le Q_{1/3} \\[4pt]
 M & \text{if } Q_{1/3} < w \le Q_{2/3} \\[4pt]
 L & \text{if } w > Q_{2/3}
 \end{cases}
 ```
 
-Each rung's representative weight $`w_r`$ is its tercile median. Pairing it with
-that rung's price $`p_r`$ gives $`v_r = p_r / w_r`$. Bigger units cost more, so the
+Each hetero-group's representative weight $`w_g`$ is its tercile median. Pairing it with
+that hetero-group's price $`p_g`$ gives $`v_g = p_g / w_g`$. Bigger units cost more, so the
 prices order $`p_1 \le p_2 \le p_3`$ and the ladder aligns by rank: S↔MP25, M↔MP50,
 L↔MP75. **That rank alignment is an assumption, not an observation** — see
 assumption 5.
@@ -270,7 +270,7 @@ The same page authorizes the two-size fallback used in the ladder below —
 > may only be found in two relatively uniform sizes, in which case only small and
 > large size should be assigned"
 
-— and the choice of the median as the within-rung estimator: *"The mean or median
+— and the choice of the median as the within-hetero-group estimator: *"The mean or median
 measurement for each container unit can be used."* The guidebook also recommends
 reviewing the reference photos as a verification step; that check has not been done
 here and remains available.
@@ -298,7 +298,7 @@ raw labels apart for this cell.
 
 On the size-based branch the enumerator was asked for a *small / medium / large*
 unit and never for a peso amount, so **no price was recorded** — `pull_price` is
-empty for those rows by construction. Their $`p_r`$ must be joined from the price
+empty for those rows by construction. Their $`p_g`$ must be joined from the price
 file, where the values are PSPS-round percentiles that were never spent in the MS
 round. This is the origin of every frame question below.
 
@@ -321,9 +321,9 @@ So a case whose only price point is a municipality or province median is one whe
 few PSPS respondents used that NSU in that cell, or where the prices they reported
 barely varied.
 
-#### Degrading gracefully: how many rungs a case can support
+#### Degrading gracefully: how many hetero-groups a case can support
 
-How many rungs we can actually assign depends on two separate limits, and we take
+How many hetero-groups we can actually assign depends on two separate limits, and we take
 whichever is smaller.
 
 **Limit 1 — how many times the unit was weighed.** You cannot split three weighings
@@ -336,7 +336,7 @@ into three sizes. Measured on the size-based cases:
 | < 3 | one — no size resolution | 378 (24.1%) |
 
 **Limit 2 — how many price points exist.** A size is only useful if there is a
-price to pair it with, so a cell with a single median price supports one rung no
+price to pair it with, so a cell with a single median price supports one hetero-group no
 matter how often we weighed it. The four dominant `price_type` combinations map
 one-to-one onto the four branches of the field protocol above, which is a useful
 confirmation that the protocol description and the file agree:
@@ -349,27 +349,27 @@ confirmation that the protocol description and the file agree:
 | `province median` + `unique_mun_price` | ≤2 unique prices, > ₱20 from province median | 350 | 11.9% |
 | quartile triple + an extra point | — | 5 | 0.2% |
 
-Reading that as rungs needs one judgement call. In the fourth row the province
+Reading that as hetero-groups needs one judgement call. In the fourth row the province
 median accompanies the municipal price *because* the municipal evidence is thin, so
-it is a **fallback reference, not a second rung** — the two are estimates of the
+it is a **fallback reference, not a second hetero-group** — the two are estimates of the
 same central tendency at different geographies, and pairing them as small/large
 would be meaningless. Of those 350 cases, 253 have one distinct municipal price
 level and 97 have two. So:
 
-| rungs available on price grounds | cases | share |
+| hetero-groups available on price grounds | cases | share |
 |---|---|---|
 | 3 | 959 | 32.5% |
 | 2 | 97 | 3.3% |
 | 1 | 1,894 | **64.2%** |
 
-(The alternative reading — every distinct price level is a rung — gives 33.6% / 10.7%
+(The alternative reading — every distinct price level is a hetero-group — gives 33.6% / 10.7%
 / 55.6%. Either way the qualitative conclusion is the same.) Tallied by
 `dofiles/tally_price_points.py`.
 
 **Limit 2 usually binds, and it binds harder than Limit 1**: about two thirds of
-cases collapse to a single rung on price grounds alone (64.2%) against a quarter on
-weight grounds (24.1%). The two-rung case is genuinely rare — 3.3% — so in practice
-a case has either the full three-rung ladder or no ladder at all.
+cases collapse to a single hetero-group on price grounds alone (64.2%) against a quarter on
+weight grounds (24.1%). The two-group case is genuinely rare — 3.3% — so in practice
+a case has either the full three-group ladder or no ladder at all.
 
 They are **marginal, not joint**: the price-side
 tally covers all 2,950 price-file cases including the 949 price-only ones with no MS
@@ -379,7 +379,7 @@ cases have their municipal price within ₱20 of the province median, which the 
 protocol would have collapsed to province median only — worth confirming whether
 those are exceptions or a different threshold was applied.
 
-**When a case collapses to one rung** the sizes are not separated at all: pool every
+**When a case collapses to one hetero-group** the sizes are not separated at all: pool every
 size-based weighing in the cell across vendors, market types **and** the original
 S / M / L labels, take the median of that single pooled distribution, and map it to
 the one available price point. Every household in the cell gets that one number
@@ -391,39 +391,39 @@ $`\widehat{CF} = \text{median}(w)`$.
 ### Step B — apply to a PSPS household
 
 **B1. Put the measured weight in PSPS terms.** Only one branch needs this. On the
-price-quantity branch $`w_r`$ is "what a fixed peso amount bought at MS-round
-prices", so it moves with the price level. On the size-based branch $`w_r`$ is a
+price-quantity branch $`w_g`$ is "what a fixed peso amount bought at MS-round
+prices", so it moves with the price level. On the size-based branch $`w_g`$ is a
 property of the object (a medium mango), so it does not:
 
 ```math
-w_r^{\text{PSPS}} =
+w_g^{\text{PSPS}} =
 \begin{cases}
-w_r \,(1+\pi) & \text{price-quantity branch} \\[4pt]
-w_r           & \text{size-based and conventional branches}
+w_g \,(1+\pi) & \text{price-quantity branch} \\[4pt]
+w_g           & \text{size-based and conventional branches}
 \end{cases}
 ```
 
-**Reading the superscript.** $`w_r^{\text{PSPS}}`$ means "evaluated at PSPS-round
+**Reading the superscript.** $`w_g^{\text{PSPS}}`$ means "evaluated at PSPS-round
 prices", **not** "observed in PSPS". PSPS weighed nothing: every gram figure in this
 document is a market-survey measurement. On the price-quantity branch
-$`w_r^{\text{PSPS}}`$ is a counterfactual — the grams the same peso amount would have
+$`w_g^{\text{PSPS}}`$ is a counterfactual — the grams the same peso amount would have
 commanded at PSPS-time prices — and on the other two branches it equals the measured
-$`w_r`$ unchanged, because grams there are a property of the object and carry no
+$`w_g`$ unchanged, because grams there are a property of the object and carry no
 price round at all.
 
-Every $`p_r`$ then stays at its nominal PSPS-round value, so a given rung means the
+Every $`p_g`$ then stays at its nominal PSPS-round value, so a given hetero-group means the
 same thing in every case.
 
-**B2. Match** the household to a rung by price. Both sides are PSPS round:
+**B2. Match** the household to a hetero-group by price. Both sides are PSPS round:
 
 ```math
-r(h) = \text{arg\,min}_{r} \; \lvert\, p_h - p_r \,\rvert
+g(h) = \text{arg\,min}_{g} \; \lvert\, p_h - p_g \,\rvert
 ```
 
 **B3. Convert** to grams:
 
 ```math
-\widehat{CF}_h = p_h \cdot \frac{w_{r(h)}^{\text{PSPS}}}{p_{r(h)}}
+\widehat{CF}_h = p_h \cdot \frac{w_{g(h)}^{\text{PSPS}}}{p_{g(h)}}
 \qquad\Longrightarrow\qquad
 \widehat g_h = q_h \cdot \widehat{CF}_h
 ```
@@ -431,29 +431,29 @@ r(h) = \text{arg\,min}_{r} \; \lvert\, p_h - p_r \,\rvert
 $`\widehat{CF}_h`$ is grams in one NSU unit; $`\widehat g_h`$ is the household's
 total grams.
 
-**Same units as $`w_r`$, different unit referent.** Since $`p_h`$ and $`p_r`$ are
-both PHP per NSU, the ratio $`p_h/p_r`$ is dimensionless, so $`\widehat{CF}_h`$ and
-$`w_r`$ are both **grams per NSU unit**. What differs is *whose* unit: $`w_r`$ is
-grams in the rung's unit as weighed at the market, while $`\widehat{CF}_h`$ is grams
+**Same units as $`w_g`$, different unit referent.** Since $`p_h`$ and $`p_g`$ are
+both PHP per NSU, the ratio $`p_h/p_g`$ is dimensionless, so $`\widehat{CF}_h`$ and
+$`w_g`$ are both **grams per NSU unit**. What differs is *whose* unit: $`w_g`$ is
+grams in the hetero-group's unit as weighed at the market, while $`\widehat{CF}_h`$ is grams
 in the household's unit, inferred from what it paid. Equivalently, in terms of the
-unit value $`v_r = p_r/w_r`$:
+unit value $`v_g = p_g/w_g`$:
 
 ```math
-\widehat{CF}_h = p_h \,/\, v_{r(h)}
+\widehat{CF}_h = p_h \,/\, v_{g(h)}
 ```
 
-PHP per unit divided by PHP per gram gives grams per unit. Read this way the rung
-contributes a *rate* ($`v_r`$, its price per gram) rather than a level, and $`w_r`$
+PHP per unit divided by PHP per gram gives grams per unit. Read this way the hetero-group
+contributes a *rate* ($`v_g`$, its price per gram) rather than a level, and $`w_g`$
 enters only through that rate.
 
-**Consistency check.** If $`p_h = p_{r(h)}`$ then
-$`\widehat{CF}_h = w_{r(h)}^{\text{PSPS}}`$ — a household paying exactly a rung's
-price is assigned exactly that rung's weight.
+**Consistency check.** If $`p_h = p_{g(h)}`$ then
+$`\widehat{CF}_h = w_{g(h)}^{\text{PSPS}}`$ — a household paying exactly a hetero-group's
+price is assigned exactly that hetero-group's weight.
 
 #### Why the adjustment sits on the weight
 
 Adjusting the weight up by $`(1+\pi)`$ and deflating the price by $`(1+\pi)`$ are
-the same operation: $`p_h\,w_r(1+\pi)/p_r = p_h\,w_r/\bigl(p_r/(1+\pi)\bigr)`$.
+the same operation: $`p_h\,w_g(1+\pi)/p_g = p_h\,w_g/\bigl(p_g/(1+\pi)\bigr)`$.
 Putting it on the weight is a bookkeeping choice with two benefits — every price in
 the system stays PSPS round (so no column needs a frame label, and no two rows can
 be silently compared across frames), and $`\pi`$ touches exactly one column on 16%
@@ -464,8 +464,8 @@ Two ways to get this wrong:
 - **Adjusting the size-based price points.** They look like prices "used at market
   survey time", but no money changes hands in a size-based interview — the value is
   a PSPS statistic joined on afterwards. Deflating it inflates $`\widehat{CF}`$ by
-  $`(1+\pi)`$ *and* corrupts the match: with rungs at ₱6/₱10/₱16 deflated to
-  ₱3/₱5/₱8, a household paying ₱10 is nearest ₱8 and matches rung 3 instead of rung
+  $`(1+\pi)`$ *and* corrupts the match: with hetero-groups at ₱6/₱10/₱16 deflated to
+  ₱3/₱5/₱8, a household paying ₱10 is nearest ₱8 and matches hetero-group 3 instead of hetero-group
   2. Every household shifts systematically up the ladder.
 - **Adjusting one side of a comparison but not the other.** If prices are moved into
   MS terms, $`p_h`$ must be too. A household-level $`\pi`$ on one side and a
@@ -475,7 +475,7 @@ Two ways to get this wrong:
 
 The simplest thing to do about inflation is nothing, and that would be defensible if
 $`\pi`$ were small and roughly the same everywhere. It would then wash out of the
-rung matching in B2 and only rescale the conversion factors by a constant. So the
+hetero-group matching in B2 and only rescale the conversion factors by a constant. So the
 question is whether that holds here. It does not, and the data say so in three
 separate ways.
 
@@ -529,11 +529,11 @@ vegetable groups the paths move enough across that band to matter.*
 
 **What is not yet measured.** All of the above says $`\pi`$ changes the *level* of a
 conversion factor. It does not establish how often $`\pi`$ is large enough to move a
-household across a rung boundary in B2 and change *which* weight it is assigned,
+household across a hetero-group boundary in B2 and change *which* weight it is assigned,
 which is the more consequential failure. That depends on the tercile spacing within
 each case, which only exists once Step A has run. Check it then: compare the
-distribution of $`\pi`$ against the within-case gaps between $`p_r`$ values, and
-report how many households switch rungs when the adjustment is switched off.
+distribution of $`\pi`$ against the within-case gaps between $`p_g`$ values, and
+report how many households switch hetero-groups when the adjustment is switched off.
 
 The index is sound for ratio use: fixed-base levels (83–308, median 137 at 2023m12
 rising to 148 at 2026m1) with no base break at the 2026 boundary (median m/m change
@@ -559,7 +559,7 @@ thing.
 1. **Single price schedule within a case.** *(all branches)* Households in a case
    face the same price-per-gram schedule, so a higher PHP-per-gram means a bigger
    unit, not a different deal. Bargaining, quality and vendor differences violate
-   it; within a matched rung, any price variation that is *not* size passes
+   it; within a matched hetero-group, any price variation that is *not* size passes
    proportionally into $`\widehat g_h`$.
 
    The LSMS guidebook names this as the known weakness of price-based conversion and
@@ -567,19 +567,19 @@ thing.
    p. 3): *"unit prices can vary because of factors unrelated to the actual mass or
    volume of an item… quality differences… price discounts on larger units."* Step A
    does weigh directly, as recommended, but Step B reintroduces price as the
-   *matching* variable, so the caution applies to the rung assignment. The
-   quantity-discount point is why the method keeps a separate $`v_r`$ per rung
+   *matching* variable, so the caution applies to the hetero-group assignment. The
+   quantity-discount point is why the method keeps a separate $`v_g`$ per hetero-group
    rather than one case-level scalar.
 
 2. **Real price per gram moved only with the index.** *(price-quantity branch —
-   load-bearing)* This licenses $`w_r^{\text{PSPS}} = w_r(1+\pi)`$: the only reason a
+   load-bearing)* This licenses $`w_g^{\text{PSPS}} = w_g(1+\pi)`$: the only reason a
    fixed peso amount buys less now is general inflation for that item, not a change
    in its real price. Since $`\pi`$ comes from a province × COICOP-group index, the
    assumption is *within-group* — no differential real price change between, say,
    cabbage and other leafy vegetables.
 
 3. **Unit size stable between rounds.** *(size-based branch — load-bearing)* This
-   licenses $`w_r^{\text{PSPS}} = w_r`$: a "medium" unit is assumed to have been the
+   licenses $`w_g^{\text{PSPS}} = w_g`$: a "medium" unit is assumed to have been the
    same physical size in both rounds, so an MS-measured weight can be paired with a
    PSPS-round price. Shrinkflation — vendors holding the peso price and reducing the
    unit — violates it and would make size-based weights too small. No price
@@ -592,7 +592,7 @@ thing.
    distributions come from different rounds and different respondents, and only rank
    order links them. Where size and price are weakly related (assumption 1), the
    pairing misassigns *systematically*, not noisily. Does **not** apply to the
-   price-quantity branch, where $`w_r`$ and $`p_r`$ were observed in the same
+   price-quantity branch, where $`w_g`$ and $`p_g`$ were observed in the same
    transaction.
 
 5. **Terciles are the right cut.** *(size-based branch)* Bottom / middle / top thirds
@@ -619,6 +619,6 @@ proportionally in B3.
 - **Multiple vendors.** Vendor-level weights within a case are aggregated with a
   robust estimator (median, or a light fixed-trim mean); the Step A pooling already
   dilutes single-vendor outliers.
-- **Join the two rung limits.** The weighing-count and price-point tallies in
+- **Join the two hetero-group limits.** The weighing-count and price-point tallies in
   *Degrading gracefully* are marginal. Joining them on `harmonized_nsu_unit` gives
   the real joint distribution and is the first implementation task.

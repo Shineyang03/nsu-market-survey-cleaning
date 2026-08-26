@@ -82,16 +82,16 @@ When `actual_price` is present it usually sits close to the preloaded figure —
 median ratio 1.037 — but 56 of 95 differ by ≥10%, 15 by ≥50%, max 4.93×.
 
 **Decision — drop the 95 rows rather than substitute `actual_price`.** Substituting
-would put two different prices inside one rung's median, and `p_r` is defined as one
-price per case × rung. Cost: 7.8% of the price-quantity branch, 0.83% of all
+would put two different prices inside one hetero-group's median, and `p_g` is defined as one
+price per case × hetero-group. Cost: 7.8% of the price-quantity branch, 0.83% of all
 weighings.
 
-*Open check before implementing:* confirm no case loses its only rung as a result.
+*Open check before implementing:* confirm no case loses its only hetero-group as a result.
 
-**Cross-rung contamination is a 1-case problem.** The worry that one rung might
+**Cross-hetero-group contamination is a 1-case problem.** The worry that one hetero-group might
 carry a repriced value while another does not affects exactly **1** case, out of the
-38 that have ≥2 rungs at all. In 35 of the 41 affected cases the mixing is
-*within* a rung — different vendors, some commented and some not.
+38 that have ≥2 hetero-groups at all. In 35 of the 41 affected cases the mixing is
+*within* a hetero-group — different vendors, some commented and some not.
 
 ---
 
