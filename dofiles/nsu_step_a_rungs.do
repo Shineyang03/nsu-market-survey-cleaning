@@ -1,4 +1,49 @@
 ********************************************************************************
+********************************************************************************
+**                                                                            **
+**   SUPERSEDED -- DO NOT RUN, DO NOT BUILD ON, DO NOT COPY FROM              **
+**                                                                            **
+**   Kept only as a record of an approach that was tried and rejected.        **
+**   Its output (nsu_rungs.dta) is stale and nothing downstream reads it.     **
+**                                                                            **
+********************************************************************************
+********************************************************************************
+*
+* REPLACED BY
+*   dofiles/nsu_reference_set.do     Outcome 1, the reference set (built, live)
+*   dofiles/<not yet written>        Outcome 2, PSPS conversion factors
+*
+* WHY IT WAS REJECTED -- three things in this file are now known wrong:
+*
+* 1. THE GROUP COUNT COMES FROM THE WRONG EVIDENCE. This file sets the number of
+*    groups from the WEIGHING COUNT (the MIN3=6 / MIN2=3 ladder below). Neither
+*    outcome uses the weighing count. Outcome 1 counts the distinct S/M/L labels
+*    the field recorded; Outcome 2 reads the price file's point structure. The
+*    ladder here demoted 77 of the 553 cases that genuinely had all three sizes
+*    recorded.
+*
+* 2. THE SHARED-FILE PREMISE IS WRONG. This file assumes one rung resolution can
+*    serve both deliverables. It cannot: they slice the same weighings by
+*    different evidence and on different grains, so the same case can yield three
+*    sizes in Outcome 1 and one weight in Outcome 2. The two outputs are not
+*    derivable from one another.
+*
+* 3. IT DOES NOT EXCLUDE unique_mun_price from Outcome 1, and it predates the
+*    decision to drop the 12 cases that weighed only at a unique price.
+*
+* WHAT IS STILL WORTH READING HERE
+*   The tie-rule discussion in section 3a and the empty-group handling in
+*   section 4 carried over to nsu_reference_set.do largely intact. The
+*   terminology did not: "rung" was replaced project-wide by "hetero-group",
+*   matching item_nsu_hetero_type in the data.
+*
+* See docs/conversion_factor_methodology.md ("Degrading gracefully") for the
+* superseded rule recorded in full, and docs/data_oddities.md for the one-off
+* cases.
+*
+********************************************************************************
+* ORIGINAL HEADER FOLLOWS -- describes the rejected design, not current practice
+********************************************************************************
 * nsu_step_a_rungs.do
 *
 * STEP A -- resolve every case into an ordinal ladder of "rungs", and give each

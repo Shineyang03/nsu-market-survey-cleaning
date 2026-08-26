@@ -9,6 +9,25 @@ before treating any single-case discrepancy as a bug.
 `docs/inflation_adjustment_spec.md` is the build spec for the CPI inputs.
 `docs/master_rename.md` documents the NSU vocabulary.
 
+### Which files are live
+
+Run in this order. Anything not listed here is not part of the pipeline.
+
+| file | does | status |
+|---|---|---|
+| `dofiles/cleaning_Aug11.do` | raw MS → cleaned weighings on the harmonized NSU key | live |
+| `dofiles/correct_unit_snap.do` | called by the above; kg→g, L→mL, magnitude snap | live |
+| `dofiles/build_cpi_level_panel.py` | PSA CPI → `cpi_level_panel.csv` (levels only) | live |
+| `dofiles/nsu_restate_weights.do` | price-quantity weights → one price frame (`w_ref`) | live |
+| `dofiles/nsu_reference_set.do` | **Outcome 1** — the reference set | live |
+| *Outcome 2 — PSPS conversion factors* | | **not yet written** |
+| `dofiles/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
+
+> **`nsu_step_a_rungs.do` is kept only as a record of a rejected approach.** It set
+> the group count from the *weighing count*, which neither outcome uses, and assumed
+> one resolution could serve both deliverables, which it cannot. Its output
+> `nsu_rungs.dta` is stale and nothing reads it. The file carries a banner saying so.
+
 ## Two deliverables
 
 **Outcome 1 — reference set for future data collection.** A lookup key with columns
