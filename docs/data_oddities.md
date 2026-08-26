@@ -60,7 +60,7 @@ handling.
 
 ---
 
-## 3. The 95 vendor-priced rows
+## 3. When the preloaded price no longer held
 
 `pull_price` is preloaded and system-filled — per
 `NSU Market Survey Launch/data/nsu_long_data_description.pdf`, "the enumerator does
@@ -68,30 +68,80 @@ not enter this" — and it is per-NSU. It is verified to be exactly the value th
 enumerator was sent to spend: `pull_price` matches the SurveyCTO case-file preload
 in **1,176 of 1,176** matched rows, at 98.6% coverage.
 
-But in some rows a field-officer comment records that the **vendor's own price
-governed instead**, captured as `actual_price`:
+The enumerator approached the vendor with that PSPS price. Sometimes the vendor no
+longer sold the item at it, and the data records **two different outcomes**:
 
-| | weighings | cases |
-|---|---|---|
-| `actual_price` recorded | 95 of 1,220 price-quantity (7.79%) | 41 of 315 (13.02%) |
-| `approx_price == 1` | 27 of 1,220 (2.21%) | 13 of 315 (4.13%) |
+| situation | recorded as | price-quantity weighings | cases |
+|---|---|---|---|
+| vendor gave a **replacement price** | `actual_price` = that price | 95 of 1,220 (7.8%) | 41 of 315 (13.0%) |
+| vendor gave **no price at all** | `approx_price` = 1 | 27 of 1,220 (2.2%) | 13 of 315 (4.1%) |
 
-`approx_price` is a **0/1 flag**, not a price (27 ones, 230 explicit zeros).
+`approx_price` is a **0/1 flag**, not a price (27 ones, 230 explicit zeros). Only one
+row carries both.
 
-When `actual_price` is present it usually sits close to the preloaded figure —
-median ratio 1.037 — but 56 of 95 differ by ≥10%, 15 by ≥50%, max 4.93×.
+### 3a. Vendor named a replacement price — the rescue rule
 
-**Decision — drop the 95 rows rather than substitute `actual_price`.** Substituting
-would put two different prices inside one hetero-group's median, and `p_g` is defined as one
-price per case × hetero-group. Cost: 7.8% of the price-quantity branch, 0.83% of all
-weighings.
+These 95 rows break the premise B1 rests on: that a *fixed preloaded* amount was
+spent, so the weight is what flexed. Here the vendor's own price governed, so the
+weight is a property of whatever they handed over.
 
-*Open check before implementing:* confirm no case loses its only hetero-group as a result.
+When `actual_price` is present it is usually close to the preloaded figure — median
+ratio 1.037 — but 56 of 95 differ by ≥10%, 15 by ≥50%, max 4.93×.
 
-**Cross-hetero-group contamination is a 1-case problem.** The worry that one hetero-group might
-carry a repriced value while another does not affects exactly **1** case, out of the
-38 that have ≥2 hetero-groups at all. In 35 of the 41 affected cases the mixing is
-*within* a hetero-group — different vendors, some commented and some not.
+**Decision: drop them, except where dropping would delete the case.**
+
+- **74 rows dropped** — the case retains at least one preloaded-price hetero-group.
+- **21 rows kept and flagged** — these were the case's *only* hetero-group, so
+  dropping them removed 6 cases outright.
+
+The objection to using `actual_price` is that it puts two different prices inside one
+hetero-group's median, and `p_g` is defined as one price per case × hetero-group.
+That objection only bites where a preloaded hetero-group *survives to be mixed with*.
+Where nothing survives there is nothing to mix, and losing the case entirely is the
+worse outcome.
+
+A `price_source` variable records which peso figure is `p_g` for every
+price-quantity row — `preloaded` or `vendor_actual` — so no downstream step can
+mistake a vendor quote for a preloaded price. All 315 price-quantity cases survive.
+
+> **Known defect in this rule.** `has_preloaded` in `nsu_restate_weights.do` is
+> computed on province × municipality × item × `harmonized_nsu_unit`, **omitting
+> `corrected_unit`** — a coarser grain than the case grain it protects. One cell is
+> affected today: NEGROS OCCIDENTAL / ENRIQUE B. MAGALONA (SARAVIA) / ice cream /
+> `putos` / mL. Its **g** sub-cell has a preloaded row, so the rule concluded the
+> case was safe and dropped the mL row, deleting that cell — exactly the loss the
+> rescue rule exists to prevent. The "lost its only hetero-group" check uses the same
+> key, so it reports 0 and is structurally blind to this. Found independently by two
+> reviewers. Fix: add `corrected_unit` to both the `bysort` and the check.
+
+### 3b. Vendor gave no price — nothing can be recovered
+
+Where `approx_price == 1` the vendor said the item was unavailable at the preloaded
+price and offered no alternative. There is no valid `p_g` for that weighing: the
+grams that were recorded do not correspond to the preloaded peso figure, and no
+replacement figure exists.
+
+The `actual_price == 0` row is this case, not a price of zero:
+
+> NEGROS OCCIDENTAL / VALLADOLID / preserved or processed meat / `bilog`
+> `pull_price = 16.5`, `approx_price = 1`, `actual_price = 0`
+> comment: *"There is no 16.5 Frozen that cost"*
+
+Zero encodes "not available", the same convention §2 describes for weights.
+
+> **OPEN — these rows are not yet handled.** 26 of the 27 carry no `actual_price`,
+> so the §3a rule never sees them, and they currently survive with
+> `price_source == "preloaded"` — i.e. treated as though the preloaded price held,
+> which is precisely what the vendor denied. 13 cases affected. They should either be
+> dropped or flagged as having no usable price before Outcome 2 pairs a price with
+> them.
+
+### 3c. Cross-hetero-group contamination is a 1-case problem
+
+The worry that one hetero-group might carry a repriced value while another does not
+affects exactly **1** case, out of the 38 that have ≥2 hetero-groups at all. In 35 of
+the 41 affected cases the mixing is *within* a hetero-group — different vendors, some
+commented and some not.
 
 ---
 
