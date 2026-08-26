@@ -129,12 +129,18 @@ The `actual_price == 0` row is this case, not a price of zero:
 
 Zero encodes "not available", the same convention §2 describes for weights.
 
-> **OPEN — these rows are not yet handled.** 26 of the 27 carry no `actual_price`,
-> so the §3a rule never sees them, and they currently survive with
-> `price_source == "preloaded"` — i.e. treated as though the preloaded price held,
-> which is precisely what the vendor denied. 13 cases affected. They should either be
-> dropped or flagged as having no usable price before Outcome 2 pairs a price with
-> them.
+**Decision: drop them.** There is no price to pair the weight with and no way to
+recover one, so the weighing cannot support a conversion factor.
+
+26 of the 27 carry no `actual_price`, so the §3a rule never sees them — as built they
+survive with `price_source == "preloaded"`, i.e. treated as though the preloaded
+price held, which is exactly what the vendor denied. They must be dropped explicitly.
+13 cases are affected; check whether any loses its only hetero-group as a result, the
+same check §3a applies.
+
+> **Not yet implemented.** As of this writing the 26 rows are still present in
+> `nsu_weights_restated.dta`. Tracked with the rescue-rule grain defect above, since
+> both are changes to the same file.
 
 ### 3c. Cross-hetero-group contamination is a 1-case problem
 
