@@ -1,0 +1,159 @@
+price rows                            5412
+  unmatched to the crosswalk             0
+market-survey weighings              11360
+
+==============================================================================
+Q1  HOW MANY HARMONIZED CASES POOL MORE THAN ONE PRICED RAW UNIT
+==============================================================================
+harmonized cases present in the price file     2550
+
+raw priced units pooled into one case:
+n_raw_units
+1    2193
+2     318
+3      35
+4       4
+
+cases pooling >1 priced raw unit                357   (14.0%)
+
+Of the cases that have any mp25/50/75 ladder, how many raw units carry one:
+n_ladder_units
+1    901
+2     29
+(n_ladder_units = 2 is the scenario in the issue: two ladders, up to 6 points)
+
+price points per case: pooled levels (rows) x naive label union (cols)
+points_naive      1  2    3   6   All
+points_pooled                        
+1              1530  0    0   0  1530
+2                87  3   52   0   142
+3                 0  0  849   1   850
+4                 0  0    0   1     1
+5                 0  0    0   5     5
+6                 0  0    0  22    22
+All            1617  3  901  29  2550
+
+cases where the two readings disagree           146 / 2550
+cases with MORE than 3 pooled points             28   <- these cannot map onto S/M/L as-is
+
+==============================================================================
+Q2  WHEN TWO RAW UNITS BOTH CARRY A LADDER, HOW FAR APART ARE THE PRICES
+==============================================================================
+case x price_type pairs whose raw units disagree on the level: 79
+
+ratio hi/lo:
+mean    1.347088
+50%     1.200000
+min     1.008902
+max     2.875000
+
+ratio bands (how many pairs could be merged under a tolerance):
+ratio
+<=5%        8
+5-10%      14
+10-25%     24
+25-50%     12
+50-100%    16
+>100%       5
+
+worst 12:
+province pull_municipal_city                                                 cons_name harmonized_nsu_unit price_type  n_levels     lo    hi    ratio
+   AKLAN            BURUANGA                                                loaf bread         small packs mp25_price         2  20.00  57.5 2.875000
+   CAPIZ               TAPAZ                                                loaf bread         large packs mp50_price         2  80.00 200.0 2.500000
+  ILOILO          CONCEPCION                                                loaf bread         large packs mp50_price         2  67.50 160.0 2.370370
+   AKLAN            BURUANGA                                                loaf bread         small packs mp50_price         2  40.00  85.0 2.125000
+ ANTIQUE         SAN REMIGIO                                                   chicken     whole (chicken) mp75_price         2 400.00 832.5 2.081250
+  ILOILO            TIGBAUAN                 crackers, cookies, buiscuits, chips/curls     pieces or units mp25_price         2  24.00  48.0 2.000000
+   CAPIZ               TAPAZ                                                loaf bread         large packs mp25_price         2  70.00 137.5 1.964286
+  ILOILO                MINA                                                loaf bread         large packs mp75_price         2 127.50 250.0 1.960784
+ ANTIQUE           PATNONGON                                                loaf bread         small packs mp75_price         2 113.75 205.0 1.802198
+  ILOILO            LAMBUNAO ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)           small cup mp25_price         2  22.50  40.0 1.777778
+  ILOILO              LEMERY                                                loaf bread         small packs mp25_price         2  23.75  40.0 1.684211
+   CAPIZ               TAPAZ                                                loaf bread         large packs mp75_price         2 122.50 205.0 1.673469
+
+--- unique_mun_price, same question ---
+cases with >1 raw unit carrying unique_mun_price: 3
+province pull_municipal_city  cons_name harmonized_nsu_unit  n_raw_units  n_levels    lo     hi    ratio
+  ILOILO               DUEAS fresh fish                pack            2         2 200.0 1050.0 5.250000
+ ANTIQUE         SAN REMIGIO loaf bread         large packs            2         2  65.0  150.0 2.307692
+  ILOILO              DINGLE fresh fish                pack            2         2 100.0  200.0 2.000000
+
+==============================================================================
+Q3  DO THE POOLED RAW UNITS DIFFER IN MEDIAN WEIGHT, AND WHAT DOES POOLING BUY
+==============================================================================
+affected cases where >=2 pooled raw units both have weighings: 43
+
+median-weight ratio across the pooled units:
+mean    1.851428
+50%     1.120000
+min     1.000000
+max     9.411765
+med_ratio
+<=5%       15
+5-10%       4
+10-25%      7
+25-50%      2
+50-100%     8
+>100%       7
+
+What pooling buys: n in the SMALLER contributing unit
+mean    2.069767
+50%     2.000000
+min     1.000000
+max     4.000000
+  cases where the thinner unit has n < 3: 29 / 43   <- splitting back to raw units would leave these unusable
+
+worst 12 by median-weight ratio:
+                                                cons_name          province pull_municipal_city harmonized_nsu_unit corrected_unit  med_ratio  n_min                                             detail
+                crackers, cookies, buiscuits, chips/curls            ILOILO       BAROTAC VIEJO     pieces or units              g   9.411765      2        bilog: 26 (n=2); pieces or units: 240 (n=3)
+                                                  cabbage             CAPIZ             DUMARAO                pack              g   6.571429      2                   pack: 88 (n=2); packs: 575 (n=3)
+                                                  cabbage            ILOILO                AJUY                pack              g   5.814815      1 pack: 785 (n=1); shredded cabbage(pack): 135 (n=1)
+ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)            ILOILO            TIGBAUAN     pieces or units              g   4.666667      2        bilog: 60 (n=7); pieces or units: 280 (n=2)
+                                                  cabbage            ILOILO            LAMBUNAO     pieces or units              g   3.983871      3              bilog: 618 (n=14); binilog: 155 (n=3)
+ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)            ILOILO           BADIANGAN           small cup              g   2.500000      1    gamay nga cup: 35 (n=1); gmay nga cup: 88 (n=2)
+                                                  cabbage NEGROS OCCIDENTAL          VALLADOLID     pieces or units              g   2.400000      3       bilog: 325 (n=3); pieces or units: 780 (n=3)
+ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)            ILOILO              CARLES           small cup              g   1.942857      2   gamay nga cup: 88 (n=2); gmay nga cup: 170 (n=6)
+                                               loaf bread            ILOILO               DUEAS         small packs              g   1.894737      4      gagmay nga putos: 190 (n=4); small: 360 (n=4)
+ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) NEGROS OCCIDENTAL                ILOG           small cup              g   1.875000      2 gamay na tasa: 188 (n=2); gamay nga cup: 100 (n=3)
+ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)            ILOILO          CONCEPCION     pieces or units             mL   1.833333      1        bilog: 60 (n=1); pieces or units: 110 (n=1)
+ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)            ILOILO            TIGBAUAN           small cup              g   1.732143      1     gamay nga cup: 280 (n=2); small cup: 485 (n=1)
+
+==============================================================================
+Q4  BRANCH COMPOSITION, AND WHETHER INFLATION INTERACTS
+==============================================================================
+weighings in affected cases, by branch:
+weighing_approach
+size-based        1940
+price-quantity      86
+conventional        18
+
+affected cases by branch mix:
+weighing_approach
+size-based                   287
+price-quantity                18
+conventional                   5
+price-quantity/size-based      1
+
+Does pooling raw units add an inflation dimension?
+  price-quantity weighings in affected cases: 86
+  affected price-quantity cases with >1 distinct (1+pi): 3 / 19
+50%    1.026887
+max    1.268665
+  max distinct (1+pi) within one raw unit: 2   (>1 means the spread is within-unit, not caused by pooling)
+
+==============================================================================
+Q5  DOES THE DUPLICATION REACH THE MS WEIGHING ROWS (the Outcome 1 question)
+==============================================================================
+case x label combos carried by >1 pooled raw unit: 47
+label
+small     21
+large     17
+medium     9
+distinct cases affected: 36
+
+of those, combos on a PRICE label (5-11): 0
+A price label duplicated within a case would be the MS-side mirror of the
+price-file duplication measured in Q1-Q2. Zero here means the duplication
+shows up only as repeated SIZE labels, which pooling already collapses.
+
+wrote 3 tables to outputs/tables/issue21_*.csv

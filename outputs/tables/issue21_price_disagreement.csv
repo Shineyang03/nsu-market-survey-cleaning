@@ -1,0 +1,80 @@
+﻿province,pull_municipal_city,cons_name,harmonized_nsu_unit,price_type,n_levels,lo,hi,ratio
+AKLAN,BURUANGA,loaf bread,small packs,mp25_price,2,20.0,57.5,2.875
+CAPIZ,TAPAZ,loaf bread,large packs,mp50_price,2,80.0,200.0,2.5
+ILOILO,CONCEPCION,loaf bread,large packs,mp50_price,2,67.5,160.0,2.3703703703703702
+AKLAN,BURUANGA,loaf bread,small packs,mp50_price,2,40.0,85.0,2.125
+ANTIQUE,SAN REMIGIO,chicken,whole (chicken),mp75_price,2,400.0,832.5,2.08125
+ILOILO,TIGBAUAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,mp25_price,2,24.0,48.0,2.0
+CAPIZ,TAPAZ,loaf bread,large packs,mp25_price,2,70.0,137.5,1.9642857142857142
+ILOILO,MINA,loaf bread,large packs,mp75_price,2,127.5,250.0,1.9607843137254901
+ANTIQUE,PATNONGON,loaf bread,small packs,mp75_price,2,113.75,205.0,1.8021978021978022
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mp25_price,2,22.5,40.0,1.7777777777777777
+ILOILO,LEMERY,loaf bread,small packs,mp25_price,2,23.75,40.0,1.6842105263157894
+CAPIZ,TAPAZ,loaf bread,large packs,mp75_price,2,122.5,205.0,1.6734693877551021
+ILOILO,BADIANGAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,mp25_price,2,24.0,40.0,1.6666666666666667
+ILOILO,TIGBAUAN,loaf bread,small packs,mp50_price,2,55.0,90.0,1.6363636363636365
+ILOILO,TIGBAUAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,mp50_price,2,50.0,80.0,1.6
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mp50_price,2,48.0,75.0,1.5625
+ILOILO,TUBUNGAN,chicken,whole (chicken),mp75_price,2,257.5,400.0,1.5533980582524272
+ILOILO,CONCEPCION,loaf bread,large packs,mp25_price,2,65.0,100.0,1.5384615384615385
+ILOILO,LAMBUNAO,loaf bread,large packs,mp50_price,2,85.0,130.0,1.5294117647058822
+ANTIQUE,SAN REMIGIO,chicken,whole (chicken),mp50_price,2,300.0,455.0,1.5166666666666666
+ILOILO,CONCEPCION,loaf bread,large packs,mp75_price,2,112.5,170.0,1.511111111111111
+CAPIZ,PANAY,loaf bread,large packs,mp50_price,2,87.5,130.0,1.4857142857142858
+CAPIZ,CUARTERO,loaf bread,large packs,mp50_price,2,98.0,140.0,1.4285714285714286
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mp75_price,2,71.25,100.0,1.4035087719298245
+CAPIZ,CUARTERO,loaf bread,large packs,mp75_price,2,155.0,209.0,1.3483870967741935
+AKLAN,BATAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mp50_price,2,97.5,130.0,1.3333333333333333
+ILOILO,LAMBUNAO,chicken,whole (chicken),mp25_price,2,235.0,312.5,1.3297872340425532
+ILOILO,TIGBAUAN,loaf bread,small packs,mp75_price,2,83.75,110.0,1.3134328358208955
+ILOILO,MIAGAO,chicken,whole (chicken),mp75_price,2,310.0,403.75,1.3024193548387097
+AKLAN,BURUANGA,loaf bread,small packs,mp75_price,2,80.0,103.0,1.2875
+CAPIZ,PANAY,loaf bread,large packs,mp75_price,2,155.0,196.5,1.267741935483871
+ILOILO,TUBUNGAN,chicken,whole (chicken),mp50_price,2,225.0,285.0,1.2666666666666666
+ANTIQUE,PATNONGON,loaf bread,small packs,mp25_price,2,43.75,55.0,1.2571428571428571
+ILOILO,ALIMODIAN,chicken,whole (chicken),mp75_price,2,300.0,375.0,1.25
+ILOILO,TUBUNGAN,chicken,whole (chicken),mp25_price,2,200.0,250.0,1.25
+ILOILO,BADIANGAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,mp75_price,2,82.5,101.0,1.2242424242424241
+ILOILO,LAMBUNAO,loaf bread,large packs,mp75_price,2,147.5,180.0,1.2203389830508475
+ILOILO,TIGBAUAN,loaf bread,small packs,mp25_price,2,31.0,37.5,1.2096774193548387
+ILOILO,TIGBAUAN,loaf bread,large packs,mp50_price,2,95.0,114.5,1.2052631578947368
+ANTIQUE,PATNONGON,loaf bread,small packs,mp50_price,2,50.0,60.0,1.2
+ANTIQUE,TOBIAS FORNIER,chicken,whole (chicken),mp75_price,2,250.0,300.0,1.2
+CAPIZ,CUARTERO,loaf bread,large packs,mp25_price,2,70.0,84.0,1.2
+ILOILO,DUEAS,loaf bread,large packs,mp50_price,2,80.0,95.0,1.1875
+ILOILO,DUEAS,loaf bread,large packs,mp75_price,2,140.0,164.5,1.175
+ANTIQUE,SIBALOM,chicken,whole (chicken),mp75_price,2,300.0,350.0,1.1666666666666667
+ILOILO,LAMBUNAO,chicken,whole (chicken),mp50_price,2,300.0,350.0,1.1666666666666667
+ILOILO,MINA,loaf bread,large packs,mp25_price,2,67.0,77.5,1.1567164179104477
+ILOILO,AJUY,loaf bread,large packs,mp50_price,2,90.0,104.0,1.1555555555555554
+ILOILO,JANIUAY,loaf bread,large packs,mp75_price,2,150.0,172.5,1.15
+ANTIQUE,SAN REMIGIO,chicken,whole (chicken),mp25_price,2,250.0,285.0,1.14
+ILOILO,TIGBAUAN,loaf bread,large packs,mp25_price,2,75.0,85.0,1.1333333333333333
+ILOILO,MIAGAO,chicken,whole (chicken),mp50_price,2,200.0,225.0,1.125
+ILOILO,BADIANGAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,mp50_price,2,50.0,56.0,1.12
+AKLAN,BATAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mp25_price,2,65.0,72.5,1.1153846153846154
+ILOILO,LEMERY,loaf bread,small packs,mp75_price,2,90.0,100.0,1.1111111111111112
+ILOILO,JANIUAY,loaf bread,large packs,mp50_price,2,81.0,90.0,1.1111111111111112
+ANTIQUE,BUGASONG,chicken,whole (chicken),mp75_price,2,255.0,282.5,1.107843137254902
+ILOILO,TIGBAUAN,loaf bread,large packs,mp75_price,2,150.0,165.0,1.1
+ILOILO,BADIANGAN,loaf bread,large packs,mp50_price,2,100.0,110.0,1.1
+ILOILO,LAMBUNAO,chicken,whole (chicken),mp75_price,2,387.5,425.0,1.096774193548387
+ANTIQUE,HAMTIC,loaf bread,large packs,mp25_price,2,75.0,82.0,1.0933333333333333
+ILOILO,DUEAS,loaf bread,large packs,mp25_price,2,71.0,77.5,1.091549295774648
+CAPIZ,SIGMA,loaf bread,large packs,mp25_price,2,70.0,76.25,1.0892857142857142
+ILOILO,AJUY,loaf bread,large packs,mp75_price,2,183.75,200.0,1.08843537414966
+ANTIQUE,HAMTIC,loaf bread,large packs,mp75_price,2,170.0,185.0,1.088235294117647
+ANTIQUE,BUGASONG,chicken,whole (chicken),mp25_price,2,187.5,200.0,1.0666666666666667
+ILOILO,LAMBUNAO,loaf bread,large packs,mp25_price,2,75.25,80.0,1.06312292358804
+ANTIQUE,BUGASONG,chicken,whole (chicken),mp50_price,2,210.0,222.5,1.0595238095238095
+AKLAN,BATAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mp75_price,2,168.75,178.75,1.0592592592592593
+ILOILO,MIAGAO,chicken,whole (chicken),mp25_price,2,190.0,200.0,1.0526315789473684
+ILOILO,AJUY,loaf bread,large packs,mp25_price,2,80.75,85.0,1.0526315789473684
+ILOILO,JANIUAY,loaf bread,large packs,mp25_price,2,80.0,83.75,1.046875
+ILOILO,BADIANGAN,loaf bread,large packs,mp25_price,2,80.0,83.75,1.046875
+ANTIQUE,SIBALOM,chicken,whole (chicken),mp25_price,2,215.0,225.0,1.0465116279069768
+ILOILO,TIGBAUAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,mp75_price,2,130.0,136.0,1.0461538461538462
+CAPIZ,SIGMA,loaf bread,large packs,mp50_price,2,85.0,88.0,1.035294117647059
+CAPIZ,SIGMA,loaf bread,large packs,mp75_price,2,155.0,160.0,1.032258064516129
+ANTIQUE,HAMTIC,loaf bread,large packs,mp50_price,2,95.0,97.0,1.0210526315789474
+CAPIZ,PANAY,loaf bread,large packs,mp25_price,2,84.25,85.0,1.0089020771513353
