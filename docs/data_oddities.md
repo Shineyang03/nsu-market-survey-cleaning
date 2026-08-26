@@ -104,15 +104,14 @@ A `price_source` variable records which peso figure is `p_g` for every
 price-quantity row — `preloaded` or `vendor_actual` — so no downstream step can
 mistake a vendor quote for a preloaded price. All 315 price-quantity cases survive.
 
-> **Known defect in this rule.** `has_preloaded` in `nsu_restate_weights.do` is
-> computed on province × municipality × item × `harmonized_nsu_unit`, **omitting
-> `corrected_unit`** — a coarser grain than the case grain it protects. One cell is
-> affected today: NEGROS OCCIDENTAL / ENRIQUE B. MAGALONA (SARAVIA) / ice cream /
-> `putos` / mL. Its **g** sub-cell has a preloaded row, so the rule concluded the
-> case was safe and dropped the mL row, deleting that cell — exactly the loss the
-> rescue rule exists to prevent. The "lost its only hetero-group" check uses the same
-> key, so it reports 0 and is structurally blind to this. Found independently by two
-> reviewers. Fix: add `corrected_unit` to both the `bysort` and the check.
+> **Grain defect, found and fixed.** `has_preloaded` was computed on province ×
+> municipality × item × `harmonized_nsu_unit`, omitting `corrected_unit` — coarser
+> than the case grain it protects. NEGROS OCCIDENTAL / ENRIQUE B. MAGALONA
+> (SARAVIA) / ice cream / `putos` / **mL** had its only price-quantity row dropped
+> because the **g** sub-cell held a preloaded row, deleting the mL cell entirely.
+> The "lost its only hetero-group" check used the same key and so reported zero.
+> Found independently by two reviewers. `corrected_unit` is now in both keys, and
+> the rescue count rose from 21 rows to 23.
 
 ### 3b. Vendor gave no price — nothing can be recovered
 
@@ -138,9 +137,9 @@ price held, which is exactly what the vendor denied. They must be dropped explic
 13 cases are affected; check whether any loses its only hetero-group as a result, the
 same check §3a applies.
 
-> **Not yet implemented.** As of this writing the 26 rows are still present in
-> `nsu_weights_restated.dta`. Tracked with the rescue-rule grain defect above, since
-> both are changes to the same file.
+Implemented: all 27 are dropped before `has_preloaded` is computed, which matters —
+26 carry no `actual_price`, so left in place they would count as preloaded rows and
+wrongly protect their case from the rescue rule.
 
 ### 3c. Cross-hetero-group contamination is a 1-case problem
 

@@ -50,6 +50,10 @@ local MIN   = 10      // min item_nsu cell size before falling back to item leve
 local FLOOR = 5       // g/mL: an anchor below this is physically implausible
 local SIB   = 1.5     // decades: item_nsu anchor this far from item ref => contaminated
 local AMB   = 0.35    // decades: post-snap residual above this => ambiguous snap
+local KGMAX = 30      // kg: at or below this a "kg" tick is believed; above it the
+                      //     number is read as grams mis-ticked as kg. Empirically
+                      //     clean -- the only kg rows in (20,30] are three 25 kg
+                      //     rice sacks, and (30,50] is empty.
 
 
 ********************************************************************************
@@ -169,11 +173,27 @@ replace corrected_weight = weight*1000 if unit==1 & weight<1 & !missing(weight)
 replace flag_review      = 0           if unit==1 & weight<1 & !missing(weight)
 
 * --- 3c. unit==1 (kg) plausible bulk kg entries: trust the reading (-> grams) ---
-*   an ordinary 1-20 kg purchase whose number+unit already agree; no-op if none
-count if inrange(weight,1,20) & unit==1 & !missing(weight)
+*   an ordinary 1-`KGMAX' kg purchase whose number and unit already agree.
+*   THE CEILING MATTERS. It used to be 20, which left the band (20,1000) handled by
+*   nothing at all: three 25 kg rice sacks (ILOILO/MAASIN, "sack of rice") fell
+*   through to the STEP 1 anchor, which pulled them toward the item-level rice
+*   anchor -- dominated by gantang ~2,250 g -- and published them as 2,500 g, ten
+*   times too small.
+count if inrange(weight,1,`KGMAX') & unit==1 & !missing(weight)
 di as txt "3c kg-plausibility: " r(N) " row(s) matched"
-replace corrected_weight = weight*1000 if inrange(weight,1,20) & unit==1 & !missing(weight)
-replace flag_review      = 0           if inrange(weight,1,20) & unit==1 & !missing(weight)
+replace corrected_weight = weight*1000 if inrange(weight,1,`KGMAX') & unit==1 & !missing(weight)
+replace flag_review      = 0           if inrange(weight,1,`KGMAX') & unit==1 & !missing(weight)
+
+* --- 3d. unit==1 (kg) but far too big for kg: grams mis-ticked as kg ------------
+*   A cabbage does not weigh 1,180 kg. Above `KGMAX' the number is already grams and
+*   the UNIT tick is the error, so take the reading as it stands. Subsumes what STEP
+*   4 did via a x10 rescale, and states the real invariant -- "the typed number is
+*   already grams" -- rather than "the snap overshot by one decade", which held for
+*   those 16 rows only because the anchor happened to give k = -4 for every one.
+count if weight > `KGMAX' & unit==1 & !missing(weight)
+di as txt "3d kg-implausibility (read as grams): " r(N) " row(s) matched"
+replace corrected_weight = weight if weight > `KGMAX' & unit==1 & !missing(weight)
+replace flag_review      = 0      if weight > `KGMAX' & unit==1 & !missing(weight)
 
 
 tab flag_review, m
@@ -184,11 +204,30 @@ count if flag_review==1
 **# STEP 4 -- manual weight-review overrides on flagged rows
 ********************************************************************************
 
-replace corrected_weight = corrected_weight * 10 if corrected_weight < 1000 & corrected_unit == "g" & unit == 1 & weight >= 1000
-replace flag_review      = 0           if corrected_weight < 1000 & corrected_unit == "g" & unit == 1 & weight >= 1000
+* RETIRED. This rescaled kg rows with weight >= 1000 by x10; 3d now covers every kg
+* row above `KGMAX' and states the invariant directly. The old pair also carried a
+* latent bug -- its second line tested corrected_weight, which the first line had
+* just mutated, so the guard could never fire and the log read "(0 real changes
+* made)".
 
-cap noi br pull_item ${unitvar} weight unit base base_corr k ///
-         corrected_weight corrected_unit flag_small flag_lowanchor flag_sibling flag_ambiguous id if flag_review
+* --- THE REVIEW QUEUE ---------------------------------------------------------
+* Anything still carrying flag_review is a row the rules above could not resolve, and
+* it must leave the pipeline as an artefact a human can open. This previously called
+* `br', which is interactive-only and silently does nothing in batch ("request
+* ignored because of batch mode" in the log); the next line then cleared every flag,
+* so 22 rows were accepted unseen and three of them were wrong.
+count if flag_review == 1
+di as res "UNRESOLVED rows sent to the review queue: " r(N)
+if r(N) > 0 {
+	preserve
+		keep if flag_review == 1
+		keep id pull_item ${unitvar} weight unit base base_corr k corrected_weight ///
+		     corrected_unit flag_small flag_lowanchor flag_sibling flag_ambiguous
+		export excel using "${snap_tables}/unit_correction_review_queue.xlsx", ///
+			replace firstrow(variables)
+		di as txt "  exported to unit_correction_review_queue.xlsx"
+	restore
+}
 		
 replace flag_review = 0 if flag_review == 1 
 
