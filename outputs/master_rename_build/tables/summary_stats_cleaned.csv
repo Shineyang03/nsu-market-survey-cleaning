@@ -433,11 +433,11 @@ weight_corrected_sd,item | unit,"preserved or processed meat (tocino, tapa, long
 weight_corrected_min,item | unit,"preserved or processed meat (tocino, tapa, longaniza, etc) | g",20.0
 weight_corrected_max,item | unit,"preserved or processed meat (tocino, tapa, longaniza, etc) | g",1300.0
 weight_corrected_n,item | unit,rice | g,55.0
-weight_corrected_mean,item | unit,rice | g,1411.909090909091
+weight_corrected_mean,item | unit,rice | g,2639.181818181818
 weight_corrected_median,item | unit,rice | g,2145.0
-weight_corrected_sd,item | unit,rice | g,938.4490213413651
+weight_corrected_sd,item | unit,rice | g,5494.7086300633755
 weight_corrected_min,item | unit,rice | g,225.0
-weight_corrected_max,item | unit,rice | g,2500.0
+weight_corrected_max,item | unit,rice | g,25000.0
 n_weighings_by_unit,corrected_unit_lbl,g,9596.0
 n_weighings_by_unit,corrected_unit_lbl,mL,1855.0
 n_weighings_by_unit,corrected_unit_lbl,nan,7.0
