@@ -23,8 +23,10 @@ WHAT THIS SCRIPT DOES. It measures the problem; it decides nothing. Eight questi
        adjustment interacts with any of this
   Q5   whether the duplication reaches the MS weighing rows at all
   Q6   whether the FOLD holds where Outcome 1 pools two raw units: does pooling inflate
-       the size count, and do the re-cut terciles track the raw unit instead of the
-       field label (a unit-shaped tercile indicts the fold, not the tercile rule)
+       the size count, do the re-cut terciles track the raw unit instead of the field
+       label, and -- the part that decides it -- can any weight comparison attribute a
+       gap to the fold at all, given that spelling turns out to be a vendor-level
+       attribute (no vendor in the file ever used two spellings)
   Q7   whether the pooled raw units carry DIFFERENT rung compositions (a bare median
        against a full triple), and the 'medium' collision that creates in Outcome 1
   Q8   what 'quartiles take precedence' costs in a mixed-composition case: how many
@@ -418,11 +420,33 @@ def main():
         purity_lbl = ctf.max(axis=1).sum() / ctf.values.sum()
         med = g.groupby("pull_nsu_unit").w.median()
         n = g.groupby("pull_nsu_unit").w.size()
+        # A RAW MEDIAN RATIO ACROSS SPELLINGS IS NOT A FOLD TEST. If one spelling holds
+        # a full S/M/L ladder and the other holds only smalls, the first has the higher
+        # median for reasons that have nothing to do with whether the two spellings mean
+        # the same thing -- it is comparing a medium to a small. The fair comparison is
+        # within a label, and it only exists where both spellings recorded that label.
+        shared = [lb for lb, u in g.groupby("field_ord").pull_nsu_unit.nunique().items()
+                  if u > 1]
+        wl = float("nan")
+        if shared:
+            sub = g[g.field_ord.isin(shared)]
+            per = sub.groupby(["field_ord", "pull_nsu_unit"]).w.median()
+            ratios = [float(v.max() / v.min())
+                      for _, v in per.groupby(level=0) if v.min()]
+            wl = max(ratios) if ratios else float("nan")
+        # Vendor heterogeneity is the rival explanation. Where each spelling was used by
+        # a disjoint set of vendors, spelling and vendor cannot be told apart from this
+        # data, so a gap is not evidence against the fold.
+        vsets = [set(v.dropna()) for _, v in g.groupby("pull_nsu_unit").vendor_id]
+        disjoint = all(not (a & b) for i, a in enumerate(vsets) for b in vsets[i + 1:])
         rows.append(dict(zip(CKEY, k)) | {
             "n": len(g), "n_units": int(g.pull_nsu_unit.nunique()),
             "k_pooled": k_pooled, "k_best_single_unit": k_best_unit,
             "k_inflated_by_pooling": int(k_pooled > k_best_unit),
-            "unit_med_ratio": float(med.max() / med.min()) if med.min() else float("nan"),
+            "n_shared_labels": len(shared),
+            "within_label_ratio": round(wl, 2) if wl == wl else None,
+            "vendors_disjoint": int(disjoint),
+            "unit_med_ratio_UNFAIR": float(med.max() / med.min()) if med.min() else float("nan"),
             "grp_purity_by_unit": round(float(purity), 3),
             "grp_purity_by_label": round(float(purity_lbl), 3),
             "n_min_unit": int(n.min()),
@@ -451,15 +475,79 @@ def main():
               f" {len(worse)} / {len(c1)}")
         perfect = c1[(c1.grp_purity_by_unit == 1.0) & (c1.n_units > 1)]
         print(f"  cases where the tercile is a PERFECT unit split:  {len(perfect)}")
-        big = c1[c1.unit_med_ratio >= 2]
-        print(f"  cases whose pooled raw units differ >=2x in median weight: {len(big)}")
-        print("\n  worst 12 by between-unit median ratio:")
-        print(c1.sort_values("unit_med_ratio", ascending=False)
+        print(f"\n(c) IS THE GAP EVEN ATTRIBUTABLE TO THE FOLD")
+        print("  A cross-spelling median ratio is only a fold test when both spellings")
+        print("  recorded the SAME label, and only when the spellings are not simply")
+        print("  proxies for different vendors.")
+        nosh = c1[c1.n_shared_labels == 0]
+        print(f"  cases with NO label recorded under >1 spelling: {len(nosh)} / {len(c1)}")
+        print("    -> no fair comparison exists in these; the raw median ratio compares")
+        print("       unlike labels and must not be read as a fold gap")
+        sh = c1[c1.n_shared_labels > 0]
+        print(f"  cases WITH a shared label:                      {len(sh)} / {len(c1)}")
+        if len(sh):
+            print(f"    of those, within-label ratio >=1.5x:          "
+                  f"{int((sh.within_label_ratio >= 1.5).sum())}")
+            print(f"    of those, within-label ratio >=2x:            "
+                  f"{int((sh.within_label_ratio >= 2).sum())}")
+            print(f"    of those, vendors DISJOINT across spellings:  "
+                  f"{int(sh.vendors_disjoint.sum())}"
+                  "   <- spelling confounded with vendor")
+            fair = sh[(sh.within_label_ratio >= 1.5) & (sh.vendors_disjoint == 0)]
+            print(f"\n  CASES WHERE THE FOLD IS GENUINELY SUSPECT: {len(fair)}")
+            print("  (shared label, gap >=1.5x, and at least one vendor used both"
+                  " spellings)")
+            if len(fair):
+                print(fair[["cons_name", "harmonized_nsu_unit", "n",
+                            "within_label_ratio", "units"]].to_string(index=False))
+
+        # ---------------------------------------------------------------- (d)
+        print("\n(d) WHY (c) CAN NEVER FIRE: SPELLING IS A VENDOR-LEVEL ATTRIBUTE")
+        # If no vendor ever uses two spellings, then spelling is perfectly collinear
+        # with vendor and NO weight comparison across spellings can separate "the fold
+        # merged two different objects" from "these two vendors sell different-sized
+        # things". That is a property of the survey design, not a gap in the analysis:
+        # the enumerator recorded the unit name once per vendor interaction, so the
+        # spelling IS the vendor's word.
+        allms = ms[ms.w.notna() & ms.vendor_id.notna()]
+        nsp = allms.groupby(CKEY, dropna=False).pull_nsu_unit.nunique()
+        msp = set(nsp[nsp > 1].index)
+        msub = allms[allms.set_index(CKEY).index.isin(msp)]
+        pairs = msub.groupby(CKEY + ["vendor_id"], dropna=False).pull_nsu_unit.nunique()
+        vend_all = allms.groupby("vendor_id").pull_nsu_unit.nunique()
+        print(f"  cases pooling >1 spelling, all branches:      {len(msp):>6}")
+        print(f"  (case, vendor) pairs inside them:             {len(pairs):>6}")
+        print(f"    ...that used more than one spelling:        {int((pairs > 1).sum()):>6}")
+        print(f"  vendors in the whole file:                    {len(vend_all):>6}")
+        print(f"    ...that ever used more than one spelling:   {int((vend_all > 1).sum()):>6}")
+        if int((vend_all > 1).sum()) == 0:
+            print("\n  ZERO. Spelling is a vendor-level attribute throughout the file.")
+            print("  CONSEQUENCE: the weight evidence is structurally incapable of")
+            print("  adjudicating any of these folds. Sending them to validate_folds.py")
+            print("  would return a number, and the number would not be a fold test.")
+            print("  The fold decision has to rest on whether the two strings are the")
+            print("  same word (pack/packs, bilog/binilog, gamay/gmay -- plainly yes),")
+            print("  and the weight gaps then belong to VENDOR heterogeneity, which is")
+            print("  what the pooled re-tercile exists to absorb (Oseni, Durazo & McGee")
+            print("  2017 sec 3 step 3: a small in one market can outweigh a large in")
+            print("  another).")
+            print("\n  The residual problem is real but different: where one vendor's")
+            print("  whole ladder sits above another's, a 3-way tercile publishes one")
+            print("  vendor's SMALL as the cell's MEDIUM. See the cabbage example in")
+            print("  dofiles/case_lookup.py (CAPIZ/DUMARAO, harmonized unit 'pack').")
+        else:
+            print("\n  Some vendors used more than one spelling, so a within-vendor")
+            print("  across-spelling comparison exists after all -- build it before")
+            print("  concluding anything about these folds.")
+
+        print("\n  worst 12 by WITHIN-LABEL ratio (blank = no shared label):")
+        print(c1.sort_values("within_label_ratio", ascending=False, na_position="last")
               .head(12)[["cons_name", "harmonized_nsu_unit", "n", "k_pooled",
-                         "k_best_single_unit", "unit_med_ratio",
-                         "grp_purity_by_unit", "grp_purity_by_label", "units"]]
+                         "n_shared_labels", "within_label_ratio", "vendors_disjoint",
+                         "unit_med_ratio_UNFAIR", "grp_purity_by_unit", "units"]]
               .to_string(index=False))
-        c1.sort_values("unit_med_ratio", ascending=False).to_csv(
+        c1.sort_values("within_label_ratio", ascending=False,
+                       na_position="last").to_csv(
             OUT + r"\issue21_outcome1_fold_check.csv", index=False,
             encoding="utf-8-sig")
 
