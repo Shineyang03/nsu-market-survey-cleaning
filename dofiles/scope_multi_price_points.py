@@ -53,6 +53,8 @@ OUTPUTS  (outputs/tables/)
                                     size count, between-unit weight ratio, and whether
                                     the tercile splits units or sizes -- a shortlist of
                                     folds for validate_folds.py to adjudicate
+    issue21_median_disagreement.csv per case whose spellings all carry only a
+                                    median, where those medians disagree
     issue21_rung_composition_mix.csv            per case: what rung composition each
                                     pooled raw unit carries, and whether they differ
     issue21_discarded_median_units.csv          cases where a median-only raw unit's
@@ -125,6 +127,15 @@ def load_prices(xw):
     pr = pr.merge(xw[KEY + ["pull_nsu_unit", "harmonized_nsu_unit"]],
                   on=KEY + ["pull_nsu_unit"], how="left", validate="m:1")
     miss = int(pr.harmonized_nsu_unit.isna().sum())
+    # A price_type constant that matches nothing makes every downstream count
+    # zero, which reads as "no problem found" rather than as an error.
+    seen = set(pr.price_type.dropna())
+    need = set(QUART) | {"unique_mun_price", "province median",
+                         "municipality median"}
+    if need - seen:
+        sys.exit("price_type constants match nothing: "
+                 + repr(sorted(need - seen))
+                 + "; present in the file: " + repr(sorted(seen)))
     print(f"price rows                          {len(pr):>6}")
     print(f"  unmatched to the crosswalk        {miss:>6}")
     if miss:
@@ -721,7 +732,12 @@ def main():
     #     spellings all carry only a median, which silently assumes the medians AGREE.
     #     If they ever disagree, that assumption hides an unresolved choice of which
     #     median to use. Checked directly rather than assumed.
-    MED = ["municipality_median", "province_median"]
+    # The price CSV spells these with SPACES; the SurveyCTO case files use
+    # underscored COLUMN names for the same concepts. An earlier version of this
+    # check used the underscored spellings against the CSV, matched nothing, and
+    # reported zero disagreements -- a false negative that read as a clean result.
+    # The assertion near the top of main() now fails loudly on such a drift.
+    MED = ["municipality median", "province median"]
     branch_of = ms.groupby(HKEY).weighing_approach.agg(
         lambda s: "/".join(sorted({BRANCH.get(int(x), str(x)) for x in s.dropna()})))
 
@@ -753,18 +769,47 @@ def main():
     per = cm.groupby(level=[0, 1, 2, 3]).agg([("n", "size"), ("all_med", "all")])
     mmed = per[(per.n > 1) & per.all_med]
     print(f"  cases where EVERY pooled spelling carries only a median: {len(mmed)}")
-    nbad = 0
+    nbad, gaps = 0, []
     for k in mmed.index:
         g = pr[pr.set_index(HKEY).index == k]
         g = g[g.price_type.isin(MED)]
-        if any(v.price.dropna().nunique() > 1 for _, v in g.groupby("price_type")):
-            nbad += 1
+        hit = False
+        for pt, v in g.groupby("price_type"):
+            lv = v.price.dropna().unique()
+            if len(lv) > 1:
+                hit = True
+                gaps.append({"case": " / ".join(str(x) for x in k),
+                             "price_type": pt, "n_levels": len(lv),
+                             "lo": lv.min(), "hi": lv.max(),
+                             "ratio": (lv.max() / lv.min()) if lv.min() else None,
+                             "branch": branch_of.get(k, "(no MS rows)")})
+        nbad += int(hit)
     print(f"    ...where a median TYPE has spellings quoting different levels: {nbad}")
-    if nbad == 0:
-        print("  ZERO. points_pooled() returning one point for these cases assumes the")
-        print("  medians agree, and they always do -- a median is computed for the item")
-        print("  and municipality, so every spelling inherits the same value. No hidden")
-        print("  choice of median exists.")
+    if nbad:
+        gd = pd.DataFrame(gaps)
+        print("")
+        print("  NOT ZERO. points_pooled() credits each of these cases with ONE")
+        print("  price point, which assumes the medians agree. They do not, so the")
+        print("  case carries an unresolved choice of WHICH median to use.")
+        print("")
+        print("  ratio hi/lo across the disagreeing spellings:")
+        print(gd.ratio.describe()[["50%", "75%", "max"]].to_string())
+        print("")
+        print("  MS branch of the disagreeing cases:")
+        vc = gd.drop_duplicates("case").branch.value_counts(dropna=False)
+        for kk, vv in vc.items():
+            lbl = "no MS weighings" if pd.isna(kk) else str(kk)
+            print(f"    {lbl:<44} {vv:>4}")
+        print("")
+        print("  worst 10 by ratio:")
+        print(gd.sort_values("ratio", ascending=False).head(10)[
+            ["case", "price_type", "lo", "hi", "ratio", "branch"]]
+            .to_string(index=False))
+        gd.sort_values("ratio", ascending=False).to_csv(
+            OUT + r"\issue21_median_disagreement.csv", index=False,
+            encoding="utf-8-sig")
+    else:
+        print("  ZERO -- the medians always agree, so one point is safe here.")
 
     print("\nwrote tables to outputs/tables/issue21_*.csv")
 

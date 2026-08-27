@@ -1,0 +1,479 @@
+﻿province,pull_municipal_city,cons_name,harmonized_nsu_unit,branch,unique_price,prov_median,abs_gap,ratio,n_weighings,holds
+ANTIQUE,SEBASTE,rice,letse,(no MS rows),1500.0,390.0,1110.0,3.8461538461538463,0,prov_median + unique x2
+NEGROS OCCIDENTAL,CAUAYAN,rice,salmon,(no MS rows),1260.0,225.0,1035.0,5.6,0,prov_median + unique x2
+CAPIZ,PONTEVEDRA,chicken,bilog,size-based,1200.0,250.0,950.0,4.8,10,prov_median + unique x2
+ILOILO,TUBUNGAN,fresh fish,pieces or units,size-based,1000.0,100.0,900.0,10.0,12,prov_median + unique x1
+ILOILO,DUEAS,fresh fish,pack,(no MS rows),1050.0,200.0,850.0,5.25,0,prov_median + unique x2
+NEGROS OCCIDENTAL,VALLADOLID,chicken,whole (chicken),price-quantity,1050.0,250.0,800.0,4.2,2,prov_median + unique x1
+ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,980.0,180.0,800.0,5.444444444444445,10,prov_median + unique x1
+ILOILO,JANIUAY,chicken,pieces or units,(no MS rows),1050.0,285.0,765.0,3.6842105263157894,0,prov_median + unique x1
+ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,900.0,180.0,720.0,5.0,9,prov_median + unique x2
+ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,840.0,180.0,660.0,4.666666666666667,10,prov_median + unique x2
+ILOILO,BALASAN,fresh fish,pack,(no MS rows),700.0,150.0,550.0,4.666666666666667,0,prov_median + unique x1
+ILOILO,SAN RAFAEL,loaf bread,large packs,size-based,595.0,90.0,505.0,6.611111111111111,3,full_triple + prov_median + unique x2
+ILOILO,MIAGAO,chicken,pieces or units,(no MS rows),760.0,285.0,475.0,2.6666666666666665,0,prov_median + unique x1
+NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),fresh fish,pieces or units,size-based,600.0,160.0,440.0,3.75,9,prov_median + unique x1
+ANTIQUE,SIBALOM,rice,gantang,(no MS rows),910.0,475.0,435.0,1.9157894736842105,0,prov_median + unique x1
+ILOILO,BATAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,size-based,500.0,90.0,410.0,5.555555555555555,8,prov_median + unique x1
+AKLAN,MALINAO,fresh fish,pieces or units,size-based,500.0,100.0,400.0,5.0,6,prov_median + unique x1
+ILOILO,SAN JOAQUIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,size-based,475.0,90.0,385.0,5.277777777777778,9,prov_median + unique x1
+ILOILO,SAN MIGUEL,fresh fish,pieces or units,size-based,480.0,100.0,380.0,4.8,8,prov_median + unique x1
+ILOILO,JANIUAY,chicken,whole (chicken),size-based,630.0,250.0,380.0,2.52,9,full_triple + prov_median + unique x2
+ANTIQUE,BUGASONG,fresh fish,pieces or units,size-based,450.0,70.0,380.0,6.428571428571429,5,prov_median + unique x2
+ILOILO,LEMERY,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,size-based,455.0,90.0,365.0,5.055555555555555,3,prov_median + unique x1
+ANTIQUE,LIBERTAD,fresh fish,pieces or units,size-based,400.0,70.0,330.0,5.714285714285714,7,prov_median + unique x1
+ANTIQUE,TIBIAO,rice,letse,(no MS rows),77.0,390.0,313.0,0.19743589743589743,0,prov_median + unique x2
+CAPIZ,MAMBUSAO,rice,letse,(no MS rows),604.0,300.0,304.0,2.013333333333333,0,prov_median + unique x2
+ILOILO,AJUY,fresh fish,pack,price-quantity,500.0,200.0,300.0,2.5,1,prov_median + unique x2
+AKLAN,ALTAVAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,(no MS rows),350.0,60.0,290.0,5.833333333333333,0,full_triple + prov_median + unique x1
+ANTIQUE,TOBIAS FORNIER,rice,gantang,conventional,200.0,475.0,275.0,0.42105263157894735,3,prov_median + unique x1
+ILOILO,TIGBAUAN,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,450.0,180.0,270.0,2.5,9,prov_median + unique x2
+ILOILO,SAN DIONISIO,rice,salmon,(no MS rows),660.0,390.0,270.0,1.6923076923076923,0,prov_median + unique x1
+CAPIZ,DUMARAO,rice,salmon,(no MS rows),120.0,390.0,270.0,0.3076923076923077,0,prov_median + unique x2
+ILOILO,LEMERY,rice,letse,(no MS rows),110.0,375.0,265.0,0.29333333333333333,0,prov_median + unique x2
+ANTIQUE,BELISON,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,size-based,300.0,45.0,255.0,6.666666666666667,4,prov_median + unique x1
+ILOILO,CARLES,rice,letse,(no MS rows),120.0,375.0,255.0,0.32,0,prov_median + unique x1
+ILOILO,BALASAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,(no MS rows),345.0,90.0,255.0,3.8333333333333335,0,prov_median + unique x1
+ILOILO,AJUY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,300.0,48.0,252.0,6.25,1,prov_median + unique x2
+CAPIZ,DUMALAG,rice,letse,(no MS rows),50.0,300.0,250.0,0.16666666666666666,0,prov_median + unique x1
+ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,400.0,157.5,242.5,2.5396825396825395,14,prov_median + unique x2
+CAPIZ,PILAR,fresh fish,pieces or units,size-based,350.0,110.0,240.0,3.1818181818181817,14,prov_median + unique x2
+CAPIZ,DUMARAO,rice,salmon,(no MS rows),150.0,390.0,240.0,0.38461538461538464,0,prov_median + unique x2
+CAPIZ,JAMINDAN,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,390.0,155.0,235.0,2.5161290322580645,1,prov_median + unique x1
+ILOILO,BALASAN,"crackers, cookies, buiscuits, chips/curls",pack,size-based,350.0,120.0,230.0,2.9166666666666665,2,prov_median + unique x1
+ILOILO,BAROTAC NUEVO,rice,letse,conventional,150.0,375.0,225.0,0.4,1,prov_median + unique x2
+ILOILO,DINGLE,rice,letse,(no MS rows),600.0,375.0,225.0,1.6,0,prov_median + unique x1
+NEGROS OCCIDENTAL,SAN ENRIQUE,chicken,bilog,(no MS rows),30.0,250.0,220.0,0.12,0,prov_median + unique x2
+ILOILO,LEMERY,fresh fish,pack,size-based,50.0,270.0,220.0,0.18518518518518517,2,full_triple + prov_median + unique x1
+ANTIQUE,SAN REMIGIO,fresh fish,pieces or units,size-based,400.0,180.0,220.0,2.2222222222222223,9,prov_median + unique x1
+ILOILO,SANTA BARBARA,rice,salmon,(no MS rows),175.0,390.0,215.0,0.44871794871794873,0,prov_median + unique x2
+CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,(no MS rows),250.0,35.0,215.0,7.142857142857143,0,prov_median + unique x2
+ANTIQUE,TIBIAO,rice,letse,(no MS rows),175.0,390.0,215.0,0.44871794871794873,0,prov_median + unique x2
+ILOILO,ZARRAGA,rice,salmon,conventional,600.0,390.0,210.0,1.5384615384615385,1,prov_median + unique x1
+ANTIQUE,BARBAZA,rice,letse,(no MS rows),180.0,390.0,210.0,0.46153846153846156,0,prov_median + unique x1
+ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,(no MS rows),240.0,30.0,210.0,8.0,0,mun_median + prov_median + unique x2
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional,250.0,45.0,205.0,5.555555555555555,2,prov_median + unique x1
+CAPIZ,DUMARAO,rice,letse,(no MS rows),98.0,300.0,202.0,0.32666666666666666,0,prov_median + unique x1
+ILOILO,BAROTAC NUEVO,rice,letse,conventional,173.0,375.0,202.0,0.4613333333333333,1,prov_median + unique x2
+ANTIQUE,SEBASTE,chicken,bilog,(no MS rows),50.0,250.0,200.0,0.2,0,prov_median + unique x2
+CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,price-quantity,250.0,50.0,200.0,5.0,3,prov_median + unique x2
+ANTIQUE,HAMTIC,"prawns, lobster, shrimp",tumpok,conventional,300.0,100.0,200.0,3.0,2,prov_median + unique x1
+ILOILO,MAASIN,"crackers, cookies, buiscuits, chips/curls",pack,size-based,320.0,120.0,200.0,2.6666666666666665,7,prov_median + unique x1
+ILOILO,SAN RAFAEL,fresh fish,pack,(no MS rows),500.0,300.0,200.0,1.6666666666666667,0,full_triple + prov_median + unique x2
+ILOILO,MINA,loaf bread,tama-tama nga putos,(no MS rows),275.0,77.5,197.5,3.5483870967741935,0,prov_median + unique x2
+ILOILO,MINA,rice,gantang,conventional,130.0,325.0,195.0,0.4,4,prov_median + unique x1
+ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,375.0,180.0,195.0,2.0833333333333335,9,prov_median + unique x2
+ILOILO,DUEAS,rice,gantang,conventional,520.0,325.0,195.0,1.6,7,prov_median + unique x1
+ANTIQUE,SAN REMIGIO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,price-quantity,240.0,45.0,195.0,5.333333333333333,2,prov_median + unique x1
+ILOILO,SAN ENRIQUE,rice,letse,(no MS rows),180.0,375.0,195.0,0.48,0,prov_median + unique x1
+CAPIZ,MA-AYON,rice,salmon,(no MS rows),200.0,390.0,190.0,0.5128205128205128,0,prov_median + unique x1
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,size-based,240.0,50.0,190.0,4.8,5,mun_median + prov_median + unique x1
+ANTIQUE,CULASI,rice,letse,(no MS rows),580.0,390.0,190.0,1.4871794871794872,0,prov_median + unique x1
+AKLAN,NABAS,"liquor (e.g, whisky, coconut wine)",lipid/lapad,size-based,260.0,80.0,180.0,3.25,3,prov_median + unique x2
+ILOILO,BALASAN,rice,salmon,(no MS rows),570.0,390.0,180.0,1.4615384615384615,0,prov_median + unique x1
+AKLAN,LIBACAO,fresh fish,pieces or units,size-based,280.0,100.0,180.0,2.8,6,prov_median + unique x2
+NEGROS OCCIDENTAL,PULUPANDAN,fresh fish,pieces or units,price-quantity,340.0,160.0,180.0,2.125,2,prov_median + unique x1
+ILOILO,BAROTAC VIEJO,rice,letse,(no MS rows),195.0,375.0,180.0,0.52,0,prov_median + unique x1
+NEGROS OCCIDENTAL,LA CASTELLANA,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,360.0,182.5,177.5,1.9726027397260273,6,prov_median + unique x1
+ANTIQUE,HAMTIC,rice,gantang,conventional,300.0,475.0,175.0,0.631578947368421,3,prov_median + unique x1
+ILOILO,LEMERY,rice,letse,(no MS rows),200.0,375.0,175.0,0.5333333333333333,0,prov_median + unique x2
+ANTIQUE,TIBIAO,loaf bread,large packs,size-based,290.0,120.0,170.0,2.4166666666666665,3,prov_median + unique x2
+ILOILO,BAROTAC VIEJO,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,350.0,180.0,170.0,1.9444444444444444,2,prov_median + unique x1
+ANTIQUE,BARBAZA,chicken,bilog,(no MS rows),85.0,250.0,165.0,0.34,0,prov_median + unique x2
+ANTIQUE,BUGASONG,loaf bread,large packs,size-based,255.0,92.5,162.5,2.7567567567567566,2,full_triple + prov_median + unique x1
+CAPIZ,DUMALAG,fresh fish,pack,(no MS rows),360.0,200.0,160.0,1.8,0,prov_median + unique x2
+NEGROS OCCIDENTAL,VALLADOLID,chicken,bilog,price-quantity,90.0,250.0,160.0,0.36,2,prov_median + unique x2
+ANTIQUE,BELISON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,200.0,40.0,160.0,5.0,4,prov_median + unique x2
+CAPIZ,PANAY,mango,pieces or units,size-based,230.0,75.0,155.0,3.066666666666667,12,prov_median + unique x2
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional,200.0,45.0,155.0,4.444444444444445,5,prov_median + unique x2
+ILOILO,SAN ENRIQUE,fresh fish,pack,size-based,150.0,300.0,150.0,0.5,1,full_triple + prov_median + unique x2
+ILOILO,SAN MIGUEL,cabbage,pieces or units,size-based,200.0,50.0,150.0,4.0,24,prov_median + unique x1
+AKLAN,NABAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,180.0,30.0,150.0,6.0,4,prov_median + unique x2
+ILOILO,DUMANGAS,fresh fish,pack,(no MS rows),50.0,200.0,150.0,0.25,0,prov_median + unique x1
+AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,size-based,225.0,75.0,150.0,3.0,6,full_triple + prov_median + unique x2
+CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,size-based,120.0,270.0,150.0,0.4444444444444444,3,prov_median + unique x1
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,size-based,420.0,270.0,150.0,1.5555555555555556,7,prov_median + unique x1
+CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,price-quantity,200.0,50.0,150.0,4.0,2,prov_median + unique x2
+ILOILO,GUIMBAL,rice,salmon,conventional,540.0,390.0,150.0,1.3846153846153846,4,prov_median + unique x1
+NEGROS OCCIDENTAL,MANAPLA,chicken,whole (chicken),price-quantity,400.0,250.0,150.0,1.6,4,prov_median + unique x1
+ILOILO,BAROTAC VIEJO,fresh fish,pack,(no MS rows),50.0,200.0,150.0,0.25,0,full_triple + prov_median + unique x1
+ILOILO,JANIUAY,loaf bread,tama-tama nga putos,(no MS rows),225.0,77.5,147.5,2.903225806451613,0,prov_median + unique x1
+ANTIQUE,BUGASONG,rice,salmon,(no MS rows),260.0,405.0,145.0,0.6419753086419753,0,prov_median + unique x1
+ILOILO,SAN JOAQUIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,size-based,175.0,30.0,145.0,5.833333333333333,5,prov_median + unique x1
+CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,300.0,155.0,145.0,1.935483870967742,4,prov_median + unique x2
+ANTIQUE,TIBIAO,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,300.0,157.5,142.5,1.9047619047619047,6,prov_median + unique x2
+ILOILO,DUEAS,"prawns, lobster, shrimp",tumpok,size-based,200.0,60.0,140.0,3.3333333333333335,1,prov_median + unique x2
+ILOILO,LEGANES,"prawns, lobster, shrimp",tumpok,size-based,200.0,60.0,140.0,3.3333333333333335,3,prov_median + unique x2
+ILOILO,DUEAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,(no MS rows),500.0,362.5,137.5,1.3793103448275863,0,prov_median + unique x1
+ILOILO,DUMANGAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,size-based,225.0,362.5,137.5,0.6206896551724138,1,prov_median + unique x1
+CAPIZ,DAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,(no MS rows),20.0,156.0,136.0,0.1282051282051282,0,prov_median + unique x1
+ILOILO,MINA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,(no MS rows),180.0,48.0,132.0,3.75,0,prov_median + unique x1
+ANTIQUE,HAMTIC,fresh fish,pieces or units,size-based,50.0,180.0,130.0,0.2777777777777778,12,prov_median + unique x1
+ANTIQUE,SIBALOM,fresh fish,pieces or units,size-based,200.0,70.0,130.0,2.857142857142857,9,prov_median + unique x1
+ANTIQUE,SEBASTE,fresh fish,pieces or units,size-based,50.0,180.0,130.0,0.2777777777777778,3,prov_median + unique x1
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,150.0,20.0,130.0,7.5,3,mun_median + prov_median + unique x2
+NEGROS OCCIDENTAL,HINIGARAN,rice,salmon,(no MS rows),100.0,225.0,125.0,0.4444444444444444,0,prov_median + unique x1
+ANTIQUE,TIBIAO,loaf bread,tama-tama nga putos,(no MS rows),195.0,70.0,125.0,2.7857142857142856,0,prov_median + unique x1
+AKLAN,TANGALAN,cabbage,pieces or units,size-based,174.0,52.5,121.5,3.3142857142857145,20,prov_median + unique x1
+NEGROS OCCIDENTAL,PULUPANDAN,"prawns, lobster, shrimp",tumpok,price-quantity,200.0,80.0,120.0,2.5,1,prov_median + unique x1
+NEGROS OCCIDENTAL,CALATRAVA,"prawns, lobster, shrimp",tumpok,(no MS rows),200.0,80.0,120.0,2.5,0,prov_median + unique x1
+AKLAN,TANGALAN,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,120.0,240.0,120.0,0.5,11,prov_median + unique x1
+ILOILO,SARA,camote,bilog,size-based,150.0,30.0,120.0,5.0,10,prov_median + unique x1
+ANTIQUE,CULASI,loaf bread,medium packs,size-based,180.0,60.0,120.0,3.0,3,prov_median + unique x2
+ILOILO,TIGBAUAN,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,300.0,180.0,120.0,1.6666666666666667,9,prov_median + unique x2
+ANTIQUE,PANDAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,(no MS rows),150.0,32.5,117.5,4.615384615384615,0,prov_median + unique x1
+NEGROS OCCIDENTAL,SALVADOR BENEDICTO,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,300.0,182.5,117.5,1.643835616438356,2,prov_median + unique x2
+CAPIZ,JAMINDAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,size-based,165.0,49.0,116.0,3.36734693877551,1,prov_median + unique x2
+CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,price-quantity,160.0,50.0,110.0,3.2,2,prov_median + unique x2
+ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,(no MS rows),200.0,90.0,110.0,2.2222222222222223,0,prov_median + unique x1
+AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,130.0,240.0,110.0,0.5416666666666666,9,prov_median + unique x2
+ANTIQUE,PATNONGON,cabbage,pieces or units,size-based,156.0,50.0,106.0,3.12,13,mun_median + prov_median + unique x2
+ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,75.0,180.0,105.0,0.4166666666666667,6,prov_median + unique x1
+CAPIZ,SIGMA,rice,salmon,(no MS rows),286.0,390.0,104.0,0.7333333333333333,0,prov_median + unique x1
+ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,260.0,157.5,102.5,1.6507936507936507,14,prov_median + unique x2
+ILOILO,IGBARAS,loaf bread,tama-tama nga putos,(no MS rows),180.0,77.5,102.5,2.3225806451612905,0,prov_median + unique x1
+CAPIZ,PRESIDENT ROXAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,size-based,150.0,49.0,101.0,3.061224489795918,1,prov_median + unique x1
+ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,280.0,180.0,100.0,1.5555555555555556,9,prov_median + unique x1
+ANTIQUE,BARBAZA,loaf bread,large packs,size-based,180.0,80.0,100.0,2.25,5,prov_median + unique x2
+ANTIQUE,BELISON,mango,pieces or units,size-based,200.0,100.0,100.0,2.0,11,prov_median + unique x2
+ANTIQUE,BUGASONG,mango,pieces or units,size-based,200.0,100.0,100.0,2.0,14,prov_median + unique x1
+AKLAN,TANGALAN,"prawns, lobster, shrimp",tumpok,(no MS rows),160.0,60.0,100.0,2.6666666666666665,0,prov_median + unique x1
+ILOILO,SAN MIGUEL,chicken,bilog,(no MS rows),180.0,280.0,100.0,0.6428571428571429,0,prov_median + unique x2
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),chicken,whole (chicken),price-quantity,150.0,250.0,100.0,0.6,4,prov_median + unique x2
+ILOILO,SAN ENRIQUE,fresh fish,pack,size-based,400.0,300.0,100.0,1.3333333333333333,1,full_triple + prov_median + unique x2
+ILOILO,CARLES,chicken,bilog,(no MS rows),180.0,280.0,100.0,0.6428571428571429,0,prov_median + unique x1
+ILOILO,DINGLE,fresh fish,pack,(no MS rows),100.0,200.0,100.0,0.5,0,prov_median + unique x2
+CAPIZ,PANAY,rice,letse,(no MS rows),200.0,300.0,100.0,0.6666666666666666,0,prov_median + unique x1
+AKLAN,ALTAVAS,rice,gantang,(no MS rows),300.0,397.5,97.5,0.7547169811320755,0,prov_median + unique x1
+AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,125.0,30.0,95.0,4.166666666666667,2,prov_median + unique x1
+ANTIQUE,HAMTIC,rice,salmon,(no MS rows),500.0,405.0,95.0,1.2345679012345678,0,prov_median + unique x2
+CAPIZ,MA-AYON,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,(no MS rows),250.0,156.0,94.0,1.6025641025641026,0,prov_median + unique x1
+ANTIQUE,BARBAZA,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,250.0,157.5,92.5,1.5873015873015872,7,prov_median + unique x1
+AKLAN,MALAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,120.0,30.0,90.0,4.0,4,prov_median + unique x1
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,size-based,120.0,30.0,90.0,4.0,1,full_triple + prov_median + unique x2
+ILOILO,SARA,rice,salmon,(no MS rows),300.0,390.0,90.0,0.7692307692307693,0,prov_median + unique x2
+ILOILO,SAN JOAQUIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,size-based,140.0,50.0,90.0,2.8,3,mun_median + prov_median + unique x1
+CAPIZ,CUARTERO,rice,salmon,(no MS rows),480.0,390.0,90.0,1.2307692307692308,0,prov_median + unique x1
+ILOILO,LEMERY,loaf bread,large packs,size-based,80.0,170.0,90.0,0.47058823529411764,2,full_triple + mun_median + prov_median + unique x1
+AKLAN,MADALAG,cabbage,pieces or units,size-based,150.0,60.0,90.0,2.5,18,full_triple + prov_median + unique x1
+CAPIZ,JAMINDAN,fresh fish,pieces or units,size-based,200.0,110.0,90.0,1.8181818181818181,5,prov_median + unique x2
+ANTIQUE,SEBASTE,rice,letse,(no MS rows),300.0,390.0,90.0,0.7692307692307693,0,prov_median + unique x2
+ILOILO,CARLES,rice,salmon,(no MS rows),300.0,390.0,90.0,0.7692307692307693,0,prov_median + unique x1
+ILOILO,SANTA BARBARA,rice,salmon,(no MS rows),302.0,390.0,88.0,0.7743589743589744,0,prov_median + unique x2
+ILOILO,SAN JOAQUIN,loaf bread,large packs,size-based,180.0,92.5,87.5,1.945945945945946,6,full_triple + prov_median + unique x2
+ILOILO,MINA,loaf bread,small packs,size-based,135.0,49.0,86.0,2.7551020408163267,3,mun_median + prov_median + unique x2
+ILOILO,BADIANGAN,rice,letse,(no MS rows),290.0,375.0,85.0,0.7733333333333333,0,prov_median + unique x1
+AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,size-based,160.0,75.0,85.0,2.1333333333333333,6,full_triple + prov_median + unique x2
+ILOILO,MINA,"crackers, cookies, buiscuits, chips/curls",pack,size-based,204.0,120.0,84.0,1.7,3,prov_median + unique x1
+AKLAN,ALTAVAS,rice,letse,(no MS rows),260.0,177.0,83.0,1.4689265536723164,0,prov_median + unique x1
+AKLAN,BURUANGA,rice,letse,(no MS rows),94.0,177.0,83.0,0.5310734463276836,0,prov_median + unique x1
+ANTIQUE,TIBIAO,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,240.0,157.5,82.5,1.5238095238095237,6,prov_median + unique x2
+CAPIZ,PRESIDENT ROXAS,chicken,bilog,size-based,170.0,250.0,80.0,0.68,1,prov_median + unique x1
+ILOILO,BALASAN,mango,pieces or units,size-based,160.0,80.0,80.0,2.0,4,prov_median + unique x2
+ILOILO,BALASAN,carrot,pieces or units,size-based,120.0,40.0,80.0,3.0,13,mun_median + prov_median + unique x1
+ILOILO,CARLES,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,260.0,180.0,80.0,1.4444444444444444,4,prov_median + unique x1
+ILOILO,BAROTAC VIEJO,fresh fish,pieces or units,size-based,20.0,100.0,80.0,0.2,5,prov_median + unique x2
+ANTIQUE,LAUA-AN,fresh fish,pieces or units,size-based,100.0,180.0,80.0,0.5555555555555556,6,prov_median + unique x1
+NEGROS OCCIDENTAL,ISABELA,fresh fish,pieces or units,size-based,80.0,160.0,80.0,0.5,9,prov_median + unique x1
+NEGROS OCCIDENTAL,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,260.0,182.5,77.5,1.4246575342465753,5,prov_median + unique x1
+ANTIQUE,LIBERTAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,price-quantity,110.0,32.5,77.5,3.3846153846153846,5,prov_median + unique x2
+NEGROS OCCIDENTAL,SALVADOR BENEDICTO,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,260.0,182.5,77.5,1.4246575342465753,2,prov_median + unique x2
+ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,125.0,48.0,77.0,2.6041666666666665,9,prov_median + unique x1
+ANTIQUE,BELISON,loaf bread,large packs,size-based,168.0,92.5,75.5,1.8162162162162163,4,mun_median + prov_median + unique x1
+ANTIQUE,VALDERRAMA,rice,salmon,(no MS rows),480.0,405.0,75.0,1.1851851851851851,0,prov_median + unique x1
+AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lipid/lapad,size-based,150.0,75.0,75.0,2.0,6,full_triple + prov_median + unique x1
+ILOILO,ANILAO,chicken,bilog,size-based,205.0,280.0,75.0,0.7321428571428571,11,prov_median + unique x2
+ANTIQUE,BARBAZA,camote,bilog,size-based,100.0,25.0,75.0,4.0,12,prov_median + unique x1
+NEGROS OCCIDENTAL,CAUAYAN,rice,salmon,(no MS rows),150.0,225.0,75.0,0.6666666666666666,0,prov_median + unique x2
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),rice,salmon,(no MS rows),300.0,225.0,75.0,1.3333333333333333,0,prov_median + unique x1
+ILOILO,GUIMBAL,fresh fish,pieces or units,size-based,170.0,100.0,70.0,1.7,11,prov_median + unique x1
+ILOILO,GUIMBAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,size-based,112.0,42.0,70.0,2.6666666666666665,3,prov_median + unique x2
+AKLAN,BATAN,chicken,pieces or units,size-based,180.0,250.0,70.0,0.72,7,prov_median + unique x1
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),chicken,whole (chicken),price-quantity,180.0,250.0,70.0,0.72,4,prov_median + unique x2
+ANTIQUE,CULASI,loaf bread,large packs,size-based,50.0,120.0,70.0,0.4166666666666667,5,mun_median + prov_median + unique x1
+ANTIQUE,TIBIAO,chicken,whole (chicken),size-based,180.0,250.0,70.0,0.72,2,prov_median + unique x1
+ILOILO,SAN JOAQUIN,loaf bread,large packs,size-based,160.0,92.5,67.5,1.7297297297297298,6,full_triple + prov_median + unique x2
+NEGROS OCCIDENTAL,TOBOSO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,price-quantity,120.0,55.0,65.0,2.1818181818181817,1,prov_median + unique x1
+ILOILO,SARA,rice,gantang,conventional,390.0,325.0,65.0,1.2,5,prov_median + unique x1
+ILOILO,BALASAN,rice,gantang,conventional,260.0,325.0,65.0,0.8,3,prov_median + unique x1
+CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,(no MS rows),100.0,35.0,65.0,2.857142857142857,0,prov_median + unique x2
+CAPIZ,PONTEVEDRA,cabbage,pieces or units,size-based,120.0,55.0,65.0,2.1818181818181817,18,prov_median + unique x1
+ILOILO,DUMANGAS,rice,salmon,(no MS rows),455.0,390.0,65.0,1.1666666666666667,0,prov_median + unique x1
+ILOILO,CARLES,"crackers, cookies, buiscuits, chips/curls",pack,size-based,55.0,120.0,65.0,0.4583333333333333,3,prov_median + unique x1
+NEGROS OCCIDENTAL,LA CASTELLANA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,100.0,38.0,62.0,2.6315789473684212,2,prov_median + unique x2
+NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,100.0,38.0,62.0,2.6315789473684212,1,prov_median + unique x2
+ILOILO,MIAGAO,loaf bread,small packs,size-based,110.0,49.0,61.0,2.2448979591836733,12,mun_median + prov_median + unique x2
+ANTIQUE,LIBERTAD,loaf bread,large packs,size-based,60.0,120.0,60.0,0.5,1,mun_median + prov_median + unique x2
+ANTIQUE,BARBAZA,mango,pieces or units,size-based,20.0,80.0,60.0,0.25,13,prov_median + unique x1
+AKLAN,NEW WASHINGTON,"prawns, lobster, shrimp",tumpok,conventional,120.0,60.0,60.0,2.0,4,prov_median + unique x1
+NEGROS OCCIDENTAL,HINIGARAN,fresh fish,pieces or units,size-based,100.0,160.0,60.0,0.625,3,prov_median + unique x2
+ANTIQUE,BELISON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,100.0,40.0,60.0,2.5,4,prov_median + unique x2
+ILOILO,SANTA BARBARA,loaf bread,small packs,size-based,110.0,50.0,60.0,2.2,9,prov_median + unique x2
+ANTIQUE,VALDERRAMA,loaf bread,small packs,size-based,110.0,50.0,60.0,2.2,1,prov_median + unique x2
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional,105.0,45.0,60.0,2.3333333333333335,1,prov_median + unique x2
+ANTIQUE,SAN REMIGIO,"prawns, lobster, shrimp",tumpok,(no MS rows),40.0,100.0,60.0,0.4,0,prov_median + unique x1
+ANTIQUE,SAN REMIGIO,loaf bread,medium packs,conventional,120.0,60.0,60.0,2.0,4,full_triple + prov_median + unique x1
+ILOILO,CABATUAN,mango,pieces or units,size-based,20.0,80.0,60.0,0.25,13,prov_median + unique x2
+ILOILO,CABATUAN,"crackers, cookies, buiscuits, chips/curls",pack,size-based,60.0,120.0,60.0,0.5,3,prov_median + unique x1
+CAPIZ,SAPI-AN,fresh fish,pieces or units,size-based,50.0,110.0,60.0,0.45454545454545453,9,prov_median + unique x2
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,100.0,40.0,60.0,2.5,7,prov_median + unique x2
+NEGROS OCCIDENTAL,PULUPANDAN,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,240.0,182.5,57.5,1.3150684931506849,3,prov_median + unique x1
+ILOILO,SAN DIONISIO,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,size-based,48.0,105.0,57.0,0.45714285714285713,4,prov_median + unique x1
+ILOILO,BALASAN,loaf bread,large packs,size-based,225.0,170.0,55.0,1.3235294117647058,2,full_triple + mun_median + prov_median + unique x1
+ANTIQUE,TIBIAO,rice,salmon,(no MS rows),350.0,405.0,55.0,0.8641975308641975,0,prov_median + unique x1
+CAPIZ,MAMBUSAO,mango,pieces or units,(no MS rows),20.0,75.0,55.0,0.26666666666666666,0,prov_median + unique x2
+AKLAN,TANGALAN,carrot,pieces or units,size-based,90.0,35.0,55.0,2.5714285714285716,16,prov_median + unique x1
+ANTIQUE,SAN REMIGIO,loaf bread,large packs,conventional,65.0,120.0,55.0,0.5416666666666666,3,mun_median + prov_median + unique x2
+ILOILO,LAMBUNAO,mango,pieces or units,size-based,25.0,80.0,55.0,0.3125,8,prov_median + unique x1
+AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,size-based,130.0,75.0,55.0,1.7333333333333334,9,full_triple + prov_median + unique x1
+NEGROS OCCIDENTAL,HINIGARAN,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,130.0,182.5,52.5,0.7123287671232876,3,prov_median + unique x2
+ILOILO,AJUY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,100.0,48.0,52.0,2.0833333333333335,1,prov_median + unique x2
+ILOILO,TUBUNGAN,loaf bread,small packs,size-based,100.0,49.0,51.0,2.0408163265306123,5,full_triple + prov_median + unique x1
+ILOILO,SAN JOAQUIN,loaf bread,small packs,size-based,100.0,49.0,51.0,2.0408163265306123,1,mun_median + prov_median + unique x1
+NEGROS OCCIDENTAL,SAN ENRIQUE,chicken,bilog,(no MS rows),200.0,250.0,50.0,0.8,0,prov_median + unique x2
+ILOILO,BADIANGAN,fresh fish,pieces or units,(no MS rows),150.0,100.0,50.0,1.5,0,prov_median + unique x2
+ILOILO,BAROTAC VIEJO,mango,pieces or units,size-based,30.0,80.0,50.0,0.375,10,prov_median + unique x1
+CAPIZ,MA-AYON,fresh fish,pack,(no MS rows),50.0,100.0,50.0,0.5,0,prov_median + unique x1
+CAPIZ,PANAY,mango,pieces or units,size-based,125.0,75.0,50.0,1.6666666666666667,12,prov_median + unique x2
+ANTIQUE,VALDERRAMA,chicken,bilog,(no MS rows),200.0,250.0,50.0,0.8,0,prov_median + unique x1
+ILOILO,ESTANCIA,fresh fish,pieces or units,size-based,50.0,100.0,50.0,0.5,15,prov_median + unique x2
+CAPIZ,CUARTERO,loaf bread,small packs,size-based,100.0,50.0,50.0,2.0,2,mun_median + prov_median + unique x2
+ANTIQUE,VALDERRAMA,loaf bread,small packs,size-based,100.0,50.0,50.0,2.0,1,prov_median + unique x2
+ILOILO,MINA,fresh fish,pack,(no MS rows),100.0,150.0,50.0,0.6666666666666666,0,prov_median + unique x1
+ANTIQUE,LAUA-AN,mango,pieces or units,size-based,130.0,80.0,50.0,1.625,1,prov_median + unique x2
+ANTIQUE,SEBASTE,chicken,bilog,(no MS rows),200.0,250.0,50.0,0.8,0,prov_median + unique x2
+ANTIQUE,SEBASTE,chicken,whole (chicken),size-based,300.0,250.0,50.0,1.2,1,full_triple + prov_median + unique x2
+ANTIQUE,CULASI,mango,pieces or units,size-based,50.0,100.0,50.0,0.5,17,prov_median + unique x1
+ANTIQUE,CULASI,fresh fish,pieces or units,size-based,20.0,70.0,50.0,0.2857142857142857,16,prov_median + unique x1
+ANTIQUE,LIBERTAD,cabbage,pieces or units,size-based,100.0,50.0,50.0,2.0,13,mun_median + prov_median + unique x1
+CAPIZ,PRESIDENT ROXAS,"prawns, lobster, shrimp",tumpok,conventional,100.0,50.0,50.0,2.0,2,prov_median + unique x1
+ILOILO,CONCEPCION,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,size-based,100.0,50.0,50.0,2.0,2,mun_median + prov_median + unique x1
+NEGROS OCCIDENTAL,PULUPANDAN,chicken,bilog,price-quantity,200.0,250.0,50.0,0.8,2,prov_median + unique x1
+AKLAN,BURUANGA,chicken,pieces or units,size-based,200.0,250.0,50.0,0.8,3,prov_median + unique x1
+ILOILO,BAROTAC VIEJO,loaf bread,small packs,size-based,100.0,50.0,50.0,2.0,1,mun_median + prov_median + unique x1
+AKLAN,NEW WASHINGTON,loaf bread,small packs,size-based,100.0,50.0,50.0,2.0,2,prov_median + unique x1
+ANTIQUE,BUGASONG,chicken,bilog,(no MS rows),300.0,250.0,50.0,1.2,0,prov_median + unique x2
+ANTIQUE,CULASI,cabbage,pieces or units,size-based,100.0,50.0,50.0,2.0,21,mun_median + prov_median + unique x1
+NEGROS OCCIDENTAL,BINALBAGAN,chicken,whole (chicken),size-based,300.0,250.0,50.0,1.2,9,prov_median + unique x1
+AKLAN,NABAS,chicken,whole (chicken),size-based,200.0,250.0,50.0,0.8,9,prov_median + unique x1
+NEGROS OCCIDENTAL,MANAPLA,chicken,bilog,(no MS rows),200.0,250.0,50.0,0.8,0,prov_median + unique x1
+NEGROS OCCIDENTAL,ILOG,camote tops,bundle,price-quantity,70.0,20.0,50.0,3.5,3,prov_median + unique x1
+AKLAN,NABAS,chicken,pieces or units,size-based,200.0,250.0,50.0,0.8,9,prov_median + unique x2
+ILOILO,SANTA BARBARA,loaf bread,small packs,size-based,100.0,50.0,50.0,2.0,9,prov_median + unique x2
+ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,130.0,180.0,50.0,0.7222222222222222,4,prov_median + unique x1
+ILOILO,LEMERY,loaf bread,medium packs,size-based,20.0,65.0,45.0,0.3076923076923077,1,mun_median + prov_median + unique x1
+ILOILO,CARLES,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,(no MS rows),45.0,90.0,45.0,0.5,0,prov_median + unique x1
+CAPIZ,CUARTERO,mango,pieces or units,size-based,120.0,75.0,45.0,1.6,9,prov_median + unique x1
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,size-based,15.0,60.0,45.0,0.25,2,mun_median + prov_median + unique x1
+CAPIZ,MAMBUSAO,mango,pieces or units,(no MS rows),30.0,75.0,45.0,0.4,0,prov_median + unique x2
+ILOILO,OTON,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,225.0,180.0,45.0,1.25,8,prov_median + unique x1
+ILOILO,BAROTAC NUEVO,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,140.0,180.0,40.0,0.7777777777777778,3,prov_median + unique x2
+ILOILO,DUEAS,"prawns, lobster, shrimp",tumpok,size-based,100.0,60.0,40.0,1.6666666666666667,1,prov_median + unique x2
+ILOILO,MINA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,size-based,50.0,90.0,40.0,0.5555555555555556,6,prov_median + unique x1
+ILOILO,BAROTAC NUEVO,"prawns, lobster, shrimp",tumpok,size-based,100.0,60.0,40.0,1.6666666666666667,1,prov_median + unique x2
+AKLAN,NABAS,chicken,pieces or units,size-based,210.0,250.0,40.0,0.84,9,prov_median + unique x2
+NEGROS OCCIDENTAL,CANDONI,fresh fish,pieces or units,price-quantity,200.0,160.0,40.0,1.25,1,prov_median + unique x1
+AKLAN,BANGA,mango,pieces or units,size-based,100.0,60.0,40.0,1.6666666666666667,5,prov_median + unique x1
+AKLAN,MADALAG,mango,pieces or units,size-based,20.0,60.0,40.0,0.3333333333333333,4,prov_median + unique x2
+NEGROS OCCIDENTAL,HINIGARAN,fresh fish,pieces or units,size-based,120.0,160.0,40.0,0.75,3,prov_median + unique x2
+NEGROS OCCIDENTAL,CAUAYAN,fresh fish,pieces or units,price-quantity,200.0,160.0,40.0,1.25,3,prov_median + unique x1
+AKLAN,NABAS,"liquor (e.g, whisky, coconut wine)",lipid/lapad,size-based,120.0,80.0,40.0,1.5,3,prov_median + unique x2
+ILOILO,SARA,"prawns, lobster, shrimp",tumpok,size-based,100.0,60.0,40.0,1.6666666666666667,6,prov_median + unique x1
+ANTIQUE,BELISON,mango,pieces or units,size-based,140.0,100.0,40.0,1.4,11,prov_median + unique x2
+ILOILO,SARA,loaf bread,large packs,size-based,50.0,90.0,40.0,0.5555555555555556,4,full_triple + prov_median + unique x2
+ILOILO,NEW LUCENA,"prawns, lobster, shrimp",tumpok,size-based,100.0,60.0,40.0,1.6666666666666667,4,prov_median + unique x1
+ILOILO,MINA,"prawns, lobster, shrimp",tumpok,(no MS rows),100.0,60.0,40.0,1.6666666666666667,0,prov_median + unique x1
+ANTIQUE,PATNONGON,cabbage,pieces or units,size-based,90.0,50.0,40.0,1.8,13,mun_median + prov_median + unique x2
+ILOILO,IGBARAS,chicken,whole (chicken),(no MS rows),300.0,340.0,40.0,0.8823529411764706,0,full_triple + prov_median + unique x1
+ILOILO,SAN RAFAEL,"prawns, lobster, shrimp",tumpok,(no MS rows),100.0,60.0,40.0,1.6666666666666667,0,prov_median + unique x1
+ILOILO,LEGANES,"prawns, lobster, shrimp",tumpok,size-based,100.0,60.0,40.0,1.6666666666666667,3,prov_median + unique x2
+ANTIQUE,SIBALOM,mango,pieces or units,size-based,40.0,80.0,40.0,0.5,13,prov_median + unique x1
+ANTIQUE,PANDAN,rice,letse,(no MS rows),350.0,390.0,40.0,0.8974358974358975,0,prov_median + unique x2
+AKLAN,IBAJAY,"prawns, lobster, shrimp",tumpok,conventional,100.0,60.0,40.0,1.6666666666666667,3,prov_median + unique x2
+CAPIZ,SIGMA,camote tops,bundle,(no MS rows),60.0,20.0,40.0,3.0,0,prov_median + unique x1
+NEGROS OCCIDENTAL,PONTEVEDRA,mango,pieces or units,price-quantity,100.0,60.0,40.0,1.6666666666666667,3,prov_median + unique x1
+NEGROS OCCIDENTAL,PULUPANDAN,chicken,whole (chicken),(no MS rows),210.0,250.0,40.0,0.84,0,prov_median + unique x1
+AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,100.0,60.0,40.0,1.6666666666666667,3,mun_median + prov_median + unique x1
+NEGROS OCCIDENTAL,SAN ENRIQUE,fresh fish,pieces or units,size-based,200.0,160.0,40.0,1.25,9,prov_median + unique x1
+CAPIZ,DUMALAG,fresh fish,pieces or units,size-based,150.0,110.0,40.0,1.3636363636363635,4,prov_median + unique x2
+ANTIQUE,TOBIAS FORNIER,mango,pieces or units,size-based,60.0,100.0,40.0,0.6,6,prov_median + unique x1
+ILOILO,ESTANCIA,mango,pieces or units,size-based,120.0,80.0,40.0,1.5,12,prov_median + unique x1
+CAPIZ,JAMINDAN,loaf bread,pieces,(no MS rows),20.0,60.0,40.0,0.3333333333333333,0,prov_median + unique x1
+ILOILO,BANATE,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,size-based,50.0,90.0,40.0,0.5555555555555556,7,prov_median + unique x1
+ILOILO,BANATE,"prawns, lobster, shrimp",tumpok,size-based,100.0,60.0,40.0,1.6666666666666667,3,prov_median + unique x1
+ILOILO,CARLES,chicken,whole (chicken),size-based,380.0,340.0,40.0,1.1176470588235294,10,full_triple + prov_median + unique x1
+ILOILO,BANATE,carrot,pieces or units,size-based,80.0,40.0,40.0,2.0,12,mun_median + prov_median + unique x1
+CAPIZ,PONTEVEDRA,chicken,bilog,size-based,210.0,250.0,40.0,0.84,10,prov_median + unique x2
+ANTIQUE,TOBIAS FORNIER,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,size-based,54.0,93.0,39.0,0.5806451612903226,13,prov_median + unique x1
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,145.0,182.5,37.5,0.7945205479452054,6,prov_median + unique x1
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,price-quantity,90.0,55.0,35.0,1.6363636363636365,3,prov_median + unique x1
+AKLAN,LIBACAO,fresh fish,pieces or units,size-based,135.0,100.0,35.0,1.35,6,prov_median + unique x2
+CAPIZ,TAPAZ,cabbage,pack,price-quantity,50.0,15.0,35.0,3.3333333333333335,3,prov_median + unique x1
+ILOILO,CARLES,loaf bread,large packs,size-based,120.0,85.0,35.0,1.411764705882353,5,full_triple + prov_median + unique x1
+CAPIZ,MAMBUSAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,(no MS rows),15.0,50.0,35.0,0.3,0,prov_median + unique x2
+ILOILO,BANATE,loaf bread,small packs,(no MS rows),85.0,50.0,35.0,1.7,0,full_triple + prov_median + unique x1
+ANTIQUE,TIBIAO,loaf bread,large packs,size-based,85.0,120.0,35.0,0.7083333333333334,3,prov_median + unique x2
+ANTIQUE,HAMTIC,rice,salmon,(no MS rows),440.0,405.0,35.0,1.0864197530864197,0,prov_median + unique x2
+AKLAN,ALTAVAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,(no MS rows),50.0,85.0,35.0,0.5882352941176471,0,prov_median + unique x1
+ANTIQUE,BUGASONG,fresh fish,pieces or units,size-based,35.0,70.0,35.0,0.5,5,prov_median + unique x2
+ANTIQUE,HAMTIC,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,size-based,80.0,45.0,35.0,1.7777777777777777,4,prov_median + unique x1
+AKLAN,BATAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,size-based,120.0,85.0,35.0,1.411764705882353,18,prov_median + unique x1
+ILOILO,MAASIN,cabbage,pieces or units,size-based,70.0,37.5,32.5,1.8666666666666667,16,mun_median + prov_median + unique x1
+NEGROS OCCIDENTAL,PONTEVEDRA,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,150.0,182.5,32.5,0.821917808219178,2,prov_median + unique x1
+NEGROS OCCIDENTAL,CALATRAVA,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,150.0,182.5,32.5,0.821917808219178,5,prov_median + unique x1
+NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,70.0,38.0,32.0,1.8421052631578947,1,prov_median + unique x2
+ILOILO,CONCEPCION,"crackers, cookies, buiscuits, chips/curls",pieces or units,size-based,80.0,48.0,32.0,1.6666666666666667,1,full_triple + prov_median + unique x1
+NEGROS OCCIDENTAL,ISABELA,mango,pieces or units,price-quantity,30.0,60.0,30.0,0.5,3,prov_median + unique x1
+NEGROS OCCIDENTAL,TOBOSO,chicken,whole (chicken),price-quantity,220.0,250.0,30.0,0.88,2,prov_median + unique x1
+AKLAN,MAKATO,mango,pieces or units,size-based,30.0,60.0,30.0,0.5,12,prov_median + unique x1
+ILOILO,SAN MIGUEL,chicken,bilog,(no MS rows),250.0,280.0,30.0,0.8928571428571429,0,prov_median + unique x2
+ILOILO,SANTA BARBARA,mango,pieces or units,size-based,50.0,80.0,30.0,0.625,25,prov_median + unique x1
+ILOILO,SAN RAFAEL,fresh fish,pack,(no MS rows),270.0,300.0,30.0,0.9,0,full_triple + prov_median + unique x2
+ILOILO,NEW LUCENA,carrot,pack,(no MS rows),50.0,20.0,30.0,2.5,0,prov_median + unique x1
+ANTIQUE,PANDAN,rice,letse,(no MS rows),360.0,390.0,30.0,0.9230769230769231,0,prov_median + unique x2
+ILOILO,SAN DIONISIO,camote,bilog,size-based,60.0,30.0,30.0,2.0,13,prov_median + unique x1
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,size-based,60.0,30.0,30.0,2.0,1,full_triple + prov_median + unique x2
+ANTIQUE,CULASI,loaf bread,tama-tama nga putos,(no MS rows),40.0,70.0,30.0,0.5714285714285714,0,prov_median + unique x1
+ILOILO,MIAGAO,mango,pieces or units,size-based,50.0,80.0,30.0,0.625,19,prov_median + unique x1
+ILOILO,MINA,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,150.0,180.0,30.0,0.8333333333333334,6,prov_median + unique x1
+ILOILO,NEW LUCENA,cabbage,pack,size-based,50.0,20.0,30.0,2.5,3,prov_median + unique x1
+ILOILO,JANIUAY,chicken,whole (chicken),size-based,220.0,250.0,30.0,0.88,9,full_triple + prov_median + unique x2
+AKLAN,MADALAG,mango,pieces or units,size-based,30.0,60.0,30.0,0.5,4,prov_median + unique x2
+NEGROS OCCIDENTAL,CALATRAVA,loaf bread,large packs,size-based,60.0,90.0,30.0,0.6666666666666666,1,prov_median + unique x1
+NEGROS OCCIDENTAL,HINIGARAN,"prawns, lobster, shrimp",tumpok,price-quantity,50.0,80.0,30.0,0.625,2,prov_median + unique x1
+ANTIQUE,BUGASONG,chicken,bilog,(no MS rows),280.0,250.0,30.0,1.12,0,prov_median + unique x2
+ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,15.0,45.0,30.0,0.3333333333333333,3,prov_median + unique x1
+ANTIQUE,SAN REMIGIO,camote,tumpok,conventional,20.0,50.0,30.0,0.4,4,prov_median + unique x1
+ILOILO,MAASIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,60.0,30.0,30.0,2.0,4,full_triple + prov_median + unique x1
+ILOILO,LEMERY,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,150.0,180.0,30.0,0.8333333333333334,2,prov_median + unique x1
+ANTIQUE,SAN REMIGIO,loaf bread,large packs,conventional,150.0,120.0,30.0,1.25,3,mun_median + prov_median + unique x2
+ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,(no MS rows),20.0,50.0,30.0,0.4,0,full_triple + prov_median + unique x1
+ANTIQUE,TIBIAO,cabbage,pieces or units,size-based,80.0,50.0,30.0,1.6,16,prov_median + unique x1
+ILOILO,JANIUAY,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,150.0,180.0,30.0,0.8333333333333334,8,prov_median + unique x1
+ILOILO,ANILAO,chicken,bilog,size-based,250.0,280.0,30.0,0.8928571428571429,11,prov_median + unique x2
+ANTIQUE,VALDERRAMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,10.0,40.0,30.0,0.25,3,mun_median + prov_median + unique x2
+ANTIQUE,TOBIAS FORNIER,fresh fish,pieces or units,size-based,210.0,180.0,30.0,1.1666666666666667,7,prov_median + unique x1
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional,15.0,45.0,30.0,0.3333333333333333,5,prov_median + unique x1
+ILOILO,BAROTAC VIEJO,chicken,pieces or units,(no MS rows),130.0,100.0,30.0,1.3,0,prov_median + unique x1
+ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,150.0,180.0,30.0,0.8333333333333334,9,prov_median + unique x1
+ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,150.0,180.0,30.0,0.8333333333333334,8,prov_median + unique x1
+ILOILO,BATAD,loaf bread,small packs,size-based,20.0,50.0,30.0,0.4,1,mun_median + prov_median + unique x1
+ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,150.0,180.0,30.0,0.8333333333333334,10,prov_median + unique x2
+CAPIZ,PILAR,fresh fish,pieces or units,size-based,80.0,110.0,30.0,0.7272727272727273,14,prov_median + unique x2
+ILOILO,DUMANGAS,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,150.0,180.0,30.0,0.8333333333333334,2,prov_median + unique x1
+CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,price-quantity,20.0,50.0,30.0,0.4,3,prov_median + unique x2
+ILOILO,ESTANCIA,fresh fish,pieces or units,size-based,70.0,100.0,30.0,0.7,15,prov_median + unique x2
+ILOILO,ANILAO,chicken,whole (chicken),(no MS rows),220.0,250.0,30.0,0.88,0,prov_median + unique x1
+ILOILO,BALASAN,mango,pieces or units,size-based,50.0,80.0,30.0,0.625,4,prov_median + unique x2
+NEGROS OCCIDENTAL,MANAPLA,loaf bread,large packs,size-based,120.0,90.0,30.0,1.3333333333333333,5,prov_median + unique x1
+ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,20.0,50.0,30.0,0.4,4,full_triple + prov_median + unique x2
+ANTIQUE,SEBASTE,chicken,whole (chicken),size-based,280.0,250.0,30.0,1.12,1,full_triple + prov_median + unique x2
+ILOILO,SAN JOAQUIN,loaf bread,tama-tama nga putos,(no MS rows),48.0,77.5,29.5,0.6193548387096774,0,prov_median + unique x2
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,20.0,48.0,28.0,0.4166666666666667,3,prov_median + unique x2
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,20.0,48.0,28.0,0.4166666666666667,4,prov_median + unique x1
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,20.0,48.0,28.0,0.4166666666666667,5,prov_median + unique x1
+ILOILO,DUMANGAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,size-based,60.0,32.5,27.5,1.8461538461538463,2,prov_median + unique x1
+ILOILO,BAROTAC VIEJO,loaf bread,tama-tama nga putos,(no MS rows),50.0,77.5,27.5,0.6451612903225806,0,prov_median + unique x1
+ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,130.0,157.5,27.5,0.8253968253968254,8,prov_median + unique x1
+AKLAN,LIBACAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,(no MS rows),80.0,54.0,26.0,1.4814814814814814,0,prov_median + unique x1
+CAPIZ,JAMINDAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,size-based,75.0,49.0,26.0,1.530612244897959,1,prov_median + unique x2
+ILOILO,BAROTAC NUEVO,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,155.0,180.0,25.0,0.8611111111111112,3,prov_median + unique x2
+ILOILO,AJUY,fresh fish,tumpok,size-based,350.0,325.0,25.0,1.0769230769230769,6,prov_median + unique x1
+CAPIZ,SAPI-AN,mango,pieces or units,size-based,50.0,75.0,25.0,0.6666666666666666,3,prov_median + unique x1
+CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,price-quantity,85.0,60.0,25.0,1.4166666666666667,2,full_triple + prov_median + unique x1
+ANTIQUE,VALDERRAMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,15.0,40.0,25.0,0.375,3,mun_median + prov_median + unique x2
+ILOILO,CARLES,loaf bread,small packs,size-based,25.0,50.0,25.0,0.5,1,full_triple + mun_median + prov_median + unique x1
+CAPIZ,PRESIDENT ROXAS,mango,pieces or units,size-based,100.0,75.0,25.0,1.3333333333333333,4,prov_median + unique x1
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional,20.0,45.0,25.0,0.4444444444444444,5,prov_median + unique x2
+ANTIQUE,CULASI,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,15.0,40.0,25.0,0.375,6,mun_median + prov_median + unique x1
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,(no MS rows),15.0,40.0,25.0,0.375,0,mun_median + prov_median + unique x1
+ANTIQUE,TIBIAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,10.0,35.0,25.0,0.2857142857142857,3,prov_median + unique x1
+CAPIZ,SAPI-AN,fresh fish,pieces or units,size-based,85.0,110.0,25.0,0.7727272727272727,9,prov_median + unique x2
+ILOILO,ALIMODIAN,camote,bilog,size-based,5.0,30.0,25.0,0.16666666666666666,11,prov_median + unique x2
+ANTIQUE,BUGASONG,camote,bilog,size-based,50.0,25.0,25.0,2.0,9,prov_median + unique x1
+ILOILO,SAN JOAQUIN,loaf bread,tama-tama nga putos,(no MS rows),54.0,77.5,23.5,0.6967741935483871,0,prov_median + unique x2
+ILOILO,SAN JOAQUIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,25.0,48.0,23.0,0.5208333333333334,6,prov_median + unique x1
+ILOILO,BATAD,loaf bread,medium packs,size-based,45.0,68.0,23.0,0.6617647058823529,5,prov_median + unique x1
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,size-based,10.0,32.5,22.5,0.3076923076923077,7,prov_median + unique x1
+AKLAN,BATAN,rice,gantang,(no MS rows),375.0,397.5,22.5,0.9433962264150944,0,prov_median + unique x1
+AKLAN,NEW WASHINGTON,cabbage,pieces or units,size-based,75.0,52.5,22.5,1.4285714285714286,26,prov_median + unique x1
+AKLAN,MALINAO,rice,gantang,(no MS rows),420.0,397.5,22.5,1.0566037735849056,0,prov_median + unique x1
+ILOILO,POTOTAN,pork,pieces or units,price-quantity,25.0,47.5,22.5,0.5263157894736842,7,prov_median + unique x1
+AKLAN,MALAY,rice,gantang,(no MS rows),420.0,397.5,22.5,1.0566037735849056,0,prov_median + unique x1
+ILOILO,MAASIN,pork,pieces or units,price-quantity,70.0,47.5,22.5,1.4736842105263157,4,prov_median + unique x1
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,160.0,182.5,22.5,0.8767123287671232,2,prov_median + unique x1
+AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,8.0,30.0,22.0,0.26666666666666666,4,prov_median + unique x1
+AKLAN,TANGALAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,size-based,33.0,53.5,20.5,0.616822429906542,6,prov_median + unique x1
+ILOILO,ALIMODIAN,camote,bilog,size-based,10.0,30.0,20.0,0.3333333333333333,11,prov_median + unique x2
+ILOILO,CABATUAN,mango,pieces or units,size-based,60.0,80.0,20.0,0.75,13,prov_median + unique x2
+CAPIZ,MAMBUSAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,(no MS rows),30.0,50.0,20.0,0.6,0,prov_median + unique x2
+ILOILO,BADIANGAN,fresh fish,pieces or units,(no MS rows),120.0,100.0,20.0,1.2,0,prov_median + unique x2
+ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,30.0,50.0,20.0,0.6,4,full_triple + prov_median + unique x2
+ILOILO,MIAGAO,fresh fish,pieces or units,size-based,80.0,100.0,20.0,0.8,10,prov_median + unique x1
+ANTIQUE,LAUA-AN,mango,pieces or units,size-based,100.0,80.0,20.0,1.25,1,prov_median + unique x2
+ANTIQUE,BARBAZA,loaf bread,large packs,size-based,100.0,80.0,20.0,1.25,5,prov_median + unique x2
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,30.0,48.0,18.0,0.625,3,prov_median + unique x2
+CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,170.0,155.0,15.0,1.096774193548387,4,prov_median + unique x2
+ILOILO,SARA,loaf bread,large packs,size-based,75.0,90.0,15.0,0.8333333333333334,4,full_triple + prov_median + unique x2
+ILOILO,BAROTAC NUEVO,"prawns, lobster, shrimp",tumpok,size-based,75.0,60.0,15.0,1.25,1,prov_median + unique x2
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional,60.0,45.0,15.0,1.3333333333333333,1,prov_median + unique x2
+ILOILO,MINA,loaf bread,tama-tama nga putos,(no MS rows),65.0,77.5,12.5,0.8387096774193549,0,prov_median + unique x2
+NEGROS OCCIDENTAL,HINIGARAN,"liquor (e.g, whisky, coconut wine)",long-neck,price-quantity,170.0,182.5,12.5,0.9315068493150684,3,prov_median + unique x2
+ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,(no MS rows),20.0,30.0,10.0,0.6666666666666666,0,mun_median + prov_median + unique x2
+ILOILO,SAN RAFAEL,loaf bread,large packs,size-based,80.0,90.0,10.0,0.8888888888888888,3,full_triple + prov_median + unique x2
+ANTIQUE,CULASI,loaf bread,medium packs,size-based,70.0,60.0,10.0,1.1666666666666667,3,prov_median + unique x2
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,30.0,40.0,10.0,0.75,7,prov_median + unique x2
+AKLAN,IBAJAY,"prawns, lobster, shrimp",tumpok,conventional,50.0,60.0,10.0,0.8333333333333334,3,prov_median + unique x2
+CAPIZ,JAMINDAN,fresh fish,pieces or units,size-based,120.0,110.0,10.0,1.0909090909090908,5,prov_median + unique x2
+CAPIZ,DUMALAG,fresh fish,pieces or units,size-based,120.0,110.0,10.0,1.0909090909090908,4,prov_median + unique x2
+ILOILO,GUIMBAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,size-based,50.0,42.0,8.0,1.1904761904761905,3,prov_median + unique x2
+ILOILO,MIAGAO,loaf bread,small packs,size-based,56.0,49.0,7.0,1.1428571428571428,12,mun_median + prov_median + unique x2
+NEGROS OCCIDENTAL,LA CASTELLANA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,45.0,38.0,7.0,1.1842105263157894,2,prov_median + unique x2
+ANTIQUE,LIBERTAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,price-quantity,36.0,32.5,3.5,1.1076923076923078,5,prov_median + unique x2
+ILOILO,SARA,rice,salmon,(no MS rows),392.0,390.0,2.0,1.005128205128205,0,prov_median + unique x2
+ILOILO,MINA,loaf bread,small packs,size-based,50.0,49.0,1.0,1.0204081632653061,3,mun_median + prov_median + unique x2
+ILOILO,DUEAS,fresh fish,pack,(no MS rows),200.0,200.0,0.0,1.0,0,prov_median + unique x2
+CAPIZ,DUMALAG,fresh fish,pack,(no MS rows),200.0,200.0,0.0,1.0,0,prov_median + unique x2
+ILOILO,BAROTAC VIEJO,fresh fish,pieces or units,size-based,100.0,100.0,0.0,1.0,5,prov_median + unique x2
+CAPIZ,MAMBUSAO,rice,letse,(no MS rows),300.0,300.0,0.0,1.0,0,prov_median + unique x2
+ILOILO,BAROTAC VIEJO,fresh fish,tumpok,size-based,300.0,300.0,0.0,1.0,6,prov_median + unique x1
+ILOILO,AJUY,fresh fish,pack,price-quantity,200.0,200.0,0.0,1.0,1,prov_median + unique x2
+AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,size-based,240.0,240.0,0.0,1.0,9,prov_median + unique x2
+ILOILO,DINGLE,fresh fish,pack,(no MS rows),200.0,200.0,0.0,1.0,0,prov_median + unique x2
+CAPIZ,CUARTERO,loaf bread,small packs,size-based,50.0,50.0,0.0,1.0,2,mun_median + prov_median + unique x2
+ANTIQUE,LIBERTAD,loaf bread,large packs,size-based,120.0,120.0,0.0,1.0,1,mun_median + prov_median + unique x2
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,size-based,20.0,20.0,0.0,1.0,3,mun_median + prov_median + unique x2
+ANTIQUE,BARBAZA,chicken,bilog,(no MS rows),250.0,250.0,0.0,1.0,0,prov_median + unique x2
+AKLAN,NABAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,size-based,30.0,30.0,0.0,1.0,4,prov_median + unique x2
+NEGROS OCCIDENTAL,VALLADOLID,chicken,bilog,price-quantity,250.0,250.0,0.0,1.0,2,prov_median + unique x2
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),130.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),400.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),200.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),350.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),290.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),250.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),500.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),600.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),800.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),1200.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),300.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),180.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,chicken,bilog,(no MS rows),220.0,,,,0,full_triple + unique x13
+ILOILO,SAN ENRIQUE,fresh fish,pieces or units,size-based,20.0,,,,3,full_triple + unique x5
+ILOILO,SAN ENRIQUE,fresh fish,pieces or units,size-based,100.0,,,,3,full_triple + unique x5
+ILOILO,SAN ENRIQUE,fresh fish,pieces or units,size-based,150.0,,,,3,full_triple + unique x5
+ILOILO,SAN ENRIQUE,fresh fish,pieces or units,size-based,90.0,,,,3,full_triple + unique x5
+ILOILO,SAN ENRIQUE,fresh fish,pieces or units,size-based,120.0,,,,3,full_triple + unique x5
+NEGROS OCCIDENTAL,PONTEVEDRA,cabbage,pieces or units,price-quantity,50.0,,,,3,full_triple + unique x9
+NEGROS OCCIDENTAL,PONTEVEDRA,cabbage,pieces or units,price-quantity,30.0,,,,3,full_triple + unique x9
+NEGROS OCCIDENTAL,PONTEVEDRA,cabbage,pieces or units,price-quantity,105.0,,,,3,full_triple + unique x9
+NEGROS OCCIDENTAL,PONTEVEDRA,cabbage,pieces or units,price-quantity,20.0,,,,3,full_triple + unique x9
+NEGROS OCCIDENTAL,PONTEVEDRA,cabbage,pieces or units,price-quantity,40.0,,,,3,full_triple + unique x9
+NEGROS OCCIDENTAL,PONTEVEDRA,cabbage,pieces or units,price-quantity,25.0,,,,3,full_triple + unique x9
+NEGROS OCCIDENTAL,PONTEVEDRA,cabbage,pieces or units,price-quantity,150.0,,,,3,full_triple + unique x9
+NEGROS OCCIDENTAL,PONTEVEDRA,cabbage,pieces or units,price-quantity,90.0,,,,3,full_triple + unique x9
+NEGROS OCCIDENTAL,PONTEVEDRA,cabbage,pieces or units,price-quantity,35.0,,,,3,full_triple + unique x9
+NEGROS OCCIDENTAL,PONTEVEDRA,chicken,bilog,price-quantity,250.0,,,,6,full_triple + unique x4
+NEGROS OCCIDENTAL,PONTEVEDRA,chicken,bilog,price-quantity,200.0,,,,6,full_triple + unique x4
+NEGROS OCCIDENTAL,PONTEVEDRA,chicken,bilog,price-quantity,400.0,,,,6,full_triple + unique x4
+NEGROS OCCIDENTAL,PONTEVEDRA,chicken,bilog,price-quantity,180.0,,,,6,full_triple + unique x4
