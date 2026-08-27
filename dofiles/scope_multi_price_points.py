@@ -11,7 +11,7 @@ know how many groups a case has:
   Outcome 2  re-slices the pooled size-based weighings into as many groups as the
              price file has points, so the point count IS the group count.
 
-WHAT THIS SCRIPT DOES. It measures the problem; it decides nothing. Eight questions:
+WHAT THIS SCRIPT DOES. It measures the problem; it decides nothing. Nine questions:
 
   Q1   how many harmonized cases pool more than one PRICED raw unit, and how many
        price points they end up with under two readings (pooled levels vs naive
@@ -31,6 +31,8 @@ WHAT THIS SCRIPT DOES. It measures the problem; it decides nothing. Eight questi
        against a full triple), and the 'medium' collision that creates in Outcome 1
   Q8   what 'quartiles take precedence' costs in a mixed-composition case: how many
        weighings sit on a price ladder measured for a different raw unit
+  Q9   which MS branch the level disagreements sit on, and whether the median-only
+       cases ever disagree (the assumption points_pooled() makes silently)
 
 HARMONIZATION IS NOT RE-DERIVED HERE. The raw -> harmonized map is read from
 outputs/tables/master_nsu_rename.csv, written by dofiles/diagnose_price_only.py, which
@@ -704,6 +706,65 @@ def main():
         q8.sort_values("med_ratio", ascending=False).to_csv(
             OUT + r"\issue21_discarded_median_units.csv", index=False,
             encoding="utf-8-sig")
+
+    # ================================================================ Q9
+    h("Q9  WHICH BRANCH THE DISAGREEMENTS SIT ON, AND WHETHER MEDIANS EVER DISAGREE")
+    # Two questions that decide how much of this issue is actionable.
+    #
+    # (a) Level disagreement -- two spellings quoting different values for the SAME rung
+    #     -- only matters where the price file supplies the rungs. On a price-quantity
+    #     case the enumerator spent an actual observed amount (pull_price), so the
+    #     price-file level is not what the conversion rests on. If every disagreeing
+    #     case is size-based, the exposure is confined to Outcome 2's size-based branch.
+    #
+    # (b) The median-only cases. points_pooled() returns 1 point for a case whose
+    #     spellings all carry only a median, which silently assumes the medians AGREE.
+    #     If they ever disagree, that assumption hides an unresolved choice of which
+    #     median to use. Checked directly rather than assumed.
+    MED = ["municipality_median", "province_median"]
+    branch_of = ms.groupby(HKEY).weighing_approach.agg(
+        lambda s: "/".join(sorted({BRANCH.get(int(x), str(x)) for x in s.dropna()})))
+
+    print("(a) LEVEL DISAGREEMENT, BY MS BRANCH")
+    qq = pr[pr.price_type.isin(QUART)]
+    nl = qq.groupby(HKEY).pull_nsu_unit.nunique()
+    cand = set(nl[nl > 1].index)
+    dis = set()
+    for kk, g in qq[qq.set_index(HKEY).index.isin(cand)].groupby(HKEY + ["price_type"]):
+        if g.price.dropna().nunique() > 1:
+            dis.add(kk[:4])
+    print(f"  cases with >=1 rung whose spellings quote different levels: {len(dis)}")
+    bb = branch_of.reindex(sorted(dis))
+    print("  MS branch of those cases:")
+    for k, v in bb.value_counts(dropna=False).items():
+        lbl = "no MS weighings at all (price-file-only cell)" if pd.isna(k) else k
+        print(f"    {lbl:<48} {v:>4}")
+    if not (bb.dropna() != "size-based").any():
+        print("  ALL are size-based. The price file supplies the rungs only there, so")
+        print("  this is confined to Outcome 2's size-based branch. It is a precision")
+        print("  question -- two estimates of one unit's price distribution, computed on")
+        print("  differently-spelled subsets -- not a correctness one.")
+
+    print("\n(b) DO THE MEDIAN-ONLY CASES EVER DISAGREE")
+    def comp_all_median(s):
+        t = set(s)
+        return (not (t & set(QUART))) and ("unique_mun_price" not in t) and bool(t)
+    cm = pr.groupby(HKEY + ["pull_nsu_unit"]).price_type.agg(comp_all_median)
+    per = cm.groupby(level=[0, 1, 2, 3]).agg([("n", "size"), ("all_med", "all")])
+    mmed = per[(per.n > 1) & per.all_med]
+    print(f"  cases where EVERY pooled spelling carries only a median: {len(mmed)}")
+    nbad = 0
+    for k in mmed.index:
+        g = pr[pr.set_index(HKEY).index == k]
+        g = g[g.price_type.isin(MED)]
+        if any(v.price.dropna().nunique() > 1 for _, v in g.groupby("price_type")):
+            nbad += 1
+    print(f"    ...where a median TYPE has spellings quoting different levels: {nbad}")
+    if nbad == 0:
+        print("  ZERO. points_pooled() returning one point for these cases assumes the")
+        print("  medians agree, and they always do -- a median is computed for the item")
+        print("  and municipality, so every spelling inherits the same value. No hidden")
+        print("  choice of median exists.")
 
     print("\nwrote tables to outputs/tables/issue21_*.csv")
 
