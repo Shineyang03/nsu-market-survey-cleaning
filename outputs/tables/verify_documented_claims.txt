@@ -1,0 +1,70 @@
+
+==============================================================================
+INPUTS
+==============================================================================
+  prelim_nsu_data               11,458 rows
+  standard_weight_unit_corr     11,458 rows
+  nsu_weights_restated          11,360 rows
+
+==============================================================================
+CLAIMS ABOUT IDENTIFICATION AND VOCABULARY
+==============================================================================
+  [OK     ] harmonization costs no uniqueness
+            doc: rows == raw groups == harmonized groups
+            now: rows == raw groups == harmonized groups
+            rows 11,360, raw-key groups 11,360, harmonized-key groups 11,360; if these ever diverge the harmonized unit is not a safe pooling key
+  [OK     ] case counts by vocabulary layer
+            doc: 1,952 harmonized / 1,964 cleaned / 1,992 raw
+            now: 1,952 harmonized / 1,964 cleaned / 1,992 raw
+            counted on the restated file, so post-attrition; the doc figure was taken at the same stage
+
+==============================================================================
+CLAIMS ABOUT PRICES
+==============================================================================
+  [OK     ] pull_price matches the case-file preload
+            doc: 1,105 of 1,105 matched rows agree; 98.5% coverage
+            now: 1,105 of 1,105 matched rows agree; 98.5% coverage
+            join is on province + municipality + item + raw unit + hetero-group; uuid alone is ambiguous across provinces
+  [OK     ] unique_mun_price never appears alone
+            doc: 0 alone; 350 with province median; 4 with the full triple
+            now: 0 alone; 350 with province median; 4 with the full triple
+            co-occurring types: ['province median']=350, ['mp25_price', 'mp50_price', 'mp75_price']=4
+  [OK     ] every size-based cell has a price-file row
+            doc: 1 uncovered cell: ILOILO / DUEAS / cabbage / putos (mix vegetable)
+            now: 1 uncovered cell: ILOILO / DUEAS / cabbage / putos (mix vegetable)
+            1,514 of 1,515 covered.  UNCOVERED: ILOILO / DUEAS / cabbage / putos (mix vegetable)
+
+==============================================================================
+CLAIMS ABOUT MAGNITUDE CORRECTION
+==============================================================================
+  [OK     ] the kg band (30,50] is empty
+            doc: 0 rows in (30,50]
+            now: 0 rows in (30,50]
+            neighbouring bands: (20,30] = 3, (50,inf) = 86
+  [OK     ] rows read as grams mis-ticked as kg
+            doc: 86 rows with weight > 30 & unit == kg
+            now: 86 rows with weight > 30 & unit == kg
+  [OK     ] rows exposed to the litres >= 10 rule
+            doc: 67 rows
+            now: 67 rows
+            range 35-7680; every row here is treated as already-mL, so a genuine litre reading would be silently divided by 1,000. The rule is safe only while this band holds no true litre value -- check the range, not just the count.
+  [OK     ] the magnitude rule scales UP below the cut
+            doc: every non-missing row is scaled by exactly 1,000 or left unchanged
+            now: every non-missing row is scaled by exactly 1,000 or left unchanged
+            4,114 scaled by 1,000; 7,339 unchanged; 0 other. A value below the cut is read as kg and multiplied; above it, believed as-is. Any 'other' row means a third rule is firing.
+
+==============================================================================
+CLAIMS ABOUT NORMALIZATION
+==============================================================================
+  [OK     ] item_group carries non-ASCII text and is never normalized
+            doc: 189 rows, 1 distinct value
+            now: 189 rows, 1 distinct value
+            the value, ASCII-stripped: 11.1.1 - Restaurants, caf and the like (S). Used as a merge key in nsu_restate_weights.do but passed through no normalizer, so a second producer of this string breaks the join.
+
+==============================================================================
+SUMMARY
+==============================================================================
+verdict
+OK    10
+
+wrote C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning\outputs\tables\verify_documented_claims.csv

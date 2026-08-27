@@ -70,9 +70,9 @@ assert `n_in' == 11458
 
 * --- capture the rung structure BEFORE the drop, for the "lost its only rung" check
 preserve
-    keep pull_province pull_municipal_city pull_item harmonized_nsu_unit item_nsu_hetero_type
+    keep pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit item_nsu_hetero_type
     duplicates drop
-    bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit: gen n_rungs_before = _N
+    bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit: gen n_rungs_before = _N
     tempfile before_rungs
     save "`before_rungs'"
 restore
@@ -95,8 +95,28 @@ assert r(N) == 95
 * where it would otherwise vanish. price_source records which is which so no
 * downstream step can confuse a vendor-quoted price for a preloaded one.
 
+* --- FIRST: rows where the vendor gave NO price at all --------------------------
+* approx_price == 1 means the vendor said the item was unavailable at the preloaded
+* price and offered no replacement. There is no valid p_r for that weighing and no
+* way to recover one -- the grams recorded do not correspond to the preloaded peso
+* figure. Drop them.
+*
+* THIS MUST RUN BEFORE has_preloaded IS COMPUTED. 26 of the 27 carry no
+* actual_price, so they would otherwise count as "preloaded" rows and wrongly
+* protect their case from the rescue rule below.
+count if weighing_approach == 2 & approx_price == 1
+di as result "no-price rows dropped (approx_price == 1): " r(N)
+drop if weighing_approach == 2 & approx_price == 1
+
+* --- THEN the rescue rule -------------------------------------------------------
+* GRAIN: corrected_unit MUST be in the key. Without it the rule runs on a coarser
+* grain than the case grain it protects, and a cell can be judged "safe" because its
+* SIBLING dimension held a preloaded row. That is not hypothetical: it dropped the
+* only price-quantity row of NEGROS OCCIDENTAL / ENRIQUE B. MAGALONA / ice cream /
+* putos / mL because the g sub-cell was fine, deleting the mL cell -- exactly the
+* loss this rule exists to prevent.
 gen byte n_pre = (weighing_approach == 2 & missing(actual_price))
-bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit: ///
+bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit: ///
 	egen byte has_preloaded = max(n_pre)
 drop n_pre
 
@@ -118,7 +138,7 @@ di as result "Rows dropped: `n_dropped'"
 
 * --- capture the rung structure AFTER the drop and compare
 preserve
-    keep pull_province pull_municipal_city pull_item harmonized_nsu_unit item_nsu_hetero_type
+    keep pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit item_nsu_hetero_type
     duplicates drop
     gen byte rung_after = 1
     tempfile after_rungs
@@ -127,7 +147,7 @@ restore
 
 preserve
     use "`before_rungs'", clear
-    merge 1:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit item_nsu_hetero_type using "`after_rungs'"
+    merge 1:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit item_nsu_hetero_type using "`after_rungs'"
     gen byte rung_lost = (_merge == 1)
     di as result "--- Step 1 check: rungs lost from the vendor-price drop ---"
     count if rung_lost == 1

@@ -23,6 +23,22 @@ Run in this order. Anything not listed here is not part of the pipeline.
 | *Outcome 2 — PSPS conversion factors* | | **not yet written** |
 | `dofiles/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
 
+Not part of the build, but not throwaway either — run these to check the build rather
+than to produce it:
+
+| file | does |
+|---|---|
+| `dofiles/verify_documented_claims.py` | re-derives every number in `docs/` that no build file produces, and prints the documented value beside the current one. Exits non-zero if any has moved. **Run it after any pipeline change.** |
+| `dofiles/diagnose_price_only.py` | the authoritative raw → cleaned → harmonized NSU crosswalk; writes `master_nsu_rename.csv`, which everything else reads instead of re-deriving the fold |
+| `dofiles/validate_folds.py` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
+| `dofiles/tally_price_points.py` | how many price points each case has, under both readings of the price file |
+| `dofiles/scope_multi_price_points.py` | measures the multi-price-point-within-a-case problem |
+| `dofiles/plot_cpi_inflation.py` | the two CPI figures embedded below, and the $`\pi`$ figures quoted with them |
+| `dofiles/summary_statistics.py` | raw vs cleaned summary tables |
+
+Any number quoted in this document should be traceable to one of the files above. If
+you find one that is not, it is unverified — treat it as a claim, not a measurement.
+
 > **`nsu_step_a_rungs.do` is kept only as a record of a rejected approach.** It set
 > the group count from the *weighing count*, which neither outcome uses, and assumed
 > one resolution could serve both deliverables, which it cannot. Its output
@@ -45,9 +61,26 @@ size they bought, not which market type the respondent's vendor belonged to, so 
 market-type-specific row could not be looked up. It also keeps Outcome 1 on the same
 grain as the Step A pool, so both come from one collapse rather than two.
 
-**Outcome 2 — conversion factors for PSPS.** For each item-NSU-municipality
-observed in PSPS, a grams-per-unit value, so PSPS NSU quantities can be turned
-into grams retrospectively.
+**Outcome 2 — conversion factors for PSPS.** A lookup that turns PSPS NSU
+quantities into grams retrospectively. It is a **case-level table that yields
+household-level answers**: the table is keyed at
+
+> case | PSPS interview month | price point | price per NSU (PHP) | PHP per gram
+
+and the household variation arrives at lookup time, not from the table having a
+household dimension. A household's own implied unit price $`p_h`$ enters the
+division in Step B3, so two households in the same case can receive different
+conversion factors from the same row.
+
+Read the last column as an exchange rate. `PHP per gram` is $`v_g = p_g/w_g`$; a
+household that spent $`p_h`$ per NSU is assigned $`p_h / v_g`$ grams per NSU. The
+term *conversion factor* stays reserved for the NSU → gram figure itself.
+
+Why a month dimension. Only the price-quantity branch carries one: its grams are
+"what a fixed peso amount bought", so they move with the price level and must be
+restated for the household's own interview month. Size-based and conventional grams
+are properties of an object and are constant across months. See "Outcome 2 as a
+table" under Step B for the resulting three-table structure.
 
 ---
 
@@ -87,7 +120,7 @@ flowchart TD
     S1 -->|"mp25 / mp50 / mp75"| S3["Pool the S/M/L weights, cut into terciles:<br/>lowest third -> mp25, middle -> mp50, top -> mp75.<br/>CF_h = p_h · w_g / p_g"]
     S1 -->|"municipality median"| S2m["Median weight across sizes, within the case.<br/>One weight, paired with the municipal median price."]
     S1 -->|"province median"| S2p["Median weight across sizes AND municipalities,<br/>within the province. Paired with the province<br/>median price. Output row is still per municipality."]
-    S1 -->|"unique_mun_price"| SU["Never occurs alone — always accompanied<br/>by a province median. See data_oddities.md."]
+    S1 -->|"unique_mun_price"| SU["Never occurs alone: 350 cases carry a<br/>province median alongside it, 4 carry the<br/>full mp25/50/75 triple instead.<br/>See data_oddities.md."]
 
     S3 --> PI["NO weight adjustment on this branch.<br/>w_psps = w_g. Grams carry no price round."]
     S2m --> PI
@@ -158,7 +191,7 @@ flowchart TB
         D2["Normalize the merge keys, then merge the rename sheet.<br/>ASCII-drop, casefold, trim, collapse whitespace, uppercase geo.<br/>Same rule applied to both sides, so the merge must come second."]
         D3["DROP the standard-quantity labels.<br/>Before the snap, so they never pollute an anchor."]
         D4["Rebuild identifiers on harmonized_nsu_unit,<br/>not on the cleaned or raw label."]
-        D5["Canonicalize dimension, then snap magnitude.<br/>kg to g and L to mL, then a log10 power-of-ten snap<br/>toward the item x harmonized anchor.<br/>corrected_weight, corrected_unit"]
+        D5["Canonicalize dimension, then fix magnitude.<br/>kg to g and L to mL, then a threshold rule<br/>(a number below 10 is in the bigger unit) for 99.2%<br/>of rows; a log10 snap toward the item x harmonized<br/>anchor decides the remaining 89.<br/>corrected_weight, corrected_unit"]
         D6["Resolve items recorded in BOTH mass and volume.<br/>One verdict per item; unverdicted items keep<br/>the dimension the enumerator recorded."]
         D1 --> D2 --> D3 --> D4 --> D5 --> D6
     end
@@ -269,14 +302,18 @@ it depends on the weighing approach:
 | weighing approach | a hetero-group is | $`w_g`$ | $`p_g`$, and the round it belongs to |
 |---|---|---|---|
 | size-based | a weight tercile (S / M / L) | tercile median | joined from the price file → **PSPS round** |
-| price-quantity | a price point given to the enumerator (MP25/50/75) | weight that money bought | the amount **actually spent** → **MS round** |
+| price-quantity | a price point given to the enumerator (MP25/50/75) | weight that money bought | a PSPS-derived point, spent during MS → **PSPS round** |
 | conventional | the whole case | cell median | none |
 
 - $`w_g`$ — grams in one hetero-group-$`g`$ unit
-- $`p_g`$ — **PHP per NSU** for a hetero-group-$`g`$ unit. Its round is branch-specific, per
-  the table: the *same nominal number* can be an MS-round price in one case and a
-  PSPS-round price in another, because the round comes from how the number was used,
-  not from the number.
+- $`p_g`$ — **PHP per NSU** for a hetero-group-$`g`$ unit. **Always PSPS round, on
+  every branch.** On the size-based branch it is joined from the price file. On the
+  price-quantity branch it is `pull_price`, which is preloaded and system-filled from
+  PSPS prices — verified to match the SurveyCTO case-file preload in 1,105 of 1,105
+  matched rows, so it is the figure the enumerator was *sent to spend*, not one they
+  observed. That the money changed hands during the MS round does not make the
+  *number* an MS-round price; what is MS-round is the quantity it bought, which is
+  why $`(1+\pi)`$ lands on $`w_g`$ and never on $`p_g`$.
 - $`v_g \equiv p_g / w_g`$ — unit value, **PHP per gram**, in whatever round
   $`p_g`$ belongs to
 
@@ -479,11 +516,18 @@ municipal-price cases have their municipal price within ₱20 of the province me
 which the stated protocol would have collapsed to province median only — still worth
 confirming whether those are exceptions or a different threshold was applied.
 
-**Every size-based case has a price-file row.** Checked directly: 1,552 of 1,552
-size-based cells match, so no case needs a fallback for a missing price. An earlier
-count of 26 unmatched cells was an artefact of a checking script that
+**Almost every size-based case has a price-file row.** Checked directly by
+`dofiles/verify_documented_claims.py`: **1,514 of 1,515** size-based cells match. The
+single exception is ILOILO / DUEÑAS / cabbage / `putos (mix vegetable)`, whose
+harmonized unit is the mixed-vegetable canonical label — a fold target that exists on
+the market-survey side but has no counterpart in the price file. That one cell needs
+either a fallback price or exclusion; nothing else does.
+
+An earlier count of 26 unmatched cells was an artefact of a checking script that
 Unicode-normalized `DUEÑAS` differently from the pipeline — see the normalization
-rule above.
+rule above. Re-run the verification script after any change to the fold rule, since a
+new fold target with no price-file counterpart would show up here as a second
+exception.
 
 **When a case collapses to one hetero-group** the sizes are not separated at all: pool every
 size-based weighing in the cell across vendors, market types **and** the original
@@ -526,6 +570,24 @@ same thing in every case.
 g(h) = \text{arg\,min}_{g} \; \lvert\, p_h - p_g \,\rvert
 ```
 
+Nominal $`p_g`$ on both sides, one adjustment only. The price points in the price
+file are computed across the whole PSPS wave, so one *could* also restate them from
+wave-average to the household's month. That is a second, distinct adjustment and it
+is **not** performed here. Only the MS → PSPS restatement of $`w_g`$ in B1 is. The
+reason to be explicit: applying both to the price would leave $`(1+\pi)^2`$ in the
+arithmetic, and applying the second to the match but not to the $`v`$ used for
+conversion would make the match and the division disagree.
+
+**Ties break toward fewer grams, and the rule is stated on $`v`$, not on the price
+point.** A household exactly equidistant between two points takes the one with the
+**higher** $`v_g`$ (pesos per gram), which yields the smaller $`p_h/v_g`$. Stating it
+on $`v`$ rather than "take the lower price point" matters because the two coincide
+only if $`v`$ falls monotonically across the ladder, and nothing guarantees that:
+$`v_g = p_g/w_g`$ is a ratio of two independently measured quantities, so a large
+unit that was cheap per gram can invert the order. Check monotonicity empirically
+rather than assuming it; where it fails, the $`v`$ rule is the one that delivers the
+intended conservatism.
+
 **B3. Convert** to grams:
 
 ```math
@@ -555,6 +617,78 @@ enters only through that rate.
 **Consistency check.** If $`p_h = p_{g(h)}`$ then
 $`\widehat{CF}_h = w_{g(h)}^{\text{PSPS}}`$ — a household paying exactly a hetero-group's
 price is assigned exactly that hetero-group's weight.
+
+**B4. Cap the extrapolation, and flag what was capped.** B3 is linear in $`p_h`$ with
+no upper bound, so a household whose implied unit price is ten times the matched
+hetero-group's price is handed ten times the grams of a unit that was actually
+weighed. Clamp the ratio before multiplying:
+
+```math
+r_h = \frac{p_h}{p_{g(h)}}, \qquad
+\tilde r_h = \min\!\bigl(\max(r_h,\ 1/t),\ t\bigr), \qquad
+\widehat{CF}_h = \tilde r_h \cdot w_{g(h)}^{\text{PSPS}}
+```
+
+Clamping the *input* rather than the output is what makes the bound legible: it puts
+$`\widehat{CF}_h`$ inside $`[\,w_g/t,\ w_g \cdot t\,]`$, a multiplicative window around
+the weight that was actually measured. Rows are retained, not dropped: keep the raw
+$`r_h`$ and a `d_cap` indicator alongside the clamped value, so an analyst can drop
+the affected households rather than use a clamped number.
+
+$`t`$ is set from the data, not chosen in advance — compute the $`r_h`$ distribution
+once the join exists, put the cap where it stops being credible, and report the share
+of rows that hit it. Report that share **split by how many price points the case
+has**, because the exposure is not uniform: about two thirds of cases carry a single
+price point, so there is no ladder to bracket a household and every household matches
+that one point however far its spend lies from it. Extrapolation is worst exactly
+where the price evidence is thinnest.
+
+One thing to check before treating the cap as a fix rather than a symptom: whether an
+extreme $`r_h`$ travels with $`q_h = 1`$ or with round-number expenditure. A household
+"spending ten times the top price point" is more often a quantity misreport than a
+bulk purchase. Where that is the pattern, the flag is the useful output and the clamp
+is only cosmetic.
+
+Two alternatives were considered. Bounding $`\widehat{CF}`$ against the case's own
+observed weight range, $`[\min(w_c)/t,\ \max(w_c)\cdot t]`$, is the more physical
+framing but rests on 3–9 vendors per case, so its band *widens* with vendor count and
+is loosest where the evidence is thickest. Winsorizing $`p_h`$ to the case price span
+is simplest but silently discards households that genuinely bought a larger unit. The
+ratio clamp is the operating rule; the weight-range variant is carried as a
+sensitivity check.
+
+#### Outcome 2 as a table: three branches, appended
+
+The deliverable is one row per **case × PSPS interview month × price point**, carrying
+the price per NSU and $`v`$ (PHP per gram). Build it branch by branch and append,
+rather than forcing one uniform grain:
+
+| branch | share of cases | rows per case | month dimension |
+|---|---|---|---|
+| price-quantity | 16% | price points × PSPS months in the case | real: $`v`$ moves with $`\pi`$ |
+| size-based | 78% | price points | degenerate: $`v`$ constant across months |
+| conventional NSU | 6% | 1 | degenerate |
+
+Appending rather than unifying keeps the table honest. A uniform case × month grain
+would repeat every size-based and conventional row once per month and invite a reader
+to believe those rates were month-specific when 84% of them are not. The join to the
+household file is unaffected — it is on case and month either way — so the only thing
+gained by uniformity is redundant rows.
+
+The size-based branch reaches this table through re-grouping, not through prices of
+its own. Step A pools the case's weighings and re-slices them into as many groups as
+the price file has points; each group is then paired with a price point in order, and
+$`v`$ follows as $`p_g/w_g`$. No inflation enters, because no money changed hands at
+market-survey time on that branch — see the two failure modes under "Why the
+adjustment sits on the weight".
+
+**Worked example.** A case with three price points, ₱50 / ₱80 / ₱100 per NSU, whose
+re-grouped size medians are 150 / 200 / 260 g, gives $`v`$ = 0.33 / 0.40 / 0.38 PHP
+per gram. Note the inversion at the top: the large unit is cheaper per gram than the
+medium one, which is exactly the case where "take the lower price point" and "take the
+higher $`v`$" diverge, and why the tie rule is stated on $`v`$. A household spending
+₱65 per NSU matches ₱50, and receives $`65 / 0.33 = 195`$ g per NSU — more than the
+150 g weighed for the small group, because it paid more than the small group's price.
 
 #### Why the adjustment sits on the weight
 

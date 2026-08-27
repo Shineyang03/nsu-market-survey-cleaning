@@ -66,7 +66,10 @@ handling.
 `NSU Market Survey Launch/data/nsu_long_data_description.pdf`, "the enumerator does
 not enter this" — and it is per-NSU. It is verified to be exactly the value the
 enumerator was sent to spend: `pull_price` matches the SurveyCTO case-file preload
-in **1,176 of 1,176** matched rows, at 98.6% coverage.
+in **1,105 of 1,105** matched rows, at 98.5% coverage. (The denominator is
+stage-dependent — it is counted on the restated file, after attrition. What matters is
+that agreement is exact on every row that matches: re-run
+`dofiles/verify_documented_claims.py` to confirm it still is.)
 
 The enumerator approached the vendor with that PSPS price. Sometimes the vendor no
 longer sold the item at it, and the data records **two different outcomes**:
@@ -104,15 +107,14 @@ A `price_source` variable records which peso figure is `p_g` for every
 price-quantity row — `preloaded` or `vendor_actual` — so no downstream step can
 mistake a vendor quote for a preloaded price. All 315 price-quantity cases survive.
 
-> **Known defect in this rule.** `has_preloaded` in `nsu_restate_weights.do` is
-> computed on province × municipality × item × `harmonized_nsu_unit`, **omitting
-> `corrected_unit`** — a coarser grain than the case grain it protects. One cell is
-> affected today: NEGROS OCCIDENTAL / ENRIQUE B. MAGALONA (SARAVIA) / ice cream /
-> `putos` / mL. Its **g** sub-cell has a preloaded row, so the rule concluded the
-> case was safe and dropped the mL row, deleting that cell — exactly the loss the
-> rescue rule exists to prevent. The "lost its only hetero-group" check uses the same
-> key, so it reports 0 and is structurally blind to this. Found independently by two
-> reviewers. Fix: add `corrected_unit` to both the `bysort` and the check.
+> **Grain defect, found and fixed.** `has_preloaded` was computed on province ×
+> municipality × item × `harmonized_nsu_unit`, omitting `corrected_unit` — coarser
+> than the case grain it protects. NEGROS OCCIDENTAL / ENRIQUE B. MAGALONA
+> (SARAVIA) / ice cream / `putos` / **mL** had its only price-quantity row dropped
+> because the **g** sub-cell held a preloaded row, deleting the mL cell entirely.
+> The "lost its only hetero-group" check used the same key and so reported zero.
+> Found independently by two reviewers. `corrected_unit` is now in both keys, and
+> the rescue count rose from 21 rows to 23.
 
 ### 3b. Vendor gave no price — nothing can be recovered
 
@@ -129,12 +131,18 @@ The `actual_price == 0` row is this case, not a price of zero:
 
 Zero encodes "not available", the same convention §2 describes for weights.
 
-> **OPEN — these rows are not yet handled.** 26 of the 27 carry no `actual_price`,
-> so the §3a rule never sees them, and they currently survive with
-> `price_source == "preloaded"` — i.e. treated as though the preloaded price held,
-> which is precisely what the vendor denied. 13 cases affected. They should either be
-> dropped or flagged as having no usable price before Outcome 2 pairs a price with
-> them.
+**Decision: drop them.** There is no price to pair the weight with and no way to
+recover one, so the weighing cannot support a conversion factor.
+
+26 of the 27 carry no `actual_price`, so the §3a rule never sees them — as built they
+survive with `price_source == "preloaded"`, i.e. treated as though the preloaded
+price held, which is exactly what the vendor denied. They must be dropped explicitly.
+13 cases are affected; check whether any loses its only hetero-group as a result, the
+same check §3a applies.
+
+Implemented: all 27 are dropped before `has_preloaded` is computed, which matters —
+26 carry no `actual_price`, so left in place they would count as preloaded rows and
+wrongly protect their case from the rescue rule.
 
 ### 3c. Cross-hetero-group contamination is a 1-case problem
 
@@ -242,3 +250,69 @@ nothing maps to them, not because data is missing.
 
 This is also why the item crosswalk must be joined on `(province, cons_name)` and
 never on `cons_name` alone.
+
+---
+
+## 9. Magnitude correction: which rule decides what, and the review queue
+
+`correct_unit_snap.do` turns the enumerator's `weight` + `unit` into
+`corrected_weight` in grams or millilitres. Two mechanisms do the work, and it is
+worth knowing which one actually decides a given row.
+
+**A threshold rule decides 99.2% of rows** (11,364 of 11,458). Its premise is that a
+number too small for the ticked unit means the enumerator meant the larger one:
+
+| ticked unit | rule | rows |
+|---|---|---|
+| grams | `weight >= 10` keep, else × 1000 | 9,151 |
+| litres | same rule, reading ≥ 10 as already mL | 1,620 |
+| kg, `< 1` | × 1000 | 15 |
+| kg, `[1, KGMAX]` | × 1000 — the tick is believed | 581 |
+| kg, `> KGMAX` | keep — the number is grams, the *tick* is the error | 86 |
+
+**A log10 anchor snap decides the remaining 89**, shifting a reading by whole powers
+of ten toward what that item × NSU usually weighs. Its tuning parameters (`MIN`,
+`FLOOR`, `SIB`, `AMB`) therefore govern well under 1% of the data — worth knowing
+before anyone tunes them expecting leverage.
+
+### Why `KGMAX = 30`
+
+The kg bands used to be `< 1`, `[1, 20]` and `>= 1000`, leaving **(20, 1000)
+handled by nothing**. Three ILOILO / MAASIN `sack of rice` rows at 25 kg fell through
+to the anchor, which pulled them toward the item-level rice anchor — dominated by
+gantang at ~2,250 g — and published them as **2,500 g, ten times too small**, in the
+Outcome 1 table. They did not look anomalous because legitimate rice rows nearby are
+genuinely ~2,230 g.
+
+The kg readings above 20 separate cleanly, which is what makes a threshold safe:
+
+| band | rows | what they are |
+|---|---|---|
+| (20, 30] | 3 | genuine — 25 kg rice sacks |
+| (30, 50] | **0** | empty, so the cut has margin either side |
+| > 30 | 86 | grams typed with kg ticked — a cabbage at "1,180 kg" |
+
+`KGMAX` is a named local so the cut is visible and tunable.
+
+### The review queue
+
+Rows the rules cannot resolve carry `flag_review` and are exported to
+`outputs/master_rename_build/tables/unit_correction_review_queue.xlsx`.
+
+This existed in the pre-Aug11 build, was lost during parameterization, and is
+restored. In between, the file called `br` — interactive-only, and silently a no-op
+in batch ("request ignored because of batch mode" in the log) — and then cleared
+every flag, so **22 rows were accepted unseen and three of them were wrong**.
+
+Unresolved rows are now **5**, and all five have no recorded weight at all, so there
+is genuinely nothing to resolve. A non-empty queue with resolvable rows in it means
+the rules above need extending, not that the queue should be cleared.
+
+### Known hazard, not yet fixed
+
+The litres rule reads `weight >= 10` as "already mL", so **a truthful 20 L reading
+would become 20 mL**. All 67 rows currently in that band are mL mis-ticked as L
+(liquor 335–750, a 24 × 320 mL beer case at 7,680), so nothing is wrong today — and
+the one cell that did carry genuine litre readings was removed by the
+standard-quantity exclusion in §5, so the protection is accidental rather than
+designed. Tracked as item 1 of the outstanding code-review findings.
