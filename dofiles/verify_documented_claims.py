@@ -378,6 +378,62 @@ def c_case_counts(d):
           " at the same stage")
 
 
+# ================================================== 11. the Outcome 1 label ranking
+def c_label_rank_is_load_bearing(d):
+    """Why nsu_reference_set.do sec 2c ranks the field labels instead of mapping the
+    tercile group number straight onto small/medium/large.
+
+    The tercile cut returns groups numbered 1..k by ASCENDING WEIGHT; they carry no
+    names. The names available are the labels the case actually recorded, which can be
+    any subset of {S,M,L}. The do-file joins the two by rank: empirical group j takes
+    the j-th smallest label PRESENT. The naive alternative -- group j takes the j-th
+    label of the canonical ladder, so group 1 is always "small" -- is wrong for every
+    case whose label set is not {S}, {S,M} or {S,M,L}.
+
+    This check counts the cases where the two maps disagree, i.e. how much work the
+    ranking is doing. If it ever falls to zero the ranking block is dead code and can
+    be replaced by the naive map; while it is large, removing it silently mislabels
+    that many cases.
+
+    Scope note: this is the SIZE-BASED branch only (weighing_approach == 3), whose
+    labels are the enumerator's small/medium/large. The price-quantity branch reads its
+    size straight off the price-file rung (sec 2b) and needs no ranking.
+
+    docs/conversion_factor_methodology.md / Outcome 1, size assignment
+    """
+    CELL = ["pull_province", "pull_municipal_city", "pull_item",
+            "harmonized_nsu_unit", "corrected_unit"]      # the Outcome 1 case grain
+    d = d[d.w_ref.notna() & ~d.item_nsu_hetero_type.isin([10, 11])]
+    # mixed-branch cells: Outcome 1 keeps the size-based rows only
+    g = d.groupby(CELL, dropna=False).weighing_approach
+    d = d[~(g.transform(lambda s: (s == 3).any())
+            & g.transform(lambda s: (s == 2).any())
+            & (d.weighing_approach == 2))]
+    sb = d[d.weighing_approach == 3].copy()
+    sb["field_ord"] = sb.item_nsu_hetero_type.map({2: 1, 3: 2, 4: 3})
+    if sb.field_ord.isna().any():
+        skip("the label ranking is load-bearing",
+             "conversion_factor_methodology.md / Outcome 1",
+             "a size-based row carries a hetero_type outside 2/3/4")
+        return
+    lab = sb.groupby(CELL, dropna=False).field_ord.agg(
+        lambda s: tuple(sorted({int(x) for x in s})))
+    # the naive map agrees only where the labels present are the first k of the ladder
+    naive_ok = lab.map(lambda t: t == tuple(range(1, len(t) + 1)))
+    bad = int((~naive_ok).sum())
+    NAME = {1: "S", 2: "M", 3: "L"}
+    detail = (lab[~naive_ok].map(lambda t: "{" + ",".join(NAME[x] for x in t) + "}")
+              .value_counts())
+    check("the label ranking is load-bearing",
+          "conversion_factor_methodology.md / Outcome 1, size assignment",
+          "451 of 1,571 size-based cases would be mislabelled by a naive grp->S/M/L map",
+          f"{bad:,} of {len(lab):,} size-based cases would be mislabelled"
+          " by a naive grp->S/M/L map",
+          "disagreeing label sets: "
+          + ", ".join(f"{k} x{v}" for k, v in detail.items())
+          + ". A case holding only {L} would publish its weight as 'small'.")
+
+
 def main():
     head("INPUTS")
     prelim = pd.read_stata(PRELIM, convert_categoricals=False)
@@ -405,6 +461,9 @@ def main():
 
     head("CLAIMS ABOUT NORMALIZATION")
     c_item_group_normalization(rest)
+
+    head("CLAIMS ABOUT OUTCOME 1")
+    c_label_rank_is_load_bearing(rest)
 
     head("SUMMARY")
     df = pd.DataFrame(results, columns=["check", "doc", "recorded", "computed",

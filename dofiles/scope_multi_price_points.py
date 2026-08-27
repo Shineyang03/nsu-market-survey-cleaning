@@ -502,6 +502,14 @@ def main():
                                index=False, encoding="utf-8-sig")
 
     # --- and the Outcome 1 collision this creates
+    # The size-based branch reads its groups off the enumerator's own S/M/L judgement,
+    # so the price file is absent there. The PRICE-QUANTITY branch does not: sec 2b of
+    # nsu_reference_set.do reads size_ord straight off the rung recorded in obs_type,
+    # and that rung is a copy of the price-file structure -- the enumerator was sent to
+    # spend a preloaded mp25/mp50/mp75/median, so the MS label echoes the price file
+    # rather than observing size independently. 311 of 2,005 Outcome 1 cases (15.5%)
+    # are on that branch, so the price file DOES reach Outcome 1; it just reaches it
+    # through a different door than the terciles.
     print("\nOUTCOME 1 COLLISION: mp50 / mun_median / prov_median all -> size_ord 2.")
     MED = [6, 8, 9]
     pqms = ms[(ms.weighing_approach == 2) & ms.w.notna()].copy()
@@ -520,6 +528,17 @@ def main():
         print(sp.ratio.describe()[["50%", "max"]].to_string())
         print(f"  cells whose merged 'medium' spans >=2x in weight:"
               f" {int((sp.ratio >= 2).sum())}")
+        # name them: at this count the cases are worth inspecting individually rather
+        # than only being counted
+        print("\n  every price-quantity case pooling >1 raw unit, in full:")
+        for kk, gg in med[j].groupby(CKEY):
+            parts = [f"{u}:[{','.join(sorted(LBL[int(t)] for t in v.item_nsu_hetero_type))}]"
+                     f" n{len(v)} med{v.w.median():.0f}g"
+                     for u, v in gg.groupby("pull_nsu_unit")]
+            print(f"    {kk[0]}/{kk[1]} {str(kk[2])[:32]:32s} {str(kk[3])[:18]:18s} "
+                  + " | ".join(parts))
+        print("  Both sides collapse to a single published 'medium', so the spread"
+              " above is BETWEEN raw units, not within a size.")
 
     # ================================================================ Q8
     h("Q8  THE COST OF 'QUARTILES TAKE PRECEDENCE' IN A MIXED-COMPOSITION CASE")
