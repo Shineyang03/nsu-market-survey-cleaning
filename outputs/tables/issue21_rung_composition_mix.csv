@@ -1,0 +1,358 @@
+﻿province,pull_municipal_city,cons_name,harmonized_nsu_unit,n_units,n_distinct,mix
+AKLAN,ALTAVAS,cabbage,pieces or units,2,1,median_only + median_only
+AKLAN,ALTAVAS,carrot,pieces or units,2,1,median_only + median_only
+AKLAN,ALTAVAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,full_triple + unique_only
+AKLAN,ALTAVAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + median_only
+AKLAN,ALTAVAS,"liquor (e.g, whisky, coconut wine)",lipid/lapad,2,2,full_triple + median_only
+AKLAN,ALTAVAS,loaf bread,large packs,3,2,full_triple + median_only + median_only
+AKLAN,ALTAVAS,loaf bread,medium packs,2,2,full_triple + median_only
+AKLAN,BATAN,cabbage,pieces or units,2,2,full_triple + median_only
+AKLAN,BATAN,carrot,pieces or units,2,1,median_only + median_only
+AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,3,2,full_triple + median_only + median_only
+AKLAN,BATAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,2,1,full_triple + full_triple
+AKLAN,BATAN,loaf bread,small packs,2,1,median_only + median_only
+AKLAN,BATAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,2,2,full_triple + median_only
+AKLAN,BURUANGA,"crackers, cookies, buiscuits, chips/curls",pieces or units,3,1,median_only + median_only + median_only
+AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,2,1,median_only + median_only
+AKLAN,BURUANGA,loaf bread,small packs,2,1,full_triple + full_triple
+AKLAN,IBAJAY,cabbage,pieces or units,2,1,median_only + median_only
+AKLAN,IBAJAY,carrot,pieces or units,3,1,median_only + median_only + median_only
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,3,2,median_only + median_only + unique_only
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,2,2,full_triple + unique_only
+AKLAN,IBAJAY,loaf bread,large packs,2,1,median_only + median_only
+AKLAN,IBAJAY,loaf bread,medium packs,2,1,median_only + median_only
+AKLAN,IBAJAY,loaf bread,small packs,2,1,median_only + median_only
+AKLAN,LIBACAO,carrot,pieces or units,2,1,median_only + median_only
+AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,median_only + unique_only
+AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,2,2,full_triple + median_only
+AKLAN,LIBACAO,loaf bread,medium packs,2,2,full_triple + median_only
+AKLAN,LIBACAO,loaf bread,small packs,2,1,median_only + median_only
+AKLAN,MADALAG,cabbage,pieces or units,2,2,full_triple + unique_only
+AKLAN,MADALAG,carrot,pieces or units,2,1,median_only + median_only
+AKLAN,MADALAG,"crackers, cookies, buiscuits, chips/curls",pieces or units,2,1,median_only + median_only
+AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,3,1,median_only + median_only + median_only
+AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lipid/lapad,2,2,full_triple + unique_only
+AKLAN,MADALAG,loaf bread,medium packs,2,2,full_triple + median_only
+AKLAN,MADALAG,loaf bread,small packs,3,2,full_triple + median_only + median_only
+AKLAN,MADALAG,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,2,2,full_triple + median_only
+AKLAN,MALAY,cabbage,pieces or units,2,2,full_triple + median_only
+AKLAN,MALAY,carrot,pieces or units,3,1,median_only + median_only + median_only
+AKLAN,MALAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+AKLAN,MALAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + median_only
+AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,2,2,full_triple + unique_only
+AKLAN,MALAY,loaf bread,large packs,2,2,full_triple + median_only
+AKLAN,MALAY,loaf bread,medium packs,2,1,median_only + median_only
+AKLAN,MALAY,loaf bread,small packs,2,1,median_only + median_only
+AKLAN,MALINAO,"crackers, cookies, buiscuits, chips/curls",pieces or units,2,2,full_triple + median_only
+AKLAN,MALINAO,loaf bread,small packs,2,2,full_triple + median_only
+AKLAN,NABAS,loaf bread,large packs,2,1,median_only + median_only
+ANTIQUE,BARBAZA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + median_only
+ANTIQUE,BELISON,cabbage,pieces or units,2,1,median_only + median_only
+ANTIQUE,BELISON,carrot,pieces or units,2,1,median_only + median_only
+ANTIQUE,BELISON,loaf bread,large packs,2,2,median_only + unique_only
+ANTIQUE,BUGASONG,cabbage,pieces or units,2,1,median_only + median_only
+ANTIQUE,BUGASONG,carrot,pieces or units,2,1,median_only + median_only
+ANTIQUE,BUGASONG,chicken,whole (chicken),2,1,full_triple + full_triple
+ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + median_only
+ANTIQUE,BUGASONG,loaf bread,large packs,2,2,full_triple + unique_only
+ANTIQUE,BUGASONG,loaf bread,medium packs,2,1,median_only + median_only
+ANTIQUE,CULASI,cabbage,pieces or units,2,2,median_only + unique_only
+ANTIQUE,CULASI,carrot,pieces or units,2,1,median_only + median_only
+ANTIQUE,CULASI,"crackers, cookies, buiscuits, chips/curls",pieces or units,2,1,median_only + median_only
+ANTIQUE,CULASI,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,median_only + unique_only
+ANTIQUE,CULASI,loaf bread,large packs,3,2,median_only + median_only + unique_only
+ANTIQUE,CULASI,loaf bread,medium packs,2,2,median_only + unique_only
+ANTIQUE,CULASI,loaf bread,small packs,2,1,median_only + median_only
+ANTIQUE,HAMTIC,cabbage,pieces or units,2,2,full_triple + median_only
+ANTIQUE,HAMTIC,carrot,pieces or units,2,1,median_only + median_only
+ANTIQUE,HAMTIC,chicken,whole (chicken),2,2,full_triple + median_only
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,median_only + unique_only
+ANTIQUE,HAMTIC,loaf bread,large packs,4,2,full_triple + full_triple + median_only + median_only
+ANTIQUE,HAMTIC,loaf bread,medium packs,2,2,full_triple + median_only
+ANTIQUE,LAUA-AN,cabbage,pieces or units,2,1,median_only + median_only
+ANTIQUE,LAUA-AN,carrot,pieces or units,2,2,full_triple + median_only
+ANTIQUE,LAUA-AN,chicken,whole (chicken),2,2,full_triple + median_only
+ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,median_only + unique_only
+ANTIQUE,LIBERTAD,cabbage,pack,2,1,median_only + median_only
+ANTIQUE,LIBERTAD,cabbage,pieces or units,2,2,median_only + unique_only
+ANTIQUE,LIBERTAD,carrot,pieces or units,2,2,full_triple + median_only
+ANTIQUE,LIBERTAD,chicken,whole (chicken),2,1,median_only + median_only
+ANTIQUE,LIBERTAD,fresh fish,pieces or units,2,2,median_only + unique_only
+ANTIQUE,LIBERTAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ANTIQUE,LIBERTAD,loaf bread,large packs,2,2,median_only + unique_only
+ANTIQUE,LIBERTAD,loaf bread,small packs,2,2,full_triple + median_only
+ANTIQUE,PANDAN,cabbage,pieces or units,2,1,median_only + median_only
+ANTIQUE,PANDAN,carrot,pieces or units,3,1,median_only + median_only + median_only
+ANTIQUE,PANDAN,chicken,whole (chicken),2,1,median_only + median_only
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,full_triple + unique_only
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+ANTIQUE,PANDAN,loaf bread,large packs,3,1,median_only + median_only + median_only
+ANTIQUE,PATNONGON,cabbage,pieces or units,2,2,median_only + unique_only
+ANTIQUE,PATNONGON,carrot,pieces or units,2,1,median_only + median_only
+ANTIQUE,PATNONGON,chicken,whole (chicken),2,2,full_triple + median_only
+ANTIQUE,PATNONGON,fresh fish,pieces or units,2,1,median_only + median_only
+ANTIQUE,PATNONGON,fresh fish,tumpok,2,1,median_only + median_only
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,3,1,median_only + median_only + median_only
+ANTIQUE,PATNONGON,loaf bread,large packs,2,2,full_triple + median_only
+ANTIQUE,PATNONGON,loaf bread,medium packs,2,1,median_only + median_only
+ANTIQUE,PATNONGON,loaf bread,small packs,2,1,full_triple + full_triple
+ANTIQUE,SAN REMIGIO,cabbage,pieces or units,2,2,full_triple + median_only
+ANTIQUE,SAN REMIGIO,carrot,pieces or units,2,1,median_only + median_only
+ANTIQUE,SAN REMIGIO,chicken,whole (chicken),2,1,full_triple + full_triple
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,3,2,full_triple + median_only + median_only
+ANTIQUE,SAN REMIGIO,loaf bread,large packs,3,2,median_only + unique_only + unique_only
+ANTIQUE,SAN REMIGIO,loaf bread,medium packs,2,2,full_triple + unique_only
+ANTIQUE,SEBASTE,cabbage,pieces or units,2,1,median_only + median_only
+ANTIQUE,SEBASTE,carrot,pieces or units,2,1,median_only + median_only
+ANTIQUE,SEBASTE,chicken,whole (chicken),2,2,full_triple + unique_only
+ANTIQUE,SEBASTE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ANTIQUE,SEBASTE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + median_only
+ANTIQUE,SEBASTE,loaf bread,medium packs,2,1,median_only + median_only
+ANTIQUE,SIBALOM,cabbage,pieces or units,2,2,full_triple + median_only
+ANTIQUE,SIBALOM,carrot,pieces or units,2,1,median_only + median_only
+ANTIQUE,SIBALOM,chicken,whole (chicken),2,1,full_triple + full_triple
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,4,1,median_only + median_only + median_only + median_only
+ANTIQUE,SIBALOM,loaf bread,large packs,2,2,full_triple + median_only
+ANTIQUE,SIBALOM,loaf bread,medium packs,2,2,full_triple + median_only
+ANTIQUE,SIBALOM,loaf bread,small packs,2,1,median_only + median_only
+ANTIQUE,SIBALOM,mango,pieces or units,2,2,median_only + unique_only
+ANTIQUE,TIBIAO,chicken,whole (chicken),2,2,median_only + unique_only
+ANTIQUE,TIBIAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,median_only + unique_only
+ANTIQUE,TIBIAO,loaf bread,large packs,2,2,median_only + unique_only
+ANTIQUE,TOBIAS FORNIER,cabbage,pieces or units,2,1,median_only + median_only
+ANTIQUE,TOBIAS FORNIER,carrot,pieces or units,2,1,median_only + median_only
+ANTIQUE,TOBIAS FORNIER,chicken,whole (chicken),3,2,full_triple + full_triple + median_only
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,full_triple + median_only
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,3,2,full_triple + median_only + median_only
+ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lipid/lapad,2,2,full_triple + median_only
+ANTIQUE,TOBIAS FORNIER,loaf bread,large packs,2,1,median_only + median_only
+ANTIQUE,VALDERRAMA,cabbage,pieces or units,2,1,median_only + median_only
+ANTIQUE,VALDERRAMA,carrot,pieces or units,2,1,median_only + median_only
+ANTIQUE,VALDERRAMA,chicken,whole (chicken),2,2,full_triple + median_only
+ANTIQUE,VALDERRAMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ANTIQUE,VALDERRAMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,median_only + unique_only
+ANTIQUE,VALDERRAMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,2,1,median_only + median_only
+CAPIZ,CUARTERO,loaf bread,large packs,2,1,full_triple + full_triple
+CAPIZ,CUARTERO,loaf bread,small packs,2,2,median_only + unique_only
+CAPIZ,DAO,cabbage,putos (mix vegetable),2,1,median_only + median_only
+CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + unique_only
+CAPIZ,DUMALAG,loaf bread,large packs,2,2,full_triple + median_only
+CAPIZ,DUMALAG,loaf bread,small packs,2,2,full_triple + median_only
+CAPIZ,DUMARAO,cabbage,pack,2,1,median_only + median_only
+CAPIZ,DUMARAO,chicken,whole (chicken),2,2,full_triple + median_only
+CAPIZ,IVISAN,carrot,pieces or units,2,2,full_triple + median_only
+CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,2,2,full_triple + median_only
+CAPIZ,IVISAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+CAPIZ,IVISAN,loaf bread,large packs,2,2,full_triple + median_only
+CAPIZ,IVISAN,loaf bread,medium packs,2,1,median_only + median_only
+CAPIZ,IVISAN,loaf bread,small packs,3,2,full_triple + median_only + median_only
+CAPIZ,JAMINDAN,cabbage,pieces or units,2,2,full_triple + median_only
+CAPIZ,JAMINDAN,fresh fish,pieces or units,2,2,median_only + unique_only
+CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+CAPIZ,JAMINDAN,loaf bread,small packs,2,2,full_triple + median_only
+CAPIZ,JAMINDAN,mango,pieces or units,2,1,median_only + median_only
+CAPIZ,MA-AYON,loaf bread,large packs,2,2,full_triple + median_only
+CAPIZ,MA-AYON,loaf bread,small packs,2,2,full_triple + median_only
+CAPIZ,MAMBUSAO,loaf bread,large packs,2,1,median_only + median_only
+CAPIZ,MAMBUSAO,loaf bread,small packs,2,1,median_only + median_only
+CAPIZ,PANAY,loaf bread,large packs,2,1,full_triple + full_triple
+CAPIZ,PANAY,loaf bread,small packs,2,2,full_triple + median_only
+CAPIZ,PANITAN,loaf bread,small packs,2,1,median_only + median_only
+CAPIZ,PILAR,fresh fish,pack,2,1,median_only + median_only
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,2,1,median_only + median_only
+CAPIZ,PILAR,loaf bread,large packs,2,2,full_triple + median_only
+CAPIZ,PILAR,loaf bread,small packs,2,1,median_only + median_only
+CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + median_only
+CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,2,2,full_triple + median_only
+CAPIZ,SAPI-AN,loaf bread,small packs,3,2,full_triple + median_only + median_only
+CAPIZ,SAPI-AN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,2,1,median_only + median_only
+CAPIZ,SIGMA,fresh fish,pack,3,1,median_only + median_only + median_only
+CAPIZ,SIGMA,loaf bread,large packs,2,1,full_triple + full_triple
+CAPIZ,SIGMA,loaf bread,small packs,2,2,full_triple + median_only
+CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+CAPIZ,TAPAZ,loaf bread,large packs,2,1,full_triple + full_triple
+CAPIZ,TAPAZ,loaf bread,small packs,2,1,median_only + median_only
+ILOILO,AJUY,cabbage,pack,4,1,median_only + median_only + median_only + median_only
+ILOILO,AJUY,fresh fish,pack,2,2,median_only + unique_only
+ILOILO,AJUY,loaf bread,large packs,2,1,full_triple + full_triple
+ILOILO,AJUY,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,ALIMODIAN,cabbage,pieces or units,2,2,full_triple + median_only
+ILOILO,ALIMODIAN,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,ALIMODIAN,chicken,whole (chicken),2,1,full_triple + full_triple
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,full_triple + median_only
+ILOILO,ALIMODIAN,loaf bread,large packs,3,1,median_only + median_only + median_only
+ILOILO,ALIMODIAN,loaf bread,medium packs,2,2,full_triple + median_only
+ILOILO,BADIANGAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,2,1,full_triple + full_triple
+ILOILO,BADIANGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+ILOILO,BADIANGAN,loaf bread,large packs,2,1,full_triple + full_triple
+ILOILO,BADIANGAN,loaf bread,small packs,2,1,median_only + median_only
+ILOILO,BALASAN,carrot,pieces or units,2,2,median_only + unique_only
+ILOILO,BALASAN,loaf bread,large packs,3,3,full_triple + median_only + unique_only
+ILOILO,BALASAN,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,BANATE,cabbage,pieces or units,2,1,median_only + median_only
+ILOILO,BANATE,carrot,pieces or units,2,2,median_only + unique_only
+ILOILO,BANATE,loaf bread,large packs,2,1,median_only + median_only
+ILOILO,BANATE,loaf bread,medium packs,2,1,median_only + median_only
+ILOILO,BANATE,loaf bread,small packs,2,2,full_triple + unique_only
+ILOILO,BAROTAC NUEVO,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,BAROTAC NUEVO,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,BAROTAC VIEJO,cabbage,pack,2,1,median_only + median_only
+ILOILO,BAROTAC VIEJO,cabbage,pieces or units,2,2,full_triple + median_only
+ILOILO,BAROTAC VIEJO,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,BAROTAC VIEJO,"crackers, cookies, buiscuits, chips/curls",pieces or units,2,1,median_only + median_only
+ILOILO,BAROTAC VIEJO,fresh fish,pack,3,3,full_triple + median_only + unique_only
+ILOILO,BAROTAC VIEJO,fresh fish,tumpok,2,2,median_only + unique_only
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,median_only + unique_only
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+ILOILO,BAROTAC VIEJO,loaf bread,large packs,2,1,median_only + median_only
+ILOILO,BAROTAC VIEJO,loaf bread,small packs,3,2,median_only + median_only + unique_only
+ILOILO,BATAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+ILOILO,BATAD,loaf bread,small packs,3,2,median_only + median_only + unique_only
+ILOILO,BINGAWAN,loaf bread,large packs,2,1,median_only + median_only
+ILOILO,BINGAWAN,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,CABATUAN,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,CABATUAN,loaf bread,medium packs,2,1,median_only + median_only
+ILOILO,CABATUAN,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,CALINOG,loaf bread,large packs,2,1,median_only + median_only
+ILOILO,CALINOG,loaf bread,medium packs,2,1,median_only + median_only
+ILOILO,CARLES,chicken,whole (chicken),2,2,full_triple + unique_only
+ILOILO,CARLES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + median_only
+ILOILO,CARLES,loaf bread,large packs,2,2,full_triple + unique_only
+ILOILO,CARLES,loaf bread,small packs,3,3,full_triple + median_only + unique_only
+ILOILO,CONCEPCION,cabbage,pieces or units,2,1,median_only + median_only
+ILOILO,CONCEPCION,"crackers, cookies, buiscuits, chips/curls",pieces or units,2,2,full_triple + unique_only
+ILOILO,CONCEPCION,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,median_only + unique_only
+ILOILO,CONCEPCION,loaf bread,large packs,2,1,full_triple + full_triple
+ILOILO,CONCEPCION,loaf bread,medium packs,2,1,median_only + median_only
+ILOILO,CONCEPCION,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,DINGLE,cabbage,pack,2,1,median_only + median_only
+ILOILO,DINGLE,carrot,pack,2,1,median_only + median_only
+ILOILO,DINGLE,"crackers, cookies, buiscuits, chips/curls",pieces or units,2,2,full_triple + median_only
+ILOILO,DINGLE,fresh fish,pack,3,2,median_only + unique_only + unique_only
+ILOILO,DINGLE,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,DINGLE,loaf bread,medium packs,2,2,full_triple + median_only
+ILOILO,DINGLE,loaf bread,small packs,2,1,median_only + median_only
+ILOILO,DUEAS,fresh fish,pack,2,1,unique_only + unique_only
+ILOILO,DUEAS,loaf bread,large packs,2,1,full_triple + full_triple
+ILOILO,DUEAS,loaf bread,small packs,2,1,median_only + median_only
+ILOILO,DUMANGAS,cabbage,pack,2,1,median_only + median_only
+ILOILO,DUMANGAS,cabbage,pieces or units,2,2,full_triple + median_only
+ILOILO,DUMANGAS,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,DUMANGAS,fresh fish,pieces or units,2,2,full_triple + median_only
+ILOILO,DUMANGAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,full_triple + median_only
+ILOILO,ESTANCIA,fresh fish,pack,3,2,full_triple + median_only + median_only
+ILOILO,GUIMBAL,cabbage,pieces or units,2,1,median_only + median_only
+ILOILO,GUIMBAL,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,GUIMBAL,loaf bread,large packs,2,1,median_only + median_only
+ILOILO,GUIMBAL,loaf bread,medium packs,2,1,median_only + median_only
+ILOILO,IGBARAS,cabbage,pack,2,1,median_only + median_only
+ILOILO,IGBARAS,carrot,pack,2,1,median_only + median_only
+ILOILO,IGBARAS,chicken,whole (chicken),2,2,full_triple + unique_only
+ILOILO,IGBARAS,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,IGBARAS,loaf bread,small packs,2,1,median_only + median_only
+ILOILO,JANIUAY,cabbage,pieces or units,2,1,median_only + median_only
+ILOILO,JANIUAY,carrot,pieces or units,2,2,full_triple + median_only
+ILOILO,JANIUAY,chicken,whole (chicken),3,3,full_triple + median_only + unique_only
+ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ILOILO,JANIUAY,loaf bread,large packs,2,1,full_triple + full_triple
+ILOILO,JANIUAY,loaf bread,medium packs,2,2,full_triple + median_only
+ILOILO,JANIUAY,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,LAMBUNAO,cabbage,pieces or units,2,1,median_only + median_only
+ILOILO,LAMBUNAO,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,LAMBUNAO,chicken,whole (chicken),2,1,full_triple + full_triple
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,median_only + unique_only
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,full_triple + full_triple
+ILOILO,LAMBUNAO,loaf bread,large packs,3,2,full_triple + full_triple + median_only
+ILOILO,LAMBUNAO,loaf bread,medium packs,2,1,median_only + median_only
+ILOILO,LAMBUNAO,loaf bread,small packs,2,1,median_only + median_only
+ILOILO,LEGANES,cabbage,pieces or units,2,1,median_only + median_only
+ILOILO,LEGANES,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + median_only
+ILOILO,LEGANES,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,LEMERY,"crackers, cookies, buiscuits, chips/curls",pieces or units,2,2,full_triple + median_only
+ILOILO,LEMERY,fresh fish,pack,4,3,full_triple + median_only + median_only + unique_only
+ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,full_triple + unique_only
+ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+ILOILO,LEMERY,loaf bread,large packs,3,3,full_triple + median_only + unique_only
+ILOILO,LEMERY,loaf bread,medium packs,2,2,median_only + unique_only
+ILOILO,LEMERY,loaf bread,small packs,3,2,full_triple + full_triple + median_only
+ILOILO,LEON,cabbage,pieces or units,2,2,full_triple + median_only
+ILOILO,LEON,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,LEON,chicken,whole (chicken),2,2,full_triple + median_only
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,2,1,median_only + median_only
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ILOILO,LEON,loaf bread,large packs,2,1,median_only + median_only
+ILOILO,LEON,loaf bread,medium packs,2,1,median_only + median_only
+ILOILO,LEON,loaf bread,small packs,2,1,median_only + median_only
+ILOILO,MAASIN,cabbage,pieces or units,2,2,median_only + unique_only
+ILOILO,MAASIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + unique_only
+ILOILO,MAASIN,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,MAASIN,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,MIAGAO,cabbage,pieces or units,2,2,full_triple + median_only
+ILOILO,MIAGAO,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,MIAGAO,chicken,whole (chicken),2,1,full_triple + full_triple
+ILOILO,MIAGAO,fresh fish,pieces or units,2,2,median_only + unique_only
+ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + unique_only
+ILOILO,MIAGAO,loaf bread,medium packs,2,1,median_only + median_only
+ILOILO,MIAGAO,loaf bread,small packs,2,2,median_only + unique_only
+ILOILO,MINA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,2,2,full_triple + median_only
+ILOILO,MINA,loaf bread,large packs,3,2,full_triple + full_triple + median_only
+ILOILO,MINA,loaf bread,small packs,2,2,median_only + unique_only
+ILOILO,OTON,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,OTON,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,POTOTAN,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,POTOTAN,loaf bread,small packs,2,1,median_only + median_only
+ILOILO,SAN DIONISIO,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,SAN DIONISIO,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,SAN ENRIQUE,cabbage,pieces or units,2,2,full_triple + median_only
+ILOILO,SAN ENRIQUE,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,SAN ENRIQUE,fresh fish,pack,2,2,full_triple + unique_only
+ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+ILOILO,SAN ENRIQUE,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,SAN ENRIQUE,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,SAN JOAQUIN,cabbage,pieces or units,2,2,full_triple + median_only
+ILOILO,SAN JOAQUIN,carrot,pieces or units,2,2,full_triple + median_only
+ILOILO,SAN JOAQUIN,chicken,whole (chicken),2,2,full_triple + median_only
+ILOILO,SAN JOAQUIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,3,2,median_only + median_only + unique_only
+ILOILO,SAN JOAQUIN,loaf bread,large packs,3,3,full_triple + median_only + unique_only
+ILOILO,SAN JOAQUIN,loaf bread,medium packs,2,1,median_only + median_only
+ILOILO,SAN JOAQUIN,loaf bread,small packs,2,2,median_only + unique_only
+ILOILO,SAN RAFAEL,fresh fish,pack,3,3,full_triple + median_only + unique_only
+ILOILO,SAN RAFAEL,loaf bread,large packs,2,2,full_triple + unique_only
+ILOILO,SAN RAFAEL,loaf bread,small packs,2,1,median_only + median_only
+ILOILO,SARA,fresh fish,pack,2,2,full_triple + median_only
+ILOILO,SARA,fresh fish,pieces or units,2,2,full_triple + median_only
+ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,full_triple + median_only
+ILOILO,SARA,loaf bread,large packs,2,2,full_triple + unique_only
+ILOILO,SARA,loaf bread,small packs,2,2,full_triple + median_only
+ILOILO,TIGBAUAN,cabbage,pieces or units,2,1,median_only + median_only
+ILOILO,TIGBAUAN,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,TIGBAUAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,2,1,full_triple + full_triple
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,2,full_triple + median_only
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,2,full_triple + median_only
+ILOILO,TIGBAUAN,loaf bread,large packs,2,1,full_triple + full_triple
+ILOILO,TIGBAUAN,loaf bread,small packs,2,1,full_triple + full_triple
+ILOILO,TUBUNGAN,cabbage,pieces or units,2,1,median_only + median_only
+ILOILO,TUBUNGAN,carrot,pieces or units,2,1,median_only + median_only
+ILOILO,TUBUNGAN,chicken,whole (chicken),2,1,full_triple + full_triple
+ILOILO,TUBUNGAN,fresh fish,pieces or units,2,2,median_only + unique_only
+ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,2,1,median_only + median_only
+ILOILO,TUBUNGAN,loaf bread,large packs,2,2,full_triple + median_only
+ILOILO,TUBUNGAN,loaf bread,medium packs,2,2,full_triple + median_only
+ILOILO,TUBUNGAN,loaf bread,small packs,2,2,full_triple + unique_only
+ILOILO,TUBUNGAN,mango,pieces or units,2,1,median_only + median_only
+NEGROS OCCIDENTAL,CALATRAVA,chicken,whole (chicken),2,1,median_only + median_only
+NEGROS OCCIDENTAL,CALATRAVA,loaf bread,medium packs,2,2,full_triple + median_only
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,large packs,2,1,median_only + median_only
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,medium packs,2,1,median_only + median_only
+NEGROS OCCIDENTAL,ILOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,2,1,median_only + median_only
+NEGROS OCCIDENTAL,TOBOSO,loaf bread,small packs,2,1,median_only + median_only
+NEGROS OCCIDENTAL,VALLADOLID,cabbage,pieces or units,2,1,median_only + median_only
+NEGROS OCCIDENTAL,VALLADOLID,carrot,pieces or units,2,1,median_only + median_only

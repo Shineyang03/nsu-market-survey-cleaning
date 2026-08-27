@@ -11,7 +11,7 @@ know how many groups a case has:
   Outcome 2  re-slices the pooled size-based weighings into as many groups as the
              price file has points, so the point count IS the group count.
 
-WHAT THIS SCRIPT DOES. It measures the problem; it decides nothing. Four questions:
+WHAT THIS SCRIPT DOES. It measures the problem; it decides nothing. Eight questions:
 
   Q1   how many harmonized cases pool more than one PRICED raw unit, and how many
        price points they end up with under two readings (pooled levels vs naive
@@ -21,6 +21,13 @@ WHAT THIS SCRIPT DOES. It measures the problem; it decides nothing. Four questio
        and how much precision is bought by pooling them (n per unit)
   Q4   which weighing branch the affected cases sit on, and whether the inflation
        adjustment interacts with any of this
+  Q5   whether the duplication reaches the MS weighing rows at all
+  Q6   whether pooling contaminates Outcome 1: does it inflate the size count, and do
+       the re-cut terciles track the raw unit instead of the field label
+  Q7   whether the pooled raw units carry DIFFERENT rung compositions (a bare median
+       against a full triple), and the 'medium' collision that creates in Outcome 1
+  Q8   what 'quartiles take precedence' costs in a mixed-composition case: how many
+       weighings sit on a price ladder measured for a different raw unit
 
 HARMONIZATION IS NOT RE-DERIVED HERE. The raw -> harmonized map is read from
 outputs/tables/master_nsu_rename.csv, written by dofiles/diagnose_price_only.py, which
@@ -37,6 +44,14 @@ OUTPUTS  (outputs/tables/)
                                     price points under each reading, raw units pooled
     issue21_price_disagreement.csv  case x price_type pairs whose raw units disagree
     issue21_weight_disagreement.csv case-level weight comparison across pooled units
+    issue21_outcome1_tercile_contamination.csv   per pooled size-based case: pooled vs
+                                    single-unit size count, between-unit weight ratio,
+                                    and whether the tercile splits units or sizes
+    issue21_rung_composition_mix.csv            per case: what rung composition each
+                                    pooled raw unit carries, and whether they differ
+    issue21_discarded_median_units.csv          cases where a median-only raw unit's
+                                    price is dropped in favour of another unit's triple,
+                                    with the weight gap between the two sides
     a printed report on stdout
 """
 import re
@@ -336,10 +351,248 @@ def main():
     print(f"\nof those, combos on a PRICE label (5-11): {len(price_lbls)}")
     print("A price label duplicated within a case would be the MS-side mirror of the")
     print("price-file duplication measured in Q1-Q2. Zero here means the duplication")
-    print("shows up only as repeated SIZE labels, which pooling already collapses.")
+    print("reaches the MS rows only as repeated SIZE labels.")
+    print("DO NOT read that as harmless. Outcome 1 does not publish the label -- it")
+    print("re-terciles the pooled WEIGHTS behind the labels, so a size label carried by")
+    print("two physically different raw units is exactly the contamination case. Q6")
+    print("measures it.")
 
 
-    print("\nwrote 3 tables to outputs/tables/issue21_*.csv")
+    # ================================================================ Q6
+    h("Q6  DOES POOLING CONTAMINATE OUTCOME 1's TERCILES (size-based branch)")
+    # Q5 established that the duplication reaches the MS rows only as repeated SIZE
+    # labels, and concluded that pooling "already collapses" them. That conclusion was
+    # wrong and this section is why. Outcome 1 does not publish the label -- it pools
+    # the WEIGHTS behind the labels and re-cuts them into terciles
+    # (dofiles/nsu_reference_set.do sec 2c). So when two physically different raw units
+    # are pooled, the cut points are computed on a MIXTURE of two units. If the units
+    # differ in size more than the sizes differ within a unit, the terciles separate
+    # UNITS and the published "small/medium/large" is really "unit A / unit B".
+    #
+    # Two things are measured, both replicating nsu_reference_set.do exactly:
+    #   (a) k_sizes -- pooling can RAISE the distinct-label count (unit A holds
+    #       {small,medium}, unit B holds {large} -> pooled k=3, neither unit alone has 3)
+    #   (b) whether the tercile groups line up with raw unit instead of field label
+    FIELD = {2: 1, 3: 2, 4: 3}  # hetero_type -> natural size position
+    sb = ms[(ms.weighing_approach == 3) & ms.w.notna()].copy()
+    sb["field_ord"] = sb.item_nsu_hetero_type.map(FIELD)
+    sb = sb[sb.field_ord.notna()]
+    CKEY = HKEY + ["corrected_unit"]
+
+    nunits = sb.groupby(CKEY).pull_nsu_unit.nunique()
+    pooled_cases = set(nunits[nunits > 1].index)
+    print(f"size-based cases                              {nunits.size:>6}")
+    print(f"  pooling >1 raw unit                         {len(pooled_cases):>6}"
+          f"   ({100 * len(pooled_cases) / nunits.size:.1f}%)")
+
+    def cut(w, k):
+        """The do-file's tie rule, lower-inclusive. Returns group 1..k."""
+        w = w.astype(float)
+        if k >= 3:
+            a, b = w.quantile(1 / 3), w.quantile(2 / 3)
+            return pd.Series([1 if x <= a else (2 if x <= b else 3) for x in w],
+                             index=w.index)
+        if k == 2:
+            m = w.quantile(0.5)
+            return pd.Series([1 if x <= m else 2 for x in w], index=w.index)
+        return pd.Series(1, index=w.index)
+
+    rows = []
+    for k, g in sb.groupby(CKEY):
+        if k not in pooled_cases:
+            continue
+        k_pooled = int(g.field_ord.nunique())
+        k_best_unit = int(g.groupby("pull_nsu_unit").field_ord.nunique().max())
+        grp = cut(g.w, k_pooled)
+        # how cleanly does the raw unit predict the tercile group?
+        ct = pd.crosstab(grp, g.pull_nsu_unit)
+        # purity = share of weighings sitting in the modal unit of their own group
+        purity = ct.max(axis=1).sum() / ct.values.sum()
+        # the same statistic against the FIELD label, for comparison
+        ctf = pd.crosstab(grp, g.field_ord)
+        purity_lbl = ctf.max(axis=1).sum() / ctf.values.sum()
+        med = g.groupby("pull_nsu_unit").w.median()
+        n = g.groupby("pull_nsu_unit").w.size()
+        rows.append(dict(zip(CKEY, k)) | {
+            "n": len(g), "n_units": int(g.pull_nsu_unit.nunique()),
+            "k_pooled": k_pooled, "k_best_single_unit": k_best_unit,
+            "k_inflated_by_pooling": int(k_pooled > k_best_unit),
+            "unit_med_ratio": float(med.max() / med.min()) if med.min() else float("nan"),
+            "grp_purity_by_unit": round(float(purity), 3),
+            "grp_purity_by_label": round(float(purity_lbl), 3),
+            "n_min_unit": int(n.min()),
+            "units": " | ".join(f"{u}:n{n[u]:.0f},med{med[u]:.0f}" for u in med.index)})
+    c1 = pd.DataFrame(rows)
+    if not len(c1):
+        print("  none -- Outcome 1 is genuinely untouched")
+    else:
+        print(f"\n(a) POOLING RAISES THE SIZE COUNT")
+        print(f"  cases where pooled k_sizes exceeds any single raw unit's k:"
+              f" {int(c1.k_inflated_by_pooling.sum())} / {len(c1)}")
+        print("  k_pooled (rows) x k of the richest single raw unit (cols):")
+        print(pd.crosstab(c1.k_pooled, c1.k_best_single_unit, margins=True).to_string())
+        print("  Off-diagonal rows are cases whose size ladder EXISTS ONLY BECAUSE of")
+        print("  pooling: no single raw unit recorded that many labels.")
+
+        print(f"\n(b) DO THE TERCILES SEPARATE UNITS OR SIZES")
+        print("  purity = share of weighings in the modal category of their own tercile.")
+        print("  1.00 by unit means the cut is a perfect unit split -- the published")
+        print("  S/M/L is really 'which raw unit', not 'what size'.")
+        print(c1[["grp_purity_by_unit", "grp_purity_by_label"]].describe()
+              .loc[["mean", "50%", "max"]].to_string())
+        worse = c1[c1.grp_purity_by_unit > c1.grp_purity_by_label]
+        print(f"\n  cases where the tercile tracks the UNIT better than the LABEL:"
+              f" {len(worse)} / {len(c1)}")
+        perfect = c1[(c1.grp_purity_by_unit == 1.0) & (c1.n_units > 1)]
+        print(f"  cases where the tercile is a PERFECT unit split:  {len(perfect)}")
+        big = c1[c1.unit_med_ratio >= 2]
+        print(f"  cases whose pooled raw units differ >=2x in median weight: {len(big)}")
+        print("\n  worst 12 by between-unit median ratio:")
+        print(c1.sort_values("unit_med_ratio", ascending=False)
+              .head(12)[["cons_name", "harmonized_nsu_unit", "n", "k_pooled",
+                         "k_best_single_unit", "unit_med_ratio",
+                         "grp_purity_by_unit", "grp_purity_by_label", "units"]]
+              .to_string(index=False))
+        c1.sort_values("unit_med_ratio", ascending=False).to_csv(
+            OUT + r"\issue21_outcome1_tercile_contamination.csv", index=False,
+            encoding="utf-8-sig")
+
+    # ================================================================ Q7
+    h("Q7  DO THE POOLED RAW UNITS CARRY DIFFERENT RUNG COMPOSITIONS")
+    # The scenario: one raw unit carries only a municipality median, the other carries
+    # the full mp25/50/75 triple. Neither has "two full ladders", so a count of
+    # two-ladder cases misses it entirely -- but the pooled case still has to reconcile
+    # a median against a triple. Worse for Outcome 1: nsu_reference_set.do sec 2b maps
+    # mp50 AND municipality median AND province median all onto size_ord = 2, so the
+    # median from unit B is averaged into the same "medium" cell as the mp50 weighings
+    # from unit A.
+    def composition(types):
+        t = set(types)
+        q = [p for p in QUART if p in t]
+        if len(q) == 3:
+            return "full_triple"
+        if q:
+            return "partial_quartile(" + ",".join(x[2:4] for x in q) + ")"
+        if "unique_mun_price" in t:
+            return "unique_only"
+        if t:
+            return "median_only"
+        return "none"
+
+    comp = (pr.groupby(HKEY + ["pull_nsu_unit"]).price_type
+              .agg(composition).rename("comp").reset_index())
+    per = comp.groupby(HKEY).comp.agg([("n_units", "size"),
+                                       ("n_distinct", "nunique"),
+                                       ("mix", lambda s: " + ".join(sorted(s)))])
+    multi = per[per.n_units > 1]
+    print(f"cases pooling >1 priced raw unit               {len(multi):>6}")
+    print(f"  raw units carry DIFFERENT compositions      "
+          f"{int((multi.n_distinct > 1).sum()):>6}"
+          "   <- the scenario in the question")
+    print(f"  raw units carry the SAME composition        "
+          f"{int((multi.n_distinct == 1).sum()):>6}")
+    print("\ncomposition mixes, most common first:")
+    print(multi.mix.value_counts().head(15).to_string())
+    print("\nOf the mismatched cases, how many involve a triple against a bare median:")
+    tvm = multi[(multi.n_distinct > 1)
+                & multi.mix.str.contains("full_triple")
+                & multi.mix.str.contains("median_only")]
+    print(f"  full_triple + median_only                   {len(tvm):>6}")
+    multi.reset_index().to_csv(OUT + r"\issue21_rung_composition_mix.csv",
+                               index=False, encoding="utf-8-sig")
+
+    # --- and the Outcome 1 collision this creates
+    print("\nOUTCOME 1 COLLISION: mp50 / mun_median / prov_median all -> size_ord 2.")
+    MED = [6, 8, 9]
+    pqms = ms[(ms.weighing_approach == 2) & ms.w.notna()].copy()
+    med = pqms[pqms.item_nsu_hetero_type.isin(MED)]
+    coll = med.groupby(CKEY).agg(n_units=("pull_nsu_unit", "nunique"),
+                                 n_lbls=("item_nsu_hetero_type", "nunique"),
+                                 n=("w", "size"))
+    hit = coll[(coll.n_units > 1) | (coll.n_lbls > 1)]
+    print(f"  price-quantity cases whose 'medium' cell pools >1 raw unit or >1 label:"
+          f" {len(hit)} / {len(coll)}")
+    if len(hit):
+        j = med.set_index(CKEY).index.isin(set(hit.index))
+        sp = med[j].groupby(CKEY).w.agg(["min", "max", "size"])
+        sp["ratio"] = sp["max"] / sp["min"].replace(0, float("nan"))
+        print("  spread of weights inside those merged 'medium' cells:")
+        print(sp.ratio.describe()[["50%", "max"]].to_string())
+        print(f"  cells whose merged 'medium' spans >=2x in weight:"
+              f" {int((sp.ratio >= 2).sum())}")
+
+    # ================================================================ Q8
+    h("Q8  THE COST OF 'QUARTILES TAKE PRECEDENCE' IN A MIXED-COMPOSITION CASE")
+    # points_pooled() in this file (and tally_price_points.py, which it follows) counts
+    # quartile LEVELS whenever any quartile is present, and ignores every median in the
+    # case. So a case where raw unit A carries the full mp25/50/75 triple and raw unit B
+    # carries only a municipality median reports points_pooled = 3 and looks CLEAN in
+    # Q1 -- the mixed composition is invisible to that statistic by construction.
+    #
+    # It is not clean. B's price is discarded, but B's WEIGHINGS are still pooled into
+    # the case and get re-sliced onto A's three rungs. The weighings therefore sit on a
+    # price ladder measured for a different raw unit. This section counts the rows that
+    # happens to, and asks whether the two units are even the same size.
+    comp_m = comp.set_index(HKEY + ["pull_nsu_unit"]).comp
+    tri = comp_m[comp_m == "full_triple"]
+    med_only = comp_m[comp_m == "median_only"]
+    tri_cases = {k[:4] for k in tri.index}
+    med_cases = {k[:4] for k in med_only.index}
+    mixed = tri_cases & med_cases
+    print(f"cases with a full triple AND a median-only raw unit   {len(mixed):>6}")
+
+    # which raw units in those cases are the discarded-price side
+    disc = {(k[:4], k[4]) for k in med_only.index if k[:4] in mixed}
+    keep = {(k[:4], k[4]) for k in tri.index if k[:4] in mixed}
+    print(f"  raw units whose price is DISCARDED by the rule       {len(disc):>6}")
+    print(f"  raw units whose ladder is KEPT                       {len(keep):>6}")
+
+    msi = ms[ms.w.notna()].copy()
+    msi["_c"] = list(zip(*[msi[c] for c in HKEY]))
+    msi["_cu"] = list(zip(msi._c, msi.pull_nsu_unit))
+    aff_rows = msi[msi._cu.isin(disc)]
+    keep_rows = msi[msi._cu.isin(keep)]
+    print(f"\nMS weighings on a discarded-price raw unit           {len(aff_rows):>6}")
+    print(f"MS weighings on the kept-ladder raw unit             {len(keep_rows):>6}")
+    print("Every row in the first group is re-sliced onto a price ladder that was")
+    print("measured for the OTHER raw unit.")
+    if len(aff_rows):
+        print("\nbranch of the discarded-price weighings:")
+        print(aff_rows.weighing_approach.map(BRANCH).value_counts().to_string())
+
+    # are the two sides even the same size? if not, the transplant is not defensible
+    rows = []
+    for c in sorted(mixed):
+        a = keep_rows[keep_rows._c == c]
+        b = aff_rows[aff_rows._c == c]
+        if not len(a) or not len(b):
+            continue
+        ma, mb = a.w.median(), b.w.median()
+        rows.append(dict(zip(HKEY, c)) | {
+            "n_kept": len(a), "n_discarded": len(b),
+            "med_kept": ma, "med_discarded": mb,
+            "med_ratio": max(ma, mb) / min(ma, mb) if min(ma, mb) else float("nan"),
+            "units_kept": " | ".join(sorted(a.pull_nsu_unit.unique())),
+            "units_discarded": " | ".join(sorted(b.pull_nsu_unit.unique()))})
+    q8 = pd.DataFrame(rows)
+    print(f"\ncases where BOTH sides were actually weighed          {len(q8):>6}")
+    if len(q8):
+        print("  between-side median weight ratio:")
+        print(q8.med_ratio.describe()[["50%", "max"]].to_string())
+        print(f"  sides differing >=1.5x in median weight:            "
+              f"{int((q8.med_ratio >= 1.5).sum()):>6}")
+        print(f"  sides differing >=2x:                               "
+              f"{int((q8.med_ratio >= 2).sum()):>6}")
+        print("\n  worst 10:")
+        print(q8.sort_values("med_ratio", ascending=False).head(10)[
+            ["cons_name", "harmonized_nsu_unit", "n_kept", "n_discarded",
+             "med_kept", "med_discarded", "med_ratio",
+             "units_kept", "units_discarded"]].to_string(index=False))
+        q8.sort_values("med_ratio", ascending=False).to_csv(
+            OUT + r"\issue21_discarded_median_units.csv", index=False,
+            encoding="utf-8-sig")
+
+    print("\nwrote tables to outputs/tables/issue21_*.csv")
 
 
 if __name__ == "__main__":
