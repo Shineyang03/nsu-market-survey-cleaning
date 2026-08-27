@@ -22,8 +22,9 @@ WHAT THIS SCRIPT DOES. It measures the problem; it decides nothing. Eight questi
   Q4   which weighing branch the affected cases sit on, and whether the inflation
        adjustment interacts with any of this
   Q5   whether the duplication reaches the MS weighing rows at all
-  Q6   whether pooling contaminates Outcome 1: does it inflate the size count, and do
-       the re-cut terciles track the raw unit instead of the field label
+  Q6   whether the FOLD holds where Outcome 1 pools two raw units: does pooling inflate
+       the size count, and do the re-cut terciles track the raw unit instead of the
+       field label (a unit-shaped tercile indicts the fold, not the tercile rule)
   Q7   whether the pooled raw units carry DIFFERENT rung compositions (a bare median
        against a full triple), and the 'medium' collision that creates in Outcome 1
   Q8   what 'quartiles take precedence' costs in a mixed-composition case: how many
@@ -44,9 +45,10 @@ OUTPUTS  (outputs/tables/)
                                     price points under each reading, raw units pooled
     issue21_price_disagreement.csv  case x price_type pairs whose raw units disagree
     issue21_weight_disagreement.csv case-level weight comparison across pooled units
-    issue21_outcome1_tercile_contamination.csv   per pooled size-based case: pooled vs
-                                    single-unit size count, between-unit weight ratio,
-                                    and whether the tercile splits units or sizes
+    issue21_outcome1_fold_check.csv per pooled size-based case: pooled vs single-unit
+                                    size count, between-unit weight ratio, and whether
+                                    the tercile splits units or sizes -- a shortlist of
+                                    folds for validate_folds.py to adjudicate
     issue21_rung_composition_mix.csv            per case: what rung composition each
                                     pooled raw unit carries, and whether they differ
     issue21_discarded_median_units.csv          cases where a median-only raw unit's
@@ -359,15 +361,18 @@ def main():
 
 
     # ================================================================ Q6
-    h("Q6  DOES POOLING CONTAMINATE OUTCOME 1's TERCILES (size-based branch)")
-    # Q5 established that the duplication reaches the MS rows only as repeated SIZE
-    # labels, and concluded that pooling "already collapses" them. That conclusion was
-    # wrong and this section is why. Outcome 1 does not publish the label -- it pools
-    # the WEIGHTS behind the labels and re-cuts them into terciles
-    # (dofiles/nsu_reference_set.do sec 2c). So when two physically different raw units
-    # are pooled, the cut points are computed on a MIXTURE of two units. If the units
-    # differ in size more than the sizes differ within a unit, the terciles separate
-    # UNITS and the published "small/medium/large" is really "unit A / unit B".
+    h("Q6  IS THE FOLD SOUND WHERE OUTCOME 1 POOLS TWO RAW UNITS (size-based branch)")
+    # READ THE SIGN OF THIS SECTION CAREFULLY. Outcome 1 pools the WEIGHTS behind the
+    # size labels and re-cuts them into terciles (nsu_reference_set.do sec 2c), so two
+    # pooled raw units both enter one tercile computation. That is NOT a defect: if
+    # bilog == binilog is a correct fold, a small bilog and a small binilog are the same
+    # object and pooling them is precisely the intent -- it buys precision.
+    #
+    # What this section tests is therefore the FOLD, not Outcome 1's design. A case
+    # whose terciles split cleanly by raw unit rather than by field label is evidence
+    # that the two raw units are different objects in that municipality and should not
+    # have been folded. dofiles/validate_folds.py is the tool for adjudicating that;
+    # this section only says where to point it.
     #
     # Two things are measured, both replicating nsu_reference_set.do exactly:
     #   (a) k_sizes -- pooling can RAISE the distinct-label count (unit A holds
@@ -437,7 +442,8 @@ def main():
         print(f"\n(b) DO THE TERCILES SEPARATE UNITS OR SIZES")
         print("  purity = share of weighings in the modal category of their own tercile.")
         print("  1.00 by unit means the cut is a perfect unit split -- the published")
-        print("  S/M/L is really 'which raw unit', not 'what size'.")
+        print("  S/M/L is really 'which raw unit', not 'what size', which indicts the")
+        print("  FOLD rather than the tercile rule. Send these to validate_folds.py.")
         print(c1[["grp_purity_by_unit", "grp_purity_by_label"]].describe()
               .loc[["mean", "50%", "max"]].to_string())
         worse = c1[c1.grp_purity_by_unit > c1.grp_purity_by_label]
@@ -454,7 +460,7 @@ def main():
                          "grp_purity_by_unit", "grp_purity_by_label", "units"]]
               .to_string(index=False))
         c1.sort_values("unit_med_ratio", ascending=False).to_csv(
-            OUT + r"\issue21_outcome1_tercile_contamination.csv", index=False,
+            OUT + r"\issue21_outcome1_fold_check.csv", index=False,
             encoding="utf-8-sig")
 
     # ================================================================ Q7
