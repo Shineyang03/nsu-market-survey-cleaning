@@ -67,6 +67,14 @@ import sys
 
 import pandas as pd
 
+# The crosswalk deliberately no longer carries standard-quantity, ambiguous and
+# not-a-unit labels (dofiles/drop_non_nsu_labels.py). Price rows carrying them will not
+# match, and that is intended -- so the unmatched-row tripwire below has to tell an
+# intended removal from a broken join.
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from drop_non_nsu_labels import is_dropped_label
+
 BOX = (r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey")
 DC = BOX + r"\Data Cleaning"
 PRICE = BOX + r"\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
@@ -138,12 +146,16 @@ def load_prices(xw):
                  + "; present in the file: " + repr(sorted(seen)))
     print(f"price rows                          {len(pr):>6}")
     print(f"  unmatched to the crosswalk        {miss:>6}")
-    if miss:
-        # A miss means the normalizer or the crosswalk disagrees with the price file,
-        # not that the row is uninteresting. Do not silently proceed.
-        print(pr[pr.harmonized_nsu_unit.isna()][KEY + ["pull_nsu_unit"]]
-              .drop_duplicates().to_string(index=False))
+    unm = pr[pr.harmonized_nsu_unit.isna()]
+    intended = unm[unm.pull_nsu_unit.map(is_dropped_label)]
+    broken = unm[~unm.pull_nsu_unit.map(is_dropped_label)]
+    if len(intended):
+        print(f"  price rows on deliberately dropped labels, ignored: {len(intended)}"
+              f" ({intended.pull_nsu_unit.nunique()} labels)")
+    if len(broken):
+        print(broken[KEY + ["pull_nsu_unit"]].drop_duplicates().to_string(index=False))
         sys.exit("unmatched price rows -- fix the join before reading any figure below")
+    pr = pr[pr.harmonized_nsu_unit.notna()]
     return pr
 
 

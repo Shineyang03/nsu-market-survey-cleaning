@@ -241,10 +241,17 @@ def c_size_cells_have_prices(d):
     hit = len(cells) - len(miss)
     check("every size-based cell has a price-file row",
           "conversion_factor_methodology.md / Step A",
-          "1 uncovered cell: ILOILO / DUEAS / cabbage / putos (mix vegetable)",
-          "1 uncovered cell: ILOILO / DUEAS / cabbage / putos (mix vegetable)"
-          if [tuple(m) for m in miss] == [("ILOILO", "DUEAS", "cabbage",
-                                           "putos (mix vegetable)")]
+          "2 uncovered: HAMTIC bottle 500ml (pending MS re-run); DUEAS cabbage",
+          # bottle 500ml became uncovered when drop_non_nsu_labels.py removed standard
+          # -quantity labels from the crosswalk. Its MS weighings are still in the
+          # restated .dta, which predates the removal; they go on the next pipeline
+          # re-run and this expectation drops back to one cell.
+          "2 uncovered: HAMTIC bottle 500ml (pending MS re-run); DUEAS cabbage"
+          if sorted(tuple(m) for m in miss) == sorted([
+              ("ILOILO", "DUEAS", "cabbage", "putos (mix vegetable)"),
+              ("ANTIQUE", "HAMTIC",
+               "mineral or spring water, all drinking water sold in containers",
+               "bottle 500ml")])
           else ("all size-based cells covered" if not miss else
                 f"{len(miss)} uncovered: "
                 + "; ".join(" / ".join(m) for m in miss[:5])),

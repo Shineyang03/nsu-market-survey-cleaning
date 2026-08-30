@@ -56,6 +56,17 @@ import sys
 
 import pandas as pd
 
+# The crosswalk deliberately no longer carries standard-quantity, ambiguous and
+# not-a-unit labels (dofiles/drop_non_nsu_labels.py). Price rows carrying them will not
+# match, and that is intended -- so the unmatched-row tripwire below has to tell an
+# intended removal from a broken join.
+try:
+    from drop_non_nsu_labels import is_dropped_label
+except ImportError:                                     # run from the repo root
+    import os
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
+    from drop_non_nsu_labels import is_dropped_label
+
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
 PRICE = BOX + r"\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
@@ -114,10 +125,16 @@ def main():
     pr["price"] = pd.to_numeric(pr.Price, errors="coerce")
     pr = pr.merge(xw[KEY + ["pull_nsu_unit", "harmonized_nsu_unit"]],
                   on=KEY + ["pull_nsu_unit"], how="left", validate="m:1")
-    if pr.harmonized_nsu_unit.isna().any():
-        print(pr[pr.harmonized_nsu_unit.isna()][KEY + ["pull_nsu_unit"]]
-              .drop_duplicates().to_string(index=False))
+    unm = pr[pr.harmonized_nsu_unit.isna()]
+    intended = unm[unm.pull_nsu_unit.map(is_dropped_label)]
+    broken = unm[~unm.pull_nsu_unit.map(is_dropped_label)]
+    if len(intended):
+        print(f"  dropped-label price rows ignored: {len(intended)}"
+              f" ({intended.pull_nsu_unit.nunique()} labels)")
+    if len(broken):
+        print(broken[KEY + ["pull_nsu_unit"]].drop_duplicates().to_string(index=False))
         sys.exit("unmatched price rows -- fix the join before reading any figure below")
+    pr = pr[pr.harmonized_nsu_unit.notna()]
 
     ms = pd.read_stata(MS, convert_categoricals=False)
     ms = ms.rename(columns={"pull_province": "province", "pull_item": "cons_name"})
