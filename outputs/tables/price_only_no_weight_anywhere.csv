@@ -1,6 +1,4 @@
 ﻿province,municipality,item,harmonized_nsu_unit,item_weighed_in_this_municipality,n_weighings_of_item_here,other_units_weighed_here,this_unit_weighed_anywhere
-AKLAN,ALTAVAS,fresh fish,he buy cooked food for his meals,1,3,pieces or units,0
-AKLAN,BURUANGA,beer,bottle 500ml,0,0,,0
 AKLAN,MALINAO,loaf bread,100pcs of pandesal,1,13,large packs | medium packs | small packs,0
 ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",bul,1,18,gin | lipid/lapad | long-neck,0
 ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",jr,1,18,gin | lipid/lapad | long-neck,0
@@ -8,8 +6,6 @@ ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone 
 ANTIQUE,HAMTIC,"mineral or spring water, all drinking water sold in containers",tab,1,5,bottle 500ml,0
 ANTIQUE,PANDAN,beef,patupa,0,0,,0
 ANTIQUE,PANDAN,pork,pieces barbeque,0,0,,0
-ANTIQUE,PATNONGON,"crackers, cookies, buiscuits, chips/curls",1.5kg per balde,1,13,pieces or units | putos,0
-ANTIQUE,PATNONGON,"liquor (e.g, whisky, coconut wine)",bottle of ginebra s. miguel 350ml,1,14,lipid/lapad | long-neck,0
 ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",ball (tuba),1,16,lipid/lapad | long-neck,0
 ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",glass,1,16,lipid/lapad | long-neck,0
 ANTIQUE,SIBALOM,carrot,tumpok,1,10,pieces or units,0
@@ -19,9 +15,7 @@ ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",7 ball,1,18,lipid/lapad | l
 ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",boll,1,18,lipid/lapad | long-neck,0
 ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",coconut wine,1,18,lipid/lapad | long-neck,0
 ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",takal ng tuba,1,18,lipid/lapad | long-neck,0
-ANTIQUE,TIBIAO,"mineral or spring water, all drinking water sold in containers",7 liters of gallons,0,0,,0
 ANTIQUE,VALDERRAMA,"prawns, lobster, shrimp",plastic,0,0,,0
-CAPIZ,IVISAN,carrot,1/4 kilo,1,13,pieces or units,0
 CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",large packs,1,5,pieces or units | putos,0
 CAPIZ,IVISAN,"prawns, lobster, shrimp",1 pc. prawn,1,3,tumpok,0
 CAPIZ,JAMINDAN,camote tops,cassava leaves,1,2,bugkos | bundle,0
@@ -43,11 +37,8 @@ CAPIZ,PILAR,carrot,mix vegetables (per tumpok),1,9,pieces or units,0
 CAPIZ,PILAR,fresh fish,puts or plastic,1,18,pieces or units | pinutos / plastic,0
 CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ice cream stick,1,1,pieces or units,0
 CAPIZ,PILAR,loaf bread,piece,1,10,large packs,0
-CAPIZ,PILAR,mango,pieces/ kilo,1,4,"papaya, mango, banana",0
 CAPIZ,PONTEVEDRA,"prawns, lobster, shrimp",1 k caltex(kabo),1,4,tumpok,0
 CAPIZ,SIGMA,carrot,mix slice of carrot,1,3,pieces or units,0
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",per bowl serving of halo halo,1,15,pieces or units | small cup | tub,0
-CAPIZ,SIGMA,"liquor (e.g, whisky, coconut wine)",bottle 500ml,1,1,lipid/lapad,0
 CAPIZ,TAPAZ,"mineral or spring water, all drinking water sold in containers",5-gallon blue container,0,0,,0
 ILOILO,AJUY,"crackers, cookies, buiscuits, chips/curls",cans,1,6,pieces or units | putos,0
 ILOILO,ALIMODIAN,chicken,patupong,1,15,bilog | pieces or units,0
@@ -65,10 +56,8 @@ ILOILO,DINGLE,carrot,slice,1,7,pieces or units,0
 ILOILO,DUEAS,camote,bundle,1,12,bilog,0
 ILOILO,DUEAS,chicken,patopung,1,5,whole (chicken),0
 ILOILO,DUMANGAS,chicken,putos,0,0,,0
-ILOILO,DUMANGAS,rice,1 sack is 2900/for salary/inkind,0,0,,0
 ILOILO,ESTANCIA,"prawns, lobster, shrimp",putos,1,9,tumpok,0
 ILOILO,IGBARAS,carrot,putos or pack,1,12,pieces or units | putos (mix vegetable),0
-ILOILO,IGBARAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2 bowls halohalo and 10 popcicle sticks,1,16,pieces or units | putos | small cup,0
 ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",cup,1,20,junior lapad | lipid/lapad | long-neck,0
 ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",glass/shots,1,20,junior lapad | lipid/lapad | long-neck,0
 ILOILO,JANIUAY,fresh fish,patupa,1,18,pieces or units,0
@@ -77,9 +66,7 @@ ILOILO,MAASIN,camote tops,pieces or units,1,10,bugkos | bundle,0
 ILOILO,MAASIN,loaf bread,pieces,1,3,large packs | medium packs,0
 ILOILO,MINA,camote,putos,1,17,bilog,0
 ILOILO,MINA,pork,portion,0,0,,0
-ILOILO,MINA,rice,1/2 sack of rice (25kls.),1,4,gantang,0
 ILOILO,OTON,"crackers, cookies, buiscuits, chips/curls",small box,1,17,pieces or units | putos,0
-ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3 serving of halo-halo in a bowl,1,15,pieces or units | putos | small cup,0
 ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pitcher,1,15,pieces or units | putos | small cup,0
 ILOILO,OTON,rice,rice cooker cup (small),1,4,salmon,0
 ILOILO,OTON,rice,"rice cooker cup, small",1,4,salmon,0
@@ -88,12 +75,9 @@ ILOILO,POTOTAN,pork,1 bowl cooked,1,7,pieces or units,0
 ILOILO,SAN DIONISIO,carrot,sliced,1,9,pieces or units,0
 ILOILO,SAN ENRIQUE,carrot,small packs,1,9,pieces or units,0
 ILOILO,TIGBAUAN,carrot,slice,1,16,pieces or units | putos (mix vegetable),0
-ILOILO,TUBUNGAN,"mineral or spring water, all drinking water sold in containers",6 liters of water (2 blue container),0,0,,0
-ILOILO,TUBUNGAN,"mineral or spring water, all drinking water sold in containers",each 10 litres of gallon,0,0,,0
 NEGROS OCCIDENTAL,CALATRAVA,fresh fish,cup,0,0,,0
 NEGROS OCCIDENTAL,CALATRAVA,"liquor (e.g, whisky, coconut wine)",cup,1,10,lipid/lapad | long-neck,0
 NEGROS OCCIDENTAL,CAUAYAN,camote tops,tumpok,1,6,bugkos,0
-NEGROS OCCIDENTAL,CAUAYAN,pork,1 whole pigs for her grandson's birthday,0,0,,0
 NEGROS OCCIDENTAL,ISABELA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cup,1,7,putos | small cup,0
 ANTIQUE,LIBERTAD,carrot,pack,1,12,pieces or units,1
 ANTIQUE,PANDAN,carrot,pack,1,13,pieces or units,1

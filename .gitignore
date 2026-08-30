@@ -11,3 +11,6 @@ Desktop.ini
 
 # Data files stay in Box, not git
 *.dta
+
+# Box Drive sync tombstones, left behind when a file is deleted on the synced drive
+*0000000000*

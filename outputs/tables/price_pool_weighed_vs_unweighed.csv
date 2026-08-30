@@ -1,0 +1,358 @@
+﻿case,n_ms_weighings,n_price_spellings,n_weighed,n_unweighed,conflict_all,conflict_weighed_only,has_any_weighed_price
+"AKLAN / BURUANGA / crackers, cookies, buiscuits, chips/curls / pieces or units",0,3,0,3,True,False,False
+ANTIQUE / PANDAN / loaf bread / large packs,0,3,0,3,True,False,False
+"ANTIQUE / SIBALOM / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",5,4,1,3,True,False,True
+CAPIZ / SAPI-AN / loaf bread / small packs,0,3,0,3,True,False,False
+ILOILO / BAROTAC VIEJO / fresh fish / pack,0,3,0,3,True,False,False
+ILOILO / DINGLE / fresh fish / pack,0,3,0,3,True,False,False
+ILOILO / ESTANCIA / fresh fish / pack,0,3,0,3,True,False,False
+ILOILO / SAN RAFAEL / fresh fish / pack,0,3,0,3,True,False,False
+"AKLAN / ALTAVAS / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",0,2,0,2,True,False,False
+"AKLAN / ALTAVAS / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",0,2,0,2,True,False,False
+AKLAN / ALTAVAS / loaf bread / large packs,4,3,1,2,True,False,True
+"AKLAN / BATAN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",2,3,1,2,True,False,True
+AKLAN / IBAJAY / carrot / pieces or units,15,3,1,2,True,False,True
+"AKLAN / IBAJAY / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",2,3,1,2,True,False,True
+AKLAN / LIBACAO / loaf bread / medium packs,0,2,0,2,True,False,False
+"AKLAN / MADALAG / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",3,3,1,2,True,False,True
+AKLAN / MADALAG / loaf bread / small packs,1,3,1,2,True,False,True
+ANTIQUE / CULASI / loaf bread / large packs,5,3,1,2,True,False,True
+ANTIQUE / HAMTIC / loaf bread / large packs,6,4,2,2,True,True,True
+"ANTIQUE / LAUA-AN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",0,2,0,2,True,False,False
+ANTIQUE / LIBERTAD / cabbage / pack,0,2,0,2,True,False,False
+ANTIQUE / PANDAN / carrot / pieces or units,13,3,1,2,True,False,True
+"ANTIQUE / PATNONGON / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",0,2,0,2,True,False,False
+"ANTIQUE / PATNONGON / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",3,3,1,2,True,False,True
+ANTIQUE / SAN REMIGIO / chicken / whole (chicken),0,2,0,2,True,False,False
+"ANTIQUE / SAN REMIGIO / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",1,3,1,2,True,False,True
+ANTIQUE / SAN REMIGIO / loaf bread / large packs,3,3,1,2,True,False,True
+ANTIQUE / SIBALOM / chicken / whole (chicken),0,2,0,2,True,False,False
+ANTIQUE / TOBIAS FORNIER / chicken / whole (chicken),10,3,1,2,True,False,True
+"ANTIQUE / TOBIAS FORNIER / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",0,2,0,2,True,False,False
+"ANTIQUE / TOBIAS FORNIER / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",4,3,1,2,True,False,True
+CAPIZ / DUMARAO / chicken / whole (chicken),0,2,0,2,True,False,False
+CAPIZ / IVISAN / loaf bread / small packs,3,3,1,2,True,False,True
+CAPIZ / PANAY / loaf bread / large packs,0,2,0,2,True,False,False
+CAPIZ / PILAR / fresh fish / pack,0,2,0,2,True,False,False
+"CAPIZ / PILAR / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / cone",0,2,0,2,True,False,False
+CAPIZ / PILAR / loaf bread / small packs,0,2,0,2,True,False,False
+"CAPIZ / SAPI-AN / preserved or processed meat (tocino, tapa, longaniza, etc) / pieces or units",0,2,0,2,True,False,False
+CAPIZ / SIGMA / fresh fish / pack,3,3,1,2,True,False,True
+CAPIZ / SIGMA / loaf bread / small packs,0,2,0,2,True,False,False
+ILOILO / AJUY / cabbage / pack,2,4,2,2,True,True,True
+ILOILO / ALIMODIAN / chicken / whole (chicken),0,2,0,2,True,False,False
+ILOILO / ALIMODIAN / loaf bread / large packs,7,3,1,2,True,False,True
+ILOILO / BADIANGAN / loaf bread / small packs,0,2,0,2,True,False,False
+ILOILO / BALASAN / loaf bread / large packs,2,3,1,2,True,False,True
+ILOILO / BANATE / loaf bread / medium packs,0,2,0,2,True,False,False
+ILOILO / BANATE / loaf bread / small packs,0,2,0,2,True,False,False
+ILOILO / BAROTAC VIEJO / loaf bread / small packs,1,3,1,2,True,False,True
+ILOILO / BATAD / loaf bread / small packs,1,3,1,2,True,False,True
+ILOILO / CARLES / loaf bread / small packs,1,3,1,2,True,False,True
+ILOILO / DINGLE / carrot / pack,0,2,0,2,True,False,False
+ILOILO / DUEAS / fresh fish / pack,0,2,0,2,True,False,False
+ILOILO / DUMANGAS / cabbage / pack,0,2,0,2,True,False,False
+ILOILO / DUMANGAS / fresh fish / pieces or units,0,2,0,2,True,False,False
+ILOILO / IGBARAS / carrot / pack,0,2,0,2,True,False,False
+ILOILO / IGBARAS / chicken / whole (chicken),0,2,0,2,True,False,False
+"ILOILO / LAMBUNAO / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",0,2,0,2,True,False,False
+ILOILO / LAMBUNAO / loaf bread / large packs,4,3,1,2,True,False,True
+ILOILO / LEMERY / fresh fish / pack,2,4,2,2,True,True,True
+"ILOILO / LEMERY / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",0,2,0,2,True,False,False
+ILOILO / LEMERY / loaf bread / large packs,2,3,1,2,True,False,True
+ILOILO / LEMERY / loaf bread / small packs,1,3,1,2,True,False,True
+ILOILO / MAASIN / loaf bread / small packs,0,2,0,2,True,False,False
+ILOILO / MINA / loaf bread / large packs,3,3,1,2,True,False,True
+ILOILO / SAN DIONISIO / loaf bread / large packs,0,2,0,2,True,False,False
+ILOILO / SAN DIONISIO / loaf bread / small packs,0,2,0,2,True,False,False
+ILOILO / SAN JOAQUIN / chicken / whole (chicken),0,2,0,2,True,False,False
+"ILOILO / SAN JOAQUIN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",3,3,1,2,True,False,True
+ILOILO / SAN JOAQUIN / loaf bread / large packs,6,3,1,2,True,False,True
+ILOILO / TUBUNGAN / chicken / whole (chicken),0,2,0,2,True,False,False
+AKLAN / ALTAVAS / carrot / pieces or units,6,2,1,1,True,False,True
+"AKLAN / ALTAVAS / liquor (e.g, whisky, coconut wine) / lipid/lapad",3,2,1,1,True,False,True
+AKLAN / ALTAVAS / loaf bread / medium packs,4,2,1,1,True,False,True
+AKLAN / BATAN / cabbage / pieces or units,23,2,1,1,True,False,True
+"AKLAN / BATAN / liquor (e.g, whisky, coconut wine) / lipid/lapad",3,2,1,1,True,False,True
+"AKLAN / BATAN / preserved or processed meat (tocino, tapa, longaniza, etc) / pieces or units",1,2,1,1,True,False,True
+"AKLAN / BURUANGA / liquor (e.g, whisky, coconut wine) / lipid/lapad",9,2,1,1,True,False,True
+AKLAN / BURUANGA / loaf bread / small packs,4,2,1,1,True,False,True
+AKLAN / IBAJAY / cabbage / pieces or units,14,2,1,1,True,False,True
+"AKLAN / IBAJAY / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",3,2,1,1,True,False,True
+"AKLAN / IBAJAY / liquor (e.g, whisky, coconut wine) / lipid/lapad",6,2,1,1,True,False,True
+"AKLAN / LIBACAO / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",3,2,1,1,True,False,True
+"AKLAN / LIBACAO / liquor (e.g, whisky, coconut wine) / lipid/lapad",5,2,1,1,True,False,True
+AKLAN / MADALAG / cabbage / pieces or units,18,2,1,1,True,False,True
+"AKLAN / MADALAG / liquor (e.g, whisky, coconut wine) / lipid/lapad",6,2,1,1,True,False,True
+AKLAN / MADALAG / loaf bread / medium packs,4,2,1,1,True,False,True
+"AKLAN / MADALAG / preserved or processed meat (tocino, tapa, longaniza, etc) / pieces or units",4,2,1,1,True,False,True
+AKLAN / MALAY / cabbage / pieces or units,26,2,1,1,True,False,True
+"AKLAN / MALAY / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",3,2,1,1,True,False,True
+"AKLAN / MALAY / liquor (e.g, whisky, coconut wine) / lipid/lapad",9,2,1,1,True,False,True
+AKLAN / MALAY / loaf bread / large packs,4,2,1,1,True,False,True
+"AKLAN / MALINAO / crackers, cookies, buiscuits, chips/curls / pieces or units",6,2,1,1,True,False,True
+AKLAN / MALINAO / loaf bread / small packs,2,2,1,1,True,False,True
+"ANTIQUE / BARBAZA / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",5,2,1,1,True,False,True
+ANTIQUE / BELISON / loaf bread / large packs,4,2,1,1,True,False,True
+ANTIQUE / BUGASONG / cabbage / pieces or units,10,2,1,1,True,False,True
+ANTIQUE / BUGASONG / chicken / whole (chicken),4,2,1,1,True,False,True
+"ANTIQUE / BUGASONG / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",3,2,1,1,True,False,True
+"ANTIQUE / BUGASONG / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",3,2,1,1,True,False,True
+ANTIQUE / BUGASONG / loaf bread / large packs,2,2,1,1,True,False,True
+ANTIQUE / BUGASONG / loaf bread / medium packs,5,2,1,1,True,False,True
+ANTIQUE / CULASI / cabbage / pieces or units,21,2,1,1,True,False,True
+ANTIQUE / CULASI / carrot / pieces or units,17,2,1,1,True,False,True
+"ANTIQUE / CULASI / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",6,2,1,1,True,False,True
+ANTIQUE / CULASI / loaf bread / medium packs,3,2,1,1,True,False,True
+ANTIQUE / HAMTIC / cabbage / pieces or units,26,2,1,1,True,False,True
+ANTIQUE / HAMTIC / carrot / pieces or units,27,2,1,1,True,False,True
+ANTIQUE / HAMTIC / chicken / whole (chicken),5,2,1,1,True,False,True
+ANTIQUE / HAMTIC / loaf bread / medium packs,6,2,1,1,True,False,True
+ANTIQUE / LAUA-AN / cabbage / pieces or units,11,2,1,1,True,False,True
+ANTIQUE / LAUA-AN / carrot / pieces or units,5,2,1,1,True,False,True
+ANTIQUE / LAUA-AN / chicken / whole (chicken),5,2,1,1,True,False,True
+ANTIQUE / LIBERTAD / cabbage / pieces or units,13,2,1,1,True,False,True
+ANTIQUE / LIBERTAD / carrot / pieces or units,12,2,1,1,True,False,True
+ANTIQUE / LIBERTAD / fresh fish / pieces or units,7,2,1,1,True,False,True
+ANTIQUE / LIBERTAD / loaf bread / large packs,1,2,1,1,True,False,True
+ANTIQUE / LIBERTAD / loaf bread / small packs,3,2,1,1,True,False,True
+ANTIQUE / PANDAN / chicken / whole (chicken),4,2,1,1,True,False,True
+"ANTIQUE / PANDAN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",1,2,1,1,True,False,True
+"ANTIQUE / PANDAN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",2,2,1,1,True,False,True
+ANTIQUE / PATNONGON / cabbage / pieces or units,13,2,1,1,True,False,True
+ANTIQUE / PATNONGON / carrot / pieces or units,15,2,1,1,True,False,True
+ANTIQUE / PATNONGON / chicken / whole (chicken),4,2,1,1,True,False,True
+ANTIQUE / PATNONGON / fresh fish / pieces or units,7,2,1,1,True,False,True
+ANTIQUE / PATNONGON / fresh fish / tumpok,1,2,1,1,True,False,True
+ANTIQUE / PATNONGON / loaf bread / large packs,3,2,1,1,True,False,True
+ANTIQUE / PATNONGON / loaf bread / medium packs,3,2,1,1,True,False,True
+ANTIQUE / PATNONGON / loaf bread / small packs,3,2,1,1,True,False,True
+ANTIQUE / SAN REMIGIO / cabbage / pieces or units,9,2,1,1,True,False,True
+"ANTIQUE / SAN REMIGIO / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",4,2,1,1,True,False,True
+ANTIQUE / SAN REMIGIO / loaf bread / medium packs,4,2,1,1,True,False,True
+ANTIQUE / SEBASTE / carrot / pieces or units,15,2,1,1,True,False,True
+ANTIQUE / SEBASTE / chicken / whole (chicken),1,2,1,1,True,False,True
+"ANTIQUE / SEBASTE / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",3,2,1,1,True,False,True
+"ANTIQUE / SEBASTE / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",4,2,1,1,True,False,True
+ANTIQUE / SIBALOM / cabbage / pieces or units,10,2,1,1,True,False,True
+ANTIQUE / SIBALOM / carrot / pieces or units,10,2,1,1,True,False,True
+ANTIQUE / SIBALOM / loaf bread / large packs,6,2,1,1,True,False,True
+ANTIQUE / SIBALOM / loaf bread / medium packs,7,2,1,1,True,False,True
+ANTIQUE / SIBALOM / mango / pieces or units,13,2,1,1,True,False,True
+ANTIQUE / TIBIAO / chicken / whole (chicken),2,2,1,1,True,False,True
+"ANTIQUE / TIBIAO / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",3,2,1,1,True,False,True
+ANTIQUE / TIBIAO / loaf bread / large packs,3,2,1,1,True,False,True
+"ANTIQUE / TOBIAS FORNIER / liquor (e.g, whisky, coconut wine) / lipid/lapad",8,2,1,1,True,False,True
+ANTIQUE / VALDERRAMA / chicken / whole (chicken),6,2,1,1,True,False,True
+"ANTIQUE / VALDERRAMA / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",4,2,1,1,True,False,True
+"ANTIQUE / VALDERRAMA / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",3,2,1,1,True,False,True
+"ANTIQUE / VALDERRAMA / preserved or processed meat (tocino, tapa, longaniza, etc) / cans",7,2,1,1,True,False,True
+CAPIZ / CUARTERO / loaf bread / small packs,2,2,1,1,True,False,True
+CAPIZ / DAO / cabbage / putos (mix vegetable),2,2,1,1,True,False,True
+"CAPIZ / DUMALAG / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",2,2,1,1,True,False,True
+CAPIZ / DUMALAG / loaf bread / large packs,3,2,1,1,True,False,True
+CAPIZ / DUMALAG / loaf bread / small packs,2,2,1,1,True,False,True
+CAPIZ / IVISAN / carrot / pieces or units,13,2,1,1,True,False,True
+"CAPIZ / IVISAN / crackers, cookies, buiscuits, chips/curls / pieces or units",2,2,1,1,True,False,True
+CAPIZ / IVISAN / loaf bread / large packs,3,2,1,1,True,False,True
+CAPIZ / JAMINDAN / fresh fish / pieces or units,5,2,1,1,True,False,True
+CAPIZ / JAMINDAN / loaf bread / small packs,1,2,1,1,True,False,True
+CAPIZ / JAMINDAN / mango / pieces or units,3,2,1,1,True,False,True
+CAPIZ / MA-AYON / loaf bread / large packs,3,2,1,1,True,False,True
+CAPIZ / MA-AYON / loaf bread / small packs,1,2,1,1,True,False,True
+CAPIZ / MAMBUSAO / loaf bread / small packs,1,2,1,1,True,False,True
+CAPIZ / PANAY / loaf bread / small packs,4,2,1,1,True,False,True
+CAPIZ / PANITAN / loaf bread / small packs,10,2,1,1,True,False,True
+CAPIZ / PILAR / loaf bread / large packs,10,2,1,1,True,False,True
+"CAPIZ / SAPI-AN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",3,2,1,1,True,False,True
+"CAPIZ / SAPI-AN / liquor (e.g, whisky, coconut wine) / lipid/lapad",6,2,1,1,True,False,True
+CAPIZ / SIGMA / loaf bread / large packs,13,2,1,1,True,False,True
+CAPIZ / TAPAZ / loaf bread / large packs,10,2,1,1,True,False,True
+ILOILO / AJUY / fresh fish / pack,1,2,1,1,True,False,True
+ILOILO / AJUY / loaf bread / small packs,1,2,1,1,True,False,True
+ILOILO / ALIMODIAN / cabbage / pieces or units,12,2,1,1,True,False,True
+"ILOILO / ALIMODIAN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",7,2,1,1,True,False,True
+ILOILO / ALIMODIAN / loaf bread / medium packs,6,2,1,1,True,False,True
+ILOILO / BADIANGAN / loaf bread / large packs,4,2,1,1,True,False,True
+ILOILO / BALASAN / loaf bread / small packs,2,2,1,1,True,False,True
+ILOILO / BANATE / carrot / pieces or units,12,2,1,1,True,False,True
+ILOILO / BANATE / loaf bread / large packs,7,2,1,1,True,False,True
+ILOILO / BAROTAC NUEVO / loaf bread / large packs,1,2,1,1,True,False,True
+ILOILO / BAROTAC NUEVO / loaf bread / small packs,2,2,1,1,True,False,True
+ILOILO / BAROTAC VIEJO / cabbage / pack,2,2,1,1,True,False,True
+ILOILO / BAROTAC VIEJO / cabbage / pieces or units,9,2,1,1,True,False,True
+ILOILO / BAROTAC VIEJO / fresh fish / tumpok,6,2,1,1,True,False,True
+"ILOILO / BAROTAC VIEJO / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",5,2,1,1,True,False,True
+"ILOILO / BAROTAC VIEJO / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",4,2,1,1,True,False,True
+ILOILO / BAROTAC VIEJO / loaf bread / large packs,3,2,1,1,True,False,True
+ILOILO / BINGAWAN / loaf bread / small packs,3,2,1,1,True,False,True
+"ILOILO / CONCEPCION / crackers, cookies, buiscuits, chips/curls / pieces or units",1,2,1,1,True,False,True
+ILOILO / CONCEPCION / loaf bread / large packs,7,2,1,1,True,False,True
+ILOILO / CONCEPCION / loaf bread / small packs,1,2,1,1,True,False,True
+ILOILO / DINGLE / cabbage / pack,3,2,1,1,True,False,True
+"ILOILO / DINGLE / crackers, cookies, buiscuits, chips/curls / pieces or units",5,2,1,1,True,False,True
+ILOILO / DINGLE / loaf bread / large packs,4,2,1,1,True,False,True
+ILOILO / DINGLE / loaf bread / medium packs,4,2,1,1,True,False,True
+ILOILO / DINGLE / loaf bread / small packs,3,2,1,1,True,False,True
+ILOILO / DUMANGAS / cabbage / pieces or units,6,2,1,1,True,False,True
+ILOILO / GUIMBAL / carrot / pieces or units,24,2,1,1,True,False,True
+ILOILO / IGBARAS / loaf bread / large packs,4,2,1,1,True,False,True
+ILOILO / IGBARAS / loaf bread / small packs,4,2,1,1,True,False,True
+ILOILO / JANIUAY / carrot / pieces or units,19,2,1,1,True,False,True
+ILOILO / JANIUAY / chicken / whole (chicken),9,3,2,1,True,True,True
+ILOILO / JANIUAY / loaf bread / large packs,7,2,1,1,True,False,True
+ILOILO / JANIUAY / loaf bread / medium packs,5,2,1,1,True,False,True
+ILOILO / JANIUAY / loaf bread / small packs,3,2,1,1,True,False,True
+ILOILO / LAMBUNAO / chicken / whole (chicken),7,2,1,1,True,False,True
+"ILOILO / LAMBUNAO / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",8,2,1,1,True,False,True
+"ILOILO / LEGANES / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",2,2,1,1,True,False,True
+ILOILO / LEGANES / loaf bread / large packs,7,2,1,1,True,False,True
+"ILOILO / LEMERY / crackers, cookies, buiscuits, chips/curls / pieces or units",3,2,1,1,True,False,True
+ILOILO / LEMERY / loaf bread / medium packs,1,2,1,1,True,False,True
+ILOILO / LEON / cabbage / pieces or units,27,2,1,1,True,False,True
+ILOILO / LEON / chicken / whole (chicken),4,2,1,1,True,False,True
+"ILOILO / LEON / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / cone",5,2,1,1,True,False,True
+ILOILO / MAASIN / cabbage / pieces or units,16,2,1,1,True,False,True
+ILOILO / MAASIN / loaf bread / large packs,1,2,1,1,True,False,True
+ILOILO / MIAGAO / cabbage / pieces or units,16,2,1,1,True,False,True
+ILOILO / MIAGAO / carrot / pieces or units,14,2,1,1,True,False,True
+ILOILO / MIAGAO / chicken / whole (chicken),15,2,1,1,True,False,True
+ILOILO / MIAGAO / fresh fish / pieces or units,10,2,1,1,True,False,True
+"ILOILO / MIAGAO / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",4,2,1,1,True,False,True
+ILOILO / MIAGAO / loaf bread / small packs,12,2,1,1,True,False,True
+ILOILO / MINA / loaf bread / small packs,3,2,1,1,True,False,True
+ILOILO / OTON / loaf bread / large packs,6,2,1,1,True,False,True
+ILOILO / OTON / loaf bread / small packs,2,2,1,1,True,False,True
+ILOILO / POTOTAN / loaf bread / large packs,8,2,1,1,True,False,True
+ILOILO / POTOTAN / loaf bread / small packs,1,2,1,1,True,False,True
+ILOILO / SAN ENRIQUE / cabbage / pieces or units,13,2,1,1,True,False,True
+ILOILO / SAN ENRIQUE / fresh fish / pack,1,2,1,1,True,False,True
+ILOILO / SAN ENRIQUE / loaf bread / large packs,3,2,1,1,True,False,True
+ILOILO / SAN ENRIQUE / loaf bread / small packs,2,2,1,1,True,False,True
+ILOILO / SAN JOAQUIN / cabbage / pieces or units,11,2,1,1,True,False,True
+ILOILO / SAN JOAQUIN / carrot / pieces or units,13,2,1,1,True,False,True
+ILOILO / SAN JOAQUIN / loaf bread / medium packs,6,2,1,1,True,False,True
+ILOILO / SAN JOAQUIN / loaf bread / small packs,1,2,1,1,True,False,True
+ILOILO / SAN RAFAEL / loaf bread / small packs,6,2,1,1,True,False,True
+ILOILO / SARA / fresh fish / pack,7,2,1,1,True,False,True
+ILOILO / SARA / fresh fish / pieces or units,14,2,1,1,True,False,True
+"ILOILO / SARA / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",6,2,1,1,True,False,True
+ILOILO / SARA / loaf bread / large packs,4,2,1,1,True,False,True
+ILOILO / SARA / loaf bread / small packs,3,2,1,1,True,False,True
+"ILOILO / TIGBAUAN / crackers, cookies, buiscuits, chips/curls / pieces or units",9,2,1,1,True,False,True
+ILOILO / TIGBAUAN / loaf bread / small packs,3,2,1,1,True,False,True
+ILOILO / TUBUNGAN / carrot / pieces or units,4,2,1,1,True,False,True
+ILOILO / TUBUNGAN / fresh fish / pieces or units,12,2,1,1,True,False,True
+ILOILO / TUBUNGAN / loaf bread / large packs,5,2,1,1,True,False,True
+ILOILO / TUBUNGAN / loaf bread / medium packs,7,2,1,1,True,False,True
+ILOILO / TUBUNGAN / loaf bread / small packs,5,2,1,1,True,False,True
+NEGROS OCCIDENTAL / CALATRAVA / chicken / whole (chicken),3,2,1,1,True,False,True
+NEGROS OCCIDENTAL / CALATRAVA / loaf bread / medium packs,3,2,1,1,True,False,True
+"ANTIQUE / HAMTIC / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",3,2,2,0,True,True,True
+CAPIZ / CUARTERO / loaf bread / large packs,5,2,2,0,True,True,True
+CAPIZ / DUMARAO / cabbage / pack,5,2,2,0,True,True,True
+CAPIZ / JAMINDAN / cabbage / pieces or units,10,2,2,0,True,True,True
+CAPIZ / MAMBUSAO / loaf bread / large packs,9,2,2,0,True,True,True
+ILOILO / AJUY / loaf bread / large packs,2,2,2,0,True,True,True
+"ILOILO / BADIANGAN / crackers, cookies, buiscuits, chips/curls / pieces or units",5,2,2,0,True,True,True
+"ILOILO / BADIANGAN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",3,2,2,0,True,True,True
+ILOILO / BALASAN / carrot / pieces or units,13,2,2,0,True,True,True
+ILOILO / CABATUAN / loaf bread / large packs,6,2,2,0,True,True,True
+ILOILO / CABATUAN / loaf bread / small packs,4,2,2,0,True,True,True
+ILOILO / CARLES / chicken / whole (chicken),10,2,2,0,True,True,True
+"ILOILO / CARLES / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",8,2,2,0,True,True,True
+ILOILO / CARLES / loaf bread / large packs,5,2,2,0,True,True,True
+"ILOILO / CONCEPCION / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",2,2,2,0,True,True,True
+ILOILO / DUEAS / loaf bread / large packs,8,2,2,0,True,True,True
+ILOILO / DUEAS / loaf bread / small packs,8,2,2,0,True,True,True
+"ILOILO / DUMANGAS / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",4,2,2,0,True,True,True
+ILOILO / GUIMBAL / loaf bread / large packs,7,2,2,0,True,True,True
+ILOILO / LAMBUNAO / cabbage / pieces or units,17,2,2,0,True,True,True
+ILOILO / LAMBUNAO / carrot / pieces or units,20,2,2,0,True,True,True
+"ILOILO / MAASIN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",4,2,2,0,True,True,True
+"ILOILO / MINA / liquor (e.g, whisky, coconut wine) / lipid/lapad",5,2,2,0,True,True,True
+ILOILO / SAN RAFAEL / loaf bread / large packs,3,2,2,0,True,True,True
+"ILOILO / TIGBAUAN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",11,2,2,0,True,True,True
+"ILOILO / TIGBAUAN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",5,2,2,0,True,True,True
+ILOILO / TIGBAUAN / loaf bread / large packs,8,2,2,0,True,True,True
+"ILOILO / TUBUNGAN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",9,2,2,0,True,True,True
+NEGROS OCCIDENTAL / HINOBA-AN (ASIA) / loaf bread / large packs,6,2,2,0,True,True,True
+AKLAN / LIBACAO / loaf bread / small packs,0,2,0,2,False,False,False
+AKLAN / MALAY / carrot / pieces or units,22,3,1,2,False,False,True
+CAPIZ / TAPAZ / loaf bread / small packs,0,2,0,2,False,False,False
+ILOILO / IGBARAS / cabbage / pack,0,2,0,2,False,False,False
+"ILOILO / JANIUAY / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",0,2,0,2,False,False,False
+"ILOILO / LEON / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",0,2,0,2,False,False,False
+"ILOILO / MIAGAO / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",0,2,0,2,False,False,False
+AKLAN / ALTAVAS / cabbage / pieces or units,5,2,1,1,False,False,True
+AKLAN / BATAN / carrot / pieces or units,15,2,1,1,False,False,True
+AKLAN / BATAN / loaf bread / small packs,2,2,1,1,False,False,True
+AKLAN / IBAJAY / loaf bread / large packs,3,2,1,1,False,False,True
+AKLAN / IBAJAY / loaf bread / medium packs,2,2,1,1,False,False,True
+AKLAN / IBAJAY / loaf bread / small packs,2,2,1,1,False,False,True
+AKLAN / LIBACAO / carrot / pieces or units,11,2,1,1,False,False,True
+AKLAN / MADALAG / carrot / pieces or units,12,2,1,1,False,False,True
+"AKLAN / MADALAG / crackers, cookies, buiscuits, chips/curls / pieces or units",8,2,1,1,False,False,True
+"AKLAN / MALAY / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",4,2,1,1,False,False,True
+AKLAN / MALAY / loaf bread / medium packs,4,2,1,1,False,False,True
+AKLAN / MALAY / loaf bread / small packs,3,2,1,1,False,False,True
+AKLAN / NABAS / loaf bread / large packs,1,2,1,1,False,False,True
+ANTIQUE / BELISON / cabbage / pieces or units,13,2,1,1,False,False,True
+ANTIQUE / BELISON / carrot / pieces or units,15,2,1,1,False,False,True
+ANTIQUE / BUGASONG / carrot / pieces or units,11,2,1,1,False,False,True
+"ANTIQUE / CULASI / crackers, cookies, buiscuits, chips/curls / pieces or units",9,2,1,1,False,False,True
+ANTIQUE / CULASI / loaf bread / small packs,2,2,1,1,False,False,True
+"ANTIQUE / HAMTIC / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",2,2,1,1,False,False,True
+ANTIQUE / LIBERTAD / chicken / whole (chicken),9,2,1,1,False,False,True
+"ANTIQUE / LIBERTAD / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",2,2,1,1,False,False,True
+ANTIQUE / PANDAN / cabbage / pieces or units,13,2,1,1,False,False,True
+ANTIQUE / SAN REMIGIO / carrot / pieces or units,9,2,1,1,False,False,True
+ANTIQUE / SEBASTE / cabbage / pieces or units,17,2,1,1,False,False,True
+ANTIQUE / SEBASTE / loaf bread / medium packs,4,2,1,1,False,False,True
+"ANTIQUE / SIBALOM / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / pieces or units",6,2,1,1,False,False,True
+ANTIQUE / SIBALOM / loaf bread / small packs,6,2,1,1,False,False,True
+ANTIQUE / TOBIAS FORNIER / cabbage / pieces or units,20,2,1,1,False,False,True
+ANTIQUE / TOBIAS FORNIER / carrot / pieces or units,15,2,1,1,False,False,True
+ANTIQUE / TOBIAS FORNIER / loaf bread / large packs,3,2,1,1,False,False,True
+ANTIQUE / VALDERRAMA / cabbage / pieces or units,21,2,1,1,False,False,True
+ANTIQUE / VALDERRAMA / carrot / pieces or units,11,2,1,1,False,False,True
+"CAPIZ / IVISAN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",1,2,1,1,False,False,True
+CAPIZ / IVISAN / loaf bread / medium packs,4,2,1,1,False,False,True
+"CAPIZ / JAMINDAN / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",2,2,1,1,False,False,True
+"CAPIZ / TAPAZ / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",5,2,1,1,False,False,True
+ILOILO / BANATE / cabbage / pieces or units,12,2,1,1,False,False,True
+ILOILO / BAROTAC VIEJO / carrot / pieces or units,3,2,1,1,False,False,True
+"ILOILO / BATAD / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",2,2,1,1,False,False,True
+ILOILO / BINGAWAN / loaf bread / large packs,5,2,1,1,False,False,True
+ILOILO / CALINOG / loaf bread / large packs,6,2,1,1,False,False,True
+ILOILO / CALINOG / loaf bread / medium packs,7,2,1,1,False,False,True
+ILOILO / CONCEPCION / cabbage / pieces or units,13,2,1,1,False,False,True
+ILOILO / CONCEPCION / loaf bread / medium packs,3,2,1,1,False,False,True
+ILOILO / DUMANGAS / carrot / pieces or units,6,2,1,1,False,False,True
+ILOILO / GUIMBAL / cabbage / pieces or units,27,2,1,1,False,False,True
+ILOILO / JANIUAY / cabbage / pieces or units,21,2,1,1,False,False,True
+ILOILO / LAMBUNAO / loaf bread / medium packs,5,2,1,1,False,False,True
+ILOILO / LAMBUNAO / loaf bread / small packs,4,2,1,1,False,False,True
+ILOILO / LEGANES / cabbage / pieces or units,9,2,1,1,False,False,True
+ILOILO / LEGANES / carrot / pieces or units,9,2,1,1,False,False,True
+"ILOILO / LEMERY / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",4,2,1,1,False,False,True
+ILOILO / LEON / carrot / pieces or units,27,2,1,1,False,False,True
+ILOILO / LEON / loaf bread / large packs,5,2,1,1,False,False,True
+ILOILO / LEON / loaf bread / medium packs,6,2,1,1,False,False,True
+ILOILO / LEON / loaf bread / small packs,5,2,1,1,False,False,True
+ILOILO / MIAGAO / loaf bread / medium packs,2,2,1,1,False,False,True
+ILOILO / SAN ENRIQUE / carrot / pieces or units,9,2,1,1,False,False,True
+"ILOILO / SAN ENRIQUE / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",2,2,1,1,False,False,True
+ILOILO / TIGBAUAN / cabbage / pieces or units,7,2,1,1,False,False,True
+ILOILO / TUBUNGAN / cabbage / pieces or units,5,2,1,1,False,False,True
+ILOILO / TUBUNGAN / mango / pieces or units,5,2,1,1,False,False,True
+NEGROS OCCIDENTAL / TOBOSO / loaf bread / small packs,1,2,1,1,False,False,True
+ILOILO / ALIMODIAN / carrot / pieces or units,11,2,2,0,False,False,True
+"ILOILO / BAROTAC VIEJO / crackers, cookies, buiscuits, chips/curls / pieces or units",5,2,2,0,False,False,True
+ILOILO / CABATUAN / loaf bread / medium packs,4,2,2,0,False,False,True
+ILOILO / GUIMBAL / loaf bread / medium packs,5,2,2,0,False,False,True
+ILOILO / TIGBAUAN / carrot / pieces or units,13,2,2,0,False,False,True
+NEGROS OCCIDENTAL / HINOBA-AN (ASIA) / loaf bread / medium packs,6,2,2,0,False,False,True
+"NEGROS OCCIDENTAL / ILOG / ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) / small cup",5,2,2,0,False,False,True
+NEGROS OCCIDENTAL / VALLADOLID / cabbage / pieces or units,6,2,2,0,False,False,True
+NEGROS OCCIDENTAL / VALLADOLID / carrot / pieces or units,6,2,2,0,False,False,True
