@@ -1,0 +1,125 @@
+﻿province,pull_municipal_city,cons_name,unit_raw,n_weighings,has_price_row,has_price_value,price_composition
+AKLAN,ALTAVAS,camote tops,bugkos,3,True,True,mun_median
+AKLAN,ALTAVAS,"prawns, lobster, shrimp",tumpok,3,True,True,full_triple
+AKLAN,BANGA,camote tops,bundle,9,True,True,mun_median
+AKLAN,BATAN,camote tops,bugkos,3,True,True,mun_median
+AKLAN,BATAN,"prawns, lobster, shrimp",tumpok,2,True,True,full_triple
+AKLAN,BURUANGA,camote tops,bundle,2,True,True,mun_median
+AKLAN,IBAJAY,camote tops,bugkos,4,True,True,mun_median
+AKLAN,IBAJAY,"prawns, lobster, shrimp",tumpok,3,True,True,prov_median + unique
+AKLAN,LIBACAO,camote tops,bugkos,3,True,True,mun_median
+AKLAN,LIBACAO,camote tops,bundle,3,True,True,mun_median
+AKLAN,MADALAG,camote tops,bugkos,4,True,True,prov_median
+AKLAN,MAKATO,camote tops,bundle,6,True,True,mun_median
+AKLAN,MALAY,camote tops,bugkos,6,True,True,mun_median
+AKLAN,MALINAO,camote tops,1bugkus,4,True,True,prov_median
+AKLAN,MALINAO,camote tops,2bond,4,True,True,prov_median
+AKLAN,MALINAO,camote tops,3bugkos,4,True,True,prov_median
+AKLAN,NABAS,camote tops,bugkos,5,True,True,prov_median
+AKLAN,NEW WASHINGTON,camote tops,bugkos,5,True,True,prov_median
+AKLAN,NEW WASHINGTON,camote tops,bundle,5,True,True,mun_median
+AKLAN,NEW WASHINGTON,"prawns, lobster, shrimp",tumpok,4,True,True,prov_median + unique
+AKLAN,TANGALAN,camote tops,bundle,3,True,True,mun_median
+ANTIQUE,BUGASONG,"crackers, cookies, buiscuits, chips/curls",bilog,7,True,True,mun_median
+ANTIQUE,BUGASONG,"crackers, cookies, buiscuits, chips/curls",putos,7,True,True,full_triple
+ANTIQUE,BUGASONG,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,4,True,True,full_triple
+ANTIQUE,CULASI,"crackers, cookies, buiscuits, chips/curls",putos,9,True,True,mun_median
+ANTIQUE,CULASI,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,7,True,True,full_triple
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,5,True,True,prov_median
+ANTIQUE,HAMTIC,"liquor (e.g, whisky, coconut wine)",lipid / lapad,8,True,True,full_triple
+ANTIQUE,HAMTIC,"prawns, lobster, shrimp",tumpok,2,True,True,prov_median + unique
+ANTIQUE,HAMTIC,rice,ganta,3,True,True,prov_median + unique
+ANTIQUE,LAUA-AN,camote tops,bugkos,8,True,True,mun_median
+ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,2,True,True,prov_median
+ANTIQUE,LAUA-AN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,3,True,True,full_triple
+ANTIQUE,LIBERTAD,loaf bread,gagmay nga putos,3,True,True,full_triple
+ANTIQUE,LIBERTAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,5,True,True,full_triple
+ANTIQUE,PANDAN,cabbage,pack,3,True,True,prov_median
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,2,True,True,prov_median + unique
+ANTIQUE,PANDAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,5,True,True,full_triple
+ANTIQUE,PATNONGON,cabbage,mixmix,3,True,True,prov_median
+ANTIQUE,PATNONGON,camote,tumpok,9,True,True,prov_median
+ANTIQUE,PATNONGON,camote tops,bugkos,9,True,True,mun_median
+ANTIQUE,PATNONGON,carrot,mixmix,4,True,True,prov_median
+ANTIQUE,PATNONGON,"crackers, cookies, buiscuits, chips/curls",putos,6,True,True,full_triple
+ANTIQUE,PATNONGON,fresh fish,tumpok,1,True,True,prov_median
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,5,True,True,prov_median + unique
+ANTIQUE,PATNONGON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,5,True,True,full_triple
+ANTIQUE,SAN REMIGIO,camote,tumpok,4,True,True,prov_median + unique
+ANTIQUE,SAN REMIGIO,camote tops,bugkos,6,True,True,mun_median
+ANTIQUE,SAN REMIGIO,"crackers, cookies, buiscuits, chips/curls",putos,9,True,True,full_triple
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,True,True,prov_median + unique
+ANTIQUE,SAN REMIGIO,loaf bread,dalagku nga putos,3,True,True,prov_median + unique
+ANTIQUE,SAN REMIGIO,loaf bread,medium nga putos,4,True,True,full_triple
+ANTIQUE,SAN REMIGIO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,4,True,True,full_triple
+ANTIQUE,SEBASTE,camote tops,bugkos,3,True,True,mun_median
+ANTIQUE,SEBASTE,"crackers, cookies, buiscuits, chips/curls",bilog,7,True,True,mun_median
+ANTIQUE,SEBASTE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,4,True,True,prov_median
+ANTIQUE,SEBASTE,loaf bread,daragkul nga putos,3,True,True,full_triple
+ANTIQUE,SEBASTE,"preserved or processed meat (tocino, tapa, longaniza, etc)",lata,5,True,True,full_triple
+ANTIQUE,SIBALOM,camote,tumpok,4,True,True,prov_median
+ANTIQUE,SIBALOM,camote tops,bugkos,4,True,True,mun_median
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,3,True,True,full_triple
+ANTIQUE,SIBALOM,"prawns, lobster, shrimp",tumpok,3,True,True,prov_median
+ANTIQUE,SIBALOM,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,8,True,True,full_triple
+ANTIQUE,TIBIAO,camote tops,bugkos,6,True,True,mun_median
+ANTIQUE,TIBIAO,loaf bread,gagmay nga putos,4,True,True,mun_median
+ANTIQUE,TIBIAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,4,True,True,full_triple
+ANTIQUE,TOBIAS FORNIER,camote tops,bugkos,5,True,True,mun_median
+ANTIQUE,TOBIAS FORNIER,camote tops,bundle,3,True,True,mun_median
+ANTIQUE,TOBIAS FORNIER,"crackers, cookies, buiscuits, chips/curls",putos,8,True,True,mun_median
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,5,True,True,prov_median + unique
+ANTIQUE,TOBIAS FORNIER,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,4,True,True,full_triple
+ANTIQUE,TOBIAS FORNIER,rice,ganta,3,True,True,prov_median + unique
+ANTIQUE,VALDERRAMA,camote tops,bugkos,3,True,True,mun_median
+ANTIQUE,VALDERRAMA,camote tops,bundle,1,True,True,mun_median
+ANTIQUE,VALDERRAMA,"crackers, cookies, buiscuits, chips/curls",putos,6,True,True,full_triple
+ANTIQUE,VALDERRAMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",lata,7,True,True,prov_median
+ANTIQUE,VALDERRAMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,4,True,True,full_triple
+CAPIZ,DAO,"prawns, lobster, shrimp",tumpok,1,True,True,full_triple
+CAPIZ,DAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,3,True,True,mun_median
+CAPIZ,DAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,2,True,True,full_triple
+CAPIZ,DUMALAG,camote tops,bugkos,2,True,True,mun_median
+CAPIZ,DUMALAG,"crackers, cookies, buiscuits, chips/curls",putos,4,True,True,full_triple
+CAPIZ,DUMALAG,"prawns, lobster, shrimp",tumpok,1,True,True,mun_median
+CAPIZ,DUMARAO,camote tops,bugkos,1,True,True,mun_median
+CAPIZ,DUMARAO,"prawns, lobster, shrimp",tumpok,1,True,True,prov_median
+CAPIZ,IVISAN,camote tops,bundle,3,True,True,mun_median
+CAPIZ,IVISAN,"prawns, lobster, shrimp",tumpok,3,True,True,full_triple
+CAPIZ,JAMINDAN,camote tops,bundle,1,True,True,mun_median
+CAPIZ,JAMINDAN,"prawns, lobster, shrimp",tumpok,1,True,True,prov_median
+CAPIZ,JAMINDAN,rice,letse,1,True,True,full_triple
+CAPIZ,PANITAN,cabbage,mixmix,3,True,True,prov_median
+CAPIZ,PANITAN,camote tops,bugkos,4,True,True,mun_median
+CAPIZ,PANITAN,"prawns, lobster, shrimp",tumpok,3,True,True,mun_median
+CAPIZ,PILAR,camote tops,bugkos,3,True,True,mun_median
+CAPIZ,PILAR,"prawns, lobster, shrimp",tumpok,3,True,True,mun_median
+CAPIZ,PONTEVEDRA,camote tops,bugkos,5,True,True,mun_median
+CAPIZ,PONTEVEDRA,"prawns, lobster, shrimp",tumpok,4,True,True,mun_median
+CAPIZ,PRESIDENT ROXAS,cabbage,mixmix,1,True,True,prov_median
+CAPIZ,PRESIDENT ROXAS,camote tops,bugkos,1,True,True,mun_median
+CAPIZ,PRESIDENT ROXAS,"prawns, lobster, shrimp",tumpok,2,True,True,prov_median + unique
+CAPIZ,SAPI-AN,cabbage,mixmix,2,True,True,prov_median
+CAPIZ,SAPI-AN,camote tops,bundle,3,True,True,mun_median
+CAPIZ,SAPI-AN,"prawns, lobster, shrimp",tumpok,1,True,True,mun_median
+CAPIZ,SAPI-AN,rice,ganta,3,True,True,prov_median
+CAPIZ,SIGMA,camote tops,bugkos,3,True,True,mun_median
+CAPIZ,SIGMA,"prawns, lobster, shrimp",tumpok,3,True,True,full_triple
+CAPIZ,TAPAZ,camote tops,bugkos,3,True,True,mun_median
+ILOILO,ALIMODIAN,rice,salmon,2,True,True,full_triple
+ILOILO,BALASAN,rice,ganta,3,True,True,prov_median + unique
+ILOILO,BAROTAC NUEVO,rice,letse,1,True,True,prov_median + unique
+ILOILO,BATAD,rice,letse,1,True,True,full_triple
+ILOILO,DUEAS,rice,ganta,7,True,True,prov_median + unique
+ILOILO,GUIMBAL,rice,salmon,4,True,True,prov_median + unique
+ILOILO,MAASIN,rice,sack of rice,3,True,True,prov_median
+ILOILO,MINA,rice,1/2 sack of rice (25kls.),2,True,True,prov_median
+ILOILO,MINA,rice,ganta,4,True,True,prov_median + unique
+ILOILO,OTON,rice,salmon,4,True,True,full_triple
+ILOILO,POTOTAN,rice,salmon,1,True,True,full_triple
+ILOILO,SAN DIONISIO,cabbage,bilog,4,True,True,mun_median
+ILOILO,SAN JOAQUIN,rice,salmon,2,True,True,full_triple
+ILOILO,SARA,rice,ganta,5,True,True,prov_median + unique
+ILOILO,TIGBAUAN,rice,salmon,3,True,True,full_triple
+ILOILO,TUBUNGAN,rice,salmon,4,True,True,full_triple
+ILOILO,ZARRAGA,rice,salmon,1,True,True,prov_median + unique

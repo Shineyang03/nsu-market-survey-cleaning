@@ -1,0 +1,41 @@
+﻿grain,unit,approaches,n_approaches,mixed_within_item,items_mixed_within
+RAW pull_nsu_unit,1/2 sack of rice (25kls.),conventional,1,0,
+RAW pull_nsu_unit,1bugkus,conventional,1,0,
+RAW pull_nsu_unit,2bond,conventional,1,0,
+RAW pull_nsu_unit,3bugkos,conventional,1,0,
+RAW pull_nsu_unit,bilog,conventional + price-quantity + size-based,3,3,"cabbage | crackers, cookies, buiscuits, chips/cu | preserved or processed meat (tocino, t"
+RAW pull_nsu_unit,bugkos,conventional + price-quantity + size-based,3,1,camote tops
+RAW pull_nsu_unit,bundle,conventional + price-quantity + size-based,3,1,camote tops
+RAW pull_nsu_unit,dalagku nga putos,conventional + price-quantity + size-based,3,1,loaf bread
+RAW pull_nsu_unit,daragkul nga putos,conventional + price-quantity + size-based,3,1,loaf bread
+RAW pull_nsu_unit,gagmay nga putos,conventional + price-quantity + size-based,3,1,loaf bread
+RAW pull_nsu_unit,ganta,conventional,1,0,
+RAW pull_nsu_unit,lata,conventional + price-quantity + size-based,3,1,"preserved or processed meat (tocino, t"
+RAW pull_nsu_unit,letse,conventional,1,0,
+RAW pull_nsu_unit,lipid / lapad,conventional + price-quantity + size-based,3,1,"liquor (e.g, whisky, coconut wine)"
+RAW pull_nsu_unit,medium nga putos,conventional + price-quantity + size-based,3,1,loaf bread
+RAW pull_nsu_unit,mixmix,conventional + price-quantity,2,1,cabbage
+RAW pull_nsu_unit,pack,conventional + price-quantity + size-based,3,1,cabbage
+RAW pull_nsu_unit,putos,conventional + price-quantity + size-based,3,3,"crackers, cookies, buiscuits, chips/cu | ice cream, sorbet, edible ice (eg., ic | preserved or processed meat (tocino, t"
+RAW pull_nsu_unit,sack of rice,conventional,1,0,
+RAW pull_nsu_unit,salmon,conventional,1,0,
+RAW pull_nsu_unit,tumpok,conventional + price-quantity + size-based,3,2,"fresh fish | prawns, lobster, shrimp"
+HARMONIZED harmonized_nsu_unit,2bond,conventional,1,0,
+HARMONIZED harmonized_nsu_unit,3bugkos,conventional,1,0,
+HARMONIZED harmonized_nsu_unit,bilog,conventional + price-quantity + size-based,3,1,"preserved or processed meat (tocino, t"
+HARMONIZED harmonized_nsu_unit,bugkos,conventional + price-quantity + size-based,3,1,camote tops
+HARMONIZED harmonized_nsu_unit,bundle,conventional + price-quantity + size-based,3,1,camote tops
+HARMONIZED harmonized_nsu_unit,cans,conventional + price-quantity + size-based,3,1,"preserved or processed meat (tocino, t"
+HARMONIZED harmonized_nsu_unit,gantang,conventional,1,0,
+HARMONIZED harmonized_nsu_unit,large packs,conventional + price-quantity + size-based,3,1,loaf bread
+HARMONIZED harmonized_nsu_unit,letse,conventional,1,0,
+HARMONIZED harmonized_nsu_unit,lipid/lapad,conventional + price-quantity + size-based,3,1,"liquor (e.g, whisky, coconut wine)"
+HARMONIZED harmonized_nsu_unit,medium packs,conventional + price-quantity + size-based,3,1,loaf bread
+HARMONIZED harmonized_nsu_unit,pack,conventional + price-quantity + size-based,3,1,cabbage
+HARMONIZED harmonized_nsu_unit,pieces or units,conventional + price-quantity + size-based,3,2,"cabbage | crackers, cookies, buiscuits, chips/cu"
+HARMONIZED harmonized_nsu_unit,putos,conventional + price-quantity + size-based,3,3,"crackers, cookies, buiscuits, chips/cu | ice cream, sorbet, edible ice (eg., ic | preserved or processed meat (tocino, t"
+HARMONIZED harmonized_nsu_unit,putos (mix vegetable),conventional + price-quantity + size-based,3,2,cabbage | carrot
+HARMONIZED harmonized_nsu_unit,sack of rice,conventional,1,0,
+HARMONIZED harmonized_nsu_unit,salmon,conventional,1,0,
+HARMONIZED harmonized_nsu_unit,small packs,conventional + price-quantity + size-based,3,1,loaf bread
+HARMONIZED harmonized_nsu_unit,tumpok,conventional + price-quantity + size-based,3,2,"fresh fish | prawns, lobster, shrimp"
