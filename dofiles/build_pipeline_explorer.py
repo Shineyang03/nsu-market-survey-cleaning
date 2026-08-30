@@ -120,6 +120,51 @@ read for context (they back the pull_price-preload check in
 "Done when" criteria needs them, and embedding a fourth per-row join for a
 low-priority convenience tool was judged not worth the added join-fragility.
 
+THE PRICE-FILE SIDE (added for GitHub issue #26 follow-up: "the entire price-file
+population is invisible"). A price-only cell has no MS row to follow forward, so it
+never appears in the Sankey above -- the price file's 5,412 rows are a second,
+independent population that has to be traced on its own terms. `build_price_cells()`
+and `build_price_sankey()` do that:
+
+  5,412 price rows
+    -> 17 rows whose raw label was deliberately removed from the crosswalk
+       (dofiles/drop_non_nsu_labels.py, `is_dropped_label()` -- these are a sink,
+       not a broken join; the tripwire below still fails loudly on a genuine
+       unmatched row)
+    -> 5,395 rows harmonize to 2,533 (province, municipality, item, harmonized_unit)
+       cells (+ the 17 dropped-label rows, each its own island cell -> 2,550 total,
+       matching the harmonized-cell count `scope_price_combo_grain.py` reports)
+    -> of the 2,533 harmonized cells, each is classified by whether that EXACT cell
+       (not just the item, not just the province) has an MS weighing:
+         - convertible: an MS weighing exists in this exact cell
+         - price-only: no MS weighing in this exact cell, further split into
+             - province fallback available: weighed elsewhere in the SAME province
+             - other-province-only: weighed only in a DIFFERENT province
+             - weighed nowhere: no MS weighing anywhere, for any province -- no
+               conversion path
+       The classification for the price-only rows reuses
+       outputs/tables/price_only_no_weight_anywhere.csv rather than re-deriving it
+       from scratch (see that file's own richer fold logic in
+       dofiles/diagnose_price_only.py); this script only ADDS the same-vs-other-
+       province split that CSV does not carry, using nsu_weights_restated.dta.
+
+KNOWN DISCREPANCY: price_only_no_weight_anywhere.csv PREDATES commit 3c436b9 (the
+17-label crosswalk trim). 16 of its 602 rows carry a raw label that
+`is_dropped_label()` now excludes from the crosswalk entirely (e.g. "bottle 500ml",
+"1/4 kilo", "1 sack is 2900/for salary/inkind") -- these are no longer real
+harmonized cells at all, so this script reclassifies them as the dropped-label sink
+instead of price-only. All 16 were in that CSV's own "weighed nowhere" bucket, so
+the current-data figures are 602-16=586 price-only cells and 96-16=80 weighed
+nowhere (the province-fallback and other-province-only splits are unaffected: 428
+and 78). The brief's stated 602/96 are the pre-trim figures; this script uses the
+post-trim ones and prints both rather than silently matching the brief's numbers.
+
+Nine already-computed per-case analysis tables (outputs/tables/issue21_*.csv,
+conventional_*.csv, master_rename_dropped_labels.csv) are embedded verbatim as
+lookup tables (`payload["price_analyses"]`) and joined to a selected case/cell in
+the browser by a shared key -- see `load_price_analyses()`. Nothing in them is
+recomputed here.
+
 RUN
     python dofiles/build_pipeline_explorer.py
 
@@ -135,6 +180,9 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from drop_non_nsu_labels import is_dropped_label  # noqa: E402
 
 
 def stata_pctile(values, p):
@@ -181,6 +229,18 @@ MASTER_RENAME_PATH = DC / "outputs" / "tables" / "master_nsu_rename.csv"
 COMMENTS_XW_PATH = DC / "outputs" / "tables" / "add_comments_crosswalk.xlsx"
 STDQTY_PATH = DC / "outputs" / "master_rename_build" / "tables" / "excluded_standard_unit_obs.xlsx"
 
+# ---- price-side analysis tables (all read-only; see "THE PRICE-FILE SIDE" above) ----
+T = DC / "outputs" / "tables"
+PRICE_ONLY_PATH = T / "price_only_no_weight_anywhere.csv"
+POOLED_SPELLING_PATH = T / "issue21_pooled_spelling_conflicts.csv"
+MERGE_RULE_PATH = T / "issue21_merge_rule_candidates.csv"
+DROPPED_LABELS_PATH = T / "master_rename_dropped_labels.csv"
+CONV_OVERLAP_PATH = T / "conventional_unit_overlap.csv"
+CONV_COVERAGE_PATH = T / "conventional_price_coverage.csv"
+MEDIAN_DISAGREEMENT_PATH = T / "issue21_median_disagreement.csv"
+RUNG_MIX_PATH = T / "issue21_rung_composition_mix.csv"
+FOLD_CHECK_PATH = T / "issue21_outcome1_fold_check.csv"
+
 OUT_DIR = DC / "outputs" / "explorer"
 OUT_HTML = OUT_DIR / "nsu_pipeline_explorer.html"
 
@@ -206,6 +266,17 @@ def ni(s):
 
 def ng(s):
     return re.sub(r'\s+', ' ', A(s).strip().upper())
+
+
+def key4(p, c, i, h):
+    """Canonical province|municipality|item|harmonized-unit join key, used to line up
+    the price file, the crosswalk, restated MS weighings, and every issue21_*.csv /
+    conventional_*.csv analysis table on one shared identity. Always the four raw
+    strings, always normalized here -- never key on a column a source file already
+    happens to have pre-normalized (case_lookup.py/scope_*.py all re-normalize on
+    read for the same reason: a silent normalization mismatch is how joins go
+    quietly wrong)."""
+    return f"{ng(p)}|{ng(c)}|{ni(i)}|{nz(h)}"
 
 
 # The obs_type -> item_nsu_hetero_type coding, copied from cleaning_Aug11.do's
@@ -737,9 +808,15 @@ def build_sankey(raw, master, stage1_dropped, restated_full, eligible, counts):
     return {"nodes": nodes, "links": links}
 
 
-def build_price_lookup(master_rename):
-    """province|municipality|item -> harmonized units seen in the price file
-    for that cell, so a selected weighing can find its price rungs."""
+def classify_price_rows(master_rename):
+    """Load the price file and join every row to its harmonized unit via the
+    crosswalk (master_nsu_rename.csv) -- the one join every price-side function in
+    this script builds on top of (shared-logic rule: defined once, here). Adds
+    `matched` (bool) and `H` (harmonized unit, nz()'d, or None). An unmatched row is
+    expected ONLY when its raw label is one `drop_non_nsu_labels.is_dropped_label()`
+    says was deliberately removed from the crosswalk (17 rows); any other unmatched
+    row is a broken join and stops the build rather than silently being absorbed.
+    """
     pr = pd.read_csv(PRICE_PATH, encoding='utf-8-sig', dtype=str)
     pr['price'] = pd.to_numeric(pr.Price, errors='coerce')
     pr['P'] = pr.province.map(ng)
@@ -756,17 +833,301 @@ def build_price_lookup(master_rename):
                 zip(mr.P, mr.C, mr.I, mr.U, mr.harmonized_nsu_unit)}
     pr['harmonized_nsu_unit'] = [harm_map.get((p, c, i, u), '')
                                   for p, c, i, u in zip(pr.P, pr.C, pr.I, pr.U)]
+    pr['matched'] = pr.harmonized_nsu_unit != ''
+    pr['H'] = [nz(h) if m else None for h, m in zip(pr.harmonized_nsu_unit, pr.matched)]
 
+    unmatched = pr[~pr.matched]
+    intended = unmatched[unmatched.Unit_lbl.map(is_dropped_label)]
+    broken = unmatched[~unmatched.Unit_lbl.map(is_dropped_label)]
+    log(f"  price rows: {len(pr)} (expect 5,412)")
+    log(f"  price rows unmatched to the crosswalk: {len(unmatched)} (expect 17, all "
+        f"deliberately-dropped labels -- dofiles/drop_non_nsu_labels.py)")
+    log(f"    of which deliberately-dropped labels: {len(intended)}, "
+        f"BROKEN (unexplained): {len(broken)}")
+    if len(broken):
+        raise SystemExit(
+            f"FATAL: {len(broken)} price row(s) fail to join the crosswalk for a "
+            f"reason other than a deliberate label removal -- fix the join before "
+            f"trusting any price-side figure. First few:\n"
+            + broken[['P', 'C', 'I', 'U']].drop_duplicates().head(10).to_string())
+    return pr
+
+
+def build_price_lookup(pr):
+    """province|municipality|item -> harmonized units seen in the price file
+    for that cell, so a selected weighing can find its price rungs."""
     by_cell = {}
     for (p, c, i), g in pr.groupby(['P', 'C', 'I']):
         key = f"{p}|{c}|{i}"
         by_cell[key] = [
             {"raw_unit": row.Unit_lbl, "harmonized_unit": row.harmonized_nsu_unit,
-             "price_type": row.price_type, "price": nn(row.price)}
+             "price_type": row.price_type, "price": nn(row.price),
+             "raw_key": key4(p, c, i, row.Unit_lbl),
+             "cell_key": key4(p, c, i, row.harmonized_nsu_unit) if row.harmonized_nsu_unit else None}
             for row in g.itertuples()
         ]
     log(f"  price-file rows indexed for lookup: {len(pr)} across {len(by_cell)} cells")
     return by_cell
+
+
+def build_price_cells(pr, restated_full):
+    """Classify every harmonized price cell by whether it has an MS weighing, and
+    if not, whether one exists elsewhere in the same province. See the module
+    docstring, "THE PRICE-FILE SIDE", for the full picture and the known
+    price_only_no_weight_anywhere.csv staleness this function prints and does not
+    silently absorb."""
+    matched = pr[pr.matched].copy()
+    dropped = pr[~pr.matched].copy()
+
+    r = restated_full.copy()
+    r['P_'] = r.pull_province.map(ng)
+    r['C_'] = r.pull_municipal_city.map(ng)
+    r['I_'] = r.pull_item.map(ni)
+    r['H_'] = r.harmonized_nsu_unit.map(nz)
+    ms_cell_set = set(zip(r.P_, r.C_, r.I_, r.H_))
+    ms_prov_set = set(zip(r.P_, r.I_, r.H_))
+    ms_anywhere_set = set(zip(r.I_, r.H_))
+
+    matched_cell_keys = set(zip(matched.P, matched.C, matched.I, matched.H))
+
+    po = pd.read_csv(PRICE_ONLY_PATH, encoding='utf-8-sig')
+    po['P_'] = po.province.map(ng)
+    po['C_'] = po.municipality.map(ng)
+    po['I_'] = po.item.map(ni)
+    po['H_'] = po.harmonized_nsu_unit.map(nz)
+    po['k_'] = list(zip(po.P_, po.C_, po.I_, po.H_))
+    po['stale_'] = ~po.k_.isin(matched_cell_keys)
+    n_stale = int(po.stale_.sum())
+    log(f"  price_only_no_weight_anywhere.csv rows whose exact cell no longer "
+        f"exists in the current (post-label-trim) crosswalk: {n_stale} (expect "
+        f"16 -- see module docstring, KNOWN DISCREPANCY)")
+    if n_stale and not (po.loc[po.stale_, 'this_unit_weighed_anywhere'] == 0).all():
+        log("  *** WARNING: not every stale row was in that CSV's own 'weighed "
+            "nowhere' bucket -- the 602/96 -> 586/80 arithmetic in the module "
+            "docstring no longer holds; re-derive it before trusting the note ***")
+
+    po_bucket = {}
+    for row in po[~po.stale_].itertuples():
+        k = row.k_
+        if row.this_unit_weighed_anywhere == 0:
+            po_bucket[k] = 'price_only_nowhere'
+        elif (row.P_, row.I_, row.H_) in ms_prov_set:
+            po_bucket[k] = 'price_only_province_fallback'
+        else:
+            po_bucket[k] = 'price_only_other_province_only'
+
+    records = []
+    n_uncovered = 0
+    for (p, c, i, h), g in matched.groupby(['P', 'C', 'I', 'H']):
+        k = (p, c, i, h)
+        if k in ms_cell_set:
+            bucket = 'convertible'
+        else:
+            bucket = po_bucket.get(k)
+            if bucket is None:
+                n_uncovered += 1
+                if (p, i, h) in ms_prov_set:
+                    bucket = 'price_only_province_fallback'
+                elif (i, h) in ms_anywhere_set:
+                    bucket = 'price_only_other_province_only'
+                else:
+                    bucket = 'price_only_nowhere'
+        records.append({
+            "province": p, "municipality": c, "item": i, "harmonized_unit": h,
+            "cell_key": key4(p, c, i, h),
+            "n_price_rows": int(len(g)),
+            "price_rows": [
+                {"raw_unit": row.Unit_lbl, "price_type": row.price_type,
+                 "price": nn(row.price), "raw_key": key4(p, c, i, row.Unit_lbl)}
+                for row in g.itertuples()
+            ],
+            "bucket": bucket,
+            "dropped_label": False,
+        })
+    log(f"  price-only cells not covered by price_only_no_weight_anywhere.csv "
+        f"(freshly classified against restated MS data instead): {n_uncovered} "
+        f"(expect 0)")
+
+    for (p, c, i, u), g in dropped.groupby(['P', 'C', 'I', 'U']):
+        records.append({
+            "province": p, "municipality": c, "item": i, "harmonized_unit": u,
+            "cell_key": key4(p, c, i, u),
+            "n_price_rows": int(len(g)),
+            "price_rows": [
+                {"raw_unit": row.Unit_lbl, "price_type": row.price_type,
+                 "price": nn(row.price), "raw_key": key4(p, c, i, row.Unit_lbl)}
+                for row in g.itertuples()
+            ],
+            "bucket": "dropped_label",
+            "dropped_label": True,
+        })
+
+    def rowsum(bucket):
+        return sum(rec['n_price_rows'] for rec in records if rec['bucket'] == bucket)
+
+    def cellcount(bucket):
+        return sum(1 for rec in records if rec['bucket'] == bucket)
+
+    n_conv, n_pf, n_op, n_now, n_drop = (cellcount('convertible'),
+        cellcount('price_only_province_fallback'), cellcount('price_only_other_province_only'),
+        cellcount('price_only_nowhere'), cellcount('dropped_label'))
+    log(f"  price cells: {len(records):,} total "
+        f"({len(matched_cell_keys):,} matched + {n_drop} dropped-label islands)")
+    log(f"    convertible (MS weighing in this exact cell): {n_conv:,}")
+    log(f"    price-only, province fallback available: {n_pf:,}")
+    log(f"    price-only, weighed only in another province: {n_op:,}")
+    log(f"    price-only, weighed nowhere (no conversion path): {n_now:,}")
+    log(f"    price-only total: {n_pf + n_op + n_now:,}  "
+        f"(brief's/CSV's pre-trim figure: 602 price-only, 96 nowhere; "
+        f"post-trim, current data: {n_pf + n_op + n_now:,} price-only, {n_now:,} nowhere)")
+    return records
+
+
+def build_price_sankey(records, pr):
+    """Row-weighted Sankey over the price-file population. Ribbon widths are PRICE
+    ROWS throughout, including across the row->cell collapse -- the same
+    convention build_sankey() uses at the Outcome-1 collapse (eligible -> outcome1):
+    the true cell count is named in the node label, the ribbon width stays in the
+    finer (row) unit so the diagram conserves end to end without a discontinuity."""
+    nodes = []
+    links = []
+
+    def add_node(nid, label, n):
+        nodes.append({"id": nid, "label": label, "n": int(n)})
+
+    def add_link(s, t, n):
+        links.append({"source": s, "target": t, "n": int(n)})
+
+    n_total_rows = len(pr)
+    n_dropped_rows = int((~pr.matched).sum())
+    n_matched_rows = int(pr.matched.sum())
+    n_cells_matched = sum(1 for r in records if not r['dropped_label'])
+
+    add_node("p_raw", "Price file rows", n_total_rows)
+    add_node("p_dropped_label", f"Dropped: label removed from crosswalk ({n_dropped_rows})", n_dropped_rows)
+    add_link("p_raw", "p_dropped_label", n_dropped_rows)
+    add_node("p_matched", f"Harmonized to a price cell ({n_matched_rows:,} rows -> "
+                          f"{n_cells_matched:,} cells)", n_matched_rows)
+    add_link("p_raw", "p_matched", n_matched_rows)
+
+    def rowsum(bucket):
+        return sum(r['n_price_rows'] for r in records if r['bucket'] == bucket)
+
+    def cellcount(bucket):
+        return sum(1 for r in records if r['bucket'] == bucket)
+
+    n_conv_rows, n_conv_cells = rowsum('convertible'), cellcount('convertible')
+    n_pf_rows, n_pf_cells = rowsum('price_only_province_fallback'), cellcount('price_only_province_fallback')
+    n_op_rows, n_op_cells = rowsum('price_only_other_province_only'), cellcount('price_only_other_province_only')
+    n_now_rows, n_now_cells = rowsum('price_only_nowhere'), cellcount('price_only_nowhere')
+    n_po_rows, n_po_cells = n_pf_rows + n_op_rows + n_now_rows, n_pf_cells + n_op_cells + n_now_cells
+
+    add_node("p_convertible", f"Matched to a case with MS weighings ({n_conv_rows:,} rows / {n_conv_cells:,} cells)", n_conv_rows)
+    add_link("p_matched", "p_convertible", n_conv_rows)
+    add_node("p_only", f"Price-only: no MS weighing in this exact cell ({n_po_rows:,} rows / {n_po_cells:,} cells)", n_po_rows)
+    add_link("p_matched", "p_only", n_po_rows)
+    add_node("p_province_fallback", f"Province fallback available ({n_pf_rows:,} rows / {n_pf_cells:,} cells)", n_pf_rows)
+    add_link("p_only", "p_province_fallback", n_pf_rows)
+    add_node("p_other_province", f"Weighed only in another province ({n_op_rows:,} rows / {n_op_cells:,} cells)", n_op_rows)
+    add_link("p_only", "p_other_province", n_op_rows)
+    add_node("p_nowhere", f"Weighed nowhere -- no conversion path ({n_now_rows:,} rows / {n_now_cells:,} cells)", n_now_rows)
+    add_link("p_only", "p_nowhere", n_now_rows)
+
+    by_id = {n['id']: n['n'] for n in nodes}
+    inflow, outflow = {}, {}
+    for l in links:
+        outflow[l['source']] = outflow.get(l['source'], 0) + l['n']
+        inflow[l['target']] = inflow.get(l['target'], 0) + l['n']
+    SINKS = {'p_dropped_label', 'p_convertible', 'p_province_fallback',
+             'p_other_province', 'p_nowhere'}
+    for nid, n in by_id.items():
+        if nid == 'p_raw':
+            assert nid not in inflow, f"{nid}: expected no inflow"
+        elif nid in SINKS:
+            assert inflow.get(nid) == n, f"{nid}: inflow {inflow.get(nid)} != n {n}"
+        else:
+            assert inflow.get(nid) == n == outflow.get(nid), (
+                f"{nid}: inflow {inflow.get(nid)}, n {n}, outflow {outflow.get(nid)}")
+    log("  price sankey flow conservation check: OK (every node's inflow/outflow reconciles)")
+
+    return {"nodes": nodes, "links": links}
+
+
+def _addkey4(df, p_col, c_col, i_col, h_col):
+    """Adds `_key` = key4(...) for the browser-side join. Copies first -- never
+    mutates a caller's frame."""
+    df = df.copy()
+    df['_key'] = [key4(p, c, i, h) for p, c, i, h in
+                  zip(df[p_col], df[c_col], df[i_col], df[h_col])]
+    return df
+
+
+def _records(df):
+    """DataFrame -> list of JSON-safe dicts (NaN -> None via nn())."""
+    return [{k: nn(v) for k, v in row.items()} for row in df.to_dict('records')]
+
+
+def load_price_analyses(pr):
+    """Read-only per-case analysis tables (outputs/tables/issue21_*.csv and
+    friends), embedded verbatim and keyed for the browser-side join described in
+    the module docstring. Nothing here is recomputed -- see "THE PRICE-FILE SIDE".
+
+    Most tables key on `_key` = key4(province, municipality, item, harmonized_unit).
+    Two (issue21_merge_rule_candidates.csv, issue21_median_disagreement.csv) print
+    their own 'case' string instead (scope_price_point_merge_rule.py /
+    scope_multi_price_points.py: "province / municipality / item[:24 or full] /
+    harmonized_unit") -- the browser recomputes that same string from a selected
+    case's own fields rather than this script trying to parse it back apart.
+
+    `pr` (the classified price rows from classify_price_rows()) is used only to
+    flag which price_only_no_weight_anywhere.csv rows are stale post-label-trim
+    (`now_dropped_label`) -- see build_price_cells()'s KNOWN DISCREPANCY note.
+    """
+    tables = {}
+    matched_cell_keys = set(zip(pr[pr.matched].P, pr[pr.matched].C,
+                                 pr[pr.matched].I, pr[pr.matched].H))
+
+    po = pd.read_csv(PRICE_ONLY_PATH, encoding='utf-8-sig')
+    po = _addkey4(po, 'province', 'municipality', 'item', 'harmonized_nsu_unit')
+    po['now_dropped_label'] = [
+        (ng(p), ng(c), ni(i), nz(h)) not in matched_cell_keys
+        for p, c, i, h in zip(po.province, po.municipality, po.item, po.harmonized_nsu_unit)]
+    tables['price_only'] = _records(po)
+
+    pooled = pd.read_csv(POOLED_SPELLING_PATH, encoding='utf-8-sig')
+    tables['pooled_spelling_conflicts'] = _records(_addkey4(
+        pooled, 'province', 'municipality', 'item', 'harmonized_nsu_unit'))
+
+    rung = pd.read_csv(RUNG_MIX_PATH, encoding='utf-8-sig')
+    tables['rung_composition_mix'] = _records(_addkey4(
+        rung, 'province', 'pull_municipal_city', 'cons_name', 'harmonized_nsu_unit'))
+
+    fold = pd.read_csv(FOLD_CHECK_PATH, encoding='utf-8-sig')
+    tables['outcome1_fold_check'] = _records(_addkey4(
+        fold, 'province', 'pull_municipal_city', 'cons_name', 'harmonized_nsu_unit'))
+
+    merge_rule = pd.read_csv(MERGE_RULE_PATH, encoding='utf-8-sig')
+    tables['merge_rule_candidates'] = _records(merge_rule)
+
+    median_dis = pd.read_csv(MEDIAN_DISAGREEMENT_PATH, encoding='utf-8-sig')
+    tables['median_disagreement'] = _records(median_dis)
+
+    dropped = pd.read_csv(DROPPED_LABELS_PATH, encoding='utf-8-sig')
+    tables['dropped_labels'] = _records(_addkey4(
+        dropped, 'province', 'pull_municipal_city', 'cons_name', 'pull_nsu_unit'))
+
+    conv_ov = pd.read_csv(CONV_OVERLAP_PATH, encoding='utf-8-sig')
+    conv_ov = conv_ov.copy()
+    conv_ov['_unit'] = conv_ov.unit.map(nz)
+    tables['conventional_unit_overlap'] = _records(conv_ov)
+
+    conv_cov = pd.read_csv(CONV_COVERAGE_PATH, encoding='utf-8-sig')
+    tables['conventional_price_coverage'] = _records(_addkey4(
+        conv_cov, 'province', 'pull_municipal_city', 'cons_name', 'unit_raw'))
+
+    for name, rows in tables.items():
+        log(f"  loaded {name}: {len(rows):,} rows")
+    return tables
 
 
 def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_lookup,
@@ -774,7 +1135,34 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
     master_rename = pd.read_csv(MASTER_RENAME_PATH, encoding='utf-8-sig', dtype=str)
 
     sankey = build_sankey(raw, master, stage1_dropped, restated_full, eligible, counts)
-    price_by_cell = build_price_lookup(master_rename)
+    pr = classify_price_rows(master_rename)
+    price_by_cell = build_price_lookup(pr)
+    price_cells = build_price_cells(pr, restated_full)
+    price_sankey = build_price_sankey(price_cells, pr)
+    price_analyses = load_price_analyses(pr)
+
+    n_pf = sum(1 for c in price_cells if c['bucket'] == 'price_only_province_fallback')
+    n_op = sum(1 for c in price_cells if c['bucket'] == 'price_only_other_province_only')
+    n_now = sum(1 for c in price_cells if c['bucket'] == 'price_only_nowhere')
+    n_conv = sum(1 for c in price_cells if c['bucket'] == 'convertible')
+    n_dropcells = sum(1 for c in price_cells if c['bucket'] == 'dropped_label')
+    price_counts = {
+        "n_price_rows": len(pr), "n_price_cells": len(price_cells),
+        "n_dropped_label_cells": n_dropcells, "n_convertible": n_conv,
+        "n_price_only": n_pf + n_op + n_now, "n_province_fallback": n_pf,
+        "n_other_province_only": n_op, "n_weighed_nowhere": n_now,
+    }
+    price_discrepancy_note = (
+        f"outputs/tables/price_only_no_weight_anywhere.csv predates commit 3c436b9 "
+        f"(the 17-label crosswalk trim, dofiles/drop_non_nsu_labels.py). 16 of its "
+        f"602 rows carry a raw label the current crosswalk no longer harmonizes at "
+        f"all -- all 16 were in that CSV's own 'weighed nowhere' bucket. This page "
+        f"reclassifies those 16 as the dropped-label sink instead of price-only, so "
+        f"its current-data figures are {n_pf + n_op + n_now:,} price-only cells "
+        f"(brief/CSV pre-trim figure: 602) and {n_now:,} weighed nowhere (pre-trim: "
+        f"96). The province-fallback ({n_pf:,}) and other-province-only ({n_op:,}) "
+        f"splits are unaffected by the trim."
+    )
 
     # ---- raw-side lookup for arrival provenance (raw spelling, market/vendor) --
     raw_by_key = {k: idx for idx, k in zip(raw.index, raw._key)}
@@ -807,6 +1195,18 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
             "w_ref": nn(row.w_ref),
             "case_key": f"{row.pull_province}|{row.pull_municipal_city}|{row.pull_item}|"
                         f"{row.harmonized_nsu_unit}|{CORRECTED_UNIT_LABEL.get(row.corrected_unit, '')}",
+            # province|municipality|item|harmonized_unit, normalized the same way as
+            # the price side (key4()) -- NOT case_key above, which also carries
+            # corrected_unit and is unnormalized. This is what joins a weighing to
+            # a price cell and to the issue21_*.csv / conventional_*.csv analysis
+            # tables in payload["price_analyses"] (see load_price_analyses()).
+            "analysis_key": key4(row.pull_province, row.pull_municipal_city,
+                                  row.pull_item, row.harmonized_nsu_unit),
+            # same idea, keyed on the RAW spelling instead of the harmonized unit --
+            # joins master_rename_dropped_labels.csv / conventional_price_coverage.csv,
+            # which are keyed to one specific raw label, not the pooled harmonized unit.
+            "raw_key": key4(row.pull_province, row.pull_municipal_city,
+                             row.pull_item, row.pull_nsu_unit),
         }
 
         # ---- arrival raw-spelling provenance, if the id is joinable ------------
@@ -925,7 +1325,9 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
         "generated_note": "Generated by dofiles/build_pipeline_explorer.py. Read-only tool; "
                            "nothing here feeds back into the pipeline.",
         "counts": counts,
+        "price_counts": price_counts,
         "ledger_discrepancy_note": ledger_note,
+        "price_discrepancy_note": price_discrepancy_note,
         "outcome2_note": (f"Outcome 2 (PSPS conversion factors) has no do-file yet -- "
                            f"{n_o2_eligible:,} restated weighings would still be in scope for it "
                            f"(everything except the {int(restated_full.drop_no_wref.sum())} rows "
@@ -944,6 +1346,9 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
         "weighings": weighings,
         "dropped": dropped_records,
         "price_by_cell": price_by_cell,
+        "price_sankey": price_sankey,
+        "price_cells": price_cells,
+        "price_analyses": price_analyses,
     }
 
 
@@ -1015,6 +1420,28 @@ tbody tr.selected { background: #1e3a5f; }
 .tag.dropped { background: rgba(229,83,75,.2); color: #ff9891; }
 .tag.ok { background: rgba(63,185,80,.2); color: #7ee787; }
 .tag.pending { background: rgba(210,153,34,.2); color: #e3b341; }
+.tag.info { background: rgba(79,163,255,.18); color: #8fc4ff; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.qbtn {
+  background: var(--panel2); color: var(--text); border: 1px solid var(--border);
+  border-radius: 14px; padding: 4px 12px; cursor: pointer; font-size: 12px;
+}
+.qbtn .n { color: var(--muted); margin-left: 4px; }
+.qbtn:hover { border-color: var(--accent); }
+.qbtn.active { background: #1e3a5f; border-color: var(--accent); color: #cfe6ff; }
+.flagbadge {
+  display: inline-block; padding: 0 5px; margin: 0 2px 2px 0; border-radius: 8px;
+  font-size: 10px; cursor: help; background: rgba(255,180,84,.15); color: var(--accent2);
+  border: 1px solid rgba(255,180,84,.3);
+}
+.crosslink {
+  display: inline-block; margin-top: 8px; padding: 4px 10px; border-radius: 4px;
+  background: var(--panel2); border: 1px solid var(--accent); color: var(--accent);
+  cursor: pointer; font-size: 12px;
+}
+.crosslink:hover { background: #1e3a5f; }
+.subtable { margin-top: 6px; max-height: 220px; overflow: auto; border: 1px solid var(--border); border-radius: 6px; }
+.subtable table { font-size: 11px; }
 #detail { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .detail-col { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
 .detail-col h3 { margin: 0 0 10px 0; font-size: 13px; color: var(--accent2); }
@@ -1038,12 +1465,24 @@ a { color: var(--accent); }
 <div id="banner-holder"></div>
 
 <section>
-  <h2>1. Flow (Sankey) &mdash; click a node to filter the table below</h2>
+  <h2>1. Market-survey flow (Sankey) &mdash; click a node to filter the table in section 3</h2>
   <div id="sankey-wrap"><svg id="sankey"></svg></div>
 </section>
 
 <section>
-  <h2>2. Observation drill-down &mdash; <span id="filter-summary"></span></h2>
+  <h2>2. Price-file flow (Sankey) &mdash; every price row, whether or not it has a matching MS weighing (click a node to filter the table in section 4)</h2>
+  <p style="color:var(--muted);font-size:12.5px;margin:0 0 10px 0">
+    The Sankey above only ever follows an MS row forward, so a price-only cell (no MS weighing at all) never
+    appears in it. This second flow traces the price file's own 5,412 rows instead: whether each harmonized
+    cell has an MS weighing, and if not, whether one exists elsewhere in the same province.
+  </p>
+  <div id="price-banner-holder"></div>
+  <div id="price-sankey-wrap" style="overflow-x:auto"><svg id="price-sankey"></svg></div>
+</section>
+
+<section>
+  <h2>3. MS observation drill-down &mdash; <span id="filter-summary"></span></h2>
+  <div class="badges" id="ms-badges"></div>
   <div class="filters">
     <input type="text" id="f-province" placeholder="Province">
     <input type="text" id="f-municipality" placeholder="Municipality">
@@ -1070,6 +1509,7 @@ a { color: var(--accent); }
         <th data-k="vendor_id">Vendor</th>
         <th data-k="w_ref">w_ref (g/mL)</th>
         <th data-k="terminal">Terminal state</th>
+        <th>Flags</th>
       </tr></thead>
       <tbody id="tbl-body"></tbody>
     </table>
@@ -1077,8 +1517,38 @@ a { color: var(--accent); }
 </section>
 
 <section>
-  <h2>3. Selected observation &mdash; its path through the build</h2>
-  <div id="detail"><div class="placeholder" style="grid-column:1/-1">Select a row above to see its path.</div></div>
+  <h2>4. Price-cell drill-down &mdash; <span id="price-filter-summary"></span></h2>
+  <div class="badges" id="price-badges"></div>
+  <div class="filters">
+    <input type="text" id="pf-province" placeholder="Province">
+    <input type="text" id="pf-municipality" placeholder="Municipality">
+    <input type="text" id="pf-item" placeholder="Item">
+    <input type="text" id="pf-harmunit" placeholder="Harmonized unit / raw label">
+    <select id="pf-bucket"><option value="">Status: any</option>
+      <option value="convertible">convertible</option>
+      <option value="price_only_province_fallback">price-only, province fallback</option>
+      <option value="price_only_other_province_only">price-only, other province only</option>
+      <option value="price_only_nowhere">price-only, weighed nowhere</option>
+      <option value="dropped_label">dropped label</option></select>
+    <button class="clear" id="clear-price-node-filter" style="display:none">clear node filter</button>
+    <span class="count" id="price-row-count"></span>
+  </div>
+  <div id="price-tablewrap">
+    <table id="price-tbl">
+      <thead><tr>
+        <th data-k="province">Province</th><th data-k="municipality">Municipality</th>
+        <th data-k="item">Item</th><th data-k="harmonized_unit">Harmonized unit / raw label</th>
+        <th data-k="n_price_rows">Price rows</th>
+        <th data-k="bucket">Status</th><th>Flags</th>
+      </tr></thead>
+      <tbody id="price-tbl-body"></tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>5. Selected observation &mdash; its path through the build, and its price-side context</h2>
+  <div id="detail"><div class="placeholder" style="grid-column:1/-1">Select a row in section 3 or 4 to see its path.</div></div>
 </section>
 
 <footer id="footer"></footer>
@@ -1089,53 +1559,51 @@ const DATA = __DATA_JSON__;
 // ---------------------------------------------------------------- header/banner
 document.getElementById('hdr-sub').textContent =
   `${DATA.meta.counts.n_raw.toLocaleString()} raw -> ${DATA.meta.counts.n_master.toLocaleString()} arrival -> ` +
-  `${DATA.meta.counts.n_restated.toLocaleString()} restated -> ${DATA.meta.counts.n_refset.toLocaleString()} Outcome 1 rows`;
+  `${DATA.meta.counts.n_restated.toLocaleString()} restated -> ${DATA.meta.counts.n_refset.toLocaleString()} Outcome 1 rows` +
+  `  |  price file: ${DATA.meta.price_counts.n_price_rows.toLocaleString()} rows -> ` +
+  `${DATA.meta.price_counts.n_price_cells.toLocaleString()} harmonized cells`;
 
 const bannerHolder = document.getElementById('banner-holder');
-function banner(text) {
+function banner(text, into) {
   const d = document.createElement('div');
   d.className = 'banner';
   d.textContent = text;
-  bannerHolder.appendChild(d);
+  (into || bannerHolder).appendChild(d);
 }
 banner('Known discrepancy vs docs/attrition_ledger.md: ' + DATA.meta.ledger_discrepancy_note);
 banner('Outcome 2: ' + DATA.meta.outcome2_note);
+banner('Price-only figures vs the task brief: ' + DATA.meta.price_discrepancy_note,
+       document.getElementById('price-banner-holder'));
 
 document.getElementById('footer').textContent = DATA.meta.generated_note;
 
-// ---------------------------------------------------------------- sankey
-(function renderSankey() {
-  const nodes = DATA.sankey.nodes;
-  const links = DATA.sankey.links;
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ---------------------------------------------------------------- generic sankey renderer
+// Shared by both flows (MS pipeline, price file) -- same layout/interaction logic,
+// parametrized by which data/columns/coloring it draws and what a click does.
+function makeSankey(svgId, sankeyData, columns, classifyFn, onSelect, onClear) {
+  const nodes = sankeyData.nodes;
+  const links = sankeyData.links;
   const byId = {}; nodes.forEach(n => byId[n.id] = n);
 
-  // simple manual column assignment (topological, by known stage order)
-  const columns = {
-    raw: 0,
-    s1_1a: 1, s1_1c: 1, s1_1d: 1, s1_unresolved: 1, cleaned: 1,
-    wtunit: 2,
-    s2_noprice: 3, s2_vendordrop: 3, s2_unresolved: 3, restated: 3,
-    b_conv: 4, b_pq: 4, b_size: 4,
-    s3_nowref: 5, s3_unique: 5, s3_carrot: 5, eligible: 5,
-    outcome1: 6,
-  };
-  nodes.forEach(n => n.col = columns[n.id] ?? 7);
+  nodes.forEach(n => n.col = columns[n.id] ?? (Math.max(0, ...Object.values(columns)) + 1));
   const maxCol = Math.max(...nodes.map(n => n.col));
 
   const width = Math.max(1100, 160 * (maxCol + 1) + 200);
-  const height = 620;
-  const svg = document.getElementById('sankey');
+  const height = 560;
+  const svg = document.getElementById(svgId);
   svg.setAttribute('width', width);
   svg.setAttribute('height', height);
   svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
 
   const colWidth = (width - 200) / (maxCol + 1);
   const nodeW = 18;
-  const total = byId['raw'].n;
+  const rootNode = nodes.find(n => n.col === 0) || nodes[0];
+  const total = rootNode.n;
   const usableH = height - 40;
   const pxPerUnit = usableH / total;
 
-  // stack nodes within each column, ordered by n desc, then compute y
   const byCol = {};
   nodes.forEach(n => { (byCol[n.col] = byCol[n.col] || []).push(n); });
   Object.values(byCol).forEach(list => {
@@ -1152,17 +1620,10 @@ document.getElementById('footer').textContent = DATA.meta.generated_note;
   const svgns = 'http://www.w3.org/2000/svg';
   function el(tag, attrs) {
     const e = document.createElementNS(svgns, tag);
-    for (const k in attrs) e.setAttribute(k, attrs[k]);
+    for (const k in attrs) if (attrs[k] !== undefined) e.setAttribute(k, attrs[k]);
     return e;
   }
 
-  function nodeClass(n) {
-    if (n.id.startsWith('s1_') || n.id.startsWith('s2_') || n.id.startsWith('s3_')) return 'drop';
-    if (n.id === 'outcome1') return 'terminal';
-    return '';
-  }
-
-  // links as simple curved paths between node edges, width proportional to n
   links.forEach(l => {
     const s = byId[l.source], t = byId[l.target];
     if (!s || !t) return;
@@ -1182,10 +1643,28 @@ document.getElementById('footer').textContent = DATA.meta.generated_note;
     svg.appendChild(path);
   });
 
+  let selectedNode = null;
+  function clearVisual() {
+    selectedNode = null;
+    svg.querySelectorAll('.node').forEach(g => g.classList.remove('selected'));
+  }
+  function selectNode(n) {
+    if (selectedNode && selectedNode.id === n.id) {
+      clearVisual();
+      onClear();
+      return;
+    }
+    svg.querySelectorAll('.node').forEach(g => g.classList.remove('selected'));
+    selectedNode = n;
+    svg.querySelector(`.node[data-id="${n.id}"]`).classList.add('selected');
+    onSelect(n.id);
+  }
+
   nodes.forEach(n => {
-    const g = el('g', { class: 'node ' + nodeClass(n), 'data-id': n.id });
+    const cls = classifyFn(n.id);
+    const g = el('g', { class: 'node ' + cls, 'data-id': n.id });
     const rect = el('rect', { x: n.x, y: n.y, width: nodeW, height: n.h,
-                               fill: nodeClass(n) ? undefined : '#4fa3ff' });
+                               fill: cls ? undefined : '#4fa3ff' });
     g.appendChild(rect);
     const label = el('text', { x: n.x + nodeW + 6, y: n.y + Math.min(n.h, 14) });
     label.textContent = `${n.label} (${n.n.toLocaleString()})`;
@@ -1196,33 +1675,12 @@ document.getElementById('footer').textContent = DATA.meta.generated_note;
     svg.appendChild(g);
   });
 
-  let selectedNode = null;
-  function selectNode(n) {
-    document.querySelectorAll('.node').forEach(el => el.classList.remove('selected'));
-    if (selectedNode && selectedNode.id === n.id) {
-      selectedNode = null;
-      clearNodeFilter();
-      return;
-    }
-    selectedNode = n;
-    document.querySelector(`.node[data-id="${n.id}"]`).classList.add('selected');
-    document.getElementById('clear-node-filter').style.display = '';
-    applyNodeFilter(n.id);
-  }
-  window.clearNodeFilter = function () {
-    selectedNode = null;
-    document.querySelectorAll('.node').forEach(el => el.classList.remove('selected'));
-    document.getElementById('clear-node-filter').style.display = 'none';
-    nodeFilter = null;
-    renderTable();
-  };
-  document.getElementById('clear-node-filter').addEventListener('click', clearNodeFilter);
+  return { clearVisual };
+}
 
-  window._sankeyApplyNodeFilter = applyNodeFilter;
-})();
-
-// ---------------------------------------------------------------- table + filters
-let nodeFilter = null;  // {predicate}
+// ---------------------------------------------------------------- MS sankey + table
+let nodeFilter = null;    // {id, pred, useDropped}
+let msQuickFilter = null; // {id, label, test}
 
 const NODE_PREDICATES = {
   raw: w => true,
@@ -1262,7 +1720,30 @@ function applyNodeFilter(nodeId) {
   }
   renderTable();
 }
-function clearNodeFilter() { window.clearNodeFilter(); }
+
+const msSankeyColumns = {
+  raw: 0,
+  s1_1a: 1, s1_1c: 1, s1_1d: 1, s1_unresolved: 1, cleaned: 1,
+  wtunit: 2,
+  s2_noprice: 3, s2_vendordrop: 3, s2_unresolved: 3, restated: 3,
+  b_conv: 4, b_pq: 4, b_size: 4,
+  s3_nowref: 5, s3_unique: 5, s3_carrot: 5, eligible: 5,
+  outcome1: 6,
+};
+function msNodeClass(id) {
+  if (id.startsWith('s1_') || id.startsWith('s2_') || id.startsWith('s3_')) return 'drop';
+  if (id === 'outcome1') return 'terminal';
+  return '';
+}
+const msSankeyCtl = makeSankey('sankey', DATA.sankey, msSankeyColumns, msNodeClass,
+  (nodeId) => { applyNodeFilter(nodeId); document.getElementById('clear-node-filter').style.display = ''; },
+  () => { nodeFilter = null; document.getElementById('clear-node-filter').style.display = 'none'; renderTable(); });
+document.getElementById('clear-node-filter').addEventListener('click', () => {
+  msSankeyCtl.clearVisual();
+  nodeFilter = null;
+  document.getElementById('clear-node-filter').style.display = 'none';
+  renderTable();
+});
 
 const filterIds = ['f-province', 'f-municipality', 'f-item', 'f-spelling', 'f-harmunit', 'f-approach', 'f-label', 'f-vendor'];
 filterIds.forEach(id => document.getElementById(id).addEventListener('input', renderTable));
@@ -1270,7 +1751,7 @@ filterIds.forEach(id => document.getElementById(id).addEventListener('input', re
 let sortKey = null, sortDir = 1;
 document.querySelectorAll('#tbl th').forEach(th => {
   th.addEventListener('click', () => {
-    const k = th.dataset.k;
+    const k = th.dataset.k; if (!k) return;
     if (sortKey === k) sortDir *= -1; else { sortKey = k; sortDir = 1; }
     renderTable();
   });
@@ -1304,15 +1785,134 @@ function terminalTag(w) {
   return '<span class="tag pending">survived, size unresolved</span>';
 }
 
+// ---------------------------------------------------------------- price analysis tables (joined in, not recomputed)
+const PA = DATA.price_analyses;
+function buildIndex(rows, keyField) {
+  const idx = {};
+  (rows || []).forEach(r => { const k = r[keyField]; if (k == null) return; (idx[k] = idx[k] || []).push(r); });
+  return idx;
+}
+const IDX_price_only = buildIndex(PA.price_only, '_key');
+const IDX_pooled = buildIndex(PA.pooled_spelling_conflicts, '_key');
+const IDX_rung = buildIndex(PA.rung_composition_mix, '_key');
+const IDX_fold = buildIndex(PA.outcome1_fold_check, '_key');
+const IDX_dropped = buildIndex(PA.dropped_labels, '_key');
+const IDX_convcov = buildIndex(PA.conventional_price_coverage, '_key');
+const IDX_mergerule = buildIndex(PA.merge_rule_candidates, 'case');
+const IDX_mediandis = buildIndex(PA.median_disagreement, 'case');
+const IDX_convoverlap = buildIndex(PA.conventional_unit_overlap, '_unit');
+const CELL_BY_KEY = {}; DATA.price_cells.forEach(c => { CELL_BY_KEY[c.cell_key] = c; });
+
+// province / municipality / item[:24 or full] / harmonized_unit -- the exact string
+// scope_price_point_merge_rule.py / scope_multi_price_points.py print as their own
+// 'case' column. Recomputed here (never parsed back out of the CSV) from a
+// selected row's own already-normalized fields.
+function caseStr(prov, mun, item, harm, trunc) {
+  const i = trunc ? String(item || '').substring(0, 24) : (item || '');
+  return `${prov || ''} / ${mun || ''} / ${i} / ${harm || ''}`;
+}
+
+function gatherAnalyses(o) {
+  const out = {
+    price_only: (o.analysisKey && IDX_price_only[o.analysisKey]) || [],
+    pooled_spelling_conflicts: (o.analysisKey && IDX_pooled[o.analysisKey]) || [],
+    rung_composition_mix: (o.analysisKey && IDX_rung[o.analysisKey]) || [],
+    outcome1_fold_check: (o.analysisKey && IDX_fold[o.analysisKey]) || [],
+    dropped_labels: (o.rawKeys || []).flatMap(k => IDX_dropped[k] || []),
+    conventional_price_coverage: (o.rawKeys || []).flatMap(k => IDX_convcov[k] || []),
+    conventional_unit_overlap: (o.harmonizedUnit && IDX_convoverlap[o.harmonizedUnit]) || [],
+    merge_rule_candidates: [], median_disagreement: [],
+  };
+  if (o.province && o.municipality && o.item && o.harmonizedUnit) {
+    out.merge_rule_candidates = IDX_mergerule[caseStr(o.province, o.municipality, o.item, o.harmonizedUnit, true)] || [];
+    out.median_disagreement = IDX_mediandis[caseStr(o.province, o.municipality, o.item, o.harmonizedUnit, false)] || [];
+  }
+  return out;
+}
+
+const ANALYSIS_LABELS = {
+  price_only: 'Price-only case detail (price_only_no_weight_anywhere.csv)',
+  pooled_spelling_conflicts: 'Pooled-spelling price conflict (issue21_pooled_spelling_conflicts.csv)',
+  rung_composition_mix: 'Rung composition mix (issue21_rung_composition_mix.csv)',
+  outcome1_fold_check: 'Outcome-1 fold check (issue21_outcome1_fold_check.csv)',
+  dropped_labels: 'Dropped-label reason (master_rename_dropped_labels.csv)',
+  conventional_price_coverage: 'Conventional-branch price coverage (conventional_price_coverage.csv)',
+  merge_rule_candidates: 'Price-point merge-rule candidates (issue21_merge_rule_candidates.csv)',
+  median_disagreement: 'Median disagreement (issue21_median_disagreement.csv)',
+  conventional_unit_overlap: 'Conventional-unit overlap (conventional_unit_overlap.csv)',
+};
+
+function renderGenericTable(rows) {
+  if (!rows || !rows.length) return '';
+  const cols = Object.keys(rows[0]).filter(k => k !== '_key' && k !== '_unit');
+  return `<div class="subtable"><table><thead><tr>${cols.map(c => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>` +
+    rows.map(r => `<tr>${cols.map(c => `<td>${r[c] == null ? '' : esc(r[c])}</td>`).join('')}</tr>`).join('') +
+    '</tbody></table></div>';
+}
+
+function renderAnalysesHTML(analyses) {
+  let html = '';
+  for (const key of Object.keys(ANALYSIS_LABELS)) {
+    const rows = analyses[key];
+    if (!rows || !rows.length) continue;
+    html += `<div style="margin-top:10px"><b>${ANALYSIS_LABELS[key]}</b> &mdash; ${rows.length} row(s)` +
+      renderGenericTable(rows) + `</div>`;
+  }
+  return html || '<div class="placeholder">no matching rows in the analysis tables for this case</div>';
+}
+
+function msFlagBadges(w) {
+  const badges = [];
+  if ((IDX_pooled[w.analysis_key] || []).some(r => r.conflict === 1)) badges.push('<span class="flagbadge" title="pooled-spelling price conflict">conflict</span>');
+  if ((IDX_rung[w.analysis_key] || []).some(r => r.n_units > 1)) badges.push('<span class="flagbadge" title="pools >1 raw spelling">pooled</span>');
+  if ((IDX_mediandis[caseStr(w.province, w.municipality, w.item, w.harmonized_unit, false)] || []).length) badges.push('<span class="flagbadge" title="median disagreement">median-dis</span>');
+  if ((IDX_mergerule[caseStr(w.province, w.municipality, w.item, w.harmonized_unit, true)] || []).length) badges.push('<span class="flagbadge" title="price-point merge-rule candidate">merge</span>');
+  return badges.join('');
+}
+
+// ---------------------------------------------------------------- quick-filter badges (shared renderer)
+function renderQuickBadges(containerId, filters, dataArr, getState, setState, rerender) {
+  const holder = document.getElementById(containerId);
+  holder.innerHTML = filters.map(f => {
+    const n = dataArr.filter(f.test).length;
+    return `<button type="button" class="qbtn" data-id="${f.id}">${esc(f.label)}<span class="n">${n.toLocaleString()}</span></button>`;
+  }).join('');
+  Array.from(holder.querySelectorAll('.qbtn')).forEach(btn => {
+    btn.addEventListener('click', () => {
+      const f = filters.find(x => x.id === btn.dataset.id);
+      if (getState() && getState().id === f.id) {
+        setState(null);
+      } else {
+        setState(f);
+      }
+      holder.querySelectorAll('.qbtn').forEach(b => b.classList.toggle('active', getState() && b.dataset.id === getState().id));
+      rerender();
+    });
+  });
+}
+
+const MS_QUICK_FILTERS = [
+  { id: 'ms-conflict', label: 'Pooled-spelling price conflict',
+    test: w => (IDX_pooled[w.analysis_key] || []).some(r => r.conflict === 1) },
+  { id: 'ms-pooled', label: 'Pools >1 raw spelling',
+    test: w => (IDX_rung[w.analysis_key] || []).some(r => r.n_units > 1) },
+  { id: 'ms-median', label: 'Median disagreement',
+    test: w => (IDX_mediandis[caseStr(w.province, w.municipality, w.item, w.harmonized_unit, false)] || []).length > 0 },
+  { id: 'ms-merge', label: 'Merge-rule candidate',
+    test: w => (IDX_mergerule[caseStr(w.province, w.municipality, w.item, w.harmonized_unit, true)] || []).length > 0 },
+];
+renderQuickBadges('ms-badges', MS_QUICK_FILTERS, DATA.weighings,
+  () => msQuickFilter, (f) => { msQuickFilter = f; }, renderTable);
+
 let currentRows = [];
 function renderTable() {
   const usingDropped = !!(nodeFilter && nodeFilter.useDropped);
   let rows = (usingDropped ? DATA.dropped : DATA.weighings).filter(matchesTextFilters);
-  document.getElementById('filter-summary').textContent =
-    nodeFilter ? `filtered by Sankey node: ${nodeFilter.id}` : 'no Sankey node selected';
-  if (nodeFilter) {
-    rows = rows.filter(nodeFilter.pred);
-  }
+  document.getElementById('filter-summary').textContent = nodeFilter
+    ? (nodeFilter.id.startsWith('pinned:') ? `pinned to case: ${nodeFilter.id.slice(7)}` : `filtered by Sankey node: ${nodeFilter.id}`)
+    : 'no Sankey node selected';
+  if (nodeFilter) rows = rows.filter(nodeFilter.pred);
+  if (!usingDropped && msQuickFilter) rows = rows.filter(msQuickFilter.test);
   if (sortKey) {
     rows = rows.slice().sort((a, b) => {
       const av = a[sortKey], bv = b[sortKey];
@@ -1334,10 +1934,11 @@ function renderTable() {
       <td>${w.weighing_approach||''}</td><td>${w.size_price_label||''}</td>
       <td>${w.vendor_id||''}</td><td>${w.w_ref!=null? w.w_ref.toLocaleString(undefined,{maximumFractionDigits:1}):''}</td>
       <td>${terminalTag(w)}</td>
+      <td>${usingDropped ? '' : msFlagBadges(w)}</td>
     </tr>`).join('');
   if (rows.length > MAX_RENDER) {
     const note = document.createElement('tr');
-    note.innerHTML = `<td colspan="10" style="color:var(--muted);font-style:italic">
+    note.innerHTML = `<td colspan="11" style="color:var(--muted);font-style:italic">
       showing first ${MAX_RENDER.toLocaleString()} of ${rows.length.toLocaleString()} filtered rows -- narrow the filters to see more</td>`;
     body.appendChild(note);
   }
@@ -1347,7 +1948,160 @@ function renderTable() {
 }
 renderTable();
 
-// ---------------------------------------------------------------- detail panel
+// ---------------------------------------------------------------- price-file sankey + cell table
+let priceNodeFilter = null;
+let priceQuickFilter = null;
+
+const PRICE_NODE_PREDICATES = {
+  p_raw: c => true,
+  p_matched: c => true,
+  p_convertible: c => c.bucket === 'convertible',
+  p_only: c => c.bucket.startsWith('price_only'),
+  p_province_fallback: c => c.bucket === 'price_only_province_fallback',
+  p_other_province: c => c.bucket === 'price_only_other_province_only',
+  p_nowhere: c => c.bucket === 'price_only_nowhere',
+  p_dropped_label: c => c.bucket === 'dropped_label',
+};
+function applyPriceNodeFilter(nodeId) {
+  priceNodeFilter = PRICE_NODE_PREDICATES[nodeId] ? { id: nodeId, pred: PRICE_NODE_PREDICATES[nodeId] } : null;
+  renderPriceCellsTable();
+}
+
+const priceSankeyColumns = {
+  p_raw: 0, p_dropped_label: 1, p_matched: 1,
+  p_convertible: 2, p_only: 2,
+  p_province_fallback: 3, p_other_province: 3, p_nowhere: 3,
+};
+function priceNodeClass(id) {
+  if (id === 'p_dropped_label' || id === 'p_nowhere') return 'drop';
+  if (id === 'p_convertible') return 'terminal';
+  if (id === 'p_province_fallback' || id === 'p_other_province') return 'pending';
+  return '';
+}
+const priceSankeyCtl = makeSankey('price-sankey', DATA.price_sankey, priceSankeyColumns, priceNodeClass,
+  (nodeId) => { applyPriceNodeFilter(nodeId); document.getElementById('clear-price-node-filter').style.display = ''; },
+  () => { priceNodeFilter = null; document.getElementById('clear-price-node-filter').style.display = 'none'; renderPriceCellsTable(); });
+document.getElementById('clear-price-node-filter').addEventListener('click', () => {
+  priceSankeyCtl.clearVisual();
+  priceNodeFilter = null;
+  document.getElementById('clear-price-node-filter').style.display = 'none';
+  renderPriceCellsTable();
+});
+
+const priceFilterIds = ['pf-province', 'pf-municipality', 'pf-item', 'pf-harmunit'];
+priceFilterIds.forEach(id => document.getElementById(id).addEventListener('input', renderPriceCellsTable));
+document.getElementById('pf-bucket').addEventListener('change', renderPriceCellsTable);
+
+let priceSortKey = null, priceSortDir = 1;
+document.querySelectorAll('#price-tbl th').forEach(th => {
+  th.addEventListener('click', () => {
+    const k = th.dataset.k; if (!k) return;
+    if (priceSortKey === k) priceSortDir *= -1; else { priceSortKey = k; priceSortDir = 1; }
+    renderPriceCellsTable();
+  });
+});
+
+function priceTextFilterVal(id) { return document.getElementById(id).value.trim().toLowerCase(); }
+function priceMatchesTextFilters(c) {
+  const p = priceTextFilterVal('pf-province'); if (p && !(c.province||'').toLowerCase().includes(p)) return false;
+  const m = priceTextFilterVal('pf-municipality'); if (m && !(c.municipality||'').toLowerCase().includes(m)) return false;
+  const it = priceTextFilterVal('pf-item'); if (it && !(c.item||'').toLowerCase().includes(it)) return false;
+  const hu = priceTextFilterVal('pf-harmunit'); if (hu && !(c.harmonized_unit||'').toLowerCase().includes(hu)) return false;
+  const bk = document.getElementById('pf-bucket').value; if (bk && c.bucket !== bk) return false;
+  return true;
+}
+
+const BUCKET_LABEL = {
+  convertible: '<span class="tag ok">convertible</span>',
+  price_only_province_fallback: '<span class="tag pending">price-only: province fallback</span>',
+  price_only_other_province_only: '<span class="tag pending">price-only: other province only</span>',
+  price_only_nowhere: '<span class="tag dropped">price-only: weighed nowhere</span>',
+  dropped_label: '<span class="tag dropped">label removed from crosswalk</span>',
+};
+function bucketTag(c) { return BUCKET_LABEL[c.bucket] || esc(c.bucket); }
+
+function priceFlagBadges(c) {
+  const badges = [];
+  if ((IDX_pooled[c.cell_key] || []).some(r => r.conflict === 1)) badges.push('<span class="flagbadge" title="pooled-spelling price conflict">conflict</span>');
+  if ((IDX_rung[c.cell_key] || []).some(r => r.n_units > 1)) badges.push('<span class="flagbadge" title="pools >1 raw spelling">pooled</span>');
+  if ((IDX_price_only[c.cell_key] || []).some(r => r.now_dropped_label)) badges.push('<span class="flagbadge" title="stale in price_only_no_weight_anywhere.csv -- label since dropped from the crosswalk">stale-CSV</span>');
+  return badges.join('');
+}
+
+const PRICE_QUICK_FILTERS = [
+  { id: 'pc-priceonly', label: 'Price-only cases', test: c => c.bucket.startsWith('price_only') },
+  { id: 'pc-fallback', label: 'Province fallback available', test: c => c.bucket === 'price_only_province_fallback' },
+  { id: 'pc-nowhere', label: 'Weighed nowhere', test: c => c.bucket === 'price_only_nowhere' },
+  { id: 'pc-conflict', label: 'Pooled-spelling price conflict', test: c => (IDX_pooled[c.cell_key] || []).some(r => r.conflict === 1) },
+  { id: 'pc-pooled', label: 'Pools >1 raw spelling', test: c => (IDX_rung[c.cell_key] || []).some(r => r.n_units > 1) },
+];
+renderQuickBadges('price-badges', PRICE_QUICK_FILTERS, DATA.price_cells,
+  () => priceQuickFilter, (f) => { priceQuickFilter = f; }, renderPriceCellsTable);
+
+let currentPriceRows = [];
+function renderPriceCellsTable() {
+  let rows = DATA.price_cells.filter(priceMatchesTextFilters);
+  document.getElementById('price-filter-summary').textContent = priceNodeFilter
+    ? (priceNodeFilter.id.startsWith('pinned:') ? `pinned to cell: ${priceNodeFilter.id.slice(7)}` : `filtered by Sankey node: ${priceNodeFilter.id}`)
+    : 'no Sankey node selected';
+  if (priceNodeFilter) rows = rows.filter(priceNodeFilter.pred);
+  if (priceQuickFilter) rows = rows.filter(priceQuickFilter.test);
+  if (priceSortKey) {
+    rows = rows.slice().sort((a, b) => {
+      const av = a[priceSortKey], bv = b[priceSortKey];
+      if (av == null) return 1; if (bv == null) return -1;
+      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * priceSortDir;
+      return String(av).localeCompare(String(bv)) * priceSortDir;
+    });
+  }
+  currentPriceRows = rows;
+  document.getElementById('price-row-count').textContent = `${rows.length.toLocaleString()} cells`;
+  const body = document.getElementById('price-tbl-body');
+  const MAX_RENDER = 2000;
+  const shown = rows.slice(0, MAX_RENDER);
+  body.innerHTML = shown.map((c, i) => `
+    <tr data-idx="${i}">
+      <td>${c.province||''}</td><td>${c.municipality||''}</td><td>${c.item||''}</td>
+      <td>${c.harmonized_unit||''}</td><td>${c.n_price_rows}</td>
+      <td>${bucketTag(c)}</td><td>${priceFlagBadges(c)}</td>
+    </tr>`).join('');
+  if (rows.length > MAX_RENDER) {
+    const note = document.createElement('tr');
+    note.innerHTML = `<td colspan="7" style="color:var(--muted);font-style:italic">
+      showing first ${MAX_RENDER.toLocaleString()} of ${rows.length.toLocaleString()} filtered cells -- narrow the filters to see more</td>`;
+    body.appendChild(note);
+  }
+  Array.from(body.querySelectorAll('tr[data-idx]')).forEach(tr => {
+    tr.addEventListener('click', () => selectPriceCell(shown[+tr.dataset.idx]));
+  });
+}
+renderPriceCellsTable();
+
+// ---------------------------------------------------------------- cross-linking between the two tables
+function jumpToMSCase(analysisKey) {
+  msQuickFilter = null;
+  document.querySelectorAll('#ms-badges .qbtn').forEach(b => b.classList.remove('active'));
+  nodeFilter = { id: 'pinned:' + analysisKey, pred: w => w.analysis_key === analysisKey, useDropped: false };
+  msSankeyCtl.clearVisual();
+  document.getElementById('clear-node-filter').style.display = '';
+  renderTable();
+  document.getElementById('tbl').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function jumpToPriceCell(cellKey) {
+  priceQuickFilter = null;
+  document.querySelectorAll('#price-badges .qbtn').forEach(b => b.classList.remove('active'));
+  priceNodeFilter = { id: 'pinned:' + cellKey, pred: c => c.cell_key === cellKey };
+  priceSankeyCtl.clearVisual();
+  document.getElementById('clear-price-node-filter').style.display = '';
+  renderPriceCellsTable();
+  document.getElementById('price-tbl').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+function wireCrosslinks(container) {
+  container.querySelectorAll('[data-jump="ms"]').forEach(b => b.addEventListener('click', () => jumpToMSCase(b.dataset.key)));
+  container.querySelectorAll('[data-jump="price"]').forEach(b => b.addEventListener('click', () => jumpToPriceCell(b.dataset.key)));
+}
+
+// ---------------------------------------------------------------- detail panel (shared by both tables)
 function selectRow(w) {
   document.querySelectorAll('#tbl-body tr').forEach(tr => tr.classList.remove('selected'));
   const idx = currentRows.indexOf(w);
@@ -1391,28 +2145,79 @@ function selectRow(w) {
 
   const right = document.createElement('div');
   right.className = 'detail-col';
-  const cellKey = `${w.province}|${w.municipality}|${w.item}`;
-  const prices = (DATA.price_by_cell[cellKey] || []);
+  const cellKey3 = `${w.province}|${w.municipality}|${w.item}`;
+  const prices = (DATA.price_by_cell[cellKey3] || []);
   const samehunit = prices.filter(p => p.harmonized_unit === w.harmonized_unit);
   const other = prices.filter(p => p.harmonized_unit !== w.harmonized_unit);
+  const hasPriceCell = !isDroppedRecord(w) && !!CELL_BY_KEY[w.analysis_key];
   right.innerHTML = `<h3>Price-file rows for this cell</h3>` +
     (prices.length === 0 ? '<div class="placeholder">no price-file rows for this province/municipality/item</div>' :
     `<div class="pricebox"><b>Same harmonized unit (${w.harmonized_unit || 'n/a'})</b>` +
-    renderPriceTable(samehunit) +
-    (other.length ? `<b>Other units in this cell</b>` + renderPriceTable(other) : '') +
-    `</div>`);
+    renderPriceRowsTable(samehunit) +
+    (other.length ? `<b>Other units in this cell</b>` + renderPriceRowsTable(other) : '') +
+    `</div>`) +
+    (hasPriceCell ? `<button class="crosslink" data-jump="price" data-key="${esc(w.analysis_key)}">View this cell's row in section 4 (price-file flow) &darr;</button>` : '') +
+    (!isDroppedRecord(w) ? `<h3 style="margin-top:16px">Related analyses for this case</h3>` +
+      renderAnalysesHTML(gatherAnalyses({
+        analysisKey: w.analysis_key, rawKeys: [w.raw_key],
+        province: w.province, municipality: w.municipality, item: w.item, harmonizedUnit: w.harmonized_unit,
+      })) : '');
 
   const detail = document.getElementById('detail');
   detail.innerHTML = '';
   detail.appendChild(left);
   detail.appendChild(right);
+  wireCrosslinks(detail);
 }
 
-function renderPriceTable(rows) {
+function renderPriceRowsTable(rows) {
   if (!rows.length) return '<div class="placeholder">none</div>';
   return '<table><thead><tr><th>raw unit</th><th>harmonized</th><th>price type</th><th>price</th></tr></thead><tbody>' +
     rows.map(p => `<tr><td>${p.raw_unit}</td><td>${p.harmonized_unit}</td><td>${p.price_type}</td><td>${p.price}</td></tr>`).join('') +
     '</tbody></table>';
+}
+
+const BUCKET_NOTE = {
+  convertible: 'This exact (province, municipality, item, harmonized unit) cell has at least one MS weighing -- directly convertible.',
+  price_only_province_fallback: 'No MS weighing in this exact cell, but this item x harmonized unit IS weighed elsewhere in the same province -- a province-level fallback conversion factor is available.',
+  price_only_other_province_only: 'No MS weighing in this exact cell or province; this item x harmonized unit is weighed only in a DIFFERENT province.',
+  price_only_nowhere: 'This item x harmonized unit is not weighed anywhere in the MS data, in any province -- no conversion path exists.',
+  dropped_label: 'This raw label was deliberately removed from the crosswalk (dofiles/drop_non_nsu_labels.py) -- not a broken join.',
+};
+
+function selectPriceCell(c) {
+  document.querySelectorAll('#price-tbl-body tr').forEach(tr => tr.classList.remove('selected'));
+  const idx = currentPriceRows.indexOf(c);
+  const tr = document.querySelector(`#price-tbl-body tr[data-idx="${idx}"]`);
+  if (tr) tr.classList.add('selected');
+
+  const left = document.createElement('div');
+  left.className = 'detail-col';
+  left.innerHTML = `<h3>Price cell</h3>` + [
+    ['Cell', `${c.province} / ${c.municipality} / ${c.item} / ${c.harmonized_unit}`],
+    ['Status', bucketTag(c)],
+    ['Price rows in this cell', c.n_price_rows],
+  ].map(([k, v]) => `<div class="pathstep"><div class="stage">${k}</div><div class="val">${v}</div></div>`).join('')
+   + (BUCKET_NOTE[c.bucket] ? `<div class="note">${BUCKET_NOTE[c.bucket]}</div>` : '')
+   + (c.bucket === 'convertible' ? `<button class="crosslink" data-jump="ms" data-key="${esc(c.cell_key)}">View MS weighings for this case in section 3 &darr;</button>` : '')
+   + `<div class="pricebox" style="margin-top:10px"><b>Price rows in this cell</b>` +
+     '<div class="subtable"><table><thead><tr><th>raw unit</th><th>price type</th><th>price</th></tr></thead><tbody>' +
+     c.price_rows.map(p => `<tr><td>${p.raw_unit}</td><td>${p.price_type}</td><td>${p.price}</td></tr>`).join('') +
+     '</tbody></table></div></div>';
+
+  const right = document.createElement('div');
+  right.className = 'detail-col';
+  const analyses = gatherAnalyses({
+    analysisKey: c.cell_key, rawKeys: c.price_rows.map(p => p.raw_key),
+    province: c.province, municipality: c.municipality, item: c.item, harmonizedUnit: c.harmonized_unit,
+  });
+  right.innerHTML = `<h3>Related analyses</h3>` + renderAnalysesHTML(analyses);
+
+  const detail = document.getElementById('detail');
+  detail.innerHTML = '';
+  detail.appendChild(left);
+  detail.appendChild(right);
+  wireCrosslinks(detail);
 }
 </script>
 </body>
