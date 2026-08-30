@@ -9,40 +9,23 @@ before treating any single-case discrepancy as a bug.
 `docs/inflation_adjustment_spec.md` is the build spec for the CPI inputs.
 `docs/master_rename.md` documents the NSU vocabulary.
 
-### Which files are live
+**How to read this.** The sections below run in dependency order, but most readers do
+not need all of them:
 
-Run in this order. Anything not listed here is not part of the pipeline.
-
-| file | does | status |
-|---|---|---|
-| `dofiles/cleaning_Aug11.do` | raw MS → cleaned weighings on the harmonized NSU key | live |
-| `dofiles/correct_unit_snap.do` | called by the above; kg→g, L→mL, magnitude snap | live |
-| `dofiles/build_cpi_level_panel.py` | PSA CPI → `cpi_level_panel.csv` (levels only) | live |
-| `dofiles/nsu_restate_weights.do` | price-quantity weights → one price frame (`w_ref`) | live |
-| `dofiles/nsu_reference_set.do` | **Outcome 1** — the reference set | live |
-| *Outcome 2 — PSPS conversion factors* | | **not yet written** |
-| `dofiles/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
-
-Not part of the build, but not throwaway either — run these to check the build rather
-than to produce it:
-
-| file | does |
+| if you want to… | read |
 |---|---|
-| `dofiles/verify_documented_claims.py` | re-derives every number in `docs/` that no build file produces, and prints the documented value beside the current one. Exits non-zero if any has moved. **Run it after any pipeline change.** |
-| `dofiles/diagnose_price_only.py` | the authoritative raw → cleaned → harmonized NSU crosswalk; writes `master_nsu_rename.csv`, which everything else reads instead of re-deriving the fold |
-| `dofiles/validate_folds.py` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
-| `dofiles/tally_price_points.py` | how many price points each case has, under both readings of the price file |
-| `dofiles/scope_multi_price_points.py` | measures the multi-price-point-within-a-case problem |
-| `dofiles/plot_cpi_inflation.py` | the two CPI figures embedded below, and the $`\pi`$ figures quoted with them |
-| `dofiles/summary_statistics.py` | raw vs cleaned summary tables |
+| know what this produces | **Two deliverables** |
+| use the reference table in the field | **Two deliverables** → **Conventional NSU** → **Step A** |
+| convert PSPS household quantities to grams | **Notation** → **Step A** → **Step B** |
+| understand why a particular case looks odd | **Decision tree** → `docs/data_oddities.md` |
+| judge whether to trust a number | **Assumptions to keep visible** → **Warning for downstream use** |
+| run or modify the pipeline | **Reference: which files are live** (at the end) |
 
-Any number quoted in this document should be traceable to one of the files above. If
-you find one that is not, it is unverified — treat it as a claim, not a measurement.
-
-> **`nsu_step_a_rungs.do` is kept only as a record of a rejected approach.** It set
-> the group count from the *weighing count*, which neither outcome uses, and assumed
-> one resolution could serve both deliverables, which it cannot. Its output
-> `nsu_rungs.dta` is stale and nothing reads it. The file carries a banner saying so.
+Two things to know before reading anything else. **There are two deliverables, not
+one, and they are not derivable from each other** — the same weighings are sliced
+differently for each. And **a "case" means province × municipality × item ×
+harmonized NSU unit × corrected unit**; nearly every count in this document is at that
+grain.
 
 ## Two deliverables
 
@@ -726,7 +709,91 @@ higher $`v`$" diverge, and why the tie rule is stated on $`v`$. A household spen
 ₱65 per NSU matches ₱50, and receives $`65 / 0.33 = 195`$ g per NSU — more than the
 150 g weighed for the small group, because it paid more than the small group's price.
 
-#### Why the adjustment sits on the weight
+## Assumptions to keep visible
+
+Each is tagged with the branch it binds on. **The two load-bearing ones are 2 and 3,
+and they are mirror images** — the price-quantity branch assumes the *price* schedule
+moved only with the index; the size-based branch assumes the *quantity* schedule did
+not move at all. Neither branch is assumption-free, and they do not lean on the same
+thing.
+
+1. **Single price schedule within a case.** *(all branches)* Households in a case
+   face the same price-per-gram schedule, so a higher PHP-per-gram means a bigger
+   unit, not a different deal. Bargaining, quality and vendor differences violate
+   it; within a matched hetero-group, any price variation that is *not* size passes
+   proportionally into $`\widehat g_h`$.
+
+   The LSMS guidebook names this as the known weakness of price-based conversion and
+   its reason for preferring direct weighing (Oseni, Durazo & McGee 2017, §1.2,
+   p. 3): *"unit prices can vary because of factors unrelated to the actual mass or
+   volume of an item… quality differences… price discounts on larger units."* Step A
+   does weigh directly, as recommended, but Step B reintroduces price as the
+   *matching* variable, so the caution applies to the hetero-group assignment. The
+   quantity-discount point is why the method keeps a separate $`v_g`$ per hetero-group
+   rather than one case-level scalar.
+
+2. **Real price per gram moved only with the index.** *(price-quantity branch —
+   load-bearing)* This licenses $`w_g^{\text{PSPS}} = w_g(1+\pi)`$: the only reason a
+   fixed peso amount buys less now is general inflation for that item, not a change
+   in its real price. Since $`\pi`$ comes from a province × COICOP-group index, the
+   assumption is *within-group* — no differential real price change between, say,
+   cabbage and other leafy vegetables.
+
+3. **Unit size stable between rounds.** *(size-based branch — load-bearing)* This
+   licenses $`w_g^{\text{PSPS}} = w_g`$: a "medium" unit is assumed to have been the
+   same physical size in both rounds, so an MS-measured weight can be paired with a
+   PSPS-round price. Shrinkflation — vendors holding the peso price and reducing the
+   unit — violates it and would make size-based weights too small. No price
+   adjustment can repair this; it needs a size-comparability check against the
+   reference photos, which the guidebook recommends and which has not been done.
+
+4. **Rank alignment of the two ladders.** *(size-based branch)* Pairing the $`k`$-th
+   weight tercile with the $`k`$-th price percentile assumes households who paid
+   least bought the lightest units. Nothing in the data establishes it: the two
+   distributions come from different rounds and different respondents, and only rank
+   order links them. Where size and price are weakly related (assumption 1), the
+   pairing misassigns *systematically*, not noisily. Does **not** apply to the
+   price-quantity branch, where $`w_g`$ and $`p_g`$ were observed in the same
+   transaction.
+
+5. **Terciles are the right cut.** *(size-based branch)* Bottom / middle / top thirds
+   is a convention; if transactions concentrate in one size the cut misallocates the
+   tails. Worth a robustness check against alternative cuts or a modal-size rule.
+
+6. **Conventional units are standard within a locality.** *(conventional branch)*
+   They may still vary *across* municipalities, which is testable wherever the MS
+   weighed the same unit in several of them.
+
+## Warning for downstream use
+
+**Measurement error in $`p_h`$ propagates into grams.** $`p_h = e_h / q_h`$ is a
+derived unit value: misreporting $`e_h`$ or $`q_h`$ feeds into $`p_h`$, which can
+flip the household across a size boundary in B2 and scales $`\widehat g_h`$
+proportionally in B3.
+
+## Practical prerequisites
+
+- **Unit-name harmonization.** Already done, upstream of everything here —
+  `harmonized_nsu_unit` in `master_nsu_rename.csv` is the pooling key, and the price
+  side is mapped onto it too. Pool on it, never on the raw or cleaned label. See
+  *Harmonization stages* above and `docs/master_rename.md`.
+- **Multiple vendors.** Vendor-level weights within a case are aggregated with a
+  robust estimator (median, or a light fixed-trim mean); the Step A pooling already
+  dilutes single-vendor outliers.
+- **Join the two hetero-group limits.** The weighing-count and price-point tallies in
+  *Degrading gracefully* are marginal. Joining them on `harmonized_nsu_unit` gives
+  the real joint distribution and is the first implementation task.
+
+
+---
+
+# Reference
+
+## Why the inflation adjustment is built this way
+
+*Moved out of the main sequence: these justify choices already stated in Step B.*
+
+### Why the adjustment sits on the weight
 
 Adjusting the weight up by $`(1+\pi)`$ and deflating the price by $`(1+\pi)`$ are
 the same operation: $`p_h\,w_g(1+\pi)/p_g = p_h\,w_g/\bigl(p_g/(1+\pi)\bigr)`$.
@@ -747,7 +814,7 @@ Two ways to get this wrong:
   MS terms, $`p_h`$ must be too. A household-level $`\pi`$ on one side and a
   cell-level $`\pi`$ on the other leaves a residue that is pure artefact.
 
-#### Why $`\pi`$ cannot just be set to zero
+### Why $`\pi`$ cannot just be set to zero
 
 The simplest thing to do about inflation is nothing, and that would be defensible if
 $`\pi`$ were small and roughly the same everywhere. It would then wash out of the
@@ -824,77 +891,37 @@ arithmetically immune to CPI mismeasurement — worth knowing given the spread a
 
 ---
 
-## Assumptions to keep visible
+## Which files are live
 
-Each is tagged with the branch it binds on. **The two load-bearing ones are 2 and 3,
-and they are mirror images** — the price-quantity branch assumes the *price* schedule
-moved only with the index; the size-based branch assumes the *quantity* schedule did
-not move at all. Neither branch is assumption-free, and they do not lean on the same
-thing.
+Run in this order. Anything not listed here is not part of the pipeline.
 
-1. **Single price schedule within a case.** *(all branches)* Households in a case
-   face the same price-per-gram schedule, so a higher PHP-per-gram means a bigger
-   unit, not a different deal. Bargaining, quality and vendor differences violate
-   it; within a matched hetero-group, any price variation that is *not* size passes
-   proportionally into $`\widehat g_h`$.
+| file | does | status |
+|---|---|---|
+| `dofiles/cleaning_Aug11.do` | raw MS → cleaned weighings on the harmonized NSU key | live |
+| `dofiles/correct_unit_snap.do` | called by the above; kg→g, L→mL, magnitude snap | live |
+| `dofiles/build_cpi_level_panel.py` | PSA CPI → `cpi_level_panel.csv` (levels only) | live |
+| `dofiles/nsu_restate_weights.do` | price-quantity weights → one price frame (`w_ref`) | live |
+| `dofiles/nsu_reference_set.do` | **Outcome 1** — the reference set | live |
+| *Outcome 2 — PSPS conversion factors* | | **not yet written** |
+| `dofiles/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
 
-   The LSMS guidebook names this as the known weakness of price-based conversion and
-   its reason for preferring direct weighing (Oseni, Durazo & McGee 2017, §1.2,
-   p. 3): *"unit prices can vary because of factors unrelated to the actual mass or
-   volume of an item… quality differences… price discounts on larger units."* Step A
-   does weigh directly, as recommended, but Step B reintroduces price as the
-   *matching* variable, so the caution applies to the hetero-group assignment. The
-   quantity-discount point is why the method keeps a separate $`v_g`$ per hetero-group
-   rather than one case-level scalar.
+Not part of the build, but not throwaway either — run these to check the build rather
+than to produce it:
 
-2. **Real price per gram moved only with the index.** *(price-quantity branch —
-   load-bearing)* This licenses $`w_g^{\text{PSPS}} = w_g(1+\pi)`$: the only reason a
-   fixed peso amount buys less now is general inflation for that item, not a change
-   in its real price. Since $`\pi`$ comes from a province × COICOP-group index, the
-   assumption is *within-group* — no differential real price change between, say,
-   cabbage and other leafy vegetables.
+| file | does |
+|---|---|
+| `dofiles/verify_documented_claims.py` | re-derives every number in `docs/` that no build file produces, and prints the documented value beside the current one. Exits non-zero if any has moved. **Run it after any pipeline change.** |
+| `dofiles/diagnose_price_only.py` | the authoritative raw → cleaned → harmonized NSU crosswalk; writes `master_nsu_rename.csv`, which everything else reads instead of re-deriving the fold |
+| `dofiles/validate_folds.py` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
+| `dofiles/tally_price_points.py` | how many price points each case has, under both readings of the price file |
+| `dofiles/scope_multi_price_points.py` | measures the multi-price-point-within-a-case problem |
+| `dofiles/plot_cpi_inflation.py` | the two CPI figures embedded below, and the $`\pi`$ figures quoted with them |
+| `dofiles/summary_statistics.py` | raw vs cleaned summary tables |
 
-3. **Unit size stable between rounds.** *(size-based branch — load-bearing)* This
-   licenses $`w_g^{\text{PSPS}} = w_g`$: a "medium" unit is assumed to have been the
-   same physical size in both rounds, so an MS-measured weight can be paired with a
-   PSPS-round price. Shrinkflation — vendors holding the peso price and reducing the
-   unit — violates it and would make size-based weights too small. No price
-   adjustment can repair this; it needs a size-comparability check against the
-   reference photos, which the guidebook recommends and which has not been done.
+Any number quoted in this document should be traceable to one of the files above. If
+you find one that is not, it is unverified — treat it as a claim, not a measurement.
 
-4. **Rank alignment of the two ladders.** *(size-based branch)* Pairing the $`k`$-th
-   weight tercile with the $`k`$-th price percentile assumes households who paid
-   least bought the lightest units. Nothing in the data establishes it: the two
-   distributions come from different rounds and different respondents, and only rank
-   order links them. Where size and price are weakly related (assumption 1), the
-   pairing misassigns *systematically*, not noisily. Does **not** apply to the
-   price-quantity branch, where $`w_g`$ and $`p_g`$ were observed in the same
-   transaction.
-
-5. **Terciles are the right cut.** *(size-based branch)* Bottom / middle / top thirds
-   is a convention; if transactions concentrate in one size the cut misallocates the
-   tails. Worth a robustness check against alternative cuts or a modal-size rule.
-
-6. **Conventional units are standard within a locality.** *(conventional branch)*
-   They may still vary *across* municipalities, which is testable wherever the MS
-   weighed the same unit in several of them.
-
-## Warning for downstream use
-
-**Measurement error in $`p_h`$ propagates into grams.** $`p_h = e_h / q_h`$ is a
-derived unit value: misreporting $`e_h`$ or $`q_h`$ feeds into $`p_h`$, which can
-flip the household across a size boundary in B2 and scales $`\widehat g_h`$
-proportionally in B3.
-
-## Practical prerequisites
-
-- **Unit-name harmonization.** Already done, upstream of everything here —
-  `harmonized_nsu_unit` in `master_nsu_rename.csv` is the pooling key, and the price
-  side is mapped onto it too. Pool on it, never on the raw or cleaned label. See
-  *Harmonization stages* above and `docs/master_rename.md`.
-- **Multiple vendors.** Vendor-level weights within a case are aggregated with a
-  robust estimator (median, or a light fixed-trim mean); the Step A pooling already
-  dilutes single-vendor outliers.
-- **Join the two hetero-group limits.** The weighing-count and price-point tallies in
-  *Degrading gracefully* are marginal. Joining them on `harmonized_nsu_unit` gives
-  the real joint distribution and is the first implementation task.
+> **`nsu_step_a_rungs.do` is kept only as a record of a rejected approach.** It set
+> the group count from the *weighing count*, which neither outcome uses, and assumed
+> one resolution could serve both deliverables, which it cannot. Its output
+> `nsu_rungs.dta` is stale and nothing reads it. The file carries a banner saying so.
