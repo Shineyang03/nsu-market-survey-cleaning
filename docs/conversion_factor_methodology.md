@@ -18,6 +18,7 @@ not need all of them:
 | use the reference table in the field | **Two deliverables** → **Conventional NSU** → **Step A** |
 | convert PSPS household quantities to grams | **Notation** → **Step A** → **Step B** |
 | understand why a particular case looks odd | **Decision tree** → `docs/data_oddities.md` |
+| know which price points a case gets | **Decision rule: which price points a case gets** |
 | judge whether to trust a number | **Assumptions to keep visible** → **Warning for downstream use** |
 | run or modify the pipeline | **Reference: which files are live** (at the end) |
 
@@ -708,6 +709,131 @@ medium one, which is exactly the case where "take the lower price point" and "ta
 higher $`v`$" diverge, and why the tie rule is stated on $`v`$. A household spending
 ₱65 per NSU matches ₱50, and receives $`65 / 0.33 = 195`$ g per NSU — more than the
 150 g weighed for the small group, because it paid more than the small group's price.
+
+## Decision rule: which price points a case gets
+
+A case is province × municipality × item × harmonized NSU unit × corrected unit.
+Harmonization pools raw spellings, and the price file is keyed on the **raw** spelling,
+so a case can inherit more than one set of price points. This section states what
+happens in every case, exhaustively.
+
+Two facts drive the whole rule:
+
+- **On the price-quantity branch a price was spent.** The peso amount was printed on
+  the form from PSPS-round prices, the enumerator handed it over, and weighed what came
+  back. The weight was elicited *at* that price.
+- **On the size-based branch no price was spent.** The enumerator asked for a small, a
+  medium, a large. The price file enters only afterwards, to say how many groups the
+  case supports and what each group's price is.
+
+So merging price points is harmless where no price was spent, and destroys a
+measurement where one was.
+
+### The partition
+
+Every one of the 2,020 cases falls in exactly one row.
+
+| # | branch | pools >1 weighed spelling | cases | weighings | price points the case gets |
+|---|---|---|---|---|---|
+| 1 | conventional | no | 123 | 468 | none — one group, the case median. The price file is not used for grouping. |
+| 2 | conventional | yes | **0** | 0 | *(does not occur; verified, not assumed)* |
+| 3 | size-based | no | 1,534 | 9,505 | the spelling's own points, **exactly as recorded**. No merge. |
+| 4 | size-based | **yes** | **39** | **256** | the **union** across weighed spellings, then merged — see below |
+| 5 | price-quantity | no | 320 | 1,104 | `pull_price` per weighing. The price file is not used. |
+| 6 | price-quantity | **yes** | **3** | **14** | every distinct `pull_price`, **kept separate**. No merge. |
+| 7 | price-quantity + size-based | yes | 1 | 13 | Outcome 1 takes the size-based rows under row 4; Outcome 2 takes the price-quantity rows under row 6 |
+| | | | **2,020** | **11,360** | |
+
+Price rows belonging to a spelling that was **never weighed in that cell** are excluded
+from every row above. They contribute no weight, so they cannot inform a weight moment.
+They are retained for one purpose only: matching a PSPS household that reports that
+spelling.
+
+### Row 4 in detail — the merge rule
+
+1. **Pool the weights** across the weighed spellings. This is what harmonization is
+   for: more observations behind each estimate.
+2. **Take the union of price points** from those spellings, on the peso value.
+3. **Merge points within ₱20 of each other**, single-linkage, so a chain of near-equal
+   values collapses to one group. Merging is on the **value, not the rung label** — the
+   `mp25` of one spelling may merge with the `mp50` of another.
+4. **The merged point takes the mean** of the values merged into it. Two points at ₱17.50
+   and ₱8 become one point at ₱12.75.
+5. **Cut the pooled weight distribution into as many parts as there are surviving
+   points**, lowest weights to the lowest price.
+
+**Why ₱20 and not another number.** It is the threshold the price file already uses.
+`NSU_Price.R`, which builds that file, does not record a municipal price separately when
+it is within ₱20 of the province median, and collapses quartiles to the median alone
+when both quartile gaps are within ₱20. Reusing it keeps the merge consistent with the
+data it operates on rather than adding a second, unrelated tolerance.
+
+**Why the mean rather than one of the two values.** Mapping a size onto a price rung
+already assumes small ↔ mp25, medium ↔ mp50, large ↔ mp75 — an assumption nothing in the
+data establishes, since the weight and price distributions come from different rounds
+and different respondents. Against that, the choice between two prices ₱20 apart is not
+material. The mean avoids privileging one spelling arbitrarily.
+
+**Effect** (measured by `dofiles/scope_price_point_merge_rule.py`, 38 cases at the
+four-key grain):
+
+| rule | mean points per case | cases with >3 points | cases with <2 weighings per point |
+|---|---|---|---|
+| no merge | 3.37 | 17 | 18 |
+| ≤ ₱10 | 2.55 | 10 | 14 |
+| **≤ ₱20** | **1.97** | **1** | **10** |
+| ≤ ₱30 | 1.84 | 1 | 8 |
+| relative ≤ 10% | 2.82 | 11 | 16 |
+
+Picking one spelling's ladder and discarding the other's would give a mean of 2.11, so
+₱20 lands slightly below that without having to choose a spelling.
+
+**The one case that does not resolve.** ILOILO / CARLES / chicken / `whole (chicken)` —
+10 weighings, 5 union points, still 4 after merging, because chicken prices are high
+enough that ₱20 is a small relative gap. Its weights are cut into 4 parts and mapped
+onto the 4 surviving points. No special rule.
+
+### Row 6 in detail — why no merge
+
+The enumerator spent a specific amount. Collapsing two spellings to one price would
+misattribute the treatment:
+
+| case | spelling | n | price handed over | median weight |
+|---|---|---|---|---|
+| NEGROS OCCIDENTAL / VALLADOLID / cabbage | `bilog` | 3 | ₱25 | 325 g |
+| | `pieces or units` | 3 | ₱60 | 780 g |
+| NEGROS OCCIDENTAL / VALLADOLID / carrot | `bilog` | 3 | ₱17.50 | 150 g |
+| | `pieces or units` | 3 | ₱8 | 95 g |
+| ILOILO / AJUY / cabbage `pack` | `pack` | 1 | ₱50 | 785 g |
+| | `shredded cabbage(pack)` | 1 | ₱20 | 135 g |
+
+₱60 bought 2.4× what ₱25 bought. That is the price–quantity relationship the branch
+exists to measure.
+
+Keeping both points is also a **gain at the matching step**: Valladolid carrot ends up
+with two conversion factors under one harmonized unit, at ₱17.50 and ₱8. A PSPS
+household reporting `bilog` can be matched to whichever point its own unit value is
+closer to, including the one collected under `pieces or units`. Harmonization buys that
+flexibility precisely by not collapsing the price dimension.
+
+No implementation is required for rows 5 and 6: Outcome 2's price-quantity branch
+already uses `pull_price` as $`p_g`$, so the price file is never consulted there.
+
+### Known inconsistency in this rule
+
+The ₱20 merge applies to row 4 only. Row 3 — a size-based case with a single weighed
+spelling — keeps its price points as recorded, however close together they are.
+
+Those points are not always far apart. Of 959 single-spelling full quartile triples in
+the price file, **452 (47%) have at least one adjacent gap of ₱20 or less**: 376 have
+`mp50 − mp25 ≤ 20` and 76 have `mp75 − mp50 ≤ 20`. Across all single-spelling ladders
+with more than one point, 446 of 1,310 (34%) contain a pair within ₱20.
+
+So the same closeness is merged in row 4 and kept in row 3. The rule is deliberate — it
+is scoped to the problem harmonization created, and leaves the price file's own output
+untouched elsewhere — but it is not internally consistent, and a reader comparing two
+cases will see identical price gaps treated differently. Extending ₱20 to row 3 would
+change 452 cases and is not part of this decision.
 
 ## Assumptions to keep visible
 
