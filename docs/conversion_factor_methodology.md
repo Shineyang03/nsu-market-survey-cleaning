@@ -18,7 +18,7 @@ not need all of them:
 | use the reference table in the field | **Two deliverables** → **Conventional NSU** → **Step A** |
 | convert PSPS household quantities to grams | **Notation** → **Step A** → **Step B** |
 | understand why a particular case looks odd | **Decision tree** → `docs/data_oddities.md` |
-| know which price points a case gets | **Decision rule: which price points a case gets** |
+| know which price points a case gets | **Decision rule (Outcome 2)** |
 | judge whether to trust a number | **Assumptions to keep visible** → **Warning for downstream use** |
 | run or modify the pipeline | **Reference: which files are live** (at the end) |
 
@@ -710,7 +710,7 @@ higher $`v`$" diverge, and why the tie rule is stated on $`v`$. A household spen
 ₱65 per NSU matches ₱50, and receives $`65 / 0.33 = 195`$ g per NSU — more than the
 150 g weighed for the small group, because it paid more than the small group's price.
 
-## Decision rule: which price points a case gets
+## Decision rule (Outcome 2): which price points a case gets
 
 A case is province × municipality × item × harmonized NSU unit × corrected unit.
 Harmonization pools raw spellings, and the price file is keyed on the **raw** spelling,
@@ -834,6 +834,51 @@ is scoped to the problem harmonization created, and leaves the price file's own 
 untouched elsewhere — but it is not internally consistent, and a reader comparing two
 cases will see identical price gaps treated differently. Extending ₱20 to row 3 would
 change 452 cases and is not part of this decision.
+
+## Decision rule (Outcome 1): how a weighing gets its size
+
+Outcome 1 publishes **grams by size** — small, medium, large, or conventional. It has
+no price dimension, so the price file runs the opposite way from Outcome 2: instead of
+prices setting how many groups the weights are cut into, a price rung decides which
+*size* a weighing is called.
+
+Outcome 1 applies its own exclusions first — rows with no usable `w_ref` (7),
+`unique_mun_price` weighings (33, which are not a size), and the price-quantity rows of
+the one mixed-branch cell (4). **2,005 cases and 11,316 weighings** remain, and every
+case falls in exactly one row:
+
+| # | branch | pools >1 weighed spelling | cases | weighings | how the size is decided |
+|---|---|---|---|---|---|
+| 1 | conventional | no | 123 | 468 | no size; one row, the case median |
+| 2 | size-based | no | 1,532 | 9,511 | $`k`$ = distinct S/M/L field labels; re-tercile the weights into $`k`$ groups; the $`g`$-th group inherits the $`g`$-th label present |
+| 3 | size-based | yes | 39 | 256 | same, but $`k`$ counts labels across both spellings and the terciles are cut on the **pooled** weights |
+| 4 | price-quantity | no | 309 | 1,069 | read off the rung: mp25→S, mp50→M, mp75→L, **any median→M** |
+| 5 | price-quantity | yes | 2 | 12 | same rule; both cases collide, see below |
+| | | | **2,005** | **11,316** | |
+
+Conventional cases never pool more than one spelling — verified, not assumed.
+
+**Row 3 is the design, not a defect.** Pooling changes the tercile inputs in 39 cases.
+Oseni, Durazo & McGee (2017) §3 step 3 prescribes re-deriving sizes from the pooled
+distribution precisely because a small in one market can outweigh a large in another.
+Spelling is a vendor-level attribute here (no vendor in the file ever used two
+spellings), so a spelling gap *is* vendor heterogeneity, which the re-tercile exists to
+absorb. Pooling raises $`k`$ above what any single spelling recorded in 3 of the 39.
+
+**Row 5 collides, in both cases.** Both are NEGROS OCCIDENTAL / VALLADOLID,
+`pieces or units`: cabbage has `bilog` at a municipality median (n=3, median 325 g) and
+`pieces or units` at a province median (n=3, 780 g); carrot has the same pair at 150 g
+and 95 g. Because `mp50`, `municipality median` and `province median` all map to
+`size_ord = 2`, cabbage collapses a 2.4× weight spread into one published "medium".
+Unresolved — see issue #21.
+
+**What row 4 exposes, which is larger than the pooling question.** Of the rows Outcome 1
+publishes as "medium", only 92 come from a real `mp50`; **861 come from a municipality
+or province median**. And **277 of the 311 price-quantity cases carry only a median
+label**, so each publishes exactly one row, called "medium", with no small and no large
+beside it. A future enumerator reading the table sees "medium" and reasonably infers the
+other sizes exist for that cell. They do not. This is not caused by harmonization;
+it is the cost of reading a central tendency as a size. Tracked on issue #27.
 
 ## Assumptions to keep visible
 
