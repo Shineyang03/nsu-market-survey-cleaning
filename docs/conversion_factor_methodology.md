@@ -476,9 +476,18 @@ publishes a reference table where M > L.
 
 **Outcome 2 counts the price points the price file holds.** A size is only useful if there is a
 price to pair it with, so a cell with a single median price supports one hetero-group no
-matter how often we weighed it. The four dominant `price_type` combinations map
-one-to-one onto the four branches of the field protocol above, which is a useful
-confirmation that the protocol description and the file agree:
+matter how often we weighed it.
+
+**Read these counts at the right grain.** The price file is keyed on the *raw* NSU label;
+both outcomes pool at the *harmonized* unit. Harmonization merges spellings, and two
+spellings of one unit can carry different `price_type`s — so the harmonized cell holds
+combinations that never existed in the price file and that no protocol branch produced.
+The two grains are reported separately below because they answer different questions:
+the raw grain checks the protocol description against the file, and the harmonized grain
+is what the pipeline actually operates on.
+
+*Raw grain — 2,950 cells. Six combinations, mapping one-to-one onto the four branches of
+the field protocol above, which confirms the protocol description and the file agree:*
 
 | `price_type` combination | protocol branch | cases | share |
 |---|---|---|---|
@@ -488,33 +497,60 @@ confirmation that the protocol description and the file agree:
 | `province median` + `unique_mun_price` | ≤2 unique prices, > ₱20 from province median | 350 | 11.9% |
 | quartile triple + an extra point | — | 5 | 0.2% |
 
-Reading that as hetero-groups needs one judgement call. In the fourth row the province
-median accompanies the municipal price *because* the municipal evidence is thin, so
-it is a **fallback reference, not a second hetero-group** — the two are estimates of the
-same central tendency at different geographies, and pairing them as small/large
-would be meaningless. Of those 350 cases, 253 have one distinct municipal price
-level and 97 have two. So:
+*Harmonized grain — 2,550 cells. Twelve combinations. The eight marked ✦ do not exist in
+the price file at all; the fold creates them:*
 
-| hetero-groups available on price grounds | cases | share |
+| `price_type` combination | cells |
+|---|---|
+| `mp25+mp50+mp75` | 782 |
+| `province median` | 620 |
+| `municipality median` | 602 |
+| `province median` + `unique_mun_price` | 290 |
+| ✦ `municipality median` + `province median` | 81 |
+| ✦ `mp25+mp50+mp75` + `province median` | 63 |
+| ✦ `mp25+mp50+mp75` + `municipality median` | 47 |
+| ✦ `mp25+mp50+mp75` + `province median` + `unique_mun_price` | 27 |
+| ✦ `municipality median` + `province median` + `unique_mun_price` | 27 |
+| ✦ `mp25+mp50+mp75` + `municipality median` + `province median` | 4 |
+| `mp25+mp50+mp75` + `unique_mun_price` | 4 |
+| ✦ `mp25+mp50+mp75` + `municipality median` + `province median` + `unique_mun_price` | 3 |
+
+**115 harmonized cells hold both a municipality median and a province median; no raw cell
+does.** Every one of the 115 pools more than one spelling. AKLAN / ALTAVAS / cabbage is
+typical: `bilog` carries a province median of ₱60 and `binilog` a municipality median of
+₱50, and folding them into `pieces or units` gives one cell two medians at two
+geographies with two values. See issue #21.
+
+Reading any of this as hetero-groups needs one judgement call. Where a province median
+accompanies a thin municipal observation (the fourth raw-grain row), it is a **fallback
+reference, not a second hetero-group** — the two are estimates of the same central
+tendency at different geographies, and pairing them as small/large would be meaningless.
+Note the scope: this call was made about that one raw-grain combination. It does not by
+itself settle the ✦ combinations, which arise from a different mechanism and need their
+own rule — see issue #23.
+
+| hetero-groups on price grounds | harmonized (operative) | raw |
 |---|---|---|
-| 3 | 959 | 32.5% |
-| 2 | 97 | 3.3% |
-| 1 | 1,894 | **64.2%** |
+| 3 | 930 · **36.5%** | 959 · 32.5% |
+| 2 | 90 · **3.5%** | 97 · 3.3% |
+| 1 | 1,530 · **60.0%** | 1,894 · 64.2% |
 
-(The alternative reading — every distinct price level is a hetero-group — gives 33.6% / 10.7%
-/ 55.6%. Either way the qualitative conclusion is the same.) Tallied by
-`dofiles/tally_price_points.py`.
+(Under the alternative reading — every distinct price level counts — the harmonized split
+is 40.4% / 13.3% / 45.8%, plus 11 cells with 4 or 5 groups. The qualitative conclusion
+holds either way.) Both grains are tallied by `dofiles/scope_price_combo_grain.py`;
+`dofiles/tally_price_points.py` computes the raw grain only.
 
-So on the Outcome 2 side about two thirds of cases collapse to a single group on
-price grounds (64.2%), and the two-group case is genuinely rare at 3.3% — in
-practice a case has either the full three-group ladder or no ladder at all.
+So on the Outcome 2 side about **60%** of cases collapse to a single group on price
+grounds, and the two-group case is genuinely rare at 3.5% — in practice a case has either
+the full three-group ladder or no ladder at all.
 
-Two caveats on those price-side figures. They cover all **2,950** price-file cases
-including the 949 price-only ones with no MS weighings, so the shares among cases
-that actually have weights will differ. And **38 of the 350** province-median-plus-
-municipal-price cases have their municipal price within ₱20 of the province median,
-which the stated protocol would have collapsed to province median only — still worth
-confirming whether those are exceptions or a different threshold was applied.
+Two caveats. These figures cover all price-file cases, including price-only ones with no
+MS weighings, so the shares among cases that actually have weights will differ. And the
+₱20 rule has exceptions: **42 (case, unique price) pairs sit within ₱20 of their province
+median**, including several exact ties, which the stated protocol would have collapsed to
+province median only. (Counting strictly under ₱20 gives 34. An earlier version of this
+document said 38, which reproduces under neither cut.) Measured by
+`dofiles/scope_unique_price_size_based.py`; see issue #6.
 
 **Almost every size-based case has a price-file row.** Checked directly by
 `dofiles/verify_documented_claims.py`: **1,514 of 1,515** size-based cells match. The

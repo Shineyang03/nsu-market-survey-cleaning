@@ -120,3 +120,49 @@ if len(both):
     print(f"\nof the {len(both)} both-medians harmonized cells, "
           f"{n_multi} pool more than one raw spelling"
           f" (so the combination is CREATED by harmonization)")
+
+
+# ---------------------------------------------------------------------------
+# The hetero-group split, at both grains.
+#
+# docs/conversion_factor_methodology.md quotes 3 -> 32.5% / 2 -> 3.3% / 1 -> 64.2%.
+# That is a RAW-grain figure over 2,950 cells, quoted to describe a pipeline that
+# pools 2,550 harmonized cells. Both are computed here so the doc can state the one
+# it actually means.
+#
+# The counting rule is tally_price_points.py's "reference reading": a full quartile
+# triple gives 3 groups; otherwise the distinct unique_mun_price levels give 1-2; a
+# lone median gives 1. An accompanying province median is a fallback reference, not
+# a second group. The alternative reading -- every distinct price level counts -- is
+# reported beside it, as the doc does.
+# ---------------------------------------------------------------------------
+def n_groups_reference(g):
+    t = set(g.price_type)
+    q = len(set(QUART) & t)
+    if q:
+        return q
+    mun = g.loc[g.price_type == UNIQ, "price"].dropna().nunique()
+    return mun if mun else 1
+
+
+def n_groups_every_level(g):
+    t = set(g.price_type)
+    q = len(set(QUART) & t)
+    if q:
+        return q
+    return max(1, g.loc[g.price_type.isin([UNIQ, MUN, PROV]), "price"].dropna().nunique())
+
+
+print("=" * 78)
+print("HETERO-GROUPS PER CELL, BOTH GRAINS AND BOTH READINGS")
+print("=" * 78)
+for label, unit_col in [("raw", "pull_nsu_unit"), ("harmonized", "harmonized_nsu_unit")]:
+    keys = KEY + [unit_col]
+    ref = pr.groupby(keys).apply(n_groups_reference, include_groups=False)
+    alt = pr.groupby(keys).apply(n_groups_every_level, include_groups=False)
+    n = len(ref)
+    print(f"\n{label} grain -- {n:,} cells")
+    print("  groups | reference reading      | every-level reading")
+    for k in sorted(set(ref.unique()) | set(alt.unique())):
+        a, b = int((ref == k).sum()), int((alt == k).sum())
+        print(f"  {k:>6} | {a:>6} ({100*a/n:>5.1f}%)        | {b:>6} ({100*b/n:>5.1f}%)")
