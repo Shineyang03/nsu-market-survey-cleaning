@@ -895,6 +895,29 @@ group empties.
 | 3 | 2 | 14 | groups 1, 3 — the **middle** emptied |
 | 3 | 1 | 4 | group 1 — both upper groups emptied |
 
+### What "medium" means in the published file
+
+`size_ord = 2` is published as **medium** on 1,274 of the 3,307 reference-set rows, and
+the label does not mean the same thing on all of them. The decision (issue #21 §3) is to
+keep the single name and state the composition here rather than split it into two labels
+the field cannot act on.
+
+| what the case looks like | medium rows | what "medium" is describing |
+|---|---|---|
+| publishes all three sizes | 502 | the middle tercile, as the name implies |
+| publishes two sizes | 273 | the upper or lower of two groups, named by position |
+| publishes one size only | 499 | **the case's only value.** Not a middle of anything — the case never separated into sizes, so its single median is labelled medium by default |
+
+The third row is the one to read carefully. For 499 cases the published "medium" is the
+whole case: a municipality/item/unit median with no size structure behind it. `n_g` on
+those rows is the weighing count the value rests on, and `d_thin` marks the ones resting
+on fewer than three. A reader wanting only genuinely-middle values should keep rows whose
+case publishes three sizes; a reader wanting a best single estimate per case should
+prefer the one-size rows precisely because they pool everything.
+
+This is a naming convention, not a measurement claim. Nothing downstream keys on the
+label — the case grain plus `size_ord` identifies a row, and `grams` is the estimate.
+
 The last shape loses *two* groups. It did not occur under the previous magnitude rule,
 and it is a direct consequence of the anchor snap: snapping a weight toward its cell
 median pulls outliers into the body of the distribution, so more vendors tie on a cut
