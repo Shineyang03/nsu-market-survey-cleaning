@@ -58,9 +58,16 @@ Under outputs/ it would end up inside the next snapshot; on Box it would push ~9
 through the sync client on every --save. Override with --snapshot if you want to keep
 one around, but put it on local disk.
 
+A SECOND, INDEPENDENT CHECK lives here too: `--reference` compares the crosswalk build
+against the frozen pre-split outputs in reference/, rather than against a snapshot of the
+last run. That one is a genuine byte comparison -- those outputs are plain csv with no
+embedded timestamp -- and it exists because 01_build_crosswalk.py was split apart to make
+it runnable at all (issue #33). It answers "did the split change any answer".
+
 RUN
     python dofiles/90_diagnostics/verify_reproducibility.py --save
     python dofiles/90_diagnostics/verify_reproducibility.py
+    python dofiles/90_diagnostics/verify_reproducibility.py --reference
     python dofiles/90_diagnostics/verify_reproducibility.py --snapshot D:\some\dir
 """
 import argparse
@@ -221,12 +228,81 @@ def compare(snap: Path):
     return 1 if bad else 0
 
 
+# ---- the frozen reference set (issue #33) -------------------------------------------
+# The crosswalk build was split apart so it could run at all. These are the outputs it
+# produced BEFORE the split, kept so "the split changed nothing" is a check that runs
+# rather than a claim someone made once. reference/README.md says how they were made.
+#
+# Byte comparison IS meaningful here, unlike for the .dta and .xlsx above: these are
+# plain csv with no embedded timestamp, so an identical rebuild is identical bytes.
+REFERENCE = DC / "reference"
+REFERENCE_PAIRS = [
+    # live output                                            frozen reference
+    ("outputs/tables/master_nsu_rename.csv",                  "master_nsu_rename.csv"),
+    ("outputs/temp/cases_in_price_not_in_MS_diagnosed.csv",
+     "cases_in_price_not_in_MS_diagnosed.csv"),
+    ("outputs/temp/price_only_coverage_summary.csv",          "price_only_coverage_summary.csv"),
+]
+
+# unit_fold_map.csv is deliberately NOT compared. The frozen copy is wrong twice over --
+# built from the 27 July nsu_data.dta (n sums to 11,259, not 11,453), and with its whole
+# `dimension` column reading "?" because the pickle held corrected_unit as a categorical
+# ('g'/'mL') while the lookup keyed on floats (1.0/2.0). The rebuild corrects both, so a
+# difference there is the point rather than a regression. The extracted fold rule was
+# proved bit-exact separately: fed the same stale input read the same categorical way, it
+# reproduces the frozen copy byte for byte.
+
+
+def compare_reference():
+    """Check the crosswalk build still produces exactly what it did before the split."""
+    print("=" * 78)
+    print(f"REFERENCE CROSS-CHECK  {REFERENCE}")
+    print("=" * 78)
+    if not REFERENCE.exists():
+        print(f"  no reference folder at {REFERENCE}")
+        return 1
+
+    rows = []
+    for live_rel, ref_name in REFERENCE_PAIRS:
+        live = DC / live_rel
+        ref = REFERENCE / ref_name
+        if not ref.exists():
+            rows.append((live_rel, "NO-REF", f"{ref_name} not in reference/"))
+        elif not live.exists():
+            rows.append((live_rel, "MISSING", "the build did not produce this"))
+        else:
+            same = live.read_bytes() == ref.read_bytes()
+            if same:
+                rows.append((live_rel, "IDENTICAL", f"byte for byte vs {ref_name}"))
+            else:
+                v, d = compare_one(live_rel, ref, live)
+                rows.append((live_rel, "DIFFERS", f"vs {ref_name}: {d}"))
+
+    width = max(len(r[0]) for r in rows)
+    for rel, v, d in rows:
+        print(f"  [{v:<9}] {rel:<{width}}  {d}")
+
+    bad = sum(1 for _, v, _ in rows if v != "IDENTICAL")
+    print("-" * 78)
+    if bad:
+        print(f"{bad} output(s) no longer match the pre-split reference. Either the split"
+              f" changed behaviour, or an input moved -- the diff above names the column.")
+    else:
+        print("the crosswalk build reproduces the pre-split reference exactly.")
+    return 1 if bad else 0
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--save", action="store_true",
                     help="snapshot the current build outputs instead of comparing")
     ap.add_argument("--snapshot", default=str(DEFAULT_SNAPSHOT),
                     help=f"snapshot folder (default {DEFAULT_SNAPSHOT})")
+    ap.add_argument("--reference", action="store_true",
+                    help="compare the crosswalk build against the frozen pre-split "
+                         "reference in reference/ instead of a snapshot (issue #33)")
     args = ap.parse_args()
     snap = Path(args.snapshot)
+    if args.reference:
+        sys.exit(compare_reference())
     sys.exit(save(snap) if args.save else compare(snap))

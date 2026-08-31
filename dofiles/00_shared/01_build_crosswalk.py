@@ -1,140 +1,83 @@
+"""Build master_nsu_rename.csv -- the harmonization crosswalk the whole project joins on.
+
+WHAT THIS PRODUCES. For every (province, municipality, item, raw NSU label) observed in
+EITHER the market survey or the price file, the crosswalk records what that raw label
+cleans to, what it harmonizes to, and which sibling spellings in the SAME cell pool with
+it. `harmonized_nsu_unit` is the operational pooling key; `cleaned_nsu_unit` is
+reference-only. 03_clean_ms.do reads this file, and every price-side diagnostic joins on
+it.
+
+It also diagnoses the price-only cases -- those carrying a price but no market-survey
+weighing -- into three causes, and tallies how many have any conversion path at all.
+
+THIS RUNS BEFORE THE STATA BUILD AND READS NO BUILD OUTPUT. Its inputs are the raw launch
+data, the price file, and two hand-maintained crosswalks. That was not true until issue
+#33: this file used to load two pickles, `ms_keys.pkl` and `nsu_all.pkl`, which nothing
+in the repo wrote and which no longer existed on disk, so it could not run at all and the
+crosswalk sitting in outputs/ was the only copy of itself.
+
+  * `ms_keys` is now derived from the raw launch data inline -- see the block below.
+  * `nsu_all` held corrected WEIGHTS, and was only ever needed by the fold map, which
+    reported observed medians beside each fold. Weights exist only after the Stata build,
+    so that block made this file depend on its own downstream output. It has moved to
+    90_diagnostics/fold_map.py, which runs after the build and imports the same rule.
+
+THE FOLD RULE LIVES IN 00_shared/nsu_fold_rule.py and is imported here rather than
+defined. The fold map needs the identical rule, and a module whose name starts with a
+digit cannot be imported -- which is why the rule could never have stayed in this file.
+
+OUTPUTS
+    outputs/tables/master_nsu_rename.csv / .xlsx         the crosswalk
+    outputs/temp/cases_in_price_not_in_MS_diagnosed.csv   price-only causes
+    outputs/temp/price_only_coverage_summary.csv          coverage tally
+
+RUN, from the project root:
+    python dofiles/00_shared/01_build_crosswalk.py
+then re-apply the non-NSU label trim, which this file deliberately does not do:
+    python dofiles/00_shared/02_drop_non_nsu_labels.py --apply
+"""
 from pathlib import Path
 import sys
-"""
-Price-Only classifier, v5: rename-crosswalk-FIRST architecture.
-  step 1: price raw unit -> cleaned_nsu_unit via nsu_rename_crosswalk (the SAME cleaning MS got);
-          heuristics (reduce_unit / groups / fuzzy) are a FALLBACK only for strings the rename lacks.
-  cells:  MS inventory is built from nsu_data CLEANED units (not the raw .dta), so matching is
-          cleaned->cleaned (harmonized->harmonized). A price unit harmonizes to an in-cell unit
-          whenever they share a harmonized_nsu_unit.
-Everything else (canonical fold rule, fold_verdict, recoverable salvage, overrides) unchanged from v4.
-"""
-import pandas as pd, re, os, pickle, difflib
+
+import pandas as pd, re, os, difflib
 from collections import defaultdict
-BOX=r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
-FOLD=0.85
-# The one definition of the project's string normalization. This file used to hold the
-# authoritative copy; it now lives in 00_shared/nsu_normalize.py so the diagnostics can
-# import the same one instead of each carrying their own.
+
+BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from nsu_normalize import A, nz, ni, ng
-def toks(s): return re.sub(r'[^a-z0-9 ]',' ',nz(s)).split()
-def ts(a,b): return difflib.SequenceMatcher(None,' '.join(sorted(toks(a))),' '.join(sorted(toks(b)))).ratio()
+from nsu_fold_rule import (FOLD, FORCE_JUNK, GENERIC_CLEAN, GRP, KEEP_SEPARATE,
+                           MIX_CANON, MIX_UNITS, NOFOLD_PIECES, OLD_RENAME, RENAME,
+                           RENAME_KEYS, canonical, fold_verdict, grp, recoverable,
+                           reduce_unit, to_cleaned, toks, ts, unsafe_pieces)
 
-cw=pd.read_excel(BOX+r'\Data Cleaning\outputs\tables\price_ms_unit_harmonization_crosswalk.xlsx', dtype=str)
-GRP={nz(r.unit_lbl):(nz(r.translation_group) if isinstance(r.translation_group,str) and r.translation_group.strip() else None) for r in cw.itertuples()}
-def grp(u): return GRP.get(nz(u))
+# ---- MS cell inventory, derived from the RAW launch data ----------------------------
+# Replaces ms_keys.pkl, which held tuples of
+#     (ng(province), RAW municipality, ni(item), nz(raw NSU label))
+# and which nothing in the repo wrote. Rebuilt here from ${data}, which is where the
+# pickle's own comment said its contents came from.
+#
+# THE MUNICIPALITY IS DELIBERATELY LEFT RAW and normalized at each point of use, exactly
+# as the pickle did: ng() is applied once when the cleaned inventory is built and again
+# in the master-rename block. Normalizing it here instead would change the cell keys
+# silently.
+#
+# Verified against the frozen reference crosswalk in reference/: 2,001 distinct tuples,
+# matching its 2,001 MS-source rows exactly, with nothing on either side of the
+# difference.
+_raw = pd.read_stata(BOX + r"\NSU Market Survey Launch\data"
+                           r"\PSPS NSU Market Survey Launch.dta",
+                     convert_categoricals=False)
+ms_rows = sorted(set(zip(_raw.pull_province.map(ng), _raw.pull_municipal_city,
+                         _raw.pull_item.map(ni), _raw.pull_nsu_unit.map(nz))))
+print(f"MS keys from the raw launch data: {len(ms_rows):,} distinct"
+      f" (province, municipality, item, raw label) over {len(_raw):,} weighings")
 
-# ---- rename crosswalk: (item, raw pull_nsu_unit) -> cleaned_nsu_unit  [step 1, authoritative] ----
-_rn=pd.read_excel(BOX+r'\Data Cleaning\outputs\tables\nsu_rename_crosswalk.xlsx', dtype=str)
-RENAME={(ni(r.pull_item),nz(r.pull_nsu_unit)):nz(r.cleaned_nsu_unit) for r in _rn.itertuples()
-        if isinstance(r.cleaned_nsu_unit,str) and r.cleaned_nsu_unit.strip()}
-MIX_UNITS={(ni(r.pull_item),nz(r.pull_nsu_unit)) for r in _rn.itertuples() if nz(r.cleaned_nsu_unit)=='putos (mix vegetable)'}
-MIX_UNITS|={('cabbage','putos /mix mix'),('carrot','putos /mix mix'),
-            ('carrot','pack of mixed vegetables'),('carrot','packs of mix veges')}
-MIX_CANON='putos (mix vegetable)'
-
-OLD_RENAME=dict(RENAME)   # snapshot of the untouched old hand-rename, kept for the 'past_rename' reference column
-
-# ---- Option A override: the OLD hand-rename folds putos->pack for these 2 items, but their
-# putos is a small sachet (~60g ice cream / ~160g crackers) vs a ~300-525g pack (weight test).
-# Keep putos separate for these items only; all other 7 validated putos->pack/other folds stand.
-PUTOS_KEEP_SEPARATE_ITEMS={'ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)',
-                           'crackers, cookies, buiscuits, chips/curls'}
-for _it in PUTOS_KEEP_SEPARATE_ITEMS:
-    RENAME[(_it,'putos')]='putos'
-
-# ---- item-specific manual reconciliations ----
-RENAME[('beer','1 case')]='case'      # '1 case' == 'case' (as recorded in Panay); drop the redundant count
-
-# ---- item-INDEPENDENT manual reconciliations: same referent regardless of item ----
-# Keyed on the exact normalized raw string, applied in to_cleaned() before the heuristic fallback.
-#   '1/2'                         a bare half (survey sometimes mangled to a date '2-jan' by Excel) -> half
-#   small descriptive packs       ice-wrapper / cellophane / pancit-noodle packs are all a small pack
-# Note: only the EXACT strings below are remapped; '1/2 sack of rice', '1/2 of whole' etc. are untouched.
-GENERIC_CLEAN={'1/2':'half',
-               'pack of ice wrapper':'small packs',
-               'packs in cellophane':'small packs',
-               'small pack for pancit (noodles)':'small packs'}
-
-# ================= fold rule (unchanged from v4) =================
-KEEP_SEPARATE={'bundle','packs'}
-def unsafe_pieces(item): return item=='chicken' or item.startswith('preserved')
-# Size-stratified weight test (validate_folds.py): camote bilog != binilog (p=0.004, ratio 1.61) but on
-# only 3 strata -> LOW CONFIDENCE. Policy: when confidence is low, be conservative and do NOT fold. So the
-# whole pieces group is kept unfolded for camote (we cannot confirm any of its variants share a weight).
-NOFOLD_PIECES={'camote'}
-def canonical(item,u):
-    u=nz(u)
-    if (item,u) in MIX_UNITS: return MIX_CANON
-    g=grp(u)
-    if g is None: return u
-    if g in KEEP_SEPARATE:
-        if g=='packs' and u in ('pack','packs'): return 'pack'
-        return u
-    if g=='pieces or units':
-        if item in NOFOLD_PIECES: return u                        # conservative: don't fold (low-confidence test)
-        if unsafe_pieces(item) and u=='bilog': return u
-    return g
-def fold_verdict(item,u):
-    g=grp(u)
-    if g is None: return 'identity(ungrouped)'
-    if g in KEEP_SEPARATE: return 'keep-separate'
-    if g=='pieces or units':
-        if item in NOFOLD_PIECES: return 'kept-separate(low-confidence weight test)'
-        if unsafe_pieces(item) and u=='bilog': return 'reassigned-separate(item-specific)'
-    if g in ('whole (chicken)','small cup','small packs'): return 'fold(untested/minor-flag)'
-    return 'safe-fold'
-
-KNOWN_BASE={'tasa','cup','pieces','piece','cone','galon','gallon','glass','bowl','serving','ball','chop','order','stick','sachet'}
-def recoverable(u):
-    u=nz(u)
-    if ' and ' in u or 'jan' in u: return None
-    m=re.match(r'^\s*0*([1-9]\d*)\s*',u)
-    if not m: return None
-    cnt=m.group(1); rest=u[m.end():]; rest=re.sub(r'\bpcs?\.?\b|\bpieces?\b','pieces',rest)
-    base=next((w for w in re.findall(r'[a-z]+',rest) if w in KNOWN_BASE), None)
-    return (cnt,base) if base else None
-
-SIZE_QUAL={'gagmay','dako','dagko','daragkul','mabahoe','kasarangan','maisot','tama','gamay','large','medium',
-           'small','big','whole','manok','tibuok','buong','junior','malaki','maliit','katamtaman','malaking'}
-FORCE_JUNK={('fresh fish','pack/ putos'),('carrot','putos or pack'),
-            ('carrot','pack of slices')}          # 'pack of ice wrapper' now -> small packs (GENERIC_CLEAN)
-REDUCE_TO={('fresh fish','per putos ung binibili na isda'):'putos',('fresh fish','repack'):'pack'}
-def reduce_unit(item,U):                         # heuristic FALLBACK (rename-miss only)
-    u=nz(U)
-    if (item,u) in MIX_UNITS: return u
-    if (item,u) in REDUCE_TO: return REDUCE_TO[(item,u)]
-    if grp(u) is not None or re.match(r'^\s*\d',u): return u
-    if set(re.findall(r'[a-z]+',u)) & SIZE_QUAL: return u
-    core=re.sub(r'\([^)]*\)',' ',u); core=re.sub(r'/[a-z ]*',' ',core)
-    core=re.sub(r'\s+',' ',re.sub(r'[^a-z ]',' ',core)).strip()
-    if grp(core) is not None: return core
-    hits={w for w in core.split() if grp(w) is not None}
-    if len(hits)==1:
-        base=hits.pop(); rest=[w for w in core.split() if w!=base]
-        STOP={'per','ung','na','ng','sa','of','and','mix','the','a','in','for','po','nga'}
-        if all(w in STOP for w in rest): return base
-    return u
-
-RENAME_KEYS=defaultdict(list)
-for (I,u) in RENAME: RENAME_KEYS[I].append(u)
-def to_cleaned(I,U):                               # raw unit -> cleaned_nsu_unit, via OUR (corrected) rename
-    u=nz(U)
-    if u in GENERIC_CLEAN: return GENERIC_CLEAN[u],'generic'   # manual reconciliation wins over the crosswalk
-    if (I,u) in RENAME: return RENAME[(I,u)],'rename'
-    ru=reduce_unit(I,U)                            # strip redundant descriptors, then re-try the rename
-    if (I,ru) in RENAME: return RENAME[(I,ru)],'rename+reduce'
-    keys=RENAME_KEYS.get(I,[])                     # fuzzy (word-order/typo) against this item's rename keys
-    if keys:
-        best=max(keys,key=lambda k:ts(u,k))
-        if ts(u,best)>=FOLD: return RENAME[(I,best)],'rename-fuzzy'
-    return ru,'heuristic'                           # rename doesn't cover it -> heuristic canonical
-
-# ---- MS cell inventory from RAW ${data} units (ms_keys), re-cleaned via OUR (corrected) rename ----
+# ---- re-clean those raw units via OUR (corrected) rename ---------------------------
 # NOT nsu_data's cleaned_nsu_unit: that bakes in the old rename (e.g. ice cream putos->pack), which
 # contaminates the pack weight. Re-cleaning the raw ourselves keeps putos separate with its own weight.
-ms_rows=pickle.load(open('ms_keys.pkl','rb'))      # (ng(prov), raw_city, ni(item), nz(raw_unit)) from ${data}
+# This is also why ms_rows carries RAW labels rather than cleaned ones -- the cleaning has to be
+# ours, applied here, not inherited from a previous build.
 cell_cleaned=defaultdict(set); item_cleaned=defaultdict(set); item_cities=defaultdict(set)
 for P,rawc,I,rawU in ms_rows:
     C=ng(rawc); cln=to_cleaned(I,rawU)[0]
@@ -193,19 +136,6 @@ def classify(P,C,I,U):
     if match_unit(I,cleaned,h,item_cleaned.get(I,set())) is not None:
         return 2,'empty/uncommon','',f"valid for item elsewhere ({src}); cell has {sorted(cell)[:4]}",h
     return 1,'nonsensical','',f"no MS referent for item ({src}); cell has {sorted(cell)[:4]}",''
-
-# ================= fold map (weights) from nsu_data RAW units + OUR rename (de-contaminated) =================
-# key on raw pull_nsu_unit re-cleaned via to_cleaned(), NOT nsu_data.cleaned_nsu_unit (old contaminated rename)
-d=pd.read_pickle('nsu_all.pkl')
-d['I']=d.pull_item.map(ni); d['rawU']=d.pull_nsu_unit.map(nz); d['w']=pd.to_numeric(d.corrected_weight,errors='coerce')
-d['clab']=[to_cleaned(i,u)[0] for i,u in zip(d.I,d.rawU)]
-DIM={1.0:'mass(g)',2.0:'vol(mL)'}
-rows=[]
-for (it,cl),g in d.groupby(['I','clab']):
-    w=g.w.dropna(); dim=DIM.get(g.corrected_unit.dropna().iloc[0],'?') if g.corrected_unit.notna().any() else '?'
-    rows.append([it,cl,canonical(it,cl),fold_verdict(it,cl),dim,len(g),round(w.median(),1) if len(w) else None])
-fold_map=pd.DataFrame(rows,columns=['item','label','harmonized_nsu_unit','fold_verdict','dimension','n','median_g']).sort_values(['item','harmonized_nsu_unit','n'],ascending=[True,True,False])
-fold_map.to_csv(BOX+r'\Data Cleaning\outputs\tables\unit_fold_map.csv',index=False,encoding='utf-8-sig')
 
 # ================= diagnose price-only cases =================
 pr=pd.read_csv(BOX+r'\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv', dtype=str).rename(columns={'Unit_lbl':'unit_lbl'})
