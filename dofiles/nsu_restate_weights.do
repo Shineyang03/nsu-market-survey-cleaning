@@ -44,10 +44,12 @@
 * algebraically -- it is a bookkeeping anchor, not a modelling choice.
 *
 * No row is dropped for inflation reasons; every input row survives into the output
-* (less the 95 rows excluded in step 1 below).
+* (less the 98 rows excluded in step 1 below -- 95 vendor-priced rows are
+* identified there, of which some are kept, and two further rules drop more;
+* the net is 98).
 *
 * INPUTS  (read only)
-*   outputs/master_rename_build/temp/nsu_data_master.dta   11,458 weighings
+*   outputs/master_rename_build/temp/nsu_data_master.dta   11,453 weighings
 *   outputs/tables/cpi_level_panel.csv                      2,250 rows
 *   outputs/tables/cpi_item_crosswalk.csv                       95 rows
 *
@@ -74,7 +76,31 @@ local ref_month = tm(2026m4)
 use "${temp_in}\nsu_data_master.dta", clear
 local n_in = _N
 di as result "Rows in: `n_in'"
-assert `n_in' == 11458
+
+* Tripwire on the input row count. It is NOT a constant of nature -- it is the
+* arithmetic below -- so when it fires, check that arithmetic before changing it.
+*
+*     11,494  raw MS weighings after comment handling
+*     -   38  non-NSU labels (standard quantity / ambiguous quantity / not a unit),
+*             excluded in cleaning_Aug11.do before the crosswalk merge
+*     -    3  dropped later in cleaning_Aug11.do
+*     ------
+*     11,453
+*
+* Was 11,458 until commit 3c436b9. The five are the ANTIQUE / HAMTIC mineral-water
+* weighings labelled "500" -- an ambiguous quantity. They used to slip through
+* because the old substring rule looked for a unit ("ml", "kg", "kilo") and "500"
+* has none; the crosswalk now classifies them explicitly.
+*
+* If this fires: read the attrition figures in dofiles/cleaning_Aug11.log and find
+* which stage moved. Do NOT just update the number -- that is how a silent drop
+* becomes permanent.
+local n_expected = 11453
+if `n_in' != `n_expected' {
+	di as error "Input row count moved: expected `n_expected', got `n_in'."
+	di as error "Reconcile against cleaning_Aug11.log before touching this number."
+	assert `n_in' == `n_expected'
+}
 
 ********************************************************************************
 **# 1. Drop the 95 vendor-priced price-quantity rows
@@ -357,10 +383,20 @@ di as result "  median abs %% change: " r(p50)
 di as result "  max abs %% change: " r(max)
 
 di as result "--- cpi_factor == 1 check, other branches ---"
+* ASSERTED, not merely counted (issue #27 item 8). cpi_factor == 1 on the
+* conventional and size-based branches is not an observation about this run -- it is
+* the definition of those branches. No peso amount entered either measurement, so
+* there is no price frame to move a weight between: the enumerator asked for a small
+* or handed over nothing at all. A non-1 factor there would mean an inflation
+* adjustment had been applied to a weight that was never denominated in money, and
+* with w_ref retired this invariant is the only thing left guarding that.
 count if inlist(weighing_approach, 1, 3) & cpi_factor != 1
 di as result "  rows with cpi_factor != 1 on approach 1/3 (expect 0): " r(N)
-* With w_ref retired there is no restated weight to compare; cpi_factor == 1 on the
-* non-price-quantity branches is the whole invariant, and it is checked above.
+if r(N) > 0 {
+	di as error "cpi_factor != 1 on a conventional or size-based row."
+	di as error "No price entered those measurements, so no adjustment applies."
+	assert r(N) == 0
+}
 
 di as result "--- missing cpi_factor_ma3, price-quantity only ---"
 count if weighing_approach == 2 & missing(cpi_factor_ma3)

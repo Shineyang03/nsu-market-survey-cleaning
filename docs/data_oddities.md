@@ -19,7 +19,7 @@ under different approaches:
 | `bilog` | `pieces or units` | size-based | 9 |
 | `pieces or units` | `pieces or units` | price-quantity | 7 |
 
-This is the **only** such case in 1,952, and the fold creates it — not the
+This is the **only** such case in 1,951, and the fold creates it — not the
 fieldwork. At the raw and cleaned NSU grains every case is single-branch with zero
 exceptions, and that holds when the grain is split further by `corrected_unit`.
 Exported to `outputs/master_rename_build/tables/fold_multi_weighing_approach.xlsx`.

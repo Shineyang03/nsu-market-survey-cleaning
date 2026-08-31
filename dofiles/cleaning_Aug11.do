@@ -43,13 +43,16 @@
 *        so there is nothing to drop on that basis. The old keep(_merge==3) was
 *        working at item x NSU grain and discarded MS weighings as collateral.
 *
-*    (b) STANDARD-QUANTITY LABELS -- still dropped, same substring rule
-*        ((Kg)/(g)/(L)/ml/kilo/litres/...), now applied at the weighing level.
-*        Ten raw labels / 33 weighings: "bottle (500 ml)", "1.5kg per balde",
-*        "1/2 sack of rice (25kls.)", "each 10 litres of gallon", etc. Each names
-*        its own quantity, so it needs no measured conversion factor; these are
-*        reconciled by hand on the PSPS side at merge time. Every dropped row is
-*        exported to tables/excluded_standard_unit_obs.xlsx first.
+*    (b) NON-NSU LABELS -- still dropped, but the rule now lives in ONE place.
+*        drop_non_nsu_labels.py classifies a raw label as standard quantity
+*        ("bottle (500 ml)", "1/2 sack of rice (25kls.)"), ambiguous quantity
+*        ("500", "pieces/ kilo"), or not a unit at all, removes it from
+*        master_nsu_rename, and reports what it removed. This file reads that
+*        report and drops the matching MS weighings, rather than keeping a second
+*        copy of the substring rule. Ten labels / 38 weighings. None needs a
+*        measured conversion factor; the standard-quantity ones are reconciled by
+*        hand on the PSPS side at merge time. Every dropped row is exported to
+*        tables/excluded_standard_unit_obs.xlsx first, with its drop_reason.
 *
 *        The drop is placed BEFORE correct_unit_snap.do deliberately, so these
 *        labels also stay out of the item-level anchor pool (step 1c). Mineral
@@ -238,6 +241,39 @@ preserve
 	save "${btemp}\master_rename_price_only", replace
 restore
 
+* ---- side C: labels removed from the crosswalk because they are not NSUs ------
+* drop_non_nsu_labels.py owns the definition of "not an NSU" -- standard quantity
+* ("bottle (500 ml)"), ambiguous quantity ("500", "pieces/ kilo"), and free text
+* that is not a unit at all ("1 sack is 2900/for salary/inkind") -- and applies it
+* to master_nsu_rename. The MS weighings carrying those same raw labels have to
+* leave too, and they have to leave for the STATED REASON rather than by falling
+* out of the crosswalk merge as an unexplained non-match. Reading that script's own
+* report keeps ONE definition of the rule instead of a Stata copy that can drift.
+preserve
+	import delimited "${tables}\master_rename_dropped_labels.csv", ///
+		clear varname(1) stringcols(_all)
+	rename province pull_province
+	rename cons_name pull_item
+	nsu_normalize, item(pull_item) unit(pull_nsu_unit) ///
+		mun(pull_municipal_city) province(pull_province)
+	foreach v in cleaned_nsu_unit harmonized_nsu_unit {
+		replace `v' = ustrto(`v', "ascii", 2)
+		replace `v' = ustrtrim(ustrlower(`v'))
+		replace `v' = ustrregexra(`v', "\s+", " ")
+	}
+	* prefixed so they cannot collide with the crosswalk merge downstream
+	rename cleaned_nsu_unit    xw_cleaned_nsu_unit
+	rename harmonized_nsu_unit xw_harmonized_nsu_unit
+	keep pull_province pull_municipal_city pull_item pull_nsu_unit ///
+	     xw_cleaned_nsu_unit xw_harmonized_nsu_unit drop_reason
+	isid pull_province pull_municipal_city pull_item pull_nsu_unit
+	count
+	di as txt "non-NSU labels removed from the crosswalk: " r(N)
+	tab drop_reason, m
+	save "${btemp}\master_rename_dropped", replace
+restore
+
+
 
 * ---- reference only: the old crosswalk's free-text `note` flags ---------------
 import excel "${tables}\nsu_rename_crosswalk.xlsx", clear firstrow
@@ -279,7 +315,23 @@ encode item_nsu_hetero_type, gen(item_nsu_hetero_type_d) label(hetero)
 drop item_nsu_hetero_type
 rename item_nsu_hetero_type_d item_nsu_hetero_type
 
-merge 1:1 pull_province pull_municipal_city pull_item pull_nsu_unit weighing_approach market_type vendor_id item_nsu_hetero_type using "`rawms'", nogen
+merge 1:1 pull_province pull_municipal_city pull_item pull_nsu_unit weighing_approach market_type vendor_id item_nsu_hetero_type using "`rawms'", gen(_m_cmt)
+
+* The crosswalk is master here and the raw MS data is `using', so a master-only row
+* is a comment keyed to a weighing that does not exist. It would survive the merge
+* as a phantom observation with weight, unit, price and market all missing, and
+* nothing downstream would mark it as such. 0 today; assert it stays 0. Note
+* item_nsu_hetero_type is `encode'd separately on each side, and encode assigns an
+* unseen string a NEW code rather than erroring -- so a typo in the crosswalk shows
+* up here and only here.
+count if _m_cmt == 1
+if r(N) > 0 {
+	di as err "ERROR: " r(N) " add_comments row(s) match no MS weighing"
+	list pull_province pull_municipal_city pull_item pull_nsu_unit ///
+		item_nsu_hetero_type if _m_cmt == 1, noobs abbrev(24)
+	exit 459
+}
+drop _m_cmt
 
 drop is_uncertain
 
@@ -299,16 +351,63 @@ di as txt "raw MS weighings after comment handling: " r(N)
 nsu_normalize, item(pull_item) unit(pull_nsu_unit) ///
 	mun(pull_municipal_city) province(pull_province)
 
+
+* ---- exclude raw labels that are not NSUs -------------------------------------
+* Runs BEFORE the crosswalk merge, on the raw label, because these labels no longer
+* HAVE a crosswalk row (drop_non_nsu_labels.py removed them). Run afterwards, they
+* would disappear as "no master_nsu_rename row" -- dropped for the wrong reason, and
+* invisible to the attrition ledger. Placing it here also keeps them out of
+* correct_unit_snap.do's item-level anchor pool (step 1c), which matters: mineral
+* water's pools run from a 500 mL bottle to a 10 L gallon, and letting both vote on
+* one item-level reference is what contaminated that anchor.
+*
+* These labels name their own quantity or are unrecoverable, so none of them needs a
+* MEASURED conversion factor; the standard-quantity ones are reconciled by hand on
+* the PSPS side at merge time (issue #14).
+merge m:1 pull_province pull_municipal_city pull_item pull_nsu_unit ///
+	using "${btemp}\master_rename_dropped", keep(1 3) gen(_m_dropped)
+
+count if _m_dropped == 3
+local n_nonnsu = r(N)
+di as txt "MS weighings on a non-NSU label: `n_nonnsu'"
+if `n_nonnsu' > 0 {
+	tab drop_reason if _m_dropped == 3, m
+
+	preserve
+		keep if _m_dropped == 3
+		rename xw_cleaned_nsu_unit    cleaned_nsu_unit
+		rename xw_harmonized_nsu_unit harmonized_nsu_unit
+		decode item_nsu_hetero_type, gen(hetero_lbl)
+		keep pull_province pull_municipal_city pull_item pull_nsu_unit ///
+		     drop_reason cleaned_nsu_unit harmonized_nsu_unit ///
+		     weighing_approach hetero_lbl market_type vendor_id pull_price ///
+		     weight unit
+		order pull_province pull_municipal_city pull_item pull_nsu_unit drop_reason
+		sort drop_reason pull_item pull_nsu_unit pull_province pull_municipal_city
+		list pull_item pull_nsu_unit drop_reason weight unit, ///
+			noobs abbrev(30) sepby(drop_reason)
+		export excel using "${btables}\excluded_standard_unit_obs.xlsx", ///
+			sheet("excluded_from_MS", replace) firstrow(variables)
+		di as txt "excluded non-NSU weighings exported: " _N
+	restore
+}
+
+drop if _m_dropped == 3
+drop _m_dropped xw_cleaned_nsu_unit xw_harmonized_nsu_unit drop_reason
+
 merge m:1 pull_province pull_municipal_city pull_item pull_nsu_unit ///
 	using "${btemp}\master_rename_ms", keep(1 3) gen(_m_rename)
 
 * master's universe is the union of MS and price at the cell grain, and it has
-* source=="MS" (MS-only) = 0 rows, so every MS weighing is expected to match.
-* Anything unmatched has no harmonized unit and cannot be pooled -- list it
-* loudly rather than carrying a blank pooling key downstream.
+* source=="MS" (MS-only) = 0 rows. The non-NSU labels that USED to land here as
+* non-matches were removed above, for a stated reason. So every MS weighing that
+* reaches this line must match, and an unmatched row is a genuine join break --
+* a normalization drift between this file and the script that built the crosswalk,
+* or a new raw label that belongs on drop_non_nsu_labels.py's list. Either way it
+* is a defect, not attrition: STOP rather than drop.
 count if _m_rename == 1
 if r(N) > 0 {
-	di as err "WARNING: " r(N) " MS weighing(s) have no master_nsu_rename row"
+	di as err "ERROR: " r(N) " MS weighing(s) have no master_nsu_rename row"
 	preserve
 		keep if _m_rename == 1
 		contract pull_province pull_municipal_city pull_item pull_nsu_unit, freq(n_obs)
@@ -316,57 +415,18 @@ if r(N) > 0 {
 			sheet("no_master_rename_row", replace) firstrow(variables)
 		list, noobs abbrev(24)
 	restore
+	di as err "Either the normalization drifted from the crosswalk builder, or these"
+	di as err "labels are not NSUs and belong in dofiles/drop_non_nsu_labels.py."
+	di as err "Do not silence this by re-adding a drop -- that is what hid the"
+	di as err "standard-quantity rows and broke the excluded-obs export."
+	exit 459
 }
-drop if _m_rename == 1
 drop _m_rename
 
 assert !mi(harmonized_nsu_unit) & harmonized_nsu_unit != ".c"
 
 * reference-only annotations from the superseded crosswalk (never a rename here)
 merge m:1 pull_item pull_nsu_unit using "${btemp}\nsu_name_notes", keep(1 3) nogen
-
-* ---- exclude raw labels that state a standard quantity ------------------------
-* Same substring rule the pre-Aug11 crosswalk used, applied here at the weighing
-* level. These labels name their own quantity ("bottle (500 ml)", "1.5kg per
-* balde", "each 10 litres of gallon"), so they do not need a measured conversion
-* factor -- they are handled by hand on the PSPS side at merge time. Dropping
-* them HERE, before correct_unit_snap.do, also keeps them out of the item-level
-* anchor pool (step 1c), which matters: mineral water's pools run from a 500 mL
-* bottle to a 10 L gallon, and letting both vote on one item-level reference is
-* what contaminated that anchor. Every dropped row is exported first.
-gen byte looks_standard = ///
-	strpos(pull_nsu_unit,"(kg)") > 0 | ///
-	strpos(pull_nsu_unit,"(g)")  > 0 | ///
-	strpos(pull_nsu_unit,"(l)")  > 0 | ///
-	strpos(pull_nsu_unit,"(ml)") > 0 | ///
-	strpos(pull_nsu_unit,"ml")   > 0 | ///
-	strpos(pull_nsu_unit,"kg")   > 0 | ///
-	strpos(pull_nsu_unit,"kilo") > 0 | ///
-	strpos(pull_nsu_unit,"(25kls.)") > 0 | ///
-	strpos(pull_nsu_unit,"litres") > 0 | ///
-	strpos(pull_nsu_unit,"liters") > 0
-
-label var looks_standard "1 = raw label states a standard quantity -> excluded from MS data"
-tab looks_standard, m
-
-* the excluded set, for the manual PSPS-side treatment later
-preserve
-	keep if looks_standard == 1
-	decode item_nsu_hetero_type, gen(hetero_lbl)
-	keep pull_province pull_municipal_city pull_item pull_nsu_unit ///
-	     cleaned_nsu_unit harmonized_nsu_unit weighing_approach hetero_lbl ///
-	     market_type vendor_id pull_price weight unit
-	order pull_province pull_municipal_city pull_item pull_nsu_unit
-	sort pull_item pull_nsu_unit pull_province pull_municipal_city
-	list pull_item pull_nsu_unit harmonized_nsu_unit weight unit, ///
-		noobs abbrev(30) sepby(pull_item)
-	export excel using "${btables}\excluded_standard_unit_obs.xlsx", ///
-		sheet("excluded_from_MS", replace) firstrow(variables)
-	di as txt "excluded standard-quantity weighings exported: " _N
-restore
-
-drop if looks_standard == 1
-drop looks_standard
 
 count if notes != ""
 di as txt "weighings carrying a cleaning note: " r(N)
@@ -620,66 +680,16 @@ keep pull_item diagnostics
 merge 1:m pull_item using `snapped', assert(2 3) nogen
 
 
-* manual correction - rescale weights
-
-replace corrected_unit = 1 if diagnostics == "g" & corrected_unit != 1 & !mi(corrected_unit)
-replace corrected_unit = 2 if diagnostics == "mL" & corrected_unit != 2 & !mi(corrected_unit)
-
-
-* some of these are due to incorrect DP in original weight
-
-replace corrected_weight = weight * (1000^2)  if pull_item == "liquor (e.g, whisky, coconut wine)" & pull_province == "ILOILO" & corrected_unit == 2 & corrected_weight == 1
-
-
-replace corrected_weight = weight * (1000^2) if pull_province == "ILOILO" & nsu_item == "chicken_whole (chicken)" & item_nsu_hetero_type == 2  & corrected_unit == 1 & corrected_weight == 1
-
-replace cleaning_notes = "uncertain cleaning interpretation of original weight-unit values (0.001 L)" if pull_item == "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)" & corrected_unit == 2 & inrange(corrected_weight,1,2) // unsure
-replace corrected_weight = weight * (1000^2) if pull_item == "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)" & corrected_unit == 2 & inrange(corrected_weight,1,2) // unsure
-
-
-replace cleaning_notes = "uncertain cleaning interpretation of original weight-unit values (0.001x L)" if pull_item == "preserved or processed meat (tocino, tapa, longaniza, etc)" & corrected_unit == 1 & inrange(corrected_weight,1,2) // unsure
-replace corrected_weight = weight * (1000^2) if pull_item == "preserved or processed meat (tocino, tapa, longaniza, etc)" & corrected_unit == 1 & inrange(corrected_weight,1,2) // unsure
-
-
-replace cleaning_notes = "uncertain cleaning interpretation of original weight-unit values (0.01 L)" if inlist(harmonized_nsu_unit,"refilled", "container") & corrected_weight == 10
-replace corrected_weight = 1000 if inlist(harmonized_nsu_unit,"refilled", "container") & corrected_weight == 10
-
-
-** drop clearly erroneous entries & genuinely unsure instances
-
-* cleaning.do targeted this row as `inlist(id, 4242)`. id is _n, and the two
-* saved copies of the old build disagree on which observation id 4242 is, so it
-* is re-expressed on the recorded entry itself. The row is CAPIZ / PANAY /
-* mineral water / "distilled water" / medium_size / vendor KXHXIWAI: 0.007 L,
-* which no power-of-ten reading makes sense of.
-*
-* NOTE the float() wrapper. `weight` is stored as a float and 0.007 is not
-* exactly representable, so a bare `weight == 0.007` silently matches NOTHING.
-* The assert below turns any future silent miss into a hard stop.
-gen byte is_0007L = unit == 3 & weight == float(0.007)
-count if is_0007L
-di as txt "0.007 L rows (was id 4242): " r(N)
-assert r(N) == 1
-
-replace cleaning_notes = "Genuinely unsure about how to interpret original weight-unit values (0.007 L)" if is_0007L
-replace corrected_weight = .c if is_0007L
-replace corrected_unit = .c if is_0007L
-drop is_0007L
-
-gen byte is_5g_cup = inlist(harmonized_nsu_unit,"cup") & pull_item == "prawns, lobster, shrimp" & weight == 5 & unit == 2
-count if is_5g_cup
-di as txt "5 g per cup prawn rows: " r(N)
-assert r(N) > 0
-
-replace cleaning_notes = "Genuinely unsure about how to interpret original weight-unit values  (5 g per cup)" if is_5g_cup
-replace corrected_weight = .c if is_5g_cup
-replace corrected_unit = .c if is_5g_cup
-drop is_5g_cup
-
-
-* NOTE: the standard-quantity labels that used to produce implausible volumes here
-* ("each 10 litres of gallon" reading 0.01 L -> 10 mL) are excluded upstream now,
-* so there is no residual label-vs-reading conflict left to flag at this point.
+* ------------------------------------------------------------------------------
+* Manual weight/unit corrections
+* ------------------------------------------------------------------------------
+* Moved out to its own file so every hand-made correction lives in one place and
+* each one asserts that it actually matched the rows it was written for. The block
+* that used to sit here contained a correction that silently matched NOTHING -- the
+* ILOILO chicken rescale tested the wrong hetero code, logged "(0 real changes
+* made)", and shipped a 1 gram whole chicken to the reference set. The assertions in
+* that file turn a silent miss into a halt.
+do "${dofiles}\manual_weight_corrections.do"
 
 
 drop weight unit diagnostics
@@ -746,7 +756,7 @@ putexcel A`row' = "Notes", bold
 local ++row
 putexcel A`row' = "unit variable: harmonized_nsu_unit (new) vs cleaned_nsu_unit (pre-Aug11)"
 local ++row
-putexcel A`row' = "MS-only rows are no longer dropped (master has 0 of them); standard-quantity labels ARE still dropped -- 10 labels / 33 weighings, listed in excluded_standard_unit_obs.xlsx"
+putexcel A`row' = "MS-only rows are no longer dropped (master has 0 of them); non-NSU labels ARE still dropped -- 10 labels / 38 weighings (standard quantity, ambiguous quantity, not a unit), listed in excluded_standard_unit_obs.xlsx"
 local ++row
 putexcel A`row' = "see cleaning_Aug11.do header note 3 for why those two old filters are separate exclusions"
 

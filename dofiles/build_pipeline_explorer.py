@@ -24,7 +24,7 @@ WHAT THIS READS (build outputs only -- nothing here is written by this script)
   Outcome 1 output   outputs/master_rename_build/temp/nsu_reference_set.dta
   harmonization map  outputs/tables/master_nsu_rename.csv
   comment crosswalk  outputs/tables/add_comments_crosswalk.xlsx
-  standard-qty drops outputs/master_rename_build/tables/excluded_standard_unit_obs.xlsx
+  non-NSU drops  outputs/master_rename_build/tables/excluded_standard_unit_obs.xlsx
   attrition ledger   outputs/master_rename_build/tables/attrition_ledger.csv (context only,
                       see "KNOWN DISCREPANCY" below -- this script does not trust its
                       row counts, only its prose reasons)
@@ -61,8 +61,9 @@ Every one of the 37 raw rows that fails to join is independently explained:
     (enumerator re-entered 225 weight for the 187.5 price mark)" -- matched back
     to its raw row by the same 7-field key with obs_type read off the crosswalk's
     own hetero label.
-  - 33 rows: present in outputs/master_rename_build/tables/excluded_standard_unit_obs.xlsx
-    (the standard-quantity label drop), matched back the same way.
+  - 38 rows: present in outputs/master_rename_build/tables/excluded_standard_unit_obs.xlsx
+    (the non-NSU label drop -- standard quantity, ambiguous quantity, or not a unit;
+    the file's drop_reason column says which), matched back the same way.
   - 3 rows: pull_price missing & item=="fresh fish" & pull_nsu_unit=="bilog" &
     municipality=="TIGBAUAN" (the documented SurveyCTO glitch), on normalized
     fields.
@@ -395,7 +396,7 @@ def classify_stage1_drops(raw, master):
     master['_key'] = master_key
 
     dropped = raw[~raw.in_master].copy()
-    log(f"  raw rows with no arrival-stage match: {len(dropped)} (expect 37)")
+    log(f"  raw rows with no arrival-stage match: {len(dropped)} (expect 42)")
 
     # ---- reason 1a: the one comment-flagged data-entry error -----------------
     cw = pd.read_excel(COMMENTS_XW_PATH, dtype=str)
@@ -432,7 +433,7 @@ def classify_stage1_drops(raw, master):
 
     n1a, n1c, n1d = dropped.reason_1a.sum(), dropped.reason_1c.sum(), dropped.reason_1d.sum()
     log(f"  of which: 1a data-entry error = {n1a} (expect 1)")
-    log(f"            1c standard-quantity label = {n1c} (expect 33)")
+    log(f"            1c non-NSU label = {n1c} (expect 38)")
     log(f"            1d TIGBAUAN glitch = {n1d} (expect 3)")
 
     unexplained = dropped[~(dropped.reason_1a | dropped.reason_1c | dropped.reason_1d)]
@@ -547,7 +548,7 @@ def classify_stage3(restated, refset):
 
     eligible = r[~(r.drop_no_wref | r.drop_unique_mun | r.drop_carrot)].copy()
     log(f"  rows entering the Outcome 1 collapse: {len(eligible)} "
-        f"(11,360 - {n1 + n2 + n3} = {11360 - n1 - n2 - n3})")
+        f"({len(r):,} - {n1 + n2 + n3} = {len(r) - n1 - n2 - n3})")
 
     # ---- size_ord assignment --------------------------------------------------
     size_ord = pd.Series(np.nan, index=eligible.index)
@@ -630,14 +631,14 @@ def main():
     raw = load_raw()
     log(f"  raw rows: {len(raw)} (expect 11,495)")
     master = load_prelim_master()
-    log(f"  master (prelim + weight/unit correction) rows: {len(master)} (expect 11,458)")
+    log(f"  master (prelim + weight/unit correction) rows: {len(master)} (expect 11,453)")
     raw, master, stage1_dropped = classify_stage1_drops(raw, master)
 
     log("=" * 78)
     log("STAGE 2: arrival -> restated")
     log("=" * 78)
     restated = load_restated()
-    log(f"  restated rows on disk: {len(restated)} (expect 11,360)")
+    log(f"  restated rows on disk: {len(restated)} (expect 11,355)")
     master = classify_stage2(master, restated)
 
     log("=" * 78)
@@ -2378,7 +2379,7 @@ function renderDroppedSpellingsTable(caseObj) {
   const fromMS = (IDX_stage1c_by_cell3[cell3] || []).map(d => ({
     spelling: d.raw_spelling,
     fate: '<span class="tag dropped">dropped from MS</span>',
-    detail: 'Standard-quantity label -- excluded from the MS weighings before harmonization even runs (cleaning_Aug11.do looks_standard, dofiles/build_pipeline_explorer.py stage-1 reason 1c).',
+    detail: 'Not an NSU -- a standard quantity, an ambiguous quantity, or free text that is not a unit. Excluded from the MS weighings before the crosswalk merge, on the list drop_non_nsu_labels.py owns (dofiles/build_pipeline_explorer.py stage-1 reason 1c).',
   }));
   const fromCrosswalk = (IDX_dropped_cell3[cell3] || []).map(d => ({
     spelling: d.pull_nsu_unit,

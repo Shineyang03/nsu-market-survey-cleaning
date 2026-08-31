@@ -69,6 +69,13 @@ replace    base = .           if !(weight>0 & weight<.)   // drop 0 / missing / 
 gen double log_base = log10(base)
 
 * ---- 1b. item_nsu anchor (median log10) + cell sizes --------------------------
+* ORDER DEPENDENCE, stated here and not only in the caller. This anchor is a median
+* over every row present in the input, so it is only as good as what was excluded
+* BEFORE the file was called. cleaning_Aug11.do drops the non-NSU labels first, and
+* must keep doing so: mineral water's pools otherwise run from a 500 mL bottle to a
+* 10 L gallon, and letting both vote on one item-level reference is what turned a
+* 0.01 L reading of a 10 L gallon into 10 mL. Moving that exclusion after this file
+* reintroduces the bug with no error.
 egen double anchor_in = median(log_base), by(pull_item ${unitvar})
 egen long   n_in      = count(log_base),  by(pull_item ${unitvar})
 egen long   n_item    = count(log_base),  by(pull_item)

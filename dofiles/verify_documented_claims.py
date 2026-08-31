@@ -241,20 +241,21 @@ def c_size_cells_have_prices(d):
     hit = len(cells) - len(miss)
     check("every size-based cell has a price-file row",
           "conversion_factor_methodology.md / Step A",
-          "2 uncovered: HAMTIC bottle 500ml (pending MS re-run); DUEAS cabbage",
-          # bottle 500ml became uncovered when drop_non_nsu_labels.py removed standard
-          # -quantity labels from the crosswalk. Its MS weighings are still in the
-          # restated .dta, which predates the removal; they go on the next pipeline
-          # re-run and this expectation drops back to one cell.
-          "2 uncovered: HAMTIC bottle 500ml (pending MS re-run); DUEAS cabbage"
-          if sorted(tuple(m) for m in miss) == sorted([
-              ("ILOILO", "DUEAS", "cabbage", "putos (mix vegetable)"),
-              ("ANTIQUE", "HAMTIC",
-               "mineral or spring water, all drinking water sold in containers",
-               "bottle 500ml")])
-          else ("all size-based cells covered" if not miss else
-                f"{len(miss)} uncovered: "
-                + "; ".join(" / ".join(m) for m in miss[:5])),
+          "1 uncovered: ILOILO / DUEAS / cabbage / putos (mix vegetable)",
+          # Was temporarily 2. The ANTIQUE / HAMTIC "bottle 500ml" cell was uncovered
+          # only because the crosswalk had already dropped the raw label "500" while
+          # the restated .dta still carried its five weighings. The pipeline re-run
+          # cleared that: those rows are now excluded upstream as an ambiguous
+          # quantity, and the count is back to the single genuine exception.
+          #
+          # That one is DELIBERATE and is issue #22: putos (mix vegetable) is a fold
+          # target that exists on the market-survey side only, so the price file --
+          # keyed on the raw label -- has nothing that folds to it in this cell. A
+          # SECOND uncovered cell means a new fold target with no price counterpart,
+          # which is a finding, not noise.
+          ("all size-based cells covered" if not miss else
+           f"{len(miss)} uncovered: "
+           + "; ".join(" / ".join(m) for m in miss[:5])),
           f"{hit:,} of {len(cells):,} covered."
           + ("" if not miss else "  UNCOVERED: "
              + "; ".join(" / ".join(m) for m in miss[:5])))
@@ -377,7 +378,7 @@ def c_case_counts(d):
          for lvl in ["harmonized_nsu_unit", "cleaned_nsu_unit", "pull_nsu_unit"]}
     check("case counts by vocabulary layer",
           "conversion_factor_methodology.md / Notation",
-          "1,952 harmonized / 1,964 cleaned / 1,992 raw",
+          "1,951 harmonized / 1,963 cleaned / 1,991 raw",
           f"{n['harmonized_nsu_unit']:,} harmonized /"
           f" {n['cleaned_nsu_unit']:,} cleaned /"
           f" {n['pull_nsu_unit']:,} raw",
@@ -433,7 +434,7 @@ def c_label_rank_is_load_bearing(d):
               .value_counts())
     check("the label ranking is load-bearing",
           "conversion_factor_methodology.md / Outcome 1, size assignment",
-          "451 of 1,571 size-based cases would be mislabelled by a naive grp->S/M/L map",
+          "450 of 1,570 size-based cases would be mislabelled by a naive grp->S/M/L map",
           f"{bad:,} of {len(lab):,} size-based cases would be mislabelled"
           " by a naive grp->S/M/L map",
           "disagreeing label sets: "

@@ -221,7 +221,7 @@ def main():
     pc = pr.groupby(KEY).price_type.agg(comp)
     got = cases.set_index(KEY).index.map(lambda k: pc.get(k, "none"))
     cases["price_composition"] = list(got)
-    print("\n  price-file composition of the 124 conventional cases:")
+    print(f"\n  price-file composition of the {len(cases):,} conventional cases:")
     print("   " + cases.price_composition.value_counts()
           .to_string().replace("\n", "\n   "))
     n_lad = int(cases.price_composition.str.contains("full_triple").sum())

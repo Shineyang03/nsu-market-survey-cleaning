@@ -19,7 +19,7 @@ read as describing it.
 This is the grain `nsu_reference_set.do` actually pools on (it groups on all five
 columns to build `cell`). It is one column finer than the grain used for the
 headline case counts elsewhere in the project docs (`docs/conversion_factor_methodology.md`'s
-"1,952 cases harmonized" figure, which omits `corrected_unit`) — the extra split
+"1,951 cases harmonized" figure, which omits `corrected_unit`) — the extra split
 comes from the two mixed-dimension items (ice cream; drinks at restaurant/hotel/cafe/kiosk)
 that get separate grams and millilitres cases. Where the coarser, no-`corrected_unit`
 grain is used below, it is labeled explicitly, because the two grains give different
@@ -127,7 +127,7 @@ question".
 
 **Step 3c — the carrot (7 rows, 1 case removed from the price-quantity population,
 0 cases removed overall).** ILOILO/TIGBAUAN/carrot/pieces or units is the one
-harmonized cell in 1,952 that spans both weighing approaches (9 size-based `bilog`
+harmonized cell in 1,951 that spans both weighing approaches (9 size-based `bilog`
 rows fold with 7 price-quantity `pieces or units` rows). Outcome 1 keeps only the
 9 size-based rows; Outcome 2 will keep only the 7 price-quantity rows. The case
 survives in the output (via its size-based rows), so it does not reduce the
