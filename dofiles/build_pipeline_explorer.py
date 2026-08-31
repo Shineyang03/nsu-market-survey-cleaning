@@ -148,16 +148,20 @@ and `build_price_sankey()` do that:
        dofiles/diagnose_price_only.py); this script only ADDS the same-vs-other-
        province split that CSV does not carry, using nsu_weights_restated.dta.
 
-KNOWN DISCREPANCY: price_only_no_weight_anywhere.csv PREDATES commit 3c436b9 (the
-17-label crosswalk trim). 16 of its 602 rows carry a raw label that
-`is_dropped_label()` now excludes from the crosswalk entirely (e.g. "bottle 500ml",
-"1/4 kilo", "1 sack is 2900/for salary/inkind") -- these are no longer real
-harmonized cells at all, so this script reclassifies them as the dropped-label sink
-instead of price-only. All 16 were in that CSV's own "weighed nowhere" bucket, so
-the current-data figures are 602-16=586 price-only cells and 96-16=80 weighed
-nowhere (the province-fallback and other-province-only splits are unaffected: 428
-and 78). The brief's stated 602/96 are the pre-trim figures; this script uses the
-post-trim ones and prints both rather than silently matching the brief's numbers.
+PRICE-ONLY FIGURES MOVED WITH THE CROSSWALK TRIM. Commit 3c436b9 removed 17
+non-NSU labels from master_nsu_rename, which changed the price-only counts:
+602 price-only / 96 weighed-nowhere before, 586 / 80 after.
+price_only_no_weight_anywhere.csv was regenerated against the trimmed crosswalk
+in b3ccf67, so every row in it now keys to a cell that still exists; the orphan
+check below expects 0.
+
+This script classifies price-only cells freshly against the restated MS data
+rather than trusting the CSV, so its own figures (585 price-only, 79 nowhere)
+differ from the CSV's 586 / 80 by exactly one cell: CAPIZ / TAPAZ chicken, whose
+rows exist but carry no corrected_unit and therefore no usable weight. The CSV
+requires a usable weight; this script counts a cell as weighed if any row exists.
+Both framings are defensible -- the difference is recorded so it is not
+rediscovered as a bug.
 
 Nine already-computed per-case analysis tables (outputs/tables/issue21_*.csv,
 conventional_*.csv, master_rename_dropped_labels.csv) are embedded verbatim as
@@ -904,7 +908,7 @@ def build_price_cells(pr, restated_full):
     n_stale = int(po.stale_.sum())
     log(f"  price_only_no_weight_anywhere.csv rows whose exact cell no longer "
         f"exists in the current (post-label-trim) crosswalk: {n_stale} (expect "
-        f"16 -- see module docstring, KNOWN DISCREPANCY)")
+        f"0 -- the CSV was regenerated against the trimmed crosswalk in b3ccf67)")
     if n_stale and not (po.loc[po.stale_, 'this_unit_weighed_anywhere'] == 0).all():
         log("  *** WARNING: not every stale row was in that CSV's own 'weighed "
             "nowhere' bucket -- the 602/96 -> 586/80 arithmetic in the module "
@@ -982,7 +986,7 @@ def build_price_cells(pr, restated_full):
     log(f"    price-only, weighed only in another province: {n_op:,}")
     log(f"    price-only, weighed nowhere (no conversion path): {n_now:,}")
     log(f"    price-only total: {n_pf + n_op + n_now:,}  "
-        f"(brief's/CSV's pre-trim figure: 602 price-only, 96 nowhere; "
+        f"(pre-trim, before commit 3c436b9: 602 price-only, 96 nowhere; "
         f"post-trim, current data: {n_pf + n_op + n_now:,} price-only, {n_now:,} nowhere)")
     return records
 
@@ -1235,7 +1239,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
         f"all -- all 16 were in that CSV's own 'weighed nowhere' bucket. This page "
         f"reclassifies those 16 as the dropped-label sink instead of price-only, so "
         f"its current-data figures are {n_pf + n_op + n_now:,} price-only cells "
-        f"(brief/CSV pre-trim figure: 602) and {n_now:,} weighed nowhere (pre-trim: "
+        f"(pre-trim: 602) and {n_now:,} weighed nowhere (pre-trim: "
         f"96). The province-fallback ({n_pf:,}) and other-province-only ({n_op:,}) "
         f"splits are unaffected by the trim."
     )
