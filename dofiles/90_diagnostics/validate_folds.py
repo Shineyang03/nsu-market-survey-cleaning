@@ -1,3 +1,5 @@
+from pathlib import Path
+import sys
 """
 Validate NSU fold decisions on the RAW survey weighings, controlling for size.
 
@@ -21,11 +23,13 @@ import pandas as pd, numpy as np, re
 from collections import defaultdict
 from scipy.stats import norm
 BOX=r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
-def A(s): return str(s).encode('ascii','ignore').decode('ascii')
-def nz(s): return re.sub(r'\s+',' ',A(str(s)).lower().strip())
-def ni(s):
-    s=nz(s); return 'drinks at restaurant, hotel, cafe, or kiosk' if 'restaurant' in s else s
-def ng(s): return re.sub(r'\s+',' ',A(str(s)).strip().upper())
+# The one definition of the project's string normalization, imported rather than
+# copied. There used to be eleven byte-identical copies of these four functions across
+# 90_diagnostics/; a fix to any one of them reached none of the others. The Stata
+# counterpart is nsu_normalize in 00_shared/00_globals.do and must agree with it
+# character for character -- see the module docstring.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
+from nsu_normalize import A, nz, ni, ng
 
 SIZES={'small_size','medium_size','large_size'}
 MIN_LABEL_N=10      # a label needs >=this many informative (in-stratum) obs to be testable

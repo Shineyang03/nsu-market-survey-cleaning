@@ -1,3 +1,5 @@
+from pathlib import Path
+import sys
 """
 Price-Only classifier, v5: rename-crosswalk-FIRST architecture.
   step 1: price raw unit -> cleaned_nsu_unit via nsu_rename_crosswalk (the SAME cleaning MS got);
@@ -11,11 +13,11 @@ import pandas as pd, re, os, pickle, difflib
 from collections import defaultdict
 BOX=r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 FOLD=0.85
-def A(s): return str(s).encode('ascii','ignore').decode('ascii')
-def nz(s):  return re.sub(r'\s+',' ',A(s).lower().strip())
-def ni(s):
-    s=nz(s); return 'drinks at restaurant, hotel, cafe, or kiosk' if 'restaurant' in s else s
-def ng(s): return re.sub(r'\s+',' ',A(s).strip().upper())
+# The one definition of the project's string normalization. This file used to hold the
+# authoritative copy; it now lives in 00_shared/nsu_normalize.py so the diagnostics can
+# import the same one instead of each carrying their own.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from nsu_normalize import A, nz, ni, ng
 def toks(s): return re.sub(r'[^a-z0-9 ]',' ',nz(s)).split()
 def ts(a,b): return difflib.SequenceMatcher(None,' '.join(sorted(toks(a))),' '.join(sorted(toks(b)))).ratio()
 

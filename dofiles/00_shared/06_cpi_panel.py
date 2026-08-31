@@ -145,9 +145,23 @@ def main() -> None:
     n_cons_name_raw = cw_raw["cons_name"].nunique()
 
     cw = cw_raw.copy()
-    # same normalization analysis.do applies (lines 143-145 of the spec / analysis.do:73,186,93)
+    # Same normalization analysis.do applies (lines 143-145 of the spec /
+    # analysis.do:73,186,93).
+    #
+    # DELIBERATELY NOT ni() FROM nsu_normalize, even though this is the same prepped-food
+    # collapse. ni() returns the label lower-cased; cons_name here keeps its capital D
+    # because it is a merge key on the CPI side and the join is on the raw-cased string.
+    # Swapping in ni() would silently change the case and break that join -- the exact
+    # failure mode the shared normalizer exists to prevent, arriving from the other
+    # direction. The rule is shared in intent, not in output, so it stays local.
+    #
+    # The detection IS case-insensitive now. It used to be `str.contains("restaurant")`
+    # with no prior lowercasing, so a differently-cased spelling would slip through here
+    # while ni() caught it -- a divergence with no upside. Measured on the current
+    # crosswalk (95 rows): 5 hits either way, 0 rows change. This is hardening against a
+    # future spelling, not a fix to today's output.
     cw["cons_name"] = cw["cons_name"].where(
-        ~cw["cons_name"].str.contains("restaurant"),
+        ~cw["cons_name"].str.contains("restaurant", case=False),
         "Drinks at restaurant, hotel, cafe, or kiosk",
     )
     cw["cons_name"] = cw["cons_name"].str.replace("caf\u00e9", "cafe", regex=False)

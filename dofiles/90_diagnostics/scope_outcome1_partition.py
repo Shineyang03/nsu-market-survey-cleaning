@@ -1,3 +1,5 @@
+from pathlib import Path
+import sys
 """Outcome 1's MECE partition of cases, and what the pooling question is there.
 
 Outcome 1 publishes grams by SIZE (small/medium/large or conventional). It has no price
@@ -29,14 +31,13 @@ LBL = {1: "conventional", 2: "small", 3: "medium", 4: "large", 5: "mp25", 6: "mp
 K = ["prov", "mun", "item", "harm", "corrected_unit"]
 
 
-def A(s): return str(s).encode("ascii", "ignore").decode("ascii")
-def nz(s): return re.sub(r"\s+", " ", A(s).lower().strip())
-def ng(s): return re.sub(r"\s+", " ", A(s).strip().upper())
-
-
-def ni(s):
-    s = nz(s)
-    return "drinks at restaurant, hotel, cafe, or kiosk" if "restaurant" in s else s
+# The one definition of the project's string normalization, imported rather than
+# copied. There used to be eleven byte-identical copies of these four functions across
+# 90_diagnostics/; a fix to any one of them reached none of the others. The Stata
+# counterpart is nsu_normalize in 00_shared/00_globals.do and must agree with it
+# character for character -- see the module docstring.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
+from nsu_normalize import A, nz, ni, ng
 
 
 ms = pd.read_stata(DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dta",

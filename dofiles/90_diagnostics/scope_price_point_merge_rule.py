@@ -54,14 +54,13 @@ BR = {1.0: "conventional", 2.0: "price-quantity", 3.0: "size-based"}
 K = ["prov", "mun", "item", "harm"]
 
 
-def A(s): return str(s).encode("ascii", "ignore").decode("ascii")
-def nz(s): return re.sub(r"\s+", " ", A(s).lower().strip())
-def ng(s): return re.sub(r"\s+", " ", A(s).strip().upper())
-
-
-def ni(s):
-    s = nz(s)
-    return "drinks at restaurant, hotel, cafe, or kiosk" if "restaurant" in s else s
+# The one definition of the project's string normalization, imported rather than
+# copied. There used to be eleven byte-identical copies of these four functions across
+# 90_diagnostics/; a fix to any one of them reached none of the others. The Stata
+# counterpart is nsu_normalize in 00_shared/00_globals.do and must agree with it
+# character for character -- see the module docstring.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
+from nsu_normalize import A, nz, ni, ng
 
 
 def cluster(points, abs_tol=None, rel_tol=None):

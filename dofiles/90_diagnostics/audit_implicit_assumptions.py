@@ -1,3 +1,4 @@
+from pathlib import Path
 """Measure the implicit assumptions embedded in the pipeline's thresholds and rules.
 
 WHY. docs/conversion_factor_methodology.md has an "Assumptions to keep visible" section
@@ -40,8 +41,9 @@ def h(t):
     print("\n" + "=" * 78 + f"\n{t}\n" + "=" * 78)
 
 
-def A(s):
-    return str(s).encode("ascii", "ignore").decode("ascii")
+# Imported, not copied -- see 00_shared/nsu_normalize.py.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
+from nsu_normalize import A
 
 
 def main():
