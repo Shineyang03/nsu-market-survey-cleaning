@@ -24,23 +24,52 @@
 * Inputs required in memory : pull_item ${unitvar} weight unit id
 * Key outputs               : corrected_unit corrected_weight base_corr k flag_review
 *
-* PARAMETERS (globals; all default to the original cleaning.do behaviour, so
-* calling this file with none of them set runs the CURRENT cleaning.do path. It does
-* NOT reproduce the pre-Aug11 output byte for byte -- since parameterization the file
-* also gained a unit==3 block, a round() and an encode, and lost two saves
-*   ${unitvar}     unit variable defining the anchor pool  [cleaned_nsu_unit]
-*   ${snap_in}     input dataset                           [${temp}\prelim_nsu_data]
-*   ${snap_out}    output dataset                          [${temp}\standard_weight_unit_correction]
-*   ${snap_tables} folder for mixed_dimension_items.xlsx    [${tables}]
+* PARAMETERS (globals). 03_clean_ms.do sets all four before calling this file, so on
+* the pipeline path the defaults below are never used. They exist only so this step
+* can be run on its own, and they therefore default to THE CURRENT BUILD.
+*
+*   ${unitvar}     unit variable defining the anchor pool  [harmonized_nsu_unit]
+*   ${snap_in}     input dataset                           [${btemp}\prelim_nsu_data]
+*   ${snap_out}    output dataset                          [${btemp}\standard_weight_unit_correction]
+*   ${snap_tables} folder for mixed_dimension_items.xlsx    [${btables}]
+*
+* WHY THESE DEFAULTS CHANGED. They used to point at ${temp} with cleaned_nsu_unit, to
+* "default to the original cleaning.do behaviour". ${temp} is the pre-Aug11 subtree,
+* where prelim_nsu_data.dta is dated 2026-07-28, so a standalone run of this file read
+* July data, pooled its anchors on a retired unit variable, and wrote its output back
+* into the July subtree -- silently, because a stale .dta loads exactly as cleanly as a
+* current one. The defaults bought nothing in exchange: the header already recorded
+* that this file no longer reproduces the pre-Aug11 output byte for byte, having since
+* gained a unit==3 block, a round() and an encode, and lost two saves.
+*
+* A standalone run now does what the pipeline does. `confirm file' below is what makes
+* a wrong path halt instead of loading whatever happens to be there.
 
-if "${unitvar}"     == "" global unitvar     "cleaned_nsu_unit"
-if "${snap_in}"     == "" global snap_in     "${temp}\prelim_nsu_data"
-if "${snap_out}"    == "" global snap_out    "${temp}\standard_weight_unit_correction"
-if "${snap_tables}" == "" global snap_tables "${tables}"
+* Load the paths, exactly as every other numbered step does. This file used not to,
+* which made it the one step that could not run on its own at all: standalone, ${temp}
+* and ${btemp} were both EMPTY, so its input path resolved to a bare
+* "\prelim_nsu_data" and nothing about the failure said why.
+*
+* NO `clear all' HERE, unlike the top-level steps. 03_clean_ms.do sets ${unitvar},
+* ${snap_in}, ${snap_out} and ${snap_tables} immediately before calling this file, and
+* `clear all' would drop all four -- silently reverting the pipeline to the standalone
+* defaults below. 00_globals.do itself touches no data, so loading it here is safe
+* mid-build.
+do "00_shared/00_globals.do"
+
+if "${unitvar}"     == "" global unitvar     "harmonized_nsu_unit"
+if "${snap_in}"     == "" global snap_in     "${btemp}\prelim_nsu_data"
+if "${snap_out}"    == "" global snap_out    "${btemp}\standard_weight_unit_correction"
+if "${snap_tables}" == "" global snap_tables "${btables}"
 
 di as txt "04_unit_snap: anchor pool = pull_item x ${unitvar}"
 di as txt "04_unit_snap: in  = ${snap_in}"
 di as txt "04_unit_snap: out = ${snap_out}"
+
+* Halt on a missing input rather than letting `use' report it. This step is called
+* with a parameterized path, so a typo or an unset global is a real possibility, and
+* the failure to guard against is reading the WRONG file, not reading none.
+confirm file "${snap_in}.dta"
 
 use "${snap_in}", clear
 
