@@ -241,6 +241,10 @@ MEDIAN_DISAGREEMENT_PATH = T / "issue21_median_disagreement.csv"
 RUNG_MIX_PATH = T / "issue21_rung_composition_mix.csv"
 FOLD_CHECK_PATH = T / "issue21_outcome1_fold_check.csv"
 
+# ---- case-explorer-only tables (see "THE CASE EXPLORER" below) ----
+PSPS_EXPOSURE_PATH = T / "psps_conversion_exposure.csv"
+SINGLETON_PATH = T / "singleton_hetero_groups.csv"
+
 OUT_DIR = DC / "outputs" / "explorer"
 OUT_HTML = OUT_DIR / "nsu_pipeline_explorer.html"
 
@@ -1113,8 +1117,14 @@ def load_price_analyses(pr):
     tables['median_disagreement'] = _records(median_dis)
 
     dropped = pd.read_csv(DROPPED_LABELS_PATH, encoding='utf-8-sig')
-    tables['dropped_labels'] = _records(_addkey4(
-        dropped, 'province', 'pull_municipal_city', 'cons_name', 'pull_nsu_unit'))
+    dropped = _addkey4(dropped, 'province', 'pull_municipal_city', 'cons_name', 'pull_nsu_unit')
+    # cell-level key (no unit) -- a label dropped ENTIRELY from the crosswalk has no
+    # surviving harmonized_nsu_unit to key on (see build_pipeline_explorer.py module
+    # docstring addendum, "THE CASE EXPLORER"); the case view matches these to a
+    # harmonized case by (province, municipality, item) alone.
+    dropped['_cell3'] = [f"{ng(p)}|{ng(m)}|{ni(i)}" for p, m, i in
+                         zip(dropped.province, dropped.pull_municipal_city, dropped.cons_name)]
+    tables['dropped_labels'] = _records(dropped)
 
     conv_ov = pd.read_csv(CONV_OVERLAP_PATH, encoding='utf-8-sig')
     conv_ov = conv_ov.copy()
@@ -1130,6 +1140,71 @@ def load_price_analyses(pr):
     return tables
 
 
+def build_case_explorer(master_rename):
+    """THE CASE EXPLORER (GitHub issue #26, follow-up 2): a case-centred third view.
+
+    The two Sankeys above are flow-level -- they answer "how many rows took this
+    path", never "what happened to THIS harmonized case end to end". This function
+    builds the data for that: the crosswalk embedded verbatim, and two more tables
+    (`psps_conversion_exposure.csv`, `singleton_hetero_groups.csv`) joined in by key,
+    never recomputed -- see the task brief, "Also join in (do not recompute)".
+
+    A "case" is province x municipality x item x harmonized_nsu_unit (NOT
+    corrected_unit -- that is a finer MS-only grain; see CASE_COLS elsewhere in this
+    file). Its key is `key4()`, identical to every other analysis table's join key,
+    so the case explorer needs no key scheme of its own: `analysis_key` on a MS
+    weighing and `cell_key` on a price cell already ARE a case key when the cell is
+    not a dropped-label island.
+
+    WHAT IS DELIBERATELY LEFT TO THE BROWSER. Outcome 1/2 partition-row
+    classification (docs/conversion_factor_methodology.md, the two "Decision rule"
+    sections) needs nothing beyond fields already embedded per weighing
+    (`weighing_approach`, `raw_spelling`, `terminal`) -- see the HTML template's
+    `classifyOutcome1`/`classifyOutcome2`. Recomputing that here in a second
+    language would be exactly the "shared logic, defined twice" failure mode; the
+    one true source is the per-weighing `terminal`/`weighing_approach` fields
+    build_payload() already computes from classify_stage3().
+    """
+    cw = master_rename.copy()
+    cw['_key'] = [key4(p, c, i, h) for p, c, i, h in
+                  zip(cw.province, cw.pull_municipal_city, cw.cons_name,
+                      cw.harmonized_nsu_unit)]
+    log(f"  crosswalk rows embedded for the case explorer: {len(cw):,} (expect 2,933)")
+
+    cases = []
+    for k, g in cw.groupby('_key'):
+        r0 = g.iloc[0]
+        cases.append({
+            "case_key": k,
+            "province": r0.province, "municipality": r0.pull_municipal_city,
+            "item": r0.cons_name, "harmonized_unit": r0.harmonized_nsu_unit,
+            "_cell3": f"{ng(r0.province)}|{ng(r0.pull_municipal_city)}|{ni(r0.cons_name)}",
+            "n_spellings": int(len(g)),
+            "n_ms_price": int((g.source == 'MS & Price').sum()),
+            "n_price_only": int((g.source == 'Price Only').sum()),
+        })
+    log(f"  distinct harmonized cases in the crosswalk: {len(cases):,}")
+
+    psps = pd.read_csv(PSPS_EXPOSURE_PATH, encoding='utf-8-sig')
+    psps['_key'] = [key4(p, m, i, h) for p, m, i, h in
+                    zip(psps.prov, psps.mun, psps.item, psps.harm)]
+    log(f"  PSPS exposure rows: {len(psps):,} (expect 2,496), "
+        f"total PSPS NSU observations: {int(psps.n_psps_obs.sum()):,} (expect 35,489)")
+
+    singleton = pd.read_csv(SINGLETON_PATH, encoding='utf-8-sig')
+    singleton['_key4'] = [key4(p, m, i, h) for p, m, i, h in
+                          zip(singleton.pull_province, singleton.pull_municipal_city,
+                              singleton.pull_item, singleton.harmonized_nsu_unit)]
+    log(f"  singleton hetero-groups: {len(singleton):,} (expect 778)")
+
+    return {
+        "crosswalk": _records(cw),
+        "cases": cases,
+        "psps_exposure": _records(psps),
+        "singleton_groups": _records(singleton),
+    }
+
+
 def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_lookup,
                    refset, counts):
     master_rename = pd.read_csv(MASTER_RENAME_PATH, encoding='utf-8-sig', dtype=str)
@@ -1140,6 +1215,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
     price_cells = build_price_cells(pr, restated_full)
     price_sankey = build_price_sankey(price_cells, pr)
     price_analyses = load_price_analyses(pr)
+    case_explorer = build_case_explorer(master_rename)
 
     n_pf = sum(1 for c in price_cells if c['bucket'] == 'price_only_province_fallback')
     n_op = sum(1 for c in price_cells if c['bucket'] == 'price_only_other_province_only')
@@ -1349,6 +1425,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
         "price_sankey": price_sankey,
         "price_cells": price_cells,
         "price_analyses": price_analyses,
+        "case_explorer": case_explorer,
     }
 
 
@@ -1443,7 +1520,7 @@ tbody tr.selected { background: #1e3a5f; }
 .subtable { margin-top: 6px; max-height: 220px; overflow: auto; border: 1px solid var(--border); border-radius: 6px; }
 .subtable table { font-size: 11px; }
 #detail { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.detail-col { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 14px; }
+.detail-col { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 14px; min-width: 0; overflow-x: auto; }
 .detail-col h3 { margin: 0 0 10px 0; font-size: 13px; color: var(--accent2); }
 .pathstep { display: flex; gap: 10px; padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: 12.5px; }
 .pathstep:last-child { border-bottom: none; }
@@ -1467,6 +1544,7 @@ a { color: var(--accent); }
 <section>
   <h2>1. Market-survey flow (Sankey) &mdash; click a node to filter the table in section 3</h2>
   <div id="sankey-wrap"><svg id="sankey"></svg></div>
+  <div class="crosslink" id="sankey-to-case" style="margin-top:10px">Trace one harmonized case instead &mdash; jump to section 6 &darr;</div>
 </section>
 
 <section>
@@ -1478,6 +1556,7 @@ a { color: var(--accent); }
   </p>
   <div id="price-banner-holder"></div>
   <div id="price-sankey-wrap" style="overflow-x:auto"><svg id="price-sankey"></svg></div>
+  <div class="crosslink" id="price-sankey-to-case" style="margin-top:10px">Trace one harmonized case instead &mdash; jump to section 6 &darr;</div>
 </section>
 
 <section>
@@ -1549,6 +1628,23 @@ a { color: var(--accent); }
 <section>
   <h2>5. Selected observation &mdash; its path through the build, and its price-side context</h2>
   <div id="detail"><div class="placeholder" style="grid-column:1/-1">Select a row in section 3 or 4 to see its path.</div></div>
+</section>
+
+<section id="case-explorer-section">
+  <h2>6. Case explorer &mdash; trace one harmonized case end to end</h2>
+  <p style="color:var(--muted);font-size:12.5px;margin:0 0 10px 0">
+    A harmonized case is province &times; municipality &times; item &times; harmonized NSU unit
+    (<code>docs/master_rename.md</code>). Search for one to see every raw spelling that folds into it, which
+    spellings were dropped and from where, how each surviving spelling was weighed, what Outcome 1 and
+    Outcome 2 do with it, how many PSPS observations depend on it, and whether its hetero-groups rest on a
+    single weighing.
+  </p>
+  <div class="filters">
+    <input type="text" id="case-search" placeholder="Search province / municipality / item / harmonized unit&hellip;" style="width:440px">
+    <span class="count" id="case-search-count"></span>
+  </div>
+  <div id="case-results" class="subtable" style="max-height:240px"></div>
+  <div id="case-detail" style="margin-top:16px"></div>
 </section>
 
 <footer id="footer"></footer>
@@ -2099,6 +2195,7 @@ function jumpToPriceCell(cellKey) {
 function wireCrosslinks(container) {
   container.querySelectorAll('[data-jump="ms"]').forEach(b => b.addEventListener('click', () => jumpToMSCase(b.dataset.key)));
   container.querySelectorAll('[data-jump="price"]').forEach(b => b.addEventListener('click', () => jumpToPriceCell(b.dataset.key)));
+  container.querySelectorAll('[data-jump="case"]').forEach(b => b.addEventListener('click', () => jumpToCase(b.dataset.key)));
 }
 
 // ---------------------------------------------------------------- detail panel (shared by both tables)
@@ -2157,6 +2254,7 @@ function selectRow(w) {
     (other.length ? `<b>Other units in this cell</b>` + renderPriceRowsTable(other) : '') +
     `</div>`) +
     (hasPriceCell ? `<button class="crosslink" data-jump="price" data-key="${esc(w.analysis_key)}">View this cell's row in section 4 (price-file flow) &darr;</button>` : '') +
+    (!isDroppedRecord(w) && CASE_BY_KEY[w.analysis_key] ? `<button class="crosslink" data-jump="case" data-key="${esc(w.analysis_key)}">Trace this case end to end in section 6 &darr;</button>` : '') +
     (!isDroppedRecord(w) ? `<h3 style="margin-top:16px">Related analyses for this case</h3>` +
       renderAnalysesHTML(gatherAnalyses({
         analysisKey: w.analysis_key, rawKeys: [w.raw_key],
@@ -2200,6 +2298,7 @@ function selectPriceCell(c) {
   ].map(([k, v]) => `<div class="pathstep"><div class="stage">${k}</div><div class="val">${v}</div></div>`).join('')
    + (BUCKET_NOTE[c.bucket] ? `<div class="note">${BUCKET_NOTE[c.bucket]}</div>` : '')
    + (c.bucket === 'convertible' ? `<button class="crosslink" data-jump="ms" data-key="${esc(c.cell_key)}">View MS weighings for this case in section 3 &darr;</button>` : '')
+   + (!c.dropped_label && CASE_BY_KEY[c.cell_key] ? `<button class="crosslink" data-jump="case" data-key="${esc(c.cell_key)}">Trace this case end to end in section 6 &darr;</button>` : '')
    + `<div class="pricebox" style="margin-top:10px"><b>Price rows in this cell</b>` +
      '<div class="subtable"><table><thead><tr><th>raw unit</th><th>price type</th><th>price</th></tr></thead><tbody>' +
      c.price_rows.map(p => `<tr><td>${p.raw_unit}</td><td>${p.price_type}</td><td>${p.price}</td></tr>`).join('') +
@@ -2219,6 +2318,324 @@ function selectPriceCell(c) {
   detail.appendChild(right);
   wireCrosslinks(detail);
 }
+
+// ============================================================================
+// 6. CASE EXPLORER (issue #26, follow-up 2) -- a case-centred third view.
+//
+// A "case" is province x municipality x item x harmonized_nsu_unit -- key4(),
+// identical to `analysis_key` on a weighing and `cell_key` on a (non-island)
+// price cell, so no new key scheme is needed: CASE_BY_KEY, WEIGHINGS_BY_CASE and
+// CELL_BY_KEY are all keyed the same way and cross-links are a direct lookup.
+//
+// Outcome 1 / Outcome 2 partition-row classification (the two "Decision rule"
+// sections of docs/conversion_factor_methodology.md) is computed HERE, once, from
+// fields the payload already carries per weighing (`weighing_approach`,
+// `raw_spelling`, `terminal`) -- never re-derived server-side, so there is exactly
+// one implementation of "which row does this case fall in", not two that could
+// silently disagree.
+// ============================================================================
+const CE = DATA.case_explorer;
+const CASE_BY_KEY = {}; CE.cases.forEach(c => CASE_BY_KEY[c.case_key] = c);
+const CROSSWALK_BY_CASE = buildIndex(CE.crosswalk, '_key');
+const IDX_ce_psps = buildIndex(CE.psps_exposure, '_key');
+const IDX_ce_singleton = buildIndex(CE.singleton_groups, '_key4');
+const IDX_dropped_cell3 = buildIndex(PA.dropped_labels, '_cell3');
+const WEIGHINGS_BY_CASE = buildIndex(DATA.weighings, 'analysis_key');
+
+// stage-1 "looks_standard" MS-side drops (cleaning_Aug11.do), keyed by the same
+// (province, municipality, item) cell a case belongs to -- these predate
+// harmonization, so they carry no harmonized_nsu_unit to key a case on.
+const IDX_stage1c_by_cell3 = {};
+DATA.dropped.forEach(d => {
+  if (d.stage1_drop_reason && d.stage1_drop_reason.startsWith('1c:')) {
+    const k = `${d.province}|${d.municipality}|${d.item}`;
+    (IDX_stage1c_by_cell3[k] = IDX_stage1c_by_cell3[k] || []).push(d);
+  }
+});
+
+const SOURCE_TAG = {
+  'MS & Price': '<span class="tag ok">weighed (MS &amp; Price)</span>',
+  'Price Only': '<span class="tag pending">Price Only &mdash; never weighed under this spelling</span>',
+};
+
+function renderCaseSpellingsTable(caseKey) {
+  const rows = CROSSWALK_BY_CASE[caseKey] || [];
+  if (!rows.length) return '<div class="placeholder">no crosswalk rows for this case</div>';
+  return '<div class="subtable"><table><thead><tr><th>raw spelling (pull_nsu_unit)</th><th>cleaned unit</th>' +
+    '<th>source</th><th>merges with (in this cell)</th></tr></thead><tbody>' +
+    rows.map(r => `<tr><td>${esc(r.pull_nsu_unit)}</td><td>${esc(r.cleaned_nsu_unit)}</td>` +
+      `<td>${SOURCE_TAG[r.source] || esc(r.source)}</td>` +
+      `<td>${r.n_cell_merged > 1 ? esc(r.cell_merge_with || '') : '<span style="color:var(--muted)">(only spelling here)</span>'}</td></tr>`).join('') +
+    '</tbody></table></div>';
+}
+
+function renderDroppedSpellingsTable(caseObj) {
+  const cell3 = caseObj._cell3;
+  const fromMS = (IDX_stage1c_by_cell3[cell3] || []).map(d => ({
+    spelling: d.raw_spelling,
+    fate: '<span class="tag dropped">dropped from MS</span>',
+    detail: 'Standard-quantity label -- excluded from the MS weighings before harmonization even runs (cleaning_Aug11.do looks_standard, dofiles/build_pipeline_explorer.py stage-1 reason 1c).',
+  }));
+  const fromCrosswalk = (IDX_dropped_cell3[cell3] || []).map(d => ({
+    spelling: d.pull_nsu_unit,
+    fate: '<span class="tag dropped">dropped from crosswalk</span>',
+    detail: `Removed from master_nsu_rename.csv entirely (dofiles/drop_non_nsu_labels.py): ${esc(d.drop_reason)}. Source was ${esc(d.source)}; would-be harmonized unit ${esc(d.harmonized_nsu_unit)}.`,
+  }));
+  const rows = fromMS.concat(fromCrosswalk);
+  if (!rows.length) return '<div class="placeholder">no dropped spellings recorded for this (province, municipality, item) cell</div>';
+  return '<div class="subtable"><table><thead><tr><th>raw spelling</th><th>fate</th><th>detail</th></tr></thead><tbody>' +
+    rows.map(r => `<tr><td>${esc(r.spelling)}</td><td>${r.fate}</td><td>${r.detail}</td></tr>`).join('') +
+    '</tbody></table></div>';
+}
+
+function renderWeighingSummary(caseWeighings) {
+  if (!caseWeighings.length) return '<div class="placeholder">no MS weighing ever reached the restated stage for this case</div>';
+  const groups = {};
+  caseWeighings.forEach(w => {
+    const k = `${w.raw_spelling}||${w.weighing_approach}||${w.size_price_label}||${w.corrected_unit}`;
+    if (!groups[k]) groups[k] = { raw_spelling: w.raw_spelling, weighing_approach: w.weighing_approach,
+      size_price_label: w.size_price_label, corrected_unit: w.corrected_unit, n: 0 };
+    groups[k].n++;
+  });
+  const rows = Object.values(groups).sort((a, b) => a.raw_spelling.localeCompare(b.raw_spelling));
+  return '<div class="subtable"><table><thead><tr><th>raw spelling</th><th>weighing approach</th>' +
+    '<th>size/price label</th><th>unit</th><th>n weighings</th></tr></thead><tbody>' +
+    rows.map(r => `<tr><td>${esc(r.raw_spelling)}</td><td>${esc(r.weighing_approach)}</td>` +
+      `<td>${esc(r.size_price_label)}</td><td>${esc(r.corrected_unit)}</td><td>${r.n}</td></tr>`).join('') +
+    '</tbody></table></div>';
+}
+
+// ---- Outcome 1 partition (docs/conversion_factor_methodology.md, "Decision rule
+// (Outcome 1)") -- domain is the ELIGIBLE weighings, i.e. every weighing whose
+// `terminal` is not one of the Outcome-1-only exclusions or the hard drop. ----
+const OUTCOME1_ELIGIBLE_TERMINALS = new Set(
+  ['outcome1_reference_row', 'outcome1_reference_row_unverified', 'survived_unresolved_size']);
+
+function classifyOutcome1(caseWeighings) {
+  const eligible = caseWeighings.filter(w => OUTCOME1_ELIGIBLE_TERMINALS.has(w.terminal));
+  if (!eligible.length) {
+    const reasons = [...new Set(caseWeighings.map(w => w.terminal_reason).filter(Boolean))];
+    return { excluded: true, reasons, hasAnyWeighing: caseWeighings.length > 0 };
+  }
+  const branches = [...new Set(eligible.map(w => w.weighing_approach))];
+  const nSpellings = new Set(eligible.map(w => w.raw_spelling)).size;
+  let row, text;
+  if (branches.length > 1) {
+    row = null;
+    text = 'Unexpected: eligible rows span more than one weighing_approach for this case -- the carrot ' +
+      'rule should already have excluded the one known mixed-branch cell from Outcome 1 eligibility. Flag for review.';
+  } else if (branches[0] === 'conventional') {
+    row = 1; text = 'Partition row 1 (conventional, no pooling): no size to resolve -- reports the case median.';
+  } else if (branches[0] === 'size-based') {
+    row = nSpellings > 1 ? 3 : 2;
+    text = nSpellings > 1
+      ? 'Partition row 3 (size-based, pools >1 weighed spelling): k = distinct S/M/L field labels across ' +
+        'the pooled spellings; terciles are cut on the pooled weights, not any one spelling’s own.'
+      : 'Partition row 2 (size-based, single weighed spelling): k = distinct S/M/L field labels present; ' +
+        'terciles cut on this spelling’s own weights.';
+  } else {
+    row = nSpellings > 1 ? 5 : 4;
+    text = nSpellings > 1
+      ? 'Partition row 5 (price-quantity, pools >1 weighed spelling): only 2 cases in the whole dataset do ' +
+        'this (both NEGROS OCCIDENTAL / VALLADOLID, pieces or units) -- both collide, see docs/conversion_factor_methodology.md.'
+      : 'Partition row 4 (price-quantity, single weighed spelling): size read off the rung -- mp25→S, mp50→M, mp75→L, any median→M.';
+  }
+  const bySize = {};
+  eligible.forEach(w => {
+    if (w.terminal === 'outcome1_reference_row' || w.terminal === 'outcome1_reference_row_unverified') {
+      const lbl = w.size_label || '(unresolved)';
+      if (!bySize[lbl]) bySize[lbl] = { size_label: lbl, n: 0, grams: w.outcome1_grams,
+        unverified: w.terminal === 'outcome1_reference_row_unverified' };
+      bySize[lbl].n++;
+    }
+  });
+  return { excluded: false, row, text, sizes: Object.values(bySize) };
+}
+
+// ---- Outcome 2 partition (docs/conversion_factor_methodology.md, "Decision rule
+// (Outcome 2)") -- domain is EVERY restated weighing for the case (no exclusions:
+// the doc's own partition totals 11,360, the full restated population). No
+// terminal value is computed or shown -- Outcome 2 has no do-file yet; only the
+// applicable rule is named, per the task brief. ----
+function classifyOutcome2(caseWeighings) {
+  if (!caseWeighings.length) return { applicable: false };
+  const branches = [...new Set(caseWeighings.map(w => w.weighing_approach))];
+  const nSpellings = new Set(caseWeighings.map(w => w.raw_spelling)).size;
+  if (branches.length > 1) {
+    return { row: 7, text: 'Partition row 7 (mixed price-quantity + size-based cell -- the carrot rule): ' +
+      'Outcome 1 keeps only the size-based rows (row 3 above); Outcome 2 keeps the price-quantity rows, ' +
+      'each price point kept separate (row 6 rule, no merge).' };
+  }
+  const b = branches[0];
+  if (b === 'conventional') {
+    return nSpellings > 1
+      ? { row: 2, text: 'Partition row 2 (conventional, pools >1 weighed spelling): documented as NOT ' +
+          'occurring anywhere in the data (0 cases) -- seeing it here means something has changed upstream.' }
+      : { row: 1, text: 'Partition row 1 (conventional, no pooling): CF = median(w) over the case. The price file is not used for grouping.' };
+  }
+  if (b === 'size-based') {
+    return nSpellings > 1
+      ? { row: 4, text: 'Partition row 4 (size-based, pools >1 weighed spelling): the union of price points ' +
+          'from every weighed spelling, merged within ₱20 (single-linkage; a merged point takes the mean), ' +
+          'then the pooled weights are cut into as many terciles as surviving points. No terminal value is ' +
+          'computed here -- Outcome 2 has no do-file yet (docs/conversion_factor_methodology.md, Row 4 in detail).' }
+      : { row: 3, text: 'Partition row 3 (size-based, single weighed spelling): keeps that spelling’s own ' +
+          'price points exactly as recorded, no merge. No terminal value is computed here -- Outcome 2 has no do-file yet.' };
+  }
+  return nSpellings > 1
+    ? { row: 6, text: 'Partition row 6 (price-quantity, pools >1 weighed spelling): every distinct pull_price ' +
+        'is kept SEPARATE, no merge -- the enumerator spent a specific amount, so collapsing two spellings’ ' +
+        'prices would misattribute the price-quantity relationship (docs/conversion_factor_methodology.md, Row 6 in detail).' }
+    : { row: 5, text: 'Partition row 5 (price-quantity, single weighed spelling): pull_price is used directly ' +
+        'as the price point. The price file is not consulted.' };
+}
+
+function renderOutcome1Panel(caseWeighings) {
+  const o1 = classifyOutcome1(caseWeighings);
+  if (o1.excluded) {
+    const why = o1.hasAnyWeighing
+      ? `Excluded from the Outcome 1 collapse for every weighing in this case. Reason(s) recorded: ${
+          o1.reasons.length ? o1.reasons.map(esc).join(' | ') : '(none recorded -- see raw rows in section 3)'}`
+      : 'No MS weighing for this case ever reached the restated stage -- nothing to exclude or include.';
+    return `<div class="note">${why}</div>`;
+  }
+  const sizeRows = o1.sizes.length
+    ? '<div class="subtable"><table><thead><tr><th>size</th><th>n</th><th>grams/mL</th><th></th></tr></thead><tbody>' +
+      o1.sizes.map(s => `<tr><td>${esc(s.size_label)}</td><td>${s.n}</td><td>${s.grams != null ? s.grams : '(unverified)'}</td>` +
+        `<td>${s.unverified ? '<span class="tag pending">unverified</span>' : '<span class="tag ok">published</span>'}</td></tr>`).join('') +
+      '</tbody></table></div>'
+    : '<div class="placeholder">eligible for Outcome 1, but this tool\'s size replication could not assign a size to any weighing here -- see the generator\'s docstring</div>';
+  return `<div class="note">${esc(o1.text)}</div>` + sizeRows;
+}
+
+function renderOutcome2Panel(caseWeighings) {
+  const o2 = classifyOutcome2(caseWeighings);
+  if (o2.applicable === false) return '<div class="placeholder">no MS weighing for this case -- Outcome 2 has nothing to key a conversion factor to</div>';
+  return `<div class="note">${esc(o2.text)}</div>`;
+}
+
+function renderPSPSExposure(caseKey) {
+  const rows = IDX_ce_psps[caseKey] || [];
+  if (!rows.length) return '<div class="placeholder">no PSPS exposure record for this case (outputs/tables/psps_conversion_exposure.csv scopes food-only, non-standard-unit PSPS answers -- this case may simply not appear in the PSPS consumption data)</div>';
+  const total = rows.reduce((a, r) => a + r.n_psps_obs, 0);
+  return `<div class="subtable"><table><thead><tr><th>bucket</th><th>PSPS observations</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td>${esc(r.bucket)}</td><td>${r.n_psps_obs.toLocaleString()}</td></tr>`).join('') +
+    `</tbody></table></div><div class="note">${total.toLocaleString()} PSPS household observation(s) in this exact (province, municipality, item, harmonized unit) cell depend on this case's conversion path.</div>`;
+}
+
+function renderSingletonFlag(caseKey, caseWeighings) {
+  const groups = IDX_ce_singleton[caseKey] || [];
+  const totalGroups = new Set(caseWeighings.filter(w => w.corrected_weight != null).map(w => w.size_price_label)).size;
+  if (!groups.length) {
+    return totalGroups
+      ? '<div class="placeholder">none of this case\'s hetero-groups rest on a single weighing</div>'
+      : '<div class="placeholder">no weighed hetero-group to check</div>';
+  }
+  const allSingle = totalGroups > 0 && groups.length >= totalGroups;
+  const table = '<div class="subtable"><table><thead><tr><th>label</th><th>branch</th><th>weight</th><th>vendors</th>' +
+    '<th>province median (same group, elsewhere)</th><th>province n (excl. this one)</th></tr></thead><tbody>' +
+    groups.map(g => `<tr><td>${esc(g.label)}</td><td>${esc(g.branch)}</td><td>${g.w}</td><td>${g.vendors}</td>` +
+      `<td>${g.prov_median != null ? g.prov_median : '(n/a)'}</td><td>${g.prov_n_other}</td></tr>`).join('') +
+    '</tbody></table></div>';
+  return table + (allSingle
+    ? '<div class="note">EVERY hetero-group in this case rests on exactly one weighing -- no internal check of any kind (outputs/tables/singleton_hetero_groups.csv, Q4).</div>'
+    : `<div class="note">${groups.length} of ${totalGroups} hetero-group(s) in this case rest on a single weighing.</div>`);
+}
+
+function renderCaseDetail(caseKey) {
+  const caseObj = CASE_BY_KEY[caseKey];
+  const holder = document.getElementById('case-detail');
+  if (!caseObj) {
+    holder.innerHTML = '<div class="placeholder">case not found</div>';
+    return;
+  }
+  const caseWeighings = WEIGHINGS_BY_CASE[caseKey] || [];
+  const cell = CELL_BY_KEY[caseKey];
+  const units = [...new Set(caseWeighings.map(w => w.corrected_unit).filter(Boolean))];
+
+  const left = document.createElement('div');
+  left.className = 'detail-col';
+  left.innerHTML = `<h3>${esc(caseObj.province)} / ${esc(caseObj.municipality)} / ${esc(caseObj.item)} / ${esc(caseObj.harmonized_unit)}</h3>` +
+    [
+      ['Raw spellings folding in', `${caseObj.n_spellings} (${caseObj.n_ms_price} MS &amp; Price, ${caseObj.n_price_only} Price Only)`],
+      ['MS weighings (restated stage)', caseWeighings.length],
+      ['Unit(s) recorded', units.length ? units.join(', ') : '(no weighing)'],
+    ].map(([k, v]) => `<div class="pathstep"><div class="stage">${k}</div><div class="val">${v}</div></div>`).join('') +
+    (units.length > 1 ? '<div class="note">More than one corrected unit appears under this harmonized unit -- the panels below pool across all of them for display; docs/conversion_factor_methodology.md’s case grain is actually 5-key (adds corrected_unit).</div>' : '') +
+    (cell ? `<button class="crosslink" data-jump="price" data-key="${esc(caseKey)}">View this cell's price rows in section 4 &darr;</button>` : '') +
+    (caseWeighings.length ? `<button class="crosslink" data-jump="ms" data-key="${esc(caseKey)}">View MS weighings for this case in section 3 &darr;</button>` : '') +
+    `<h3 style="margin-top:16px">1. Raw spellings folding into this case (master_nsu_rename.csv)</h3>` +
+    renderCaseSpellingsTable(caseKey) +
+    `<h3 style="margin-top:16px">2. Dropped spellings for this cell</h3>` +
+    renderDroppedSpellingsTable(caseObj);
+
+  const right = document.createElement('div');
+  right.className = 'detail-col';
+  right.innerHTML =
+    `<h3>3. How each surviving spelling was weighed</h3>` + renderWeighingSummary(caseWeighings) +
+    `<h3 style="margin-top:16px">4a. Outcome 1 &mdash; reference-set row(s)</h3>` + renderOutcome1Panel(caseWeighings) +
+    `<h3 style="margin-top:16px">4b. Outcome 2 &mdash; conversion-factor eligibility</h3>` + renderOutcome2Panel(caseWeighings) +
+    `<h3 style="margin-top:16px">PSPS exposure (psps_conversion_exposure.csv)</h3>` + renderPSPSExposure(caseKey) +
+    `<h3 style="margin-top:16px">Singleton hetero-groups (singleton_hetero_groups.csv)</h3>` + renderSingletonFlag(caseKey, caseWeighings) +
+    `<h3 style="margin-top:16px">Related analyses</h3>` + renderAnalysesHTML(gatherAnalyses({
+      // crosswalk fields arrive already normalized (province upper, municipality upper,
+      // item lower, unit lower/trimmed -- same rule key4() applies server-side), so a
+      // plain pipe-join here reproduces key4()'s output without a JS re-implementation
+      // of nz()/ni()/ng() -- see the task's normalizer rule, "never write a fourth copy".
+      analysisKey: caseKey, rawKeys: (CROSSWALK_BY_CASE[caseKey] || []).map(r =>
+        `${caseObj.province}|${caseObj.municipality}|${caseObj.item}|${r.pull_nsu_unit}`),
+      province: caseObj.province, municipality: caseObj.municipality, item: caseObj.item, harmonizedUnit: caseObj.harmonized_unit,
+    }));
+
+  holder.innerHTML = '';
+  const grid = document.createElement('div');
+  grid.style.cssText = 'display:grid;grid-template-columns:1fr 1fr;gap:16px';
+  grid.appendChild(left);
+  grid.appendChild(right);
+  holder.appendChild(grid);
+  wireCrosslinks(holder);
+}
+
+function jumpToCase(caseKey) {
+  document.getElementById('case-explorer-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const c = CASE_BY_KEY[caseKey];
+  if (c) document.getElementById('case-search').value = `${c.province} / ${c.municipality} / ${c.item} / ${c.harmonized_unit}`;
+  renderCaseResults(caseKey);
+  renderCaseDetail(caseKey);
+}
+
+function renderCaseResults(highlightKey) {
+  const q = document.getElementById('case-search').value.trim().toLowerCase();
+  const holder = document.getElementById('case-results');
+  if (!q) {
+    holder.innerHTML = '<div class="placeholder">type to search across ' + CE.cases.length.toLocaleString() + ' harmonized cases</div>';
+    document.getElementById('case-search-count').textContent = '';
+    return;
+  }
+  const matches = CE.cases.filter(c =>
+    c.province.toLowerCase().includes(q) || c.municipality.toLowerCase().includes(q) ||
+    c.item.toLowerCase().includes(q) || c.harmonized_unit.toLowerCase().includes(q));
+  document.getElementById('case-search-count').textContent = `${matches.length.toLocaleString()} case(s)`;
+  const MAX = 200;
+  const shown = matches.slice(0, MAX);
+  if (!shown.length) { holder.innerHTML = '<div class="placeholder">no matching case</div>'; return; }
+  holder.innerHTML = '<table><tbody>' + shown.map(c => `
+    <tr data-key="${esc(c.case_key)}" style="cursor:pointer${c.case_key === highlightKey ? ';background:#1e3a5f' : ''}">
+      <td>${esc(c.province)}</td><td>${esc(c.municipality)}</td><td>${esc(c.item)}</td><td>${esc(c.harmonized_unit)}</td>
+      <td style="color:var(--muted)">${c.n_spellings} spelling(s)</td>
+    </tr>`).join('') + '</tbody></table>' +
+    (matches.length > MAX ? `<div style="padding:6px;color:var(--muted);font-style:italic">showing first ${MAX} of ${matches.length} -- narrow your search</div>` : '');
+  holder.querySelectorAll('tr[data-key]').forEach(tr => tr.addEventListener('click', () => renderCaseDetail(tr.dataset.key)));
+}
+
+document.getElementById('case-search').addEventListener('input', () => renderCaseResults());
+renderCaseResults();
+document.getElementById('case-detail').innerHTML = '<div class="placeholder">Search above, or follow a "Trace this case end to end" link from sections 3 or 4.</div>';
+
+document.getElementById('sankey-to-case').addEventListener('click', () =>
+  document.getElementById('case-explorer-section').scrollIntoView({ behavior: 'smooth', block: 'start' }));
+document.getElementById('price-sankey-to-case').addEventListener('click', () =>
+  document.getElementById('case-explorer-section').scrollIntoView({ behavior: 'smooth', block: 'start' }));
 </script>
 </body>
 </html>
