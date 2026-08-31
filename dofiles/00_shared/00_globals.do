@@ -56,8 +56,26 @@ global output "${proj}\outputs"
 global temp   "${output}\temp"
 global graphs "${output}\graphs"
 global tables "${output}\tables"
+* Silent mkdir, not `cap noi mkdir'. On every run after the first these folders all
+* exist, so `noi' logged a mkdir failure eight times per build -- noise on a perfectly
+* healthy build, which is the fastest way to train a reader to skip real errors. (The
+* wording is left out of this comment on purpose: it was worth being able to grep a log
+* for that message and get only genuine hits.) The failure that matters is not a
+* redundant mkdir; it is a folder that cannot be reached at all, and mkdir_missing
+* below halts on exactly that.
+capture program drop mkdir_missing
+program define mkdir_missing
+	args d
+	cap mkdir "`d'"
+	mata: st_local("ok", strofreal(direxists(st_local("d"))))
+	if "`ok'" != "1" {
+		di as err "output folder is unreachable and could not be created: `d'"
+		exit 693
+	}
+end
+
 foreach d in "${output}" "${temp}" "${graphs}" "${tables}" {
-	cap noi mkdir "`d'"
+	mkdir_missing "`d'"
 }
 
 * The current build writes to its own subtree so the pre-Aug11 outputs under
@@ -67,7 +85,7 @@ global btemp   "${build}\temp"
 global btables "${build}\tables"
 global bgraphs "${build}\graphs"
 foreach d in "${build}" "${btemp}" "${btables}" "${bgraphs}" {
-	cap noi mkdir "`d'"
+	mkdir_missing "`d'"
 }
 
 
