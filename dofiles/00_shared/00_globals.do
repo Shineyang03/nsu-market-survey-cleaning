@@ -12,11 +12,28 @@
 *     "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\03_clean_ms.do
 ********************************************************************************
 
-* No `version' pin. One was added and removed again during the restructure: it
-* looked like pinning changed cpi_factor, but the apparent change was ROW ORDER, not
-* values -- see the note on non-determinism in 07_cpi_factor.do. A pin may still be
-* worth adding; it just has to be a deliberate decision, not a side effect.
 set more off
+
+* ---- deterministic sorting -----------------------------------------------------
+* Since Stata 13, `sort' places TIED observations in a random order, drawn from the
+* sort seed. Two runs of the same do-file on the same data therefore produce the same
+* rows in a different order unless the seed is pinned -- which is exactly what
+* happened here: 07_cpi_factor.do's output stopped reproducing between a standalone
+* run and a run from master_outcome1.do, with identical values throughout.
+*
+* This matters beyond reproducibility. Any `bysort key: ... _n' where `key' does not
+* uniquely identify a row is reading an order the sort seed chose, and this pipeline
+* has such a construction (the running-sum-over-tags in 10_size_assignment.do, issue
+* #18). Pinning makes those reproducible; it does not make them correct, and the
+* right fix there is still to sort on something unique.
+*
+* The value is arbitrary. What matters is that it never changes.
+set sortseed 20260831
+
+* No `version' pin. One was added and removed again during the restructure -- it
+* looked like pinning changed cpi_factor, but the apparent change was the row-order
+* problem above. A pin may still be worth adding; it just has to be a deliberate
+* decision rather than a side effect.
 
 * ---- root ---------------------------------------------------------------------
 * `c(username)' rather than a hardcoded user, so the same file works on any machine

@@ -78,6 +78,10 @@ restore
 
 drop tag_sz n_filled tag_cell
 compress
+* Deterministic row order: `id' is unique, so this leaves no ties for the sort
+* seed to break. Without it the saved file's ORDER varies between runs.
+sort id
+
 save "${btemp}\ref_11_checked.dta", replace
 count
 di as res "11_size_checks complete: " r(N) " weighings -> ref_11_checked.dta"

@@ -106,9 +106,20 @@ that only says `assert n == 11458` invites whoever hits it to update the number.
 one in `07_cpi_factor.do` shows the arithmetic that produces it and says to reconcile
 against the log instead.
 
-## Known non-determinism
+## Determinism
 
-`07_cpi_factor.do` writes the same rows with the same values in a **different order**
-depending on whether it is run on its own or from a master. So comparing that `.dta`
-byte for byte across runs is not a valid regression test — sort on `id` first. No
-published output is affected.
+Stata does not sort stably: since version 13, `sort` places **tied** observations in a
+random order drawn from the sort seed. Any `bysort` or `merge` on a key that does not
+uniquely identify a row therefore produces a different row order from run to run —
+which it did here, until it was fixed.
+
+Two things keep it deterministic, and both need to stay:
+
+1. `00_globals.do` pins `set sortseed`. The value is arbitrary; never changing it is
+   the point.
+2. Every step sorts on a **unique** key immediately before saving, so no ties are left
+   for the seed to break.
+
+This is not only about reproducibility. A `bysort key: ... _n` where `key` is not
+unique is reading an order the sort seed chose. The pipeline has one such construction
+(`10_size_assignment.do`, issue #18) — pinning makes it reproducible, not correct.

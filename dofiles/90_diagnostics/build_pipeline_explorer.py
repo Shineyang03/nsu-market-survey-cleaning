@@ -35,7 +35,7 @@ WHAT THIS WRITES
       with file://. Nothing anywhere else is touched -- no .do file, no .dta.
 
 HOW A RAW ROW IS JOINED TO ITS ARRIVAL ROW. `prelim_nsu_data.dta` carries an `id`
-that raw rows do not have (raw predates `id`; `id` is assigned by cleaning_Aug11.do
+that raw rows do not have (raw predates `id`; `id` is assigned by 03_clean_ms.do
 AFTER the 37 stage-1 drops, sorted by a key that does not preserve raw row order).
 So the raw -> arrival join cannot use `id` and cannot use row position. Instead it
 uses the identification key `docs/conversion_factor_methodology.md` documents as
@@ -45,7 +45,7 @@ than one arrival row):
 
     province x municipality x item x pull_nsu_unit x market_type x vendor_id x obs_type
 
-`obs_type` is mapped to the same numeric code `cleaning_Aug11.do`'s `def_hetero`
+`obs_type` is mapped to the same numeric code `03_clean_ms.do`'s `def_hetero`
 program assigns it (conventional_nsu=1 ... unique_mun_price7=11) so it lines up
 with the arrival file's `item_nsu_hetero_type`. `weight` and `pull_price` are
 DELIBERATELY EXCLUDED from this key: `pull_price` is blanked for size-based rows
@@ -295,7 +295,7 @@ def key4(p, c, i, h):
     return f"{ng(p)}|{ng(c)}|{ni(i)}|{nz(h)}"
 
 
-# The obs_type -> item_nsu_hetero_type coding, copied from cleaning_Aug11.do's
+# The obs_type -> item_nsu_hetero_type coding, copied from 03_clean_ms.do's
 # `def_hetero` program (line ~127) so the raw-side key lines up with the coded
 # item_nsu_hetero_type every downstream file carries.
 HETERO_CODE = {
@@ -354,7 +354,7 @@ def raw_join_key(df, province='P', mun='C', item='I', unit='U_norm',
 def load_prelim_master():
     """Arrival stage (prelim) merged with the weight/unit-correction stage on
     `id` -- never on row position, per the task's hard constraint. Together
-    these two files ARE `nsu_data_master.dta` (cleaning_Aug11.do's own Stage-1
+    these two files ARE `nsu_data_master.dta` (03_clean_ms.do's own Stage-1
     output); reproducing the merge here avoids depending on a temp file that
     may or may not still be on disk, and the merge itself is exactly what
     verify_documented_claims.py already does."""
@@ -2354,7 +2354,7 @@ const IDX_ce_singleton = buildIndex(CE.singleton_groups, '_key4');
 const IDX_dropped_cell3 = buildIndex(PA.dropped_labels, '_cell3');
 const WEIGHINGS_BY_CASE = buildIndex(DATA.weighings, 'analysis_key');
 
-// stage-1 "looks_standard" MS-side drops (cleaning_Aug11.do), keyed by the same
+// stage-1 "looks_standard" MS-side drops (03_clean_ms.do), keyed by the same
 // (province, municipality, item) cell a case belongs to -- these predate
 // harmonization, so they carry no harmonized_nsu_unit to key a case on.
 const IDX_stage1c_by_cell3 = {};

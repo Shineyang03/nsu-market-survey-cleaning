@@ -89,17 +89,17 @@ local ref_month = tm(2026m4)
 * The output is nsu_weighings_cpi.dta: the weighings both outcomes work from, scoped
 * and carrying cpi_factor. Nothing in it is restated.
 *
-* THE OUTPUT ROW ORDER IS NOT DETERMINISTIC. Running this file on its own and
-* running it from master_outcome1.do give the same 11,355 rows with the same values
-* in a different order -- verified column by column after sorting on id. The cause is
-* an unstable sort somewhere in the merges below; Stata's sort does not break ties
-* deterministically unless told to.
+* ROW ORDER WAS NOT DETERMINISTIC -- FIXED, and worth knowing why.
 *
-* It does not affect any published output (nsu_reference_set.dta reproduces byte for
-* byte either way), but it means a byte-comparison of this .dta across runs is not a
-* valid regression test -- sort on id first. It is also worth fixing, because
-* 10_size_assignment.do carries a running-sum-over-tags construction whose
-* correctness depends on within-group order (see #18).
+* Running this file on its own and running it from master_outcome1.do produced the
+* same 11,355 rows with the same values in a DIFFERENT order. Since Stata 13 `sort'
+* places tied observations in a random order drawn from the sort seed, and every
+* `bysort' and `merge' below sorts on keys that do not uniquely identify a row.
+*
+* Two changes fixed it: 00_globals.do pins `set sortseed', and this file sorts on
+* `id' (unique) immediately before saving, so no ties are left for the seed to break.
+* Verified: standalone and from-master now agree byte for byte including order.
+*
 ********************************************************************************
 
 ************************************************************
@@ -375,6 +375,10 @@ drop cpi_at_m_ms cpi_ma3_at_m_ms cpi_at_ref cpi_ma3_at_ref
 local n_out = _N
 di as result "Rows out: `n_out'"
 assert `n_out' == `n_in' - `n_dropped'
+
+* Deterministic row order: `id' is unique, so this leaves no ties for the sort
+* seed to break. Without it the saved file's ORDER varies between runs.
+sort id
 
 save "${temp_in}\nsu_weighings_cpi.dta", replace
 

@@ -617,6 +617,10 @@ sort pull_province pull_municipal_city pull_item harmonized_nsu_unit market_type
 order id, first
 
 compress
+* Deterministic row order: `id' is unique, so this leaves no ties for the sort
+* seed to break. Without it the saved file's ORDER varies between runs.
+sort id
+
 save "${btemp}\nsu_data_master", replace
 
 
@@ -627,7 +631,11 @@ save "${btemp}\nsu_data_master", replace
 * the conversion-factor pipeline. Written to xlsx so it can be checked without
 * re-running anything.
 
-putexcel set "${btables}\build_comparison.xlsx", replace sheet("counts")
+* `open' keeps the workbook in memory; without it putexcel re-saves the whole file
+* on EVERY command, and the loop below issues dozens. On a Box-synced folder that
+* races the sync client and fails with "could not be saved" (r603) -- reproducibly,
+* not occasionally. One write at the end instead.
+putexcel set "${btables}\build_comparison.xlsx", replace sheet("counts") open
 putexcel A1 = "Metric"  B1 = "master_nsu_rename (this build)"  C1 = "nsu_rename_crosswalk (pre-Aug11)", bold
 
 local metrics "weighings items unit_labels item_x_unit cases prov_item_unit"
@@ -677,7 +685,10 @@ putexcel A`row' = "unit variable: harmonized_nsu_unit (new) vs cleaned_nsu_unit 
 local ++row
 putexcel A`row' = "MS-only rows are no longer dropped (master has 0 of them); non-NSU labels ARE still dropped -- 10 labels / 38 weighings (standard quantity, ambiguous quantity, not a unit), listed in excluded_standard_unit_obs.xlsx"
 local ++row
-putexcel A`row' = "see cleaning_Aug11.do header note 3 for why those two old filters are separate exclusions"
+putexcel A`row' = "see 03_clean_ms.do header note 3 for why those two old filters are separate exclusions"
+
+putexcel save
+putexcel close
 
 use "${btemp}\nsu_data_master", clear
 

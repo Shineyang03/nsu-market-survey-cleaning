@@ -155,6 +155,10 @@ label values size_ord szlbl
 drop tag_cell
 
 compress
+* Deterministic row order: `id' is unique, so this leaves no ties for the sort
+* seed to break. Without it the saved file's ORDER varies between runs.
+sort id
+
 save "${btemp}\ref_10_sized.dta", replace
 count
 di as res "10_size_assignment complete: " r(N) " weighings -> ref_10_sized.dta"

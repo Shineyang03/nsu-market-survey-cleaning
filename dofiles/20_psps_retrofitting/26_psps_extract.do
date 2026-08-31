@@ -205,6 +205,10 @@ label var source        "purchased / own_production / gift -- only purchased is 
 label var case          "province_municipality_item_unit, on NORMALIZED names"
 
 compress
+* Deterministic row order -- this file has no unique id, so sort on the full key
+* plus the price, leaving no ties for the sort seed to break.
+sort province pull_municipal_city pull_item pull_nsu_unit source unit_price
+
 save "${btemp}\psps_cases", replace
 
 count

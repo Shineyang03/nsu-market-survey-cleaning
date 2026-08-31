@@ -5,7 +5,7 @@ labels, so it carries some entries that are not non-standard units in any useful
 They generate price points and price-only cells that nothing downstream should convert,
 and they clutter every diagnostic that reads the crosswalk.
 
-`cleaning_Aug11.do` already drops standard-quantity labels from the MS WEIGHINGS
+`03_clean_ms.do` already drops standard-quantity labels from the MS WEIGHINGS
 (`looks_standard`, 33 rows), but it never touched the crosswalk, so the same labels
 still arrive on the price side. This file closes that gap and applies the same idea to
 two further categories.
@@ -15,7 +15,7 @@ THREE CATEGORIES REMOVED, and why each is safe to remove:
   1. STANDARD QUANTITY. The label states its own quantity -- "bottle (500 ml)",
      "1/2 sack of rice (25kls.)", "each 10 litres of gallon". No measured conversion is
      needed: the PSPS side converts these directly from the stated quantity (issue #14).
-     Detection reuses `cleaning_Aug11.do`'s own pattern list rather than a new one.
+     Detection reuses `03_clean_ms.do`'s own pattern list rather than a new one.
 
   2. AMBIGUOUS QUANTITY. The label mentions a standard unit but its meaning is unclear
      -- "pieces/ kilo" could be pieces-per-kilo or pieces-or-kilo; "500" states a
@@ -57,7 +57,7 @@ XLSX = T / "master_nsu_rename.xlsx"
 BACKUP = T / "master_nsu_rename_prefilter.csv"
 REPORT = T / "master_rename_dropped_labels.csv"
 
-# Copied from cleaning_Aug11.do's looks_standard. Kept identical on purpose: one
+# Copied from 03_clean_ms.do's looks_standard. Kept identical on purpose: one
 # definition of "states a standard quantity", used on both the MS and price sides.
 STANDARD_PAT = ["(kg)", "(g)", "(l)", "(ml)", "ml", "kg", "kilo", "(25kls.)",
                 "litres", "liters"]

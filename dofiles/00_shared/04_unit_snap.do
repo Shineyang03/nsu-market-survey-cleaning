@@ -254,5 +254,9 @@ order id, last
 
 keep correct* id
 
+* Deterministic row order: `id' is unique, so this leaves no ties for the sort
+* seed to break. Without it the saved file's ORDER varies between runs.
+sort id
+
 save "${snap_out}", replace
 
