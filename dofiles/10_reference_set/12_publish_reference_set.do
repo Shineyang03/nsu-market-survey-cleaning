@@ -51,6 +51,24 @@ label var n_g    "weighings behind this estimate"
 label var d_thin "1 = fewer than 3 weighings behind the estimate; treat as uncertain"
 label var size_ord "size"
 
+* EVERY exported column needs a label, because the export below uses
+* firstrow(varlabels): an unlabelled variable falls back to its raw variable name, and a
+* variable the collapse labelled keeps whatever the collapse wrote. This is a
+* field-facing lookup table, and it was going out with three columns headed pull_item /
+* pull_province / pull_municipal_city and a fourth headed "(first) weighing_approach" --
+* collapse syntax leaking into a deliverable.
+label var pull_item           "item"
+label var pull_province       "province"
+label var pull_municipal_city "municipality"
+label var weighing_approach   "how this weight was measured in the field"
+
+* Decoded, for the same reason size_ord is. These two sit side by side in the exported
+* sheet, and size_ord was already exporting as "small"/"medium"/"large" while
+* weighing_approach exported as a bare 1/2/3 with nothing in the file to decode it.
+* Nothing reads this workbook programmatically -- it is read by people.
+label define walbl 1 "conventional" 2 "price-quantity" 3 "size-based", replace
+label values weighing_approach walbl
+
 * grams must rise with size within a case, or the table is visibly wrong to a user
 bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
        corrected_unit (size_ord): gen byte nonmono = (grams < grams[_n-1]) if _n > 1 & size_ord > 0
