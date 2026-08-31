@@ -11,14 +11,14 @@ Philippine market survey (MS) weighings of non-standard units (NSUs) — a *puto
 
 - **Outcome 1, the reference set.** Grams by size (small/medium/large, or one weight
   for conventional units) per province × municipality × item × harmonized NSU unit.
-  **Built and live.** 3,321 rows.
+  **Built and live.** 3,305 rows.
 - **Outcome 2, PSPS retro-fitting.** Conversion factors mapping PSPS household
   quantities to grams, via price points. **Skeleton only** — see `master_outcome2.do`
   and issue #7.
 
 Repo: `Shineyang03/nsu-market-survey-cleaning` (user's own repo).
 Working dir: `C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning`
-Branch: `fix/snap-kg-band-and-price-drops`. HEAD: `c93186e`. Working tree clean apart
+Branch: `fix/snap-kg-band-and-price-drops`. HEAD: `a0868d1`. Working tree clean apart
 from an untracked `WB_2025_PH_Food_Prices.csv` that is not mine and should be left alone.
 
 ## Read these first
@@ -48,7 +48,7 @@ After ANY change, from the project root:
 python dofiles/90_diagnostics/verify_documented_claims.py
 ```
 
-23 checks; it re-derives every number in `docs/` that no build file produces and fails
+23 checks (all OK at `a0868d1`); it re-derives every number in `docs/` that no build file produces and fails
 when one moves. It has caught three wrong figures already. Treat a CHANGED verdict as
 "reconcile", never as "update the constant".
 
@@ -65,8 +65,7 @@ well as `temp/` before a rebuild: a stale output that nothing overwrites compare
 and reads as reproduced. `--reference` byte-compares the frozen crosswalk set in
 `reference/` (plain CSV, no timestamp) — see `reference/README.md`.
 
-**The Stata chain is verified reproducible** as of `c93186e`: cleared `temp/*.dta` and
-`tables/*.xlsx`, rebuilt from raw, all 24 live outputs matched value-for-value.
+**The Stata chain is verified reproducible** as of `a0868d1`: cleared `temp/*.dta`, `tables/*.xlsx` and the ported step's own output, rebuilt from raw (`00b_price_ms_cases.do` then `master_outcome1.do`), and all 25 watched outputs matched value-for-value. `snap_sense_check.xlsx` reports MISSING until you re-run its Python producer -- it is a diagnostic, not a chain output.
 
 ## Ground rules for this codebase
 
@@ -129,109 +128,67 @@ re-run before diagnosing. Pin folders offline before long Stata runs.
 - `price_type` values in the price CSV use **spaces** (`"province median"`); the case
   files use underscores. Mixing them silently matches nothing — this has already
   produced one wrong finding.
-- Current counts: 11,494 raw MS weighings → 38 non-NSU excluded → 11,453 →
-  98 dropped in `07` → 11,355 → Outcome 1 publishes 3,321 rows.
+- Current counts: 11,494 raw MS weighings → 42 non-NSU excluded → 11,449 →
+  98 dropped in `07` → 11,351 → Outcome 1 publishes 3,305 rows.
 
-## Issue triage — 19 open
+## Issue triage — 16 open
 
-**Blocked on a decision from the user. Do not implement these; scope and present options.**
+**The issues are the source of truth. This table is a map, not a substitute.**
+
+**Blocked on a decision from you. Scope and present options; do not implement.**
 
 | # | what needs deciding |
 |---|---|
-| #21 | Outcome 2 rule is DECIDED (§2). **Outcome 1 (§3) is open** — 861 rows published as "medium" are a municipality/province median relabelled, and 2 VALLADOLID cases collapse a 2.4× spread |
-| #27 | Implicit assumptions. User dispositioned each: A1→#28, A4→#21, A8→"change to assert", rest→take as given. **A5 answered and implemented** this session |
-| #28 | Is "conventional" a unit property or a cell assignment? Data says cell assignment for 13 of 21 labels. **Its dispersion numbers are contaminated — re-measure after #18 §A1 lands** |
-| #30 | Province fallback. **The blocker for Outcome 2** — 1 PSPS observation in 6 needs it, and borrowing weights across municipalities is unsolved (#28 measured 14× variation). Full write-up incl. the combining-step options is on the issue |
-| #31 | 778 singleton hetero-groups. The 1 g chicken is fixed; **8 other outliers are not**, and 5 of them are `putos` — possibly a reclassification question (#28), not a value question |
-| #22 | Root cause found and posted: a post-merge override manufactures a harmonized unit outside the crosswalk. Three options on the issue, none chosen |
+| #27 | Implicit assumptions. Each dispositioned; A8's dispersion figure is now re-measured (see #28) |
+| #28 | Is "conventional" a unit property or a cell assignment? Data says cell assignment for 13 of 21 labels. **Dispersion re-measured after #18 A1: max is 6.68x, not the 14x reported before.** camote tops/bundle and prawns/tumpok are genuinely dispersed and not artefacts |
+| #30 | Province fallback. **The blocker for Outcome 2.** Re-read it against #28's corrected numbers — the fallback was argued against partly on the contaminated 14x figure |
+| #31 | 778 singleton hetero-groups. The 1 g chicken is fixed; **8 other outliers are not**, and 5 are `putos` — possibly a reclassification question (#28) |
 
-**Waiting on the Outcome 2 build — nothing to do until it exists:** #11, #16, #19
-(cap threshold `t` unset), #20, #23, #25.
+**Waiting on the Outcome 2 build:** #11, #16, #19, #20, #23, #25.
 
 **Actionable now:**
 
 | # | what |
 |---|---|
-| #18 | **The consolidated code-defect issue** (#9 and #32 folded in). Start here for code work. §A is down to 6 rows; a **Cleared** table records how each of 13 resolved items was resolved. §A1 is the blocking decision above. Line numbers were refreshed at `c93186e` — several had drifted 20–40 lines. |
-| #33 | `01_build_crosswalk.py` is runnable again and the split is proved answer-preserving. Open remainder: `cases_in_price_not_in_MS.csv` is still a frozen input masquerading as an intermediate |
-| #7 | Restructure DONE. Outcome 2 steps 20–30 remain unwritten |
-| #8 | Attrition ledger exists but its numbers are stale again; needs a regeneration. Current figures are in the latest comment |
-| #14 | PSPS standard-unit answers convert directly, no MS data. One of the last pipeline steps |
-| #24 | Publish the harmonized NSU list as a deliverable in its own right |
+| #18 | **The consolidated code-defect issue.** One comment holds the whole status; 4 items open, each re-verified by grep at `a0868d1`. Start here for code work. |
+| #8 | **Attrition ledger is stale** — says 11,337 into publish against 11,307 actual. Only 4 of that gap is the cabbage drop; the rest moved in `3b77d85`. Needs regeneration |
+| #7 | Restructure DONE. Outcome 2 steps 20-30 remain unwritten |
+| #14 | PSPS standard-unit answers convert directly, no MS data |
+| #24 | Publish the harmonized NSU list as a deliverable |
 
-**#15 is the user's own** (write up lessons) — leave it.
+**#15 is yours** (write up lessons) — leave it.
 
-### Remaining open #18 §A items, all re-verified against current code
+**Closed this session:** #21 (medium kept + documented), #22 (cabbage label dropped),
+#33 (crosswalk CSV has a producer), #3 (tercile tie, status quo accepted).
 
-- halo-halo post-merge override (same root cause as #22)
-- `item_group` used as an unnormalized merge key — `07_cpi_factor.do:306, 322`
-- `encode corrected_unit` — `04_unit_snap.do:293`
-- `tally_price_points.py:48` — the last divergent copy of the string normalizer. Fixing it
-  will move counts cited on #27 A4 and #6, so it is not a free fix.
-- running sum over tags — `10_size_assignment.do:116`
+### The 4 open #18 items, verified at `a0868d1`
 
-`04_unit_snap.do:174` was reviewed and **accepted** by the user, not fixed — it is in the
-Cleared table as such, so don't re-raise it.
+- **halo-halo post-merge override** — `03_clean_ms.do:354-355`. **Top of the list.** #22 is
+  resolved by dropping the label, but this is the mechanism that created it and it is still
+  armed: it manufactures a harmonized unit the crosswalk has never seen, from free text,
+  after the join that would have validated it.
+- `item_group` unnormalized merge key — `07_cpi_factor.do:306, 322`
+- `tally_price_points.py:48-49` — the last divergent normalizer copy. Fixing it moves counts
+  cited on #27 A4 and #6, so those must be re-derived in the same commit
+- running sum over tags — `10_size_assignment.do:109-116`. Reproducible (seed pinned) but
+  not correct; fix is `egen ... group(field_ord), by(cell)`
 
-### Proposed but NOT authorized — do not implement
+`04_unit_snap.do:174` (the litres block) was **reviewed and accepted by you** — do not
+re-raise it.
 
-A `d_spread` dispersion column beside `d_thin`; rewording #27 item 1; shortening the
-sentence-length headers in `nsu_reference_set.xlsx`.
+## For manual sense-checking: the snap output
 
-## START HERE: the one decision blocking everything else
+`outputs/master_rename_build/tables/snap_sense_check.xlsx`, regenerated by
+`python dofiles/90_diagnostics/snap_sense_check.py`. Four sheets:
 
-**#18 §A1 — which snap rule wins in `00_shared/04_unit_snap.do`.** Measured, written up
-on the issue, and waiting on the user to pick one of three options. Nothing should be
-implemented here unprompted; the choice materially changes 78 published weights.
+| sheet | rows | what |
+|---|---|---|
+| `disagreements` | 985 | every row where the anchor and the block reading differ, sorted by distance from the cell median so the likeliest errors are on top |
+| `gate_overrules` | 42 | rows where the anchor was rejected as implausible and the block reading published — the contaminated cells |
+| `reference_set_now` | 3,305 | the deliverable as published |
+| `cell_context` | 3,469 | every weighing in any cell touched above, so a disputed row reads against its neighbours |
 
-The file computes two independent corrections and keeps one. **STEP 1** snaps each weight
-to the nearest power of ten toward a robust item × unit anchor and flags rows whose anchor
-is untrustworthy. **STEP 3** then applies a flat magnitude threshold — below 10, multiply
-by 1,000; above it, believe the number — and overwrites STEP 1 on every row that has a
-weight (11,448 of 11,453). STEP 3 was written to resolve the rows STEP 1 *flagged*; its
-blocks happen to partition the whole domain, so it swallowed the rest. It became the only
-rule by covering everything, not by being chosen.
-
-**985 of 11,448 comparable rows disagree (8.60%).** Using the item × unit median of the
-undisputed rows as a (non-authoritative) referee:
-
-| family | rows | STEP 1 closer to cell median | STEP 3 closer |
-|---|---|---|---|
-| STEP 3 **larger** | 702 | 411 | 196 |
-| STEP 3 **smaller** | 283 | **270** | **0** |
-
-- **485 of the 985** are rows STEP 1 raised no flag on and STEP 3 overruled on magnitude
-  alone.
-- **Neither rule dominates.** STEP 3 yields 41 values at ≤2 g/mL; STEP 1 puts 2 rows above
-  100,000 g and 12 at ≤5 g. Opposite failure modes — hence a choice, not a bug fix.
-- **78 published rows rest entirely on the rule choice**; 1,002 of 3,321 contain a
-  disputed weighing.
-- Mechanism: STEP 3's repair is a fixed `× 1000`, which fixes a three-decade error and
-  nothing else. A liquor long-neck recorded as `0.001495` L is six decades out — STEP 1
-  reads 1,495 mL against a cell median of 750 mL (n=478); STEP 3 publishes **1 mL**.
-
-**The recommendation already on the issue** is option 1: keep STEP 3's plain block
-structure, replace the fixed `× 1000` with a snap to the nearest power of ten toward the
-cell anchor. It is the only option where neither rule's known failure mode survives. If
-the user says go, implement it *with the 985-row disagreement set asserted* so the count
-cannot drift unnoticed.
-
-**How the measurement works — don't rebuild it.** `04_unit_snap.do` carries STEP 1's
-answer forward as `w_step1` (and its flag as `review_step1`) purely so the comparison is
-possible; STEP 3 would otherwise destroy it in place. Nothing in the build reads either
-column, and `nsu_reference_set.dta` is byte-unchanged by their presence. The report is
-`dofiles/90_diagnostics/snap_step1_vs_step3.py`. The snap rule is **not** re-implemented
-in Python — that would duplicate it, which this codebase has been bitten by before.
-
-**#28 is downstream of this and must be re-measured once it lands.** Its
-conventional-unit dispersion numbers are contaminated by the STEP 3 artifact. The user
-spotted this themselves and sequenced #18 first; the diagnostic confirmed it. CAPIZ / DAO
-preserved meat, reported to #28 as a 15.7× within-municipality spread: `raw = 1.02 kg` →
-STEP 3 gives 1,020 g (block 3c, "1–30 kg is a plausible bulk purchase"), STEP 1 gives
-102 g against a cell median of 250 g. Under STEP 1 the case spans 65–250 g — **3.8×, not
-15.7×**.
-
-## What landed since the last handoff (`9df6946` … `c93186e`)
+## What landed since the last handoff (`c93186e` … `a0868d1`)
 
 Read the commit messages for the why; this is the map.
 
