@@ -88,6 +88,50 @@ MIX_UNITS|={('cabbage','putos /mix mix'),('carrot','putos /mix mix'),
             ('carrot','pack of mixed vegetables'),('carrot','packs of mix veges')}
 MIX_CANON='putos (mix vegetable)'
 
+# ---- CELL-LEVEL folds: (province, municipality, item, raw unit) -> harmonized unit ----
+#
+# MIX_UNITS above is keyed on (item, unit) and therefore applies in EVERY municipality.
+# Some folds are true of one cell only, and this is where those go. The key is the
+# narrowest one the data has, so an entry cannot leak into a cell it was not measured in.
+#
+# WHY THIS TIER EXISTS. The alternative was a `replace ... if strpos(notes, ...)' in
+# 03_clean_ms.do AFTER the crosswalk merge, which is worse in three specific ways:
+# it assigns a harmonized unit the join never validated; it splits one raw label across
+# two harmonized units inside a single cell (breaking cell independence); and because
+# it runs on the MS side only, the price file keeps the old fold and the cell loses its
+# price row. Declaring the fold HERE moves both sides together.
+#
+# Each entry must record the evidence. Field comments are quoted verbatim.
+CELL_MIX={
+    # ILOILO / TIGBAUAN, cabbage and carrot, raw label 'putos'.
+    #
+    # Field-officer comments on these rows, verbatim:
+    #   cabbage: "There is no cabbage packs alone this is mixed with carrots"
+    #   carrot : "There is no carrots packs alone this is mixed with cabbage"
+    #
+    # "There is no X packs alone" is a statement about the CELL, not about the four
+    # vendors who happened to get the comment recorded -- which is why this is a
+    # cell-level fold and not a row-level one. Before this entry existed, the
+    # post-merge override caught only the 4 commented rows and left 2 uncommented
+    # cabbage 'putos' rows folded to 'pack', so one cell held both harmonized units.
+    #
+    # The default fold for these is putos -> pack (via grp()), which is right
+    # everywhere else and wrong here: at TIGBAUAN the thing weighed is a mixed bag.
+    ('ILOILO','TIGBAUAN','cabbage','putos'): MIX_CANON,
+    ('ILOILO','TIGBAUAN','carrot', 'putos'): MIX_CANON,
+}
+
+
+def cell_canonical(province, municipality, item, raw_unit):
+    """harmonized unit for a raw label, honouring any cell-level override.
+
+    Falls through to canonical() -- defined below -- when the cell has no entry, so
+    this is safe to call unconditionally. Province/municipality are matched on the
+    same normalized form the crosswalk is keyed on.
+    """
+    hit = CELL_MIX.get((ng(province), ng(municipality), ni(item), nz(raw_unit)))
+    return hit
+
 OLD_RENAME=dict(RENAME)   # snapshot of the untouched old hand-rename, kept for the 'past_rename' reference column
 
 # ---- Option A override: the OLD hand-rename folds putos->pack for these 2 items, but their

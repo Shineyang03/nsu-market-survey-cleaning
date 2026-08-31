@@ -436,7 +436,11 @@ def c_case_counts(d):
           # Moved by 4 weighings / 1 case when the ILOILO / DUEAS cabbage label
           # "2 kapinutos nga cabbage/20pesos" joined the AMBIGUOUS set in
           # 02_drop_non_nsu_labels.py. That drop is the resolution of issue #22.
-          "1,949 harmonized / 1,962 cleaned / 1,990 raw",
+          # Harmonized fell 1,949 -> 1,948 when the TIGBAUAN mixed-bag fold moved into
+          # CELL_MIX. That cell used to hold TWO harmonized units for cabbage -- `pack'
+          # for the uncommented rows and `putos (mix vegetable)' for the commented ones,
+          # because the old override ran after the crosswalk merge. It now holds one.
+          "1,948 harmonized / 1,962 cleaned / 1,990 raw",
           f"{n['harmonized_nsu_unit']:,} harmonized /"
           f" {n['cleaned_nsu_unit']:,} cleaned /"
           f" {n['pull_nsu_unit']:,} raw",

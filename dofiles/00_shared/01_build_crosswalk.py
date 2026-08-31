@@ -46,7 +46,7 @@ BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from nsu_normalize import A, nz, ni, ng
-from nsu_fold_rule import (FOLD, FORCE_JUNK, GENERIC_CLEAN, GRP, KEEP_SEPARATE,
+from nsu_fold_rule import (CELL_MIX, FOLD, FORCE_JUNK, GENERIC_CLEAN, GRP, KEEP_SEPARATE,
                            MIX_CANON, MIX_UNITS, NOFOLD_PIECES, OLD_RENAME, RENAME,
                            RENAME_KEYS, canonical, fold_verdict, grp, recoverable,
                            reduce_unit, to_cleaned, toks, ts, unsafe_pieces)
@@ -210,7 +210,12 @@ mrows=[]
 for cell in sorted(set(ms_cell_raw)|set(pr_cell_raw)):
     P,C,I=cell
     raws=ms_cell_raw.get(cell,set())|pr_cell_raw.get(cell,set())
-    hmap={u:canonical(I,to_cleaned(I,u)[0]) for u in raws}      # each raw nsu -> harmonized
+    # Cell-level overrides (CELL_MIX) win over the global fold. Applied HERE, before
+    # `sibs' is computed, so the in-cell merge grouping and n_cell_merged see the
+    # override -- and applied to raws from BOTH sides, so the price file folds with
+    # the market survey instead of keeping the old target and orphaning the cell.
+    hmap={u: (CELL_MIX.get((P,C,I,nz(u))) or canonical(I,to_cleaned(I,u)[0]))
+          for u in raws}                                         # each raw nsu -> harmonized
     for u in sorted(raws):
         h=hmap[u]; cl=to_cleaned(I,u)[0]
         sibs=sorted(x for x in raws if hmap[x]==h and x!=u)      # other spellings in THIS cell that pool with u

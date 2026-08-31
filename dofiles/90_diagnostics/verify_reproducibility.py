@@ -69,6 +69,33 @@ RUN
     python dofiles/90_diagnostics/verify_reproducibility.py
     python dofiles/90_diagnostics/verify_reproducibility.py --reference
     python dofiles/90_diagnostics/verify_reproducibility.py --snapshot D:\some\dir
+
+A LIMITATION YOU WILL HIT, AND HOW TO TELL IT APART FROM A REAL REGRESSION.
+
+This compares row-by-row in file order, and `id' is `gen id = _n' in 03_clean_ms.do --
+assigned on whatever order the upstream merges happen to leave. Stata's m:1 merge
+re-sorts the master by the merge key, so changing ANY value that sits in the
+crosswalk's own sort key (province, item, municipality, harmonized_nsu_unit,
+pull_nsu_unit) reorders the merge output and reassigns `id' across most of the file.
+
+The result is that a 6-row intended change can report as 10 DIFFERENT files with
+thousands of changed cells, including columns the change could not possibly touch
+(vendor_id, submissiondate). That is id drift, not a regression.
+
+`id' is therefore stable WITHIN a build -- which is all the deterministic sort before
+each save needs -- and NOT comparable ACROSS builds. 05_manual_corrections.do section
+4a records the same fragility from the other direction: an old hand correction keyed on
+`inlist(id, 4242)' could not be ported because two saved copies of the same build
+disagreed on which row that was.
+
+To tell the two apart, compare the row MULTISET with `id' excluded:
+
+    cols = [c for c in old.columns if c != "id"]
+    ta = old[cols].astype(str).agg("".join, axis=1).value_counts()
+    tb = new[cols].astype(str).agg("".join, axis=1).value_counts()
+    # rows present in one and not the other ARE the real change
+
+If that comes back with only the rows you meant to change, the run reproduced.
 """
 import argparse
 import shutil
@@ -102,6 +129,12 @@ def watched_files():
     out = []
     for folder, pattern in WATCHED:
         for f in sorted(folder.glob(pattern)):
+            # Skip Excel's lock files. Opening a watched workbook creates a
+            # `~$name.xlsx' beside it, which is not a spreadsheet -- pandas cannot
+            # determine its format and the run reports an ERROR that looks like a
+            # reproducibility failure. Reading a workbook must not fail the check.
+            if f.name.startswith("~$"):
+                continue
             out.append((f.relative_to(BUILD).as_posix(), f))
     return out
 
@@ -193,7 +226,8 @@ def compare(snap: Path):
         return 1
 
     snap_files = {p.relative_to(snap).as_posix(): p
-                  for p in sorted(snap.rglob("*")) if p.is_file()}
+                  for p in sorted(snap.rglob("*"))
+                  if p.is_file() and not p.name.startswith("~$")}
     live_files = dict(watched_files())
 
     rows = []

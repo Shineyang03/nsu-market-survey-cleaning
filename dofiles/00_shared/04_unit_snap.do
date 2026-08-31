@@ -176,11 +176,28 @@ preserve
     export excel using "${snap_tables}\mixed_dimension_items.xlsx", replace firstrow(variables)
 restore
 
-* NOTE: dimension harmonization is intentionally NOT applied. Step 2 only
-* records which items were logged in both dimensions (list + xlsx above); each
-* row keeps the mass/volume dimension the enumerator recorded (set in Step 1).
-* To harmonize later, add one line per mixed item, e.g.:
-*   replace corrected_unit = "mL" if pull_item == "Liquor (e.g, whisky, coconut wine)"
+* NOTE: dimension harmonization is not applied HERE, but it IS applied -- later,
+* and somewhere else. Do not add it in this file.
+*
+* WHERE IT HAPPENS, and why the ordering looks odd. 03_clean_ms.do calls this file
+* (its line 555), THEN builds the per-item g/mL verdicts in `diagnostics' (its
+* ~line 592), THEN calls 05_manual_corrections.do (its line 629), whose section 1
+* applies them. So at the moment the xlsx above is written the verdicts do not yet
+* exist, and this list is a snapshot of the RAW recording rather than of the
+* corrected state. That is why it is longer than
+* mixed_dimension_no_verdict.xlsx: 7 items are recorded in both dimensions, 5 of
+* them are now verdicted, and only 2 -- drinks at restaurant and ice cream -- are
+* genuinely left keeping whatever dimension the enumerator ticked.
+*
+* AN EARLIER VERSION OF THIS NOTE SAID to harmonize by adding
+* `replace corrected_unit = "mL" if pull_item == "Liquor..."' here. Liquor is one of
+* the 5 items 05 section 1 ALREADY relabels, so following that would apply the
+* correction twice. 05's own header states the general form of this hazard: two
+* corrections on one row is a 1000x error with no error message.
+*
+* To change a verdict, edit `diagnostics' in 03_clean_ms.do. Section 1 of 05 asserts
+* its row counts per branch (15 g, 251 mL), so a verdict that stops matching fails
+* the build instead of passing silently.
 
 drop rec_mass rec_vol item_has_mass item_has_vol item_mixed
 

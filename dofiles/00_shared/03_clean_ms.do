@@ -350,9 +350,36 @@ merge m:1 pull_item pull_nsu_unit using "${btemp}\nsu_name_notes", keep(1 3) nog
 count if notes != ""
 di as txt "weighings carrying a cleaning note: " r(N)
 
-* some carrots / cabbages are actually measuring weight of mixed bags
-replace harmonized_nsu_unit = "putos (mix vegetable)" if strpos(notes, "halo halo") > 0
-replace notes = "replaced NSU from putos to putos (mix vegetable) based on comments" if strpos(notes, "halo halo") > 0
+* MIXED-BAG REASSIGNMENT -- RETIRED, now declared in the crosswalk.
+*
+* This used to be:
+*     replace harmonized_nsu_unit = "putos (mix vegetable)" if strpos(notes,"halo halo")>0
+* which assigned a harmonized unit AFTER the crosswalk merge, on the MS side only.
+* Three consequences, all measured before it was moved:
+*   1. the join never validated the value it assigned;
+*   2. it caught only the 4 rows carrying the comment, leaving 2 uncommented
+*      TIGBAUAN cabbage "putos" rows folded to "pack" -- one cell, two harmonized
+*      units, which is the cell-independence invariant breaking;
+*   3. the price file kept the old fold, so "putos (mix vegetable)" had no price row
+*      at TIGBAUAN and 4 weighings (65/90/85/85 g) went into Outcome 2 as orphans.
+*      All 4 are weighing_approach == 2, and the price-coverage assertion only
+*      inspects approach 3, so nothing caught it.
+*
+* The fold now lives in CELL_MIX in 00_shared/nsu_fold_rule.py, keyed on
+* (province, municipality, item, raw unit), where it moves BOTH sides together.
+* The field evidence is recorded there.
+*
+* Tripwire: if a mixed-bag comment appears in a cell CELL_MIX does not cover, the
+* fold is missing and this stops the build rather than publishing the old split.
+count if strpos(notes, "halo halo") > 0 & harmonized_nsu_unit != "putos (mix vegetable)"
+if r(N) > 0 {
+	di as error "`r(N)' row(s) carry a mixed-bag comment but did not fold to putos (mix vegetable)."
+	di as error "Add the cell to CELL_MIX in 00_shared/nsu_fold_rule.py -- do NOT re-add a"
+	di as error "post-merge replace here; see the note above for why that broke three ways."
+	list pull_province pull_municipal_city pull_item pull_nsu_unit harmonized_nsu_unit ///
+		if strpos(notes, "halo halo") > 0 & harmonized_nsu_unit != "putos (mix vegetable)", noobs
+	exit 459
+}
 
 rename notes cleaning_notes
 rename cleaned_comments fo_comments_cleaned

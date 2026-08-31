@@ -276,7 +276,7 @@ A **case** $`c`$ is a province × municipality × item × NSU combination, where
 means **`harmonized_nsu_unit`** — the folded pooling key, not the raw `pull_nsu_unit`
 or the spelling-corrected `cleaned_nsu_unit`. Every count in this document is at
 that grain; the same tabulation on a different unit column gives different numbers
-(1,949 cases harmonized, 1,962 cleaned, 1,990 raw). See *Practical prerequisites*.
+(1,948 cases harmonized, 1,962 cleaned, 1,990 raw). See *Practical prerequisites*.
 
 **Market survey (MS) side.** A case is resolved into up to three **hetero-groups** — an
 *ordinal* ladder from smallest/cheapest to largest/dearest, indexed
