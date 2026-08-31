@@ -16,7 +16,7 @@ read as describing it.
 
 > province × municipality × item × `harmonized_nsu_unit` × `corrected_unit`
 
-This is the grain `nsu_reference_set.do` actually pools on (it groups on all five
+This is the grain `10_reference_set/10_size_assignment.do` actually pools on (it groups on all five
 columns to build `cell`). It is one column finer than the grain used for the
 headline case counts elsewhere in the project docs (`docs/conversion_factor_methodology.md`'s
 "1,951 cases harmonized" figure, which omits `corrected_unit`) — the extra split
@@ -92,7 +92,7 @@ Not corrected here, per this task's no-`.do`-edit rule. The fix is to add
 
 ---
 
-## 3. `nsu_weighings_cpi.dta` → Outcome 1 (`nsu_reference_set.do`)
+## 3. `nsu_weighings_cpi.dta` → Outcome 1 (the `10_reference_set/` steps)
 
 | step | drop | rows in | dropped | rows out |
 |---|---|---:|---:|---:|
@@ -121,7 +121,7 @@ below for why this matters.)
 **Step 3b — `unique_mun_price` (33 rows / 11 cases, Outcome 1 only).** It is a raw
 observed price recorded because the municipality had too few distinct prices to
 take quartiles — not a percentile, so it has no position on a size ladder. Excluding
-it is deliberate (`docs/data_oddities.md`; `nsu_reference_set.do` header). 11 cases
+it is deliberate (`docs/data_oddities.md`; `10_reference_set/10_size_assignment.do` header). 11 cases
 lose every price-quantity row to this drop — see the full list under "The 315 → 310
 question".
 
@@ -156,7 +156,7 @@ named and matches the ~11–12 originally expected.
 315 is the count of price-quantity-*touching* cases at the **coarse** grain
 (province × municipality × item × `harmonized_nsu_unit`, **without**
 `corrected_unit`), measured on `nsu_weighings_cpi.dta` (the literal input to
-`nsu_reference_set.do`). It equals **314 + 1**:
+`10_reference_set/10_size_assignment.do`). It equals **314 + 1**:
 
 - 314 is the modal price-quantity case count from
   `docs/conversion_factor_methodology.md`'s "Branch shares" table (measured the
@@ -173,9 +173,9 @@ sibling (same coarse key) survives.
 ### What "310" actually is
 
 310 is the price-quantity case count in the **fine**-grain (with `corrected_unit`)
-published output — the grain `nsu_reference_set.do` itself pools on, and the one
+published output — the grain `10_reference_set/12_publish_reference_set.do` itself pools on, and the one
 this ledger uses throughout. It was verified two ways: (1) replicating
-`nsu_reference_set.do`'s §1 drop logic step by step in Python, and (2) reading the
+`10_reference_set/10_size_assignment.do`'s §1 drop logic step by step in Python, and (2) reading the
 actual `nsu_reference_set.dta` file and taking its price-quantity case set directly.
 **The two are set-identical** — same 310 cases, not just the same count.
 

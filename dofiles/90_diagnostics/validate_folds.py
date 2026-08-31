@@ -9,7 +9,7 @@ derived aggregates and must be excluded.
 Design (user choice): keep obs_type in {small,medium,large}_size only; compare labels WITHIN
 (province x size x measurement-unit) strata via a van Elteren stratified rank test (stratified Wilcoxon,
 design-free weights 1/(n_h+1)). Labels/harmonized units are attached by joining raw weighings to
-master_nsu_rename.csv, so the fold rule stays single-sourced in diagnose_price_only.py.
+master_nsu_rename.csv, so the fold rule stays single-sourced in 00_shared/01_build_crosswalk.py.
 
 Two questions:
   (A) FOLD validation   : for each (item, harmonized_unit) that pools >=2 cleaned labels, do those labels

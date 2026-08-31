@@ -191,7 +191,7 @@ translation group (§6). Some raw units are plain-language size synonyms that we
 a group in the crosswalk, so they'd never surface as a fallback match at all. `tama-tama nga putos`
 ("medium" in Kinaray-a/Hiligaynon, for loaf bread) is one such case: it is ungrouped, so its own
 `harmonized_nsu_unit` is itself, but for **fallback matching only** it is treated as a `medium packs`
-member (`FALLBACK_GROUP_OVERRIDE` in `diagnose_price_only.py`) — in both directions: a price-only
+member (`FALLBACK_GROUP_OVERRIDE` in `00_shared/01_build_crosswalk.py`) — in both directions: a price-only
 `tama-tama nga putos` case can fall back onto an in-cell `medium packs`/`medium nga putos`/etc. sibling,
 and a price-only `medium`-family case can fall back onto an in-cell `tama-tama nga putos`. This does not
 change `harmonized_nsu_unit`, `cleaned_nsu_unit`, or the translation-group crosswalk — only the fallback
@@ -221,7 +221,7 @@ Pick the layer the change belongs to:
 2. **Change which pool a unit belongs to** (a unit should fold into, or out of, a translation group):
    edit **`price_ms_unit_harmonization_crosswalk.xlsx`** — set the unit's `translation_group`.
 3. **Add an item-specific exception** (keep a unit separate for one item only, as in §6): add it to the
-   corresponding rule in `diagnose_price_only.py` (`KEEP_SEPARATE`, `PUTOS_KEEP_SEPARATE_ITEMS`, or
+   corresponding rule in `00_shared/01_build_crosswalk.py` (`KEEP_SEPARATE`, `PUTOS_KEEP_SEPARATE_ITEMS`, or
    `unsafe_pieces`).
 
 Then re-run:

@@ -9,19 +9,26 @@ against when you can read it.
 into the live pipeline and delete the copy you ported from, so there is exactly one place
 that produces each result.
 
-The live pipeline is `../cleaning_Aug11.do` → `../nsu_restate_weights.do` →
-`../nsu_reference_set.do`. See issue #7 for the intended folder structure.
+The live pipeline is the numbered chain under `../00_shared/`, `../10_reference_set/`
+and `../20_psps_retrofitting/`, run from `../master_outcome1.do`. See `../README.md` for
+the step-by-step layout.
+
+The three names this section used to give — `cleaning_Aug11.do`,
+`nsu_restate_weights.do`, `nsu_reference_set.do` — no longer exist. They were renamed in
+the restructure and became, respectively, `../00_shared/03_clean_ms.do`,
+`../00_shared/07_cpi_factor.do`, and the three `../10_reference_set/` steps. Older notes
+elsewhere may still use the retired names; that is the mapping.
 
 ---
 
 ## `cleaning.do`
 
-The original cleaning pipeline, superseded by `../cleaning_Aug11.do`.
+The original cleaning pipeline, superseded by `../00_shared/03_clean_ms.do`.
 
 **Still the ground truth for methodology questions.** When the current pipeline and a
 reference output disagree, read this file before constructing an explanation — several
 "known gaps" turned out to be misreadings of what the original actually did. The header
-of `cleaning_Aug11.do` lists every behaviour that deliberately differs from it.
+of `../00_shared/03_clean_ms.do` lists every behaviour that deliberately differs from it.
 
 Writes `outputs/temp/nsu_data.dta`. The current pipeline writes to
 `outputs/master_rename_build/temp/` instead, so the two builds do not overwrite each
@@ -52,8 +59,8 @@ still worth knowing:
 It also still references `w_ref`, a column retired in issue #29, so it errors out on its
 first substantive line (`w_ref not found`, r(111)) against any current input.
 
-Replaced by `../nsu_reference_set.do` (Outcome 1, live) and the not-yet-written Outcome 2
-build.
+Replaced by the three live `../10_reference_set/` steps (Outcome 1) and the
+not-yet-written Outcome 2 build.
 
 ## `unit_correction_manual_overrides.do`
 
@@ -62,8 +69,8 @@ only by this file itself. The copy on disk dates from a standalone run in July.
 
 Both of its overrides are dead: Override 1 is documented as a no-op, and Override 2's
 target already resolves to 95 g under the current snap. Replaced by
-`../manual_weight_corrections.do`, which asserts a row count per block so a correction
-that stops matching halts the build instead of passing silently.
+`../00_shared/05_manual_corrections.do`, which asserts a row count per block so a
+correction that stops matching halts the build instead of passing silently.
 
 ## `summarize_corrected_weight_by_cell.do`
 

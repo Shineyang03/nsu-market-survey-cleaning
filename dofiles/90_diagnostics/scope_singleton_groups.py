@@ -8,7 +8,7 @@ Where a group rests on ONE weighing there is no way to tell a representative uni
 an outlier: if ALTAVAS has a single "large bilog" cabbage at 900 g, nothing in the data
 says whether that is a typical large or a freak.
 
-This is distinct from `d_thin` in nsu_reference_set.do, which flags fewer than THIN = 3
+This is distinct from `d_thin` in 10_reference_set/12_publish_reference_set.do, which flags fewer than THIN = 3
 weighings behind a PUBLISHED reference row. That count is taken after re-terciling, so
 it describes the published groups. This file counts the raw field groups the pipeline
 starts from, before any re-cut, which is the level at which an outlier enters.

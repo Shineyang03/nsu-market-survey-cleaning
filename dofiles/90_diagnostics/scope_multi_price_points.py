@@ -398,7 +398,7 @@ def main():
     # ================================================================ Q6
     h("Q6  IS THE FOLD SOUND WHERE OUTCOME 1 POOLS TWO RAW UNITS (size-based branch)")
     # READ THE SIGN OF THIS SECTION CAREFULLY. Outcome 1 pools the WEIGHTS behind the
-    # size labels and re-cuts them into terciles (nsu_reference_set.do sec 2c), so two
+    # size labels and re-cuts them into terciles (10_reference_set/10_size_assignment.do sec 2c), so two
     # pooled raw units both enter one tercile computation. That is NOT a defect: if
     # bilog == binilog is a correct fold, a small bilog and a small binilog are the same
     # object and pooling them is precisely the intent -- it buys precision.
@@ -409,7 +409,7 @@ def main():
     # have been folded. dofiles/90_diagnostics/validate_folds.py is the tool for adjudicating that;
     # this section only says where to point it.
     #
-    # Two things are measured, both replicating nsu_reference_set.do exactly:
+    # Two things are measured, both replicating 10_reference_set/10_size_assignment.do exactly:
     #   (a) k_sizes -- pooling can RAISE the distinct-label count (unit A holds
     #       {small,medium}, unit B holds {large} -> pooled k=3, neither unit alone has 3)
     #   (b) whether the tercile groups line up with raw unit instead of field label
@@ -589,7 +589,7 @@ def main():
     # The scenario: one raw unit carries only a municipality median, the other carries
     # the full mp25/50/75 triple. Neither has "two full ladders", so a count of
     # two-ladder cases misses it entirely -- but the pooled case still has to reconcile
-    # a median against a triple. Worse for Outcome 1: nsu_reference_set.do sec 2b maps
+    # a median against a triple. Worse for Outcome 1: 10_reference_set/10_size_assignment.do sec 2b maps
     # mp50 AND municipality median AND province median all onto size_ord = 2, so the
     # median from unit B is averaged into the same "medium" cell as the mp50 weighings
     # from unit A.
@@ -631,7 +631,7 @@ def main():
     # --- and the Outcome 1 collision this creates
     # The size-based branch reads its groups off the enumerator's own S/M/L judgement,
     # so the price file is absent there. The PRICE-QUANTITY branch does not: sec 2b of
-    # nsu_reference_set.do reads size_ord straight off the rung recorded in obs_type,
+    # 10_reference_set/10_size_assignment.do reads size_ord straight off the rung recorded in obs_type,
     # and that rung is a copy of the price-file structure -- the enumerator was sent to
     # spend a preloaded mp25/mp50/mp75/median, so the MS label echoes the price file
     # rather than observing size independently. 311 of 2,005 Outcome 1 cases (15.5%)

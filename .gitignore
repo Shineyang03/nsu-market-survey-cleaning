@@ -14,3 +14,8 @@ Desktop.ini
 
 # Box Drive sync tombstones, left behind when a file is deleted on the synced drive
 *0000000000*
+
+# Python bytecode caches. A .pyc was tracked, so a diagnostic's compiled form showed
+# up as a code change on every run that imported it.
+__pycache__/
+*.pyc

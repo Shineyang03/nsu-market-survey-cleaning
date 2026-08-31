@@ -1,7 +1,7 @@
 """Re-derive every quantitative claim in docs/ that is not produced by a build file.
 
 WHY THIS EXISTS. Most numbers in docs/ come out of a build step whose code is saved:
-the reference-set counts from nsu_reference_set.do, the inflation figures from
+the reference-set counts from 10_reference_set/12_publish_reference_set.do, the inflation figures from
 plot_cpi_inflation.py, the price-point tally from tally_price_points.py, the summary
 tables from summary_statistics.py. A second group of numbers came from one-off
 verification checks -- "does harmonization cost uniqueness", "does pull_price really
@@ -344,7 +344,7 @@ def c_threshold_direction(prelim, corrected):
 
 # ============================================================ 7. item_group
 def c_item_group_normalization(d):
-    """item_group is a merge key in nsu_restate_weights.do but passes through no
+    """item_group is a merge key in 00_shared/07_cpi_factor.do but passes through no
     normalizer, and it carries a non-ASCII character. The join survives only because
     both sides come from the same writer.
 
@@ -362,7 +362,7 @@ def c_item_group_normalization(d):
           + ("" if bad.nunique() == 1 else "s"),
           "the value, ASCII-stripped: "
           + "; ".join(A(v) for v in sorted(bad.unique()))
-          + ". Used as a merge key in nsu_restate_weights.do but passed through no"
+          + ". Used as a merge key in 00_shared/07_cpi_factor.do but passed through no"
           " normalizer, so a second producer of this string breaks the join.")
 
 
@@ -388,7 +388,7 @@ def c_case_counts(d):
 
 # ================================================== 11. the Outcome 1 label ranking
 def c_label_rank_is_load_bearing(d):
-    """Why nsu_reference_set.do sec 2c ranks the field labels instead of mapping the
+    """Why 10_reference_set/10_size_assignment.do sec 2c ranks the field labels instead of mapping the
     tercile group number straight onto small/medium/large.
 
     The tercile cut returns groups numbered 1..k by ASCENDING WEIGHT; they carry no

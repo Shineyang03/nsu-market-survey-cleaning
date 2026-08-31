@@ -127,7 +127,7 @@ def main():
     h("A5  THE TERCILE TIE RULE -- HOW OFTEN A SIZE GROUP COMES BACK EMPTY")
     print("The cut is lower-inclusive (w <= cut1 | cut1 < w <= cut2 | w > cut2).")
     print("Weights are whole grams, so ties on a cut are common and a group can empty.")
-    print("nsu_reference_set.do detects this and reports the case rather than patching.")
+    print("10_reference_set/11_size_checks.do sec 3 detects this and reports the case rather than patching.")
     if "size_ord" in ref.columns:
         CELL = [c for c in ["pull_province", "pull_municipal_city", "pull_item",
                             "harmonized_nsu_unit", "corrected_unit"] if c in ref.columns]
@@ -143,7 +143,7 @@ def main():
 
     # ---------------------------------------------------------------- A6
     h("A6  MEDIANS PUBLISHED AS 'MEDIUM'")
-    print("nsu_reference_set.do sec 2b sends mp50 AND municipality median AND province")
+    print("10_reference_set/10_size_assignment.do sec 2b sends mp50 AND municipality median AND province")
     print("median all to size_ord = 2. A median is a central tendency, not a size.")
     pq = rest[(rest.weighing_approach == 2)]
     lbl = {5: "mp25", 6: "mp50", 7: "mp75", 8: "mun_median", 9: "prov_median",

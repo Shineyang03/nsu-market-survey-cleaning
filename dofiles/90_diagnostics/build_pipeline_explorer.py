@@ -8,9 +8,10 @@ for two other questions that come up constantly while auditing the build:
     spelling it arrived with, what it was cleaned/harmonized to, whether its
     weight or unit was snapped, whether it was restated for inflation, which case
     it landed in, and whether it survived to an output at all;
-  - where the ATTRITION went -- 11,495 raw rows become 11,458, then 11,360, and
+  - where the ATTRITION went -- 11,495 raw rows become 11,453, then 11,355, and
     the ledger (docs/attrition_ledger.md) names every drop reason, but a table of
-    reasons is not the same as watching the flow.
+    reasons is not the same as watching the flow. (The ledger's own figures are
+    stale; see KNOWN DISCREPANCY below.)
 
 A spreadsheet is the wrong shape for either question -- both are about a PATH
 through stages, which is what a Sankey diagram plus a per-row drill-down are for.
@@ -71,7 +72,7 @@ Every one of the 37 raw rows that fails to join is independently explained:
   the count and refuses to silently absorb it into one of the three -- see
   `classify_stage1_drops()`.
 
-WHAT IS PRE-AGGREGATED, AND WHY. The weighings (restated-stage rows, 11,360) are
+WHAT IS PRE-AGGREGATED, AND WHY. The weighings (restated-stage rows, 11,355) are
 embedded IN FULL, one JSON object per row -- nothing is sampled. The Sankey,
 however, only ever needs node-to-node COUNTS, so its flows are pre-aggregated
 band totals, never a per-row list. No row is dropped from the embedded table
@@ -81,21 +82,36 @@ script says so rather than adjusting a number to make it look like it does.
 
 KNOWN DISCREPANCY WITH docs/attrition_ledger.md -- READ BEFORE TRUSTING A NUMBER.
 The saved ledger (both attrition_ledger.md and its .csv) documents Stage 2
-(nsu_restate_weights.do) as dropping 74 rows (11,458 -> 11,384). The do-file and
-its own saved log (dofiles/nsu_restate_weights.log) currently show 98 dropped
+(00_shared/07_cpi_factor.do) as dropping 74 rows (11,458 -> 11,384). The do-file and
+the 07_cpi_factor section of dofiles/master_outcome1.log currently show 98 dropped
 (27 "vendor gave no price at all" + 71 "vendor-priced, case keeps a preloaded
-rung") -> 11,360, which matches the actual row count of
-outputs/master_rename_build/temp/nsu_weighings_cpi.dta on disk and the count
-this task's own brief names as ground truth. docs/data_oddities.md sec.3b already
+rung") -> 11,355, which matches the actual row count of
+outputs/master_rename_build/temp/nsu_weighings_cpi.dta on disk.
+
+THE BRIEF'S OWN TRIPLE IS ALSO STALE NOW, and the tripwire below still holds it
+on purpose. Measured on a full clean rebuild (temp/ and tables/ cleared first):
+
+    11,495 raw
+      - 42 stage-1 drops        = 11,453 arrival/master
+      - 98 stage-2 drops        = 11,355 restated
+      - 44 stage-3 drops        = 11,311 entering the Outcome 1 collapse
+                                ->  3,321 published reference-set rows
+
+against the brief's 11,495 / 11,458 / 11,360. Raw agrees; arrival and restated are
+each low by exactly 5, which is one shift and not two: stage-1 drops went from 37
+to 42 and carried through. The constants in the tripwire are deliberately NOT
+updated to match -- a hardcoded count in this project has to carry its derivation,
+and bumping a number to silence a tripwire is the failure the tripwire exists to
+prevent. Reconciling those 5 rows is issue #8. docs/data_oddities.md sec.3b already
 describes the 27-row approx_price rule as implemented; the ledger was written
 before that rule landed and was never regenerated. This script uses the files on
-disk (98 dropped, 11,360 restated) as ground truth throughout and flags the stale
+disk (98 dropped, 11,355 restated) as ground truth throughout and flags the stale
 74/11,384 figures in the generated page rather than silently matching them or
 silently overwriting the ledger (out of scope: no .do or ledger edits here).
 
 OUTCOME 1 SIZE ASSIGNMENT -- REPLICATED, VALIDATED 100%. To label which size a
 size-based weighing became (small / medium / large), this script replicates
-nsu_reference_set.do sec.2 (re-tercile the pooled case weights, rank the field
+10_reference_set/10_size_assignment.do sec.2 (re-tercile the pooled case weights, rank the field
 labels present, assign by rank) in pandas. The one nontrivial part is the
 tercile CUT ITSELF: pandas' `Series.quantile()` uses linear interpolation, which
 silently disagrees with Stata's default `pctile` at the small case sizes and
@@ -469,7 +485,7 @@ def classify_stage1_drops(raw, master):
 # ============================================================================
 def classify_stage2(master, restated):
     """Ground truth is `id` membership in `restated`. The reason string is a
-    replication of nsu_restate_weights.do's own logic, printed and cross-
+    replication of 00_shared/07_cpi_factor.do's own logic, printed and cross-
     checked against the actual drop count (98) before being trusted."""
     restated_ids = set(restated.id)
     m = master.copy()
@@ -529,7 +545,7 @@ def classify_stage2(master, restated):
 
 # ============================================================================
 # Stage 3: restated -> Outcome 1 (size assignment + attrition), replicating
-# nsu_reference_set.do sections 1-2.
+# 10_reference_set/10_size_assignment.do sections 1-2.
 # ============================================================================
 def classify_stage3(restated, refset):
     r = restated.copy()
@@ -575,7 +591,7 @@ def classify_stage3(restated, refset):
     sb['k_sizes'] = k_sizes
     # rank_map[(cell, rank)] = the field_ord (1=S,2=M,3=L) that sits at empirical
     # rank `rank` (1..k) within this cell -- i.e. the g-th empirical weight group
-    # inherits the g-th field label the case actually holds (nsu_reference_set.do
+    # inherits the g-th field label the case actually holds (10_reference_set/10_size_assignment.do
     # sec 2c: "ord_at`j'").
     rank_map = {}
     for cell, g in sb.groupby('cell')['field_ord']:
@@ -1342,7 +1358,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
                 else:
                     rec["terminal"] = "outcome1_reference_row_unverified"
                     rec["terminal_reason"] = ("Assigned a size by this tool's replication of "
-                                               "nsu_reference_set.do, but no matching case x size "
+                                               "10_reference_set/10_size_assignment.do, but no matching case x size "
                                                "row was found in the published output -- treat "
                                                "the size label as unverified")
 
@@ -1393,7 +1409,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
 
     # Outcome 2 has no do-file yet (see module docstring). Rows still "in scope"
     # for it are the eligible rows PLUS the unique_mun_price rows Outcome 1
-    # excludes but Outcome 2 would keep (nsu_reference_set.do header) -- i.e.
+    # excludes but Outcome 2 would keep (10_reference_set/10_size_assignment.do header) -- i.e.
     # everything except the no-usable-weight and carrot-rule drops.
     n_o2_eligible = int(counts['n_eligible']
                          + restated_full.drop_unique_mun.sum())
@@ -1402,7 +1418,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
         "docs/attrition_ledger.md and its .csv record Stage 2 as dropping 74 rows "
         "(11,458 -> 11,384). The current dofiles/00_shared/07_cpi_factor.do and its own "
         "saved log drop 98 (27 'vendor gave no price at all' + 71 'vendor-priced, "
-        "case keeps a preloaded rung') -> 11,360, matching the file on disk and this "
+        "case keeps a preloaded rung') -> 11,355, matching the file on disk and this "
         "tool's own counts throughout. docs/data_oddities.md sec.3b already documents "
         "the 27-row rule; the ledger was written earlier and has not been regenerated. "
         "This page uses the files on disk as ground truth and flags the stale figures "

@@ -290,7 +290,7 @@ def main():
     print("as having as many points as it has unique prices, with the province median")
     print("ignored. That is a third treatment, agreeing with neither the Branch S")
     print("pseudo-code (which has no unique-price arm at all) nor Outcome 1 (which")
-    print("excludes unique_mun_price weighings outright, nsu_reference_set.do sec 1).")
+    print("excludes unique_mun_price weighings outright, 10_reference_set/10_size_assignment.do sec 1).")
     print("The three need reconciling; this script does not choose between them.")
     if len(sb):
         tally = {}
