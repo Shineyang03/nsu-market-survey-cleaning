@@ -69,7 +69,22 @@ STANDARD_PAT = ["(kg)", "(g)", "(l)", "(ml)", "ml", "kg", "kilo", "(25kls.)",
                 "litres", "liters"]
 
 # Category 2 -- mentions a standard unit but the meaning is not recoverable.
-AMBIGUOUS = {"500", "pieces/ kilo"}
+#
+# Exact-match literals, not patterns, because each is a specific label that was read
+# and judged rather than a family of labels. Every literal here must match at least
+# one crosswalk row on a fresh cycle -- asserted below, so a re-spelling upstream
+# fails the build instead of quietly keeping the row.
+#
+#   "500"           a magnitude with no unit
+#   "pieces/ kilo"  pieces-per-kilo or pieces-or-kilo, unrecoverable
+#   the cabbage     bundles a count, the item name and a PRICE into one label
+#                   ("2 kapinutos nga cabbage/20pesos"). Whether the unit is a
+#                   kapinutos, or two-of-them-for-20-pesos, is not recoverable, and
+#                   the 20 pesos is a transaction not a unit. This is the ILOILO /
+#                   DUEAS cabbage cell of issue #22 -- the size-based cell that had
+#                   no price row. Dropping the label resolves that cell by removing
+#                   it rather than by manufacturing a harmonized unit for it.
+AMBIGUOUS = {"500", "pieces/ kilo", "2 kapinutos nga cabbage/20pesos"}
 
 # Category 3 -- free text describing a transaction, not a unit.
 NOT_A_UNIT_PAT = ["for salary", "birthday", "he buy", "his meals", "serving of",
@@ -152,6 +167,20 @@ def main(apply=False):
     # 01_build_crosswalk.py to rebuild the unfiltered crosswalk if you want a fresh
     # removal cycle.
     already_applied = drop.empty and BACKUP.exists()
+
+    # Every exact-match literal must have found its row. Gated on the report actually
+    # being written: after --apply the labels are gone from the crosswalk, so a re-run
+    # legitimately matches none of them and must not fail. Rebuild the unfiltered
+    # crosswalk with 01_build_crosswalk.py to get a fresh cycle.
+    if not already_applied:
+        seen = set(drop.pull_nsu_unit.map(_n))
+        missed = sorted(AMBIGUOUS - seen)
+        if missed:
+            raise SystemExit(
+                "AMBIGUOUS literal(s) matched no crosswalk row: "
+                + ", ".join(repr(m) for m in missed)
+                + "\nThe label was probably re-spelled upstream."
+                  " Fix the literal; do not delete it.")
     if already_applied:
         print(f"\nthe crosswalk is already filtered ({BACKUP.name} exists and there is"
               f" nothing left to remove).")

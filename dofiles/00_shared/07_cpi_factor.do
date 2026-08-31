@@ -49,7 +49,7 @@
 * the net is 98).
 *
 * INPUTS  (read only)
-*   outputs/master_rename_build/temp/nsu_data_master.dta   11,453 weighings
+*   outputs/master_rename_build/temp/nsu_data_master.dta   11,449 weighings
 *   outputs/tables/cpi_level_panel.csv                      2,250 rows
 *   outputs/tables/cpi_item_crosswalk.csv                       95 rows
 *
@@ -114,13 +114,19 @@ di as result "Rows in: `n_in'"
 * arithmetic below -- so when it fires, check that arithmetic before changing it.
 *
 *     11,494  raw MS weighings after comment handling
-*     -   38  non-NSU labels (standard quantity / ambiguous quantity / not a unit),
+*     -   42  non-NSU labels (standard quantity / ambiguous quantity / not a unit),
 *             excluded in 03_clean_ms.do before the crosswalk merge
 *     -    3  dropped later in 03_clean_ms.do
 *     ------
-*     11,453
+*     11,449
 *
-* Was 11,458 until commit 3c436b9. The five are the ANTIQUE / HAMTIC mineral-water
+* Was 11,453 until the ILOILO / DUEAS cabbage label was excluded. The four are the
+* weighings labelled "2 kapinutos nga cabbage/20pesos" -- a label that bundles a
+* count, the item name and a price, so what one unit IS cannot be recovered. It is
+* an exact-match literal in 02_drop_non_nsu_labels.py's AMBIGUOUS set, and dropping
+* it is what resolved the size-based cell with no price row (issue #22).
+*
+* Was 11,458 before that. The five are the ANTIQUE / HAMTIC mineral-water
 * weighings labelled "500" -- an ambiguous quantity. They used to slip through
 * because the old substring rule looked for a unit ("ml", "kg", "kilo") and "500"
 * has none; the crosswalk now classifies them explicitly.
@@ -128,7 +134,7 @@ di as result "Rows in: `n_in'"
 * If this fires: read the attrition figures in dofiles/03_clean_ms.log and find
 * which stage moved. Do NOT just update the number -- that is how a silent drop
 * becomes permanent.
-local n_expected = 11453
+local n_expected = 11449
 if `n_in' != `n_expected' {
 	di as error "Input row count moved: expected `n_expected', got `n_in'."
 	di as error "Reconcile against 03_clean_ms.log before touching this number."

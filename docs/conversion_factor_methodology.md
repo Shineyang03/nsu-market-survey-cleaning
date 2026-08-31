@@ -276,7 +276,7 @@ A **case** $`c`$ is a province × municipality × item × NSU combination, where
 means **`harmonized_nsu_unit`** — the folded pooling key, not the raw `pull_nsu_unit`
 or the spelling-corrected `cleaned_nsu_unit`. Every count in this document is at
 that grain; the same tabulation on a different unit column gives different numbers
-(1,951 cases harmonized, 1,963 cleaned, 1,991 raw). See *Practical prerequisites*.
+(1,949 cases harmonized, 1,962 cleaned, 1,990 raw). See *Practical prerequisites*.
 
 **Market survey (MS) side.** A case is resolved into up to three **hetero-groups** — an
 *ordinal* ladder from smallest/cheapest to largest/dearest, indexed
@@ -536,12 +536,21 @@ province median only. (Counting strictly under ₱20 gives 34. An earlier versio
 document said 38, which reproduces under neither cut.) Measured by
 `dofiles/90_diagnostics/scope_unique_price_size_based.py`; see issue #6.
 
-**Almost every size-based case has a price-file row.** Checked directly by
-`dofiles/90_diagnostics/verify_documented_claims.py`: **1,514 of 1,515** size-based cells match. The
-single exception is ILOILO / DUEÑAS / cabbage / `putos (mix vegetable)`, whose
-harmonized unit is the mixed-vegetable canonical label — a fold target that exists on
-the market-survey side but has no counterpart in the price file. That one cell needs
-either a fallback price or exclusion; nothing else does.
+**Every size-based case has a price-file row.** Checked directly by
+`dofiles/90_diagnostics/verify_documented_claims.py`: all size-based cells match.
+
+This held at **1,514 of 1,515** until the one exception was removed at source. That
+cell was ILOILO / DUEÑAS / cabbage, reached through the raw label
+`2 kapinutos nga cabbage/20pesos` — a label that bundles a count, the item name and a
+price, so what one unit *is* cannot be recovered from it. It is now an exact-match
+literal in `02_drop_non_nsu_labels.py`'s `AMBIGUOUS` set and excluded with the other
+non-NSU labels, taking its 4 weighings with it.
+
+The cell was resolved by **dropping the ambiguous label**, not by giving it a fallback
+price: a conversion factor whose unit is unrecoverable is worse than none. See issue
+#22, and note the related defect it exposed — the halo-halo override in
+`03_clean_ms.do` assigns a harmonized unit *after* the crosswalk merge, which is how
+this cell came to hold a fold target the price file had never heard of (issue #18).
 
 An earlier count of 26 unmatched cells was an artefact of a checking script that
 Unicode-normalized `DUEÑAS` differently from the pipeline — see the normalization
@@ -947,11 +956,11 @@ holding {S, M, L} *are* small and large. `10_size_assignment.do` §2d asserts th
 than relying on it.
 
 **It must be keyed on groups-filled < $`k`$, not on groups-filled alone.** Read as "1
-group filled → medium", the rule would also catch the 757 cases where the field recorded
-one label and one group filled — relabelling **411 cases the field called small** and
+group filled → medium", the rule would also catch the 755 cases where the field recorded
+one label and one group filled — relabelling **409 cases the field called small** and
 **156 it called large** to medium. That is the same defect the rank mechanism exists to
 prevent, mirrored: `verify_documented_claims.py` already asserts that a naive
-group-number-to-size map mislabels 450 of 1,570 cases.
+group-number-to-size map mislabels 450 of 1,568 cases.
 
 **A missing size stays missing.** A case that filled two groups publishes two rows, so a
 field lookup for the third size returns nothing rather than an interpolated guess. That

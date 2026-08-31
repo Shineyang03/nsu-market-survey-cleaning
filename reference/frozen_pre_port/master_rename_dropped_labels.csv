@@ -1,6 +1,5 @@
 ﻿province,pull_municipal_city,cons_name,pull_nsu_unit,cleaned_nsu_unit,harmonized_nsu_unit,source,cell_merge_with,n_cell_merged,cause_label,in_MS_as,fallback_harmonized_nsu_unit,drop_reason
 AKLAN,BURUANGA,beer,bottle (500 ml),bottle (500 ml),bottle 500ml,MS & Price,,1,,,,standard quantity
-ILOILO,DUEAS,cabbage,2 kapinutos nga cabbage/20pesos,2 kapinutos nga cabbage/20pesos,2 kapinutos nga cabbage/20pesos,MS & Price,,1,,,,ambiguous quantity
 CAPIZ,IVISAN,carrot,1/4 kilo,1/4 kilo,1/4 kilo,MS & Price,,1,,,,standard quantity
 ANTIQUE,PATNONGON,"crackers, cookies, buiscuits, chips/curls",1.5kg per balde,1.5kg per balde,1.5kg per balde,MS & Price,,1,,,,standard quantity
 AKLAN,ALTAVAS,fresh fish,he buy cooked food for his meals,he buy cooked food for his meals,he buy cooked food for his meals,Price Only,,1,nonsensical (unmappable),,,not a unit

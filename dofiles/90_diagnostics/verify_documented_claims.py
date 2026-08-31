@@ -236,7 +236,7 @@ def c_size_cells_have_prices(d):
     hit = len(cells) - len(miss)
     check("every size-based cell has a price-file row",
           "conversion_factor_methodology.md / Step A",
-          "1 uncovered: ILOILO / DUEAS / cabbage / putos (mix vegetable)",
+          "all size-based cells covered",
           # Was temporarily 2. The ANTIQUE / HAMTIC "bottle 500ml" cell was uncovered
           # only because the crosswalk had already dropped the raw label "500" while
           # the restated .dta still carried its five weighings. The pipeline re-run
@@ -326,7 +326,7 @@ def c_snap_band_partition(prelim):
         f"kg [1, {KGMAX}]": (u == 1) & (w >= 1) & (w <= KGMAX) & has,
         f"kg > {KGMAX}": (u == 1) & (w > KGMAX) & has,
     }
-    recorded = {"grams": 9151, "litres": 1615, "kg < 1": 15,
+    recorded = {"grams": 9147, "litres": 1615, "kg < 1": 15,
                 f"kg [1, {KGMAX}]": 581, f"kg > {KGMAX}": 86}
     counts = {k: int(m.sum()) for k, m in bands.items()}
 
@@ -433,7 +433,10 @@ def c_case_counts(d):
          for lvl in ["harmonized_nsu_unit", "cleaned_nsu_unit", "pull_nsu_unit"]}
     check("case counts by vocabulary layer",
           "conversion_factor_methodology.md / Notation",
-          "1,951 harmonized / 1,963 cleaned / 1,991 raw",
+          # Moved by 4 weighings / 1 case when the ILOILO / DUEAS cabbage label
+          # "2 kapinutos nga cabbage/20pesos" joined the AMBIGUOUS set in
+          # 02_drop_non_nsu_labels.py. That drop is the resolution of issue #22.
+          "1,949 harmonized / 1,962 cleaned / 1,990 raw",
           f"{n['harmonized_nsu_unit']:,} harmonized /"
           f" {n['cleaned_nsu_unit']:,} cleaned /"
           f" {n['pull_nsu_unit']:,} raw",
@@ -489,7 +492,10 @@ def c_label_rank_is_load_bearing(d):
               .value_counts())
     check("the label ranking is load-bearing",
           "conversion_factor_methodology.md / Outcome 1, size assignment",
-          "450 of 1,570 size-based cases would be mislabelled by a naive grp->S/M/L map",
+          # Moved by 4 weighings / 1 case when the ILOILO / DUEAS cabbage label
+          # "2 kapinutos nga cabbage/20pesos" joined the AMBIGUOUS set in
+          # 02_drop_non_nsu_labels.py. That drop is the resolution of issue #22.
+          "450 of 1,568 size-based cases would be mislabelled by a naive grp->S/M/L map",
           f"{bad:,} of {len(lab):,} size-based cases would be mislabelled"
           " by a naive grp->S/M/L map",
           "disagreeing label sets: "
@@ -537,7 +543,10 @@ def c_underfilled_shapes(sized):
     n_l = int((lab == (4,)).sum())
     check("exposure if the rule were keyed on filled-groups alone",
           "methodology.md / under-filled cases, the keying warning",
-          "757 not-under-filled cases would be caught; 411 field-small, 156 field-large",
+          # Moved by 4 weighings / 1 case when the ILOILO / DUEAS cabbage label
+          # "2 kapinutos nga cabbage/20pesos" joined the AMBIGUOUS set in
+          # 02_drop_non_nsu_labels.py. That drop is the resolution of issue #22.
+          "755 not-under-filled cases would be caught; 409 field-small, 156 field-large",
           f"{len(ok1):,} not-under-filled cases would be caught;"
           f" {n_s} field-small, {n_l} field-large",
           "these have one label recorded AND one group filled, so they are correctly"
