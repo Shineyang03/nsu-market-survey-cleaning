@@ -362,9 +362,31 @@ replace cpi_factor = cpi_at_m_ms / cpi_at_ref if weighing_approach == 2
 gen double cpi_factor_ma3 = 1
 replace cpi_factor_ma3 = cpi_ma3_at_m_ms / cpi_ma3_at_ref if weighing_approach == 2
 
+* Report WHICH months are missing, not just how many rows. A bare count reads like
+* scattered edge cases, and cpi_ma3 IS missing at series endpoints by design, so a count
+* alone is indistinguishable from that expected trickle. It is not a trickle: every one
+* of these rows is in a single interview month, which means the ma3 robustness variant
+* is unavailable for that ENTIRE wave rather than thinned at its edges. Anyone reading
+* cpi_factor_ma3 as a sensitivity check needs to know that before running it.
 count if weighing_approach == 2 & missing(cpi_factor_ma3)
+local n_ma3_miss = r(N)
 di as result "--- Step 6 check: price-quantity rows with missing cpi_factor_ma3 ---"
-di as result "  count: " r(N)
+di as result "  count: `n_ma3_miss'"
+if `n_ma3_miss' > 0 {
+	qui levelsof m_ms if weighing_approach == 2 & missing(cpi_factor_ma3), local(ma3_months)
+	local n_months : word count `ma3_months'
+	di as result "  affected interview months (`n_months'):"
+	foreach m of local ma3_months {
+		qui count if weighing_approach == 2 & missing(cpi_factor_ma3) & m_ms == `m'
+		di as result "    " %tm `m' "   " r(N) " rows"
+	}
+	qui count if weighing_approach == 2
+	di as result "  of `r(N)' price-quantity rows in total"
+	if `n_months' == 1 {
+		di as result "  ONE month accounts for all of them: the ma3 variant is"
+		di as result "  unavailable for that whole wave, not thinned at series endpoints."
+	}
+}
 
 ********************************************************************************
 **# 7. Save
@@ -438,6 +460,7 @@ if r(N) > 0 {
 di as result "--- missing cpi_factor_ma3, price-quantity only ---"
 count if weighing_approach == 2 & missing(cpi_factor_ma3)
 di as result "  count: " r(N)
+di as result "  (month breakdown printed by the Step 6 check above)"
 
 di as result "===================================================================="
 di as result "Saved: ${temp_in}\nsu_weighings_cpi.dta"
