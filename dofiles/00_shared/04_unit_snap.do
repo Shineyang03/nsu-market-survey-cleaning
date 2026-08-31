@@ -185,6 +185,19 @@ restore
 drop rec_mass rec_vol item_has_mass item_has_vol item_mixed
 
 
+* ---- KEEP STEP 1's ANSWER, so STEP 3 can be compared against it ---------------
+* STEP 3 below overwrites corrected_weight on every row that has a weight, so without
+* this the log10 snap's answer is computed and then destroyed with nothing recording
+* what it would have said. The whole open question on issue #18 -- whether the blunt
+* magnitude rule is the RIGHT rule -- is unanswerable unless both answers survive to
+* the same dataset. These two columns change no result; they are carried through to
+* the output and read by 90_diagnostics/snap_step1_vs_step3.py.
+gen double w_step1 = corrected_weight
+gen byte   review_step1 = flag_review
+label var w_step1      "STEP 1 (log10 anchor snap) corrected weight, before STEP 3 overwrote it"
+label var review_step1 "STEP 1 flag_review, before STEP 3 cleared it"
+
+
 ********************************************************************************
 **# STEP 3 -- Claude's weight-review overrides on flagged rows
 ********************************************************************************
@@ -271,6 +284,8 @@ replace flag_review = 0 if flag_review == 1
 drop flag_review flag*
 drop base log_base base_corr 
 drop k
+* w_step1 and review_step1 deliberately survive the drops above -- neither name
+* starts with `flag', so `drop flag*' does not reach review_step1.
 
 sort id
 
@@ -281,7 +296,11 @@ drop corrected_unit
 order id, last
 
 
-keep correct* id
+* w_step1 / review_step1 ride along so the STEP 1 vs STEP 3 comparison is available
+* downstream without re-running the snap. They are diagnostics: nothing in the build
+* reads them, and 03_clean_ms.do renames only correct_* -> corrected_*.
+replace w_step1 = round(w_step1, 1)
+keep correct* w_step1 review_step1 id
 
 * Deterministic row order: `id' is unique, so this leaves no ties for the sort
 * seed to break. Without it the saved file's ORDER varies between runs.
