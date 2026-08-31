@@ -159,38 +159,16 @@ order pull_municipal_city, after(province)
 order municipal_code, last
 
 
+****************************************************************************************************
+**# 5. Put the names in the crosswalk's vocabulary -- BEFORE building any key
 ********************************************************************************
-**# 5. Case keys and counts
-********************************************************************************
-
-bysort province municipal_code cons_name unit_lbl: gen unique_prices_per_case = _N
-gsort -unique_prices_per_case
-
-gen case = province + "_" + pull_municipal_city + "_" + cons_name + "_" + unit_lbl
-
-egen byte tag_case = tag(case)
-count if tag_case == 1
-di as res "distinct PSPS cases: " r(N)
-drop tag_case
-
-egen byte tag = tag(province municipal_code cons_name unit_lbl)
-bysort province municipal_code cons_name: egen unique_lbls_per_item_mun = total(tag)
-drop tag
-
-encode unit_lbl, gen(unit_lbl_n)
-order obs_per_case unique_prices_per_case unique_lbls_per_item_mun, after(unit_price)
-
-
-********************************************************************************
-**# 6. Put the names in the crosswalk's vocabulary
-********************************************************************************
-* The join to master_nsu_rename is on normalized strings. Applying nsu_normalize
-* here rather than at the join keeps ONE definition of the rule, and means the
-* saved file is already in the vocabulary every other step speaks.
+* The join to master_nsu_rename is on normalized strings, so normalization has to
+* happen before the `case' key is built, not after. Building the key on raw-cased
+* strings and normalizing afterwards leaves a key that cannot match anything -- which
+* is what the first repaired version of this file did.
 *
-* This step is NEW. The original file renamed the columns and stopped, which would
-* have joined raw-cased PSPS strings against normalized crosswalk keys and matched
-* almost nothing.
+* This step is NEW. The original renamed the columns and stopped, which would have
+* joined raw-cased PSPS strings against normalized crosswalk keys.
 
 rename cons_name pull_item
 rename unit_lbl  pull_nsu_unit
@@ -198,10 +176,33 @@ rename unit_lbl  pull_nsu_unit
 nsu_normalize, item(pull_item) unit(pull_nsu_unit) ///
 	mun(pull_municipal_city) province(province)
 
+
+********************************************************************************
+**# 6. Case keys and counts
+********************************************************************************
+
+bysort province municipal_code pull_item pull_nsu_unit: gen unique_prices_per_case = _N
+gsort -unique_prices_per_case
+
+gen case = province + "_" + pull_municipal_city + "_" + pull_item + "_" + pull_nsu_unit
+
+egen byte tag_case = tag(case)
+count if tag_case == 1
+di as res "distinct PSPS cases (on normalized names): " r(N)
+drop tag_case
+
+egen byte tag = tag(province municipal_code pull_item pull_nsu_unit)
+bysort province municipal_code pull_item: egen unique_lbls_per_item_mun = total(tag)
+drop tag
+
+encode pull_nsu_unit, gen(unit_lbl_n)
+order obs_per_case unique_prices_per_case unique_lbls_per_item_mun, after(unit_price)
+
 label var pull_item     "normalized item name, matches master_nsu_rename"
 label var pull_nsu_unit "normalized raw NSU label, matches master_nsu_rename"
 label var unit_price    "household unit value = expenditure / quantity, per source slot"
 label var source        "purchased / own_production / gift -- only purchased is a faced price"
+label var case          "province_municipality_item_unit, on NORMALIZED names"
 
 compress
 save "${btemp}\psps_cases", replace
