@@ -1,31 +1,49 @@
 ********************************************************************************
 * nsu_restate_weights.do
 *
-* Restates price-quantity market-survey weighings to a common reference month so
-* that weighings collected in 2026m3 / 2026m4 / 2026m5 can be pooled without the
-* pool itself being contaminated by which month's price level happened to apply.
+* Builds cpi_factor: the province x item-group CPI ratio that Outcome 2 uses to move a
+* price-quantity weight from its market-survey month to the PSPS interview month.
 *
-* WHY THIS STEP EXISTS
-* On the price-quantity branch (weighing_approach == 2) the enumerator was handed a
-* FIXED preloaded peso amount and bought whatever it bought; the grams recorded
-* therefore depend on the price level in the month of that particular vendor visit.
-* Restate every such weighing to a common reference month BEFORE any aggregation:
+* WHAT THIS FILE NO LONGER DOES
+* It used to also restate every price-quantity weight into a common reference month
+* (w_ref = corrected_weight * cpi_factor), so weighings from 2026m3 / m4 / m5 could be
+* pooled without the pool itself carrying the month's price level. That step is RETIRED
+* (issue #29): the market survey visits a municipality across at most a few months and
+* the factor is constant within 93% of price-quantity cases, so the restatement moved
+* 399 of 1,118 rows and only 84 of them by more than 5%. Weights are now carried as
+* measured, in corrected_weight, and the ONLY inflation adjustment performed is the
+* MS -> PSPS one, applied at the point of use.
 *
-*     RETIRED (issue #29): w_ref(i) = corrected_weight(i) * cpi_factor(i)
-*                                     / CPI(province, item_group, REF)
+* WHY cpi_factor IS EXACTLY 1 ON TWO OF THE THREE BRANCHES
+* This is the substantive content of the file, so it is worth stating plainly.
 *
-* Downstream the pipeline multiplies by CPI(REF)/CPI(m_PSPS(household)), so REF
-* cancels out algebraically -- it is a pure bookkeeping anchor, not a modeling
-* choice. REF = 2026m4 is used because it is the modal market-survey month
-* (5,970 of 11,458 weighings); any other in-sample month would give the same
-* final answer once the cancellation happens downstream, so this is not agonized
-* over further.
+*   price-quantity (weighing_approach == 2)   cpi_factor varies
+*       The enumerator was handed a FIXED preloaded peso amount and bought whatever it
+*       bought. The grams recorded are therefore a function of the price level in the
+*       month of that vendor visit: the same PHP 50 buys less cabbage in a dearer
+*       month. Comparing such a weight to a PSPS household's purchase in a different
+*       month requires adjusting for the price level between the two.
 *
-* SCOPE: this restatement applies ONLY to weighing_approach == 2 (price-quantity).
-* Size-based (== 3) and conventional (== 1) weights are properties of the object
-* weighed -- a medium mango's grams are not a price-round quantity -- so those rows
-* are carried through unchanged: cpi_factor = 1 exactly.
-* They are NOT dropped; every input row is expected to survive into the output
+*   size-based (== 3) and conventional (== 1)   cpi_factor == 1, exactly
+*       No peso amount was involved. The enumerator asked for a small / medium / large
+*       unit, or for one conventional unit, and weighed the object handed over. A
+*       medium mango's grams are a property of the mango, not of what a fixed sum
+*       happened to buy that month. There is no price level in the measurement, so
+*       there is nothing for an index to adjust. Setting cpi_factor = 1 on these rows
+*       is not a default or a placeholder -- it is the statement that inflation does
+*       not enter.
+*
+* This mirrors assumptions 2 and 3 in docs/conversion_factor_methodology.md, which are
+* deliberate mirror images: the price-quantity branch assumes the PRICE schedule moved
+* only with the index; the size-based branch assumes the QUANTITY schedule did not move
+* at all (no shrinkflation). Neither branch is assumption-free, and they do not lean on
+* the same thing.
+*
+* The reference month used to build the ratio is REF = 2026m4, the modal market-survey
+* month. Downstream the pipeline multiplies by CPI(REF)/CPI(m_PSPS), so REF cancels
+* algebraically -- it is a bookkeeping anchor, not a modelling choice.
+*
+* No row is dropped for inflation reasons; every input row survives into the output
 * (less the 95 rows excluded in step 1 below).
 *
 * INPUTS  (read only)
@@ -268,6 +286,8 @@ drop mdate _merge_ref
 * adjustment performed is the MS -> PSPS one, at the point of use. Downstream code
 * reads corrected_weight directly.
 
+* Exactly 1 on approach 1 and 3 by construction, and that is a claim, not a default:
+* no peso amount entered those measurements, so no index applies. See the header.
 gen double cpi_factor = 1
 replace cpi_factor = cpi_at_m_ms / cpi_at_ref if weighing_approach == 2
 
