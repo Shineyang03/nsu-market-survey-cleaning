@@ -117,6 +117,20 @@ CELL_MIX={
     #
     # The default fold for these is putos -> pack (via grp()), which is right
     # everywhere else and wrong here: at TIGBAUAN the thing weighed is a mixed bag.
+    #
+    # WHY TIGBAUAN IS THE ONLY ENTRY -- the obvious worry is that this is scoped too
+    # narrowly, so: 15 cells fold to putos (mix vegetable), and in 13 of them the
+    # VENDOR'S OWN LABEL says so -- `mixmix', `putos (halo - halo)', `pack of mixed
+    # vegetables', `mix-mix cabbage and carrots', `packs of mix vegies', `mix slice of
+    # cabbage'. MIX_UNITS catches all of those on the label alone, with no comment
+    # needed. TIGBAUAN wrote plain `putos', so the label under-describes the product
+    # and the field comment is the only signal. That is what makes it the exception,
+    # and what a future entry here would have to look like: a bare label plus a
+    # comment contradicting it.
+    #
+    # 03_clean_ms.do carries the matching tripwire, and it is not vacuous: 4 rows
+    # currently carry the mixed-bag comment and all 4 fold correctly. Delete either
+    # entry below and those 4 revert to `pack' and the build stops.
     ('ILOILO','TIGBAUAN','cabbage','putos'): MIX_CANON,
     ('ILOILO','TIGBAUAN','carrot', 'putos'): MIX_CANON,
 }
