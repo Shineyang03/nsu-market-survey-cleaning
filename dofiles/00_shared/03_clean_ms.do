@@ -396,13 +396,31 @@ tab pull_price if weighing_approach == 3,m // errors (sized based items with a p
 replace pull_price = . if weighing_approach == 3
 
 
-cap noi assert inlist(weighing_approach,1,3) if pull_price == . // 3 obs, dropped below (price based item-nsu, but no pull-price recorded)
+* Every price-quantity row should now carry a price. Exactly 3 do not, and they are the
+* SAME 3 rows the Tigbauan drop below removes -- measured, not assumed. cleaning.do wrote
+* this as `cap noi assert', which swallowed the return code and never checked _rc, so the
+* failure was invisible and a FOURTH such row would have passed just as quietly.
+*
+* Derivation of the 3: after `replace pull_price = . if weighing_approach == 3' above,
+* the only rows left with a missing price and an approach other than 1 or 3 are
+* ILOILO / TIGBAUAN / fresh fish / bilog, approach 2. Anything else appearing here is a
+* new data problem, not this known one -- reconcile it, do not raise the number.
+count if pull_price == . & !inlist(weighing_approach, 1, 3)
+local n_nopricewa2 = r(N)
+di as txt "price-quantity weighings with no price: `n_nopricewa2'"
+assert `n_nopricewa2' == 3
+
+count if pull_price == . & !inlist(weighing_approach, 1, 3) ///
+	& pull_item == "fresh fish" & pull_nsu_unit == "bilog" ///
+	& pull_municipal_city == "TIGBAUAN"
+assert r(N) == `n_nopricewa2'
 
 * drop the Tigbauan Fresh Fish Bilog obs that do not have the stated price (seems like a SCTO Glitch)
 * re-expressed on the normalized keys: cleaning.do matched the old uuid string
 * "Fresh Fish_Bilog_TIGBAUAN", which this build no longer constructs
 count if pull_price == . & pull_item == "fresh fish" & pull_nsu_unit == "bilog" & pull_municipal_city == "TIGBAUAN"
 di as txt "Tigbauan Fresh Fish Bilog rows with no stated price: " r(N)
+assert r(N) == 3
 drop if pull_price == . & pull_item == "fresh fish" & pull_nsu_unit == "bilog" & pull_municipal_city == "TIGBAUAN"
 
 
