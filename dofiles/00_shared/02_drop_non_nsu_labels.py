@@ -42,6 +42,12 @@ OUTPUTS
     outputs/tables/master_rename_dropped_labels.csv   what was removed, and why
     outputs/tables/master_nsu_rename_prefilter.csv    the unfiltered original, kept so
                                                       the removal is reversible
+
+RE-RUNNING IS SAFE, AND IS A NO-OP. The removal is applied in place, so once --apply
+has run there is nothing left for a second run to find. Both outputs are then left
+untouched rather than rewritten -- an empty removal report would otherwise overwrite
+the record of what was removed. To rebuild the unfiltered crosswalk and run a fresh
+cycle, re-run 01_build_crosswalk.py first.
 """
 import re
 import sys
@@ -133,10 +139,29 @@ def main(apply=False):
     for u in sorted(orphaned):
         print(f"    {u}")
 
-    drop.drop(columns=["_reason", "_reason_h"]).rename(
-        columns={"_drop_reason": "drop_reason"}).to_csv(
-        REPORT, index=False, encoding="utf-8-sig")
-    print(f"\nwrote {REPORT}")
+    # THIS SCRIPT MUST NOT DESTROY ITS OWN EVIDENCE. The removal is applied in place,
+    # so on any run after --apply the crosswalk holds nothing left to remove and `drop'
+    # is empty. Writing that empty frame to REPORT overwrites the record of which
+    # labels were removed and why -- down to a bare header row. That is the only
+    # machine-readable copy of it, and build_pipeline_explorer.py reads it to explain a
+    # dropped label to a reader. Report-only mode did this too, so merely LOOKING at
+    # the crosswalk destroyed the report.
+    #
+    # An empty `drop' plus an existing backup means "already applied", not "nothing was
+    # ever removed", and the two must not write the same output. Re-run
+    # 01_build_crosswalk.py to rebuild the unfiltered crosswalk if you want a fresh
+    # removal cycle.
+    already_applied = drop.empty and BACKUP.exists()
+    if already_applied:
+        print(f"\nthe crosswalk is already filtered ({BACKUP.name} exists and there is"
+              f" nothing left to remove).")
+        print(f"kept {REPORT} as it stands -- an empty report here would overwrite the"
+              f" record of what was removed.")
+    else:
+        drop.drop(columns=["_reason", "_reason_h"]).rename(
+            columns={"_drop_reason": "drop_reason"}).to_csv(
+            REPORT, index=False, encoding="utf-8-sig")
+        print(f"\nwrote {REPORT}")
 
     if not apply:
         print("\nreport only. Re-run with --apply to rewrite the crosswalk.")
