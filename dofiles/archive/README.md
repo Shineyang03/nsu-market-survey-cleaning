@@ -72,6 +72,18 @@ It ran without error while silently summarising a month-old dataset disconnected
 live `corrected_weight` / `cpi_factor` pipeline.
 
 Reviving it means re-pointing line 31 at
-`outputs/master_rename_build/temp/nsu_weights_restated.dta` and checking that the
+`outputs/master_rename_build/temp/nsu_weighings_cpi.dta` and checking that the
 variables it collapses on still carry those names. Its per-cell summary layout is
 otherwise sound and is the closest thing the project has to a cell-level summary sheet.
+
+## `build_forests.py` and `build_forest_medians.py`
+
+Both hardcode `outputs/temp/nsu_data.dta` — written only by `cleaning.do`, dated
+27 July. They ran without error against data predating both the `w_ref` retirement
+and the non-NSU label trim, so their plots described a build that no longer exists.
+Same defect that archived `summarize_corrected_weight_by_cell.do`.
+
+Reviving either means pointing it at
+`outputs/master_rename_build/temp/nsu_weighings_cpi.dta` and checking the columns it
+groups on still carry those names. The forest-plot layout itself is fine; only the
+input was stale.

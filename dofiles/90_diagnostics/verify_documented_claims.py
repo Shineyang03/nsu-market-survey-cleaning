@@ -26,7 +26,7 @@ WHERE EACH CLAIM LIVES. The `doc` field of each check names the file and section
 CHANGED verdict points straight at the text that needs editing.
 
 RUN
-    python dofiles/verify_documented_claims.py
+    python dofiles/90_diagnostics/verify_documented_claims.py
 """
 import glob
 import re
@@ -43,7 +43,7 @@ RAW = LAUNCH + r"\data\PSPS NSU Market Survey Launch.dta"
 PRICE = LAUNCH + r"\data\NSU_prices_from_Makayla.csv"
 CASES = LAUNCH + r"\cases\nsu_cases_*.csv"
 PRELIM = TEMP + r"\prelim_nsu_data.dta"
-RESTATED = TEMP + r"\nsu_weights_restated.dta"
+RESTATED = TEMP + r"\nsu_weighings_cpi.dta"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
 
 results = []
@@ -451,7 +451,7 @@ def main():
     rest = pd.read_stata(RESTATED, convert_categoricals=False)
     print(f"  prelim_nsu_data              {len(prelim):>7,} rows")
     print(f"  standard_weight_unit_corr    {len(corrected):>7,} rows")
-    print(f"  nsu_weights_restated         {len(rest):>7,} rows")
+    print(f"  nsu_weighings_cpi         {len(rest):>7,} rows")
 
     head("CLAIMS ABOUT IDENTIFICATION AND VOCABULARY")
     c_harmonization_uniqueness(rest)

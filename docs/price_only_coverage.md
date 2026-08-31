@@ -1,7 +1,7 @@
 # Price-data coverage by the market survey
 
 **File:** `outputs/temp/price_only_coverage_summary.csv`
-**Built by:** `dofiles/diagnose_price_only.py` (the coverage tally at the end of the price-only diagnosis)
+**Built by:** `dofiles/00_shared/01_build_crosswalk.py` (the coverage tally at the end of the price-only diagnosis)
 
 This answers a specific question: of the price (PSPS-derived) data's `(province, municipality, item, nsu)`
 cases that have no matching raw NSU in the market survey (MS) for that exact cell, how many can

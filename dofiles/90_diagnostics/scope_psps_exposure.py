@@ -16,7 +16,7 @@ is the same one the price points were computed on:
   - the standard-unit label list excluded (households answering in kg, litres, etc.)
 
 RUN
-    python dofiles/scope_psps_exposure.py
+    python dofiles/90_diagnostics/scope_psps_exposure.py
 
 OUTPUT  outputs/tables/psps_conversion_exposure.csv
 """
@@ -24,10 +24,18 @@ import os
 import re
 import sys
 
+from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from drop_non_nsu_labels import is_dropped_label
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location(
+    "_dropnonnsu",
+    Path(__file__).resolve().parent.parent / "00_shared" / "02_drop_non_nsu_labels.py")
+_mod = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_mod)
+is_dropped_label = _mod.is_dropped_label
 
 pd.set_option("display.width", 220)
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel"
@@ -39,7 +47,7 @@ CONS = (BOX + r"\08 Analysis & Data\14 Wave 1_Pub\Household survey"
 # so the key matches.
 MUNMAP = (BOX + r"\08 Analysis & Data\14 Wave 1_Pub\Household survey"
                 r"\3_input_data\municipal_mapping.dta")
-MS = DC + r"\outputs\master_rename_build\temp\nsu_weights_restated.dta"
+MS = DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dta"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
 OUT = DC + r"\outputs\tables\psps_conversion_exposure.csv"
 

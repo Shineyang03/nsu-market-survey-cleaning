@@ -22,7 +22,7 @@ Q3 (is the approach enumerator-chosen or preloaded) is answered from the SurveyC
 instrument, not from data -- see the issue.
 
 RUN
-    python dofiles/scope_conventional_units.py
+    python dofiles/90_diagnostics/scope_conventional_units.py
 
 OUTPUTS  (outputs/tables/)
     conventional_unit_overlap.csv       per unit label: which approaches it appears
@@ -39,7 +39,7 @@ BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
 RAW = BOX + r"\NSU Market Survey Launch\data\PSPS NSU Market Survey Launch.dta"
 PRICE = BOX + r"\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
-RESTATED = DC + r"\outputs\master_rename_build\temp\nsu_weights_restated.dta"
+RESTATED = DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dta"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
 OUT = DC + r"\outputs\tables"
 

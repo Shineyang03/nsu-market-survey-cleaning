@@ -9,14 +9,14 @@ to any survey grain, no application to weights; see spec section 7):
       province x item_group x month -> cpi, cpi_ma3, cpi_source
   outputs/tables/cpi_item_crosswalk.csv
       (province, cons_name) -> item_group, normalized the same way
-      dofiles/analysis.do normalizes it (spec section 4.2).
+      dofiles/archive/analysis.do normalizes it (spec section 4.2).
   outputs/tables/cpi_panel_validation.txt
       the validation report required by spec section 8.
 
 This script supersedes the killed earlier run's scratch files of the same
 names (spec section 10) -- those are NOT read or built upon here.
 
-Run: python dofiles/build_cpi_level_panel.py
+Run: python dofiles/00_shared/06_cpi_panel.py
 """
 
 import hashlib

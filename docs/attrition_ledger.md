@@ -34,7 +34,7 @@ real `nsu_reference_set.dta` output exactly, case for case).
 
 ---
 
-## 1. Raw weighings → `nsu_data_master.dta` (`cleaning_Aug11.do`)
+## 1. Raw weighings → `nsu_data_master.dta` (`03_clean_ms.do`)
 
 | step | drop | rows in | dropped | rows out |
 |---|---|---:|---:|---:|
@@ -54,12 +54,12 @@ of the four drops above empties a case of every one of its rows.
 
 ---
 
-## 2. `nsu_data_master.dta` → `nsu_weights_restated.dta` (`nsu_restate_weights.do`)
+## 2. `nsu_data_master.dta` → `nsu_weighings_cpi.dta` (`07_cpi_factor.do`)
 
 | step | drop | rows in | dropped | rows out |
 |---|---|---:|---:|---:|
 | 2a | vendor-priced price-quantity rows where the case keeps a preloaded rung | 11,458 | 74 | 11,384 |
-| **out** | **`nsu_weights_restated.dta`** | | **74** | **11,384** |
+| **out** | **`nsu_weighings_cpi.dta`** | | **74** | **11,384** |
 
 Of 95 rows where `actual_price` was recorded (a field-officer comment saying the
 vendor's own price governed, not the preloaded amount), 74 are dropped and 21 are
@@ -75,7 +75,7 @@ previously documented:
 
 Ice cream is one of the two items recorded in both mass and volume
 (`docs/data_oddities.md` §4), so this cell splits into a `g` case and an `mL` case.
-The rescue rule in `nsu_restate_weights.do` decides "does this case keep a preloaded
+The rescue rule in `07_cpi_factor.do` decides "does this case keep a preloaded
 rung" at the grain province × municipality × item × `harmonized_nsu_unit` —
 **without `corrected_unit`**. The `g`-side case had a preloaded row and survived; the
 `mL`-side case's only price-quantity row was vendor-priced (`actual_price = 12`). The
@@ -88,11 +88,11 @@ grouping variables are one column coarser than the case grain it is protecting.
 
 Not corrected here, per this task's no-`.do`-edit rule. The fix is to add
 `corrected_unit` to the rescue rule's `bysort`/`egen` grouping in
-`nsu_restate_weights.do`.
+`07_cpi_factor.do`.
 
 ---
 
-## 3. `nsu_weights_restated.dta` → Outcome 1 (`nsu_reference_set.do`)
+## 3. `nsu_weighings_cpi.dta` → Outcome 1 (`nsu_reference_set.do`)
 
 | step | drop | rows in | dropped | rows out |
 |---|---|---:|---:|---:|
@@ -155,7 +155,7 @@ named and matches the ~11–12 originally expected.
 
 315 is the count of price-quantity-*touching* cases at the **coarse** grain
 (province × municipality × item × `harmonized_nsu_unit`, **without**
-`corrected_unit`), measured on `nsu_weights_restated.dta` (the literal input to
+`corrected_unit`), measured on `nsu_weighings_cpi.dta` (the literal input to
 `nsu_reference_set.do`). It equals **314 + 1**:
 
 - 314 is the modal price-quantity case count from
@@ -166,7 +166,7 @@ named and matches the ~11–12 originally expected.
   still counts as "price-quantity-touching" under an any-row test, because it does
   contain price-quantity rows.
 
-This count is identical on `nsu_data_master.dta` and `nsu_weights_restated.dta` —
+This count is identical on `nsu_data_master.dta` and `nsu_weighings_cpi.dta` —
 the Stage 2 ice-cream-`mL` loss doesn't move it, because that case's `g`-side
 sibling (same coarse key) survives.
 
@@ -256,7 +256,7 @@ Row-level, raw MS weighing to the last row that enters the Outcome 1 collapse:
    − 3   TIGBAUAN fresh fish bilog, no price
  = 11,458  (nsu_data_master.dta)
    − 74  vendor-priced rows not rescued
- = 11,384  (nsu_weights_restated.dta)
+ = 11,384  (nsu_weighings_cpi.dta)
    − 7   no usable weight
    − 33  unique_mun_price (Outcome 1 only)
    − 7   carrot price-quantity rows (Outcome 1 only)
@@ -274,7 +274,7 @@ Case-level, at the fine grain (province × municipality × item ×
 ```
 2,020 cases (nsu_data_master.dta)
    − 1   ice cream mL, restate rescue-rule grain mismatch
- = 2,019 (nsu_weights_restated.dta)
+ = 2,019 (nsu_weighings_cpi.dta)
    − 4   no usable weight (1 price-quantity case + 3 size-based cases)
  = 2,015
    − 11  unique_mun_price-only (price-quantity cases)

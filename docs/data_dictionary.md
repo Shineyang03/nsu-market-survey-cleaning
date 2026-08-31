@@ -1,6 +1,6 @@
 # Data dictionary — NSU price↔MS matching outputs
 
-Produced by `dofiles/diagnose_price_only.py`. All string keys are normalized the same way as the
+Produced by `dofiles/00_shared/01_build_crosswalk.py`. All string keys are normalized the same way as the
 Stata pipeline: lowercase + trim + **drop** non-ASCII (`ustrto(.,"ascii",2)`, mode 2 drops rather
 than transliterates); province/municipality are UPPER-cased, not lowercased.
 

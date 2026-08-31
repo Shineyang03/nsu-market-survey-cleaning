@@ -1,6 +1,6 @@
 """Pipeline explorer: trace one observation from raw MS through to output weight.
 
-WHY THIS EXISTS (GitHub issue #26). `dofiles/case_lookup.py` answers "what did the
+WHY THIS EXISTS (GitHub issue #26). `dofiles/90_diagnostics/case_lookup.py` answers "what did the
 field record for this cell" -- useful once a case is already shortlisted, useless
 for two other questions that come up constantly while auditing the build:
 
@@ -20,7 +20,7 @@ WHAT THIS READS (build outputs only -- nothing here is written by this script)
   price file        NSU Market Survey Launch/data/NSU_prices_from_Makayla.csv
   arrival stage      outputs/master_rename_build/temp/prelim_nsu_data.dta
   weight/unit stage   outputs/master_rename_build/temp/standard_weight_unit_correction.dta
-  restated stage     outputs/master_rename_build/temp/nsu_weights_restated.dta
+  restated stage     outputs/master_rename_build/temp/nsu_weighings_cpi.dta
   Outcome 1 output   outputs/master_rename_build/temp/nsu_reference_set.dta
   harmonization map  outputs/tables/master_nsu_rename.csv
   comment crosswalk  outputs/tables/add_comments_crosswalk.xlsx
@@ -85,7 +85,7 @@ The saved ledger (both attrition_ledger.md and its .csv) documents Stage 2
 its own saved log (dofiles/nsu_restate_weights.log) currently show 98 dropped
 (27 "vendor gave no price at all" + 71 "vendor-priced, case keeps a preloaded
 rung") -> 11,360, which matches the actual row count of
-outputs/master_rename_build/temp/nsu_weights_restated.dta on disk and the count
+outputs/master_rename_build/temp/nsu_weighings_cpi.dta on disk and the count
 this task's own brief names as ground truth. docs/data_oddities.md sec.3b already
 describes the 27-row approx_price rule as implemented; the ledger was written
 before that rule landed and was never regenerated. This script uses the files on
@@ -129,7 +129,7 @@ and `build_price_sankey()` do that:
 
   5,412 price rows
     -> 17 rows whose raw label was deliberately removed from the crosswalk
-       (dofiles/drop_non_nsu_labels.py, `is_dropped_label()` -- these are a sink,
+       (dofiles/00_shared/02_drop_non_nsu_labels.py, `is_dropped_label()` -- these are a sink,
        not a broken join; the tripwire below still fails loudly on a genuine
        unmatched row)
     -> 5,395 rows harmonize to 2,533 (province, municipality, item, harmonized_unit)
@@ -146,8 +146,8 @@ and `build_price_sankey()` do that:
        The classification for the price-only rows reuses
        outputs/tables/price_only_no_weight_anywhere.csv rather than re-deriving it
        from scratch (see that file's own richer fold logic in
-       dofiles/diagnose_price_only.py); this script only ADDS the same-vs-other-
-       province split that CSV does not carry, using nsu_weights_restated.dta.
+       dofiles/00_shared/01_build_crosswalk.py); this script only ADDS the same-vs-other-
+       province split that CSV does not carry, using nsu_weighings_cpi.dta.
 
 PRICE-ONLY FIGURES MOVED WITH THE CROSSWALK TRIM. Commit 3c436b9 removed 17
 non-NSU labels from master_nsu_rename, which changed the price-only counts:
@@ -171,7 +171,7 @@ the browser by a shared key -- see `load_price_analyses()`. Nothing in them is
 recomputed here.
 
 RUN
-    python dofiles/build_pipeline_explorer.py
+    python dofiles/90_diagnostics/build_pipeline_explorer.py
 
 Requires PYTHONIOENCODING=utf-8 on Windows (province/item strings are pre-ASCII-
 dropped by the time they reach this script, but source file paths and printed
@@ -187,7 +187,14 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from drop_non_nsu_labels import is_dropped_label  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location(
+    "_dropnonnsu",
+    Path(__file__).resolve().parent.parent / "00_shared" / "02_drop_non_nsu_labels.py")
+_mod = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_mod)
+is_dropped_label = _mod.is_dropped_label
 
 
 def stata_pctile(values, p):
@@ -228,7 +235,7 @@ RAW_PATH = LAUNCH / "data" / "PSPS NSU Market Survey Launch.dta"
 PRICE_PATH = LAUNCH / "data" / "NSU_prices_from_Makayla.csv"
 PRELIM_PATH = DC / "outputs" / "master_rename_build" / "temp" / "prelim_nsu_data.dta"
 WTUNIT_PATH = DC / "outputs" / "master_rename_build" / "temp" / "standard_weight_unit_correction.dta"
-RESTATED_PATH = DC / "outputs" / "master_rename_build" / "temp" / "nsu_weights_restated.dta"
+RESTATED_PATH = DC / "outputs" / "master_rename_build" / "temp" / "nsu_weighings_cpi.dta"
 REFSET_PATH = DC / "outputs" / "master_rename_build" / "temp" / "nsu_reference_set.dta"
 MASTER_RENAME_PATH = DC / "outputs" / "tables" / "master_nsu_rename.csv"
 COMMENTS_XW_PATH = DC / "outputs" / "tables" / "add_comments_crosswalk.xlsx"
@@ -255,7 +262,7 @@ OUT_HTML = OUT_DIR / "nsu_pipeline_explorer.html"
 
 
 # ============================================================================
-# Normalizers -- COPIED VERBATIM from dofiles/diagnose_price_only.py (do not
+# Normalizers -- COPIED VERBATIM from dofiles/00_shared/01_build_crosswalk.py (do not
 # reimplement; see docs/conversion_factor_methodology.md, "String normalization").
 # Order: drop non-ASCII outright, case-fold, trim, collapse whitespace. Never
 # NFKD-decompose -- DUENAS, not DUENAS-with-tilde-stripped-differently.
@@ -822,7 +829,7 @@ def classify_price_rows(master_rename):
     crosswalk (master_nsu_rename.csv) -- the one join every price-side function in
     this script builds on top of (shared-logic rule: defined once, here). Adds
     `matched` (bool) and `H` (harmonized unit, nz()'d, or None). An unmatched row is
-    expected ONLY when its raw label is one `drop_non_nsu_labels.is_dropped_label()`
+    expected ONLY when its raw label is one `02_drop_non_nsu_labels.is_dropped_label()`
     says was deliberately removed from the crosswalk (17 rows); any other unmatched
     row is a broken join and stops the build rather than silently being absorbed.
     """
@@ -850,7 +857,7 @@ def classify_price_rows(master_rename):
     broken = unmatched[~unmatched.Unit_lbl.map(is_dropped_label)]
     log(f"  price rows: {len(pr)} (expect 5,412)")
     log(f"  price rows unmatched to the crosswalk: {len(unmatched)} (expect 17, all "
-        f"deliberately-dropped labels -- dofiles/drop_non_nsu_labels.py)")
+        f"deliberately-dropped labels -- dofiles/00_shared/02_drop_non_nsu_labels.py)")
     log(f"    of which deliberately-dropped labels: {len(intended)}, "
         f"BROKEN (unexplained): {len(broken)}")
     if len(broken):
@@ -1235,7 +1242,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
     }
     price_discrepancy_note = (
         f"outputs/tables/price_only_no_weight_anywhere.csv predates commit 3c436b9 "
-        f"(the 17-label crosswalk trim, dofiles/drop_non_nsu_labels.py). 16 of its "
+        f"(the 17-label crosswalk trim, dofiles/00_shared/02_drop_non_nsu_labels.py). 16 of its "
         f"602 rows carry a raw label the current crosswalk no longer harmonizes at "
         f"all -- all 16 were in that CSV's own 'weighed nowhere' bucket. This page "
         f"reclassifies those 16 as the dropped-label sink instead of price-only, so "
@@ -1393,7 +1400,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
 
     ledger_note = (
         "docs/attrition_ledger.md and its .csv record Stage 2 as dropping 74 rows "
-        "(11,458 -> 11,384). The current dofiles/nsu_restate_weights.do and its own "
+        "(11,458 -> 11,384). The current dofiles/00_shared/07_cpi_factor.do and its own "
         "saved log drop 98 (27 'vendor gave no price at all' + 71 'vendor-priced, "
         "case keeps a preloaded rung') -> 11,360, matching the file on disk and this "
         "tool's own counts throughout. docs/data_oddities.md sec.3b already documents "
@@ -1403,7 +1410,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
     )
 
     meta = {
-        "generated_note": "Generated by dofiles/build_pipeline_explorer.py. Read-only tool; "
+        "generated_note": "Generated by dofiles/90_diagnostics/build_pipeline_explorer.py. Read-only tool; "
                            "nothing here feeds back into the pipeline.",
         "counts": counts,
         "price_counts": price_counts,
@@ -2218,7 +2225,7 @@ function selectRow(w) {
       ? `This row never reached the arrival stage (prelim_nsu_data.dta), so it has no cleaned `
         + `unit, corrected weight, or corrected_weight -- there is nothing further in its path to show.`
       : `This row reached the arrival stage but was dropped before the restated stage `
-        + `(nsu_weights_restated.dta), so it has no corrected weight or corrected_weight -- there is `
+        + `(nsu_weighings_cpi.dta), so it has no corrected weight or corrected_weight -- there is `
         + `nothing further in its path to show.`;
     left.innerHTML = `<h3>Path through the build</h3>` + [
       ['Raw arrival', `${w.province} / ${w.municipality} / ${w.item} / "${w.raw_spelling}"`],
@@ -2285,7 +2292,7 @@ const BUCKET_NOTE = {
   price_only_province_fallback: 'No MS weighing in this exact cell, but this item x harmonized unit IS weighed elsewhere in the same province -- a province-level fallback conversion factor is available.',
   price_only_other_province_only: 'No MS weighing in this exact cell or province; this item x harmonized unit is weighed only in a DIFFERENT province.',
   price_only_nowhere: 'This item x harmonized unit is not weighed anywhere in the MS data, in any province -- no conversion path exists.',
-  dropped_label: 'This raw label was deliberately removed from the crosswalk (dofiles/drop_non_nsu_labels.py) -- not a broken join.',
+  dropped_label: 'This raw label was deliberately removed from the crosswalk (dofiles/00_shared/02_drop_non_nsu_labels.py) -- not a broken join.',
 };
 
 function selectPriceCell(c) {
@@ -2379,12 +2386,12 @@ function renderDroppedSpellingsTable(caseObj) {
   const fromMS = (IDX_stage1c_by_cell3[cell3] || []).map(d => ({
     spelling: d.raw_spelling,
     fate: '<span class="tag dropped">dropped from MS</span>',
-    detail: 'Not an NSU -- a standard quantity, an ambiguous quantity, or free text that is not a unit. Excluded from the MS weighings before the crosswalk merge, on the list drop_non_nsu_labels.py owns (dofiles/build_pipeline_explorer.py stage-1 reason 1c).',
+    detail: 'Not an NSU -- a standard quantity, an ambiguous quantity, or free text that is not a unit. Excluded from the MS weighings before the crosswalk merge, on the list drop_non_nsu_labels.py owns (dofiles/90_diagnostics/build_pipeline_explorer.py stage-1 reason 1c).',
   }));
   const fromCrosswalk = (IDX_dropped_cell3[cell3] || []).map(d => ({
     spelling: d.pull_nsu_unit,
     fate: '<span class="tag dropped">dropped from crosswalk</span>',
-    detail: `Removed from master_nsu_rename.csv entirely (dofiles/drop_non_nsu_labels.py): ${esc(d.drop_reason)}. Source was ${esc(d.source)}; would-be harmonized unit ${esc(d.harmonized_nsu_unit)}.`,
+    detail: `Removed from master_nsu_rename.csv entirely (dofiles/00_shared/02_drop_non_nsu_labels.py): ${esc(d.drop_reason)}. Source was ${esc(d.source)}; would-be harmonized unit ${esc(d.harmonized_nsu_unit)}.`,
   }));
   const rows = fromMS.concat(fromCrosswalk);
   if (!rows.length) return '<div class="placeholder">no dropped spellings recorded for this (province, municipality, item) cell</div>';

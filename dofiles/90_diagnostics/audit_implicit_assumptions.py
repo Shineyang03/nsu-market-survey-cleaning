@@ -22,7 +22,7 @@ measurement rather than an assertion. It decides nothing and changes nothing.
       unit across municipalities
 
 RUN
-    python dofiles/audit_implicit_assumptions.py
+    python dofiles/90_diagnostics/audit_implicit_assumptions.py
 """
 import re
 import sys
@@ -46,7 +46,7 @@ def A(s):
 
 def main():
     xw = pd.read_csv(XW, encoding="utf-8-sig", dtype=str)
-    rest = pd.read_stata(TEMP + r"\nsu_weights_restated.dta", convert_categoricals=False)
+    rest = pd.read_stata(TEMP + r"\nsu_weighings_cpi.dta", convert_categoricals=False)
     prelim = pd.read_stata(TEMP + r"\prelim_nsu_data.dta", convert_categoricals=False)
     ref = pd.read_stata(TEMP + r"\nsu_reference_set.dta", convert_categoricals=False)
     print(f"crosswalk {len(xw):,}   restated {len(rest):,}   prelim {len(prelim):,}"

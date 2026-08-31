@@ -23,25 +23,28 @@ data it operates on, rather than adding a second, unrelated tolerance.
 This script measures what each candidate rule does. It recommends nothing on its own.
 
 RUN
-    python dofiles/scope_price_point_merge_rule.py
+    python dofiles/90_diagnostics/scope_price_point_merge_rule.py
 
 OUTPUT  outputs/tables/issue21_merge_rule_candidates.csv
 """
 import re
 import sys
 
+from pathlib import Path
 import pandas as pd
 
 # The crosswalk deliberately no longer carries standard-quantity, ambiguous and
-# not-a-unit labels (dofiles/drop_non_nsu_labels.py). Price rows carrying them will not
+# not-a-unit labels (dofiles/00_shared/02_drop_non_nsu_labels.py). Price rows carrying them will not
 # match, and that is intended -- so the unmatched-row tripwire below has to tell an
 # intended removal from a broken join.
-try:
-    from drop_non_nsu_labels import is_dropped_label
-except ImportError:                                     # run from the repo root
-    import os
-    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
-    from drop_non_nsu_labels import is_dropped_label
+from pathlib import Path as _P
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location(
+    "_dropnonnsu",
+    _P(__file__).resolve().parent.parent / "00_shared" / "02_drop_non_nsu_labels.py")
+_mod = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_mod)
+is_dropped_label = _mod.is_dropped_label
 
 pd.set_option("display.width", 220)
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
@@ -88,7 +91,7 @@ def cluster(points, abs_tol=None, rel_tol=None):
 
 
 def main():
-    ms = pd.read_stata(DC + r"\outputs\master_rename_build\temp\nsu_weights_restated.dta",
+    ms = pd.read_stata(DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dta",
                        convert_categoricals=False)
     ms["prov"] = ms.pull_province.map(ng); ms["mun"] = ms.pull_municipal_city.map(ng)
     ms["item"] = ms.pull_item.map(ni); ms["raw"] = ms.pull_nsu_unit.map(nz)

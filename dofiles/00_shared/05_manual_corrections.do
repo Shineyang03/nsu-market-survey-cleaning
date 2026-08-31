@@ -1,12 +1,12 @@
 ********************************************************************************
-* manual_weight_corrections.do
+* 05_manual_corrections.do
 *
 * Every hand-made correction to corrected_weight / corrected_unit, in one place,
 * with an assertion per block that the block actually matched what it was written
 * for.
 *
 * WHY THIS FILE EXISTS
-* These corrections used to sit inline in cleaning_Aug11.do (and before that in
+* These corrections used to sit inline in 03_clean_ms.do (and before that in
 * cleaning.do). They worked, except where they silently did not: the ILOILO
 * chicken block below was written to rescale one row and matched ZERO, because it
 * tested item_nsu_hetero_type == 2 (small) against a row that is 4 (large). The log
@@ -19,7 +19,7 @@
 * code changed, or the condition was wrong to begin with -- now halts the build
 * instead of passing silently.
 *
-* There is a second, orphaned file: dofiles/unit_correction_manual_overrides.do.
+* There is a second, orphaned file: dofiles/archive/unit_correction_manual_overrides.do.
 * Nothing calls it and the dataset it reads (unit_correction_intermediate) is never
 * written, so it has never run. Its Override 1 is documented as a no-op; its
 * Override 2 targeted fresh-fish rows the current snap already resolves to 95 g on
@@ -35,13 +35,13 @@
 * rather than on `id`, which is a row counter (gen id = _n) and shifts whenever the
 * upstream data or sort order changes.
 *
-* CALLED FROM cleaning_Aug11.do, after the snap is merged in and after
+* CALLED FROM 00_shared/03_clean_ms.do, after the snap is merged in and after
 * harmonized_nsu_unit exists. Expects: weight, unit, diagnostics, corrected_weight,
 * corrected_unit, cleaning_notes, and the key variables above.
 ********************************************************************************
 
 di as txt _n "{hline 78}"
-di as txt "manual_weight_corrections.do"
+di as txt "05_manual_corrections.do"
 di as txt "{hline 78}"
 
 * Helper: assert a block matched what it says it should, and say so out loud.
@@ -97,7 +97,7 @@ replace corrected_weight = weight * (1000^2) if ///
 	pull_province == "ILOILO" & corrected_unit == 2 & corrected_weight == 1
 
 * --- 2b. ILOILO / BADIANGAN whole chicken, reading exactly 1 g
-* THIS BLOCK IS THE REASON THE FILE EXISTS. cleaning_Aug11.do wrote it as
+* THIS BLOCK IS THE REASON THE FILE EXISTS. 03_clean_ms.do wrote it as
 *     ... & item_nsu_hetero_type == 2 & ...
 * which is small_size. The row is large_size (4), so the condition matched nothing
 * and the log said "(0 real changes made)". Re-expressed on the stable key, with no
@@ -184,5 +184,5 @@ replace corrected_unit   = .c if inlist(harmonized_nsu_unit,"cup") & ///
 	pull_item == "prawns, lobster, shrimp" & weight == 5 & unit == 2
 
 capture program drop _chk
-di as txt "manual_weight_corrections.do: all blocks matched their expected counts"
+di as txt "05_manual_corrections.do: all blocks matched their expected counts"
 di as txt "{hline 78}" _n

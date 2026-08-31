@@ -1,0 +1,106 @@
+********************************************************************************
+* 00_globals.do -- paths and shared programs for the whole pipeline
+*
+* Every numbered do-file in this project starts by running this file. Nothing here
+* touches data; it only defines where things live and the two programs that more
+* than one step needs.
+*
+* CALLED BY   both master do-files, and by each numbered step so a single step can
+*             still be run on its own without the master.
+*
+* Run a step on its own like this, from the dofiles/ folder:
+*     "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\03_clean_ms.do
+********************************************************************************
+
+* No `version' pin. One was added and removed again during the restructure: it
+* looked like pinning changed cpi_factor, but the apparent change was ROW ORDER, not
+* values -- see the note on non-determinism in 07_cpi_factor.do. A pin may still be
+* worth adding; it just has to be a deliberate decision, not a side effect.
+set more off
+
+* ---- root ---------------------------------------------------------------------
+* `c(username)' rather than a hardcoded user, so the same file works on any machine
+* with the Box folder mounted in the usual place.
+global root    "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
+global proj    "${root}\Data Cleaning"
+global dofiles "${proj}\dofiles"
+
+* ---- raw inputs ---------------------------------------------------------------
+global data      "${root}\NSU Market Survey Launch\data\PSPS NSU Market Survey Launch.dta"
+global pricedata "${root}\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
+
+* The PSPS household consumption file, for Outcome 2. Note 2_publication_data --
+* an earlier version of the extraction do-file read 3_publication_data, which does
+* not exist, so the file had never run.
+global psps_cons "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\08 Analysis & Data\14 Wave 1_Pub\Household survey\5_outputs\2_publication_data\2_consumption\2_consumption.dta"
+
+* ---- outputs ------------------------------------------------------------------
+global output "${proj}\outputs"
+global temp   "${output}\temp"
+global graphs "${output}\graphs"
+global tables "${output}\tables"
+foreach d in "${output}" "${temp}" "${graphs}" "${tables}" {
+	cap noi mkdir "`d'"
+}
+
+* The current build writes to its own subtree so the pre-Aug11 outputs under
+* ${temp} stay inspectable. See dofiles/archive/README.md.
+global build   "${output}\master_rename_build"
+global btemp   "${build}\temp"
+global btables "${build}\tables"
+global bgraphs "${build}\graphs"
+foreach d in "${build}" "${btemp}" "${btables}" "${bgraphs}" {
+	cap noi mkdir "`d'"
+}
+
+
+********************************************************************************
+* Shared programs
+********************************************************************************
+
+* ---- def_hetero ---------------------------------------------------------------
+* The obs_type value label. Defined as a program rather than once at the top
+* because `use ..., clear' on the raw launch data wipes value labels along with the
+* data, so it has to be re-declared after every load.
+*
+* The ORDER IS SEMANTIC and is relied on downstream: codes 2/3/4 are small/medium/
+* large and are compared with < and >, so they must stay in ascending size order.
+capture program drop def_hetero
+program define def_hetero
+	label define hetero 1 "conventional_nsu" 2 "small_size" 3 "medium_size" 4 "large_size" ///
+		5 "mp25_price" 6 "mp50_price" 7 "mp75_price" 8 "municipality_median" ///
+		9 "province_median" 10 "unique_mun_price6" 11 "unique_mun_price7", replace
+end
+
+* ---- nsu_normalize ------------------------------------------------------------
+* THE authoritative string normalization on the Stata side. Its Python counterpart
+* is nz()/ni()/ng() in 00_shared/01_build_crosswalk.py, and the two MUST agree
+* character for character -- master_nsu_rename.csv is built by the Python side and
+* joined by this one.
+*
+* mode 2 DROPS non-ASCII rather than transliterating. That is deliberate: a clean
+* n-tilde and a mojibaked one must collapse to the SAME string, and they do only if
+* both lose the character (DUENAS -> DUEAS either way). Do not "improve" this to
+* NFKD-decompose -- that maps a clean DUENAS to DUENAS and a mojibaked one to
+* something else, and the join silently loses rows.
+capture program drop nsu_normalize
+program define nsu_normalize
+	syntax , Item(name) Unit(name) [Mun(name) PROVince(name)]
+
+	foreach v in `item' `unit' {
+		replace `v' = ustrto(`v', "ascii", 2)
+		replace `v' = ustrtrim(ustrlower(`v'))
+		replace `v' = ustrregexra(`v', "\s+", " ")
+	}
+
+	* prepped food: the item string differs across datasets only in the accent
+	replace `item' = "drinks at restaurant, hotel, cafe, or kiosk" if strpos(`item', "restaurant") > 0
+
+	foreach v in `mun' `province' {
+		replace `v' = ustrto(`v', "ascii", 2)
+		replace `v' = ustrtrim(ustrupper(`v'))
+		replace `v' = ustrregexra(`v', "\s+", " ")
+	}
+end
+
+di as txt "00_globals.do loaded -- build subtree: ${build}"

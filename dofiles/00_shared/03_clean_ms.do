@@ -54,7 +54,7 @@
 *        hand on the PSPS side at merge time. Every dropped row is exported to
 *        tables/excluded_standard_unit_obs.xlsx first, with its drop_reason.
 *
-*        The drop is placed BEFORE correct_unit_snap.do deliberately, so these
+*        The drop is placed BEFORE 04_unit_snap.do deliberately, so these
 *        labels also stay out of the item-level anchor pool (step 1c). Mineral
 *        water's pools span a 500 mL bottle to a 10 L gallon; letting both vote on
 *        one item-level reference is what contaminated that anchor and turned a
@@ -89,95 +89,14 @@
 *-------------------------------------------------------------------------------
 
 
-********************************************************************************
+****************************************************************************************************
 **# Setting Globals
 ********************************************************************************
+* Paths and the shared programs (def_hetero, nsu_normalize) live in one place now.
+* Run this file on its own with the dofiles/ folder as the working directory.
+do "00_shared/00_globals.do"
 
-
-global data "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\14 NSU Market Survey\NSU Market Survey Launch\data\PSPS NSU Market Survey Launch.dta"
-
-global dofiles "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning\dofiles"
-
-global output "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning\outputs"
-
-global temp "${output}\temp"
-cap noi mkdir "${temp}"
-
-global graphs "${output}\graphs"
-cap noi mkdir "${graphs}"
-
-global tables "${output}\tables"
-cap noi mkdir "${tables}"
-
-
-** this attempt writes to its own subtree so the pre-Aug11 build stays intact
-global build "${output}\master_rename_build"
-cap noi mkdir "${build}"
-
-global btemp "${build}\temp"
-cap noi mkdir "${btemp}"
-
-global btables "${build}\tables"
-cap noi mkdir "${btables}"
-
-global bgraphs "${build}\graphs"
-cap noi mkdir "${bgraphs}"
-
-
-** the hetero (obs_type) value label is defined in several places below because
-** `use ..., clear` on the raw launch data wipes value labels along with the data
-capture program drop def_hetero
-program define def_hetero
-	label define hetero 1 "conventional_nsu" 2 "small_size" 3 "medium_size" 4 "large_size" ///
-		5 "mp25_price" 6 "mp50_price" 7 "mp75_price" 8 "municipality_median" ///
-		9 "province_median" 10 "unique_mun_price6" 11 "unique_mun_price7", replace
-end
-
-
-********************************************************************************
-**# normalization for matching
-********************************************************************************
-
-* basically across diff datasets cons_name / nsu / municipal often take diff names.
-* ONE definition of the rule, used by every dataset in this file (raw MS data,
-* master_nsu_rename, and anything joined to them later) -- so a divergence
-* between two copies of the normalization can never be the cause of a no-match.
-
-* This is the Stata twin of nz() / ni() / ng() in dofiles/diagnose_price_only.py,
-* which built master_nsu_rename.csv. The two MUST agree character for character
-* or rows silently fail to merge. Python:
-*     nz(s) = collapse_ws( ascii_drop(s).lower().strip() )      # item, NSU
-*     ni(s) = nz(s), then the "restaurant" override
-*     ng(s) = collapse_ws( ascii_drop(s).strip().upper() )      # province, mun
-* so the operation ORDER is: ASCII-drop -> case-fold -> trim -> collapse runs of
-* whitespace. The whitespace collapse is the step Stata's ustrtrim() does NOT do
-* on its own -- omitting it strands raw labels with double spaces
-* ("fish  sold per pack 90 each  pack") with no rename row.
-
-capture program drop nsu_normalize
-program define nsu_normalize
-	syntax , Item(name) Unit(name) [Mun(name) PROVince(name)]
-
-	foreach v in `item' `unit' {
-		* mode 2 DROPS non-ASCII rather than transliterating, so a clean "n-tilde"
-		* and a mojibaked one collapse identically (DUENAS -> DUEAS both ways)
-		replace `v' = ustrto(`v', "ascii", 2)
-		replace `v' = ustrtrim(ustrlower(`v'))
-		replace `v' = ustrregexra(`v', "\s+", " ")
-	}
-
-	* prepped food: the item string differs across datasets only in the accent
-	replace `item' = "drinks at restaurant, hotel, cafe, or kiosk" if strpos(`item', "restaurant") > 0
-
-	foreach v in `mun' `province' {
-		replace `v' = ustrto(`v', "ascii", 2)
-		replace `v' = ustrtrim(ustrupper(`v'))
-		replace `v' = ustrregexra(`v', "\s+", " ")
-	}
-end
-
-
-********************************************************************************
+************************************************************
 **# use as crosswalk
 ********************************************************************************
 
@@ -357,7 +276,7 @@ nsu_normalize, item(pull_item) unit(pull_nsu_unit) ///
 * HAVE a crosswalk row (drop_non_nsu_labels.py removed them). Run afterwards, they
 * would disappear as "no master_nsu_rename row" -- dropped for the wrong reason, and
 * invisible to the attrition ledger. Placing it here also keeps them out of
-* correct_unit_snap.do's item-level anchor pool (step 1c), which matters: mineral
+* 04_unit_snap.do's item-level anchor pool (step 1c), which matters: mineral
 * water's pools run from a 500 mL bottle to a 10 L gallon, and letting both vote on
 * one item-level reference is what contaminated that anchor.
 *
@@ -416,7 +335,7 @@ if r(N) > 0 {
 		list, noobs abbrev(24)
 	restore
 	di as err "Either the normalization drifted from the crosswalk builder, or these"
-	di as err "labels are not NSUs and belong in dofiles/drop_non_nsu_labels.py."
+	di as err "labels are not NSUs and belong in dofiles/00_shared/02_drop_non_nsu_labels.py."
 	di as err "Do not silence this by re-adding a drop -- that is what hid the"
 	di as err "standard-quantity rows and broke the excluded-obs export."
 	exit 459
@@ -448,7 +367,7 @@ order weighing_approach, after(wa)
 drop wa
 
 * encode alphabetizes, so 1=Conventional / 2=Price-quantity / 3=Size-based.
-* the rest of this file (and correct_unit_snap.do) depends on 3 == size-based
+* the rest of this file (and 04_unit_snap.do) depends on 3 == size-based
 local wa3 : label (weighing_approach) 3
 assert strpos(ustrlower("`wa3'"), "size") > 0
 
@@ -615,7 +534,7 @@ global snap_in     "${btemp}\prelim_nsu_data"
 global snap_out    "${btemp}\standard_weight_unit_correction"
 global snap_tables "${btables}"
 
-do "${dofiles}\correct_unit_snap.do"
+do "${dofiles}/00_shared/04_unit_snap.do"
 
 ** release the parameters so a later `do cleaning.do` in the same session gets
 ** its own defaults back
@@ -644,7 +563,7 @@ tempfile snapped
 save `snapped'
 
 * mixup between ml & g
-* NOTE: mixed_dimension_items.xlsx is regenerated by correct_unit_snap.do from
+* NOTE: mixed_dimension_items.xlsx is regenerated by 04_unit_snap.do from
 * THIS build's prelim data, so its pull_item values are already normalized
 * (lowercase) -- the inlist()s below match that, unlike cleaning.do's raw-cased
 * versions
@@ -657,7 +576,7 @@ replace diagnostics = "g" if inlist(pull_item,"chicken","crackers, cookies, buis
 replace diagnostics = "mL" if inlist(pull_item, "liquor (e.g, whisky, coconut wine)","mineral or spring water, all drinking water sold in containers")
 
 * Items left WITHOUT a verdict keep the mass/volume dimension the enumerator
-* recorded (correct_unit_snap.do STEP 2 deliberately does not harmonize). That is
+* recorded (04_unit_snap.do STEP 2 deliberately does not harmonize). That is
 * the pre-Aug11 behaviour for ice cream, which is genuinely sold both by weight
 * and by volume. This build's mixed list is longer than the old one because it no
 * longer drops the ~190 MS weighings the old crosswalk discarded, so BEER and
@@ -689,7 +608,7 @@ merge 1:m pull_item using `snapped', assert(2 3) nogen
 * ILOILO chicken rescale tested the wrong hetero code, logged "(0 real changes
 * made)", and shipped a 1 gram whole chicken to the reference set. The assertions in
 * that file turn a silent miss into a halt.
-do "${dofiles}\manual_weight_corrections.do"
+do "${dofiles}/00_shared/05_manual_corrections.do"
 
 
 drop weight unit diagnostics

@@ -1,9 +1,9 @@
 """
 Summary statistics for the NSU Market Survey, raw and cleaned, side by side.
 
-Ports the intent of the two "Summ stats" sections that lived in dofiles/cleaning.do
+Ports the intent of the two "Summ stats" sections that lived in dofiles/archive/cleaning.do
 (lines ~112-825, "Summ stats from raw data" and "Summ stats from cleaned data") but
-were never carried into dofiles/cleaning_Aug11.do. Those sections only ever `use`
+were never carried into dofiles/00_shared/03_clean_ms.do. Those sections only ever `use`
 their source and `save` to a tempfile -- nothing downstream reads them -- so this
 script is purely descriptive. It does not feed the cleaning or conversion-factor
 pipeline and does not modify any existing file.
@@ -57,8 +57,8 @@ pd.set_option("display.max_columns", None)
 # -----------------------------------------------------------------------------
 # Paths
 # -----------------------------------------------------------------------------
-HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent  # "Data Cleaning"
+HERE = Path(__file__).resolve().parent          # dofiles/90_diagnostics
+ROOT = HERE.parent.parent                       # "Data Cleaning"
 RAW_PATH = ROOT.parent / "NSU Market Survey Launch" / "data" / "PSPS NSU Market Survey Launch.dta"
 CLEAN_PATH = ROOT / "outputs" / "master_rename_build" / "temp" / "nsu_data_master.dta"
 

@@ -38,12 +38,12 @@ It decides nothing.
       Branch S pseudo-code says
 
 HARMONIZATION IS NOT RE-DERIVED. The raw -> harmonized map is read from
-outputs/tables/master_nsu_rename.csv (written by dofiles/diagnose_price_only.py). The
+outputs/tables/master_nsu_rename.csv (written by dofiles/00_shared/01_build_crosswalk.py). The
 nz/ni/ng normalizers are copied from that file only to join onto it; order matters and
 NFKD decomposition must never be used -- DUENAS must become DUEAS, not DUENAS.
 
 RUN
-    python dofiles/scope_unique_price_size_based.py
+    python dofiles/90_diagnostics/scope_unique_price_size_based.py
 
 OUTPUTS  (outputs/tables/)
     issue23_unique_price_size_based.csv   one row per affected case: what the price file
@@ -54,24 +54,27 @@ OUTPUTS  (outputs/tables/)
 import re
 import sys
 
+from pathlib import Path
 import pandas as pd
 
 # The crosswalk deliberately no longer carries standard-quantity, ambiguous and
-# not-a-unit labels (dofiles/drop_non_nsu_labels.py). Price rows carrying them will not
+# not-a-unit labels (dofiles/00_shared/02_drop_non_nsu_labels.py). Price rows carrying them will not
 # match, and that is intended -- so the unmatched-row tripwire below has to tell an
 # intended removal from a broken join.
-try:
-    from drop_non_nsu_labels import is_dropped_label
-except ImportError:                                     # run from the repo root
-    import os
-    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
-    from drop_non_nsu_labels import is_dropped_label
+from pathlib import Path as _P
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location(
+    "_dropnonnsu",
+    _P(__file__).resolve().parent.parent / "00_shared" / "02_drop_non_nsu_labels.py")
+_mod = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_mod)
+is_dropped_label = _mod.is_dropped_label
 
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
 PRICE = BOX + r"\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
-MS = DC + r"\outputs\master_rename_build\temp\nsu_weights_restated.dta"
+MS = DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dta"
 OUT = DC + r"\outputs\tables"
 
 QUART = ["mp25_price", "mp50_price", "mp75_price"]
@@ -280,7 +283,7 @@ def main():
 
     # ================================================================ Q5
     h("Q5  WHAT THE EXISTING POINT-COUNT RULE ALREADY DOES WITH THESE")
-    print("dofiles/tally_price_points.py and scope_multi_price_points.py use:")
+    print("dofiles/90_diagnostics/tally_price_points.py and scope_multi_price_points.py use:")
     print("    quartiles take precedence; else count distinct unique_mun_price levels;")
     print("    else one point.")
     print("So a size-based case holding prov_median + unique prices is ALREADY counted")

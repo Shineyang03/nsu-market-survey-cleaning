@@ -22,7 +22,7 @@ WHAT THIS SCRIPT DOES. It measures; it decides nothing.
   Q4  the cases where EVERY group is a singleton, which have no internal check at all
 
 RUN
-    python dofiles/scope_singleton_groups.py
+    python dofiles/90_diagnostics/scope_singleton_groups.py
 
 OUTPUT  outputs/tables/singleton_hetero_groups.csv
 """
@@ -33,7 +33,7 @@ import pandas as pd
 pd.set_option("display.width", 220)
 DC = (r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel"
       r"\14 NSU Market Survey\Data Cleaning")
-MS = DC + r"\outputs\master_rename_build\temp\nsu_weights_restated.dta"
+MS = DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dta"
 REF = DC + r"\outputs\master_rename_build\temp\nsu_reference_set.dta"
 OUT = DC + r"\outputs\tables\singleton_hetero_groups.csv"
 

@@ -38,9 +38,9 @@ if "${snap_in}"     == "" global snap_in     "${temp}\prelim_nsu_data"
 if "${snap_out}"    == "" global snap_out    "${temp}\standard_weight_unit_correction"
 if "${snap_tables}" == "" global snap_tables "${tables}"
 
-di as txt "correct_unit_snap: anchor pool = pull_item x ${unitvar}"
-di as txt "correct_unit_snap: in  = ${snap_in}"
-di as txt "correct_unit_snap: out = ${snap_out}"
+di as txt "04_unit_snap: anchor pool = pull_item x ${unitvar}"
+di as txt "04_unit_snap: in  = ${snap_in}"
+di as txt "04_unit_snap: out = ${snap_out}"
 
 use "${snap_in}", clear
 
@@ -71,7 +71,7 @@ gen double log_base = log10(base)
 * ---- 1b. item_nsu anchor (median log10) + cell sizes --------------------------
 * ORDER DEPENDENCE, stated here and not only in the caller. This anchor is a median
 * over every row present in the input, so it is only as good as what was excluded
-* BEFORE the file was called. cleaning_Aug11.do drops the non-NSU labels first, and
+* BEFORE the file was called. 03_clean_ms.do drops the non-NSU labels first, and
 * must keep doing so: mineral water's pools otherwise run from a 500 mL bottle to a
 * 10 L gallon, and letting both vote on one item-level reference is what turned a
 * 0.01 L reading of a 10 L gallon into 10 mL. Moving that exclusion after this file

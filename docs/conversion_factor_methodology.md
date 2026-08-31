@@ -169,13 +169,13 @@ flowchart TB
         U1 --> U2 --> U3
     end
 
-    subgraph DESK["STAGE 2 - DESK. cleaning_Aug11.do, in this order"]
+    subgraph DESK["STAGE 2 - DESK. 03_clean_ms.do, in this order"]
         direction TB
         D1["Parse comments into obs_type / item_nsu_hetero_type.<br/>BEFORE normalization - the comment strings are case-sensitive."]
         D2["Normalize the merge keys, then merge the rename sheet.<br/>ASCII-drop, casefold, trim, collapse whitespace, uppercase geo.<br/>Same rule applied to both sides, so the merge must come second."]
         D3["DROP the standard-quantity labels.<br/>Before the snap, so they never pollute an anchor."]
         D4["Rebuild identifiers on harmonized_nsu_unit,<br/>not on the cleaned or raw label."]
-        D5["Canonicalize dimension, then fix magnitude.<br/>kg to g and L to mL, then a threshold rule<br/>(a number below 10 is in the bigger unit) for 99.2%<br/>of rows; a log10 snap toward the item x harmonized<br/>anchor decides the remaining 89.<br/>corrected_weight, corrected_unit"]
+        D5["Canonicalize dimension, then fix magnitude.<br/>kg to g and L to mL, then a threshold rule<br/>(a number below 10 is in the bigger unit) decides<br/>every row that has a weight. The log10 anchor snap<br/>is computed but overwritten - see data_oddities sec 9.<br/>corrected_weight, corrected_unit"]
         D6["Resolve items recorded in BOTH mass and volume.<br/>One verdict per item; unverdicted items keep<br/>the dimension the enumerator recorded."]
         D1 --> D2 --> D3 --> D4 --> D5 --> D6
     end
@@ -199,8 +199,8 @@ flowchart TB
 | stage | harmonizes | from → to | where |
 |---|---|---|---|
 | 0 field | *nothing* — this is the input | — | the instrument and the enumerator |
-| 1 upstream | NSU **names**, MS and price side alike | `pull_nsu_unit` → `cleaned_nsu_unit` → `harmonized_nsu_unit` | `dofiles/diagnose_price_only.py` → `outputs/tables/master_nsu_rename.csv`; see `docs/master_rename.md` |
-| 2 desk | the **grain**, then the **unit of measure** | raw MS rows → `corrected_weight` in g or mL, keyed on `harmonized_nsu_unit` | `dofiles/cleaning_Aug11.do` → `dofiles/correct_unit_snap.do` |
+| 1 upstream | NSU **names**, MS and price side alike | `pull_nsu_unit` → `cleaned_nsu_unit` → `harmonized_nsu_unit` | `dofiles/00_shared/01_build_crosswalk.py` → `outputs/tables/master_nsu_rename.csv`; see `docs/master_rename.md` |
+| 2 desk | the **grain**, then the **unit of measure** | raw MS rows → `corrected_weight` in g or mL, keyed on `harmonized_nsu_unit` | `dofiles/00_shared/03_clean_ms.do` → `dofiles/00_shared/04_unit_snap.do` |
 | 3 pending | **sizes**, and the price **round** | field S/M/L → weight terciles; nominal PSPS pesos → MS-frame weights | Step A and Step B1 below |
 
 **The size labels are the one field artefact cleaning replaces outright.** Stage 0
@@ -236,8 +236,8 @@ character silently breaks a join**. The rule, in order:
 > script written with NFKD once reported 26 phantom unmatched cells for this reason.
 
 The authoritative implementation is `nz()` / `ni()` / `ng()` in
-`dofiles/diagnose_price_only.py`, mirrored operation-for-operation by the
-`nsu_normalize` program in `cleaning_Aug11.do`. **Import or call those. Never write
+`dofiles/00_shared/01_build_crosswalk.py`, mirrored operation-for-operation by the
+`nsu_normalize` program in `03_clean_ms.do`. **Import or call those. Never write
 a fourth copy**, including in throwaway diagnostics — a normalizer that disagrees
 produces findings that look like data problems and are not.
 
@@ -521,8 +521,8 @@ own rule — see issue #23.
 
 (Under the alternative reading — every distinct price level counts — the harmonized split
 is 40.4% / 13.3% / 45.8%, plus 11 cells with 4 or 5 groups. The qualitative conclusion
-holds either way.) Both grains are tallied by `dofiles/scope_price_combo_grain.py`;
-`dofiles/tally_price_points.py` computes the raw grain only.
+holds either way.) Both grains are tallied by `dofiles/90_diagnostics/scope_price_combo_grain.py`;
+`dofiles/90_diagnostics/tally_price_points.py` computes the raw grain only.
 
 So on the Outcome 2 side about **60%** of cases collapse to a single group on price
 grounds, and the two-group case is genuinely rare at 3.5% — in practice a case has either
@@ -534,10 +534,10 @@ MS weighings, so the shares among cases that actually have weights will differ. 
 median**, including several exact ties, which the stated protocol would have collapsed to
 province median only. (Counting strictly under ₱20 gives 34. An earlier version of this
 document said 38, which reproduces under neither cut.) Measured by
-`dofiles/scope_unique_price_size_based.py`; see issue #6.
+`dofiles/90_diagnostics/scope_unique_price_size_based.py`; see issue #6.
 
 **Almost every size-based case has a price-file row.** Checked directly by
-`dofiles/verify_documented_claims.py`: **1,514 of 1,515** size-based cells match. The
+`dofiles/90_diagnostics/verify_documented_claims.py`: **1,514 of 1,515** size-based cells match. The
 single exception is ILOILO / DUEÑAS / cabbage / `putos (mix vegetable)`, whose
 harmonized unit is the mixed-vegetable canonical label — a fold target that exists on
 the market-survey side but has no counterpart in the price file. That one cell needs
@@ -774,7 +774,7 @@ data establishes, since the weight and price distributions come from different r
 and different respondents. Against that, the choice between two prices ₱20 apart is not
 material. The mean avoids privileging one spelling arbitrarily.
 
-**Effect** (measured by `dofiles/scope_price_point_merge_rule.py`, 38 cases at the
+**Effect** (measured by `dofiles/90_diagnostics/scope_price_point_merge_rule.py`, 38 cases at the
 four-key grain):
 
 | rule | mean points per case | cases with >3 points | cases with <2 weighings per point |
@@ -1068,24 +1068,24 @@ Run in this order. Anything not listed here is not part of the pipeline.
 
 | file | does | status |
 |---|---|---|
-| `dofiles/cleaning_Aug11.do` | raw MS → cleaned weighings on the harmonized NSU key | live |
-| `dofiles/correct_unit_snap.do` | called by the above; kg→g, L→mL, magnitude snap | live |
+| `dofiles/00_shared/03_clean_ms.do` | raw MS → cleaned weighings on the harmonized NSU key | live |
+| `dofiles/00_shared/04_unit_snap.do` | called by the above; kg→g, L→mL, magnitude snap | live |
 | `dofiles/build_cpi_level_panel.py` | PSA CPI → `cpi_level_panel.csv` (levels only) | live |
-| `dofiles/nsu_restate_weights.do` | builds `cpi_factor`, the province × item-group × month index ratio Outcome 2 uses for the MS → PSPS adjustment. It no longer restates weights: the former `w_ref` is retired (issue #29). | live |
-| `dofiles/nsu_reference_set.do` | **Outcome 1** — the reference set | live |
+| `dofiles/00_shared/07_cpi_factor.do` | builds `cpi_factor`, the province × item-group × month index ratio Outcome 2 uses for the MS → PSPS adjustment. It no longer restates weights: the former `w_ref` is retired (issue #29). | live |
+| `dofiles/10_reference_set/12_publish_reference_set.do` | **Outcome 1** — the reference set | live |
 | *Outcome 2 — PSPS conversion factors* | | **not yet written** |
-| `dofiles/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
+| `dofiles/archive/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
 
 Not part of the build, but not throwaway either — run these to check the build rather
 than to produce it:
 
 | file | does |
 |---|---|
-| `dofiles/verify_documented_claims.py` | re-derives every number in `docs/` that no build file produces, and prints the documented value beside the current one. Exits non-zero if any has moved. **Run it after any pipeline change.** |
-| `dofiles/diagnose_price_only.py` | the authoritative raw → cleaned → harmonized NSU crosswalk; writes `master_nsu_rename.csv`, which everything else reads instead of re-deriving the fold |
-| `dofiles/validate_folds.py` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
-| `dofiles/tally_price_points.py` | how many price points each case has, under both readings of the price file |
-| `dofiles/scope_multi_price_points.py` | measures the multi-price-point-within-a-case problem |
+| `dofiles/90_diagnostics/verify_documented_claims.py` | re-derives every number in `docs/` that no build file produces, and prints the documented value beside the current one. Exits non-zero if any has moved. **Run it after any pipeline change.** |
+| `dofiles/00_shared/01_build_crosswalk.py` | the authoritative raw → cleaned → harmonized NSU crosswalk; writes `master_nsu_rename.csv`, which everything else reads instead of re-deriving the fold |
+| `dofiles/90_diagnostics/validate_folds.py` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
+| `dofiles/90_diagnostics/tally_price_points.py` | how many price points each case has, under both readings of the price file |
+| `dofiles/90_diagnostics/scope_multi_price_points.py` | measures the multi-price-point-within-a-case problem |
 | `dofiles/plot_cpi_inflation.py` | the two CPI figures embedded below, and the $`\pi`$ figures quoted with them |
 | `dofiles/summary_statistics.py` | raw vs cleaned summary tables |
 

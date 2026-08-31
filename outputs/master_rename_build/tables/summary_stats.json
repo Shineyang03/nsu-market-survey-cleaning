@@ -4,7 +4,7 @@
     "raw_source": "C:\\Users\\uzj5150\\Box\\Philippines Panel\\01 Panel\\14 NSU Market Survey\\NSU Market Survey Launch\\data\\PSPS NSU Market Survey Launch.dta",
     "cleaned_source": "C:\\Users\\uzj5150\\Box\\Philippines Panel\\01 Panel\\14 NSU Market Survey\\Data Cleaning\\outputs\\master_rename_build\\temp\\nsu_data_master.dta",
     "raw_n_rows": 11495,
-    "cleaned_n_rows": 11458
+    "cleaned_n_rows": 11453
   },
   "grain_definitions": {
     "weighing": {
@@ -2640,11 +2640,11 @@
         "data": [
           {
             "level": "n_rows",
-            "value": 11458
+            "value": 11453
           },
           {
             "level": "n_distinct_groups",
-            "value": 11458
+            "value": 11453
           }
         ]
       },
@@ -2657,7 +2657,7 @@
         "data": [
           {
             "level": "all",
-            "value": 11458
+            "value": 11453
           }
         ]
       },
@@ -2709,7 +2709,7 @@
         "data": [
           {
             "level": "all",
-            "value": 7828
+            "value": 7823
           }
         ]
       },
@@ -2735,7 +2735,7 @@
         "data": [
           {
             "level": "all",
-            "value": 119
+            "value": 118
           }
         ]
       },
@@ -2748,7 +2748,7 @@
         "data": [
           {
             "level": "all",
-            "value": 162
+            "value": 161
           }
         ]
       },
@@ -2761,7 +2761,7 @@
         "data": [
           {
             "level": "all",
-            "value": 65
+            "value": 64
           }
         ]
       },
@@ -2774,7 +2774,7 @@
         "data": [
           {
             "level": "all",
-            "value": 106
+            "value": 105
           }
         ]
       },
@@ -2787,7 +2787,7 @@
         "data": [
           {
             "level": "all",
-            "value": 64
+            "value": 63
           }
         ]
       },
@@ -2800,7 +2800,7 @@
         "data": [
           {
             "level": "all",
-            "value": 93
+            "value": 92
           }
         ]
       },
@@ -2813,7 +2813,7 @@
         "data": [
           {
             "level": "all",
-            "value": 2020
+            "value": 2019
           }
         ]
       },
@@ -2830,7 +2830,7 @@
           },
           {
             "level": "ANTIQUE",
-            "value": 1945
+            "value": 1940
           },
           {
             "level": "CAPIZ",
@@ -2923,7 +2923,7 @@
           },
           {
             "level": "ANTIQUE | HAMTIC",
-            "value": 200
+            "value": 195
           },
           {
             "level": "ANTIQUE | LAUA-AN",
@@ -3336,7 +3336,7 @@
           },
           {
             "level": "mineral or spring water, all drinking water sold in containers",
-            "value": 11
+            "value": 6
           },
           {
             "level": "pork",
@@ -3373,7 +3373,7 @@
           },
           {
             "level": "Size-based (small, medium, large)",
-            "value": 9770
+            "value": 9765
           }
         ]
       },
@@ -3394,7 +3394,7 @@
           },
           {
             "level": "medium_size",
-            "value": 3326
+            "value": 3321
           },
           {
             "level": "mp25_price",
@@ -3439,15 +3439,15 @@
         "data": [
           {
             "level": "Public Market",
-            "value": 6322
+            "value": 6321
           },
           {
             "level": "Roadside Vendors",
-            "value": 3230
+            "value": 3227
           },
           {
             "level": "Talipapa",
-            "value": 1906
+            "value": 1905
           }
         ]
       },
@@ -3464,7 +3464,7 @@
           },
           {
             "level": "ANTIQUE",
-            "value": 297
+            "value": 296
           },
           {
             "level": "CAPIZ",
@@ -3557,7 +3557,7 @@
           },
           {
             "level": "ANTIQUE | HAMTIC",
-            "value": 15
+            "value": 14
           },
           {
             "level": "ANTIQUE | LAUA-AN",
@@ -3922,7 +3922,7 @@
           },
           {
             "level": "3",
-            "value": 468
+            "value": 467
           }
         ]
       },
@@ -3948,7 +3948,7 @@
         "data": [
           {
             "level": "Public Market | 1",
-            "value": 806
+            "value": 805
           },
           {
             "level": "Public Market | 2",
@@ -3968,11 +3968,11 @@
           },
           {
             "level": "Roadside Vendors | 3+",
-            "value": 416
+            "value": 415
           },
           {
             "level": "Talipapa | 1",
-            "value": 584
+            "value": 583
           },
           {
             "level": "Talipapa | 2",
@@ -3993,7 +3993,7 @@
         "data": [
           {
             "level": "all",
-            "value": 1.9770372928176796
+            "value": 1.977198134392814
           }
         ]
       },
@@ -4014,7 +4014,7 @@
           },
           {
             "level": "Size-based (small, medium, large)",
-            "value": 1574
+            "value": 1573
           }
         ]
       },
@@ -4048,7 +4048,7 @@
           },
           {
             "level": "Size-based (small, medium, large)",
-            "value": 6.2170591979630805
+            "value": 6.217834394904458
           }
         ]
       },
@@ -4069,7 +4069,7 @@
           },
           {
             "level": "medium_size",
-            "value": 976
+            "value": 975
           },
           {
             "level": "mp25_price",
@@ -4135,7 +4135,7 @@
           },
           {
             "level": "medium_size",
-            "value": 3.41025641025641
+            "value": 3.4086242299794662
           },
           {
             "level": "mp25_price",
@@ -4244,7 +4244,7 @@
           },
           {
             "level": "mineral or spring water, all drinking water sold in containers | mL",
-            "value": 10.0
+            "value": 5.0
           },
           {
             "level": "pork | g",
@@ -4297,7 +4297,7 @@
           },
           {
             "level": "chicken | g",
-            "value": 1010.3661137440758
+            "value": 1011.7571089846563
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
@@ -4337,7 +4337,7 @@
           },
           {
             "level": "mineral or spring water, all drinking water sold in containers | mL",
-            "value": 750.0
+            "value": 1000.0
           },
           {
             "level": "pork | g",
@@ -4390,7 +4390,7 @@
           },
           {
             "level": "chicken | g",
-            "value": 1062.5
+            "value": 1065.0
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
@@ -4430,7 +4430,7 @@
           },
           {
             "level": "mineral or spring water, all drinking water sold in containers | mL",
-            "value": 750.0
+            "value": 1000.0
           },
           {
             "level": "pork | g",
@@ -4471,7 +4471,7 @@
           },
           {
             "level": "camote | g",
-            "value": 197.94840835650544
+            "value": 197.94840835650547
           },
           {
             "level": "camote tops | g",
@@ -4483,7 +4483,7 @@
           },
           {
             "level": "chicken | g",
-            "value": 396.5583131078734
+            "value": 395.0697990822264
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
@@ -4515,7 +4515,7 @@
           },
           {
             "level": "loaf bread | g",
-            "value": 135.69270403255467
+            "value": 135.6927040325547
           },
           {
             "level": "mango | g",
@@ -4523,7 +4523,7 @@
           },
           {
             "level": "mineral or spring water, all drinking water sold in containers | mL",
-            "value": 263.5231383473649
+            "value": 0.0
           },
           {
             "level": "pork | g",
@@ -4576,7 +4576,7 @@
           },
           {
             "level": "chicken | g",
-            "value": 1.0
+            "value": 15.0
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
@@ -4616,7 +4616,7 @@
           },
           {
             "level": "mineral or spring water, all drinking water sold in containers | mL",
-            "value": 500.0
+            "value": 1000.0
           },
           {
             "level": "pork | g",
@@ -4742,7 +4742,7 @@
           },
           {
             "level": "mL",
-            "value": 1855
+            "value": 1850
           },
           {
             "level": "nan",
@@ -4759,7 +4759,7 @@
         "data": [
           {
             "level": "all",
-            "value": 119
+            "value": 118
           }
         ]
       },
@@ -4772,7 +4772,7 @@
         "data": [
           {
             "level": "all",
-            "value": 65
+            "value": 64
           }
         ]
       },
@@ -4785,7 +4785,7 @@
         "data": [
           {
             "level": "all",
-            "value": 64
+            "value": 63
           }
         ]
       },
@@ -4794,7 +4794,7 @@
         "title": "Distinct raw pull_nsu_unit labels folding into each item x harmonized_nsu_unit cell",
         "description": "",
         "grouping": "item | harmonized_nsu_unit",
-        "n_levels": 93,
+        "n_levels": 92,
         "data": [
           {
             "level": "beef | half",
@@ -5073,10 +5073,6 @@
             "value": 2
           },
           {
-            "level": "mineral or spring water, all drinking water sold in containers | bottle 500ml",
-            "value": 1
-          },
-          {
             "level": "mineral or spring water, all drinking water sold in containers | container",
             "value": 1
           },
@@ -5179,7 +5175,7 @@
         "data": [
           {
             "level": "1",
-            "value": 65
+            "value": 64
           },
           {
             "level": "2",

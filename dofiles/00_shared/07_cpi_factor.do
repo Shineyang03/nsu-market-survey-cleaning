@@ -1,5 +1,5 @@
 ********************************************************************************
-* nsu_restate_weights.do
+* 07_cpi_factor.do
 *
 * Builds cpi_factor: the province x item-group CPI ratio that Outcome 2 uses to move a
 * price-quantity weight from its market-survey month to the PSPS interview month.
@@ -54,22 +54,55 @@
 *   outputs/tables/cpi_item_crosswalk.csv                       95 rows
 *
 * OUTPUT
-*   outputs/master_rename_build/temp/nsu_weights_restated.dta
+*   outputs/master_rename_build/temp/nsu_weighings_cpi.dta
 *
 * Run as a fresh isolated batch process:
-*   "C:\Program Files\StataNow19\StataSE-64.exe" -e do nsu_restate_weights.do
+*   "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\07_cpi_factor.do
 ********************************************************************************
 
 clear all
-set more off
+do "00_shared/00_globals.do"
 
-global root "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning"
-global temp_in  "${root}\outputs\master_rename_build\temp"
-global tables   "${root}\outputs\tables"
+* this file's own alias for the build temp folder
+global temp_in "${btemp}"
 
 local ref_month = tm(2026m4)
 
+****************************************************************************************************
+* WHY THIS FILE STILL EXISTS, GIVEN w_ref IS RETIRED
+*
+* It used to restate every weighing into a single reference month (w_ref =
+* corrected_weight * cpi_factor). That column is gone (issue #29) and the output is
+* no longer called "restated". Two things this file does are still load-bearing:
+*
+*   1. IT DROPS 98 ROWS. The vendor-priced price-quantity rule (section 1) is the
+*      only place that happens, and BOTH outcomes depend on it. Skipping this file
+*      does not just cost cpi_factor -- it silently readmits 98 weighings whose
+*      recorded price was not the price the enumerator handed over.
+*
+*   2. IT BUILDS cpi_factor. Outcome 2 needs it for the MS -> PSPS adjustment: a
+*      fixed peso amount buys different grams in different months, so price-quantity
+*      weighings have to be put in one price frame before they can be compared.
+*      cpi_factor == 1 on the conventional and size-based branches BY CONSTRUCTION,
+*      because no peso amount entered those measurements -- asserted in section 8.
+*
+* The output is nsu_weighings_cpi.dta: the weighings both outcomes work from, scoped
+* and carrying cpi_factor. Nothing in it is restated.
+*
+* THE OUTPUT ROW ORDER IS NOT DETERMINISTIC. Running this file on its own and
+* running it from master_outcome1.do give the same 11,355 rows with the same values
+* in a different order -- verified column by column after sorting on id. The cause is
+* an unstable sort somewhere in the merges below; Stata's sort does not break ties
+* deterministically unless told to.
+*
+* It does not affect any published output (nsu_reference_set.dta reproduces byte for
+* byte either way), but it means a byte-comparison of this .dta across runs is not a
+* valid regression test -- sort on id first. It is also worth fixing, because
+* 10_size_assignment.do carries a running-sum-over-tags construction whose
+* correctness depends on within-group order (see #18).
 ********************************************************************************
+
+************************************************************
 **# 0. Load
 ********************************************************************************
 
@@ -82,8 +115,8 @@ di as result "Rows in: `n_in'"
 *
 *     11,494  raw MS weighings after comment handling
 *     -   38  non-NSU labels (standard quantity / ambiguous quantity / not a unit),
-*             excluded in cleaning_Aug11.do before the crosswalk merge
-*     -    3  dropped later in cleaning_Aug11.do
+*             excluded in 03_clean_ms.do before the crosswalk merge
+*     -    3  dropped later in 03_clean_ms.do
 *     ------
 *     11,453
 *
@@ -92,13 +125,13 @@ di as result "Rows in: `n_in'"
 * because the old substring rule looked for a unit ("ml", "kg", "kilo") and "500"
 * has none; the crosswalk now classifies them explicitly.
 *
-* If this fires: read the attrition figures in dofiles/cleaning_Aug11.log and find
+* If this fires: read the attrition figures in dofiles/03_clean_ms.log and find
 * which stage moved. Do NOT just update the number -- that is how a silent drop
 * becomes permanent.
 local n_expected = 11453
 if `n_in' != `n_expected' {
 	di as error "Input row count moved: expected `n_expected', got `n_in'."
-	di as error "Reconcile against cleaning_Aug11.log before touching this number."
+	di as error "Reconcile against 03_clean_ms.log before touching this number."
 	assert `n_in' == `n_expected'
 }
 
@@ -343,7 +376,7 @@ local n_out = _N
 di as result "Rows out: `n_out'"
 assert `n_out' == `n_in' - `n_dropped'
 
-save "${temp_in}\nsu_weights_restated.dta", replace
+save "${temp_in}\nsu_weighings_cpi.dta", replace
 
 ********************************************************************************
 **# 8. Validation report
@@ -403,5 +436,5 @@ count if weighing_approach == 2 & missing(cpi_factor_ma3)
 di as result "  count: " r(N)
 
 di as result "===================================================================="
-di as result "Saved: ${temp_in}\nsu_weights_restated.dta"
+di as result "Saved: ${temp_in}\nsu_weighings_cpi.dta"
 di as result "===================================================================="

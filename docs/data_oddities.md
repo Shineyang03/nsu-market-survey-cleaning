@@ -46,7 +46,7 @@ Two places in the raw data use `0` to record *the item was not observed at the
 requested price or size*, rather than a measured value of zero.
 
 **Weights.** Enumerators entered `0` weight when they could not find the item at the
-specified price/size — 5 observations. `cleaning_Aug11.do` recodes these to `.c`.
+specified price/size — 5 observations. `03_clean_ms.do` recodes these to `.c`.
 
 **Prices.** One row carries `actual_price == 0`:
 
@@ -69,7 +69,7 @@ enumerator was sent to spend: `pull_price` matches the SurveyCTO case-file prelo
 in **1,105 of 1,105** matched rows, at 98.5% coverage. (The denominator is
 stage-dependent — it is counted on the restated file, after attrition. What matters is
 that agreement is exact on every row that matches: re-run
-`dofiles/verify_documented_claims.py` to confirm it still is.)
+`dofiles/90_diagnostics/verify_documented_claims.py` to confirm it still is.)
 
 The enumerator approached the vendor with that PSPS price. Sometimes the vendor no
 longer sold the item at it, and the data records **two different outcomes**:
@@ -208,7 +208,7 @@ This exclusion resolved two problems that had needed separate handling:
 ## 6. Other single-row fixes
 
 **TIGBAUAN fresh fish `bilog`** — rows with no stated price, apparently a SurveyCTO
-glitch. Dropped in `cleaning_Aug11.do`.
+glitch. Dropped in `03_clean_ms.do`.
 
 **CAPIZ / PANAY distilled water, 0.007 L** — a manual correction that the pre-Aug11
 build targeted by row id. Row ids are `_n` and are not stable: the two saved copies
@@ -255,7 +255,7 @@ never on `cons_name` alone.
 
 ## 9. Magnitude correction: which rule decides what, and the review queue
 
-`correct_unit_snap.do` turns the enumerator's `weight` + `unit` into
+`04_unit_snap.do` turns the enumerator's `weight` + `unit` into
 `corrected_weight` in grams or millilitres. Two mechanisms do the work, and it is
 worth knowing which one actually decides a given row.
 
@@ -270,10 +270,27 @@ number too small for the ticked unit means the enumerator meant the larger one:
 | kg, `[1, KGMAX]` | × 1000 — the tick is believed | 581 |
 | kg, `> KGMAX` | keep — the number is grams, the *tick* is the error | 86 |
 
-**A log10 anchor snap decides the remaining 89**, shifting a reading by whole powers
-of ten toward what that item × NSU usually weighs. Its tuning parameters (`MIN`,
-`FLOOR`, `SIB`, `AMB`) therefore govern well under 1% of the data — worth knowing
-before anyone tunes them expecting leverage.
+Note the table sums to **every** row, which is the point: the five bands above
+partition `unit ∈ {1,2,3} & !missing(weight)` exhaustively — 11,448 of 11,453.
+
+**The log10 anchor snap decides nothing.** An earlier version of this section said it
+decided "the remaining 89"; that was wrong, and the table directly above contradicted
+it. STEP 1 computes an anchor, a snapped weight and three review flags, and then STEP 3
+overwrites `corrected_weight` and clears `flag_review` on every row the threshold rule
+reaches — which is all of them bar the 5 with no weight at all. Recomputing STEP 3's
+rule from the raw data reproduces the published `corrected_weight` on 11,397 of 11,448
+rows exactly; the other 51 differ only by the `round(corrected_weight, 1)` applied
+afterwards.
+
+Consequences worth being explicit about:
+
+- `MIN`, `FLOOR`, `SIB`, `AMB`, `anchor_item`, `eff_anchor` and `resid` govern **no**
+  published value. Tuning them changes nothing.
+- The review queue receives only the 5 rows with a missing weight — the rows the anchor
+  could not have helped with either. `flag_lowanchor`, `flag_sibling` and
+  `flag_ambiguous` are computed and discarded.
+- So the threshold rule is not the primary rule with a snap as backstop; it is the
+  **only** rule, with no second opinion. Whether it is the right rule is tracked on #18.
 
 ### Why `KGMAX = 30`
 

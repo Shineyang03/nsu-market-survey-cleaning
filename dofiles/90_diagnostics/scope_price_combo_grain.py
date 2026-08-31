@@ -1,6 +1,6 @@
 """Price-type combinations at the RAW vs the HARMONIZED grain.
 
-THE PROBLEM. dofiles/tally_price_points.py keys its tally on the RAW price-file label
+THE PROBLEM. dofiles/90_diagnostics/tally_price_points.py keys its tally on the RAW price-file label
 (province x municipality x item x Unit_lbl), and docs/conversion_factor_methodology.md
 reports the result as four combinations that "map one-to-one onto the four branches of
 the field protocol". Both outcomes, however, pool at the HARMONIZED unit. Harmonization
@@ -11,20 +11,28 @@ protocol branch produced.
 This script reports both grains side by side and traces where the extra combinations
 come from. It measures; it decides nothing.
 
-OVERLAP NOTE. This answers the same question as dofiles/tally_price_points.py at a
+OVERLAP NOTE. This answers the same question as dofiles/90_diagnostics/tally_price_points.py at a
 second grain. The two should be merged into one file rather than left to drift apart --
 see the shared-logic rule. Kept separate only until that consolidation is agreed.
 
 RUN
-    python dofiles/scope_price_combo_grain.py
+    python dofiles/90_diagnostics/scope_price_combo_grain.py
 """
 import re
+from pathlib import Path
 import pandas as pd
 
 import os
 import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from drop_non_nsu_labels import is_dropped_label
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location(
+    "_dropnonnsu",
+    Path(__file__).resolve().parent.parent / "00_shared" / "02_drop_non_nsu_labels.py")
+_mod = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_mod)
+is_dropped_label = _mod.is_dropped_label
 
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
@@ -67,7 +75,7 @@ pr["price"] = pd.to_numeric(pr.Price, errors="coerce")
 pr = pr.merge(xw[KEY + ["pull_nsu_unit", "harmonized_nsu_unit"]],
               on=KEY + ["pull_nsu_unit"], how="left", validate="m:1")
 # The crosswalk deliberately no longer carries standard-quantity, ambiguous and
-# not-a-unit labels (dofiles/drop_non_nsu_labels.py). Those price rows will not match,
+# not-a-unit labels (dofiles/00_shared/02_drop_non_nsu_labels.py). Those price rows will not match,
 # and that is intended -- so distinguish an intended removal from a broken join.
 _unm = pr[pr.harmonized_nsu_unit.isna()]
 _broken = _unm[~_unm.pull_nsu_unit.map(is_dropped_label)]

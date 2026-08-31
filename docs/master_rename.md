@@ -1,7 +1,7 @@
 # The master NSU rename sheet — construction & use
 
 **File:** `outputs/tables/master_nsu_rename.csv` (also published as `.xlsx`, see §9)
-**Built by:** `dofiles/diagnose_price_only.py`
+**Built by:** `dofiles/00_shared/01_build_crosswalk.py`
 
 This is the authoritative map from every raw non-standard unit (NSU) recorded in the survey to a
 weight-validated pooling key, and it makes explicit which raw NSUs in the same cell are the same referent
@@ -227,7 +227,7 @@ Pick the layer the change belongs to:
 Then re-run:
 
 ```bash
-python dofiles/diagnose_price_only.py
+python dofiles/00_shared/01_build_crosswalk.py
 ```
 
 and spot-check the cell(s) you touched.

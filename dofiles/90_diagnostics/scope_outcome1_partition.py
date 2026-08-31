@@ -15,7 +15,7 @@ municipality median and a province median both map to size_ord 2, and the share 
 "medium" rows that come from a median rather than from a real mp50.
 
 RUN
-    python dofiles/scope_outcome1_partition.py
+    python dofiles/90_diagnostics/scope_outcome1_partition.py
 """
 import re
 import pandas as pd
@@ -39,7 +39,7 @@ def ni(s):
     return "drinks at restaurant, hotel, cafe, or kiosk" if "restaurant" in s else s
 
 
-ms = pd.read_stata(DC + r"\outputs\master_rename_build\temp\nsu_weights_restated.dta",
+ms = pd.read_stata(DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dta",
                    convert_categoricals=False)
 ms["prov"] = ms.pull_province.map(ng); ms["mun"] = ms.pull_municipal_city.map(ng)
 ms["item"] = ms.pull_item.map(ni); ms["raw"] = ms.pull_nsu_unit.map(nz)

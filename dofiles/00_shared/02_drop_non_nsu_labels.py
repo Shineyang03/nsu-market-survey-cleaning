@@ -33,8 +33,8 @@ whose label is on this list, so a genuine join break still fails loudly while an
 intentional removal does not. See `is_dropped_label()`, which those scripts import.
 
 RUN
-    python dofiles/drop_non_nsu_labels.py            # report only
-    python dofiles/drop_non_nsu_labels.py --apply    # rewrite the crosswalk
+    python dofiles/00_shared/02_drop_non_nsu_labels.py            # report only
+    python dofiles/00_shared/02_drop_non_nsu_labels.py --apply    # rewrite the crosswalk
 
 OUTPUTS
     outputs/tables/master_nsu_rename.csv      filtered (with --apply)

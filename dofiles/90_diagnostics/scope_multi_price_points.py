@@ -35,14 +35,14 @@ WHAT THIS SCRIPT DOES. It measures the problem; it decides nothing. Nine questio
        cases ever disagree (the assumption points_pooled() makes silently)
 
 HARMONIZATION IS NOT RE-DERIVED HERE. The raw -> harmonized map is read from
-outputs/tables/master_nsu_rename.csv, written by dofiles/diagnose_price_only.py, which
+outputs/tables/master_nsu_rename.csv, written by dofiles/00_shared/01_build_crosswalk.py, which
 is the single authoritative implementation. The nz/ni/ng normalizers below are copied
 from that file only to join onto it: drop non-ASCII outright, case-fold, trim, collapse
 internal whitespace. Never NFKD-decompose first -- DUENAS must become DUEAS, not
 DUENAS, or the join silently loses rows.
 
 RUN
-    python dofiles/scope_multi_price_points.py
+    python dofiles/90_diagnostics/scope_multi_price_points.py
 
 OUTPUTS  (outputs/tables/)
     issue21_points_per_case.csv     one row per harmonized case in the price file:
@@ -65,21 +65,29 @@ OUTPUTS  (outputs/tables/)
 import re
 import sys
 
+from pathlib import Path
 import pandas as pd
 
 # The crosswalk deliberately no longer carries standard-quantity, ambiguous and
-# not-a-unit labels (dofiles/drop_non_nsu_labels.py). Price rows carrying them will not
+# not-a-unit labels (dofiles/00_shared/02_drop_non_nsu_labels.py). Price rows carrying them will not
 # match, and that is intended -- so the unmatched-row tripwire below has to tell an
 # intended removal from a broken join.
 import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from drop_non_nsu_labels import is_dropped_label
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location(
+    "_dropnonnsu",
+    Path(__file__).resolve().parent.parent / "00_shared" / "02_drop_non_nsu_labels.py")
+_mod = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_mod)
+is_dropped_label = _mod.is_dropped_label
 
 BOX = (r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey")
 DC = BOX + r"\Data Cleaning"
 PRICE = BOX + r"\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
-MS = DC + r"\outputs\master_rename_build\temp\nsu_weights_restated.dta"
+MS = DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dta"
 OUT = DC + r"\outputs\tables"
 
 QUART = ["mp25_price", "mp50_price", "mp75_price"]
@@ -88,7 +96,7 @@ BRANCH = {1.0: "conventional", 2.0: "price-quantity", 3.0: "size-based"}
 
 
 # ---------------------------------------------------------------- normalizers
-# Copied from dofiles/diagnose_price_only.py. Order matters; see the module docstring.
+# Copied from dofiles/00_shared/01_build_crosswalk.py. Order matters; see the module docstring.
 def A(s):
     return str(s).encode("ascii", "ignore").decode("ascii")
 
@@ -174,7 +182,7 @@ def load_ms(xw):
 def points_pooled(grp):
     """Distinct price LEVELS in the case, quartiles taking precedence.
 
-    Follows dofiles/tally_price_points.py: a full mp25/50/75 triple gives 3 points; a
+    Follows dofiles/90_diagnostics/tally_price_points.py: a full mp25/50/75 triple gives 3 points; a
     province median accompanying a municipal price is a fallback reference, not a
     second point. Extended here over ALL raw units in the harmonized case, so two raw
     units quoting the same level collapse to one point and two quoting different
@@ -398,7 +406,7 @@ def main():
     # What this section tests is therefore the FOLD, not Outcome 1's design. A case
     # whose terciles split cleanly by raw unit rather than by field label is evidence
     # that the two raw units are different objects in that municipality and should not
-    # have been folded. dofiles/validate_folds.py is the tool for adjudicating that;
+    # have been folded. dofiles/90_diagnostics/validate_folds.py is the tool for adjudicating that;
     # this section only says where to point it.
     #
     # Two things are measured, both replicating nsu_reference_set.do exactly:
@@ -559,7 +567,7 @@ def main():
             print("\n  The residual problem is real but different: where one vendor's")
             print("  whole ladder sits above another's, a 3-way tercile publishes one")
             print("  vendor's SMALL as the cell's MEDIUM. See the cabbage example in")
-            print("  dofiles/case_lookup.py (CAPIZ/DUMARAO, harmonized unit 'pack').")
+            print("  dofiles/90_diagnostics/case_lookup.py (CAPIZ/DUMARAO, harmonized unit 'pack').")
         else:
             print("\n  Some vendors used more than one spelling, so a within-vendor")
             print("  across-spelling comparison exists after all -- build it before")

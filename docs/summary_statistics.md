@@ -212,7 +212,7 @@ weighings under that type):
 ## Weight distribution: before vs after the order-of-magnitude correction
 
 Raw data records `weight` in whatever unit was handy (`unit`: Kilograms / grams /
-Litres). `dofiles/correct_unit_snap.do` canonicalizes the dimension (kg to g, L to
+Litres). `dofiles/00_shared/04_unit_snap.do` canonicalizes the dimension (kg to g, L to
 mL) and snaps obvious order-of-magnitude entry errors toward an item x
 harmonized-NSU anchor, producing `corrected_weight` / `corrected_unit` (g / mL). Raw
 `weight` and `unit` do not survive into `nsu_data_master.dta`, so "before" always
