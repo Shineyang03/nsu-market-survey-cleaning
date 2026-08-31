@@ -140,6 +140,87 @@ forvalues j = 1/3 {
 	replace size_ord = ord_at`j' if weighing_approach == 3 & grp == `j'
 }
 
+*-------------------------------------------------------------------------------
+* 2d. UNDER-FILLED CASES -- naming the groups that survived
+*-------------------------------------------------------------------------------
+* A case can record three field labels and still fill only two groups: weights are
+* whole grams, vendors tie exactly on a cut point, the lower-inclusive tie rule sends
+* every tied row down, and the upper group comes back empty. 94 cases are like this.
+*
+* The rule above then names the survivors by RANK -- group 1 takes the lowest label the
+* case holds, group 2 the next. When a group is missing that under-names the survivors:
+* a case whose weights ran small-to-medium and collapsed into one group published as
+* "small", even where most of its weighings were the ones the field called medium.
+*
+* Decided on #27 A5. Fires ONLY where n_filled < k_sizes -- see the WHY NOT n_filled
+* ALONE note below, which is the whole reason this block is written the way it is.
+*
+*   n_filled == 1  (of k_sizes >= 2)            -> medium
+*   n_filled == 2  of 3, groups (1,3) filled    -> small + large   [already correct]
+*   n_filled == 2  of 3, groups (1,2) filled    -> small + medium  [already correct]
+*   n_filled == k_sizes                         -> untouched
+*
+* Only the first line changes anything. The two-group shapes already come out right,
+* because ord_at1 / ord_at3 on a case holding {S,M,L} ARE small and large -- the rank
+* mechanism happens to give the correct answer when the MIDDLE group is the one that
+* emptied, and equally when the top one did. Asserted below rather than assumed.
+*
+* THE ASSUMPTION THIS RULE RESTS ON, before you edit it. Choosing between candidate
+* names needs a standard for "right", and the one used was the MODAL FIELD LABEL of a
+* group's own weighings -- if a group is mostly weighings the enumerator called large,
+* "large" is the right name. That is in open tension with re-terciling existing at all:
+* if the labels could be trusted they would just be used. It resolves only if they are
+* noisy per weighing but unbiased in aggregate, and measured on the 489 fully-filled
+* cases they are noisy (68.1% per weighing, 81.7% per group) but NOT unbiased -- mean
+* signed error -0.100, 199 groups a rank below their tercile against 70 above. The
+* criterion therefore leans toward the LOWER name, which is the same direction as the
+* status quo it was used to judge. See conversion_factor_methodology.md assumption 7;
+* verify_documented_claims.py re-derives all three figures.
+
+* how many of the three empirical groups actually came back non-empty
+egen byte tag_cellgrp = tag(cell grp) if weighing_approach == 3 & !missing(grp)
+bysort cell: egen byte n_filled = total(tag_cellgrp)
+label var n_filled "empirical size groups that came back non-empty (compare k_sizes)"
+
+* WHICH groups filled -- needed to tell the two n_filled == 2 shapes apart, and the
+* reason this is keyed on group position rather than on n_filled alone
+forvalues j = 1/3 {
+	bysort cell: egen byte fill_g`j' = max(cond(grp == `j', 1, 0)) if weighing_approach == 3
+}
+
+* ---- assert the shapes BEFORE relabelling, so a changed tie rule halts here -------
+* Derivation: 1,570 size-based cases partition by (k_sizes, n_filled) as
+*   k=1,n=1: 757   k=2,n=1: 30   k=2,n=2: 230   k=3,n=2: 64   k=3,n=3: 489
+* of which the under-filled ones (n_filled < k_sizes) are the 30 and the 64 = 94, the
+* count 11_size_checks.do reports. The 64 split by which tercile emptied: 49 filled
+* groups (1,2), 15 filled groups (1,3). If any of these move, the tie rule or the
+* upstream weights changed -- reconcile against 11_size_checks.do's report and
+* ref_underfilled_sizes.xlsx, do not edit the number.
+egen byte tag_cell_sz = tag(cell) if weighing_approach == 3
+
+count if tag_cell_sz & n_filled < k_sizes
+assert r(N) == 94
+count if tag_cell_sz & n_filled < k_sizes & n_filled == 1
+assert r(N) == 30
+count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g2
+assert r(N) == 49
+count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g3
+assert r(N) == 15
+
+* the two-group shapes must ALREADY be right, or the claim above is wrong
+assert size_ord == 1 if weighing_approach == 3 & n_filled < k_sizes & n_filled == 2 & grp == 1
+assert size_ord == 2 if weighing_approach == 3 & n_filled < k_sizes & n_filled == 2 & grp == 2
+assert size_ord == 3 if weighing_approach == 3 & n_filled < k_sizes & n_filled == 2 & grp == 3
+
+* ---- the one substantive change: a lone surviving group is a MEDIUM -------------
+count if weighing_approach == 3 & n_filled < k_sizes & n_filled == 1 & size_ord != 2
+local n_relabel = r(N)
+replace size_ord = 2 if weighing_approach == 3 & n_filled < k_sizes & n_filled == 1
+di as res "under-filled cases relabelled to medium: 30 cases, `n_relabel' weighing rows"
+assert `n_relabel' > 0
+
+drop tag_cellgrp tag_cell_sz fill_g1 fill_g2 fill_g3
+
 assert !missing(size_ord)
 label values size_ord szlbl
 

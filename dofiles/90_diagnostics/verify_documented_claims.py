@@ -45,6 +45,7 @@ PRICE = LAUNCH + r"\data\NSU_prices_from_Makayla.csv"
 CASES = LAUNCH + r"\cases\nsu_cases_*.csv"
 PRELIM = TEMP + r"\prelim_nsu_data.dta"
 RESTATED = TEMP + r"\nsu_weighings_cpi.dta"
+SIZED = TEMP + r"\ref_10_sized.dta"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
 
 results = []
@@ -484,6 +485,103 @@ def c_label_rank_is_load_bearing(d):
           + ". A case holding only {L} would publish its weight as 'small'.")
 
 
+def c_underfilled_shapes(sized):
+    """The (k_sizes, groups-filled) partition that the under-filled naming rule in
+    10_size_assignment.do sec 2d is keyed on, and the exposure of getting that key wrong.
+
+    conversion_factor_methodology.md / "Under-filled cases: naming the groups that
+    actually survived"
+    """
+    d = sized[(sized.weighing_approach == 3) & sized.grp.notna()].copy()
+    d["n_filled"] = d.groupby("cell").grp.transform("nunique")
+    cells = d.drop_duplicates("cell")
+
+    under = cells[cells.n_filled < cells.k_sizes]
+    check("under-filled size-based cases",
+          "methodology.md / under-filled cases",
+          "94 cases fill fewer groups than the field recorded labels",
+          f"{len(under):,} cases fill fewer groups than the field recorded labels",
+          "must equal the count 11_size_checks.do sec 3 prints and"
+          " ref_underfilled_sizes.xlsx holds")
+
+    shape1 = under[under.n_filled == 1]
+    fills = d.groupby("cell").grp.apply(lambda s: tuple(sorted(s.unique().astype(int))))
+    two = under[under.n_filled == 2].set_index("cell")
+    g12 = sum(1 for c in two.index if fills[c] == (1, 2))
+    g13 = sum(1 for c in two.index if fills[c] == (1, 3))
+    check("under-filled shapes: which groups emptied",
+          "methodology.md / under-filled cases table",
+          "30 with one group filled; 49 filled (1,2); 15 filled (1,3)",
+          f"{len(shape1)} with one group filled; {g12} filled (1,2); {g13} filled (1,3)",
+          "the (1,2) and (1,3) split is why the rule cannot be keyed on the number of"
+          " filled groups alone -- 'small + large' is right for (1,3) and wrong for (1,2)")
+
+    # exposure of the mis-keyed reading: cases that are NOT under-filled but would be
+    # caught by a rule written as "one group filled -> medium"
+    ok1 = cells[(cells.n_filled == 1) & (cells.n_filled == cells.k_sizes)]
+    lab = (d[d.cell.isin(ok1.cell)].groupby("cell").item_nsu_hetero_type
+             .apply(lambda s: tuple(sorted({int(x) for x in s}))))
+    n_s = int((lab == (2,)).sum())
+    n_l = int((lab == (4,)).sum())
+    check("exposure if the rule were keyed on filled-groups alone",
+          "methodology.md / under-filled cases, the keying warning",
+          "757 not-under-filled cases would be caught; 411 field-small, 156 field-large",
+          f"{len(ok1):,} not-under-filled cases would be caught;"
+          f" {n_s} field-small, {n_l} field-large",
+          "these have one label recorded AND one group filled, so they are correctly"
+          " labelled today; a rule reading 'n_filled == 1' would overwrite them")
+
+
+def c_modal_label_criterion(sized):
+    """ASSUMPTION 7. The under-filled naming rule was chosen by asking whether a group's
+    published label matches the MODAL field label of its own weighings. That treats the
+    field label as noisy per weighing but informative in aggregate -- which is in tension
+    with re-terciling existing at all.
+
+    Measured on the cases where all three groups filled, so terciles and labels are both
+    observable. The signed error is the part that matters: if it is not ~0, the criterion
+    is biased toward one end of the ladder and every conclusion drawn from it inherits
+    that bias.
+
+    conversion_factor_methodology.md / Assumptions to keep visible, assumption 7
+    """
+    d = sized[(sized.weighing_approach == 3) & sized.grp.notna()].copy()
+    d["n_filled"] = d.groupby("cell").grp.transform("nunique")
+    LBL = {2: 1, 3: 2, 4: 3}
+    d["field_sml"] = d.item_nsu_hetero_type.map(LBL)
+    full = d[(d.k_sizes == 3) & (d.n_filled == 3)]
+
+    per_row = int((full.field_sml == full.grp).sum())
+    check("field label agrees with the tercile, per weighing",
+          "methodology.md / assumption 7",
+          "68.1% (3,813 of 5,597)",
+          f"{per_row / len(full) * 100:.1f}% ({per_row:,} of {len(full):,})",
+          "this is the number that justifies re-terciling in the first place -- the"
+          " field label is wrong about a third of the time at row level")
+
+    g = (full.groupby(["cell", "grp"]).field_sml
+              .agg(lambda x: x.mode().iloc[0]).reset_index())
+    per_grp = int((g.field_sml == g.grp).sum())
+    check("modal field label agrees with the tercile, per group",
+          "methodology.md / assumption 7",
+          "81.7% (1,198 of 1,467)",
+          f"{per_grp / len(g) * 100:.1f}% ({per_grp:,} of {len(g):,})",
+          "aggregating recovers signal, which is what the naming criterion needs")
+
+    err = (g.field_sml - g.grp)
+    below = int((err < 0).sum())
+    above = int((err > 0).sum())
+    check("the modal-label criterion is biased low",
+          "methodology.md / assumption 7",
+          "mean signed error -0.100; 199 groups below their tercile, 70 above",
+          f"mean signed error {err.mean():+.3f};"
+          f" {below} groups below their tercile, {above} above",
+          "NOT symmetric. The modal field label runs systematically low, so a criterion"
+          " built on it favours the LOWER of two candidate names -- the same direction as"
+          " the status quo it was used to judge. Settling this needs evidence independent"
+          " of the field labels (the reference photographs).")
+
+
 def main():
     head("INPUTS")
     prelim = pd.read_stata(PRELIM, convert_categoricals=False)
@@ -491,7 +589,9 @@ def main():
                                    r"\standard_weight_unit_correction.dta",
                               convert_categoricals=False)
     rest = pd.read_stata(RESTATED, convert_categoricals=False)
+    sized = pd.read_stata(SIZED, convert_categoricals=False)
     print(f"  prelim_nsu_data              {len(prelim):>7,} rows")
+    print(f"  ref_10_sized              {len(sized):>7,} rows")
     print(f"  standard_weight_unit_corr    {len(corrected):>7,} rows")
     print(f"  nsu_weighings_cpi         {len(rest):>7,} rows")
 
@@ -515,6 +615,8 @@ def main():
 
     head("CLAIMS ABOUT OUTCOME 1")
     c_label_rank_is_load_bearing(rest)
+    c_underfilled_shapes(sized)
+    c_modal_label_criterion(sized)
 
     head("SUMMARY")
     df = pd.DataFrame(results, columns=["check", "doc", "recorded", "computed",

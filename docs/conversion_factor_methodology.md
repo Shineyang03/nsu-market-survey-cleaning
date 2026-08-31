@@ -880,6 +880,53 @@ beside it. A future enumerator reading the table sees "medium" and reasonably in
 other sizes exist for that cell. They do not. This is not caused by harmonization;
 it is the cost of reading a central tendency as a size. Tracked on issue #27.
 
+### Under-filled cases: naming the groups that actually survived
+
+Row 2's rule — *the $`g`$-th group inherits the $`g`$-th label present* — assumes every
+group it cuts comes back non-empty. **94 of the 1,570 size-based cases fill fewer groups
+than the field recorded labels for.** Weights are whole grams, so vendors tie exactly on
+a cut point; the tie rule is lower-inclusive, so every tied row goes down, and the upper
+group empties. No case loses more than one group.
+
+| $`k`$ labels recorded | groups filled | cases | which groups filled |
+|---|---|---|---|
+| 2 | 1 | 30 | group 1 |
+| 3 | 2 | 49 | groups 1, 2 — the **top** emptied |
+| 3 | 2 | 15 | groups 1, 3 — the **middle** emptied |
+
+A rank rule under-names the survivors of the first shape. A case whose weights ran from
+small to medium and collapsed into one group published as **small**, even where most of
+its weighings were the ones the field had called medium.
+
+**The rule, which fires only where groups-filled < $`k`$:**
+
+| shape | published as |
+|---|---|
+| 1 group filled, $`k \ge 2`$ | **medium** |
+| groups 1, 2 filled of 3 | small + medium (the rank rule already gives this) |
+| groups 1, 3 filled of 3 | small + large (the rank rule already gives this) |
+| groups filled = $`k`$ | untouched, whatever $`k`$ is |
+
+Only the first line changes anything, and it moves **25 published rows from small to
+medium** — small 1,173 → 1,148, medium 1,245 → 1,270. Grams and $`n_g`$ are untouched:
+this renames groups, it does not recut them, so it cannot create a non-monotonic row and
+it cannot change the published row count (3,321 either way).
+
+Both two-group shapes already come out right, because `ord_at1` and `ord_at3` on a case
+holding {S, M, L} *are* small and large. `10_size_assignment.do` §2d asserts that rather
+than relying on it.
+
+**It must be keyed on groups-filled < $`k`$, not on groups-filled alone.** Read as "1
+group filled → medium", the rule would also catch the 757 cases where the field recorded
+one label and one group filled — relabelling **411 cases the field called small** and
+**156 it called large** to medium. That is the same defect the rank mechanism exists to
+prevent, mirrored: `verify_documented_claims.py` already asserts that a naive
+group-number-to-size map mislabels 450 of 1,570 cases.
+
+**A missing size stays missing.** A case that filled two groups publishes two rows, so a
+field lookup for the third size returns nothing rather than an interpolated guess. That
+is deliberate — see assumption 7.
+
 ## Assumptions to keep visible
 
 Each is tagged with the branch it binds on. **The two load-bearing ones are 2 and 3,
@@ -934,6 +981,45 @@ thing.
 6. **Conventional units are standard within a locality.** *(conventional branch)*
    They may still vary *across* municipalities, which is testable wherever the MS
    weighed the same unit in several of them.
+
+7. **The field label is wrong per weighing but informative in aggregate.**
+   *(size-based branch — and it is the criterion that CHOSE the under-filled rule, so
+   read this before trusting that rule)*
+
+   Deciding what to call a surviving group needs a standard for "right", and the one
+   used was: **if a group is made mostly of weighings the enumerator called large, then
+   "large" is the right name for it** — the modal field label of a group's own members.
+   That is an assumption, and it sits in open tension with the reason re-terciling
+   exists at all. If the field labels could be trusted, they would simply be used, and
+   Step A would not re-cut anything.
+
+   The tension resolves only if the labels are **noisy per weighing but unbiased in
+   aggregate**. Measured on the 489 cases where all three groups filled, so that
+   terciles and labels are both observable:
+
+   | | agreement with the field label |
+   |---|---|
+   | per weighing — why re-terciling exists | **68.1%** (3,813 / 5,597) |
+   | per group, using the modal label — what the criterion assumes | **81.7%** (1,198 / 1,467) |
+
+   Aggregating does recover signal, which is what the criterion needs. **But the
+   disagreement is not symmetric.** 180 groups carry a modal label one rank *below*
+   their tercile position against 69 above, and 19 at two below against 1 above — mean
+   signed error **−0.100**. So the modal field label runs systematically *low*, and a
+   criterion built on it is biased toward the *lower* of two candidate names.
+
+   That bias points the same way as the status quo, which is the uncomfortable part: it
+   is part of why "small + medium" beat "small + large" for the 49 cases whose top group
+   emptied. The margin there was wide enough to survive it — 36 rows moved from correct
+   to incorrect against 11 the other way, against a mean bias of a tenth of a rank — but
+   the direction of the bias and the direction of the conclusion coincide, so the
+   conclusion is weaker than the raw counts suggest.
+
+   **What would settle it** is evidence independent of the field labels: the reference
+   photographs the guidebook recommends, or a size-comparability check against them.
+   Until then the under-filled rule is the best available reading of the labels, not a
+   measurement. All three figures above are re-derived by
+   `verify_documented_claims.py`, so a change in the data moves them visibly.
 
 ## Warning for downstream use
 

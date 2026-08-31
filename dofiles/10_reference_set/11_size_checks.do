@@ -40,8 +40,12 @@ egen byte tag_cell = tag(cell)
 * vendors report the same whole-gram weight and they all land on one side of a cut
 * point. Report the sizes that really exist rather than an empty one.
 
-bysort cell size_ord: gen byte tag_sz = (_n == 1)
-bysort cell: egen byte n_filled = total(tag_sz)
+* n_filled arrives from 10_size_assignment.do, which needs it to name the surviving
+* groups (its section 2d) and therefore has to compute it first. It used to be
+* recomputed here as `total(tag_sz)' over distinct size_ord, which agreed on this data
+* but is not the same definition: that version counted size_ord values contributed by
+* the conventional and price-quantity rows sharing a cell, and 2 cells hold more than
+* one weighing approach. One definition, computed where it is needed, read here.
 count if tag_cell & weighing_approach == 3 & n_filled < k_sizes
 di as res "size-based cases filling fewer sizes than the field recorded: " r(N)
 
@@ -76,7 +80,7 @@ restore
 **# save -- unchanged, this step only inspects
 ********************************************************************************
 
-drop tag_sz n_filled tag_cell
+drop tag_cell
 compress
 * Deterministic row order: `id' is unique, so this leaves no ties for the sort
 * seed to break. Without it the saved file's ORDER varies between runs.
