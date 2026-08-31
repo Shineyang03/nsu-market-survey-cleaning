@@ -547,10 +547,13 @@ literal in `02_drop_non_nsu_labels.py`'s `AMBIGUOUS` set and excluded with the o
 non-NSU labels, taking its 4 weighings with it.
 
 The cell was resolved by **dropping the ambiguous label**, not by giving it a fallback
-price: a conversion factor whose unit is unrecoverable is worse than none. See issue
-#22, and note the related defect it exposed — the halo-halo override in
-`03_clean_ms.do` assigns a harmonized unit *after* the crosswalk merge, which is how
-this cell came to hold a fold target the price file had never heard of (issue #18).
+price: a conversion factor whose unit is unrecoverable is worse than none. See issue #22.
+
+An earlier version of this passage attributed the uncovered cell to the mixed-vegetable
+override in `03_clean_ms.do`. That was wrong: the override fires only on four
+ILOILO / TIGBAUAN rows and never touched DUEÑAS, whose crosswalk entries self-map the
+raw label. The two are separate findings — the override defect is real but lives
+elsewhere, and is tracked on #18.
 
 An earlier count of 26 unmatched cells was an artefact of a checking script that
 Unicode-normalized `DUEÑAS` differently from the pipeline — see the normalization

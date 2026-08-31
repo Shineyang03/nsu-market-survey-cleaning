@@ -163,10 +163,14 @@ re-run before diagnosing. Pin folders offline before long Stata runs.
 
 ### The 4 open #18 items, verified at `a0868d1`
 
-- **halo-halo post-merge override** — `03_clean_ms.do:354-355`. **Top of the list.** #22 is
-  resolved by dropping the label, but this is the mechanism that created it and it is still
-  armed: it manufactures a harmonized unit the crosswalk has never seen, from free text,
-  after the join that would have validated it.
+- **mixed-vegetable post-merge override** — `03_clean_ms.do:354-355`. **Top of the list.**
+  It does NOT cause #22 — that attribution was measured and found wrong. It fires on 4
+  ILOILO / TIGBAUAN rows (raw label `putos`), where the crosswalk says `pack` (priced) and
+  the override substitutes `putos (mix vegetable)`, which has **no price row at TIGBAUAN**.
+  All 4 are `weighing_approach == 2`, and the coverage check only inspects approach 3 — so
+  this orphan is structurally invisible to the one guard that would catch it. Widening that
+  check is worth doing independently of the override. Two fix options are on #18 awaiting a
+  call.
 - `item_group` unnormalized merge key — `07_cpi_factor.do:306, 322`
 - `tally_price_points.py:48-49` — the last divergent normalizer copy. Fixing it moves counts
   cited on #27 A4 and #6, so those must be re-derived in the same commit
