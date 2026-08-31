@@ -81,67 +81,47 @@ replace corrected_unit = 2 if diagnostics == "mL" & corrected_unit != 2 & !mi(co
 
 
 ********************************************************************************
-**# 2. Decimal-point slips: readings that land on 1 when they should be ~1 kg
+**# 2. Decimal-point slips -- RETIRED, now handled by the snap
 ********************************************************************************
-* These share one cause: the field number carries a 1000x decimal-point error AND
-* the unit tick is wrong, so the snap resolves them to a value of 1. weight *
-* (1000^2) recovers the intended reading. Each block is a separate pattern with its
-* own expected count.
+* This section used to hold four blocks (ILOILO liquor, BADIANGAN whole chicken,
+* ice cream, preserved meat), each multiplying a raw reading by 1000^2. All 18 rows
+* were ticked as Litres and carry a THREE-decade decimal slip: 0.001495 L was meant
+* to be 1.495 L. The multiplier looks like six decades only because it bundles two
+* different things -- x1000 to convert L to mL, and x1000 to undo the slip.
+*
+* They existed because the old STEP 3 litres block did the conversion and nothing
+* else, leaving the slip untouched and publishing 1 mL. A human then had to supply
+* the missing three decades by hand, item by item.
+*
+* 04_unit_snap.do now snaps toward the row's own item x unit cell anchor and moves
+* however many decades that implies, so these rows arrive already corrected and the
+* blocks matched 0 rows. Under this file's own convention a correction that matches
+* nothing is deleted, not silently zeroed -- see the header.
+*
+* WHAT CHANGED, on the 18 rows the four blocks covered:
+*   12 rows  the snap lands on exactly the value the hand correction produced,
+*            including the BADIANGAN chicken at 1,175 g and every long-neck liquor.
+*    6 rows  the snap lands one decade LOWER, because the cell anchor disagrees
+*            with the blanket x1000^2: ice cream "pieces or units" 150 not 1,500 mL,
+*            "container" 125 not 1,250, "1.3 gallon" 130 not 1,300; preserved meat
+*            "pack" 120 not 1,200 g; liquor "lipid/lapad" 120 and 121 not 1,200.
+*            A blanket rescale could not tell a tub from a single piece; the anchor
+*            can. The 1.3 gallon row is not right either way -- its cell is too thin
+*            to anchor on, and it is on issue #31 with the other singletons.
+*
+* Do not re-add a rescale here without first checking whether the snap already did
+* it. Two corrections applied to one row is a 1000x error with no error message.
 
-* --- 2a. ILOILO liquor recorded in mL, reading exactly 1
-count if pull_item == "liquor (e.g, whisky, coconut wine)" & ///
-         pull_province == "ILOILO" & corrected_unit == 2 & corrected_weight == 1
-_chk "2a. ILOILO liquor, reading 1 mL" 10
-replace corrected_weight = weight * (1000^2) if ///
-	pull_item == "liquor (e.g, whisky, coconut wine)" & ///
-	pull_province == "ILOILO" & corrected_unit == 2 & corrected_weight == 1
-
-* --- 2b. ILOILO / BADIANGAN whole chicken, reading exactly 1 g
-* THIS BLOCK IS THE REASON THE FILE EXISTS. 03_clean_ms.do wrote it as
-*     ... & item_nsu_hetero_type == 2 & ...
-* which is small_size. The row is large_size (4), so the condition matched nothing
-* and the log said "(0 real changes made)". Re-expressed on the stable key, with no
-* hetero-type condition at all -- the size label is not part of what identifies the
-* error. Raw weight 0.001175 ticked as Litres; 0.001175 * 1000^2 = 1,175 g, which
-* sits correctly above the two mediums in the same cell (980 g and 795 g) and near
-* the province median for a whole chicken (1,225 g).
-count if pull_province == "ILOILO" & pull_municipal_city == "BADIANGAN" & ///
-         pull_item == "chicken" & harmonized_nsu_unit == "whole (chicken)" & ///
-         corrected_unit == 1 & corrected_weight == 1
-_chk "2b. BADIANGAN whole chicken, reading 1 g" 1
-replace cleaning_notes = "decimal-point slip: 0.001175 ticked as Litres, rescaled to 1,175 g" ///
-	if pull_province == "ILOILO" & pull_municipal_city == "BADIANGAN" & ///
-	   pull_item == "chicken" & harmonized_nsu_unit == "whole (chicken)" & ///
-	   corrected_unit == 1 & corrected_weight == 1
-replace corrected_weight = weight * (1000^2) ///
-	if pull_province == "ILOILO" & pull_municipal_city == "BADIANGAN" & ///
-	   pull_item == "chicken" & harmonized_nsu_unit == "whole (chicken)" & ///
-	   corrected_unit == 1 & corrected_weight == 1
-
-* --- 2c. ice cream in mL reading 1-2  (flagged uncertain by the original author)
-count if pull_item == "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)" & ///
-         corrected_unit == 2 & inrange(corrected_weight,1,2)
-_chk "2c. ice cream, reading 1-2 mL" 7
-replace cleaning_notes = "uncertain cleaning interpretation of original weight-unit values (0.001 L)" ///
-	if pull_item == "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)" & ///
-	   corrected_unit == 2 & inrange(corrected_weight,1,2)
-replace corrected_weight = weight * (1000^2) ///
-	if pull_item == "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)" & ///
-	   corrected_unit == 2 & inrange(corrected_weight,1,2)
-
-* --- 2d. preserved meat in g reading 1-2  (flagged uncertain by the original author)
-count if pull_item == "preserved or processed meat (tocino, tapa, longaniza, etc)" & ///
-         corrected_unit == 1 & inrange(corrected_weight,1,2)
-_chk "2d. preserved meat, reading 1-2 g" 1
-replace cleaning_notes = "uncertain cleaning interpretation of original weight-unit values (0.001x L)" ///
-	if pull_item == "preserved or processed meat (tocino, tapa, longaniza, etc)" & ///
-	   corrected_unit == 1 & inrange(corrected_weight,1,2)
-replace corrected_weight = weight * (1000^2) ///
-	if pull_item == "preserved or processed meat (tocino, tapa, longaniza, etc)" & ///
-	   corrected_unit == 1 & inrange(corrected_weight,1,2)
+* The rows those blocks used to catch must not come back as sub-plausible readings.
+* If this fires, the snap stopped handling a case this file no longer covers.
+count if inlist(pull_item, ///
+		"liquor (e.g, whisky, coconut wine)", ///
+		"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)", ///
+		"preserved or processed meat (tocino, tapa, longaniza, etc)") ///
+	& !missing(corrected_weight) & corrected_weight < 10
+assert r(N) == 0
 
 
-********************************************************************************
 **# 3. Refilled water containers reading 10
 ********************************************************************************
 * A refill container reading 10 is 0.01 L mis-scaled; the intended reading is 1 L.

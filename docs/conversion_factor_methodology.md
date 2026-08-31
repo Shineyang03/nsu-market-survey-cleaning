@@ -883,16 +883,23 @@ it is the cost of reading a central tendency as a size. Tracked on issue #27.
 ### Under-filled cases: naming the groups that actually survived
 
 Row 2's rule — *the $`g`$-th group inherits the $`g`$-th label present* — assumes every
-group it cuts comes back non-empty. **94 of the 1,570 size-based cases fill fewer groups
+group it cuts comes back non-empty. **104 of the 1,570 size-based cases fill fewer groups
 than the field recorded labels for.** Weights are whole grams, so vendors tie exactly on
 a cut point; the tie rule is lower-inclusive, so every tied row goes down, and the upper
-group empties. No case loses more than one group.
+group empties.
 
 | $`k`$ labels recorded | groups filled | cases | which groups filled |
 |---|---|---|---|
-| 2 | 1 | 30 | group 1 |
-| 3 | 2 | 49 | groups 1, 2 — the **top** emptied |
-| 3 | 2 | 15 | groups 1, 3 — the **middle** emptied |
+| 2 | 1 | 39 | group 1 |
+| 3 | 2 | 51 | groups 1, 2 — the **top** emptied |
+| 3 | 2 | 14 | groups 1, 3 — the **middle** emptied |
+| 3 | 1 | 4 | group 1 — both upper groups emptied |
+
+The last shape loses *two* groups. It did not occur under the previous magnitude rule,
+and it is a direct consequence of the anchor snap: snapping a weight toward its cell
+median pulls outliers into the body of the distribution, so more vendors tie on a cut
+point. The under-filled total rose from 94 to 104 for the same reason. These cases are
+reported and not patched — see issue #3.
 
 A rank rule under-names the survivors of the first shape. A case whose weights ran from
 small to medium and collapsed into one group published as **small**, even where most of
@@ -999,17 +1006,16 @@ thing.
 
    | | agreement with the field label |
    |---|---|
-   | per weighing — why re-terciling exists | **68.1%** (3,813 / 5,597) |
-   | per group, using the modal label — what the criterion assumes | **81.7%** (1,198 / 1,467) |
+   | per weighing — why re-terciling exists | **57.5%** (3,201 / 5,566) |
+   | per group, using the modal label — what the criterion assumes | **66.5%** (966 / 1,452) |
 
    Aggregating does recover signal, which is what the criterion needs. **But the
-   disagreement is not symmetric.** 180 groups carry a modal label one rank *below*
-   their tercile position against 69 above, and 19 at two below against 1 above — mean
-   signed error **−0.100**. So the modal field label runs systematically *low*, and a
+   disagreement is not symmetric.** 356 groups carry a modal label *below* their tercile
+   position against 130 above — mean signed error **−0.176**. So the modal field label runs systematically *low*, and a
    criterion built on it is biased toward the *lower* of two candidate names.
 
    That bias points the same way as the status quo, which is the uncomfortable part: it
-   is part of why "small + medium" beat "small + large" for the 49 cases whose top group
+   is part of why "small + medium" beat "small + large" for the 51 cases whose top group
    emptied. The margin there was wide enough to survive it — 36 rows moved from correct
    to incorrect against 11 the other way, against a mean bias of a tenth of a rank — but
    the direction of the bias and the direction of the conclusion coincide, so the

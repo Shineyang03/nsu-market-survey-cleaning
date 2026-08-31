@@ -199,51 +199,126 @@ label var review_step1 "STEP 1 flag_review, before STEP 3 cleared it"
 
 
 ********************************************************************************
-**# STEP 3 -- Claude's weight-review overrides on flagged rows
+**# STEP 3 -- magnitude blocks decide the READING; the anchor decides the DECADE
 ********************************************************************************
-* Each block fixes corrected_weight for a specific, understood error pattern and
-* clears flag_review. Blocks are item-independent (condition-based), so the same
-* raw entry always maps to the same corrected value. corrected_unit is NOT set
-* here -- Steps 1-2 own the unit.
+* Each block identifies a specific, understood recording error and states what the
+* typed number literally means -- "this is kg", "this is already grams", "the unit
+* tick is wrong". That reading is `w_block'. Blocks are item-independent
+* (condition-based), so the same raw entry always maps to the same reading, and
+* corrected_unit is NOT set here -- Steps 1-2 own the unit.
+*
+* WHAT THE BLOCK READING CANNOT DO, and why this step is no longer the whole rule
+* (issue #18 A1). Read the blocks in the CANONICAL BASE that STEP 1 builds -- grams
+* for mass, mL for volume, so base = weight*1000 for kg and L, and base = weight for
+* g. In those terms every block publishes base, base*1000, or base/1000: it shifts
+* the reading by at most three decades, and usually by none.
+*
+* For the kg and litres blocks the x1000 IS the dimension conversion, so those
+* blocks repair nothing whatsoever -- they convert and stop. A liquor long-neck
+* typed as `0.001495' L is a three-decade decimal slip: the true reading is 1.495 L
+* = 1,495 mL, and the enumerator dropped three places. The litres block converts to
+* 1.495 mL and publishes 1 mL. Twenty-one restaurant drinks reached 2 mL the same
+* way, and the hand corrections in 05_manual_corrections.do existed only to finish
+* the repair the block never started (they used weight * 1000^2, which is the
+* conversion and the three-decade repair bundled into one multiplier).
+*
+* So the block no longer sets the answer on its own. STEP 1's anchor snap -- which
+* moves HOWEVER MANY decades the row's own item x unit median implies, not a fixed
+* number -- sets the decade, and the block reading is the fallback for when the
+* anchor is itself untrustworthy. See the plausibility gate below.
 
 * --- 3a. unit==2 (grams): decimal / same-input-same-output consistency ---------
-*   weight >= 10 : already plausible grams          -> keep
-*   weight <  10 : kg-magnitude misentry            -> x1000
-*   (subsumes the old id 35/36 fix: 0.095 -> 95 g)
-replace corrected_weight = cond(weight>=10, weight, weight*1000) if unit==2 & !missing(weight)
-replace flag_review      = 0                                      if unit==2 & !missing(weight)
+*   weight >= 10 : already plausible grams          -> read as typed
+*   weight <  10 : kg-magnitude misentry            -> read as kg
+gen double w_block = .
+replace w_block = cond(weight>=10, weight, weight*1000) if unit==2 & !missing(weight)
 
-replace corrected_weight = cond(weight>=10, weight, weight*1000) if unit==3 & !missing(weight)
-replace flag_review      = 0                                      if unit==3 & !missing(weight)
-
+* --- 3a (litres). Same premise in the volume dimension. A genuine 20 L reading
+*   would become 20 mL here; safe only because the one cell with real litre
+*   readings (mineral water) is removed upstream by the non-NSU exclusion.
+replace w_block = cond(weight>=10, weight, weight*1000) if unit==3 & !missing(weight)
 
 * --- 3b. unit==1 (kg) sub-1 entries are true kg -> grams via x1000 -------------
-*   fixes the 0.155 vs 0.205 boundary flip (0.155 had snapped to 1550 g -> 155 g)
-replace corrected_weight = weight*1000 if unit==1 & weight<1 & !missing(weight)
-replace flag_review      = 0           if unit==1 & weight<1 & !missing(weight)
+replace w_block = weight*1000 if unit==1 & weight<1 & !missing(weight)
 
 * --- 3c. unit==1 (kg) plausible bulk kg entries: trust the reading (-> grams) ---
-*   an ordinary 1-`KGMAX' kg purchase whose number and unit already agree.
-*   THE CEILING MATTERS. It used to be 20, which left the band (20,1000) handled by
-*   nothing at all: three 25 kg rice sacks (ILOILO/MAASIN, "sack of rice") fell
-*   through to the STEP 1 anchor, which pulled them toward the item-level rice
-*   anchor -- dominated by gantang ~2,250 g -- and published them as 2,500 g, ten
-*   times too small.
+*   THE CEILING MATTERS. It used to be 20, which left (20,1000) handled by nothing:
+*   three 25 kg rice sacks fell through to the anchor and published at 2,500 g.
 count if inrange(weight,1,`KGMAX') & unit==1 & !missing(weight)
 di as txt "3c kg-plausibility: " r(N) " row(s) matched"
-replace corrected_weight = weight*1000 if inrange(weight,1,`KGMAX') & unit==1 & !missing(weight)
-replace flag_review      = 0           if inrange(weight,1,`KGMAX') & unit==1 & !missing(weight)
+replace w_block = weight*1000 if inrange(weight,1,`KGMAX') & unit==1 & !missing(weight)
 
 * --- 3d. unit==1 (kg) but far too big for kg: grams mis-ticked as kg ------------
-*   A cabbage does not weigh 1,180 kg. Above `KGMAX' the number is already grams and
-*   the UNIT tick is the error, so take the reading as it stands. Subsumes what STEP
-*   4 did via a x10 rescale, and states the real invariant -- "the typed number is
-*   already grams" -- rather than "the snap overshot by one decade", which held for
-*   those 16 rows only because the anchor happened to give k = -4 for every one.
+*   A cabbage does not weigh 1,180 kg. Above `KGMAX' the typed number is already
+*   grams and the UNIT tick is the error, so take the reading as it stands.
 count if weight > `KGMAX' & unit==1 & !missing(weight)
 di as txt "3d kg-implausibility (read as grams): " r(N) " row(s) matched"
-replace corrected_weight = weight if weight > `KGMAX' & unit==1 & !missing(weight)
-replace flag_review      = 0      if weight > `KGMAX' & unit==1 & !missing(weight)
+replace w_block = weight if weight > `KGMAX' & unit==1 & !missing(weight)
+
+
+* --- 3e. THE PLAUSIBILITY GATE: which of the two answers is published -----------
+* The anchor snap (STEP 1, `base_corr') wins by default, because it is the only one
+* of the two that can move more than three decades.
+*
+* It loses when it returns a physically impossible weight, which happens when the
+* ANCHOR ITSELF is contaminated -- a whole cell sharing one recording error makes
+* the cell median encode that error, and the snap then faithfully reproduces it.
+* Both directions occur in this data and both are caught here:
+*
+*   too big  2 beer "case" rows -> 1,200,000 g and 7,680,000 g. The cell is almost
+*            entirely mis-ticked litres, so the median says a case of beer weighs a
+*            tonne. Block reading (1,200 / 7,680 mL) is right.
+*   too small 38 fresh-fish rows -> 4-9 g, and 1 cracker row -> 9 g. Same mechanism
+*            in the other direction. Block reading (~620 g) is right.
+*
+* The bounds are set from the data, not from taste: the largest defensible NSU
+* purchase in the file is a 25 kg sack of rice, and NOTHING legitimate falls below
+* 10 g -- every sub-10 g anchor result is one of the 39 contaminated rows above.
+* Widening either bound re-admits a known-wrong value, so they are asserted below.
+local WFLOOR = 10       // g/mL: below this an anchor result is contaminated, not small
+local WCEIL  = 50000    // g/mL: 2x the largest real purchase (a 25 kg rice sack)
+
+* Compare on the ROUNDED value. corrected_weight is rounded to whole g/mL below,
+* and float arithmetic puts 0.01 L * 1000 at 9.9999998 -- which is 10 mL, not a
+* sub-floor value. Testing the raw product makes the gate fire on precision noise.
+gen byte anchor_implausible = !missing(base_corr) & ///
+    (round(base_corr,1) < `WFLOOR' | round(base_corr,1) > `WCEIL')
+gen byte block_implausible = !missing(w_block) & ///
+    (round(w_block,1) < `WFLOOR' | round(w_block,1) > `WCEIL')
+
+count if anchor_implausible & !missing(w_block)
+di as txt "3e anchor overruled by the block reading: " r(N) " row(s)"
+
+replace corrected_weight = base_corr if !missing(base_corr) & !anchor_implausible
+replace corrected_weight = w_block   if  anchor_implausible & !missing(w_block)
+replace corrected_weight = w_block   if  missing(base_corr) & !missing(w_block)
+
+replace flag_review = 0 if !missing(corrected_weight) & !missing(weight)
+
+* The gate must leave nothing implausible behind. If this fires, a cell has become
+* contaminated in a way the bounds do not cover -- widen nothing until you know why.
+* WHERE BOTH ANSWERS ARE IMPLAUSIBLE the row is a data problem, not a rule problem,
+* and the gate has nothing to choose between. Those rows stay in the review queue
+* instead of stopping the build -- they were equally wrong before this change, so
+* crashing here would block the pipeline on a defect it did not introduce.
+* Today: 6 mineral-water rows typed as 0.007-0.01 L, i.e. 7-10 mL of drinking water.
+* This is the same contaminated cell STEP 1's header warns about; the non-NSU
+* exclusion removes most of it but not these.
+replace flag_review = 1 if anchor_implausible & block_implausible
+count if anchor_implausible & block_implausible
+di as txt "3e both answers implausible -> left in review queue: " r(N) " row(s)"
+if r(N) > 0 {
+	list id pull_item ${unitvar} unit weight base_corr w_block ///
+		if anchor_implausible & block_implausible, noobs sep(0)
+}
+
+* The gate must never PICK an implausible answer when a plausible one was on offer.
+* That would be a defect in the gate itself, so it hard-stops.
+count if !missing(corrected_weight) & !(anchor_implausible & block_implausible) & ///
+    (round(corrected_weight,1) < `WFLOOR' | round(corrected_weight,1) > `WCEIL')
+assert r(N) == 0
+
+drop anchor_implausible block_implausible
 
 
 tab flag_review, m
@@ -290,7 +365,22 @@ drop k
 sort id
 
 replace corrected_weight = round(corrected_weight,1)
-encode corrected_unit, gen(correct_unit)
+* Fix g=1 / mL=2 EXPLICITLY. `encode' would assign these codes from the alphabetical
+* order of whatever strings happen to be present, so a build containing only volume
+* rows would silently number mL as 1 -- inverting the eight conditions in
+* 05_manual_corrections.do and five in 03_clean_ms.do that hard-code these values.
+* The codes are part of the pipeline's contract, so they are declared, not inferred.
+label define correct_unit_lbl 1 "g" 2 "mL", replace
+gen byte correct_unit = .
+replace  correct_unit = 1 if corrected_unit == "g"
+replace  correct_unit = 2 if corrected_unit == "mL"
+label values correct_unit correct_unit_lbl
+label var correct_unit "Corrected unit: 1 = g (mass), 2 = mL (volume)"
+
+* An unmapped non-empty string means a third unit appeared and every downstream
+* condition keyed on 1/2 is now silently incomplete.
+count if missing(correct_unit) & !missing(corrected_unit) & corrected_unit != ""
+assert r(N) == 0
 order correct_unit, after(corrected_unit)
 drop corrected_unit
 order id, last

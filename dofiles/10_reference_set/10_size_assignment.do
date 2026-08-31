@@ -190,22 +190,35 @@ forvalues j = 1/3 {
 
 * ---- assert the shapes BEFORE relabelling, so a changed tie rule halts here -------
 * Derivation: 1,570 size-based cases partition by (k_sizes, n_filled) as
-*   k=1,n=1: 757   k=2,n=1: 30   k=2,n=2: 230   k=3,n=2: 64   k=3,n=3: 489
-* of which the under-filled ones (n_filled < k_sizes) are the 30 and the 64 = 94, the
-* count 11_size_checks.do reports. The 64 split by which tercile emptied: 49 filled
-* groups (1,2), 15 filled groups (1,3). If any of these move, the tie rule or the
-* upstream weights changed -- reconcile against 11_size_checks.do's report and
-* ref_underfilled_sizes.xlsx, do not edit the number.
+*   k=1,n=1: 757   k=2,n=1: 35   k=2,n=2: 225   k=3,n=1: 4   k=3,n=2: 65   k=3,n=3: 484
+* of which the under-filled ones (n_filled < k_sizes) are 35 + 4 + 65 = 104, the
+* count 11_size_checks.do reports. The crosstab printed just below is the check --
+* if any cell moves, the tie rule or the upstream weights changed. Reconcile against
+* it and ref_underfilled_sizes.xlsx; do not edit the number to match.
+*
+* THIS COUNT ROSE FROM 94 TO 104 when 04_unit_snap.do adopted the anchor snap
+* (issue #18 A1). That is a real cost of the new rule, not a defect: snapping a
+* weight toward its cell median pulls outliers INTO the body of the distribution,
+* so more vendors tie exactly on a tercile cut and more groups come back empty.
+* Ten cases moved: five k=2 cases lost their second group, four k=3 cases fell to a
+* single group, one more k=3 case fell to two. Under-filled cases are reported and
+* not patched -- see issue #3, which the project has settled as status quo.
 egen byte tag_cell_sz = tag(cell) if weighing_approach == 3
 
+* The partition itself, printed so a move can be reconciled rather than guessed at.
+tab k_sizes n_filled if tag_cell_sz, m
 count if tag_cell_sz & n_filled < k_sizes
-assert r(N) == 94
+di as txt "under-filled size-based cases: " r(N)
+assert r(N) == 104
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 1
-assert r(N) == 30
+di as txt "  ... collapsed to a single group: " r(N)
+assert r(N) == 39
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g2
-assert r(N) == 49
+di as txt "  ... two groups, small+medium filled: " r(N)
+assert r(N) == 51
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g3
-assert r(N) == 15
+di as txt "  ... two groups, small+large filled: " r(N)
+assert r(N) == 14
 
 * the two-group shapes must ALREADY be right, or the claim above is wrong
 assert size_ord == 1 if weighing_approach == 3 & n_filled < k_sizes & n_filled == 2 & grp == 1

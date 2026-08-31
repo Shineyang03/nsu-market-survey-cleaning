@@ -33,6 +33,7 @@ import glob
 import re
 import sys
 
+import numpy as np
 import pandas as pd
 
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
@@ -350,39 +351,50 @@ def c_snap_band_partition(prelim):
 
 
 def c_threshold_direction(prelim, corrected):
-    """The gram/kg threshold rule multiplies by 1,000 BELOW the cut and leaves the value
-    alone above it. Verifying the direction empirically, because reading it off the
-    cond() call is easy to get backwards.
+    """Every corrected weight is the canonical base times an INTEGER POWER OF TEN.
+
+    This replaces an older check that asserted every row was scaled by exactly 1,000
+    or left alone. That was the old magnitude rule's invariant. Since issue #18 A1 the
+    decade is chosen by the cell anchor and can be any integer, so the surviving
+    invariant is the weaker one tested here: the snap only ever moves the decimal
+    point. A row that is NOT a power of ten off its base means something other than
+    the snap edited the weight -- a manual correction, or a bug.
 
     docs/data_oddities.md sec.9
     """
-    # Join on `id`, never on row position: correct_unit_snap.do keeps only correct*
-    # and id, and nothing guarantees it returns rows in the input order.
     d = prelim[["id", "weight", "unit"]].merge(
         corrected[["id", "corrected_weight"]], on="id", how="inner", validate="1:1")
     d["w"] = pd.to_numeric(d.weight, errors="coerce")
     d["cw"] = pd.to_numeric(d.corrected_weight, errors="coerce")
-    # correct_unit_snap.do rounds to the whole gram / mL, so compare against the
-    # ROUNDED target rather than against an exact ratio: a 0.0015 L reading becomes
-    # 2 mL, whose ratio is 1,333, not 1,000.
-    # Stata's round() is half-away-from-zero; numpy's .round() is half-to-even, so
-    # 20.5 g would compare unequal to Stata's 21. Use floor(x + 0.5) to match Stata.
-    def sround(x):
-        return (x + 0.5).apply('floor')
+    # canonical base: grams for mass, mL for volume. kg (1) and L (3) are x1000.
+    d["base"] = d.w.where(d.unit == 2, d.w * 1000)
 
-    ok = d.cw.notna() & d.w.notna()
-    up = ok & (d.cw == sround(d.w * 1000))
-    same = ok & ~up & (d.cw == sround(d.w))
-    x1000, x1 = int(up.sum()), int(same.sum())
-    other = int(ok.sum()) - x1000 - x1
-    check("the magnitude rule scales UP below the cut",
+    ok = d.cw.notna() & d.base.notna() & (d.base > 0) & (d.cw > 0)
+    # Compare against the ROUNDED target, not the raw ratio. The snap rounds to the
+    # whole g/mL, so 95 g snapped down one decade is round(9.5) = 10, whose ratio is
+    # 0.105 rather than 0.1. A log-distance tolerance flags that as a violation; a
+    # rounded comparison recognises it as the decade shift it is. Stata's round() is
+    # half-away-from-zero, so use floor(x + 0.5) rather than numpy's half-to-even.
+    lg = np.log10(d.cw[ok] / d.base[ok])
+    k = lg.round()
+    target = np.floor(d.base[ok] * (10.0 ** k) + 0.5)
+    # One unit of slack. `weight' is a Stata float, so base*10^k carries float32 error,
+    # and the question here is "did the decimal point move", not "do these match to the
+    # last bit". A rule other than the snap moves a weight by far more than 1 g/mL.
+    is_pow10 = (d.cw[ok] - target).abs() <= 1.0
+    n_pow, n_bad = int(is_pow10.sum()), int((~is_pow10).sum())
+    shifts = lg[is_pow10].round().astype(int).value_counts().sort_index()
+    spread = ", ".join(f"10^{k}: {v:,}" for k, v in shifts.items())
+
+    check("the snap only moves the decimal point",
           "data_oddities.md sec.9",
-          "every non-missing row is scaled by exactly 1,000 or left unchanged",
-          "every non-missing row is scaled by exactly 1,000 or left unchanged"
-          if other == 0 else f"{other:,} rows scaled by neither 1,000 nor 1",
-          f"{x1000:,} scaled by 1,000; {x1:,} unchanged; {other:,} other."
-          " A value below the cut is read as kg and multiplied; above it, believed"
-          " as-is. Any 'other' row means a third rule is firing.")
+          "every corrected weight is its base times an integer power of ten",
+          "every corrected weight is its base times an integer power of ten"
+          if n_bad == 0 else f"{n_bad:,} rows are not a power of ten off their base",
+          f"{n_pow:,} rows verified. Decade shifts applied -- {spread}."
+          " More than one shift is EXPECTED since #18 A1: the anchor picks the"
+          " decade per cell. A non-power-of-ten row means something other than the"
+          " snap moved the weight.")
 
 
 # ============================================================ 7. item_group
@@ -499,7 +511,7 @@ def c_underfilled_shapes(sized):
     under = cells[cells.n_filled < cells.k_sizes]
     check("under-filled size-based cases",
           "methodology.md / under-filled cases",
-          "94 cases fill fewer groups than the field recorded labels",
+          "104 cases fill fewer groups than the field recorded labels",
           f"{len(under):,} cases fill fewer groups than the field recorded labels",
           "must equal the count 11_size_checks.do sec 3 prints and"
           " ref_underfilled_sizes.xlsx holds")
@@ -511,7 +523,7 @@ def c_underfilled_shapes(sized):
     g13 = sum(1 for c in two.index if fills[c] == (1, 3))
     check("under-filled shapes: which groups emptied",
           "methodology.md / under-filled cases table",
-          "30 with one group filled; 49 filled (1,2); 15 filled (1,3)",
+          "39 with one group filled; 51 filled (1,2); 14 filled (1,3)",
           f"{len(shape1)} with one group filled; {g12} filled (1,2); {g13} filled (1,3)",
           "the (1,2) and (1,3) split is why the rule cannot be keyed on the number of"
           " filled groups alone -- 'small + large' is right for (1,3) and wrong for (1,2)")
@@ -554,7 +566,7 @@ def c_modal_label_criterion(sized):
     per_row = int((full.field_sml == full.grp).sum())
     check("field label agrees with the tercile, per weighing",
           "methodology.md / assumption 7",
-          "68.1% (3,813 of 5,597)",
+          "57.5% (3,201 of 5,566)",
           f"{per_row / len(full) * 100:.1f}% ({per_row:,} of {len(full):,})",
           "this is the number that justifies re-terciling in the first place -- the"
           " field label is wrong about a third of the time at row level")
@@ -564,7 +576,7 @@ def c_modal_label_criterion(sized):
     per_grp = int((g.field_sml == g.grp).sum())
     check("modal field label agrees with the tercile, per group",
           "methodology.md / assumption 7",
-          "81.7% (1,198 of 1,467)",
+          "66.5% (966 of 1,452)",
           f"{per_grp / len(g) * 100:.1f}% ({per_grp:,} of {len(g):,})",
           "aggregating recovers signal, which is what the naming criterion needs")
 
@@ -573,7 +585,7 @@ def c_modal_label_criterion(sized):
     above = int((err > 0).sum())
     check("the modal-label criterion is biased low",
           "methodology.md / assumption 7",
-          "mean signed error -0.100; 199 groups below their tercile, 70 above",
+          "mean signed error -0.176; 356 groups below their tercile, 130 above",
           f"mean signed error {err.mean():+.3f};"
           f" {below} groups below their tercile, {above} above",
           "NOT symmetric. The modal field label runs systematically low, so a criterion"
