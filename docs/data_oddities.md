@@ -259,19 +259,23 @@ never on `cons_name` alone.
 `corrected_weight` in grams or millilitres. Two mechanisms do the work, and it is
 worth knowing which one actually decides a given row.
 
-**A threshold rule decides 99.2% of rows** (11,364 of 11,458). Its premise is that a
-number too small for the ticked unit means the enumerator meant the larger one:
+**A threshold rule decides every row that has a weight** — 11,448 of the 11,453 that
+reach this step. Its premise is that a number too small for the ticked unit means the
+enumerator meant the larger one:
 
 | ticked unit | rule | rows |
 |---|---|---|
 | grams | `weight >= 10` keep, else × 1000 | 9,151 |
-| litres | same rule, reading ≥ 10 as already mL | 1,620 |
+| litres | same rule, reading ≥ 10 as already mL | 1,615 |
 | kg, `< 1` | × 1000 | 15 |
 | kg, `[1, KGMAX]` | × 1000 — the tick is believed | 581 |
 | kg, `> KGMAX` | keep — the number is grams, the *tick* is the error | 86 |
 
-Note the table sums to **every** row, which is the point: the five bands above
-partition `unit ∈ {1,2,3} & !missing(weight)` exhaustively — 11,448 of 11,453.
+The five bands sum to 11,448, and that is the point: they partition
+`unit ∈ {1,2,3} & !missing(weight)` exhaustively. The remaining 5 rows have no weight at
+all, so no magnitude rule can reach them; they are the entire review queue (below).
+
+Re-derived by `verify_documented_claims.py`, which fails if any band moves.
 
 **The log10 anchor snap decides nothing.** An earlier version of this section said it
 decided "the remaining 89"; that was wrong, and the table directly above contradicted

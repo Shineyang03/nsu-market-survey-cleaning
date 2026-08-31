@@ -299,6 +299,55 @@ def c_litres_rule(prelim):
           " range, not just the count.")
 
 
+def c_snap_band_partition(prelim):
+    """The five threshold bands in sec.9's table, each re-counted, plus the assertion
+    that they partition the rows with a weight EXHAUSTIVELY and without overlap.
+
+    Why this check exists. The table's litres row read 1,620 for a while against an
+    actual 1,615 -- it had absorbed the 5 rows that carry no weight at all. That made
+    the bands appear to sum to 11,453, the full arrival count, when the population they
+    can possibly cover is the 11,448 rows that HAVE a weight. A band table that sums to
+    the wrong total is the one kind of error a reader cannot catch by adding it up, so
+    the total is asserted here rather than written down.
+
+    docs/data_oddities.md sec.9, band table
+    """
+    w = pd.to_numeric(prelim.weight, errors="coerce")
+    u = pd.to_numeric(prelim.unit, errors="coerce")
+    KGMAX = 30
+    has = w.notna() & u.isin([1, 2, 3])
+
+    bands = {
+        "grams": (u == 2) & has,
+        "litres": (u == 3) & has,
+        "kg < 1": (u == 1) & (w < 1) & has,
+        f"kg [1, {KGMAX}]": (u == 1) & (w >= 1) & (w <= KGMAX) & has,
+        f"kg > {KGMAX}": (u == 1) & (w > KGMAX) & has,
+    }
+    recorded = {"grams": 9151, "litres": 1615, "kg < 1": 15,
+                f"kg [1, {KGMAX}]": 581, f"kg > {KGMAX}": 86}
+    counts = {k: int(m.sum()) for k, m in bands.items()}
+
+    for k in bands:
+        check(f"snap band: {k}",
+              "data_oddities.md sec.9 band table",
+              f"{recorded[k]:,} rows",
+              f"{counts[k]:,} rows")
+
+    # exhaustive and disjoint, both asserted rather than assumed
+    stacked = sum(m.astype(int) for m in bands.values())
+    overlap = int((stacked > 1).sum())
+    uncovered = int((has & (stacked == 0)).sum())
+    check("the snap bands partition every row that has a weight",
+          "data_oddities.md sec.9 band table",
+          f"{sum(recorded.values()):,} rows, 0 overlapping, 0 uncovered",
+          f"{sum(counts.values()):,} rows, {overlap} overlapping, {uncovered} uncovered",
+          f"population is unit in (1,2,3) & weight non-missing = {int(has.sum()):,} of"
+          f" {len(prelim):,} rows reaching this step; the other {int((~has).sum())} carry"
+          " no weight, so no magnitude rule can reach them. If the bands stop summing to"
+          " the population, a row is being decided twice or not at all.")
+
+
 def c_threshold_direction(prelim, corrected):
     """The gram/kg threshold rule multiplies by 1,000 BELOW the cut and leaves the value
     alone above it. Verifying the direction empirically, because reading it off the
@@ -458,6 +507,7 @@ def main():
     head("CLAIMS ABOUT MAGNITUDE CORRECTION")
     c_kg_band_empty(prelim)
     c_litres_rule(prelim)
+    c_snap_band_partition(prelim)
     c_threshold_direction(prelim, corrected)
 
     head("CLAIMS ABOUT NORMALIZATION")
