@@ -78,7 +78,7 @@ def load():
 def weighings_sheet(d):
     cols = CASE + ["dim", "pull_nsu_unit", "cleaned_nsu_unit", "approach",
                    "weighing_approach", "size_or_price_label", "item_nsu_hetero_type",
-                   "market_type", "vendor_id", "corrected_weight", "w_ref",
+                   "market_type", "vendor_id", "corrected_weight",
                    "pull_price", "actual_price", "price_source", "m_ms", "cpi_factor",
                    "n_raw_labels", "source"]
     cols = [c for c in cols if c in d.columns]
@@ -87,13 +87,13 @@ def weighings_sheet(d):
 
 
 def agg_sheet(d, by):
-    """n / min / median / max of the restated weight, grouped by `by` within the case.
+    """n / min / median / max of the weight, grouped by `by` within the case.
 
-    Uses w_ref rather than corrected_weight so price-quantity rows are comparable to
-    each other; on size-based and conventional rows the restatement is a no-op, so the
-    two agree there.
+    Uses corrected_weight, the weight as measured. The former w_ref -- a restatement of
+    price-quantity weights into one reference month -- is retired (issue #29), so there
+    is a single weight variable on every branch.
     """
-    g = d.groupby(CASE + by, dropna=False).w_ref
+    g = d.groupby(CASE + by, dropna=False).corrected_weight
     out = g.agg(n="size", w_min="min", w_median="median", w_max="max").reset_index()
     out["w_spread"] = (out.w_max / out.w_min.replace(0, pd.NA)).round(2)
     return out.sort_values(CASE + by)
@@ -133,7 +133,7 @@ def show(d, item_sub, unit_sub):
         print(f"{k[0]} / {k[1]} / {k[2]} / harmonized unit '{k[3]}' / {DIM.get(k[4], k[4])}")
         print("=" * 100)
         print(g[["pull_nsu_unit", "approach", "size_or_price_label", "market_type",
-                 "vendor_id", "corrected_weight", "w_ref", "pull_price"]]
+                 "vendor_id", "corrected_weight", "pull_price"]]
               .sort_values(["pull_nsu_unit", "size_or_price_label", "corrected_weight"])
               .to_string(index=False))
         # the fold question, stated the only way that is fair: within a label
@@ -144,7 +144,7 @@ def show(d, item_sub, unit_sub):
             print(f"  labels recorded under >1 spelling: {shared or 'none'}")
             if shared:
                 cmp = (g[g.size_or_price_label.isin(shared)]
-                       .groupby(["size_or_price_label", "pull_nsu_unit"]).w_ref
+                       .groupby(["size_or_price_label", "pull_nsu_unit"]).corrected_weight
                        .agg(["size", "median"]))
                 print("  within-label comparison (the only fair one):")
                 print("   " + cmp.to_string().replace("\n", "\n   "))

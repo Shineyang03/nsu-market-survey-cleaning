@@ -21,6 +21,11 @@ RUN
 import re
 import pandas as pd
 
+import os
+import sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from drop_non_nsu_labels import is_dropped_label
+
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
 
@@ -61,7 +66,19 @@ pr["pull_nsu_unit"] = pr.Unit_lbl.map(nz)
 pr["price"] = pd.to_numeric(pr.Price, errors="coerce")
 pr = pr.merge(xw[KEY + ["pull_nsu_unit", "harmonized_nsu_unit"]],
               on=KEY + ["pull_nsu_unit"], how="left", validate="m:1")
-assert pr.harmonized_nsu_unit.notna().all()
+# The crosswalk deliberately no longer carries standard-quantity, ambiguous and
+# not-a-unit labels (dofiles/drop_non_nsu_labels.py). Those price rows will not match,
+# and that is intended -- so distinguish an intended removal from a broken join.
+_unm = pr[pr.harmonized_nsu_unit.isna()]
+_broken = _unm[~_unm.pull_nsu_unit.map(is_dropped_label)]
+if len(_unm) - len(_broken):
+    print(f"  price rows on deliberately dropped labels, ignored:"
+          f" {len(_unm) - len(_broken)}")
+if len(_broken):
+    print(_broken[["province", "pull_municipal_city", "cons_name", "pull_nsu_unit"]]
+          .drop_duplicates().to_string(index=False))
+    raise SystemExit("unmatched price rows -- fix the join before reading any figure")
+pr = pr[pr.harmonized_nsu_unit.notna()]
 
 
 def combo(types):

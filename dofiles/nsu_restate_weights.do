@@ -11,7 +11,7 @@
 * therefore depend on the price level in the month of that particular vendor visit.
 * Restate every such weighing to a common reference month BEFORE any aggregation:
 *
-*     w_ref(i) = corrected_weight(i) * CPI(province, item_group, m_MS(i))
+*     RETIRED (issue #29): w_ref(i) = corrected_weight(i) * cpi_factor(i)
 *                                     / CPI(province, item_group, REF)
 *
 * Downstream the pipeline multiplies by CPI(REF)/CPI(m_PSPS(household)), so REF
@@ -24,7 +24,7 @@
 * SCOPE: this restatement applies ONLY to weighing_approach == 2 (price-quantity).
 * Size-based (== 3) and conventional (== 1) weights are properties of the object
 * weighed -- a medium mango's grams are not a price-round quantity -- so those rows
-* are carried through unchanged: cpi_factor = 1 exactly, w_ref = corrected_weight.
+* are carried through unchanged: cpi_factor = 1 exactly.
 * They are NOT dropped; every input row is expected to survive into the output
 * (less the 95 rows excluded in step 1 below).
 *
@@ -256,24 +256,32 @@ assert weighing_approach != 2 | _merge_ref == 3
 drop mdate _merge_ref
 
 ********************************************************************************
-**# 5. cpi_factor and w_ref (level CPI)
+**# 5. cpi_factor (level CPI)
 ********************************************************************************
+
+* cpi_factor is KEPT: Outcome 2 needs it to move a price-quantity weight from its MS
+* month to the PSPS interview month.
+*
+* w_ref -- corrected_weight * cpi_factor -- is RETIRED (issue #29). It restated every
+* price-quantity weight into one reference month so the MS was internally comparable.
+* That step is withdrawn: weights are now carried as weighed, and the only inflation
+* adjustment performed is the MS -> PSPS one, at the point of use. Downstream code
+* reads corrected_weight directly.
 
 gen double cpi_factor = 1
 replace cpi_factor = cpi_at_m_ms / cpi_at_ref if weighing_approach == 2
-gen double w_ref = corrected_weight * cpi_factor
 
 ********************************************************************************
-**# 6. cpi_factor_ma3 and w_ref_ma3 (3-month moving-average CPI, robustness variant)
+**# 6. cpi_factor_ma3 (3-month moving-average CPI, robustness variant)
 ********************************************************************************
 
 * cpi_ma3 is missing by design at the first/last month of every province x
-* item_group series. If that makes either the numerator or denominator missing,
-* the ratio (and therefore w_ref_ma3) is left missing for that row rather than
-* silently falling back to the level CPI.
+* item_group series. If that makes either the numerator or denominator missing, the
+* ratio is left missing for that row rather than silently falling back to the level
+* CPI. Kept alongside cpi_factor as the robustness variant; w_ref_ma3 is retired with
+* w_ref (issue #29).
 gen double cpi_factor_ma3 = 1
 replace cpi_factor_ma3 = cpi_ma3_at_m_ms / cpi_ma3_at_ref if weighing_approach == 2
-gen double w_ref_ma3 = corrected_weight * cpi_factor_ma3
 
 count if weighing_approach == 2 & missing(cpi_factor_ma3)
 di as result "--- Step 6 check: price-quantity rows with missing cpi_factor_ma3 ---"
@@ -320,8 +328,10 @@ if r(N) > 0 {
     restore
 }
 
-di as result "--- w_ref vs corrected_weight departure, price-quantity only ---"
-gen double abs_pct_change = abs(100 * (w_ref - corrected_weight) / corrected_weight) if weighing_approach == 2
+di as result "--- how far cpi_factor departs from 1, price-quantity only ---"
+* Reported so the size of the MS -> PSPS adjustment stays visible even though no
+* weight is restated any more.
+gen double abs_pct_change = abs(100 * (cpi_factor - 1)) if weighing_approach == 2
 summarize abs_pct_change if weighing_approach == 2, detail
 di as result "  median abs %% change: " r(p50)
 di as result "  max abs %% change: " r(max)
@@ -329,15 +339,8 @@ di as result "  max abs %% change: " r(max)
 di as result "--- cpi_factor == 1 check, other branches ---"
 count if inlist(weighing_approach, 1, 3) & cpi_factor != 1
 di as result "  rows with cpi_factor != 1 on approach 1/3 (expect 0): " r(N)
-* Compare on non-missing values directly, and compare missingness separately --
-* corrected_weight carries the extended missing code .c for a handful of rows;
-* any arithmetic on it collapses to plain system-missing (.) in w_ref, so a raw
-* w_ref != corrected_weight test would flag those rows as "different" even
-* though both are, substantively, missing.
-count if inlist(weighing_approach, 1, 3) & !missing(corrected_weight) & w_ref != corrected_weight
-di as result "  rows with a genuine (non-missing) w_ref != corrected_weight mismatch on approach 1/3 (expect 0): " r(N)
-count if inlist(weighing_approach, 1, 3) & missing(corrected_weight) != missing(w_ref)
-di as result "  rows where missingness of w_ref disagrees with missingness of corrected_weight on approach 1/3 (expect 0): " r(N)
+* With w_ref retired there is no restated weight to compare; cpi_factor == 1 on the
+* non-price-quantity branches is the whole invariant, and it is checked above.
 
 di as result "--- missing cpi_factor_ma3, price-quantity only ---"
 count if weighing_approach == 2 & missing(cpi_factor_ma3)

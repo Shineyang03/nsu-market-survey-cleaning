@@ -410,7 +410,7 @@ def c_label_rank_is_load_bearing(d):
     """
     CELL = ["pull_province", "pull_municipal_city", "pull_item",
             "harmonized_nsu_unit", "corrected_unit"]      # the Outcome 1 case grain
-    d = d[d.w_ref.notna() & ~d.item_nsu_hetero_type.isin([10, 11])]
+    d = d[d.corrected_weight.notna() & ~d.item_nsu_hetero_type.isin([10, 11])]
     # mixed-branch cells: Outcome 1 keeps the size-based rows only
     g = d.groupby(CELL, dropna=False).weighing_approach
     d = d[~(g.transform(lambda s: (s == 3).any())

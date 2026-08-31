@@ -5,7 +5,7 @@ dimension, so the price file runs the OTHER way from Outcome 2: instead of price
 determining how many groups the weights are cut into, a price rung determines which SIZE
 a weighing is called.
 
-Applies Outcome 1's own exclusions first (missing w_ref, unique_mun_price, and the
+Applies Outcome 1's own exclusions first (missing corrected_weight, unique_mun_price, and the
 mixed-branch carrot rule), then partitions what remains by branch x whether the case
 pools more than one weighed raw spelling. The rows sum to the file, which is the check
 that the partition is exhaustive.
@@ -51,8 +51,8 @@ print("=" * 74)
 print("OUTCOME 1 SCOPE: WHAT IT DROPS BEFORE PARTITIONING")
 print("=" * 74)
 print(f"  restated weighings                          {len(ms):>6,}")
-d = ms[ms.w_ref.notna()]
-print(f"  after dropping missing w_ref                {len(d):>6,}")
+d = ms[ms.corrected_weight.notna()]
+print(f"  after dropping missing corrected_weight                {len(d):>6,}")
 d = d[~d.item_nsu_hetero_type.isin([10, 11])]
 print(f"  after excluding unique_mun_price (10, 11)   {len(d):>6,}")
 g = d.groupby(K, dropna=False).weighing_approach
@@ -77,8 +77,8 @@ pq = tab[(tab.branch == "price-quantity") & tab.pooled]
 MEDS = {"mp50", "mun_median", "prov_median"}
 for k in pq.index:
     sub = d[d.set_index(K).index == k]
-    per = sub.groupby(["raw", "lbl"]).agg(n=("w_ref", "size"),
-                                          med=("w_ref", "median"),
+    per = sub.groupby(["raw", "lbl"]).agg(n=("corrected_weight", "size"),
+                                          med=("corrected_weight", "median"),
                                           price=("pull_price", "first"))
     labs = set(sub.lbl)
     coll = len(labs & MEDS) > 1 or (len(labs & MEDS) == 1 and sub.raw.nunique() > 1

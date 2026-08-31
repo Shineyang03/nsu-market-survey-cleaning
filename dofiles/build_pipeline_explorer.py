@@ -98,7 +98,7 @@ nsu_reference_set.do sec.2 (re-tercile the pooled case weights, rank the field
 labels present, assign by rank) in pandas. The one nontrivial part is the
 tercile CUT ITSELF: pandas' `Series.quantile()` uses linear interpolation, which
 silently disagrees with Stata's default `pctile` at the small case sizes and
-frequent ties this data has (w_ref is whole grams; a case can hold one weighing
+frequent ties this data has (corrected_weight is whole grams; a case can hold one weighing
 per size label). `stata_pctile()` in this file reimplements Stata's actual rule
 (nearest-rank on a non-integer index, average-of-two on an exact one) and is
 validated by re-collapsing every replicated (case x size) group to n / median
@@ -193,7 +193,7 @@ def stata_pctile(values, p):
     (within float tolerance of) an integer i, the percentile is the average of
     x_(i) and x_(i+1); otherwise it is x_(ceil(idx)). pandas' `Series.quantile`
     uses a DIFFERENT (linear-interpolation) rule that silently disagrees at
-    small n with ties -- exactly the case here, since w_ref is whole grams and
+    small n with ties -- exactly the case here, since corrected_weight is whole grams and
     a case can hold as few as 1 weighing per size label. Do not swap this for
     `.quantile()`: it reproduces the published reference-set case x size
     grouping exactly; `.quantile()` misclassified ~28% of case x size groups
@@ -519,7 +519,7 @@ def classify_stage3(restated, refset):
     r = restated.copy()
     r['cell'] = list(zip(*[r[c] for c in CASE_COLS]))
 
-    r['drop_no_wref'] = r.w_ref.isna()
+    r['drop_no_wref'] = r.corrected_weight.isna()
     r['drop_unique_mun'] = r.item_nsu_hetero_type.isin([10, 11]) & ~r.drop_no_wref
 
     active = r[~(r.drop_no_wref | r.drop_unique_mun)].copy()
@@ -532,7 +532,7 @@ def classify_stage3(restated, refset):
     n1 = r.drop_no_wref.sum()
     n2 = r.drop_unique_mun.sum()
     n3 = r.drop_carrot.sum()
-    log(f"  stage3 drops (replicated): no usable w_ref={n1} (doc: 7), "
+    log(f"  stage3 drops (replicated): no usable corrected_weight={n1} (doc: 7), "
         f"unique_mun_price={n2} (doc: 33), carrot mixed-branch={n3} (doc: 7 -- "
         f"stale; see module docstring, the ILOILO/TIGBAUAN carrot cell currently "
         f"holds 4 price-quantity rows on disk, not 7)")
@@ -566,18 +566,18 @@ def classify_stage3(restated, refset):
         for rank, fo in enumerate(sorted(g.unique()), start=1):
             rank_map[(cell, rank)] = fo
 
-    p33 = sb.groupby('cell')['w_ref'].transform(lambda s: stata_pctile(s.values, 33.3333))
-    p66 = sb.groupby('cell')['w_ref'].transform(lambda s: stata_pctile(s.values, 66.6667))
-    p50 = sb.groupby('cell')['w_ref'].transform(lambda s: stata_pctile(s.values, 50))
+    p33 = sb.groupby('cell')['corrected_weight'].transform(lambda s: stata_pctile(s.values, 33.3333))
+    p66 = sb.groupby('cell')['corrected_weight'].transform(lambda s: stata_pctile(s.values, 66.6667))
+    p50 = sb.groupby('cell')['corrected_weight'].transform(lambda s: stata_pctile(s.values, 50))
 
     grp = pd.Series(np.nan, index=sb.index)
     m3 = sb.k_sizes == 3
-    grp[m3 & (sb.w_ref <= p33)] = 1
-    grp[m3 & (sb.w_ref > p33) & (sb.w_ref <= p66)] = 2
-    grp[m3 & (sb.w_ref > p66)] = 3
+    grp[m3 & (sb.corrected_weight <= p33)] = 1
+    grp[m3 & (sb.corrected_weight > p33) & (sb.corrected_weight <= p66)] = 2
+    grp[m3 & (sb.corrected_weight > p66)] = 3
     m2 = sb.k_sizes == 2
-    grp[m2 & (sb.w_ref <= p50)] = 1
-    grp[m2 & (sb.w_ref > p50)] = 2
+    grp[m2 & (sb.corrected_weight <= p50)] = 1
+    grp[m2 & (sb.corrected_weight > p50)] = 2
     grp[sb.k_sizes == 1] = 1
     sb['grp'] = grp
 
@@ -593,7 +593,7 @@ def classify_stage3(restated, refset):
 
     # ---- validate against the actual published reference set -----------------
     mine = (eligible.dropna(subset=['size_ord'])
-            .groupby(CASE_COLS + ['size_ord'])['w_ref']
+            .groupby(CASE_COLS + ['size_ord'])['corrected_weight']
             .agg(n_mine='size', grams_mine='median').reset_index())
     refset_key = refset.rename(columns={'pull_item': 'pull_item'})
     pub = refset_key[CASE_COLS + ['size_ord', 'n_g', 'grams']]
@@ -655,7 +655,7 @@ def main():
     log(f"  = {n_master:,} arrival/master")
     log(f"    - {n_s2_drop} stage-2 drops (no-price + vendor-priced-not-rescued)")
     log(f"  = {n_restated:,} restated")
-    log(f"    - {n_s3_drop} stage-3 drops (no w_ref + unique_mun_price + carrot)")
+    log(f"    - {n_s3_drop} stage-3 drops (no corrected_weight + unique_mun_price + carrot)")
     log(f"  = {n_eligible:,} rows entering the Outcome 1 collapse")
     log(f"  -> {len(refset):,} Outcome 1 reference-set rows (aggregation, not attrition)")
     ok = (n_raw - n_s1_drop == n_master) and (n_master - n_s2_drop == n_restated)
@@ -1192,7 +1192,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
             "actual_price": nn(row.actual_price),
             "price_source": getattr(row, 'price_source', ''),
             "cpi_factor": nn(row.cpi_factor),
-            "w_ref": nn(row.w_ref),
+            "corrected_weight": nn(row.corrected_weight),
             "case_key": f"{row.pull_province}|{row.pull_municipal_city}|{row.pull_item}|"
                         f"{row.harmonized_nsu_unit}|{CORRECTED_UNIT_LABEL.get(row.corrected_unit, '')}",
             # province|municipality|item|harmonized_unit, normalized the same way as
@@ -1218,7 +1218,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
         notes = []
         if row.drop_no_wref:
             rec["terminal"] = "dropped"
-            rec["terminal_reason"] = "Stage 3: no usable weight (corrected_weight/w_ref missing)"
+            rec["terminal_reason"] = "Stage 3: no usable weight (corrected_weight/corrected_weight missing)"
         elif row.drop_unique_mun:
             rec["terminal"] = "dropped_outcome1_only"
             rec["terminal_reason"] = ("Stage 3: unique_mun_price is a raw observed price, not a "
@@ -1268,7 +1268,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
                              f"{row.corrected_weight:g} {CORRECTED_UNIT_LABEL.get(row.corrected_unit, '')}")
         if row.weighing_approach == 2 and pd.notna(row.cpi_factor) and row.cpi_factor != 1:
             notes.append(f"Restated for inflation: corrected_weight x {row.cpi_factor:.4f} "
-                         f"= w_ref {nn(row.w_ref)}")
+                         f"= corrected_weight {nn(row.corrected_weight)}")
         if getattr(row, 'price_source', '') == 'vendor_actual':
             notes.append("Price-quantity row rescued: this case had no other price-quantity "
                          "rung, so the vendor's own quoted price was kept instead of dropped.")
@@ -1507,7 +1507,7 @@ a { color: var(--accent); }
         <th data-k="weighing_approach">Approach</th>
         <th data-k="size_price_label">Size/price label</th>
         <th data-k="vendor_id">Vendor</th>
-        <th data-k="w_ref">w_ref (g/mL)</th>
+        <th data-k="corrected_weight">corrected_weight (g/mL)</th>
         <th data-k="terminal">Terminal state</th>
         <th>Flags</th>
       </tr></thead>
@@ -1932,7 +1932,7 @@ function renderTable() {
       <td>${w.province||''}</td><td>${w.municipality||''}</td><td>${w.item||''}</td>
       <td>${w.raw_spelling||''}</td><td>${w.harmonized_unit||''}</td>
       <td>${w.weighing_approach||''}</td><td>${w.size_price_label||''}</td>
-      <td>${w.vendor_id||''}</td><td>${w.w_ref!=null? w.w_ref.toLocaleString(undefined,{maximumFractionDigits:1}):''}</td>
+      <td>${w.vendor_id||''}</td><td>${w.corrected_weight!=null? w.corrected_weight.toLocaleString(undefined,{maximumFractionDigits:1}):''}</td>
       <td>${terminalTag(w)}</td>
       <td>${usingDropped ? '' : msFlagBadges(w)}</td>
     </tr>`).join('');
@@ -2114,9 +2114,9 @@ function selectRow(w) {
     const isStage1 = /^(1a|1c|1d|unresolved)/.test(w.stage1_drop_reason);
     const gapNote = isStage1
       ? `This row never reached the arrival stage (prelim_nsu_data.dta), so it has no cleaned `
-        + `unit, corrected weight, or w_ref -- there is nothing further in its path to show.`
+        + `unit, corrected weight, or corrected_weight -- there is nothing further in its path to show.`
       : `This row reached the arrival stage but was dropped before the restated stage `
-        + `(nsu_weights_restated.dta), so it has no corrected weight or w_ref -- there is `
+        + `(nsu_weights_restated.dta), so it has no corrected weight or corrected_weight -- there is `
         + `nothing further in its path to show.`;
     left.innerHTML = `<h3>Path through the build</h3>` + [
       ['Raw arrival', `${w.province} / ${w.municipality} / ${w.item} / "${w.raw_spelling}"`],
@@ -2135,7 +2135,7 @@ function selectRow(w) {
       ['Weight, as recorded', w.weight_raw != null ? w.weight_raw : '(missing)'],
       ['Weight/unit correction', w.corrected_weight != null ? `${w.corrected_weight} ${w.corrected_unit}` : '(missing)'],
       ['Price', w.pull_price != null ? w.pull_price : (w.actual_price != null ? w.actual_price + ' (vendor actual)' : 'n/a (size-based)')],
-      ['Restated (w_ref)', w.w_ref != null ? `${w.w_ref} (cpi_factor ${w.cpi_factor})` : '(missing)'],
+      ['Restated (corrected_weight)', w.corrected_weight != null ? `${w.corrected_weight} (cpi_factor ${w.cpi_factor})` : '(missing)'],
       ['Case', w.case_key],
       ['Terminal state', terminalTag(w)],
     ].map(([k, v]) => `<div class="pathstep"><div class="stage">${k}</div><div class="val">${v}</div></div>`).join('')

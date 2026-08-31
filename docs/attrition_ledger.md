@@ -96,12 +96,12 @@ Not corrected here, per this task's no-`.do`-edit rule. The fix is to add
 
 | step | drop | rows in | dropped | rows out |
 |---|---|---:|---:|---:|
-| 3a | rows with no usable `w_ref` (missing `corrected_weight`) | 11,384 | 7 | 11,377 |
+| 3a | rows with no usable weight (missing `corrected_weight`) | 11,384 | 7 | 11,377 |
 | 3b | `unique_mun_price` weighings (**Outcome 1 only** — not a size) | 11,377 | 33 | 11,344 |
 | 3c | the carrot's price-quantity rows (mixed-branch cell; **Outcome 1 only** — keeps the 9 size-based rows) | 11,344 | 7 | 11,337 |
-| 3d | *aggregation, not attrition* — collapse to median(`w_ref`) within case × size | 11,337 | — | **3,321** |
+| 3d | *aggregation, not attrition* — collapse to median(`corrected_weight`) within case × size | 11,337 | — | **3,321** |
 
-**Step 3a — the 7 rows with no usable `w_ref`:**
+**Step 3a — the 7 rows with no usable weight:**
 
 | province | municipality | item | NSU | branch | reason |
 |---|---|---|---|---|---|
@@ -206,7 +206,7 @@ cell:
 | # | province | municipality | item | NSU | `corrected_unit` | stage lost | reason |
 |---|---|---|---|---|---|---|---|
 | 1 | NEGROS OCCIDENTAL | ENRIQUE B. MAGALONA (SARAVIA) | ice cream, sorbet, edible ice | putos | mL | Stage 2 | restate rescue-rule grain mismatch |
-| 2 | CAPIZ | TAPAZ | chicken | whole (chicken) | *(missing)* | Stage 3a | no usable `w_ref` (blank field weight) |
+| 2 | CAPIZ | TAPAZ | chicken | whole (chicken) | *(missing)* | Stage 3a | no usable weight (blank field weight) |
 | 3 | ANTIQUE | LIBERTAD | preserved or processed meat | pieces or units | g | Stage 3b | `unique_mun_price` only |
 | 4 | NEGROS OCCIDENTAL | VALLADOLID | chicken | bilog | g | Stage 3b | `unique_mun_price` only |
 | 5 | NEGROS OCCIDENTAL | PULUPANDAN | liquor | long-neck | mL | Stage 3b | `unique_mun_price` only |
@@ -257,7 +257,7 @@ Row-level, raw MS weighing to the last row that enters the Outcome 1 collapse:
  = 11,458  (nsu_data_master.dta)
    − 74  vendor-priced rows not rescued
  = 11,384  (nsu_weights_restated.dta)
-   − 7   no usable w_ref
+   − 7   no usable weight
    − 33  unique_mun_price (Outcome 1 only)
    − 7   carrot price-quantity rows (Outcome 1 only)
  = 11,337  rows entering the median collapse
@@ -275,7 +275,7 @@ Case-level, at the fine grain (province × municipality × item ×
 2,020 cases (nsu_data_master.dta)
    − 1   ice cream mL, restate rescue-rule grain mismatch
  = 2,019 (nsu_weights_restated.dta)
-   − 4   no usable w_ref (1 price-quantity case + 3 size-based cases)
+   − 4   no usable weight (1 price-quantity case + 3 size-based cases)
  = 2,015
    − 11  unique_mun_price-only (price-quantity cases)
  = 2,004

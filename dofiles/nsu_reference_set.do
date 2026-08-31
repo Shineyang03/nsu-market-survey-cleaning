@@ -59,10 +59,10 @@
 *-------------------------------------------------------------------------------
 * INPUT
 *-------------------------------------------------------------------------------
-* nsu_weights_restated.dta -- one row per weighing, w_ref = weight in a single
-* price frame. On size-based and conventional rows the restatement is a no-op
-* (w_ref == corrected_weight), so using w_ref throughout is safe and keeps one
-* weight variable.
+* nsu_weights_restated.dta -- one row per weighing. Weights are read from
+* corrected_weight, the weight as measured. The former w_ref -- a restatement of
+* price-quantity weights into a single reference month -- is retired (issue #29), so
+* there is one weight variable and no branch-specific handling of it.
 ********************************************************************************
 
 clear all
@@ -83,7 +83,7 @@ use "${btemp}\nsu_weights_restated.dta", clear
 count
 di as txt "weighings in: " r(N)
 
-drop if missing(w_ref)
+drop if missing(corrected_weight)
 count
 di as txt "  after dropping rows with no usable weight: " r(N)
 
@@ -170,19 +170,19 @@ forvalues j = 1/3 {
 
 * cut points within the case, on the POOLED weights (across vendors, markets and
 * the original labels)
-egen double p33 = pctile(w_ref) if weighing_approach == 3, by(cell) p(33.3333)
-egen double p66 = pctile(w_ref) if weighing_approach == 3, by(cell) p(66.6667)
-egen double p50 = pctile(w_ref) if weighing_approach == 3, by(cell) p(50)
+egen double p33 = pctile(corrected_weight) if weighing_approach == 3, by(cell) p(33.3333)
+egen double p66 = pctile(corrected_weight) if weighing_approach == 3, by(cell) p(66.6667)
+egen double p50 = pctile(corrected_weight) if weighing_approach == 3, by(cell) p(50)
 
 * THE TIE RULE, lower-inclusive:  g1: w <= cut1 | g2: cut1 < w <= cut2 | g3: w > cut2
 * Weights are whole grams, so ties on a cut point are common and a group can come
 * back empty. That is detected in section 3 and the case is reported, not patched.
 gen byte grp = .
-replace grp = 1 if weighing_approach == 3 & k_sizes == 3 & w_ref <= p33
-replace grp = 2 if weighing_approach == 3 & k_sizes == 3 & w_ref >  p33 & w_ref <= p66
-replace grp = 3 if weighing_approach == 3 & k_sizes == 3 & w_ref >  p66
-replace grp = 1 if weighing_approach == 3 & k_sizes == 2 & w_ref <= p50
-replace grp = 2 if weighing_approach == 3 & k_sizes == 2 & w_ref >  p50
+replace grp = 1 if weighing_approach == 3 & k_sizes == 3 & corrected_weight <= p33
+replace grp = 2 if weighing_approach == 3 & k_sizes == 3 & corrected_weight >  p33 & corrected_weight <= p66
+replace grp = 3 if weighing_approach == 3 & k_sizes == 3 & corrected_weight >  p66
+replace grp = 1 if weighing_approach == 3 & k_sizes == 2 & corrected_weight <= p50
+replace grp = 2 if weighing_approach == 3 & k_sizes == 2 & corrected_weight >  p50
 replace grp = 1 if weighing_approach == 3 & k_sizes == 1
 
 * the g-th empirical group inherits the g-th field label the case actually holds
@@ -237,7 +237,7 @@ restore
 * MEDIAN within case x size. The guidebook allows mean or median; the median is
 * robust to a single mis-keyed vendor the magnitude snap did not catch.
 
-collapse (median) grams = w_ref (count) n_g = w_ref (first) weighing_approach, ///
+collapse (median) grams = corrected_weight (count) n_g = corrected_weight (first) weighing_approach, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
             corrected_unit size_ord)
 

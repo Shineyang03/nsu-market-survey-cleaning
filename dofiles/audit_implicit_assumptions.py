@@ -181,9 +181,9 @@ def main():
     print("Assumption 6 in the methodology says conventional units may vary across")
     print("municipalities and that this is testable wherever the MS weighed the same")
     print("unit in several. Doing that test.")
-    cv = rest[(rest.weighing_approach == 1) & rest.w_ref.notna()]
+    cv = rest[(rest.weighing_approach == 1) & rest.corrected_weight.notna()]
     per = cv.groupby(["pull_item", "harmonized_nsu_unit", "corrected_unit",
-                      "pull_municipal_city"], dropna=False).w_ref.median()
+                      "pull_municipal_city"], dropna=False).corrected_weight.median()
     across = per.groupby(level=[0, 1, 2]).agg(["size", "min", "max"])
     multi = across[across["size"] > 1].copy()
     multi["ratio"] = multi["max"] / multi["min"].replace(0, pd.NA)

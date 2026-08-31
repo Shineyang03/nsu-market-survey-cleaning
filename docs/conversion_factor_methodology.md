@@ -842,7 +842,7 @@ no price dimension, so the price file runs the opposite way from Outcome 2: inst
 prices setting how many groups the weights are cut into, a price rung decides which
 *size* a weighing is called.
 
-Outcome 1 applies its own exclusions first — rows with no usable `w_ref` (7),
+Outcome 1 applies its own exclusions first — rows with no usable weight (7),
 `unique_mun_price` weighings (33, which are not a size), and the price-quantity rows of
 the one mixed-branch cell (4). **2,005 cases and 11,316 weighings** remain, and every
 case falls in exactly one row:
@@ -1071,7 +1071,7 @@ Run in this order. Anything not listed here is not part of the pipeline.
 | `dofiles/cleaning_Aug11.do` | raw MS → cleaned weighings on the harmonized NSU key | live |
 | `dofiles/correct_unit_snap.do` | called by the above; kg→g, L→mL, magnitude snap | live |
 | `dofiles/build_cpi_level_panel.py` | PSA CPI → `cpi_level_panel.csv` (levels only) | live |
-| `dofiles/nsu_restate_weights.do` | price-quantity weights → one price frame (`w_ref`) | live |
+| `dofiles/nsu_restate_weights.do` | builds `cpi_factor`, the province × item-group × month index ratio Outcome 2 uses for the MS → PSPS adjustment. It no longer restates weights: the former `w_ref` is retired (issue #29). | live |
 | `dofiles/nsu_reference_set.do` | **Outcome 1** — the reference set | live |
 | *Outcome 2 — PSPS conversion factors* | | **not yet written** |
 | `dofiles/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
