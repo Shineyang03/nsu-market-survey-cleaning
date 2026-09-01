@@ -18,12 +18,62 @@ Sheets, in the order worth reading:
 
 Run from the project root:  python dofiles/90_diagnostics/snap_sense_check.py
 """
+import io, re
 import numpy as np, pandas as pd
 from pathlib import Path
 
 T = Path("outputs/master_rename_build/temp")
 OUT = Path("outputs/master_rename_build/tables/snap_sense_check.xlsx")
-WFLOOR, WCEIL = 10, 50000
+SNAP_DO = Path("dofiles/00_shared/04_unit_snap.do")
+
+# ---------------------------------------------------------------- constant tripwire
+# This script RE-IMPLEMENTS the block reading (see `block_says' below), because the
+# block rule is a plain threshold and the .dta does not carry its answer separately.
+# That leaves three constants duplicated from 04_unit_snap.do. They agree today, and
+# nothing would tell you if they stopped: this file would keep scoring the two rules
+# against a threshold the pipeline no longer uses, on the very workbook the rule is
+# being judged from. Silent, and wrong in the direction of looking fine.
+#
+# So: read them out of the do-file and fail if they have moved. The do-file is the
+# source of truth; EXPECTED is only what this script last agreed with.
+#
+# The anchor snap is NOT re-implemented -- `anchor_says' is read from `w_step1', which
+# 04_unit_snap.do carries forward for exactly this comparison. Only the block reading
+# is duplicated, and only because it is three lines of threshold.
+EXPECTED = {"KGMAX": 30, "WFLOOR": 10, "WCEIL": 50000}
+
+
+def _locals_from_do(path, names):
+    """Pull `local NAME = VALUE' out of a do-file. Returns {name: int}."""
+    txt = io.open(path, encoding="utf-8", errors="replace").read()
+    found = {}
+    for n in names:
+        m = re.search(r"^\s*local\s+" + n + r"\s*=\s*(-?\d+)", txt, re.M)
+        if m:
+            found[n] = int(m.group(1))
+    return found
+
+
+_have = _locals_from_do(SNAP_DO, EXPECTED)
+_missing = sorted(set(EXPECTED) - set(_have))
+if _missing:
+    raise SystemExit(
+        f"could not find local(s) {chr(44).join(_missing)} in {SNAP_DO}." + "\n"
+        "They were renamed or removed. Do not delete this check to get past it --"
+        " the block reading below is built from those values and would diverge.")
+_moved = {k: (EXPECTED[k], _have[k]) for k in EXPECTED if EXPECTED[k] != _have[k]}
+if _moved:
+    raise SystemExit(
+        "04_unit_snap.do thresholds moved; this diagnostic still uses the old ones:"
+        + "\n"
+        + "\n".join(f"  {k}: this script has {a}, the do-file says {b}"
+                     for k, (a, b) in sorted(_moved.items()))
+        + "\nUpdate EXPECTED and the block-reading lines together, then re-run."
+          " Any comparison produced before that is scored against a rule the"
+          " pipeline no longer applies.")
+
+KGMAX = _have["KGMAX"]
+WFLOOR, WCEIL = _have["WFLOOR"], _have["WCEIL"]
 
 pre = pd.read_stata(T/"prelim_nsu_data.dta", convert_categoricals=False)
 snap = pd.read_stata(T/"standard_weight_unit_correction.dta", convert_categoricals=False)
@@ -46,7 +96,7 @@ m2, m3 = d.unit.eq(2), d.unit.eq(3)
 blk[m2] = np.where(d.weight[m2] >= 10, d.weight[m2], d.weight[m2]*1000)
 blk[m3] = np.where(d.weight[m3] >= 10, d.weight[m3], d.weight[m3]*1000)
 m1 = d.unit.eq(1)
-blk[m1] = np.where(d.weight[m1] > 30, d.weight[m1], d.weight[m1]*1000)
+blk[m1] = np.where(d.weight[m1] > KGMAX, d.weight[m1], d.weight[m1]*1000)
 d["block_says"] = blk.round()
 
 # cell median of the rows the two rules AGREE on -- an independent-ish yardstick
