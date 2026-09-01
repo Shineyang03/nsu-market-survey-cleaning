@@ -31,10 +31,16 @@ The Python steps are not run from the masters. They build the crosswalk and the 
 panel and change rarely; run them from the project root when their inputs change:
 
 ```
+"C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\00b_price_ms_cases.do
 python dofiles/00_shared/01_build_crosswalk.py
 python dofiles/00_shared/02_drop_non_nsu_labels.py --apply
 python dofiles/00_shared/06_cpi_panel.py
 ```
+
+**That order matters.** `01_build_crosswalk.py` reads the case-coverage CSV that
+`00b_price_ms_cases.do` writes, and `02` filters the crosswalk `01` produces.
+Re-running `02` without rebuilding in between is a no-op by design, not an error --
+it refuses to overwrite the record of what it removed.
 
 **After any change**, run the claim checker from the project root:
 
@@ -62,6 +68,7 @@ when one has moved. It is what catches a figure going stale in a document.
 | file | does |
 |---|---|
 | `00_globals.do` | paths, plus the two shared programs `def_hetero` and `nsu_normalize` |
+| `00b_price_ms_cases.do` | which cases exist in the price file, the MS, or both. Reads the RAW market survey, so the crosswalk cannot depend on its own downstream output (#33) |
 | `01_build_crosswalk.py` | folds raw NSU spellings into `harmonized_nsu_unit`; writes `master_nsu_rename.csv` |
 | `02_drop_non_nsu_labels.py` | removes labels that are not NSUs (standard quantity, ambiguous quantity, free text) and reports what it removed |
 | `03_clean_ms.do` | load, comments, normalize, **exclude non-NSU labels**, harmonize, identifiers. Calls 04 and 05. |

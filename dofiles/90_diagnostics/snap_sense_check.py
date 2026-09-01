@@ -92,6 +92,11 @@ _vl = pd.io.stata.StataReader(T/"prelim_nsu_data.dta").value_labels()
 d["hetero_group"] = d.item_nsu_hetero_type.map(_vl["hetero"])
 d["approach"] = d.weighing_approach.map(_vl["weighing_approach"])
 
+# snap_rule / snap_referee are labelled in nsu_data_master, not prelim, so their value
+# labels come from that file. Numeric codes here would be unreadable in a workbook whose
+# whole purpose is a human scanning it.
+_vlm = pd.io.stata.StataReader(T / "nsu_data_master.dta").value_labels()
+
 # Nothing should fall outside the declared label set; if it does the codes have moved
 # and every hetero_group in this workbook is suspect.
 _bad = d.item_nsu_hetero_type.notna() & d.hetero_group.isna()
@@ -100,7 +105,18 @@ if _bad.any():
         f"{int(_bad.sum())} row(s) carry an item_nsu_hetero_type outside the `hetero'"
         " label set: "
         + ", ".join(map(str, sorted(d.loc[_bad, "item_nsu_hetero_type"].unique()))))
-d = d.merge(mas[["id","cleaning_notes"]], on="id", how="left", validate="1:1")
+# cleaning_notes AND the post-05 weight. `published' below is 04's answer; 05 then
+# applies the hand corrections and the .c readings, so on a handful of rows the two
+# differ and the sheet used to show only the first. A reviewer looking for remaining
+# errors needs the value that actually ships.
+d = d.merge(mas[["id","cleaning_notes","corrected_weight","snap_rule","snap_referee"]]
+            .rename(columns={"corrected_weight":"final_weight"}),
+            on="id", how="left", validate="1:1")
+for _c in ("snap_rule", "snap_referee"):
+    if _c in d.columns and _c in _vlm:
+        d[_c] = d[_c].map(_vlm[_c])
+d["final_differs"] = (d.final_weight.round(1) != d.corrected_weight.round(1)) & (
+    d.final_weight.notna() | d.corrected_weight.notna())
 
 d["base"] = d.weight.where(d.unit == 2, d.weight*1000)
 d["cell"] = (d.pull_province+" / "+d.pull_municipal_city+" / "+d.pull_item
@@ -135,8 +151,13 @@ d["rule_used"] = np.where(d.anchor_implausible, "block (anchor rejected)", "anch
 # municipality/province median where the ladder is incomplete). Two rows in one cell
 # with different hetero_groups are meant to differ in weight; two with the SAME
 # hetero_group differing by a decade are the interesting case.
+# snap_rule / snap_referee say WHY the published value is what it is -- which rule
+# fired and which pool refereed it. final_weight is what ships after
+# 05_manual_corrections.do; final_differs marks the rows where 04's answer was
+# subsequently overridden by hand or set unusable, so they are not read as errors.
 COLS = ["id","cell","hetero_group","approach","unit","weight",
-        "block_says","anchor_says","published",
+        "block_says","anchor_says","published","final_weight","final_differs",
+        "snap_rule","snap_referee",
         "rule_used","cell_median","n_cell_agreeing","x_from_median",
         "review_step1","cleaning_notes"]
 
