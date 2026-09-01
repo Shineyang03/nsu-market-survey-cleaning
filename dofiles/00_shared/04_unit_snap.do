@@ -73,7 +73,10 @@ confirm file "${snap_in}.dta"
 
 use "${snap_in}", clear
 
-keep unit weight pull_item ${unitvar} id
+* pull_province / pull_municipal_city / item_nsu_hetero_type are needed by the
+* adjudication in STEP 3e (the cell and the province-level referee pools). They are
+* dropped again by the `keep' just before the save, so they do not reach any output.
+keep unit weight pull_item ${unitvar} id pull_province pull_municipal_city item_nsu_hetero_type
 
 * ---- tunable parameters -------------------------------------------------------
 local MIN   = 10      // min item_nsu cell size before falling back to item level
@@ -273,75 +276,139 @@ di as txt "3d kg-implausibility (read as grams): " r(N) " row(s) matched"
 replace w_block = weight if weight > `KGMAX' & unit==1 & !missing(weight)
 
 
-* --- 3e. THE PLAUSIBILITY GATE: which of the two answers is published -----------
-* The anchor snap (STEP 1, `base_corr') wins by default, because it is the only one
-* of the two that can move more than three decades.
+********************************************************************************
+**# STEP 3e -- ADJUDICATION: which of the two answers is published
+********************************************************************************
+* Two candidate weights exist for every row: `base_corr' from STEP 1's anchor snap,
+* and `w_block' from the STEP 3 blocks. This decides between them.
 *
-* It loses when it returns a physically impossible weight, which happens when the
-* ANCHOR ITSELF is contaminated -- a whole cell sharing one recording error makes
-* the cell median encode that error, and the snap then faithfully reproduces it.
-* Both directions occur in this data and both are caught here:
+* THE RULES BELOW COME FROM A MANUAL REVIEW of every disputed row, recorded on issue
+* #18. They are not a guess at what looks right -- read that comment before changing
+* any threshold here. The governing findings were:
 *
-*   too big  2 beer "case" rows -> 1,200,000 g and 7,680,000 g. The cell is almost
-*            entirely mis-ticked litres, so the median says a case of beer weighs a
-*            tonne. Block reading (1,200 / 7,680 mL) is right.
-*   too small 38 fresh-fish rows -> 4-9 g, and 1 cracker row -> 9 g. Same mechanism
-*            in the other direction. Block reading (~620 g) is right.
+*   - proximity to a local median should be judged in ORDERS OF MAGNITUDE, not in
+*     absolute grams. A 255 g reading against a 152.5 g cell median is the same
+*     decade; a 25 g reading is a decade out, and the decade is what the snap gets
+*     wrong. Absolute distance can prefer the value that is 10x too small.
+*   - a raw weight recorded as 0.xxx repeatedly WITHIN one cell is what enumerators
+*     in that market wrote on purpose, not a one-off slip, so the block reading (which
+*     just restates the typed number in canonical units) is the better reading there.
+*   - the log-10 snap tends to UNDERESTIMATE, so more rows should move off STEP 1 than
+*     the plausibility bounds alone would move.
 *
-* The bounds are set from the data, not from taste: the largest defensible NSU
-* purchase in the file is a 25 kg sack of rice, and NOTHING legitimate falls below
-* 10 g -- every sub-10 g anchor result is one of the 39 contaminated rows above.
-* Widening either bound re-admits a known-wrong value, so they are asserted below.
-local WFLOOR = 10       // g/mL: below this an anchor result is contaminated, not small
+* PRECEDENCE, decided on review: the median comparison governs wherever a usable
+* median exists. The decimal-structure and whole-number readings fill the gaps -- they
+* are corroborating patterns, not overrides, and firing them against an explicit local
+* median would be substituting a heuristic for a measurement.
+*
+*   1. referee median exists  -> publish whichever candidate is closer in log10 terms
+*   2. no median, cell shows a shared sub-1 decimal structure  -> block
+*   3. no median, raw weight is a whole number                 -> block
+*   4. nothing fires                                           -> anchor
+*   5. plausibility floor/ceiling, applied LAST to all of the above
+
+* ---- 3e-i. the referee pools, built only from rows where the two rules AGREE ------
+* Rows where anchor and block already agree carry no information about which rule is
+* better, which is exactly what makes their median a usable yardstick for the rows
+* that disagree. Compared on the ROUNDED values, as the published weight is.
+gen byte _agree = (round(base_corr,1) == round(w_block,1)) ///
+                  & !missing(base_corr) & !missing(w_block)
+gen double _agreed = base_corr if _agree
+
+* the cell: province x municipality x item x harmonized unit
+egen double _cell_med    = median(_agreed), by(pull_province pull_municipal_city pull_item ${unitvar})
+egen long   _cell_nagree = count(_agreed),  by(pull_province pull_municipal_city pull_item ${unitvar})
+
+* the province-level fallbacks for thin cells, hetero-group first then without it
+egen double _ph_med = median(_agreed), by(pull_province pull_item ${unitvar} item_nsu_hetero_type)
+egen long   _ph_n   = count(_agreed),  by(pull_province pull_item ${unitvar} item_nsu_hetero_type)
+egen double _p_med  = median(_agreed), by(pull_province pull_item ${unitvar})
+egen long   _p_n    = count(_agreed),  by(pull_province pull_item ${unitvar})
+
+* NAGREE = how many agreeing rows a pool needs before it can referee. Below this the
+* median is one or two readings and cannot adjudicate a decade.
+local NAGREE = 5
+
+gen double _ref_med = .
+gen str12  _ref_src = ""
+replace _ref_med = _cell_med if _cell_nagree > `NAGREE' & !missing(_cell_med)
+replace _ref_src = "cell"    if _cell_nagree > `NAGREE' & !missing(_cell_med)
+replace _ref_med = _ph_med   if missing(_ref_med) & _ph_n > `NAGREE' & !missing(_ph_med)
+replace _ref_src = "prov_hetero" if missing(_ref_src) & !missing(_ref_med)
+replace _ref_med = _p_med    if missing(_ref_med) & _p_n  > `NAGREE' & !missing(_p_med)
+replace _ref_src = "prov"    if missing(_ref_src) & !missing(_ref_med)
+
+* ---- 3e-ii. rule 1: closer in log10 terms wins -----------------------------------
+gen byte _pick_block = .
+replace _pick_block = (abs(log10(w_block/_ref_med)) < abs(log10(base_corr/_ref_med))) ///
+    if !missing(_ref_med) & _ref_med > 0 ///
+     & !missing(w_block) & w_block > 0 & !missing(base_corr) & base_corr > 0
+gen str16 _rule = "log10 median" if !missing(_pick_block)
+
+* ---- 3e-iii. rule 2: a shared sub-1 decimal structure inside the cell -------------
+* Sub-1 decimals repeated within one cell are a market's recording convention, not a
+* slip. Requires at least two such rows in the cell -- a single 0.xxx reading is the
+* one-off this does NOT cover.
+gen byte _sub1 = (weight > 0 & weight < 1) & !missing(weight)
+egen long _cell_sub1 = total(_sub1), by(pull_province pull_municipal_city pull_item ${unitvar})
+replace _pick_block = 1 if missing(_pick_block) & _sub1 & _cell_sub1 >= 2
+replace _rule = "cell decimals" if missing(_rule) & !missing(_pick_block)
+
+* ---- 3e-iv. rule 3: a whole number was typed as-is --------------------------------
+replace _pick_block = 1 if missing(_pick_block) & !missing(weight) & weight == round(weight)
+replace _rule = "whole number" if missing(_rule) & !missing(_pick_block)
+
+* ---- 3e-v. default: the anchor ----------------------------------------------------
+replace _pick_block = 0 if missing(_pick_block)
+replace _rule = "anchor default" if missing(_rule)
+
+* ---- 3e-vi. publish, then the plausibility floor/ceiling LAST ---------------------
+* The bounds are the last word regardless of which rule won: an answer outside them is
+* physically impossible, and where the OTHER candidate is inside them it is published
+* instead. This is what catches a contaminated anchor pool -- 2 beer "case" rows
+* reaching 1.2M g, and fresh-fish rows falling to 4-9 g -- and it now equally catches a
+* block reading the rules above would otherwise have adopted.
+local WFLOOR = 10       // g/mL: below this a result is contaminated, not small
 local WCEIL  = 50000    // g/mL: 2x the largest real purchase (a 25 kg rice sack)
 
-* Compare on the ROUNDED value. corrected_weight is rounded to whole g/mL below,
-* and float arithmetic puts 0.01 L * 1000 at 9.9999998 -- which is 10 mL, not a
-* sub-floor value. Testing the raw product makes the gate fire on precision noise.
-gen byte anchor_implausible = !missing(base_corr) & ///
-    (round(base_corr,1) < `WFLOOR' | round(base_corr,1) > `WCEIL')
-gen byte block_implausible = !missing(w_block) & ///
-    (round(w_block,1) < `WFLOOR' | round(w_block,1) > `WCEIL')
+gen double _chosen = cond(_pick_block == 1, w_block, base_corr)
+gen double _other  = cond(_pick_block == 1, base_corr, w_block)
 
-count if anchor_implausible & !missing(w_block)
-di as txt "3e anchor overruled by the block reading: " r(N) " row(s)"
+gen byte _chosen_bad = !missing(_chosen) & (round(_chosen,1) < `WFLOOR' | round(_chosen,1) > `WCEIL')
+gen byte _other_ok   = !missing(_other)  & (round(_other,1) >= `WFLOOR' & round(_other,1) <= `WCEIL')
 
-replace corrected_weight = base_corr if !missing(base_corr) & !anchor_implausible
-replace corrected_weight = w_block   if  anchor_implausible & !missing(w_block)
-replace corrected_weight = w_block   if  missing(base_corr) & !missing(w_block)
+count if _chosen_bad & _other_ok
+di as txt "3e plausibility gate overruled the chosen rule on " r(N) " row(s)"
+replace _rule   = "gate override" if _chosen_bad & _other_ok
+replace _chosen = _other          if _chosen_bad & _other_ok
 
+replace corrected_weight = _chosen if !missing(_chosen)
+replace corrected_weight = _other  if missing(_chosen) & !missing(_other)
 replace flag_review = 0 if !missing(corrected_weight) & !missing(weight)
 
-* The gate must leave nothing implausible behind. If this fires, a cell has become
-* contaminated in a way the bounds do not cover -- widen nothing until you know why.
-* WHERE BOTH ANSWERS ARE IMPLAUSIBLE the row is a data problem, not a rule problem,
-* and the gate has nothing to choose between. Those rows stay in the review queue
-* instead of stopping the build -- they were equally wrong before this change, so
-* crashing here would block the pipeline on a defect it did not introduce.
-* Today: 6 mineral-water rows typed as 0.007-0.01 L, i.e. 7-10 mL of drinking water.
-* This is the same contaminated cell STEP 1's header warns about; the non-NSU
-* exclusion removes most of it but not these.
-replace flag_review = 1 if anchor_implausible & block_implausible
-count if anchor_implausible & block_implausible
-di as txt "3e both answers implausible -> left in review queue: " r(N) " row(s)"
-if r(N) > 0 {
-	list id pull_item ${unitvar} unit weight base_corr w_block ///
-		if anchor_implausible & block_implausible, noobs sep(0)
-}
+* what each rule decided, for the log and for the report on issue #18
+di as res _n "3e adjudication -- rule that decided each row:"
+tab _rule, m
+di as res "3e adjudication -- referee pool used:"
+tab _ref_src, m
+di as res "3e adjudication -- block adopted vs anchor kept:"
+tab _pick_block, m
 
-* The gate must never PICK an implausible answer when a plausible one was on offer.
-* That would be a defect in the gate itself, so it hard-stops.
-count if !missing(corrected_weight) & !(anchor_implausible & block_implausible) & ///
-    (round(corrected_weight,1) < `WFLOOR' | round(corrected_weight,1) > `WCEIL')
+* Nothing implausible may survive where a plausible alternative existed. If this
+* fires the bounds no longer cover a case they used to -- widen nothing until you
+* know which.
+count if !missing(corrected_weight) ///
+       & (round(corrected_weight,1) < `WFLOOR' | round(corrected_weight,1) > `WCEIL') ///
+       & _other_ok
 assert r(N) == 0
 
-drop anchor_implausible block_implausible
-
+drop _agree _agreed _cell_med _cell_nagree _ph_med _ph_n _p_med _p_n ///
+     _ref_med _ref_src _pick_block _sub1 _cell_sub1 _rule _chosen _other ///
+     _chosen_bad _other_ok
 
 tab flag_review, m
 count if flag_review==1
 
-		 
 ********************************************************************************
 **# STEP 4 -- manual weight-review overrides on flagged rows
 ********************************************************************************

@@ -86,6 +86,30 @@ STANDARD_PAT = ["(kg)", "(g)", "(l)", "(ml)", "ml", "kg", "kilo", "(25kls.)",
 #                   it rather than by manufacturing a harmonized unit for it.
 AMBIGUOUS = {"500", "pieces/ kilo", "2 kapinutos nga cabbage/20pesos"}
 
+# ---- exact-match removals with a per-label reason -------------------------------
+# These five were found by reading the PUBLISHED reference set rather than the label
+# list: each had reached the deliverable as a harmonized unit that is not a unit.
+# Matched exactly, not by substring, because every substring that would catch them
+# also catches labels that are fine -- "galon" also matches `4 later galon',
+# "gallon" also matches `gallon', `black gallon' and `5 gallon black container'.
+# One entry per label, with the reason it carries into the removal report.
+#
+# Dropping them at the LABEL level is what removes them from both deliverables at
+# once: Outcome 1 and the PSPS retro-fitting both join through the crosswalk, so a
+# label that is not in the crosswalk cannot reach either.
+EXACT = {
+    # a bare number. Not a unit at all, and nothing states what 10 of what.
+    "10":                             "ambiguous quantity",
+    # count + item + PRICE in one label, exactly the cabbage case above.
+    "3 for 25 pesos (putos)":         "ambiguous quantity",
+    # free text describing where it was bought, with a quantity inside it.
+    "pack 25 per pack in the market": "not a unit",
+    # states its own standard quantity: a gallon. Spelled `galon' in the raw data.
+    "1.3 galon":                      "standard quantity",
+    # a count of standard containers, not a local unit.
+    "6 bottles of redhorse":          "standard quantity",
+}
+
 # Category 3 -- free text describing a transaction, not a unit.
 NOT_A_UNIT_PAT = ["for salary", "birthday", "he buy", "his meals", "serving of",
                   "and 10 pop", "2900", "inkind", "per bowl serving"]
@@ -98,6 +122,8 @@ def _n(s):
 def classify(label):
     """Return the removal reason for a raw NSU label, or None to keep it."""
     t = _n(label)
+    if t in EXACT:
+        return EXACT[t]
     if t in AMBIGUOUS:
         return "ambiguous quantity"
     if any(p in t for p in NOT_A_UNIT_PAT):
@@ -174,10 +200,10 @@ def main(apply=False):
     # crosswalk with 01_build_crosswalk.py to get a fresh cycle.
     if not already_applied:
         seen = set(drop.pull_nsu_unit.map(_n))
-        missed = sorted(AMBIGUOUS - seen)
+        missed = sorted((AMBIGUOUS | set(EXACT)) - seen)
         if missed:
             raise SystemExit(
-                "AMBIGUOUS literal(s) matched no crosswalk row: "
+                "exact-match literal(s) matched no crosswalk row: "
                 + ", ".join(repr(m) for m in missed)
                 + "\nThe label was probably re-spelled upstream."
                   " Fix the literal; do not delete it.")

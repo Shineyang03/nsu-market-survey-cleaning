@@ -74,7 +74,11 @@ end
 count if diagnostics == "g" & corrected_unit != 1 & !mi(corrected_unit)
 _chk "1a. dimension verdict g  (relabel mL -> g)" 15
 count if diagnostics == "mL" & corrected_unit != 2 & !mi(corrected_unit)
-_chk "1b. dimension verdict mL (relabel g -> mL)" 251
+* 251 -> 248 when `6 bottles of redhorse' was dropped as a non-unit label. Its 3 MS
+* weighings are all liquor, and liquor carries the mL verdict, so those 3 rows left
+* this branch. The g branch is unaffected -- none of the five dropped labels belongs
+* to a g-verdict item.
+_chk "1b. dimension verdict mL (relabel g -> mL)" 248
 
 replace corrected_unit = 1 if diagnostics == "g"  & corrected_unit != 1 & !mi(corrected_unit)
 replace corrected_unit = 2 if diagnostics == "mL" & corrected_unit != 2 & !mi(corrected_unit)
@@ -204,6 +208,58 @@ replace corrected_weight = .c ///
 	if pull_item == "preserved or processed meat (tocino, tapa, longaniza, etc)" ///
 	& harmonized_nsu_unit == "putos" & pull_municipal_city == "PANITAN" ///
 	& strpos(cleaning_notes, "not sure") > 0
+
+
+********************************************************************************
+**# 5. Reviewer-adjudicated snap decisions
+********************************************************************************
+* 04_unit_snap.do STEP 3e chooses between the anchor snap and the block reading by
+* rule. These 12 weighings were adjudicated BY HAND during the review recorded on
+* issue #18 and are set explicitly, because a reviewer looked at the cell and the
+* rule did not reach the same answer.
+*
+* All 12 adopt the BLOCK reading -- the typed number restated in canonical units.
+* They are keyed on `id', which is safe now that id is stable across builds
+* (03_clean_ms.do assigns it after an isid on a raw-input content key). Before that
+* change this block could not have been written this way: a hand correction keyed on
+* `inlist(id, 4242)' had to be abandoned for exactly that reason, see section 4a.
+*
+* Each group asserts its row count. A correction that silently matches nothing is how
+* a 1 gram whole chicken reached the published reference set once already.
+
+* --- 5a. ANTIQUE / SAN REMIGIO / fresh fish / pieces or units --------------------
+* Cell median 190 g on 5 agreeing rows. The anchor put these at 92 / 367 / 127 g,
+* a decade below what the vendor's own reading says.
+count if inlist(id, 2790, 2793, 2796)
+_chk "5a. SAN REMIGIO fresh fish, block reading" 3
+replace corrected_weight = 920  if id == 2790
+replace corrected_weight = 3670 if id == 2793
+replace corrected_weight = 1265 if id == 2796
+
+* --- 5b. ILOILO / SAN MIGUEL / crackers / pieces or units -----------------------
+* Cell median 30 g on 5 agreeing rows; the anchor read 10 / 12 / 12 g.
+count if inlist(id, 9321, 9323, 9325)
+_chk "5b. SAN MIGUEL crackers, block reading" 3
+replace corrected_weight = 98  if id == 9321
+replace corrected_weight = 120 if id == 9323
+replace corrected_weight = 120 if id == 9325
+
+* --- 5c. NEGROS OCCIDENTAL / PONTEVEDRA / camote / bilog ------------------------
+* Raw weights 0.275 / 0.390 / 0.475 -- a shared sub-1 decimal structure, so the
+* readings are the market's convention rather than three separate slips.
+count if inlist(id, 11070, 11073, 11076)
+_chk "5c. PONTEVEDRA camote bilog, block reading" 3
+replace corrected_weight = 475 if id == 11070
+replace corrected_weight = 275 if id == 11073
+replace corrected_weight = 390 if id == 11076
+
+* --- 5d. ILOILO / CABATUAN / camote / bilog -------------------------------------
+* Same shared 0.xxx structure across the cell; annotated during review.
+count if inlist(id, 6101, 6109, 6115)
+_chk "5d. CABATUAN camote bilog, block reading" 3
+replace corrected_weight = 335 if id == 6101
+replace corrected_weight = 270 if id == 6109
+replace corrected_weight = 445 if id == 6115
 
 
 capture program drop _chk

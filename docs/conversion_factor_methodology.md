@@ -276,7 +276,7 @@ A **case** $`c`$ is a province × municipality × item × NSU combination, where
 means **`harmonized_nsu_unit`** — the folded pooling key, not the raw `pull_nsu_unit`
 or the spelling-corrected `cleaned_nsu_unit`. Every count in this document is at
 that grain; the same tabulation on a different unit column gives different numbers
-(1,948 cases harmonized, 1,962 cleaned, 1,990 raw). See *Practical prerequisites*.
+(1,943 cases harmonized, 1,957 cleaned, 1,985 raw). See *Practical prerequisites*.
 
 **Market survey (MS) side.** A case is resolved into up to three **hetero-groups** — an
 *ordinal* ladder from smallest/cheapest to largest/dearest, indexed
@@ -901,7 +901,7 @@ it is the cost of reading a central tendency as a size. Tracked on issue #27.
 ### Under-filled cases: naming the groups that actually survived
 
 Row 2's rule — *the $`g`$-th group inherits the $`g`$-th label present* — assumes every
-group it cuts comes back non-empty. **104 of the 1,570 size-based cases fill fewer groups
+group it cuts comes back non-empty. **100 of the 1,565 size-based cases fill fewer groups
 than the field recorded labels for.** Weights are whole grams, so vendors tie exactly on
 a cut point; the tie rule is lower-inclusive, so every tied row goes down, and the upper
 group empties.
@@ -939,7 +939,9 @@ label — the case grain plus `size_ord` identifies a row, and `grams` is the es
 The last shape loses *two* groups. It did not occur under the previous magnitude rule,
 and it is a direct consequence of the anchor snap: snapping a weight toward its cell
 median pulls outliers into the body of the distribution, so more vendors tie on a cut
-point. The under-filled total rose from 94 to 104 for the same reason. These cases are
+point. The under-filled total rose from 94 to 104 for the same reason, then fell to 100
+when STEP 3e began adjudicating by rule -- the block reading restates the typed number
+instead of pulling it toward the median, so fewer weights land on a cut. These cases are
 reported and not patched — see issue #3.
 
 A rank rule under-names the survivors of the first shape. A case whose weights ran from
@@ -965,11 +967,11 @@ holding {S, M, L} *are* small and large. `10_size_assignment.do` §2d asserts th
 than relying on it.
 
 **It must be keyed on groups-filled < $`k`$, not on groups-filled alone.** Read as "1
-group filled → medium", the rule would also catch the 755 cases where the field recorded
-one label and one group filled — relabelling **409 cases the field called small** and
-**156 it called large** to medium. That is the same defect the rank mechanism exists to
+group filled → medium", the rule would also catch the 753 cases where the field recorded
+one label and one group filled — relabelling **408 cases the field called small** and
+**155 it called large** to medium. That is the same defect the rank mechanism exists to
 prevent, mirrored: `verify_documented_claims.py` already asserts that a naive
-group-number-to-size map mislabels 450 of 1,568 cases.
+group-number-to-size map mislabels 449 of 1,565 cases.
 
 **A missing size stays missing.** A case that filled two groups publishes two rows, so a
 field lookup for the third size returns nothing rather than an interpolated guess. That
@@ -1047,16 +1049,16 @@ thing.
 
    | | agreement with the field label |
    |---|---|
-   | per weighing — why re-terciling exists | **57.5%** (3,201 / 5,566) |
-   | per group, using the modal label — what the criterion assumes | **66.5%** (966 / 1,452) |
+   | per weighing — why re-terciling exists | **64.0%** (3,573 / 5,581) |
+   | per group, using the modal label — what the criterion assumes | **76.5%** (1,116 / 1,458) |
 
    Aggregating does recover signal, which is what the criterion needs. **But the
    disagreement is not symmetric.** 356 groups carry a modal label *below* their tercile
-   position against 130 above — mean signed error **−0.176**. So the modal field label runs systematically *low*, and a
+   position against 86 above — mean signed error **−0.141**. So the modal field label runs systematically *low*, and a
    criterion built on it is biased toward the *lower* of two candidate names.
 
    That bias points the same way as the status quo, which is the uncomfortable part: it
-   is part of why "small + medium" beat "small + large" for the 51 cases whose top group
+   is part of why "small + medium" beat "small + large" for the 50 cases whose top group
    emptied. The margin there was wide enough to survive it — 36 rows moved from correct
    to incorrect against 11 the other way, against a mean bias of a tenth of a rank — but
    the direction of the bias and the direction of the conclusion coincide, so the

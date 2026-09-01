@@ -49,7 +49,7 @@
 * the net is 98).
 *
 * INPUTS  (read only)
-*   outputs/master_rename_build/temp/nsu_data_master.dta   11,449 weighings
+*   outputs/master_rename_build/temp/nsu_data_master.dta   11,433 weighings
 *   outputs/tables/cpi_level_panel.csv                      2,250 rows
 *   outputs/tables/cpi_item_crosswalk.csv                       95 rows
 *
@@ -114,13 +114,26 @@ di as result "Rows in: `n_in'"
 * arithmetic below -- so when it fires, check that arithmetic before changing it.
 *
 *     11,494  raw MS weighings after comment handling
-*     -   42  non-NSU labels (standard quantity / ambiguous quantity / not a unit),
+*     -   58  non-NSU labels (standard quantity / ambiguous quantity / not a unit),
 *             excluded in 03_clean_ms.do before the crosswalk merge
 *     -    3  dropped later in 03_clean_ms.do
 *     ------
-*     11,449
+*     11,433
 *
-* Was 11,453 until the ILOILO / DUEAS cabbage label was excluded. The four are the
+* Was 11,449 until five labels that had reached the published reference set as
+* harmonized units were dropped -- a bare "10", "3 for 25 pesos (putos)",
+* "pack 25 per pack in the market", "1.3 galon" and "6 bottles of redhorse". They
+* carry 16 MS weighings between them: 3 for the bare "10", 4 for
+* "3 for 25 pesos (putos)", 5 for "pack 25 per pack in the market", 1 for
+* "1.3 galon" and 3 for "6 bottles of redhorse". Found by reading the published
+* deliverable, not the label list; see 02_drop_non_nsu_labels.py EXACT.
+*
+* The "1.3 galon" row is worth knowing about: its RAW spelling carries a non-ASCII
+* character, so it is invisible to a plain text search for "galon" in the launch file
+* and only matches after nsu_normalize strips the accent. Reconcile this arithmetic
+* against the drop_reason tab in the log, never against a text search.
+*
+* Was 11,453 before that, until the ILOILO / DUEAS cabbage label was excluded. The four are the
 * weighings labelled "2 kapinutos nga cabbage/20pesos" -- a label that bundles a
 * count, the item name and a price, so what one unit IS cannot be recovered. It is
 * an exact-match literal in 02_drop_non_nsu_labels.py's AMBIGUOUS set, and dropping
@@ -134,7 +147,7 @@ di as result "Rows in: `n_in'"
 * If this fires: read the attrition figures in dofiles/03_clean_ms.log and find
 * which stage moved. Do NOT just update the number -- that is how a silent drop
 * becomes permanent.
-local n_expected = 11449
+local n_expected = 11433
 if `n_in' != `n_expected' {
 	di as error "Input row count moved: expected `n_expected', got `n_in'."
 	di as error "Reconcile against 03_clean_ms.log before touching this number."

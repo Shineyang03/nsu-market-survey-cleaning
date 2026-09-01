@@ -49,7 +49,7 @@
 *        ("500", "pieces/ kilo"), or not a unit at all, removes it from
 *        master_nsu_rename, and reports what it removed. This file reads that
 *        report and drops the matching MS weighings, rather than keeping a second
-*        copy of the substring rule. Eleven labels / 42 weighings. None needs a
+*        copy of the substring rule. Sixteen labels / 58 weighings. None needs a
 *        measured conversion factor; the standard-quantity ones are reconciled by
 *        hand on the PSPS side at merge time. Every dropped row is exported to
 *        tables/excluded_standard_unit_obs.xlsx first, with its drop_reason.
@@ -764,7 +764,7 @@ putexcel A`row' = "Notes", bold
 local ++row
 putexcel A`row' = "unit variable: harmonized_nsu_unit (new) vs cleaned_nsu_unit (pre-Aug11)"
 local ++row
-putexcel A`row' = "MS-only rows are no longer dropped (master has 0 of them); non-NSU labels ARE still dropped -- 11 labels / 42 weighings (standard quantity, ambiguous quantity, not a unit), listed in excluded_standard_unit_obs.xlsx"
+putexcel A`row' = "MS-only rows are no longer dropped (master has 0 of them); non-NSU labels ARE still dropped -- 16 labels / 58 weighings (standard quantity, ambiguous quantity, not a unit), listed in excluded_standard_unit_obs.xlsx"
 local ++row
 putexcel A`row' = "see 03_clean_ms.do header note 3 for why those two old filters are separate exclusions"
 

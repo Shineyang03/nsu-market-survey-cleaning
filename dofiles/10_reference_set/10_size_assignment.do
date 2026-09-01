@@ -233,26 +233,44 @@ forvalues j = 1/3 {
 * if any cell moves, the tie rule or the upstream weights changed. Reconcile against
 * it and ref_underfilled_sizes.xlsx; do not edit the number to match.
 *
-* THIS COUNT ROSE FROM 94 TO 104 when 04_unit_snap.do adopted the anchor snap
-* (issue #18 A1). That is a real cost of the new rule, not a defect: snapping a
-* weight toward its cell median pulls outliers INTO the body of the distribution,
-* so more vendors tie exactly on a tercile cut and more groups come back empty.
-* Ten cases moved: five k=2 cases lost their second group, four k=3 cases fell to a
-* single group, one more k=3 case fell to two. Under-filled cases are reported and
-* not patched -- see issue #3, which the project has settled as status quo.
+* THIS COUNT HAS MOVED TWICE, and both moves are the same mechanism running in
+* opposite directions. Reconcile against the crosstab, do not edit the number.
+*
+*   94 -> 104  when 04_unit_snap.do adopted the anchor snap (#18 A1). Snapping a
+*              weight toward its cell median pulls outliers INTO the body of the
+*              distribution, so more vendors tie exactly on a tercile cut and more
+*              groups come back empty.
+*  104 -> 100  when STEP 3e began adjudicating by rule rather than by the
+*              plausibility bounds alone (#18, from the manual review). The rules
+*              adopt the BLOCK reading on 196 more rows -- 68 on a shared sub-1
+*              decimal structure, 128 on a whole-number reading -- and the block
+*              reading restates the typed number instead of pulling it toward the
+*              median. Fewer weights land on a cut, so four cases regained a group.
+*
+* The four counts below must reconcile against each other and against the crosstab:
+*     36 collapsed to one group  +  50 small+medium  +  14 small+large  =  100
+* and in the crosstab 33 (k=2, filled=1) + 3 (k=3, filled=1) = 36, while
+* 50 + 14 = 64 (k=3, filled=2). If one moves and the others do not, the tie rule
+* changed rather than the weights.
+*
+* The 104 -> 100 move is 3 fewer single-group collapses (39 -> 36) and one fewer
+* small+medium (51 -> 50); small+large is unchanged at 14.
+*
+* Under-filled cases are reported and not patched -- see issue #3, settled as status
+* quo.
 egen byte tag_cell_sz = tag(cell) if weighing_approach == 3
 
 * The partition itself, printed so a move can be reconciled rather than guessed at.
 tab k_sizes n_filled if tag_cell_sz, m
 count if tag_cell_sz & n_filled < k_sizes
 di as txt "under-filled size-based cases: " r(N)
-assert r(N) == 104
+assert r(N) == 100
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 1
 di as txt "  ... collapsed to a single group: " r(N)
-assert r(N) == 39
+assert r(N) == 36
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g2
 di as txt "  ... two groups, small+medium filled: " r(N)
-assert r(N) == 51
+assert r(N) == 50
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g3
 di as txt "  ... two groups, small+large filled: " r(N)
 assert r(N) == 14

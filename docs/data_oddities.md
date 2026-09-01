@@ -19,7 +19,7 @@ under different approaches:
 | `bilog` | `pieces or units` | size-based | 9 |
 | `pieces or units` | `pieces or units` | price-quantity | 7 |
 
-This is the **only** such case in 1,949, and the fold creates it — not the
+This is the **only** such case in 1,943, and the fold creates it — not the
 fieldwork. At the raw and cleaned NSU grains every case is single-branch with zero
 exceptions, and that holds when the grain is split further by `corrected_unit`.
 Exported to `outputs/master_rename_build/tables/fold_multi_weighing_approach.xlsx`.
@@ -259,19 +259,19 @@ never on `cons_name` alone.
 `corrected_weight` in grams or millilitres. Two mechanisms do the work, and it is
 worth knowing which one actually decides a given row.
 
-**A threshold rule decides every row that has a weight** — 11,444 of the 11,449 that
+**A threshold rule decides every row that has a weight** — 11,428 of the 11,433 that
 reach this step. Its premise is that a number too small for the ticked unit means the
 enumerator meant the larger one:
 
 | ticked unit | rule | rows |
 |---|---|---|
-| grams | `weight >= 10` keep, else × 1000 | 9,147 |
+| grams | `weight >= 10` keep, else × 1000 | 9,132 |
 | litres | same rule, reading ≥ 10 as already mL | 1,615 |
 | kg, `< 1` | × 1000 | 15 |
 | kg, `[1, KGMAX]` | × 1000 — the tick is believed | 581 |
 | kg, `> KGMAX` | keep — the number is grams, the *tick* is the error | 86 |
 
-The five bands sum to 11,444, and that is the point: they partition
+The five bands sum to 11,428, and that is the point: they partition
 `unit ∈ {1,2,3} & !missing(weight)` exhaustively. The remaining 5 rows have no weight at
 all, so no magnitude rule can reach them; they are the entire review queue (below).
 
@@ -282,7 +282,7 @@ decided "the remaining 89"; that was wrong, and the table directly above contrad
 it. STEP 1 computes an anchor, a snapped weight and three review flags, and then STEP 3
 overwrites `corrected_weight` and clears `flag_review` on every row the threshold rule
 reaches — which is all of them bar the 5 with no weight at all. Recomputing STEP 3's
-rule from the raw data reproduces the published `corrected_weight` on 11,393 of 11,444
+rule from the raw data reproduces the published `corrected_weight` on 11,377 of 11,428
 rows exactly; the other 51 differ only by the `round(corrected_weight, 1)` applied
 afterwards.
 
