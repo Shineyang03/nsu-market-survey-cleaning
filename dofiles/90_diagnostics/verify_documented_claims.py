@@ -59,6 +59,7 @@ results = []
 # character for character -- see the module docstring.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
 from nsu_normalize import A, nz, ni, ng
+from nsu_fold_rule import CELL_MIX
 
 
 def check(name, doc, recorded, computed, note=""):
@@ -212,6 +213,114 @@ def c_unique_mun_never_alone():
           "co-occurring types: "
           + ", ".join(f"{sorted(k) or ['(alone)']}={v}" for k, v in
                       sorted(combos.items(), key=lambda kv: -kv[1])))
+
+
+def c_ascii_strip_no_collisions(d):
+    """Dropping non-ASCII must never make two distinct names the same name.
+
+    The project normalizer strips non-ASCII rather than transliterating, so DUENAS with
+    a tilde-n becomes DUEAS and not DUENAS. That is deliberate and is the only rule the
+    Stata and Python sides can both implement identically. It is safe only while no two
+    distinct names collapse onto one -- if DUEAS ever collided with a genuinely separate
+    DUEAS, two municipalities would silently pool.
+
+    Tests the ASCII strip ALONE, not full normalization: case-folding and whitespace
+    collapse are supposed to merge names, and do (`Ice Cream in cone' and
+    `ice cream  in cone' are one label on purpose). Only the strip must be injective.
+
+    issue #27 item 8
+    """
+    fields = {"pull_province": d.pull_province, "pull_municipal_city": d.pull_municipal_city,
+              "pull_item": d.pull_item, "pull_nsu_unit": d.pull_nsu_unit,
+              "harmonized_nsu_unit": d.harmonized_nsu_unit}
+    total = 0
+    detail = []
+    for name, col in fields.items():
+        vals = sorted({str(v) for v in col.dropna().unique()})
+        groups = {}
+        for v in vals:
+            groups.setdefault(A(v), set()).add(v)
+        bad = {k: v for k, v in groups.items() if len(v) > 1}
+        total += len(bad)
+        detail.append(f"{name} {len(vals)} distinct, {len(bad)} collisions")
+        if bad:
+            for k, v in list(bad.items())[:3]:
+                detail.append(f"    {k!r} <- {sorted(v)}")
+    check("the ASCII strip collides no two distinct names",
+          "issue #27 item 8",
+          "0 collisions across province, municipality, item, raw unit, harmonized unit",
+          f"{total} collisions across province, municipality, item, raw unit,"
+          f" harmonized unit",
+          "; ".join(detail))
+
+
+def c_restaurant_collapse_is_one_item(d):
+    """ni() folds anything containing "restaurant" onto one canonical item name.
+
+    The collapse exists because the price file and the market survey spell the
+    restaurant item differently. It is a no-op while only one spelling is present: there
+    is nothing to fold it onto. A SECOND spelling appearing is the case the collapse was
+    written for, and also the case that would tell us whether the fold is right -- so it
+    is worth knowing the moment it happens rather than discovering it in a join.
+
+    issue #27 item 8
+    """
+    items = {ni(v) for v in d.pull_item.dropna().unique()
+             if "restaurant" in str(v).lower()}
+    check("the restaurant collapse maps to one item",
+          "issue #27 item 8",
+          "1 distinct item(s) after the collapse",
+          f"{len(items)} distinct item(s) after the collapse",
+          f"{sorted(items)}")
+
+
+def c_harmonization_is_cell_independent():
+    """One raw label must mean ONE harmonized unit inside a single cell.
+
+    THE OLDER, STRONGER CLAIM IS NO LONGER TRUE, deliberately. #27 item 8 recorded that
+    an (item, raw spelling) pair maps to one harmonized unit everywhere -- harmonization
+    item-conditioned but never cell-conditioned. CELL_MIX in nsu_fold_rule.py now breaks
+    that on purpose: at ILOILO / TIGBAUAN a `putos' of cabbage or carrot is a mixed
+    vegetable bag and folds to putos (mix vegetable), where the same spelling elsewhere
+    is correctly a `pack'. The field comments say so outright -- "There is no cabbage
+    packs alone this is mixed with carrots" -- and that is a fact about the cell.
+
+    So the invariant is restated rather than dropped. What must hold is the WITHIN-CELL
+    part, which is what actually protects the pooling key: inside one cell, one raw label
+    means one harmonized unit. Break that and a case holds two units for the same label
+    and the pooled median is computed over two different things. The retired post-merge
+    override in 03_clean_ms.do did exactly that, on row-level free text.
+
+    Cell-conditioned pairs are reported against CELL_MIX, so a NEW one is a finding
+    rather than noise.
+
+    issue #27 item 8; see also #18 A3
+    """
+    xw = pd.read_csv(XW, encoding="utf-8-sig", dtype=str)
+
+    # (a) the invariant that must hold: one label, one unit, within a cell
+    within = xw.groupby([xw.province.map(ng), xw.pull_municipal_city.map(ng),
+                         xw.cons_name.map(ni), xw.pull_nsu_unit.map(nz)],
+                        dropna=False).harmonized_nsu_unit.nunique()
+    split = within[within > 1]
+    check("one raw label means one harmonized unit within a cell",
+          "issue #27 item 8, restated",
+          "0 cell(s) split a raw label across harmonized units",
+          f"{len(split)} cell(s) split a raw label across harmonized units",
+          f"{len(within):,} cells checked"
+          + ("" if split.empty else f"; offenders: {list(split.index[:3])}"))
+
+    # (b) the pairs that ARE cell-conditioned, which must be exactly CELL_MIX
+    across = xw.groupby([xw.cons_name.map(ni), xw.pull_nsu_unit.map(nz)],
+                        dropna=False).harmonized_nsu_unit.nunique()
+    cond = sorted(across[across > 1].index)
+    expected = sorted({(ni(i), nz(u)) for _p, _m, i, u in CELL_MIX})
+    check("only the declared cells are cell-conditioned",
+          "issue #27 item 8, restated",
+          f"{len(expected)} pair(s), all declared in CELL_MIX",
+          f"{len(cond)} pair(s), all declared in CELL_MIX" if cond == expected
+          else f"{len(cond)} pair(s), NOT matching CELL_MIX",
+          f"found {cond}; CELL_MIX declares {expected}")
 
 
 # ============================================================ 4. price coverage
@@ -656,6 +765,11 @@ def main():
     head("CLAIMS ABOUT IDENTIFICATION AND VOCABULARY")
     c_harmonization_uniqueness(rest)
     c_case_counts(rest)
+    # issue #27 item 8 -- three premises that were measured clean and left
+    # unguarded. Asserted here so a future build cannot quietly break one.
+    c_ascii_strip_no_collisions(rest)
+    c_restaurant_collapse_is_one_item(rest)
+    c_harmonization_is_cell_independent()
 
     head("CLAIMS ABOUT PRICES")
     c_pull_price_preload(rest)

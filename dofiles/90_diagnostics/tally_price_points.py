@@ -76,7 +76,24 @@ def load():
 
 
 def groups_reference_reading(rows):
-    """Municipal price = hetero-group; an accompanying province median = reference."""
+    """Municipal price = hetero-group; an accompanying province median = reference.
+
+    THIS IS ONE OF TWO READINGS THIS SCRIPT REPORTS, NOT THE PROJECT'S RULE. The
+    `if q: return q' below is the "quartiles take precedence" convention: where any
+    quartile exists in a case, the municipal prices are ignored entirely. Its
+    justification covers one pairing -- a province median accompanying a thin municipal
+    observation estimates the same central tendency at a different geography, so it is a
+    fallback reference rather than a second hetero-group. Generalising it to every case
+    was never ratified, which is why issue #27 item 4 flagged it.
+
+    IT IS NOT WHAT OUTCOME 2 DOES. Issue #21 section 2 settled that: price points are
+    merged within P20 on the peso VALUE, not on the rung label, so an mp25 of one
+    spelling can merge with an mp50 of another, and the pooled weights are cut into as
+    many parts as there are surviving points. Quartile precedence plays no part in it.
+
+    Both readings are printed side by side deliberately. Reporting one number would be
+    asserting a convention the project has not adopted.
+    """
     types = {r["price_type"] for r in rows}
     q = len(QUARTILE & types)
     if q:
