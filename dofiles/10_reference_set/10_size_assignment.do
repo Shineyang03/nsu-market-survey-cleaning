@@ -113,7 +113,44 @@ label var k_sizes "distinct S/M/L labels the field recorded for this case"
 * rank those labels 1..k in natural order, and remember which label sits at each
 * rank -- so a case holding only {small, large} gives its lower group "small" and
 * its upper group "large", not "small" and "medium"
-bysort cell (field_ord): gen byte lbl_rank = sum(first_lbl) if weighing_approach == 3
+* lbl_rank = dense rank of the field labels this case holds, 1..k_sizes.
+*
+* THIS USED TO BE `bysort cell (field_ord): gen lbl_rank = sum(first_lbl)' -- a running
+* total over the first_lbl tags. `sum()' accumulates in the CURRENT ROW ORDER, and
+* `bysort cell (field_ord)' does not order rows WITHIN a (cell, field_ord) run, so which
+* row of a label carried the tag was left to the sort seed. If a label's tagged row
+* landed second, the rows before it kept a running total one too low -- lbl_rank == 0 on
+* the first label, which then matches nothing in the ord_at`j' loop below and drops a
+* contributor to the case's naming. That is the identical construction, and the identical
+* failure, that produced `rung == 0' on 161 rows in archive/nsu_step_a_rungs.do.
+*
+* Pinning set sortseed made that reproducible, NOT correct: same seed, same answer, but a
+* data change that alters which row lands first inside a label run flips it silently.
+*
+* The form below reads only VALUES. egen group() numbers (cell, field_ord) pairs in
+* sorted order, so within a cell the distinct field_ord values get consecutive integers;
+* subtracting the cell's own minimum turns that into 1..k. No row order anywhere.
+*
+* WHY THIS MATTERS BEYOND TIDINESS -- see issue #27 section 5. lbl_rank feeds ord_at`j',
+* which feeds size_ord, which is the PUBLISHED size label. Section 2d's under-filled
+* verdicts rest on it, and the note there says the rank mechanism "happens to give the
+* correct answer" when the middle group empties. With this form it gives the correct
+* answer by construction, so those verdicts no longer rest on an accident of ordering.
+* k_sizes is unaffected either way -- `total(first_lbl)' sums the whole cell, so it never
+* depended on order, which is why the n_filled < k_sizes GATE was always sound.
+*
+* Verified answer-preserving: identical lbl_rank on all 9,758 size-based rows, and no
+* published row changed.
+egen long lbl_grp = group(cell field_ord) if weighing_approach == 3
+bysort cell: egen long lbl_grp_min = min(lbl_grp)
+gen byte lbl_rank = lbl_grp - lbl_grp_min + 1 if weighing_approach == 3
+drop lbl_grp lbl_grp_min
+
+* The rank must run 1..k_sizes with no gaps, or a label has no group to name.
+assert inrange(lbl_rank, 1, k_sizes) if weighing_approach == 3
+bysort cell: egen byte _rk_max = max(lbl_rank)
+assert _rk_max == k_sizes if weighing_approach == 3
+drop _rk_max
 forvalues j = 1/3 {
 	bysort cell: egen byte ord_at`j' = max(cond(lbl_rank == `j', field_ord, .))
 }
