@@ -263,6 +263,8 @@ PRICE_ONLY_PATH = T / "price_only_no_weight_anywhere.csv"
 POOLED_SPELLING_PATH = T / "issue21_pooled_spelling_conflicts.csv"
 MERGE_RULE_PATH = T / "issue21_merge_rule_candidates.csv"
 DROPPED_LABELS_PATH = T / "master_rename_dropped_labels.csv"
+WEIGHT_CORRECTION_PATH = (DC / "outputs" / "master_rename_build" / "tables"
+                          / "weight_correction_report.csv")
 CONV_OVERLAP_PATH = T / "conventional_unit_overlap.csv"
 CONV_COVERAGE_PATH = T / "conventional_price_coverage.csv"
 MEDIAN_DISAGREEMENT_PATH = T / "issue21_median_disagreement.csv"
@@ -1145,6 +1147,26 @@ def load_price_analyses(pr):
     dropped['_cell3'] = [f"{ng(p)}|{ng(m)}|{ni(i)}" for p, m, i in
                          zip(dropped.province, dropped.pull_municipal_city, dropped.cons_name)]
     tables['dropped_labels'] = _records(dropped)
+
+    # Per-weighing record of what happened to the raw {unit, weight} reading: whether
+    # the magnitude was changed, how far in decades, which STEP 3e rule decided it, and
+    # which of the three kinds of uncertainty it carries. Written by
+    # 90_diagnostics/report_weight_corrections.py -- read that file for what each flag
+    # means before drawing a conclusion from a count here. In particular
+    # `magnitude_corrected' is NOT a defect rate: kg->g is a conversion and is excluded,
+    # but a kilogram number ticked as grams IS counted, and that is most of them.
+    #
+    # Keyed on `id', which is stable across builds (03_clean_ms.do assigns it after an
+    # isid on raw inputs), plus the same 4-part cell key as everything else here.
+    if WEIGHT_CORRECTION_PATH.exists():
+        wc = pd.read_csv(WEIGHT_CORRECTION_PATH, encoding='utf-8-sig')
+        wc = _addkey4(wc, 'pull_province', 'pull_municipal_city', 'pull_item',
+                      'harmonized_nsu_unit')
+        tables['weight_corrections'] = _records(wc)
+    else:
+        # Absent rather than empty: the report is a separate step, so a build that has
+        # not run it should say so instead of implying zero corrections.
+        tables['weight_corrections'] = None
 
     conv_ov = pd.read_csv(CONV_OVERLAP_PATH, encoding='utf-8-sig')
     conv_ov = conv_ov.copy()

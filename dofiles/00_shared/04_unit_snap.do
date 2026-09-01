@@ -402,6 +402,18 @@ count if !missing(corrected_weight) ///
        & _other_ok
 assert r(N) == 0
 
+* KEEP the deciding rule and the referee pool. Which rule set a weight is the first
+* thing anyone asks of a corrected value, and reconstructing it afterwards means
+* re-implementing STEP 3e outside the pipeline -- the duplication this project keeps
+* getting bitten by. 90_diagnostics/report_weight_corrections.py reads these, and they
+* are what makes a corrected weight explainable in the pipeline explorer.
+encode _rule, gen(snap_rule)
+label var snap_rule "STEP 3e rule that set corrected_weight"
+encode _ref_src, gen(snap_referee)
+label var snap_referee "pool whose median refereed the choice (blank = no usable pool)"
+gen byte snap_block = (_pick_block == 1)
+label var snap_block "1 = published the block reading, 0 = published the anchor snap"
+
 drop _agree _agreed _cell_med _cell_nagree _ph_med _ph_n _p_med _p_n ///
      _ref_med _ref_src _pick_block _sub1 _cell_sub1 _rule _chosen _other ///
      _chosen_bad _other_ok
@@ -474,7 +486,7 @@ order id, last
 * downstream without re-running the snap. They are diagnostics: nothing in the build
 * reads them, and 03_clean_ms.do renames only correct_* -> corrected_*.
 replace w_step1 = round(w_step1, 1)
-keep correct* w_step1 review_step1 id
+keep correct* w_step1 review_step1 snap_rule snap_referee snap_block id
 
 * Deterministic row order: `id' is unique, so this leaves no ties for the sort
 * seed to break. Without it the saved file's ORDER varies between runs.

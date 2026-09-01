@@ -55,6 +55,9 @@ from pathlib import Path
 
 import pandas as pd
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from nsu_normalize import nz          # noqa: E402  -- the project's one normalizer
+
 DC = Path(r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel"
           r"\14 NSU Market Survey\Data Cleaning")
 T = DC / "outputs" / "tables"
@@ -122,6 +125,15 @@ def _n(s):
 def classify(label):
     """Return the removal reason for a raw NSU label, or None to keep it."""
     t = _n(label)
+    # EXACT holds labels as the CROSSWALK spells them, i.e. after the project
+    # normalizer has run, so the lookup must normalize the same way. `_n()' below
+    # deliberately does NOT strip non-ASCII (it mirrors the Stata substring rule and
+    # its patterns are all ASCII) -- fine for the patterns, wrong here: the EXACT
+    # entry "1.3 galon" has to match a raw price label whose 'l' carries an accent.
+    # Without this, build_pipeline_explorer.py's price-side tripwire reports that row
+    # as a BROKEN join instead of a deliberate removal, which is how this was found.
+    if nz(label) in EXACT:
+        return EXACT[nz(label)]
     if t in EXACT:
         return EXACT[t]
     if t in AMBIGUOUS:
