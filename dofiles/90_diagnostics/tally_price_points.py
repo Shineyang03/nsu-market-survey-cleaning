@@ -14,6 +14,21 @@ exactly two price points" and a 67.5% single-group share. The real figures are
 below. Count distinct price LEVELS and enumerate label COMBINATIONS -- never
 first-match-wins over a set.
 
+THE CELL KEY IS THE PROJECT NORMALIZER, AND ON THIS PRICE FILE THAT CHANGES NOTHING.
+Every figure below is a count of cells, so the figures are only as good as the rule that
+decides which rows share a cell. That rule is `nsu_normalize` (00_shared), the same one
+the crosswalk and the do-files join on. Switching this key onto it leaves all of them
+where they were -- 2,950 cases, 350 in the 'province median + unique_mun_price' group,
+38 of those inside PHP 20 -- because the three spellings the price file carries that the
+normalizer folds and a bare strip/lower does not are each isolated: DUENAS is the only
+non-ASCII municipality and no other spelling of it exists; one item contains
+"restaurant", so the prepped-food collapse has nothing to merge; and the one pair of
+raw NSU labels that differ only by internal whitespace, 'Ice Cream in cone' and
+'ice cream  in cone', sit in different municipalities (POTOTAN and LEON) and so were
+never one cell to begin with. The exposure is real and unguarded -- a second spelling of
+any of the three would split one cell in two and move these counts -- but it is latent,
+not active, so no number here has ever been wrong on this account.
+
 Definitions used:
   hetero-group  = a distinct price level that can be paired with a size.
           - a full mp25/mp50/mp75 triple gives 3 hetero-groups
@@ -26,7 +41,16 @@ Definitions used:
   also reported so the choice is visible.
 """
 import csv, collections
+import sys
 from pathlib import Path
+
+# The one definition of the project's string normalization, imported rather than copied.
+# The cell key below is the grain every figure in this file is counted at, so it has to
+# fold spellings exactly the way the rest of the pipeline does: province and
+# municipality UPPER-cased (ng), item through the prepped-food collapse (ni), raw NSU
+# label lower-cased (nz), all four with non-ASCII DROPPED rather than transliterated.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
+from nsu_normalize import nz, ni, ng
 
 SRC = (Path(r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel"
              r"\14 NSU Market Survey\NSU Market Survey Launch\data")
@@ -45,8 +69,8 @@ def load():
     cells = collections.defaultdict(list)
     with open(SRC, encoding="utf-8-sig") as fh:
         for r in csv.DictReader(fh):
-            key = (r["province"], r["pull_municipal_city"],
-                   r["cons_name"].strip().lower(), r["Unit_lbl"].strip().lower())
+            key = (ng(r["province"]), ng(r["pull_municipal_city"]),
+                   ni(r["cons_name"]), nz(r["Unit_lbl"]))
             cells[key].append(r)
     return cells
 
