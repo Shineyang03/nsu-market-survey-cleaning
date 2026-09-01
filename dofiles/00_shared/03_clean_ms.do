@@ -577,6 +577,14 @@ label var dup_key "n other weighings sharing this case x market x vendor x heter
 * encoded against the explicit `label define hetero' in 00_globals.do, not by
 * alphabetical accident, so its codes are stable too.
 *
+* `id' IDENTIFIES A WEIGHING, NOT A CASE. Do not use it as a case key and do not
+* "improve" it toward one. The case (the pooling grain) is
+*     province x municipality x item x harmonized_nsu_unit x corrected_unit
+* built as `cell' in 10_size_assignment.do, with the string form `prov_mun_nsu_item'
+* here. The case key SHOULD move when a fold changes -- that is what a fold does. A
+* weighing id must NOT, which is why the two are keyed differently and why this one
+* uses the raw label.
+*
 * `isid ..., sort' both sorts and asserts the key is unique. The assert matters more
 * than the sort: within a tie, ids would be handed out in whatever order the sort
 * seed chose, which is exactly the instability being removed. If this fires, the key

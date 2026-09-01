@@ -11,14 +11,14 @@ Philippine market survey (MS) weighings of non-standard units (NSUs) — a *puto
 
 - **Outcome 1, the reference set.** Grams by size (small/medium/large, or one weight
   for conventional units) per province × municipality × item × harmonized NSU unit.
-  **Built and live.** 3,305 rows.
+  **Built and live.** 3,303 rows.
 - **Outcome 2, PSPS retro-fitting.** Conversion factors mapping PSPS household
   quantities to grams, via price points. **Skeleton only** — see `master_outcome2.do`
   and issue #7.
 
 Repo: `Shineyang03/nsu-market-survey-cleaning` (user's own repo).
 Working dir: `C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning`
-Branch: `fix/snap-kg-band-and-price-drops`. HEAD: `8033446`. Working tree clean apart
+Branch: `fix/snap-kg-band-and-price-drops`. HEAD: (see git log). Working tree clean apart
 from an untracked `WB_2025_PH_Food_Prices.csv` that is not mine and should be left alone.
 
 ## Read these first
@@ -129,7 +129,12 @@ re-run before diagnosing. Pin folders offline before long Stata runs.
   files use underscores. Mixing them silently matches nothing — this has already
   produced one wrong finding.
 - Current counts: 11,494 raw MS weighings → 42 non-NSU excluded → 11,449 →
-  98 dropped in `07` → 11,351 → Outcome 1 publishes 3,305 rows.
+  98 dropped in `07` → 11,351 → Outcome 1 publishes 3,303 rows.
+  The reference set moved 3,321 → 3,305 (cabbage label dropped) → 3,304
+  (CELL_MIX closed an intra-cell split) → 3,303 (5 reviewer-flagged ambiguous
+  readings set to .c). The 5 stay in the weighings files as .c so the attrition
+  ledger can account for them; `missing()` is true for .c, so 10_size_assignment
+  drops them.
 
 ## Issue triage — 16 open
 

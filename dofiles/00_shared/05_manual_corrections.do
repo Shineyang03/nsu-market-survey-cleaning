@@ -163,6 +163,49 @@ replace corrected_weight = .c if inlist(harmonized_nsu_unit,"cup") & ///
 replace corrected_unit   = .c if inlist(harmonized_nsu_unit,"cup") & ///
 	pull_item == "prawns, lobster, shrimp" & weight == 5 & unit == 2
 
+* --- 4c. readings a FIELD REVIEWER flagged as ambiguous, from the curated `notes'
+*         column of add_comments_crosswalk.xlsx
+*
+* Set to .c on the same grounds as 4a/4b: the reading cannot be interpreted, and a
+* weight whose meaning is unknown is worse than no weight. Both were surfaced by
+* auditing all 15 curated notes rather than by a weight test -- neither row looks
+* wrong on its magnitude, which is exactly why the reviewer's note is the only
+* evidence there is.
+*
+* NOT dropped as a LABEL in 02_drop_non_nsu_labels.py, deliberately. These are
+* row-level recording problems, not bad labels: `bundle' for camote tops is a good
+* NSU in 28 municipalities and `putos' for preserved meat in 12. Removing either
+* label would delete a large, valid pool to fix 5 rows. The notes merge 1:1 on
+* (province, municipality, item, raw label, approach, market type, vendor, hetero),
+* so they land on individual weighings and are corrected at that grain.
+*
+* 4c-i. TIGBAUAN camote tops "bundle", reviewer note:
+*   "not clear if the enumerator recorded weight for 15 php (2 bundles) or weight
+*    for 1 bundle"
+* A factor-of-two ambiguity with no way to settle it: 340 g is either one bundle or
+* two. Its 8 cell siblings run 160-650 g, so both readings are plausible and the
+* cell cannot adjudicate. NOTE this is not the driver of the camote tops / bundle
+* dispersion on issue #28 -- that is 6.74x with or without this row.
+count if pull_item == "camote tops" & harmonized_nsu_unit == "bundle" ///
+	& pull_municipal_city == "TIGBAUAN" & strpos(cleaning_notes, "2 bundles") > 0
+_chk "4c-i. TIGBAUAN camote tops, 1-vs-2 bundle ambiguity" 1
+replace corrected_weight = .c if pull_item == "camote tops" & harmonized_nsu_unit == "bundle" ///
+	& pull_municipal_city == "TIGBAUAN" & strpos(cleaning_notes, "2 bundles") > 0
+
+* 4c-ii. PANITAN preserved meat "putos", reviewer note: "not sure" on 4 rows.
+* The reviewer looked at these and did not reach a verdict. Kept as .c rather than
+* guessed at. The cell keeps its other 2 weighings (225 and 260 g), so the case
+* still publishes. Overlaps issue #31 (preserved meat / putos outliers).
+count if pull_item == "preserved or processed meat (tocino, tapa, longaniza, etc)" ///
+	& harmonized_nsu_unit == "putos" & pull_municipal_city == "PANITAN" ///
+	& strpos(cleaning_notes, "not sure") > 0
+_chk "4c-ii. PANITAN preserved meat, reviewer unresolved" 4
+replace corrected_weight = .c ///
+	if pull_item == "preserved or processed meat (tocino, tapa, longaniza, etc)" ///
+	& harmonized_nsu_unit == "putos" & pull_municipal_city == "PANITAN" ///
+	& strpos(cleaning_notes, "not sure") > 0
+
+
 capture program drop _chk
 di as txt "05_manual_corrections.do: all blocks matched their expected counts"
 di as txt "{hline 78}" _n
