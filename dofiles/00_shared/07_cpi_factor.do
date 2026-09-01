@@ -293,15 +293,49 @@ if r(N) > 0 {
 }
 drop _merge_cw item_norm
 
+* ---- ASCII-SAFE JOIN KEY -------------------------------------------------------
+* item_group is a COICOP label, and 189 weighings carry
+*     "11.1.1 - Restaurants, cafe and the like (S)"
+* where the "e" is an e-acute (UTF-8 C3 A9). It used to be the merge key against the
+* CPI panel below. Both sides are written by 06_cpi_panel.py so they matched byte for
+* byte, but nothing made that robust: re-encode or hand-edit either CSV and the join
+* drops those rows.
+*
+* Worse, the post-merge assertions covered `weighing_approach == 2' only, and all 189
+* of those rows are approach 3 -- so the one guard that would have noticed excluded
+* exactly the rows at risk. They would have come out with a missing cpi and no error.
+*
+* Every one of the 16 item_group values begins with a distinct COICOP code
+* (01.1.1.12, 11.1.1, ...) containing nothing but digits and dots. Joining on the code
+* removes the exposure at source rather than guarding against it: no non-ASCII
+* character is in the key at all. item_group is kept for readability.
+gen str24 item_group_code = ""
+quietly replace item_group_code = ustrregexs(1) if ustrregexm(item_group, "^([0-9]+(\.[0-9]+)*)")
+
+* If this fires, an item_group arrived without a leading code and the join key cannot
+* be built. Fix the label in cpi_item_crosswalk.csv; do not fall back to merging on
+* the label, which is what this replaced.
+count if mi(item_group_code) & !mi(item_group)
+if r(N) > 0 {
+	di as error "`r(N)' row(s) have an item_group with no leading COICOP code:"
+	levelsof item_group if mi(item_group_code) & !mi(item_group), clean
+	exit 459
+}
+
 ********************************************************************************
 **# 4. Join the CPI level at m_ms and at REF
 ********************************************************************************
 
 preserve
     import delimited "${tables}\cpi_level_panel.csv", clear varnames(1) encoding("utf-8")
-    isid province item_group mdate
+    * same ASCII-safe key as the master side -- see the note above
+    gen str24 item_group_code = ""
+    quietly replace item_group_code = ustrregexs(1) if ustrregexm(item_group, "^([0-9]+(\.[0-9]+)*)")
+    assert !mi(item_group_code)
+    * the code must identify a panel row as tightly as the label did
+    isid province item_group_code mdate
     rename province pull_province
-    keep pull_province item_group mdate cpi cpi_ma3
+    keep pull_province item_group_code mdate cpi cpi_ma3
     tempfile cpi_panel
     save "`cpi_panel'"
 restore
@@ -309,7 +343,7 @@ restore
 * --- CPI at the weighing's own month ---
 gen mdate = m_ms
 format mdate %tm
-merge m:1 pull_province item_group mdate using "`cpi_panel'", keep(1 3) keepusing(cpi cpi_ma3) gen(_merge_ms)
+merge m:1 pull_province item_group_code mdate using "`cpi_panel'", keep(1 3) keepusing(cpi cpi_ma3) gen(_merge_ms)
 rename cpi     cpi_at_m_ms
 rename cpi_ma3 cpi_ma3_at_m_ms
 
@@ -319,13 +353,16 @@ di as result "  unmatched: " r(N)
 if r(N) > 0 {
     list id pull_province item_group m_ms if weighing_approach == 2 & _merge_ms == 1, noobs
 }
-assert weighing_approach != 2 | _merge_ms == 3
+* WIDENED past approach 2. It used to read `weighing_approach != 2 | _merge_ms == 3',
+* which let approach 1 and 3 rows go unmatched in silence -- and cpi_factor is built for
+* all three approaches, so an unmatched row there is a missing factor, not a no-op.
+assert _merge_ms == 3
 drop mdate _merge_ms
 
 * --- CPI at the reference month ---
 gen mdate = `ref_month'
 format mdate %tm
-merge m:1 pull_province item_group mdate using "`cpi_panel'", keep(1 3) keepusing(cpi cpi_ma3) gen(_merge_ref)
+merge m:1 pull_province item_group_code mdate using "`cpi_panel'", keep(1 3) keepusing(cpi cpi_ma3) gen(_merge_ref)
 rename cpi     cpi_at_ref
 rename cpi_ma3 cpi_ma3_at_ref
 
@@ -335,8 +372,13 @@ di as result "  unmatched: " r(N)
 if r(N) > 0 {
     list id pull_province item_group if weighing_approach == 2 & _merge_ref == 1, noobs
 }
-assert weighing_approach != 2 | _merge_ref == 3
+* WIDENED past approach 2, same reason as at m_ms above.
+assert _merge_ref == 3
 drop mdate _merge_ref
+
+* The code was only ever a join key. item_group itself stays, so nothing a reader
+* needs is lost, and dropping it keeps this fix invisible in every saved output.
+drop item_group_code
 
 ********************************************************************************
 **# 5. cpi_factor (level CPI)
