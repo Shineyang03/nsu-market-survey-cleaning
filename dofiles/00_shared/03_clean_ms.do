@@ -556,27 +556,117 @@ restore
 
 label var dup_key "n other weighings sharing this case x market x vendor x hetero key (0 = unique)"
 
-* STABLE ID -- assigned AFTER sorting on a content key, not on arrival order.
+* ---- DURABLE WEIGHING ID ---------------------------------------------------------
+* `id' is assigned ONCE per weighing and then remembered, so it means the same thing
+* in every future build. It is NOT recomputed from row position.
 *
-* This used to be a bare `gen id = _n'. `_n' is row position, and the order at this
-* point is whatever the upstream merges left behind: Stata's m:1 merge re-sorts the
-* master by its merge key, so changing any value inside the crosswalk's own sort key
-* reassigned `id' across most of the file. The effects were real:
-*   - a 6-row change to one cell's fold reported as 10 differing outputs and
-*     thousands of changed cells, in columns the change could not touch
-*     (vendor_id, submissiondate). See verify_reproducibility.py's docstring.
-*   - an old hand correction keyed on `inlist(id, 4242)' could not be ported,
-*     because two saved copies of the SAME build disagreed on which row 4242 was.
-*     05_manual_corrections.do section 4a records that and had to re-express the
-*     correction on the reading itself.
+* WHY, because the obvious version is wrong and was shipped. `id' used to be
+* `gen id = _n' after a sort. Sorting on a content key makes that DETERMINISTIC -- the
+* same rows always number the same way -- but `_n' is a POSITION, so a given weighing
+* does not keep its number when the row set changes. Dropping five non-unit labels
+* removed 16 weighings and shifted every id after them. Nine hand corrections keyed on
+* `id' then landed on the wrong weighings, one of them setting a chicken bilog to the
+* weight of a camote bilog. See section 5 of 05_manual_corrections.do.
 *
-* THE KEY IS ALL RAW INPUT, deliberately. pull_nsu_unit is the raw label, not
-* harmonized_nsu_unit -- keying on a harmonized value would move every id whenever a
-* fold changed, which is the problem this is fixing. vendor_id, market_type and
-* item_nsu_hetero_type come from the SurveyCTO case file. item_nsu_hetero_type is
-* encoded against the explicit `label define hetero' in 00_globals.do, not by
-* alphabetical accident, so its codes are stable too.
+* THE REGISTRY IS A REGISTRY, NOT A STALE INTERMEDIATE. Issue #33 was about a frozen
+* CSV that COULD have been recomputed and wasn't. This file is the opposite case: it
+* cannot be recomputed, because remembering a past assignment is the whole point. It is
+* committed, and it only ever grows -- an id is never reused and never reassigned.
 *
+* THE KEY is the same content key asserted just above: province, municipality, item,
+* RAW label, vendor, hetero type. All raw inputs. Deliberately not harmonized_nsu_unit
+* -- keying on a value the crosswalk can change would move ids whenever a fold changed,
+* which is the failure this replaces.
+
+* COMMAS ARE STRIPPED from the components before joining. The registry is a CSV so it
+* stays diffable in git, and several item names contain commas
+* ("crackers, cookies, buiscuits, chips/curls"). Stata quotes those correctly on export
+* but does not honour the quotes on import, which silently splits the key across six
+* variables. Stripping is the robust fix: the key needs to be unique and stable, not
+* readable, and the isid below proves the strip collides nothing.
+tempvar idkey
+gen str244 `idkey' = subinstr(pull_province, ",", "", .) ///
+    + "|" + subinstr(pull_municipal_city, ",", "", .) ///
+    + "|" + subinstr(pull_item, ",", "", .) ///
+    + "|" + subinstr(pull_nsu_unit, ",", "", .) ///
+    + "|" + subinstr(vendor_id, ",", "", .) ///
+    + "|" + string(item_nsu_hetero_type)
+isid `idkey'
+
+* First build ever, or the registry was lost: seed it from the current data. After this
+* the branch below runs instead and the seeding never happens again.
+capture confirm file "${tables}\weighing_id_registry.csv"
+if _rc {
+	di as error "NO ID REGISTRY at ${tables}\weighing_id_registry.csv -- seeding one."
+	di as error "This should happen exactly once in the life of the project. If you are"
+	di as error "seeing it on an established build, the registry was deleted: restore it"
+	di as error "from git rather than reseeding, or every id in every output changes."
+	preserve
+		keep `idkey'
+		sort `idkey'
+		gen long id = _n
+		rename `idkey' idkey
+		export delimited using "${tables}\weighing_id_registry.csv", replace
+	restore
+}
+
+* Attach the remembered id.
+preserve
+	* delimiter(",") is NOT optional. import delimited auto-detects, and the key holds
+	* five "|" characters against the header's zero commas, so it picks "|" and splits
+	* the key into six variables -- silently, reporting "(6 vars, 11,433 obs)".
+	import delimited "${tables}\weighing_id_registry.csv", clear varnames(1) ///
+		delimiter(",") stringcols(1) encoding("utf-8")
+	isid idkey
+	isid id
+	qui count
+	local n_reg = r(N)
+	qui summarize id, meanonly
+	local id_max = r(max)
+	tempfile registry
+	save "`registry'"
+restore
+
+rename `idkey' idkey
+merge m:1 idkey using "`registry'", keep(1 3) gen(_m_id)
+
+* A weighing the registry has never seen gets the next free id, and the registry grows.
+* This is the ONLY way an id is created after seeding. If it fires on a build you did
+* not expect it to, the content key moved -- most likely because normalization changed
+* upstream -- and the right response is to reconcile that, not to accept new ids for
+* rows that already had them.
+qui count if _m_id == 1
+local n_new = r(N)
+if `n_new' > 0 {
+	di as error "`n_new' weighing(s) are not in the id registry and will be assigned new ids."
+	di as error "Expected only when the market survey genuinely gained rows. If the raw"
+	di as error "data did not change, the content key moved -- reconcile that first."
+	sort idkey
+	qui gen long _newseq = sum(_m_id == 1) if _m_id == 1
+	qui replace id = `id_max' + _newseq if _m_id == 1
+	drop _newseq
+
+	preserve
+		keep if _m_id == 1
+		keep idkey id
+		append using "`registry'"
+		sort id
+		isid id
+		isid idkey
+		export delimited using "${tables}\weighing_id_registry.csv", replace
+		qui count
+		di as error "registry grew from `n_reg' to " r(N) " rows"
+	restore
+}
+
+drop _m_id idkey
+
+* Nothing may reach the rest of the pipeline without an id, and no id may be shared.
+assert !missing(id)
+isid id
+
+label var id "Durable weighing id: assigned once, remembered in outputs/tables/weighing_id_registry.csv"
+
 * `id' IDENTIFIES A WEIGHING, NOT A CASE. Do not use it as a case key and do not
 * "improve" it toward one. The case (the pooling grain) is
 *     province x municipality x item x harmonized_nsu_unit x corrected_unit
@@ -584,30 +674,6 @@ label var dup_key "n other weighings sharing this case x market x vendor x heter
 * here. The case key SHOULD move when a fold changes -- that is what a fold does. A
 * weighing id must NOT, which is why the two are keyed differently and why this one
 * uses the raw label.
-*
-* WHAT KIND OF STABILITY THIS BUYS, precisely -- the loose version of this claim has
-* already caused one real error. Sorting on a content key before `_n' makes `id'
-* stable against REORDERING: the same row set always numbers the same way, whatever
-* order the upstream merges left. It does NOT survive a change to the ROW SET. Drop or
-* add a weighing and every id after that position shifts by one.
-*
-* So `id' identifies a row WITHIN a build -- which is all the deterministic sort before
-* each save needs -- and must not be used to carry anything ACROSS builds. Nine hand
-* corrections keyed on `id' landed on the wrong weighings when five non-unit labels
-* were dropped; see section 5 of 05_manual_corrections.do, which is now keyed on
-* content instead. A count assertion cannot catch that: it proves the id exists, not
-* that it points where you meant.
-*
-* `isid ..., sort' both sorts and asserts the key is unique. The assert matters more
-* than the sort: within a tie, ids would be handed out in whatever order the sort
-* seed chose, which is exactly the instability being removed. If this fires, the key
-* needs another variable -- do NOT drop the isid to make it pass.
-isid pull_province pull_municipal_city pull_item pull_nsu_unit vendor_id ///
-     item_nsu_hetero_type, sort
-
-gen long id = _n
-
-label var id "Stable weighing id: _n after sorting on (province, municipality, item, raw NSU label, vendor, hetero type)"
 
 sort pull_province pull_municipal_city pull_item harmonized_nsu_unit market_type item_nsu_hetero_type
 
