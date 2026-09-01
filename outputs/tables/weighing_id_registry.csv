@@ -1,4 +1,4 @@
-idkey,id
+﻿idkey,id
 AKLAN|ALTAVAS|Cabbage|Bilog|EG43T67F|3,1
 AKLAN|ALTAVAS|Cabbage|Bilog|N57UAI6W|2,2
 AKLAN|ALTAVAS|Cabbage|Bilog|N57UAI6W|3,3
@@ -11494,3 +11494,952 @@ NEGROS OCCIDENTAL|VALLADOLID|Prawns Lobster shrimp|Tumpok|RAY0Q0P2|8,11492
 NEGROS OCCIDENTAL|VALLADOLID|Preserved or Processed Meat (Tocino Tapa Longaniza etc)|Bilog|G8UPII2G|8,11493
 NEGROS OCCIDENTAL|VALLADOLID|Preserved or Processed Meat (Tocino Tapa Longaniza etc)|Bilog|SQM231AU|8,11494
 NEGROS OCCIDENTAL|VALLADOLID|Preserved or Processed Meat (Tocino Tapa Longaniza etc)|Putos|3LNLYE00|8,11495
+AKLAN|ALTAVAS|cabbage|binilog,11496
+AKLAN|ALTAVAS|camote|binilog,11497
+AKLAN|ALTAVAS|carrot|binilog,11498
+AKLAN|ALTAVAS|chicken|bilog,11499
+AKLAN|ALTAVAS|drinks at restaurant hotel cafe or kiosk|pieces,11500
+AKLAN|ALTAVAS|fresh fish|he buy cooked food for his meals,11501
+AKLAN|ALTAVAS|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11502
+AKLAN|ALTAVAS|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,11503
+AKLAN|ALTAVAS|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maisot nga tasa,11504
+AKLAN|ALTAVAS|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|piraso,11505
+AKLAN|ALTAVAS|liquor (e.g whisky coconut wine)|lapad,11506
+AKLAN|ALTAVAS|loaf bread|kasarangan nga putos,11507
+AKLAN|ALTAVAS|loaf bread|mabahoe nga putos,11508
+AKLAN|ALTAVAS|loaf bread|malaking packs,11509
+AKLAN|ALTAVAS|mango|binilog,11510
+AKLAN|ALTAVAS|preserved or processed meat (tocino tapa longaniza etc)|bilog,11511
+AKLAN|ALTAVAS|preserved or processed meat (tocino tapa longaniza etc)|lata,11512
+AKLAN|ALTAVAS|rice|ganta,11513
+AKLAN|ALTAVAS|rice|letse,11514
+AKLAN|BANGA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maisot nga tasa,11515
+AKLAN|BANGA|preserved or processed meat (tocino tapa longaniza etc)|binilog,11516
+AKLAN|BATAN|cabbage|binilog,11517
+AKLAN|BATAN|camote tops|bundle,11518
+AKLAN|BATAN|carrot|binilog,11519
+AKLAN|BATAN|crackers cookies buiscuits chips/curls|packs,11520
+AKLAN|BATAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maisot nga tasa,11521
+AKLAN|BATAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maliit na tasa,11522
+AKLAN|BATAN|liquor (e.g whisky coconut wine)|lipid / lapad,11523
+AKLAN|BATAN|loaf bread|small,11524
+AKLAN|BATAN|preserved or processed meat (tocino tapa longaniza etc)|bilog,11525
+AKLAN|BATAN|preserved or processed meat (tocino tapa longaniza etc)|piraso,11526
+AKLAN|BATAN|rice|ganta,11527
+AKLAN|BURUANGA|crackers cookies buiscuits chips/curls|bilog,11528
+AKLAN|BURUANGA|crackers cookies buiscuits chips/curls|binilog,11529
+AKLAN|BURUANGA|crackers cookies buiscuits chips/curls|pieces or units,11530
+AKLAN|BURUANGA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11531
+AKLAN|BURUANGA|liquor (e.g whisky coconut wine)|lapad,11532
+AKLAN|BURUANGA|loaf bread|small packs,11533
+AKLAN|BURUANGA|loaf bread|tama-tama nga putos,11534
+AKLAN|BURUANGA|prawns lobster shrimp|tumpok,11535
+AKLAN|BURUANGA|rice|letse,11536
+AKLAN|IBAJAY|cabbage|binilog,11537
+AKLAN|IBAJAY|camote tops|bundle,11538
+AKLAN|IBAJAY|carrot|binilog,11539
+AKLAN|IBAJAY|carrot|piraso,11540
+AKLAN|IBAJAY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11541
+AKLAN|IBAJAY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maisot nga tasa,11542
+AKLAN|IBAJAY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|piraso,11543
+AKLAN|IBAJAY|liquor (e.g whisky coconut wine)|lapad,11544
+AKLAN|IBAJAY|loaf bread|large,11545
+AKLAN|IBAJAY|loaf bread|maisot nga putos,11546
+AKLAN|IBAJAY|loaf bread|medium,11547
+AKLAN|IBAJAY|preserved or processed meat (tocino tapa longaniza etc)|packs,11548
+AKLAN|LIBACAO|carrot|binilog,11549
+AKLAN|LIBACAO|chicken|bilog,11550
+AKLAN|LIBACAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11551
+AKLAN|LIBACAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maisot nga tasa,11552
+AKLAN|LIBACAO|liquor (e.g whisky coconut wine)|lapad,11553
+AKLAN|LIBACAO|loaf bread|kasarangan nga putos,11554
+AKLAN|LIBACAO|loaf bread|mabahoe nga putos,11555
+AKLAN|LIBACAO|loaf bread|maisot nga putos,11556
+AKLAN|LIBACAO|loaf bread|medium,11557
+AKLAN|LIBACAO|loaf bread|small,11558
+AKLAN|LIBACAO|prawns lobster shrimp|tumpok,11559
+AKLAN|LIBACAO|preserved or processed meat (tocino tapa longaniza etc)|bilog,11560
+AKLAN|LIBACAO|rice|salmon,11561
+AKLAN|MADALAG|cabbage|binilog,11562
+AKLAN|MADALAG|camote tops|bundle,11563
+AKLAN|MADALAG|carrot|binilog,11564
+AKLAN|MADALAG|crackers cookies buiscuits chips/curls|pieces or units,11565
+AKLAN|MADALAG|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maisot nga tasa,11566
+AKLAN|MADALAG|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|pieces or units,11567
+AKLAN|MADALAG|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|piraso,11568
+AKLAN|MADALAG|liquor (e.g whisky coconut wine)|lipid / lapad,11569
+AKLAN|MADALAG|loaf bread|maisot nga putos,11570
+AKLAN|MADALAG|loaf bread|medium,11571
+AKLAN|MADALAG|loaf bread|small packs,11572
+AKLAN|MADALAG|prawns lobster shrimp|tumpok,11573
+AKLAN|MADALAG|preserved or processed meat (tocino tapa longaniza etc)|piraso,11574
+AKLAN|MALAY|cabbage|binilog,11575
+AKLAN|MALAY|camote tops|bundle,11576
+AKLAN|MALAY|carrot|binilog,11577
+AKLAN|MALAY|carrot|piraso,11578
+AKLAN|MALAY|chicken|bilog,11579
+AKLAN|MALAY|drinks at restaurant hotel cafe or kiosk|pieces,11580
+AKLAN|MALAY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11581
+AKLAN|MALAY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maisot nga tasa,11582
+AKLAN|MALAY|liquor (e.g whisky coconut wine)|lapad,11583
+AKLAN|MALAY|loaf bread|kasarangan nga putos,11584
+AKLAN|MALAY|loaf bread|mabahoe nga putos,11585
+AKLAN|MALAY|loaf bread|maisot nga putos,11586
+AKLAN|MALAY|preserved or processed meat (tocino tapa longaniza etc)|binilog,11587
+AKLAN|MALAY|rice|ganta,11588
+AKLAN|MALINAO|crackers cookies buiscuits chips/curls|binilog,11589
+AKLAN|MALINAO|crackers cookies buiscuits chips/curls|packs,11590
+AKLAN|MALINAO|drinks at restaurant hotel cafe or kiosk|pieces,11591
+AKLAN|MALINAO|loaf bread|100pcs of pandesal,11592
+AKLAN|MALINAO|loaf bread|gagmay nga putos,11593
+AKLAN|MALINAO|prawns lobster shrimp|tumpok,11594
+AKLAN|MALINAO|preserved or processed meat (tocino tapa longaniza etc)|binilog,11595
+AKLAN|MALINAO|rice|ganta,11596
+AKLAN|NABAS|camote tops|bundle,11597
+AKLAN|NABAS|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maisot nga tasa,11598
+AKLAN|NABAS|loaf bread|mabahoe nga putos,11599
+AKLAN|TANGALAN|prawns lobster shrimp|tumpok,11600
+ANTIQUE|BARBAZA|chicken|bilog,11601
+ANTIQUE|BARBAZA|drinks at restaurant hotel cafe or kiosk|pieces,11602
+ANTIQUE|BARBAZA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|small cup (translate),11603
+ANTIQUE|BARBAZA|rice|letse,11604
+ANTIQUE|BARBAZA|rice|salmon,11605
+ANTIQUE|BELISON|cabbage|binilog,11606
+ANTIQUE|BELISON|carrot|binilog,11607
+ANTIQUE|BELISON|liquor (e.g whisky coconut wine)|bul,11608
+ANTIQUE|BELISON|liquor (e.g whisky coconut wine)|jr,11609
+ANTIQUE|BELISON|loaf bread|daragkul nga putos,11610
+ANTIQUE|BUGASONG|cabbage|binilog,11611
+ANTIQUE|BUGASONG|camote tops|bundle,11612
+ANTIQUE|BUGASONG|carrot|binilog,11613
+ANTIQUE|BUGASONG|chicken|bilog,11614
+ANTIQUE|BUGASONG|chicken|bilog nga manok,11615
+ANTIQUE|BUGASONG|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11616
+ANTIQUE|BUGASONG|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,11617
+ANTIQUE|BUGASONG|loaf bread|daragkul nga putos,11618
+ANTIQUE|BUGASONG|loaf bread|gagmay nga putos,11619
+ANTIQUE|BUGASONG|loaf bread|medium nga putos,11620
+ANTIQUE|BUGASONG|loaf bread|tama-tama nga putos,11621
+ANTIQUE|BUGASONG|prawns lobster shrimp|tumpok,11622
+ANTIQUE|BUGASONG|rice|letse,11623
+ANTIQUE|BUGASONG|rice|salmon,11624
+ANTIQUE|CULASI|cabbage|binilog,11625
+ANTIQUE|CULASI|camote tops|bundle,11626
+ANTIQUE|CULASI|carrot|binilog,11627
+ANTIQUE|CULASI|chicken|bilog,11628
+ANTIQUE|CULASI|crackers cookies buiscuits chips/curls|piraso,11629
+ANTIQUE|CULASI|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,11630
+ANTIQUE|CULASI|loaf bread|dalagku nga putos,11631
+ANTIQUE|CULASI|loaf bread|daragkul nga putos,11632
+ANTIQUE|CULASI|loaf bread|gagmay nga putos,11633
+ANTIQUE|CULASI|loaf bread|medium nga putos,11634
+ANTIQUE|CULASI|loaf bread|tama-tama nga putos,11635
+ANTIQUE|CULASI|preserved or processed meat (tocino tapa longaniza etc)|piraso,11636
+ANTIQUE|CULASI|rice|ganta,11637
+ANTIQUE|CULASI|rice|letse,11638
+ANTIQUE|HAMTIC|cabbage|binilog,11639
+ANTIQUE|HAMTIC|camote tops|bundle,11640
+ANTIQUE|HAMTIC|camote|tupok,11641
+ANTIQUE|HAMTIC|carrot|binilog,11642
+ANTIQUE|HAMTIC|chicken|bilog,11643
+ANTIQUE|HAMTIC|chicken|bilog nga manok,11644
+ANTIQUE|HAMTIC|chicken|binilog,11645
+ANTIQUE|HAMTIC|crackers cookies buiscuits chips/curls|bilog,11646
+ANTIQUE|HAMTIC|crackers cookies buiscuits chips/curls|putos,11647
+ANTIQUE|HAMTIC|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|cone ( dirty ice cream ) 10 pesos per cone,11648
+ANTIQUE|HAMTIC|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|pieces or units,11649
+ANTIQUE|HAMTIC|loaf bread|dalagku nga putos,11650
+ANTIQUE|HAMTIC|loaf bread|daragkul nga putos,11651
+ANTIQUE|HAMTIC|loaf bread|medium nga putos,11652
+ANTIQUE|HAMTIC|loaf bread|tama-tama nga putos,11653
+ANTIQUE|HAMTIC|mineral or spring water all drinking water sold in containers|tab,11654
+ANTIQUE|HAMTIC|preserved or processed meat (tocino tapa longaniza etc)|putos,11655
+ANTIQUE|HAMTIC|rice|letse,11656
+ANTIQUE|HAMTIC|rice|salmon,11657
+ANTIQUE|LAUA-AN|cabbage|binilog,11658
+ANTIQUE|LAUA-AN|carrot|binilog,11659
+ANTIQUE|LAUA-AN|chicken|bilog,11660
+ANTIQUE|LAUA-AN|chicken|bilog nga manok,11661
+ANTIQUE|LAUA-AN|chicken|pieces or units,11662
+ANTIQUE|LAUA-AN|crackers cookies buiscuits chips/curls|putos,11663
+ANTIQUE|LAUA-AN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,11664
+ANTIQUE|LAUA-AN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11665
+ANTIQUE|LAUA-AN|loaf bread|tama-tama nga putos,11666
+ANTIQUE|LAUA-AN|preserved or processed meat (tocino tapa longaniza etc)|bilog,11667
+ANTIQUE|LAUA-AN|preserved or processed meat (tocino tapa longaniza etc)|binilog,11668
+ANTIQUE|LAUA-AN|rice|letse,11669
+ANTIQUE|LAUA-AN|rice|salmon,11670
+ANTIQUE|LIBERTAD|cabbage|binilog,11671
+ANTIQUE|LIBERTAD|cabbage|pack,11672
+ANTIQUE|LIBERTAD|cabbage|per pack,11673
+ANTIQUE|LIBERTAD|camote tops|bundle,11674
+ANTIQUE|LIBERTAD|carrot|binilog,11675
+ANTIQUE|LIBERTAD|carrot|pack,11676
+ANTIQUE|LIBERTAD|chicken|bilog,11677
+ANTIQUE|LIBERTAD|chicken|bilog nga manok,11678
+ANTIQUE|LIBERTAD|crackers cookies buiscuits chips/curls|putos,11679
+ANTIQUE|LIBERTAD|fresh fish|binilog,11680
+ANTIQUE|LIBERTAD|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11681
+ANTIQUE|LIBERTAD|loaf bread|dalagku nga putos,11682
+ANTIQUE|LIBERTAD|loaf bread|maliit na packs,11683
+ANTIQUE|LIBERTAD|loaf bread|tama-tama nga putos,11684
+ANTIQUE|LIBERTAD|preserved or processed meat (tocino tapa longaniza etc)|bilog,11685
+ANTIQUE|LIBERTAD|rice|ganta,11686
+ANTIQUE|PANDAN|beef|patupa,11687
+ANTIQUE|PANDAN|cabbage|binilog,11688
+ANTIQUE|PANDAN|camote tops|bundle,11689
+ANTIQUE|PANDAN|carrot|binilog,11690
+ANTIQUE|PANDAN|carrot|pack,11691
+ANTIQUE|PANDAN|carrot|piraso,11692
+ANTIQUE|PANDAN|chicken|bilog,11693
+ANTIQUE|PANDAN|chicken|bilog nga manok,11694
+ANTIQUE|PANDAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11695
+ANTIQUE|PANDAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,11696
+ANTIQUE|PANDAN|loaf bread|dalagku nga putos,11697
+ANTIQUE|PANDAN|loaf bread|daragkul nga putos,11698
+ANTIQUE|PANDAN|loaf bread|malaking packs,11699
+ANTIQUE|PANDAN|loaf bread|medium nga putos,11700
+ANTIQUE|PANDAN|loaf bread|tama-tama nga putos,11701
+ANTIQUE|PANDAN|pork|pieces barbeque,11702
+ANTIQUE|PANDAN|preserved or processed meat (tocino tapa longaniza etc)|bilog,11703
+ANTIQUE|PANDAN|preserved or processed meat (tocino tapa longaniza etc)|binilog,11704
+ANTIQUE|PANDAN|rice|letse,11705
+ANTIQUE|PATNONGON|cabbage|binilog,11706
+ANTIQUE|PATNONGON|camote tops|bundle,11707
+ANTIQUE|PATNONGON|carrot|binilog,11708
+ANTIQUE|PATNONGON|chicken|bilog,11709
+ANTIQUE|PATNONGON|chicken|bilog nga manok,11710
+ANTIQUE|PATNONGON|fresh fish|binilog,11711
+ANTIQUE|PATNONGON|fresh fish|tupok,11712
+ANTIQUE|PATNONGON|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,11713
+ANTIQUE|PATNONGON|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11714
+ANTIQUE|PATNONGON|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,11715
+ANTIQUE|PATNONGON|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,11716
+ANTIQUE|PATNONGON|loaf bread|daragkul nga putos,11717
+ANTIQUE|PATNONGON|loaf bread|gagmay nga putos,11718
+ANTIQUE|PATNONGON|loaf bread|medium nga putos,11719
+ANTIQUE|PATNONGON|loaf bread|tama-tama nga putos,11720
+ANTIQUE|PATNONGON|preserved or processed meat (tocino tapa longaniza etc)|bilog,11721
+ANTIQUE|PATNONGON|preserved or processed meat (tocino tapa longaniza etc)|binilog,11722
+ANTIQUE|PATNONGON|rice|letse,11723
+ANTIQUE|PATNONGON|rice|salmon,11724
+ANTIQUE|SAN REMIGIO|cabbage|binilog,11725
+ANTIQUE|SAN REMIGIO|camote tops|bundle,11726
+ANTIQUE|SAN REMIGIO|carrot|binilog,11727
+ANTIQUE|SAN REMIGIO|chicken|bilog nga manok,11728
+ANTIQUE|SAN REMIGIO|chicken|whole (chicken),11729
+ANTIQUE|SAN REMIGIO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11730
+ANTIQUE|SAN REMIGIO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,11731
+ANTIQUE|SAN REMIGIO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,11732
+ANTIQUE|SAN REMIGIO|liquor (e.g whisky coconut wine)|ball (tuba),11733
+ANTIQUE|SAN REMIGIO|liquor (e.g whisky coconut wine)|glass,11734
+ANTIQUE|SAN REMIGIO|loaf bread|daragkul nga putos,11735
+ANTIQUE|SAN REMIGIO|loaf bread|large,11736
+ANTIQUE|SAN REMIGIO|loaf bread|medium,11737
+ANTIQUE|SAN REMIGIO|loaf bread|tama-tama nga putos,11738
+ANTIQUE|SAN REMIGIO|prawns lobster shrimp|tumpok,11739
+ANTIQUE|SAN REMIGIO|preserved or processed meat (tocino tapa longaniza etc)|binilog,11740
+ANTIQUE|SAN REMIGIO|rice|letse,11741
+ANTIQUE|SEBASTE|cabbage|binilog,11742
+ANTIQUE|SEBASTE|camote tops|bundle,11743
+ANTIQUE|SEBASTE|carrot|binilog,11744
+ANTIQUE|SEBASTE|chicken|bilog,11745
+ANTIQUE|SEBASTE|chicken|bilog nga manok,11746
+ANTIQUE|SEBASTE|chicken|binilog,11747
+ANTIQUE|SEBASTE|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11748
+ANTIQUE|SEBASTE|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,11749
+ANTIQUE|SEBASTE|loaf bread|medium,11750
+ANTIQUE|SEBASTE|loaf bread|tama-tama nga putos,11751
+ANTIQUE|SEBASTE|preserved or processed meat (tocino tapa longaniza etc)|binilog,11752
+ANTIQUE|SEBASTE|rice|letse,11753
+ANTIQUE|SIBALOM|cabbage|binilog,11754
+ANTIQUE|SIBALOM|camote tops|bundle,11755
+ANTIQUE|SIBALOM|carrot|binilog,11756
+ANTIQUE|SIBALOM|carrot|tumpok / plastic,11757
+ANTIQUE|SIBALOM|chicken|bilog nga manok,11758
+ANTIQUE|SIBALOM|chicken|whole (chicken),11759
+ANTIQUE|SIBALOM|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|apa,11760
+ANTIQUE|SIBALOM|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11761
+ANTIQUE|SIBALOM|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,11762
+ANTIQUE|SIBALOM|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|small cup,11763
+ANTIQUE|SIBALOM|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|small cup (translate),11764
+ANTIQUE|SIBALOM|liquor (e.g whisky coconut wine)|14 tasa,11765
+ANTIQUE|SIBALOM|liquor (e.g whisky coconut wine)|7 ball,11766
+ANTIQUE|SIBALOM|liquor (e.g whisky coconut wine)|boll,11767
+ANTIQUE|SIBALOM|liquor (e.g whisky coconut wine)|coconut wine,11768
+ANTIQUE|SIBALOM|liquor (e.g whisky coconut wine)|takal ng tuba,11769
+ANTIQUE|SIBALOM|loaf bread|gagmay nga putos,11770
+ANTIQUE|SIBALOM|loaf bread|large,11771
+ANTIQUE|SIBALOM|loaf bread|medium,11772
+ANTIQUE|SIBALOM|loaf bread|tama-tama nga putos,11773
+ANTIQUE|SIBALOM|mango|binilog,11774
+ANTIQUE|SIBALOM|preserved or processed meat (tocino tapa longaniza etc)|binilog,11775
+ANTIQUE|SIBALOM|rice|ganta,11776
+ANTIQUE|SIBALOM|rice|letse,11777
+ANTIQUE|SIBALOM|rice|salmon,11778
+ANTIQUE|TIBIAO|beer|1 case,11779
+ANTIQUE|TIBIAO|camote tops|bundle,11780
+ANTIQUE|TIBIAO|chicken|bilog,11781
+ANTIQUE|TIBIAO|chicken|bilog nga manok,11782
+ANTIQUE|TIBIAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|small cup (translate),11783
+ANTIQUE|TIBIAO|loaf bread|dalagku nga putos,11784
+ANTIQUE|TIBIAO|loaf bread|tama-tama nga putos,11785
+ANTIQUE|TIBIAO|mineral or spring water all drinking water sold in containers|7 liters of gallons,11786
+ANTIQUE|TIBIAO|rice|letse,11787
+ANTIQUE|TIBIAO|rice|salmon,11788
+ANTIQUE|TOBIAS FORNIER|cabbage|binilog,11789
+ANTIQUE|TOBIAS FORNIER|carrot|binilog,11790
+ANTIQUE|TOBIAS FORNIER|chicken|bilog,11791
+ANTIQUE|TOBIAS FORNIER|chicken|bilog nga manok,11792
+ANTIQUE|TOBIAS FORNIER|chicken|buong (manok),11793
+ANTIQUE|TOBIAS FORNIER|crackers cookies buiscuits chips/curls|bilog,11794
+ANTIQUE|TOBIAS FORNIER|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,11795
+ANTIQUE|TOBIAS FORNIER|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11796
+ANTIQUE|TOBIAS FORNIER|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,11797
+ANTIQUE|TOBIAS FORNIER|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,11798
+ANTIQUE|TOBIAS FORNIER|liquor (e.g whisky coconut wine)|lapad,11799
+ANTIQUE|TOBIAS FORNIER|loaf bread|daragkul nga putos,11800
+ANTIQUE|TOBIAS FORNIER|loaf bread|tama-tama nga putos,11801
+ANTIQUE|TOBIAS FORNIER|preserved or processed meat (tocino tapa longaniza etc)|bilog,11802
+ANTIQUE|TOBIAS FORNIER|preserved or processed meat (tocino tapa longaniza etc)|binilog,11803
+ANTIQUE|TOBIAS FORNIER|rice|letse,11804
+ANTIQUE|TOBIAS FORNIER|rice|salmon,11805
+ANTIQUE|VALDERRAMA|cabbage|binilog,11806
+ANTIQUE|VALDERRAMA|carrot|binilog,11807
+ANTIQUE|VALDERRAMA|chicken|bilog,11808
+ANTIQUE|VALDERRAMA|chicken|bilog nga manok,11809
+ANTIQUE|VALDERRAMA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,11810
+ANTIQUE|VALDERRAMA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,11811
+ANTIQUE|VALDERRAMA|prawns lobster shrimp|plastic,11812
+ANTIQUE|VALDERRAMA|preserved or processed meat (tocino tapa longaniza etc)|binilog,11813
+ANTIQUE|VALDERRAMA|preserved or processed meat (tocino tapa longaniza etc)|can,11814
+ANTIQUE|VALDERRAMA|rice|salmon,11815
+CAPIZ|CUARTERO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,11816
+CAPIZ|CUARTERO|loaf bread|gagmay nga putos,11817
+CAPIZ|CUARTERO|rice|salmon,11818
+CAPIZ|DAO|cabbage|putos /mix mix,11819
+CAPIZ|DAO|cabbage|small packs,11820
+CAPIZ|DAO|carrot|putos /mix mix,11821
+CAPIZ|DAO|preserved or processed meat (tocino tapa longaniza etc)|lata,11822
+CAPIZ|DUMALAG|camote tops|bundle,11823
+CAPIZ|DUMALAG|chicken|bilog,11824
+CAPIZ|DUMALAG|fresh fish|pack,11825
+CAPIZ|DUMALAG|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gmay nga cup,11826
+CAPIZ|DUMALAG|loaf bread|dalagku nga putos,11827
+CAPIZ|DUMALAG|loaf bread|gagmay nga putos,11828
+CAPIZ|DUMALAG|loaf bread|tama-tama nga putos,11829
+CAPIZ|DUMALAG|rice|letse,11830
+CAPIZ|DUMARAO|camote tops|bundle,11831
+CAPIZ|DUMARAO|carrot|pack,11832
+CAPIZ|DUMARAO|chicken|bilog nga manok,11833
+CAPIZ|DUMARAO|chicken|whole (chicken),11834
+CAPIZ|DUMARAO|rice|letse,11835
+CAPIZ|DUMARAO|rice|salmon,11836
+CAPIZ|IVISAN|camote tops|bugkos,11837
+CAPIZ|IVISAN|carrot|pieces or units,11838
+CAPIZ|IVISAN|chicken|bilog,11839
+CAPIZ|IVISAN|crackers cookies buiscuits chips/curls|large packs,11840
+CAPIZ|IVISAN|crackers cookies buiscuits chips/curls|packs,11841
+CAPIZ|IVISAN|crackers cookies buiscuits chips/curls|pieces or units,11842
+CAPIZ|IVISAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,11843
+CAPIZ|IVISAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gmay nga cup,11844
+CAPIZ|IVISAN|loaf bread|dalagku nga putos,11845
+CAPIZ|IVISAN|loaf bread|gagmay nga putos,11846
+CAPIZ|IVISAN|loaf bread|medium packs,11847
+CAPIZ|IVISAN|loaf bread|small packs,11848
+CAPIZ|IVISAN|loaf bread|tama-tama nga putos,11849
+CAPIZ|IVISAN|prawns lobster shrimp|1 pc. prawn,11850
+CAPIZ|IVISAN|preserved or processed meat (tocino tapa longaniza etc)|putos,11851
+CAPIZ|JAMINDAN|camote tops|cassava leaves,11852
+CAPIZ|JAMINDAN|chicken|binilog,11853
+CAPIZ|JAMINDAN|fresh fish|binilog,11854
+CAPIZ|JAMINDAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maisot nga tasa,11855
+CAPIZ|JAMINDAN|loaf bread|gagmay nga putos,11856
+CAPIZ|JAMINDAN|loaf bread|pieces,11857
+CAPIZ|JAMINDAN|loaf bread|tama-tama nga putos,11858
+CAPIZ|JAMINDAN|mango|binilog,11859
+CAPIZ|JAMINDAN|rice|salmon,11860
+CAPIZ|MA-AYON|camote tops|bundle,11861
+CAPIZ|MA-AYON|camote|small size plastic,11862
+CAPIZ|MA-AYON|carrot|pack,11863
+CAPIZ|MA-AYON|chicken|1order,11864
+CAPIZ|MA-AYON|chicken|bilog,11865
+CAPIZ|MA-AYON|chicken|slice,11866
+CAPIZ|MA-AYON|chicken|tingi tingi,11867
+CAPIZ|MA-AYON|fresh fish|putos,11868
+CAPIZ|MA-AYON|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,11869
+CAPIZ|MA-AYON|loaf bread|dalagku nga putos,11870
+CAPIZ|MA-AYON|loaf bread|gagmay nga putos,11871
+CAPIZ|MA-AYON|loaf bread|tama-tama nga putos,11872
+CAPIZ|MA-AYON|preserved or processed meat (tocino tapa longaniza etc)|lata,11873
+CAPIZ|MA-AYON|rice|salmon,11874
+CAPIZ|MAMBUSAO|beer|1 case,11875
+CAPIZ|MAMBUSAO|camote tops|bundle,11876
+CAPIZ|MAMBUSAO|drinks at restaurant hotel cafe or kiosk|pieces,11877
+CAPIZ|MAMBUSAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,11878
+CAPIZ|MAMBUSAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|cone,11879
+CAPIZ|MAMBUSAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,11880
+CAPIZ|MAMBUSAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|putos,11881
+CAPIZ|MAMBUSAO|loaf bread|gagmay nga putos,11882
+CAPIZ|MAMBUSAO|loaf bread|medium,11883
+CAPIZ|MAMBUSAO|loaf bread|pieces,11884
+CAPIZ|MAMBUSAO|loaf bread|tama-tama nga putos,11885
+CAPIZ|MAMBUSAO|mango|bilog,11886
+CAPIZ|MAMBUSAO|rice|letse,11887
+CAPIZ|PANAY|cabbage|tumpok,11888
+CAPIZ|PANAY|camote tops|cassava & malunggay leaves paco or fern squash leaves,11889
+CAPIZ|PANAY|carrot|packs of mix veges,11890
+CAPIZ|PANAY|carrot|tumpok,11891
+CAPIZ|PANAY|chicken|whole (chicken),11892
+CAPIZ|PANAY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,11893
+CAPIZ|PANAY|loaf bread|dalagku nga putos,11894
+CAPIZ|PANAY|loaf bread|gagmay nga putos,11895
+CAPIZ|PANAY|loaf bread|large,11896
+CAPIZ|PANAY|loaf bread|per piece,11897
+CAPIZ|PANAY|loaf bread|piece,11898
+CAPIZ|PANAY|loaf bread|tama-tama nga putos,11899
+CAPIZ|PANAY|pork|pack,11900
+CAPIZ|PANAY|prawns lobster shrimp|caltex,11901
+CAPIZ|PANAY|rice|letse,11902
+CAPIZ|PANITAN|cabbage|shredded cabbage,11903
+CAPIZ|PANITAN|carrot|mixmix,11904
+CAPIZ|PANITAN|chicken|bilog,11905
+CAPIZ|PANITAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|putos,11906
+CAPIZ|PANITAN|loaf bread|large,11907
+CAPIZ|PANITAN|loaf bread|medium,11908
+CAPIZ|PANITAN|loaf bread|small,11909
+CAPIZ|PANITAN|loaf bread|tama-tama nga putos,11910
+CAPIZ|PILAR|cabbage|mix vegetables (per tumbok),11911
+CAPIZ|PILAR|carrot|mix vegetables (per tumpok),11912
+CAPIZ|PILAR|chicken|bilog,11913
+CAPIZ|PILAR|fresh fish|packs,11914
+CAPIZ|PILAR|fresh fish|puts or plastic,11915
+CAPIZ|PILAR|fresh fish|repack,11916
+CAPIZ|PILAR|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|cone,11917
+CAPIZ|PILAR|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|cone of an ice cream,11918
+CAPIZ|PILAR|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,11919
+CAPIZ|PILAR|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|ice cream stick,11920
+CAPIZ|PILAR|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|putos,11921
+CAPIZ|PILAR|liquor (e.g whisky coconut wine)|long-neck,11922
+CAPIZ|PILAR|loaf bread|gagmay nga putos,11923
+CAPIZ|PILAR|loaf bread|large,11924
+CAPIZ|PILAR|loaf bread|medium,11925
+CAPIZ|PILAR|loaf bread|piece,11926
+CAPIZ|PILAR|loaf bread|small,11927
+CAPIZ|PILAR|loaf bread|tama-tama nga putos,11928
+CAPIZ|PILAR|rice|letse,11929
+CAPIZ|PONTEVEDRA|chicken|whole (chicken),11930
+CAPIZ|PONTEVEDRA|drinks at restaurant hotel cafe or kiosk|pieces,11931
+CAPIZ|PONTEVEDRA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|1 plastic cup,11932
+CAPIZ|PONTEVEDRA|prawns lobster shrimp|1 k caltex(kabo),11933
+CAPIZ|PRESIDENT ROXAS|carrot|mixmix,11934
+CAPIZ|PRESIDENT ROXAS|chicken|whole (chicken),11935
+CAPIZ|SAPI-AN|camote tops|bugkos,11936
+CAPIZ|SAPI-AN|carrot|mixmix,11937
+CAPIZ|SAPI-AN|crackers cookies buiscuits chips/curls|putos,11938
+CAPIZ|SAPI-AN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,11939
+CAPIZ|SAPI-AN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maliit na tasa,11940
+CAPIZ|SAPI-AN|liquor (e.g whisky coconut wine)|lipid / lapad,11941
+CAPIZ|SAPI-AN|loaf bread|gagmay nga putos,11942
+CAPIZ|SAPI-AN|loaf bread|maisot nga putos,11943
+CAPIZ|SAPI-AN|loaf bread|small,11944
+CAPIZ|SAPI-AN|loaf bread|tama-tama nga putos,11945
+CAPIZ|SAPI-AN|preserved or processed meat (tocino tapa longaniza etc)|binilog,11946
+CAPIZ|SAPI-AN|preserved or processed meat (tocino tapa longaniza etc)|piraso,11947
+CAPIZ|SAPI-AN|rice|letse,11948
+CAPIZ|SIGMA|cabbage|putos,11949
+CAPIZ|SIGMA|camote tops|bundle,11950
+CAPIZ|SIGMA|camote|bilog,11951
+CAPIZ|SIGMA|camote|tumpok,11952
+CAPIZ|SIGMA|carrot|mix slice of carrot,11953
+CAPIZ|SIGMA|chicken|bilog,11954
+CAPIZ|SIGMA|drinks at restaurant hotel cafe or kiosk|pieces,11955
+CAPIZ|SIGMA|fresh fish|per putos ung binibili na isda,11956
+CAPIZ|SIGMA|fresh fish|putos,11957
+CAPIZ|SIGMA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|cone,11958
+CAPIZ|SIGMA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|per bowl serving of halo halo,11959
+CAPIZ|SIGMA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|putos,11960
+CAPIZ|SIGMA|liquor (e.g whisky coconut wine)|long-neck,11961
+CAPIZ|SIGMA|loaf bread|gagmay nga putos,11962
+CAPIZ|SIGMA|loaf bread|large,11963
+CAPIZ|SIGMA|loaf bread|medium,11964
+CAPIZ|SIGMA|loaf bread|small,11965
+CAPIZ|SIGMA|loaf bread|tama-tama nga putos,11966
+CAPIZ|SIGMA|preserved or processed meat (tocino tapa longaniza etc)|bilog,11967
+CAPIZ|SIGMA|preserved or processed meat (tocino tapa longaniza etc)|lata,11968
+CAPIZ|SIGMA|rice|salmon,11969
+CAPIZ|TAPAZ|camote tops|bundle,11970
+CAPIZ|TAPAZ|chicken|bilog,11971
+CAPIZ|TAPAZ|drinks at restaurant hotel cafe or kiosk|pieces,11972
+CAPIZ|TAPAZ|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gmay nga cup,11973
+CAPIZ|TAPAZ|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|putos,11974
+CAPIZ|TAPAZ|liquor (e.g whisky coconut wine)|long-neck,11975
+CAPIZ|TAPAZ|loaf bread|gagmay nga putos,11976
+CAPIZ|TAPAZ|loaf bread|large,11977
+CAPIZ|TAPAZ|loaf bread|medium,11978
+CAPIZ|TAPAZ|loaf bread|small,11979
+CAPIZ|TAPAZ|loaf bread|tama-tama nga putos,11980
+CAPIZ|TAPAZ|mineral or spring water all drinking water sold in containers|5 gallon black container,11981
+CAPIZ|TAPAZ|prawns lobster shrimp|tumpok,11982
+CAPIZ|TAPAZ|rice|salmon,11983
+ILOILO|AJUY|cabbage|pack shredded cabbbage,11984
+ILOILO|AJUY|cabbage|packs,11985
+ILOILO|AJUY|chicken|bilog,11986
+ILOILO|AJUY|crackers cookies buiscuits chips/curls|can,11987
+ILOILO|AJUY|fresh fish|packs,11988
+ILOILO|AJUY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,11989
+ILOILO|AJUY|loaf bread|small,11990
+ILOILO|AJUY|loaf bread|tama-tama nga putos,11991
+ILOILO|AJUY|prawns lobster shrimp|packs,11992
+ILOILO|AJUY|rice|letse,11993
+ILOILO|ALIMODIAN|cabbage|binilog,11994
+ILOILO|ALIMODIAN|carrot|mixmix,11995
+ILOILO|ALIMODIAN|chicken|bilog nga manok,11996
+ILOILO|ALIMODIAN|chicken|patupong,11997
+ILOILO|ALIMODIAN|chicken|whole (chicken),11998
+ILOILO|ALIMODIAN|crackers cookies buiscuits chips/curls|tupper ware,11999
+ILOILO|ALIMODIAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,12000
+ILOILO|ALIMODIAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|plastic cup,12001
+ILOILO|ALIMODIAN|liquor (e.g whisky coconut wine)|4 later galon,12002
+ILOILO|ALIMODIAN|loaf bread|dalagku nga putos,12003
+ILOILO|ALIMODIAN|loaf bread|daragkul nga putos,12004
+ILOILO|ALIMODIAN|loaf bread|medium nga putos,12005
+ILOILO|ALIMODIAN|loaf bread|tama-tama nga putos,12006
+ILOILO|ANILAO|chicken|whole (chicken),12007
+ILOILO|BADIANGAN|chicken|bilog,12008
+ILOILO|BADIANGAN|crackers cookies buiscuits chips/curls|tupperware,12009
+ILOILO|BADIANGAN|drinks at restaurant hotel cafe or kiosk|pieces,12010
+ILOILO|BADIANGAN|fresh fish|bilog,12011
+ILOILO|BADIANGAN|loaf bread|dalagku nga putos,12012
+ILOILO|BADIANGAN|loaf bread|gagmay nga putos,12013
+ILOILO|BADIANGAN|loaf bread|plastic bag,12014
+ILOILO|BADIANGAN|loaf bread|small,12015
+ILOILO|BADIANGAN|loaf bread|tama-tama nga putos,12016
+ILOILO|BADIANGAN|mango|bilog,12017
+ILOILO|BADIANGAN|preserved or processed meat (tocino tapa longaniza etc)|bilog,12018
+ILOILO|BADIANGAN|rice|letse,12019
+ILOILO|BADIANGAN|rice|salmon,12020
+ILOILO|BALASAN|chicken|whole (chicken),12021
+ILOILO|BALASAN|crackers cookies buiscuits chips/curls|bilog,12022
+ILOILO|BALASAN|fresh fish|putos,12023
+ILOILO|BALASAN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12024
+ILOILO|BALASAN|loaf bread|dalagku nga putos,12025
+ILOILO|BALASAN|loaf bread|gagmay nga putos,12026
+ILOILO|BALASAN|loaf bread|large,12027
+ILOILO|BALASAN|loaf bread|tama-tama nga putos,12028
+ILOILO|BALASAN|preserved or processed meat (tocino tapa longaniza etc)|packs,12029
+ILOILO|BALASAN|rice|letse,12030
+ILOILO|BALASAN|rice|salmon,12031
+ILOILO|BANATE|cabbage|pieces or units,12032
+ILOILO|BANATE|camote tops|bundle,12033
+ILOILO|BANATE|carrot|pieces or units,12034
+ILOILO|BANATE|chicken|whole (chicken),12035
+ILOILO|BANATE|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12036
+ILOILO|BANATE|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,12037
+ILOILO|BANATE|loaf bread|dalagku nga putos,12038
+ILOILO|BANATE|loaf bread|gagmay nga putos,12039
+ILOILO|BANATE|loaf bread|medium,12040
+ILOILO|BANATE|loaf bread|medium packs,12041
+ILOILO|BANATE|loaf bread|small,12042
+ILOILO|BANATE|loaf bread|tama-tama nga putos,12043
+ILOILO|BANATE|preserved or processed meat (tocino tapa longaniza etc)|putos,12044
+ILOILO|BANATE|rice|letse,12045
+ILOILO|BANATE|rice|salmon,12046
+ILOILO|BAROTAC NUEVO|loaf bread|dalagku nga putos,12047
+ILOILO|BAROTAC NUEVO|loaf bread|gagmay nga putos,12048
+ILOILO|BAROTAC NUEVO|preserved or processed meat (tocino tapa longaniza etc)|bilog,12049
+ILOILO|BAROTAC NUEVO|rice|salmon,12050
+ILOILO|BAROTAC VIEJO|cabbage|1 chop,12051
+ILOILO|BAROTAC VIEJO|cabbage|pack,12052
+ILOILO|BAROTAC VIEJO|cabbage|pieces or units,12053
+ILOILO|BAROTAC VIEJO|camote tops|bundle,12054
+ILOILO|BAROTAC VIEJO|carrot|pack of slices,12055
+ILOILO|BAROTAC VIEJO|carrot|pieces or units,12056
+ILOILO|BAROTAC VIEJO|chicken|1/2,12057
+ILOILO|BAROTAC VIEJO|chicken|pieces or units,12058
+ILOILO|BAROTAC VIEJO|chicken|whole (chicken),12059
+ILOILO|BAROTAC VIEJO|crackers cookies buiscuits chips/curls|putos,12060
+ILOILO|BAROTAC VIEJO|fresh fish|pack,12061
+ILOILO|BAROTAC VIEJO|fresh fish|packs,12062
+ILOILO|BAROTAC VIEJO|fresh fish|putos,12063
+ILOILO|BAROTAC VIEJO|fresh fish|tumpok,12064
+ILOILO|BAROTAC VIEJO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,12065
+ILOILO|BAROTAC VIEJO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|pieces or units,12066
+ILOILO|BAROTAC VIEJO|loaf bread|dalagku nga putos,12067
+ILOILO|BAROTAC VIEJO|loaf bread|gagmay nga putos,12068
+ILOILO|BAROTAC VIEJO|loaf bread|small packs,12069
+ILOILO|BAROTAC VIEJO|loaf bread|tama-tama nga putos,12070
+ILOILO|BAROTAC VIEJO|preserved or processed meat (tocino tapa longaniza etc)|packs,12071
+ILOILO|BAROTAC VIEJO|preserved or processed meat (tocino tapa longaniza etc)|putos,12072
+ILOILO|BAROTAC VIEJO|rice|letse,12073
+ILOILO|BAROTAC VIEJO|rice|salmon,12074
+ILOILO|BATAD|camote tops|bundle,12075
+ILOILO|BATAD|chicken|bilog,12076
+ILOILO|BATAD|crackers cookies buiscuits chips/curls|putos,12077
+ILOILO|BATAD|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gmay nga cup,12078
+ILOILO|BATAD|loaf bread|gagmay nga putos,12079
+ILOILO|BATAD|loaf bread|small packs,12080
+ILOILO|BATAD|loaf bread|tama-tama nga putos,12081
+ILOILO|BATAD|preserved or processed meat (tocino tapa longaniza etc)|putos,12082
+ILOILO|BINGAWAN|chicken|bilog,12083
+ILOILO|BINGAWAN|loaf bread|dalagku nga putos,12084
+ILOILO|BINGAWAN|loaf bread|gagmay nga putos,12085
+ILOILO|BINGAWAN|rice|salmon,12086
+ILOILO|CABATUAN|cabbage|putos,12087
+ILOILO|CABATUAN|carrot|putos,12088
+ILOILO|CABATUAN|chicken|bilog,12089
+ILOILO|CABATUAN|crackers cookies buiscuits chips/curls|can o lata,12090
+ILOILO|CABATUAN|loaf bread|tama-tama nga putos,12091
+ILOILO|CABATUAN|pork|pcs,12092
+ILOILO|CABATUAN|preserved or processed meat (tocino tapa longaniza etc)|putos,12093
+ILOILO|CABATUAN|rice|salmon,12094
+ILOILO|CALINOG|chicken|bilog,12095
+ILOILO|CALINOG|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12096
+ILOILO|CALINOG|loaf bread|large packs,12097
+ILOILO|CALINOG|loaf bread|medium packs,12098
+ILOILO|CALINOG|loaf bread|small,12099
+ILOILO|CALINOG|mineral or spring water all drinking water sold in containers|black gallon,12100
+ILOILO|CALINOG|preserved or processed meat (tocino tapa longaniza etc)|putos,12101
+ILOILO|CALINOG|rice|salmon,12102
+ILOILO|CARLES|chicken|bilog,12103
+ILOILO|CARLES|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|putos,12104
+ILOILO|CARLES|loaf bread|gagmay nga putos,12105
+ILOILO|CARLES|loaf bread|small packs,12106
+ILOILO|CARLES|loaf bread|tama-tama nga putos,12107
+ILOILO|CARLES|preserved or processed meat (tocino tapa longaniza etc)|packs,12108
+ILOILO|CARLES|preserved or processed meat (tocino tapa longaniza etc)|putos,12109
+ILOILO|CARLES|rice|letse,12110
+ILOILO|CARLES|rice|salmon,12111
+ILOILO|CONCEPCION|cabbage|pieces or units,12112
+ILOILO|CONCEPCION|camote tops|bundle,12113
+ILOILO|CONCEPCION|chicken|whole (chicken),12114
+ILOILO|CONCEPCION|crackers cookies buiscuits chips/curls|bilog,12115
+ILOILO|CONCEPCION|loaf bread|dalagku nga putos,12116
+ILOILO|CONCEPCION|loaf bread|medium packs,12117
+ILOILO|CONCEPCION|loaf bread|small,12118
+ILOILO|CONCEPCION|preserved or processed meat (tocino tapa longaniza etc)|putos,12119
+ILOILO|CONCEPCION|rice|letse,12120
+ILOILO|DINGLE|cabbage|putos,12121
+ILOILO|DINGLE|cabbage|slice,12122
+ILOILO|DINGLE|camote tops|bundle,12123
+ILOILO|DINGLE|carrot|pack,12124
+ILOILO|DINGLE|carrot|putos,12125
+ILOILO|DINGLE|carrot|slice,12126
+ILOILO|DINGLE|chicken|whole (chicken),12127
+ILOILO|DINGLE|crackers cookies buiscuits chips/curls|pieces or units,12128
+ILOILO|DINGLE|fresh fish|pack,12129
+ILOILO|DINGLE|fresh fish|putos,12130
+ILOILO|DINGLE|fresh fish|putos (pack),12131
+ILOILO|DINGLE|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12132
+ILOILO|DINGLE|loaf bread|gagmay nga putos,12133
+ILOILO|DINGLE|loaf bread|large,12134
+ILOILO|DINGLE|loaf bread|medium packs,12135
+ILOILO|DINGLE|loaf bread|tama-tama nga putos,12136
+ILOILO|DINGLE|preserved or processed meat (tocino tapa longaniza etc)|putos,12137
+ILOILO|DINGLE|rice|letse,12138
+ILOILO|DINGLE|rice|salmon,12139
+ILOILO|DUEAS|cabbage|putos,12140
+ILOILO|DUEAS|camote tops|bundle,12141
+ILOILO|DUEAS|camote|bundle,12142
+ILOILO|DUEAS|carrot|putos,12143
+ILOILO|DUEAS|chicken|bilog,12144
+ILOILO|DUEAS|chicken|patopung,12145
+ILOILO|DUEAS|crackers cookies buiscuits chips/curls|bilog,12146
+ILOILO|DUEAS|drinks at restaurant hotel cafe or kiosk|pieces,12147
+ILOILO|DUEAS|fresh fish|pack,12148
+ILOILO|DUEAS|fresh fish|putos,12149
+ILOILO|DUEAS|preserved or processed meat (tocino tapa longaniza etc)|packs,12150
+ILOILO|DUEAS|rice|salmon,12151
+ILOILO|DUMANGAS|cabbage|pack,12152
+ILOILO|DUMANGAS|cabbage|piraso,12153
+ILOILO|DUMANGAS|cabbage|putos,12154
+ILOILO|DUMANGAS|camote tops|bundle,12155
+ILOILO|DUMANGAS|carrot|piraso,12156
+ILOILO|DUMANGAS|carrot|putos,12157
+ILOILO|DUMANGAS|chicken|bilog,12158
+ILOILO|DUMANGAS|chicken|putos,12159
+ILOILO|DUMANGAS|chicken|whole (chicken),12160
+ILOILO|DUMANGAS|fresh fish|bilog,12161
+ILOILO|DUMANGAS|fresh fish|pack,12162
+ILOILO|DUMANGAS|fresh fish|piraso,12163
+ILOILO|DUMANGAS|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bowl,12164
+ILOILO|DUMANGAS|prawns lobster shrimp|pack,12165
+ILOILO|DUMANGAS|prawns lobster shrimp|tumpok,12166
+ILOILO|DUMANGAS|rice|1 sack is 2900/for salary/inkind,12167
+ILOILO|DUMANGAS|rice|1/2 sack of rice,12168
+ILOILO|DUMANGAS|rice|letse,12169
+ILOILO|DUMANGAS|rice|salmon,12170
+ILOILO|ESTANCIA|fresh fish|pack,12171
+ILOILO|ESTANCIA|fresh fish|packs,12172
+ILOILO|ESTANCIA|fresh fish|putos,12173
+ILOILO|ESTANCIA|prawns lobster shrimp|putos,12174
+ILOILO|GUIMBAL|cabbage|binilog,12175
+ILOILO|GUIMBAL|carrot|binilog,12176
+ILOILO|GUIMBAL|chicken|binilog,12177
+ILOILO|GUIMBAL|liquor (e.g whisky coconut wine)|lipid / lapad,12178
+ILOILO|IGBARAS|cabbage|pack,12179
+ILOILO|IGBARAS|cabbage|putos,12180
+ILOILO|IGBARAS|carrot|pack,12181
+ILOILO|IGBARAS|carrot|putos,12182
+ILOILO|IGBARAS|carrot|putos or pack,12183
+ILOILO|IGBARAS|chicken|whole (chicken),12184
+ILOILO|IGBARAS|chicken|whole chicken,12185
+ILOILO|IGBARAS|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|2 bowls halohalo and 10 popcicle sticks,12186
+ILOILO|IGBARAS|liquor (e.g whisky coconut wine)|cup,12187
+ILOILO|IGBARAS|liquor (e.g whisky coconut wine)|glass/shots,12188
+ILOILO|IGBARAS|loaf bread|large,12189
+ILOILO|IGBARAS|loaf bread|small,12190
+ILOILO|IGBARAS|loaf bread|tama-tama nga putos,12191
+ILOILO|IGBARAS|rice|salmon,12192
+ILOILO|JANIUAY|cabbage|binilog,12193
+ILOILO|JANIUAY|carrot|binilog,12194
+ILOILO|JANIUAY|chicken|bilog,12195
+ILOILO|JANIUAY|chicken|bilog nga manok,12196
+ILOILO|JANIUAY|chicken|binilog,12197
+ILOILO|JANIUAY|crackers cookies buiscuits chips/curls|bilog,12198
+ILOILO|JANIUAY|fresh fish|patupa,12199
+ILOILO|JANIUAY|fresh fish|putos,12200
+ILOILO|JANIUAY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12201
+ILOILO|JANIUAY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,12202
+ILOILO|JANIUAY|loaf bread|dalagku nga putos,12203
+ILOILO|JANIUAY|loaf bread|gagmay nga putos,12204
+ILOILO|JANIUAY|loaf bread|medium nga putos,12205
+ILOILO|JANIUAY|loaf bread|tama-tama nga putos,12206
+ILOILO|JANIUAY|rice|salmon,12207
+ILOILO|LAMBUNAO|chicken|bilog,12208
+ILOILO|LAMBUNAO|chicken|bilog nga manok,12209
+ILOILO|LAMBUNAO|chicken|binilog,12210
+ILOILO|LAMBUNAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12211
+ILOILO|LAMBUNAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,12212
+ILOILO|LAMBUNAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,12213
+ILOILO|LAMBUNAO|liquor (e.g whisky coconut wine)|baso,12214
+ILOILO|LAMBUNAO|loaf bread|dalagku nga putos,12215
+ILOILO|LAMBUNAO|loaf bread|daragkul nga putos,12216
+ILOILO|LAMBUNAO|loaf bread|gagmay nga putos,12217
+ILOILO|LAMBUNAO|loaf bread|medium,12218
+ILOILO|LAMBUNAO|loaf bread|tama-tama nga putos,12219
+ILOILO|LAMBUNAO|preserved or processed meat (tocino tapa longaniza etc)|bilog,12220
+ILOILO|LAMBUNAO|rice|salmon,12221
+ILOILO|LEGANES|cabbage|piraso,12222
+ILOILO|LEGANES|camote|tumpok,12223
+ILOILO|LEGANES|carrot|piraso,12224
+ILOILO|LEGANES|carrot|putos,12225
+ILOILO|LEGANES|chicken|whole (chicken),12226
+ILOILO|LEGANES|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|maliit na tasa,12227
+ILOILO|LEGANES|loaf bread|gagmay nga putos,12228
+ILOILO|LEGANES|loaf bread|malaking packs,12229
+ILOILO|LEGANES|loaf bread|tama-tama nga putos,12230
+ILOILO|LEGANES|rice|salmon,12231
+ILOILO|LEMERY|cabbage|buskos,12232
+ILOILO|LEMERY|camote tops|bugkos,12233
+ILOILO|LEMERY|chicken|bilog,12234
+ILOILO|LEMERY|crackers cookies buiscuits chips/curls|bilog,12235
+ILOILO|LEMERY|crackers cookies buiscuits chips/curls|packs,12236
+ILOILO|LEMERY|fresh fish|pack/ putos,12237
+ILOILO|LEMERY|fresh fish|putos,12238
+ILOILO|LEMERY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12239
+ILOILO|LEMERY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|pieces or units,12240
+ILOILO|LEMERY|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|small cup,12241
+ILOILO|LEMERY|loaf bread|dalagku nga putos,12242
+ILOILO|LEMERY|loaf bread|gagmay nga putos,12243
+ILOILO|LEMERY|loaf bread|large packs,12244
+ILOILO|LEMERY|loaf bread|medium packs,12245
+ILOILO|LEMERY|loaf bread|small packs,12246
+ILOILO|LEMERY|loaf bread|tama-tama nga putos,12247
+ILOILO|LEMERY|preserved or processed meat (tocino tapa longaniza etc)|putos,12248
+ILOILO|LEMERY|rice|letse,12249
+ILOILO|LEMERY|rice|salmon,12250
+ILOILO|LEON|cabbage|binilog,12251
+ILOILO|LEON|carrot|binilog,12252
+ILOILO|LEON|chicken|bilog,12253
+ILOILO|LEON|chicken|bilog nga manok,12254
+ILOILO|LEON|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12255
+ILOILO|LEON|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,12256
+ILOILO|LEON|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|ice cream in cone,12257
+ILOILO|LEON|loaf bread|daragkul nga putos,12258
+ILOILO|LEON|loaf bread|gagmay nga putos,12259
+ILOILO|LEON|loaf bread|medium,12260
+ILOILO|LEON|preserved or processed meat (tocino tapa longaniza etc)|binilog,12261
+ILOILO|LEON|rice|salmon,12262
+ILOILO|MAASIN|cabbage|pieces or units,12263
+ILOILO|MAASIN|camote tops|bilog,12264
+ILOILO|MAASIN|chicken|bilog,12265
+ILOILO|MAASIN|crackers cookies buiscuits chips/curls|putos,12266
+ILOILO|MAASIN|drinks at restaurant hotel cafe or kiosk|pieces,12267
+ILOILO|MAASIN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12268
+ILOILO|MAASIN|loaf bread|dalagku nga putos,12269
+ILOILO|MAASIN|loaf bread|gagmay nga putos,12270
+ILOILO|MAASIN|loaf bread|pieces,12271
+ILOILO|MAASIN|loaf bread|small,12272
+ILOILO|MAASIN|loaf bread|tama-tama nga putos,12273
+ILOILO|MAASIN|preserved or processed meat (tocino tapa longaniza etc)|bilog,12274
+ILOILO|MAASIN|preserved or processed meat (tocino tapa longaniza etc)|lata,12275
+ILOILO|MAASIN|rice|salmon,12276
+ILOILO|MIAGAO|cabbage|binilog,12277
+ILOILO|MIAGAO|cabbage|putos /supot,12278
+ILOILO|MIAGAO|carrot|binilog,12279
+ILOILO|MIAGAO|chicken|bilog,12280
+ILOILO|MIAGAO|chicken|bilog nga manok,12281
+ILOILO|MIAGAO|chicken|binilog,12282
+ILOILO|MIAGAO|crackers cookies buiscuits chips/curls|putos,12283
+ILOILO|MIAGAO|fresh fish|binilog,12284
+ILOILO|MIAGAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12285
+ILOILO|MIAGAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,12286
+ILOILO|MIAGAO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga tasa,12287
+ILOILO|MIAGAO|loaf bread|gagmay nga putos,12288
+ILOILO|MIAGAO|loaf bread|medium nga putos,12289
+ILOILO|MIAGAO|loaf bread|tama-tama nga putos,12290
+ILOILO|MIAGAO|preserved or processed meat (tocino tapa longaniza etc)|binilog,12291
+ILOILO|MIAGAO|preserved or processed meat (tocino tapa longaniza etc)|putos,12292
+ILOILO|MIAGAO|rice|salmon,12293
+ILOILO|MINA|camote tops|bundle,12294
+ILOILO|MINA|camote|putos,12295
+ILOILO|MINA|chicken|bilog,12296
+ILOILO|MINA|chicken|piraso,12297
+ILOILO|MINA|crackers cookies buiscuits chips/curls|putos,12298
+ILOILO|MINA|fresh fish|bilog,12299
+ILOILO|MINA|fresh fish|putos,12300
+ILOILO|MINA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|putos,12301
+ILOILO|MINA|loaf bread|dalagku nga putos,12302
+ILOILO|MINA|loaf bread|gagmay nga putos,12303
+ILOILO|MINA|loaf bread|malaking packs,12304
+ILOILO|MINA|loaf bread|tama-tama nga putos,12305
+ILOILO|MINA|pork|portion,12306
+ILOILO|MINA|prawns lobster shrimp|tumpok,12307
+ILOILO|MINA|preserved or processed meat (tocino tapa longaniza etc)|putos,12308
+ILOILO|MINA|rice|salmon,12309
+ILOILO|NEW LUCENA|camote tops|bundle,12310
+ILOILO|NEW LUCENA|carrot|putos,12311
+ILOILO|NEW LUCENA|chicken|bilog,12312
+ILOILO|NEW LUCENA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12313
+ILOILO|NEW LUCENA|rice|salmon,12314
+ILOILO|OTON|cabbage|pack,12315
+ILOILO|OTON|camote tops|bundle,12316
+ILOILO|OTON|carrot|pack of mixed vegetables,12317
+ILOILO|OTON|chicken|whole (chicken),12318
+ILOILO|OTON|crackers cookies buiscuits chips/curls|small box,12319
+ILOILO|OTON|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|3 serving of halo-halo in a bowl,12320
+ILOILO|OTON|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|pitcher,12321
+ILOILO|OTON|loaf bread|gagmay nga putos,12322
+ILOILO|OTON|loaf bread|large,12323
+ILOILO|OTON|loaf bread|tama-tama nga putos,12324
+ILOILO|OTON|rice|rice cooker cup (small),12325
+ILOILO|OTON|rice|rice cooker cup small,12326
+ILOILO|OTON|rice|small rice cooker cup,12327
+ILOILO|POTOTAN|chicken|bilog,12328
+ILOILO|POTOTAN|loaf bread|dalagku nga putos,12329
+ILOILO|POTOTAN|loaf bread|gagmay nga putos,12330
+ILOILO|POTOTAN|loaf bread|tama-tama nga putos,12331
+ILOILO|POTOTAN|pork|1 bowl cooked,12332
+ILOILO|SAN DIONISIO|cabbage|putos (pack),12333
+ILOILO|SAN DIONISIO|carrot|sliced,12334
+ILOILO|SAN DIONISIO|chicken|whole (chicken),12335
+ILOILO|SAN DIONISIO|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,12336
+ILOILO|SAN DIONISIO|loaf bread|dalagku nga putos,12337
+ILOILO|SAN DIONISIO|loaf bread|gagmay nga putos,12338
+ILOILO|SAN DIONISIO|loaf bread|large,12339
+ILOILO|SAN DIONISIO|loaf bread|small,12340
+ILOILO|SAN DIONISIO|preserved or processed meat (tocino tapa longaniza etc)|bilog,12341
+ILOILO|SAN DIONISIO|rice|letse,12342
+ILOILO|SAN DIONISIO|rice|salmon,12343
+ILOILO|SAN ENRIQUE|cabbage|pieces or units,12344
+ILOILO|SAN ENRIQUE|carrot|pack of ice wrapper,12345
+ILOILO|SAN ENRIQUE|carrot|pieces or units,12346
+ILOILO|SAN ENRIQUE|chicken|bilog,12347
+ILOILO|SAN ENRIQUE|fresh fish|pack,12348
+ILOILO|SAN ENRIQUE|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|gamay nga cup,12349
+ILOILO|SAN ENRIQUE|loaf bread|dalagku nga putos,12350
+ILOILO|SAN ENRIQUE|loaf bread|gagmay nga putos,12351
+ILOILO|SAN ENRIQUE|loaf bread|tama-tama nga putos,12352
+ILOILO|SAN ENRIQUE|preserved or processed meat (tocino tapa longaniza etc)|bilog,12353
+ILOILO|SAN ENRIQUE|rice|letse,12354
+ILOILO|SAN ENRIQUE|rice|salmon,12355
+ILOILO|SAN JOAQUIN|cabbage|binilog,12356
+ILOILO|SAN JOAQUIN|camote tops|bundle,12357
+ILOILO|SAN JOAQUIN|carrot|binilog,12358
+ILOILO|SAN JOAQUIN|carrot|putos,12359
+ILOILO|SAN JOAQUIN|chicken|bilog nga manok,12360
+ILOILO|SAN JOAQUIN|chicken|whole (chicken),12361
+ILOILO|SAN JOAQUIN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|binilog,12362
+ILOILO|SAN JOAQUIN|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|pieces or units,12363
+ILOILO|SAN JOAQUIN|loaf bread|large,12364
+ILOILO|SAN JOAQUIN|loaf bread|large packs,12365
+ILOILO|SAN JOAQUIN|loaf bread|medium nga putos,12366
+ILOILO|SAN JOAQUIN|loaf bread|small,12367
+ILOILO|SAN JOAQUIN|loaf bread|tama-tama nga putos,12368
+ILOILO|SAN JOAQUIN|preserved or processed meat (tocino tapa longaniza etc)|putos,12369
+ILOILO|SAN MIGUEL|chicken|bilog,12370
+ILOILO|SAN RAFAEL|camote tops|bundle,12371
+ILOILO|SAN RAFAEL|carrot|putos,12372
+ILOILO|SAN RAFAEL|fresh fish|per pack,12373
+ILOILO|SAN RAFAEL|fresh fish|per packs,12374
+ILOILO|SAN RAFAEL|fresh fish|putos,12375
+ILOILO|SAN RAFAEL|loaf bread|gagmay nga putos,12376
+ILOILO|SAN RAFAEL|loaf bread|tama-tama nga putos,12377
+ILOILO|SAN RAFAEL|prawns lobster shrimp|tumpok,12378
+ILOILO|SAN RAFAEL|preserved or processed meat (tocino tapa longaniza etc)|putos,12379
+ILOILO|SAN RAFAEL|rice|salmon,12380
+ILOILO|SANTA BARBARA|chicken|bilog,12381
+ILOILO|SANTA BARBARA|rice|salmon,12382
+ILOILO|SARA|camote tops|bundle,12383
+ILOILO|SARA|chicken|bilog,12384
+ILOILO|SARA|fresh fish|pieces or units,12385
+ILOILO|SARA|fresh fish|putos,12386
+ILOILO|SARA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|piraso,12387
+ILOILO|SARA|loaf bread|dalagku nga putos,12388
+ILOILO|SARA|loaf bread|gagmay nga putos,12389
+ILOILO|SARA|loaf bread|tama-tama nga putos,12390
+ILOILO|SARA|rice|letse,12391
+ILOILO|SARA|rice|salmon,12392
+ILOILO|TIGBAUAN|cabbage|bilog,12393
+ILOILO|TIGBAUAN|carrot|slice,12394
+ILOILO|TIGBAUAN|crackers cookies buiscuits chips/curls|pieces or units,12395
+ILOILO|TIGBAUAN|loaf bread|small packs,12396
+ILOILO|TIGBAUAN|loaf bread|tama-tama nga putos,12397
+ILOILO|TUBUNGAN|cabbage|binilog,12398
+ILOILO|TUBUNGAN|camote tops|bundle,12399
+ILOILO|TUBUNGAN|carrot|binilog,12400
+ILOILO|TUBUNGAN|carrot|pack,12401
+ILOILO|TUBUNGAN|chicken|bilog nga manok,12402
+ILOILO|TUBUNGAN|chicken|binilog,12403
+ILOILO|TUBUNGAN|chicken|whole (chicken),12404
+ILOILO|TUBUNGAN|fresh fish|binilog,12405
+ILOILO|TUBUNGAN|loaf bread|large,12406
+ILOILO|TUBUNGAN|loaf bread|medium nga putos,12407
+ILOILO|TUBUNGAN|loaf bread|small,12408
+ILOILO|TUBUNGAN|mango|binilog,12409
+NEGROS OCCIDENTAL|CALATRAVA|camote tops|bugkos,12410
+NEGROS OCCIDENTAL|CALATRAVA|chicken|bilog,12411
+NEGROS OCCIDENTAL|CALATRAVA|chicken|tibuok na manok,12412
+NEGROS OCCIDENTAL|CALATRAVA|fresh fish|cup,12413
+NEGROS OCCIDENTAL|CALATRAVA|liquor (e.g whisky coconut wine)|cup,12414
+NEGROS OCCIDENTAL|CALATRAVA|loaf bread|medium nga pakete,12415
+NEGROS OCCIDENTAL|CALATRAVA|loaf bread|small,12416
+NEGROS OCCIDENTAL|CALATRAVA|prawns lobster shrimp|tumpok,12417
+NEGROS OCCIDENTAL|CALATRAVA|preserved or processed meat (tocino tapa longaniza etc)|pakete,12418
+NEGROS OCCIDENTAL|CANDONI|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12419
+NEGROS OCCIDENTAL|CAUAYAN|camote tops|tumpok,12420
+NEGROS OCCIDENTAL|CAUAYAN|chicken|bilog,12421
+NEGROS OCCIDENTAL|CAUAYAN|fresh fish|tumpok,12422
+NEGROS OCCIDENTAL|CAUAYAN|pork|1 whole pigs for her grandson's birthday,12423
+NEGROS OCCIDENTAL|CAUAYAN|rice|salmon,12424
+NEGROS OCCIDENTAL|HINIGARAN|rice|salmon,12425
+NEGROS OCCIDENTAL|ISABELA|chicken|bilog,12426
+NEGROS OCCIDENTAL|ISABELA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12427
+NEGROS OCCIDENTAL|ISABELA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|cup,12428
+NEGROS OCCIDENTAL|LA CASTELLANA|chicken|whole (chicken),12429
+NEGROS OCCIDENTAL|LA CASTELLANA|rice|letse,12430
+NEGROS OCCIDENTAL|MANAPLA|chicken|bilog,12431
+NEGROS OCCIDENTAL|MANAPLA|ice cream sorbet edible ice (eg. ice-lolli halo-halo)|bilog,12432
+NEGROS OCCIDENTAL|MOISES PADILLA (MAGALLON)|mango|bilog,12433
+NEGROS OCCIDENTAL|MOISES PADILLA (MAGALLON)|rice|salmon,12434
+NEGROS OCCIDENTAL|MURCIA|chicken|whole (chicken),12435
+NEGROS OCCIDENTAL|PONTEVEDRA|camote|tumpok(pile),12436
+NEGROS OCCIDENTAL|PONTEVEDRA|drinks at restaurant hotel cafe or kiosk|pieces,12437
+NEGROS OCCIDENTAL|PULUPANDAN|chicken|whole (chicken),12438
+NEGROS OCCIDENTAL|SALVADOR BENEDICTO|camote tops|bundle,12439
+NEGROS OCCIDENTAL|SALVADOR BENEDICTO|chicken|whole (chicken),12440
+NEGROS OCCIDENTAL|SAN ENRIQUE|chicken|bilog,12441
+NEGROS OCCIDENTAL|TOBOSO|camote tops|bugkos,12442
+NEGROS OCCIDENTAL|TOBOSO|camote tops|bundle,12443
+NEGROS OCCIDENTAL|TOBOSO|loaf bread|gagmay nga pakete,12444

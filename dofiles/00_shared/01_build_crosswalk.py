@@ -228,6 +228,79 @@ for cell in sorted(set(ms_cell_raw)|set(pr_cell_raw)):
 master=pd.DataFrame(mrows,columns=['province','pull_municipal_city','cons_name','pull_nsu_unit','cleaned_nsu_unit',
     'harmonized_nsu_unit','source','cell_merge_with','n_cell_merged','cause_label','in_MS_as',
     'fallback_harmonized_nsu_unit'])
+
+# ---- durable ids for the PRICE-ONLY cases ----------------------------------------
+# A price-only case has no market-survey weighing behind it, so it never passes through
+# 03_clean_ms.do and never gets a weighing id there. It still needs a durable handle:
+# once harmonization folds pull_nsu_unit, the content key stops being reconstructable
+# from the working data and the registry id is the only thing that still identifies the
+# row. That argument is the same one that motivates the weighing registry.
+#
+# THEY CONTINUE THE SAME SEQUENCE, in the same registry file, so an id means one thing
+# across the project and the two kinds can never collide on a number.
+#
+# TWO PROGRAMS WRITE THIS FILE -- this one and 03_clean_ms.do -- which is worth being
+# careful about. What makes it safe is that they write DISJOINT rows and neither can
+# touch the other's:
+#   * a weighing key is prov|mun|item|label|vendor|hetero  -- FIVE pipes
+#   * a price-case key is prov|mun|item|label              -- THREE pipes
+# No value in either key contains a pipe (asserted below), so the shapes cannot be
+# confused. Each program appends only; neither renumbers. They run sequentially in the
+# documented order (00b, 01, 02, then the master), never concurrently.
+REG = Path(BOX) / "Data Cleaning" / "outputs" / "tables" / "weighing_id_registry.csv"
+
+_po = master.source == "Price Only"
+
+
+def _case_key(r):
+    """The registry key for a price-only case. Commas are stripped for the same reason
+    they are on the weighing side: the registry is a CSV and several item names contain
+    commas."""
+    f = lambda x: ("" if pd.isna(x) else str(x)).replace(",", "")
+    return "|".join([f(r.province), f(r.pull_municipal_city),
+                     f(r.cons_name), f(r.pull_nsu_unit)])
+
+
+# Built ON master and read back by mapping, NOT by merging on the stripped columns.
+# Merging on stripped keys against the crosswalk's unstripped ones silently loses every
+# item whose name contains a comma -- 278 of 949 rows, which the assert below caught.
+master["_idkey"] = ""
+master.loc[_po, "_idkey"] = master.loc[_po].apply(_case_key, axis=1)
+assert not master.loc[_po, "_idkey"].duplicated().any(),     "price-only cases are not unique on the 4-part key"
+
+if REG.exists():
+    reg = pd.read_csv(REG, dtype={"idkey": str, "id": int})
+    fresh = sorted(set(master.loc[_po, "_idkey"]) - set(reg.idkey))
+    if fresh:
+        nxt = int(reg.id.max()) + 1
+        reg = pd.concat([reg, pd.DataFrame({"idkey": fresh,
+                                            "id": range(nxt, nxt + len(fresh))})],
+                        ignore_index=True).sort_values("id")
+        assert reg.id.is_unique and reg.idkey.is_unique
+        reg.to_csv(REG, index=False, encoding="utf-8-sig")
+        print(f"id registry: appended {len(fresh):,} price-only case(s), "
+              f"ids {nxt:,}-{nxt + len(fresh) - 1:,}; registry now {len(reg):,} rows")
+    else:
+        print(f"id registry: all {int(_po.sum()):,} price-only cases already have ids")
+
+    # MS & Price rows are left blank on purpose: their id is the WEIGHING id, which
+    # lives at weighing grain and cannot sit on a case row without implying one
+    # weighing per case.
+    master["price_case_id"] = master._idkey.map(reg.set_index("idkey").id)
+    master.loc[~_po, "price_case_id"] = pd.NA
+    n_id = int(master.price_case_id.notna().sum())
+    print(f"crosswalk: {n_id:,} of {int(_po.sum()):,} price-only rows carry a price_case_id")
+    assert n_id == int(_po.sum()), "a price-only crosswalk row did not receive an id"
+else:
+    # The weighing registry is seeded by 03_clean_ms.do. Before its first run there is
+    # no sequence to continue, so this is skipped rather than started here -- two
+    # programs seeding one file would race on the starting number.
+    master["price_case_id"] = pd.NA
+    print("id registry does not exist yet (03_clean_ms.do seeds it); "
+          "price-only cases will get ids on the next crosswalk build")
+
+master = master.drop(columns="_idkey")
+
 out3=BOX+r'\Data Cleaning\outputs\tables\master_nsu_rename.csv'
 master.sort_values(['cons_name','province','pull_municipal_city','harmonized_nsu_unit','pull_nsu_unit']).to_csv(out3,index=False,encoding='utf-8-sig')
 print('wrote',out3, master.shape)
