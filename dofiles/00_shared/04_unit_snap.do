@@ -316,7 +316,23 @@ gen byte _agree = (round(base_corr,1) == round(w_block,1)) ///
                   & !missing(base_corr) & !missing(w_block)
 gen double _agreed = base_corr if _agree
 
-* the cell: province x municipality x item x harmonized unit
+* THE REFEREE IS HETERO-AWARE, and that ordering is the whole point of the ladder.
+*
+* A cell median pooled ACROSS hetero-groups is biased DOWN for the larger groups: a
+* case holding smalls, mediums and larges has a median near its middle, so a large's
+* block reading looks a decade too big against it and the anchor -- which is the block
+* reading divided by ten -- wins by being closer to a number that describes smaller
+* units. Measured before changing anything: of the 338 disputed rows with a usable cell
+* median, a hetero-specific median differs on 316 and FLIPS the chosen rule on 92, of
+* which 88 flip toward the block reading. That asymmetry is the bias, not noise.
+*
+* So the primary referee is the cell WITHIN a hetero-group, and the pooled cell is the
+* first fallback for groups too thin to referee themselves. Raised on the second manual
+* review of snap_sense_check.xlsx; see issue #18.
+egen double _ch_med = median(_agreed), by(pull_province pull_municipal_city pull_item ${unitvar} item_nsu_hetero_type)
+egen long   _ch_n   = count(_agreed),  by(pull_province pull_municipal_city pull_item ${unitvar} item_nsu_hetero_type)
+
+* the cell pooled across hetero-groups
 egen double _cell_med    = median(_agreed), by(pull_province pull_municipal_city pull_item ${unitvar})
 egen long   _cell_nagree = count(_agreed),  by(pull_province pull_municipal_city pull_item ${unitvar})
 
@@ -330,10 +346,31 @@ egen long   _p_n    = count(_agreed),  by(pull_province pull_item ${unitvar})
 * median is one or two readings and cannot adjudicate a decade.
 local NAGREE = 5
 
+* THE HETERO POOL NEEDS A LOWER BAR, and it is not arbitrary. A cell's agreeing rows
+* split three ways across small/medium/large, so a hetero pool is roughly a third the
+* size of the pooled cell -- at `NAGREE' it referees only 28 disputed rows and is not
+* the main reference at all, which is the point of having it. Measured across
+* thresholds, the flips are lopsided toward the block reading at every one, which is
+* the downward bias itself and not noise:
+*
+*     bar    rows refereed    flip to block    flip to anchor
+*     > 5              28                5                 0
+*     > 3             123               21                 1
+*     > 2             209               37                 1
+*     > 1             350               59                 3
+*
+* Set at 2, so a hetero median rests on at least THREE agreeing readings. Two is a
+* midpoint, not a median. Moving this to 3 is defensible and costs 16 of the 37 flips;
+* moving it to 1 is not -- a two-row "median" adjudicating a decade is worse than the
+* pooled cell it replaces.
+local NAGREE_HET = 2
+
 gen double _ref_med = .
 gen str12  _ref_src = ""
-replace _ref_med = _cell_med if _cell_nagree > `NAGREE' & !missing(_cell_med)
-replace _ref_src = "cell"    if _cell_nagree > `NAGREE' & !missing(_cell_med)
+replace _ref_med = _ch_med   if _ch_n > `NAGREE_HET' & !missing(_ch_med)
+replace _ref_src = "cell_hetero" if _ch_n > `NAGREE_HET' & !missing(_ch_med)
+replace _ref_med = _cell_med if missing(_ref_med) & _cell_nagree > `NAGREE' & !missing(_cell_med)
+replace _ref_src = "cell"    if missing(_ref_src) & !missing(_ref_med)
 replace _ref_med = _ph_med   if missing(_ref_med) & _ph_n > `NAGREE' & !missing(_ph_med)
 replace _ref_src = "prov_hetero" if missing(_ref_src) & !missing(_ref_med)
 replace _ref_med = _p_med    if missing(_ref_med) & _p_n  > `NAGREE' & !missing(_p_med)
@@ -359,9 +396,19 @@ replace _rule = "cell decimals" if missing(_rule) & !missing(_pick_block)
 replace _pick_block = 1 if missing(_pick_block) & !missing(weight) & weight == round(weight)
 replace _rule = "whole number" if missing(_rule) & !missing(_pick_block)
 
-* ---- 3e-v. default: the anchor ----------------------------------------------------
-replace _pick_block = 0 if missing(_pick_block)
-replace _rule = "anchor default" if missing(_rule)
+* ---- 3e-v. default: the BLOCK reading ---------------------------------------------
+* Reached only when no pool anywhere on the ladder can referee AND neither the decimal
+* nor the whole-number pattern applies -- roughly two dozen rows, each in a corner of
+* the data with almost nothing to compare against.
+*
+* THIS DEFAULTED TO THE ANCHOR AND NOW DEFAULTS TO THE BLOCK, decided on the second
+* manual review (issue #18). The reasoning: with no local evidence at all, the block
+* reading restates what the enumerator typed, while the anchor moves it by a decade on
+* the strength of a national item x unit pool that the review found runs low. Choosing
+* the anchor here is choosing to overrule the field on the weakest evidence available.
+* The plausibility bounds below still apply, so an implausible block reading is caught.
+replace _pick_block = 1 if missing(_pick_block)
+replace _rule = "block default" if missing(_rule)
 
 * ---- 3e-vi. publish, then the plausibility floor/ceiling LAST ---------------------
 * The bounds are the last word regardless of which rule won: an answer outside them is

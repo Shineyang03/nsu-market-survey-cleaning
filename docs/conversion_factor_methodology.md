@@ -1177,12 +1177,12 @@ thing.
 
    | | agreement with the field label |
    |---|---|
-   | per weighing — why re-terciling exists | **64.0%** (3,573 / 5,581) |
-   | per group, using the modal label — what the criterion assumes | **76.5%** (1,116 / 1,458) |
+   | per weighing — why re-terciling exists | **64.7%** (3,609 / 5,581) |
+   | per group, using the modal label — what the criterion assumes | **77.0%** (1,122 / 1,458) |
 
    Aggregating does recover signal, which is what the criterion needs. **But the
    disagreement is not symmetric.** 356 groups carry a modal label *below* their tercile
-   position against 86 above — mean signed error **−0.141**. So the modal field label runs systematically *low*, and a
+   position against 83 above — mean signed error **−0.138**. So the modal field label runs systematically *low*, and a
    criterion built on it is biased toward the *lower* of two candidate names.
 
    That bias points the same way as the status quo, which is the uncomfortable part: it

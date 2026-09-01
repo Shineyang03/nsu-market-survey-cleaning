@@ -753,7 +753,10 @@ def c_modal_label_criterion(sized):
           # re-keyed off `id' onto content -- nine had been landing on the wrong
           # weighing. Agreement went UP, which is the direction that says the
           # re-keying put them where the reviewer meant.
-          "64.0% (3,573 of 5,581)",
+          # Rose again (64.0% -> 64.7%) when the referee became hetero-aware. The field
+          # labels are a signal the snap never reads, so agreement improving is evidence
+          # the rule picks better, not evidence of fitting to them.
+          "64.7% (3,609 of 5,581)",
           f"{per_row / len(full) * 100:.1f}% ({per_row:,} of {len(full):,})",
           "this is the number that justifies re-terciling in the first place -- the"
           " field label is wrong about a third of the time at row level")
@@ -764,7 +767,7 @@ def c_modal_label_criterion(sized):
     check("modal field label agrees with the tercile, per group",
           "methodology.md / assumption 7",
           # ROSE from 66.5%, same independence argument as the per-weighing figure above.
-          "76.5% (1,116 of 1,458)",
+          "77.0% (1,122 of 1,458)",
           f"{per_grp / len(g) * 100:.1f}% ({per_grp:,} of {len(g):,})",
           "aggregating recovers signal, which is what the naming criterion needs")
 
@@ -777,7 +780,7 @@ def c_modal_label_criterion(sized):
           # with the review's finding that the log-10 snap tends to underestimate: adopting
           # the block reading on 431 rows removes part of that downward pull. Still not
           # symmetric, so the caveat below stands.
-          "mean signed error -0.141; 256 groups below their tercile, 86 above",
+          "mean signed error -0.138; 253 groups below their tercile, 83 above",
           f"mean signed error {err.mean():+.3f};"
           f" {below} groups below their tercile, {above} above",
           "NOT symmetric. The modal field label runs systematically low, so a criterion"
