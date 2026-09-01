@@ -80,8 +80,26 @@ snap = pd.read_stata(T/"standard_weight_unit_correction.dta", convert_categorica
 mas = pd.read_stata(T/"nsu_data_master.dta", convert_categoricals=False)
 
 d = pre[["id","pull_province","pull_municipal_city","pull_item","harmonized_nsu_unit",
-         "unit","weight"]].merge(
+         "unit","weight","weighing_approach","item_nsu_hetero_type"]].merge(
     snap[["id","corrected_weight","w_step1","review_step1"]], on="id", validate="1:1")
+
+# hetero_group and approach are labelled numerics; the codes alone are unreadable in a
+# workbook a human is scanning. Decode from the value labels IN THE FILE rather than a
+# dict in this script -- that mapping is already duplicated in several places and a
+# hardcoded copy here would be one more thing to keep in step with
+# `label define hetero' in 00_shared/00_globals.do.
+_vl = pd.io.stata.StataReader(T/"prelim_nsu_data.dta").value_labels()
+d["hetero_group"] = d.item_nsu_hetero_type.map(_vl["hetero"])
+d["approach"] = d.weighing_approach.map(_vl["weighing_approach"])
+
+# Nothing should fall outside the declared label set; if it does the codes have moved
+# and every hetero_group in this workbook is suspect.
+_bad = d.item_nsu_hetero_type.notna() & d.hetero_group.isna()
+if _bad.any():
+    raise SystemExit(
+        f"{int(_bad.sum())} row(s) carry an item_nsu_hetero_type outside the `hetero'"
+        " label set: "
+        + ", ".join(map(str, sorted(d.loc[_bad, "item_nsu_hetero_type"].unique()))))
 d = d.merge(mas[["id","cleaning_notes"]], on="id", how="left", validate="1:1")
 
 d["base"] = d.weight.where(d.unit == 2, d.weight*1000)
@@ -111,7 +129,14 @@ d["anchor_implausible"] = d.anchor_says.notna() & (
     (d.anchor_says < WFLOOR) | (d.anchor_says > WCEIL))
 d["rule_used"] = np.where(d.anchor_implausible, "block (anchor rejected)", "anchor")
 
-COLS = ["id","cell","unit","weight","block_says","anchor_says","published",
+# hetero_group sits beside `cell' because it is what splits a cell into rows: on the
+# size-based branch it is the field's small/medium/large label, on the price-quantity
+# branch it is which price point the vendor was quoted (mp25/mp50/mp75, or a
+# municipality/province median where the ladder is incomplete). Two rows in one cell
+# with different hetero_groups are meant to differ in weight; two with the SAME
+# hetero_group differing by a decade are the interesting case.
+COLS = ["id","cell","hetero_group","approach","unit","weight",
+        "block_says","anchor_says","published",
         "rule_used","cell_median","n_cell_agreeing","x_from_median",
         "review_step1","cleaning_notes"]
 
