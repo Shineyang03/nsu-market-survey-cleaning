@@ -299,6 +299,44 @@ def main():
         print("\npoints these size-based cases are currently credited with:")
         print(pd.Series(tally).value_counts().to_string())
 
+    # ================================================================ Q6
+    h("Q6  HOW MANY PSPS HOUSEHOLD OBSERVATIONS RIDE ON THE UNDECIDED ARM")
+    print("Q1-Q5 count CASES and MS weighings. Neither says how much household data")
+    print("the decision moves, and that is the number that says whether the arm is")
+    print("worth arguing about. Joined from psps_conversion_exposure.csv, written by")
+    print("90_diagnostics/scope_psps_exposure.py, on province x municipality x item x")
+    print("harmonized unit -- the same case grain used above.")
+    expo = Path(OUT) / "psps_conversion_exposure.csv"
+    if not expo.exists():
+        print(f"\n  SKIPPED: {expo} not found."
+              "\n  Run: python dofiles/90_diagnostics/scope_psps_exposure.py")
+    else:
+        ex = pd.read_csv(expo, encoding="utf-8-sig")
+        ex = ex.rename(columns={"prov": "province",
+                                "mun": "pull_municipal_city",
+                                "item": "cons_name",
+                                "harm": "harmonized_nsu_unit"})
+        # one row per case in u; n_psps_obs is already a per-cell total
+        cases = u.drop_duplicates(subset=HKEY)[HKEY + ["branch"]]
+        j = cases.merge(ex, on=HKEY, how="left")
+        tot = int(ex.n_psps_obs.sum())
+        print(f"\nPSPS food observations in a non-standard unit, all cells: {tot:,}")
+        for br, lab in [("size-based", "SIZE-BASED cases (the #23 ask)"),
+                        (None, "ALL cases carrying a unique price")]:
+            sel = j if br is None else j[j.branch.str.contains(br, na=False)]
+            n = int(sel.n_psps_obs.fillna(0).sum())
+            print(f"\n{lab}: {len(sel)} cases, {n:,} PSPS observations"
+                  f"  ({100 * n / tot:.1f}% of all)")
+            nomatch = int(sel.n_psps_obs.isna().sum())
+            if nomatch:
+                print(f"  ({nomatch} of those cases have no exposure row -- no PSPS"
+                      " household reported that cell)")
+        print("\nby conversion bucket, size-based cases only:")
+        sb_j = j[j.branch.str.contains("size-based", na=False)]
+        print(sb_j.groupby("bucket").n_psps_obs.agg(["size", "sum"])
+              .rename(columns={"size": "cases", "sum": "psps_obs"})
+              .sort_values("psps_obs", ascending=False).to_string())
+
     u.sort_values("abs_gap", ascending=False).to_csv(
         OUT + r"\issue23_unique_price_size_based.csv", index=False,
         encoding="utf-8-sig")
