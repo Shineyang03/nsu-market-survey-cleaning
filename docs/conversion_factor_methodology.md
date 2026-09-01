@@ -175,7 +175,7 @@ flowchart TB
         D2["Normalize the merge keys, then merge the rename sheet.<br/>ASCII-drop, casefold, trim, collapse whitespace, uppercase geo.<br/>Same rule applied to both sides, so the merge must come second."]
         D3["DROP the standard-quantity labels.<br/>Before the snap, so they never pollute an anchor."]
         D4["Rebuild identifiers on harmonized_nsu_unit,<br/>not on the cleaned or raw label."]
-        D5["Canonicalize dimension, then fix magnitude.<br/>kg to g and L to mL, then a threshold rule<br/>(a number below 10 is in the bigger unit) decides<br/>every row that has a weight. The log10 anchor snap<br/>is computed but overwritten - see data_oddities sec 9.<br/>corrected_weight, corrected_unit"]
+        D5["Canonicalize dimension, then fix magnitude.<br/>kg to g and L to mL, then TWO rules are computed:<br/>a log10 anchor snap and a threshold block reading.<br/>A referee median picks between them by order of<br/>magnitude; plausibility bounds apply last.<br/>See Correcting the raw weight and unit.<br/>corrected_weight, corrected_unit"]
         D6["Resolve items recorded in BOTH mass and volume.<br/>One verdict per item; unverdicted items keep<br/>the dimension the enumerator recorded."]
         D1 --> D2 --> D3 --> D4 --> D5 --> D6
     end
@@ -319,6 +319,134 @@ Throughout, **$`p`$ is always PHP per NSU** and **$`v`$ is always PHP per gram**
 never interchangeable. Grams carry no round: they do not inflate.
 
 ---
+
+## Correcting the raw weight and unit
+
+Every weighing arrives as two fields: a number the enumerator read off a scale, and a
+**unit tick** — `1 = kg`, `2 = g`, `3 = litres`. Neither is reliable on its own, and the
+two fail independently: the number can carry a misplaced decimal, and the tick can
+contradict the number's scale. This section is what the pipeline does about that. It runs
+before both deliverables, in `dofiles/00_shared/04_unit_snap.do`.
+
+### 1. Canonical dimension
+
+Mass readings become grams (`kg × 1000`), volume readings become millilitres
+(`L × 1000`). The items recorded by volume are near water density, so a gram and a
+millilitre are the same reading at the precision recorded — the same assumption used
+everywhere downstream.
+
+**This conversion is not a correction.** Every mass row gets it. When counting how many
+readings the pipeline *changed*, it is applied to the raw value first, so a kilogram row
+published in grams does not count.
+
+### 2. Two candidate answers, computed independently
+
+**The anchor snap.** For each `item × harmonized unit` pool, take the median of the
+base-10 logarithm of the canonical readings. Snap each reading to the nearest integer
+power of ten toward that median. The pool falls back to item level when a cell is thin,
+and the row is flagged when the anchor is itself untrustworthy — below 5 g, more than 1.5
+decades from the item-level reference, or leaving a post-snap residual above 0.35
+decades. Its strength is that it moves **however many decades the data implies**.
+
+**The block reading.** A threshold on the raw number: below 10, the number was written in
+the larger unit and needs `× 1000`; at or above 10, it is already in the canonical unit.
+Its strength is that it restates *what the enumerator typed* rather than inferring a
+scale from neighbours.
+
+Both are kept. The anchor's answer survives as `w_step1` and its flag as `review_step1`
+precisely so the choice below can be audited without re-running anything.
+
+### 3. Choosing between them
+
+Neither rule dominates, so the choice is made per row, in this order. The precedence
+matters: the first two rules disagree on 259 of the 818 disputed rows that have a usable
+median, so this is a decision and not a formality.
+
+| order | condition | published |
+|---|---|---|
+| 1 | a referee median exists | whichever candidate is closer **in orders of magnitude** |
+| 2 | no median; the cell holds two or more sub-1 decimal readings | the block reading |
+| 3 | no median; the raw number is a whole number | the block reading |
+| 4 | nothing above fires | the anchor snap |
+| 5 | *always, last* | the other candidate, if the chosen one falls outside 10–50,000 g/mL and the other is inside |
+
+**Orders of magnitude, not grams.** A 255 g reading against a 152.5 g cell median is the
+same decade; 25 g is a decade out. Absolute distance would prefer the value that is ten
+times too small, because 127 g is closer to 190 g than 1,265 g is. The decade is the thing
+the two rules disagree about, so the decade is what gets compared.
+
+**The referee** is the median of the rows in a cell where the two rules *already agree*.
+Those rows carry no information about which rule is better, which is exactly what makes
+their median a usable yardstick for the rows that disagree. A pool must hold more than 5
+agreeing rows to referee; below that the ladder widens:
+
+| pool | rows refereed by it |
+|---|---|
+| province × municipality × item × harmonized unit (the cell) | 7,517 |
+| province × item × unit × hetero-group | 3,289 |
+| province × item × unit | 394 |
+| no usable pool — rules 2 to 4 decide | 233 |
+
+**Repeated sub-1 decimals are a convention, not a slip.** Where several readings in one
+cell are 0.xxx, that is what the enumerators in that market wrote on purpose, and the
+block reading — which restates the number — is the better reading. A *single* 0.xxx
+reading is not covered by this: that is the one-off the anchor is for.
+
+**The bounds are the last word.** Nothing below 10 g/mL or above 50,000 g/mL is published
+while the other candidate is inside those bounds, whichever rule chose it. The ceiling is
+twice the largest defensible purchase in the file (a 25 kg sack of rice); the floor sits
+below anything legitimate. This is what catches a *contaminated pool*: where a whole cell
+shares one recording error, the median encodes that error and the snap faithfully
+reproduces it. Two beer "case" rows reaching 1.2 million g and thirty-eight fresh-fish
+rows falling to 4–9 g are caught here.
+
+### 4. Hand corrections
+
+`dofiles/00_shared/05_manual_corrections.do` holds every reading set by hand: 12 rows
+adjudicated during review where the rules did not reach the reviewer's answer, the g/mL
+dimension verdicts, and the readings no interpretation rescues (set to `.c` rather than
+deleted, so the attrition ledger can still account for them). Every block asserts its own
+row count — a correction that silently matches nothing once shipped a 1 gram whole chicken
+to the published reference set.
+
+### 5. What this did
+
+Of **11,433** weighings:
+
+| | weighings | share |
+|---|---|---|
+| published at the typed magnitude (conversion only) | 8,838 | 77.3% |
+| **published at a corrected magnitude** | **2,583** | **22.6%** |
+
+And the corrections are mostly *not* arithmetic errors:
+
+| mechanism | weighings |
+|---|---|
+| `× 1000` — a kilogram number ticked as grams (or mL as L) | **1,882** |
+| `÷ 1000` — a gram number ticked as kilograms | 145 |
+| one decade either way — an actual decimal slip | 412 |
+| any other distance | 144 |
+
+The largest category by far is a **unit-tick error**: an enumerator who writes `0.275` and
+ticks grams has written the kilogram number. Calling that a decimal error misdescribes
+what the field actually did.
+
+### 6. What remains uncertain
+
+| | weighings | share |
+|---|---|---|
+| **any of the three below** | **1,742** | 15.2% |
+| disputed — the rules disagreed and the block reading won | 607 | 5.3% |
+| the anchor machinery distrusted its own answer | 1,500 | 13.1% |
+| no defensible reading — weight is `.c` | 12 | 0.1% |
+
+These are three different things needing different follow-up, so they are not summed into
+one error rate. A disputed row has two defensible readings; a flagged row has one the
+anchor is unsure of; an unusable row has none.
+
+`dofiles/90_diagnostics/report_weight_corrections.py` writes this per weighing, including
+which rule decided it and which pool refereed it, and the pipeline explorer carries the
+same table as `weight_corrections`.
 
 ## Conventional NSU (the simple case)
 

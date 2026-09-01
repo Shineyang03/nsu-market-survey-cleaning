@@ -259,9 +259,17 @@ never on `cons_name` alone.
 `corrected_weight` in grams or millilitres. Two mechanisms do the work, and it is
 worth knowing which one actually decides a given row.
 
-**A threshold rule decides every row that has a weight** — 11,428 of the 11,433 that
-reach this step. Its premise is that a number too small for the ticked unit means the
-enumerator meant the larger one:
+**This section describes the BLOCK READING only, which is no longer what decides a row
+on its own.** Since the adjudication was added (issue #18), the block reading is one of
+two candidates and a referee median chooses between them — see *Correcting the raw
+weight and unit* in `conversion_factor_methodology.md` for the rule that governs, and
+`report_weight_corrections.py` for what it decided. The band table below is kept because
+it is still the clearest statement of what the block reading *says*, and because the
+bands are asserted: they must partition every row that has a weight, or a row is being
+read by no rule at all.
+
+The block reading applies to 11,428 of the 11,433 rows that reach this step. Its premise
+is that a number too small for the ticked unit means the enumerator meant the larger one:
 
 | ticked unit | rule | rows |
 |---|---|---|
