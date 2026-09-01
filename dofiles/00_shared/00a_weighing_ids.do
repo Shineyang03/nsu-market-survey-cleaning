@@ -59,13 +59,25 @@ encode obs_type, gen(item_nsu_hetero_type) label(hetero)
 * the sequence. Assigning after the exclusions, which is what the first version did,
 * left 62 raw weighings with no id at all.
 *
-* THE KEY IS BUILT ON RAW-CASED TEXT -- "Cabbage|Bilog", not "cabbage|bilog" -- because
-* this step runs before nsu_normalize. That is a property worth keeping rather than an
-* accident. Normalization is CODE, and code changes: the rule was edited twice in one
-* session. Keying ids on normalized text would mean every normalization edit silently
-* re-keys the registry and orphans every id. Keying on the raw text means an id can only
-* break if the SOURCE DATA is respelled, which is a real event and one the orphan check
-* at the bottom of this file will report.
+* EVERY COMPONENT OF THE KEY IS RAW INPUT TEXT. Nothing in it is computed by this
+* project, and that is the property that makes an id durable.
+*
+* Two parts of it are easy to get wrong:
+*
+*   RAW-CASED, not normalized -- "Cabbage|Bilog", not "cabbage|bilog". This step runs
+*   before nsu_normalize on purpose. Normalization is CODE and code changes: the rule
+*   was edited twice in one session. Keying ids on normalized text would let every
+*   normalization edit silently re-key the registry and orphan every id.
+*
+*   obs_type, the STRING, not item_nsu_hetero_type, the code. They carry the same
+*   information, but the code comes from `label define hetero' in 00_globals.do -- code
+*   again. Inserting one type into that label would shift every code above it and
+*   orphan every id in the registry. The key used the code until the flaw was noticed;
+*   the registry was migrated in place (same ids, last component rewritten from the code
+*   to its label) so nothing renumbered.
+*
+* So an id can now only break if the SOURCE DATA is respelled, which is a real event and
+* one the orphan check at the bottom of this file reports rather than absorbing.
 *
 * THE KEY is the same content key asserted just above: province, municipality, item,
 * RAW label, vendor, hetero type. All raw inputs. Deliberately not harmonized_nsu_unit
@@ -84,7 +96,7 @@ gen str244 `idkey' = subinstr(pull_province, ",", "", .) ///
     + "|" + subinstr(pull_item, ",", "", .) ///
     + "|" + subinstr(pull_nsu_unit, ",", "", .) ///
     + "|" + subinstr(vendor_id, ",", "", .) ///
-    + "|" + string(item_nsu_hetero_type)
+    + "|" + subinstr(obs_type, ",", "", .)
 isid `idkey'
 
 * First build ever, or the registry was lost: seed it from the current data. After this

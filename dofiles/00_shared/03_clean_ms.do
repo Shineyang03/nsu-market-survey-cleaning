@@ -243,7 +243,7 @@ gen str244 `idkey' = subinstr(pull_province, ",", "", .) ///
     + "|" + subinstr(pull_item, ",", "", .) ///
     + "|" + subinstr(pull_nsu_unit, ",", "", .) ///
     + "|" + subinstr(vendor_id, ",", "", .) ///
-    + "|" + string(item_nsu_hetero_type)
+    + "|" + subinstr(obs_type, ",", "", .)
 isid `idkey'
 
 capture confirm file "${tables}\weighing_id_registry.csv"
