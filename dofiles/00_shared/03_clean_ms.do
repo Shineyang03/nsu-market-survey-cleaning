@@ -556,9 +556,37 @@ restore
 
 label var dup_key "n other weighings sharing this case x market x vendor x hetero key (0 = unique)"
 
-gen id = _n
+* STABLE ID -- assigned AFTER sorting on a content key, not on arrival order.
+*
+* This used to be a bare `gen id = _n'. `_n' is row position, and the order at this
+* point is whatever the upstream merges left behind: Stata's m:1 merge re-sorts the
+* master by its merge key, so changing any value inside the crosswalk's own sort key
+* reassigned `id' across most of the file. The effects were real:
+*   - a 6-row change to one cell's fold reported as 10 differing outputs and
+*     thousands of changed cells, in columns the change could not touch
+*     (vendor_id, submissiondate). See verify_reproducibility.py's docstring.
+*   - an old hand correction keyed on `inlist(id, 4242)' could not be ported,
+*     because two saved copies of the SAME build disagreed on which row 4242 was.
+*     05_manual_corrections.do section 4a records that and had to re-express the
+*     correction on the reading itself.
+*
+* THE KEY IS ALL RAW INPUT, deliberately. pull_nsu_unit is the raw label, not
+* harmonized_nsu_unit -- keying on a harmonized value would move every id whenever a
+* fold changed, which is the problem this is fixing. vendor_id, market_type and
+* item_nsu_hetero_type come from the SurveyCTO case file. item_nsu_hetero_type is
+* encoded against the explicit `label define hetero' in 00_globals.do, not by
+* alphabetical accident, so its codes are stable too.
+*
+* `isid ..., sort' both sorts and asserts the key is unique. The assert matters more
+* than the sort: within a tie, ids would be handed out in whatever order the sort
+* seed chose, which is exactly the instability being removed. If this fires, the key
+* needs another variable -- do NOT drop the isid to make it pass.
+isid pull_province pull_municipal_city pull_item pull_nsu_unit vendor_id ///
+     item_nsu_hetero_type, sort
 
-label var id "Unique identifier for each weighing instance"
+gen long id = _n
+
+label var id "Stable weighing id: _n after sorting on (province, municipality, item, raw NSU label, vendor, hetero type)"
 
 sort pull_province pull_municipal_city pull_item harmonized_nsu_unit market_type item_nsu_hetero_type
 

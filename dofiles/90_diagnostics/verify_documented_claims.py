@@ -213,8 +213,20 @@ def c_unique_mun_never_alone():
 
 # ============================================================ 4. price coverage
 def c_size_cells_have_prices(d):
-    """Every size-based case must have a price-file row, or its sizes cannot be paired
-    with a price point and Outcome 2 has nothing to convert.
+    """Every cell that reaches Outcome 2 must have a price-file row, or its weights
+    cannot be paired with a price point and there is nothing to convert.
+
+    ALL THREE BRANCHES ARE CHECKED, not just size-based. This used to filter to
+    `weighing_approach == 3', and that gap hid a real defect: the mixed-bag override
+    in 03_clean_ms.do reassigned `harmonized_nsu_unit' post-merge on 4 ILOILO /
+    TIGBAUAN rows, all of them approach 2, producing a harmonized unit with no price
+    counterpart at that municipality. Four weighings (65/90/85/85 g) went into
+    Outcome 2 as orphans and this check could not see them. Widened so the same class
+    of defect cannot hide in the other two branches -- see issue #18.
+
+    Reported per branch. A lumped total would let one branch regress while another
+    improves and still look clean, and the branches fail for different reasons:
+    approach 3 loses a fold target, approach 2 loses a price point.
 
     docs/conversion_factor_methodology.md, Step A
     """
@@ -225,35 +237,36 @@ def c_size_cells_have_prices(d):
     priced = set(map(tuple, xw[xw.source.isin(["MS & Price", "Price Only"])]
                      [["province", "pull_municipal_city", "cons_name",
                        "harmonized_nsu_unit"]].dropna().values))
-    s = d[d.weighing_approach == 3].copy()
-    s["province"] = s.pull_province.map(ng)
-    s["pull_municipal_city"] = s.pull_municipal_city.map(ng)
-    s["cons_name"] = s.pull_item.map(ni)
-    s["harmonized_nsu_unit"] = s.harmonized_nsu_unit.map(nz)
-    cells = set(map(tuple, s[["province", "pull_municipal_city", "cons_name",
-                              "harmonized_nsu_unit"]].drop_duplicates().values))
-    miss = sorted(cells - priced)
-    hit = len(cells) - len(miss)
-    check("every size-based cell has a price-file row",
+
+    APPROACH = {1: "conventional", 2: "price-quantity", 3: "size-based"}
+    parts, details, missing = [], [], []
+    for a in sorted(APPROACH):
+        s = d[d.weighing_approach == a].copy()
+        s["province"] = s.pull_province.map(ng)
+        s["pull_municipal_city"] = s.pull_municipal_city.map(ng)
+        s["cons_name"] = s.pull_item.map(ni)
+        s["harmonized_nsu_unit"] = s.harmonized_nsu_unit.map(nz)
+        cells = set(map(tuple, s[["province", "pull_municipal_city", "cons_name",
+                                  "harmonized_nsu_unit"]].drop_duplicates().values))
+        miss = sorted(cells - priced)
+        missing += [(APPROACH[a], m) for m in miss]
+        parts.append(f"{APPROACH[a]} {len(cells) - len(miss):,}/{len(cells):,}")
+        details.append(f"{APPROACH[a]}: {len(cells) - len(miss):,} of {len(cells):,} covered")
+
+    # An uncovered cell in ANY branch is a finding, not noise: it means a harmonized
+    # unit reaches the deliverable with nothing in the price file that folds to it.
+    # The usual cause is an assignment made after the crosswalk merge, which the join
+    # never validated. Do not silence this by narrowing the filter again.
+    now = ("all cells covered, every branch" if not missing else
+           f"{len(missing)} uncovered: "
+           + "; ".join(f"[{b}] " + " / ".join(m) for b, m in missing[:5]))
+    check("every cell reaching Outcome 2 has a price-file row",
           "conversion_factor_methodology.md / Step A",
-          "all size-based cells covered",
-          # Was temporarily 2. The ANTIQUE / HAMTIC "bottle 500ml" cell was uncovered
-          # only because the crosswalk had already dropped the raw label "500" while
-          # the restated .dta still carried its five weighings. The pipeline re-run
-          # cleared that: those rows are now excluded upstream as an ambiguous
-          # quantity, and the count is back to the single genuine exception.
-          #
-          # That one is DELIBERATE and is issue #22: putos (mix vegetable) is a fold
-          # target that exists on the market-survey side only, so the price file --
-          # keyed on the raw label -- has nothing that folds to it in this cell. A
-          # SECOND uncovered cell means a new fold target with no price counterpart,
-          # which is a finding, not noise.
-          ("all size-based cells covered" if not miss else
-           f"{len(miss)} uncovered: "
-           + "; ".join(" / ".join(m) for m in miss[:5])),
-          f"{hit:,} of {len(cells):,} covered."
-          + ("" if not miss else "  UNCOVERED: "
-             + "; ".join(" / ".join(m) for m in miss[:5])))
+          "all cells covered, every branch",
+          now,
+          "  ".join(details)
+          + ("" if not missing else "  UNCOVERED: "
+             + "; ".join(f"[{b}] " + " / ".join(m) for b, m in missing[:5])))
 
 
 # ============================================================ 5-6. magnitude rules
