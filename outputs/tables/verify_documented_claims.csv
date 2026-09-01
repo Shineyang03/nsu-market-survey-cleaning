@@ -1,4 +1,5 @@
 ﻿check,doc,recorded,computed,verdict,note
+no tracked text file contains a NUL byte,build hygiene,0 files with a NUL byte,0 files with a NUL byte,OK,
 harmonization costs no uniqueness,conversion_factor_methodology.md / What identifies a row,rows == raw groups == harmonized groups,rows == raw groups == harmonized groups,OK,"rows 11,335, raw-key groups 11,335, harmonized-key groups 11,335; if these ever diverge the harmonized unit is not a safe pooling key"
 case counts by vocabulary layer,conversion_factor_methodology.md / Notation,"1,943 harmonized / 1,957 cleaned / 1,985 raw","1,943 harmonized / 1,957 cleaned / 1,985 raw",OK,"counted on the restated file, so post-attrition; the doc figure was taken at the same stage"
 the ASCII strip collides no two distinct names,issue #27 item 8,"0 collisions across province, municipality, item, raw unit, harmonized unit","0 collisions across province, municipality, item, raw unit, harmonized unit",OK,"pull_province 5 distinct, 0 collisions; pull_municipal_city 102 distinct, 0 collisions; pull_item 19 distinct, 0 collisions; pull_nsu_unit 112 distinct, 0 collisions; harmonized_nsu_unit 57 distinct, 0 collisions"

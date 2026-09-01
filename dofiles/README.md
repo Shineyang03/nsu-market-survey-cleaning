@@ -31,11 +31,18 @@ The Python steps are not run from the masters. They build the crosswalk and the 
 panel and change rarely; run them from the project root when their inputs change:
 
 ```
+"C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\00a_weighing_ids.do
 "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\00b_price_ms_cases.do
 python dofiles/00_shared/01_build_crosswalk.py
 python dofiles/00_shared/02_drop_non_nsu_labels.py --apply
 python dofiles/00_shared/06_cpi_panel.py
 ```
+
+**That order matters, and it is a straight line on purpose.** `00a` assigns every raw
+weighing its durable id and owns the registry; `01` needs that registry to number the
+price-only cases, and `03` needs the crosswalk `01` and `02` produce. Seeding the
+registry later — which is where it started — left a fresh clone needing two passes to
+converge, the same circularity issue #33 was about.
 
 **That order matters.** `01_build_crosswalk.py` reads the case-coverage CSV that
 `00b_price_ms_cases.do` writes, and `02` filters the crosswalk `01` produces.
@@ -68,6 +75,7 @@ when one has moved. It is what catches a figure going stale in a document.
 | file | does |
 |---|---|
 | `00_globals.do` | paths, plus the two shared programs `def_hetero` and `nsu_normalize` |
+| `00a_weighing_ids.do` | assigns every raw weighing a durable `id` and owns `weighing_id_registry.csv`. Reads only the raw survey, so nothing downstream can affect an id |
 | `00b_price_ms_cases.do` | which cases exist in the price file, the MS, or both. Reads the RAW market survey, so the crosswalk cannot depend on its own downstream output (#33) |
 | `01_build_crosswalk.py` | folds raw NSU spellings into `harmonized_nsu_unit`; writes `master_nsu_rename.csv` |
 | `02_drop_non_nsu_labels.py` | removes labels that are not NSUs (standard quantity, ambiguous quantity, free text) and reports what it removed |

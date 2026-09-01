@@ -224,41 +224,19 @@ use "${data}", clear
 def_hetero
 encode obs_type, gen(item_nsu_hetero_type) label(hetero)
 
-* ---- DURABLE WEIGHING ID ---------------------------------------------------------
-* `id' is assigned ONCE per weighing and then remembered, so it means the same thing
-* in every future build. It is NOT recomputed from row position.
+* ---- DURABLE WEIGHING ID -- attached here, ASSIGNED in 00a_weighing_ids.do --------
+* `id' is looked up, never created here. 00a assigns it on the raw file and owns the
+* registry; this step only reads. That split is deliberate: 01_build_crosswalk.py also
+* needs the registry, and 01 runs BEFORE this file, so seeding here left a fresh clone
+* needing two passes to converge. See the header of 00a for the ordering.
 *
-* WHY, because the obvious version is wrong and was shipped. `id' used to be
-* `gen id = _n' after a sort. Sorting on a content key makes that DETERMINISTIC -- the
-* same rows always number the same way -- but `_n' is a POSITION, so a given weighing
-* does not keep its number when the row set changes. Dropping five non-unit labels
-* removed 16 weighings and shifted every id after them. Nine hand corrections keyed on
-* `id' then landed on the wrong weighings, one of them setting a chicken bilog to the
-* weight of a camote bilog. See section 5 of 05_manual_corrections.do.
+* THE KEY is the content key: province, municipality, item, RAW label, vendor, hetero
+* type. All raw inputs. Deliberately not harmonized_nsu_unit -- keying on a value the
+* crosswalk can change would move ids whenever a fold changed, which is the failure the
+* registry exists to prevent.
 *
-* THE REGISTRY IS A REGISTRY, NOT A STALE INTERMEDIATE. Issue #33 was about a frozen
-* CSV that COULD have been recomputed and wasn't. This file is the opposite case: it
-* cannot be recomputed, because remembering a past assignment is the whole point. It is
-* committed, and it only ever grows -- an id is never reused and never reassigned.
-*
-* IT COVERS THE FULL RAW MARKET SURVEY, deliberately, and is assigned HERE -- before
-* the comment merge and before every exclusion. Attrition must not touch an id: a
-* weighing dropped as a non-NSU label still owns its number, so if that label is ever
-* re-admitted it comes back as the same weighing rather than as a new one at the end of
-* the sequence. Assigning after the exclusions, which is what the first version did,
-* left 62 raw weighings with no id at all.
-*
-* THE KEY is the same content key asserted just above: province, municipality, item,
-* RAW label, vendor, hetero type. All raw inputs. Deliberately not harmonized_nsu_unit
-* -- keying on a value the crosswalk can change would move ids whenever a fold changed,
-* which is the failure this replaces.
-
-* COMMAS ARE STRIPPED from the components before joining. The registry is a CSV so it
-* stays diffable in git, and several item names contain commas
-* ("crackers, cookies, buiscuits, chips/curls"). Stata quotes those correctly on export
-* but does not honour the quotes on import, which silently splits the key across six
-* variables. Stripping is the robust fix: the key needs to be unique and stable, not
-* readable, and the isid below proves the strip collides nothing.
+* Commas are stripped before joining because the registry is a CSV and several item
+* names contain them. The isid proves the strip collides nothing.
 tempvar idkey
 gen str244 `idkey' = subinstr(pull_province, ",", "", .) ///
     + "|" + subinstr(pull_municipal_city, ",", "", .) ///
@@ -268,36 +246,23 @@ gen str244 `idkey' = subinstr(pull_province, ",", "", .) ///
     + "|" + string(item_nsu_hetero_type)
 isid `idkey'
 
-* First build ever, or the registry was lost: seed it from the current data. After this
-* the branch below runs instead and the seeding never happens again.
 capture confirm file "${tables}\weighing_id_registry.csv"
 if _rc {
-	di as error "NO ID REGISTRY at ${tables}\weighing_id_registry.csv -- seeding one."
-	di as error "This should happen exactly once in the life of the project. If you are"
-	di as error "seeing it on an established build, the registry was deleted: restore it"
-	di as error "from git rather than reseeding, or every id in every output changes."
-	preserve
-		keep `idkey'
-		sort `idkey'
-		gen long id = _n
-		rename `idkey' idkey
-		export delimited using "${tables}\weighing_id_registry.csv", replace
-	restore
+	di as error "NO ID REGISTRY at ${tables}\weighing_id_registry.csv"
+	di as error "Run 00_shared/00a_weighing_ids.do first -- it assigns the ids from the"
+	di as error "raw file. This step reads them and must not create them: 01 needs the"
+	di as error "same registry and runs earlier."
+	exit 601
 }
 
-* Attach the remembered id.
 preserve
 	* delimiter(",") is NOT optional. import delimited auto-detects, and the key holds
 	* five "|" characters against the header's zero commas, so it picks "|" and splits
-	* the key into six variables -- silently, reporting "(6 vars, 11,433 obs)".
+	* the key into six variables -- silently, reporting "(6 vars, ... obs)".
 	import delimited "${tables}\weighing_id_registry.csv", clear varnames(1) ///
 		delimiter(",") stringcols(1) encoding("utf-8")
 	isid idkey
 	isid id
-	qui count
-	local n_reg = r(N)
-	qui summarize id, meanonly
-	local id_max = r(max)
 	tempfile registry
 	save "`registry'"
 restore
@@ -305,42 +270,23 @@ restore
 rename `idkey' idkey
 merge m:1 idkey using "`registry'", keep(1 3) gen(_m_id)
 
-* A weighing the registry has never seen gets the next free id, and the registry grows.
-* This is the ONLY way an id is created after seeding. If it fires on a build you did
-* not expect it to, the content key moved -- most likely because normalization changed
-* upstream -- and the right response is to reconcile that, not to accept new ids for
-* rows that already had them.
-qui count if _m_id == 1
-local n_new = r(N)
-if `n_new' > 0 {
-	di as error "`n_new' weighing(s) are not in the id registry and will be assigned new ids."
-	di as error "Expected only when the market survey genuinely gained rows. If the raw"
-	di as error "data did not change, the content key moved -- reconcile that first."
-	sort idkey
-	qui gen long _newseq = sum(_m_id == 1) if _m_id == 1
-	qui replace id = `id_max' + _newseq if _m_id == 1
-	drop _newseq
-
-	preserve
-		keep if _m_id == 1
-		keep idkey id
-		append using "`registry'"
-		sort id
-		isid id
-		isid idkey
-		export delimited using "${tables}\weighing_id_registry.csv", replace
-		qui count
-		di as error "registry grew from `n_reg' to " r(N) " rows"
-	restore
+* Every raw weighing was numbered by 00a, so an unmatched row here means the content
+* key moved between the two steps -- most likely a normalization change. That is a
+* reconciliation, not something to paper over by minting a new id.
+count if _m_id == 1
+if r(N) > 0 {
+	di as error "`r(N)' weighing(s) are not in the id registry."
+	di as error "00a numbers the whole raw file, so this means the content key changed"
+	di as error "between 00a and here. Reconcile that; do not assign new ids."
+	list pull_province pull_municipal_city pull_item pull_nsu_unit if _m_id == 1, noobs
+	exit 459
 }
-
 drop _m_id idkey
 
-* Nothing may reach the rest of the pipeline without an id, and no id may be shared.
 assert !missing(id)
 isid id
 
-label var id "Durable weighing id: assigned once, remembered in outputs/tables/weighing_id_registry.csv"
+label var id "Durable weighing id: assigned in 00a_weighing_ids.do, held in outputs/tables/weighing_id_registry.csv"
 
 * `id' IDENTIFIES A WEIGHING, NOT A CASE. Do not use it as a case key and do not
 * "improve" it toward one. The case (the pooling grain) is

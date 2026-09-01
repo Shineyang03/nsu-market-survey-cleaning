@@ -81,6 +81,39 @@ def head(t):
     print("\n" + "=" * 78 + f"\n{t}\n" + "=" * 78)
 
 
+def c_no_corrupt_source_files():
+    """No tracked text file may contain a NUL byte.
+
+    A NUL in a .do or .py file is not a data problem, it is a WRITE problem, and it can
+    sit there working. Two files in this repo carried one for several commits: a script
+    that generated Stata paths wrote "00_shared" + backslash + "00b..." through a layer
+    that collapsed the doubled backslash, leaving Python to read the result as the octal
+    escape \000 followed by "b". Stata ran the file anyway and grep quietly reclassified
+    it as binary, so nothing complained.
+
+    Cheap to check and there is no legitimate reason for one, so it is asserted.
+
+    found while auditing ids; see the commit that added this check
+    """
+    exts = {".do", ".py", ".md", ".csv", ".txt", ".json", ".r"}
+    bad = []
+    for f in Path(DC).rglob("*"):
+        if not f.is_file() or f.suffix.lower() not in exts:
+            continue
+        if any(x in f.parts for x in (".git", "__pycache__")):
+            continue
+        try:
+            if bytes([0]) in f.read_bytes():   # bytes([0]), not an escape -- see the docstring
+                bad.append(str(f.relative_to(DC)))
+        except OSError:
+            continue
+    check("no tracked text file contains a NUL byte",
+          "build hygiene",
+          "0 files with a NUL byte",
+          f"{len(bad)} files with a NUL byte",
+          "" if not bad else "; ".join(bad[:5]))
+
+
 # ============================================================ 1. harmonization
 def c_harmonization_uniqueness(d):
     """Pooling raw NSU spellings into a harmonized unit must not make two distinct
@@ -765,6 +798,9 @@ def main():
     print(f"  ref_10_sized              {len(sized):>7,} rows")
     print(f"  standard_weight_unit_corr    {len(corrected):>7,} rows")
     print(f"  nsu_weighings_cpi         {len(rest):>7,} rows")
+
+    head("BUILD HYGIENE")
+    c_no_corrupt_source_files()
 
     head("CLAIMS ABOUT IDENTIFICATION AND VOCABULARY")
     c_harmonization_uniqueness(rest)
