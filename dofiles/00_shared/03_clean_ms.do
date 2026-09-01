@@ -585,6 +585,19 @@ label var dup_key "n other weighings sharing this case x market x vendor x heter
 * weighing id must NOT, which is why the two are keyed differently and why this one
 * uses the raw label.
 *
+* WHAT KIND OF STABILITY THIS BUYS, precisely -- the loose version of this claim has
+* already caused one real error. Sorting on a content key before `_n' makes `id'
+* stable against REORDERING: the same row set always numbers the same way, whatever
+* order the upstream merges left. It does NOT survive a change to the ROW SET. Drop or
+* add a weighing and every id after that position shifts by one.
+*
+* So `id' identifies a row WITHIN a build -- which is all the deterministic sort before
+* each save needs -- and must not be used to carry anything ACROSS builds. Nine hand
+* corrections keyed on `id' landed on the wrong weighings when five non-unit labels
+* were dropped; see section 5 of 05_manual_corrections.do, which is now keyed on
+* content instead. A count assertion cannot catch that: it proves the id exists, not
+* that it points where you meant.
+*
 * `isid ..., sort' both sorts and asserts the key is unique. The assert matters more
 * than the sort: within a tie, ids would be handed out in whatever order the sort
 * seed chose, which is exactly the instability being removed. If this fires, the key

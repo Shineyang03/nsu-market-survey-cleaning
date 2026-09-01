@@ -1156,8 +1156,10 @@ def load_price_analyses(pr):
     # `magnitude_corrected' is NOT a defect rate: kg->g is a conversion and is excluded,
     # but a kilogram number ticked as grams IS counted, and that is most of them.
     #
-    # Keyed on `id', which is stable across builds (03_clean_ms.do assigns it after an
-    # isid on raw inputs), plus the same 4-part cell key as everything else here.
+    # Keyed on `id' AND on the same 4-part cell key as everything else here. Do not
+    # rely on `id' alone to compare two builds: it is `_n' after a sort, so it is
+    # stable against REORDERING but renumbers when rows are added or removed. Within
+    # one build it identifies a row; across builds only the content does.
     if WEIGHT_CORRECTION_PATH.exists():
         wc = pd.read_csv(WEIGHT_CORRECTION_PATH, encoding='utf-8-sig')
         wc = _addkey4(wc, 'pull_province', 'pull_municipal_city', 'pull_item',

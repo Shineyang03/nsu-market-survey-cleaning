@@ -215,51 +215,70 @@ replace corrected_weight = .c ///
 ********************************************************************************
 * 04_unit_snap.do STEP 3e chooses between the anchor snap and the block reading by
 * rule. These 12 weighings were adjudicated BY HAND during the review recorded on
-* issue #18 and are set explicitly, because a reviewer looked at the cell and the
-* rule did not reach the same answer.
+* issue #18, because a reviewer read the cell and the rule did not reach the same
+* answer. All 12 adopt the block reading -- the typed number in canonical units.
 *
-* All 12 adopt the BLOCK reading -- the typed number restated in canonical units.
-* They are keyed on `id', which is safe now that id is stable across builds
-* (03_clean_ms.do assigns it after an isid on a raw-input content key). Before that
-* change this block could not have been written this way: a hand correction keyed on
-* `inlist(id, 4242)' had to be abandoned for exactly that reason, see section 4a.
+* KEYED ON CONTENT, NOT ON `id', and that matters. The first version of this block
+* used `if id == 6115' and similar. Nine of the twelve then landed on the WRONG
+* WEIGHING, because `id' is `_n' assigned after a sort: it is stable against
+* REORDERING but not against ROW REMOVAL, and dropping five non-unit labels
+* (16 weighings) renumbered every id after them. One correction meant for a 0.275 kg
+* camote bilog was applied to a chicken bilog whose raw reading was 740 g.
 *
-* Each group asserts its row count. A correction that silently matches nothing is how
-* a 1 gram whole chicken reached the published reference set once already.
+* The assertions did not catch it, which is the part worth remembering: they counted
+* whether the ids EXISTED, not whether they pointed at the intended rows. A count
+* assertion on a positional key proves nothing about identity.
+*
+* So each block below keys on (municipality, item, harmonized unit, RAW WEIGHT). The
+* raw weight is what the reviewer was actually looking at, it cannot renumber, and it
+* makes the correction readable without the workbook to hand.
+*
+* NOTE THE float() WRAPPER on every decimal. weight is a float, so a bare
+* `weight == 0.275' matches NOTHING -- the same trap section 4a documents.
 
 * --- 5a. ANTIQUE / SAN REMIGIO / fresh fish / pieces or units --------------------
-* Cell median 190 g on 5 agreeing rows. The anchor put these at 92 / 367 / 127 g,
-* a decade below what the vendor's own reading says.
-count if inlist(id, 2790, 2793, 2796)
+* Cell median 190 g on 5 agreeing rows. The anchor read these as 92 / 367 / 127 g,
+* a decade below the vendor's own number.
+count if pull_municipal_city == "SAN REMIGIO" & pull_item == "fresh fish" ///
+       & harmonized_nsu_unit == "pieces or units" & inlist(weight, 920, 3670, 1265)
 _chk "5a. SAN REMIGIO fresh fish, block reading" 3
-replace corrected_weight = 920  if id == 2790
-replace corrected_weight = 3670 if id == 2793
-replace corrected_weight = 1265 if id == 2796
+replace corrected_weight = weight if pull_municipal_city == "SAN REMIGIO" ///
+       & pull_item == "fresh fish" & harmonized_nsu_unit == "pieces or units" ///
+       & inlist(weight, 920, 3670, 1265)
 
 * --- 5b. ILOILO / SAN MIGUEL / crackers / pieces or units -----------------------
-* Cell median 30 g on 5 agreeing rows; the anchor read 10 / 12 / 12 g.
-count if inlist(id, 9321, 9323, 9325)
+* Cell median 30 g on 5 agreeing rows; the anchor read 10 / 12 / 12 g. Two rows share
+* the 120 g reading and take the same answer, so this is 3 rows on two readings.
+count if pull_municipal_city == "SAN MIGUEL" ///
+       & pull_item == "crackers, cookies, buiscuits, chips/curls" ///
+       & harmonized_nsu_unit == "pieces or units" & inlist(weight, 98, 120)
 _chk "5b. SAN MIGUEL crackers, block reading" 3
-replace corrected_weight = 98  if id == 9321
-replace corrected_weight = 120 if id == 9323
-replace corrected_weight = 120 if id == 9325
+replace corrected_weight = weight if pull_municipal_city == "SAN MIGUEL" ///
+       & pull_item == "crackers, cookies, buiscuits, chips/curls" ///
+       & harmonized_nsu_unit == "pieces or units" & inlist(weight, 98, 120)
 
 * --- 5c. NEGROS OCCIDENTAL / PONTEVEDRA / camote / bilog ------------------------
-* Raw weights 0.275 / 0.390 / 0.475 -- a shared sub-1 decimal structure, so the
-* readings are the market's convention rather than three separate slips.
-count if inlist(id, 11070, 11073, 11076)
+* Raw 0.275 / 0.390 / 0.475 -- a shared sub-1 decimal structure across the cell, so
+* the readings are the market's convention rather than three separate slips.
+count if pull_municipal_city == "PONTEVEDRA" & pull_item == "camote" ///
+       & harmonized_nsu_unit == "bilog" ///
+       & inlist(float(weight), float(0.275), float(0.390), float(0.475))
 _chk "5c. PONTEVEDRA camote bilog, block reading" 3
-replace corrected_weight = 475 if id == 11070
-replace corrected_weight = 275 if id == 11073
-replace corrected_weight = 390 if id == 11076
+replace corrected_weight = round(weight * 1000) ///
+       if pull_municipal_city == "PONTEVEDRA" & pull_item == "camote" ///
+       & harmonized_nsu_unit == "bilog" ///
+       & inlist(float(weight), float(0.275), float(0.390), float(0.475))
 
 * --- 5d. ILOILO / CABATUAN / camote / bilog -------------------------------------
-* Same shared 0.xxx structure across the cell; annotated during review.
-count if inlist(id, 6101, 6109, 6115)
+* Same shared 0.xxx structure; annotated during the review.
+count if pull_municipal_city == "CABATUAN" & pull_item == "camote" ///
+       & harmonized_nsu_unit == "bilog" ///
+       & inlist(float(weight), float(0.270), float(0.335), float(0.445))
 _chk "5d. CABATUAN camote bilog, block reading" 3
-replace corrected_weight = 335 if id == 6101
-replace corrected_weight = 270 if id == 6109
-replace corrected_weight = 445 if id == 6115
+replace corrected_weight = round(weight * 1000) ///
+       if pull_municipal_city == "CABATUAN" & pull_item == "camote" ///
+       & harmonized_nsu_unit == "bilog" ///
+       & inlist(float(weight), float(0.270), float(0.335), float(0.445))
 
 
 capture program drop _chk
