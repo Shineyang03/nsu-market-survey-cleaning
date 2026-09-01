@@ -33,3 +33,25 @@ It also still references `w_ref`, a column retired in issue #29, so it errors on
 substantive line against any current input.
 
 The live equivalents are the three `dofiles/10_reference_set/` steps.
+
+---
+
+## `spotcheck_identified_errors.xlsx` — its `id` column is invalid, do not join on it
+
+A 24 July spot-check listing 41 weighings judged to be errors. No file in the live tree
+writes it and none reads it.
+
+**Every id in it is wrong now.** They were assigned by the original `gen id = _n`, which
+numbered rows by position. Checked against the current build: of the 41, **40 point at a
+different weighing** and 1 no longer exists. The ids still fall inside the valid range,
+so nothing looks broken — `id 4513` reads as Loaf Bread here and is prawns in the build;
+`id 9418` was Chicken and is cabbage.
+
+The rest of the file is still meaningful: `pull_item`, `weight`, `unit`,
+`corrected_weight` and `tier` describe real readings. If the spot-check is ever revisited,
+re-key it on those columns and discard the id. Note the content key here is incomplete —
+there is no province or municipality — so a few rows may be ambiguous.
+
+Weighing ids are now assigned once and remembered in
+`outputs/tables/weighing_id_registry.csv` (`dofiles/00_shared/00a_weighing_ids.do`), so
+an id written down today keeps its meaning. That was not true when this file was made.

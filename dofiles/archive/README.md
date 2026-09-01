@@ -94,3 +94,26 @@ Reviving either means pointing it at
 `outputs/master_rename_build/temp/nsu_weighings_cpi.dta` and checking the columns it
 groups on still carry those names. The forest-plot layout itself is fine; only the
 input was stale.
+
+---
+
+## `snap_step1_vs_step3.py` — superseded, and its output was going stale
+
+Measured where the log10 anchor snap and the block reading disagree, to settle whether
+the blunt magnitude rule was the right one (issue #18 A1).
+
+**That question is now answered and implemented.** `04_unit_snap.do` STEP 3e adjudicates
+between the two rules per row, and `90_diagnostics/snap_sense_check.py` reports the same
+comparison plus what this file could not: which rule decided each row (`snap_rule`) and
+which pool refereed it (`snap_referee`). Keeping both would leave two diagnostics
+answering one question and drifting apart — the duplication this project keeps getting
+bitten by.
+
+Its committed output, `outputs/tables/snap_step1_vs_step3.csv`, was **already stale** when
+this was archived: 985 rows against the live 971, carrying `id` values from the retired
+positional scheme. Anyone joining on those ids would have mis-keyed. Moved to
+`outputs/archive/` alongside the script.
+
+The whole docstring describes the pre-adjudication pipeline — STEP 3 "overwrites STEP 1
+on every row", the anchor "decides nothing". True when written, wrong now. Read it as a
+record of why the adjudication exists, not as a description of the build.

@@ -205,13 +205,14 @@ restore
 drop rec_mass rec_vol item_has_mass item_has_vol item_mixed
 
 
-* ---- KEEP STEP 1's ANSWER, so STEP 3 can be compared against it ---------------
-* STEP 3 below overwrites corrected_weight on every row that has a weight, so without
-* this the log10 snap's answer is computed and then destroyed with nothing recording
-* what it would have said. The whole open question on issue #18 -- whether the blunt
-* magnitude rule is the RIGHT rule -- is unanswerable unless both answers survive to
-* the same dataset. These two columns change no result; they are carried through to
-* the output and read by 90_diagnostics/snap_step1_vs_step3.py.
+* ---- KEEP STEP 1's ANSWER, so the adjudication can be audited -------------------
+* STEP 3e picks between this and the block reading, so without carrying STEP 1's answer
+* forward the rejected candidate is computed and then destroyed, and no one can see what
+* the other rule would have said. These two columns change no result.
+*
+* Read by 90_diagnostics/snap_sense_check.py, which is what a reviewer opens to judge
+* the rule. (An earlier snap_step1_vs_step3.py did the same comparison and is archived:
+* it predates the adjudication and could not report which rule decided a row.)
 gen double w_step1 = corrected_weight
 gen byte   review_step1 = flag_review
 label var w_step1      "STEP 1 (log10 anchor snap) corrected weight, before STEP 3 overwrote it"

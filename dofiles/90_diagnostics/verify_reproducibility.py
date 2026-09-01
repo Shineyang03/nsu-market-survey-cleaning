@@ -83,17 +83,28 @@ The result is that a 6-row intended change can report as 10 DIFFERENT files with
 thousands of changed cells, including columns the change could not possibly touch
 (vendor_id, submissiondate). That is id drift, not a regression.
 
-FIXED: 03_clean_ms.do now runs `isid' on a content key of RAW inputs (province,
-municipality, item, raw NSU label, vendor, hetero type) and assigns `id = _n' after
-that sort, so the same weighing keeps the same id across builds. Verified by capturing
-the id -> weighing map, rebuilding the crosswalk (the exact perturbation that used to
-shift ids), re-running, and comparing: identical on all 11,449 rows.
+FIRST FIX, WHICH WAS NOT ENOUGH: sort on a content key, then `gen id = _n'. That makes
+the numbering DETERMINISTIC -- the same rows always number the same way -- and it was
+verified that way, by rebuilding the crosswalk and comparing the id -> weighing map.
 
-The multiset recipe below is still the right tool when a change DOES move rows, and
-the history is kept because `id' silently going unstable again would be hard to spot. 05_manual_corrections.do section
-4a records the same fragility from the other direction: an old hand correction keyed on
-`inlist(id, 4242)' could not be ported because two saved copies of the same build
-disagreed on which row that was.
+But `_n' is a POSITION. Determinism means "same rows, same numbers"; it does not mean a
+given weighing keeps its number when the ROW SET changes. Dropping five non-unit labels
+later removed 16 weighings and shifted every id after them, and nine hand corrections
+keyed on `id' landed on the wrong weighings -- one setting a chicken bilog to the weight
+of a camote bilog. The test had varied the processing ORDER, not the row set, so it
+proved the weaker property and the stronger one was claimed.
+
+FIXED PROPERLY: ids are now ASSIGNED ONCE and remembered.
+00_shared/00a_weighing_ids.do numbers every weighing on the raw file and owns
+outputs/tables/weighing_id_registry.csv; every later step looks the id up and none
+creates one. Attrition cannot touch an id -- an excluded weighing keeps its number, so a
+label re-admitted later returns as the same weighing. Verified against the property that
+actually failed: drop 16 rows, re-merge, every survivor keeps its id.
+
+The multiset recipe below is still the right tool when a change DOES move rows.
+05_manual_corrections.do section 5 records the same fragility from the other direction:
+its hand corrections are keyed on CONTENT, not on `id', because a count assertion on a
+positional key proves the id exists and nothing about what it points at.
 
 To tell the two apart, compare the row MULTISET with `id' excluded:
 
