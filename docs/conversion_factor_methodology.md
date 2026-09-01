@@ -549,11 +549,17 @@ non-NSU labels, taking its 4 weighings with it.
 The cell was resolved by **dropping the ambiguous label**, not by giving it a fallback
 price: a conversion factor whose unit is unrecoverable is worse than none. See issue #22.
 
-An earlier version of this passage attributed the uncovered cell to the mixed-vegetable
-override in `03_clean_ms.do`. That was wrong: the override fires only on four
-ILOILO / TIGBAUAN rows and never touched DUEÑAS, whose crosswalk entries self-map the
-raw label. The two are separate findings — the override defect is real but lives
-elsewhere, and is tracked on #18.
+**Two changes were needed, and they are often confused.** Dropping the label removed the
+symptom; moving the mixed-bag fold into the crosswalk removed the cause.
+
+The cause was the mixed-vegetable override that used to sit in `03_clean_ms.do`, which
+rewrote `harmonized_nsu_unit` *after* the crosswalk merge whenever a curated note
+matched. One of the four DUEÑAS weighings carried the note
+"consider changing the unit to plutos (halo halo)", so that row alone was rewritten to
+`putos (mix vegetable)` — a fold target the price file had nothing for in DUEÑAS — while
+its three siblings kept the self-mapped label. One cell, one raw label, two harmonized
+units. The fold now lives in `CELL_MIX` in `nsu_fold_rule.py`, where the join validates
+it and both sides move together.
 
 An earlier count of 26 unmatched cells was an artefact of a checking script that
 Unicode-normalized `DUEÑAS` differently from the pipeline — see the normalization

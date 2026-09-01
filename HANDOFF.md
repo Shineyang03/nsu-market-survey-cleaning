@@ -18,7 +18,7 @@ Philippine market survey (MS) weighings of non-standard units (NSUs) — a *puto
 
 Repo: `Shineyang03/nsu-market-survey-cleaning` (user's own repo).
 Working dir: `C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning`
-Branch: `fix/snap-kg-band-and-price-drops`. HEAD: `a0868d1`. Working tree clean apart
+Branch: `fix/snap-kg-band-and-price-drops`. HEAD: `8033446`. Working tree clean apart
 from an untracked `WB_2025_PH_Food_Prices.csv` that is not mine and should be left alone.
 
 ## Read these first
@@ -48,7 +48,7 @@ After ANY change, from the project root:
 python dofiles/90_diagnostics/verify_documented_claims.py
 ```
 
-23 checks (all OK at `a0868d1`); it re-derives every number in `docs/` that no build file produces and fails
+23 checks (all OK at `8033446`); it re-derives every number in `docs/` that no build file produces and fails
 when one moves. It has caught three wrong figures already. Treat a CHANGED verdict as
 "reconcile", never as "update the constant".
 
@@ -163,14 +163,10 @@ re-run before diagnosing. Pin folders offline before long Stata runs.
 
 ### The 4 open #18 items, verified at `a0868d1`
 
-- **mixed-vegetable post-merge override** — `03_clean_ms.do:354-355`. **Top of the list.**
-  It does NOT cause #22 — that attribution was measured and found wrong. It fires on 4
-  ILOILO / TIGBAUAN rows (raw label `putos`), where the crosswalk says `pack` (priced) and
-  the override substitutes `putos (mix vegetable)`, which has **no price row at TIGBAUAN**.
-  All 4 are `weighing_approach == 2`, and the coverage check only inspects approach 3 — so
-  this orphan is structurally invisible to the one guard that would catch it. Widening that
-  check is worth doing independently of the override. Two fix options are on #18 awaiting a
-  call.
+- ~~mixed-vegetable post-merge override~~ **CLOSED**. Moved into `CELL_MIX` in
+  `nsu_fold_rule.py`, keyed on (province, municipality, item, raw unit). It WAS the cause
+  of #22 -- I briefly claimed otherwise after measuring the post-drop state, which could
+  not see the rows in question; the pre-drop build at `b37d2f5` settles it.
 - `item_group` unnormalized merge key — `07_cpi_factor.do:306, 322`
 - `tally_price_points.py:48-49` — the last divergent normalizer copy. Fixing it moves counts
   cited on #27 A4 and #6, so those must be re-derived in the same commit
