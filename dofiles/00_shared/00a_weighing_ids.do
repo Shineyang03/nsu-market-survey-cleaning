@@ -59,6 +59,14 @@ encode obs_type, gen(item_nsu_hetero_type) label(hetero)
 * the sequence. Assigning after the exclusions, which is what the first version did,
 * left 62 raw weighings with no id at all.
 *
+* THE KEY IS BUILT ON RAW-CASED TEXT -- "Cabbage|Bilog", not "cabbage|bilog" -- because
+* this step runs before nsu_normalize. That is a property worth keeping rather than an
+* accident. Normalization is CODE, and code changes: the rule was edited twice in one
+* session. Keying ids on normalized text would mean every normalization edit silently
+* re-keys the registry and orphans every id. Keying on the raw text means an id can only
+* break if the SOURCE DATA is respelled, which is a real event and one the orphan check
+* at the bottom of this file will report.
+*
 * THE KEY is the same content key asserted just above: province, municipality, item,
 * RAW label, vendor, hetero type. All raw inputs. Deliberately not harmonized_nsu_unit
 * -- keying on a value the crosswalk can change would move ids whenever a fold changed,
@@ -145,6 +153,8 @@ if `n_new' > 0 {
 	restore
 }
 
+* keep a copy for the orphan check at the bottom, which needs the key after the merge
+gen str244 idkey_check = idkey
 drop _m_id idkey
 
 * Nothing may reach the rest of the pipeline without an id, and no id may be shared.
@@ -160,6 +170,46 @@ label var id "Durable weighing id: assigned once, remembered in outputs/tables/w
 * here. The case key SHOULD move when a fold changes -- that is what a fold does. A
 * weighing id must NOT, which is why the two are keyed differently and why this one
 * uses the raw label.
+
+* ---- INDEPENDENT CHECK: the registry describes the rows it claims to -----------
+* The merge above proves every RAW row found a key in the registry. It does not prove
+* the reverse -- that every key in the registry still describes a raw row. A key can be
+* orphaned by an upstream re-export that respells a component, and the symptom would be
+* silent: the orphaned id simply stops being used while a NEW id is minted for what is
+* really the same weighing.
+*
+* Done here, in Stata, deliberately. Reconstructing these keys in Python needs
+* `encode obs_type, label(hetero)' reproduced exactly, and two attempts at that got the
+* code mapping wrong -- once alphabetically, once against the wrong label set -- each
+* time producing a confident, wrong mismatch count. The build already holds the right
+* answer; the check belongs where the keys are made.
+preserve
+	import delimited "${tables}\weighing_id_registry.csv", clear varnames(1) ///
+		delimiter(",") stringcols(1) encoding("utf-8")
+	* price-only case keys (three pipes) belong to 01_build_crosswalk.py and have no
+	* raw weighing behind them -- they are not orphans and must not be counted as such.
+	gen byte _pipes = length(idkey) - length(subinstr(idkey, "|", "", .))
+	keep if _pipes == 5
+	drop _pipes
+	tempfile regw
+	save "`regw'"
+restore
+
+preserve
+	keep idkey_check
+	rename idkey_check idkey
+	merge 1:1 idkey using "`regw'", gen(_m_orph)
+	count if _m_orph == 2
+	if r(N) > 0 {
+		di as error "`r(N)' weighing key(s) in the registry match no row in the raw file."
+		di as error "An upstream respelling orphans an id and mints a new one for the same"
+		di as error "weighing. Reconcile the spelling; do not delete registry rows."
+		list idkey if _m_orph == 2, noobs abbrev(60)
+		exit 459
+	}
+	count if _m_orph == 1
+	assert r(N) == 0
+restore
 
 count
 di as res _n "00a_weighing_ids complete: " r(N) " weighings carry a durable id"
