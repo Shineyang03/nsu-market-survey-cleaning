@@ -1,12 +1,25 @@
 # Pipeline layout
 
+**This file is the living map of the pipeline** — what exists, what runs in which order,
+and which steps are still unwritten. Update it when a step lands, not when a decision is
+made; decisions live in the issue that owns them and in `../docs/`.
+
+Two companions, and they do not overlap:
+
+- **`../docs/implicit_assumptions.md`** — every hard-coded threshold, tie rule and
+  fallback, and what each one claims about the data. **Read it before changing any
+  constant in a do-file.**
+- **`../docs/conversion_factor_methodology.md`** — what the method is and why, including
+  the assumptions the method itself makes.
+
 Two deliverables are built from the same market-survey weighings:
 
 - **Outcome 1 — the reference set.** Grams by size for each province × municipality ×
   item × harmonized NSU unit, so a future enumerator can look up what a named local
   unit weighs. Built and live.
 - **Outcome 2 — PSPS retro-fitting.** Conversion factors that turn PSPS household
-  quantities into grams. Skeleton only; see `master_outcome2.do` and issue #7.
+  quantities into grams. Skeleton only — the step table under
+  *`20_psps_retrofitting/`* below says what each remaining step owes and what blocks it.
 
 They share everything up to a clean, inflation-framed weight per weighing, then
 diverge: Outcome 1 slices weighings by the **size** the field recorded, Outcome 2 by
@@ -38,16 +51,19 @@ python dofiles/00_shared/02_drop_non_nsu_labels.py --apply
 python dofiles/00_shared/06_cpi_panel.py
 ```
 
-**That order matters, and it is a straight line on purpose.** `00a` assigns every raw
-weighing its durable id and owns the registry; `01` needs that registry to number the
-price-only cases, and `03` needs the crosswalk `01` and `02` produce. Seeding the
-registry later — which is where it started — left a fresh clone needing two passes to
-converge, the same circularity issue #33 was about.
+**That order matters, and it is a straight line on purpose.** Each link:
 
-**That order matters.** `01_build_crosswalk.py` reads the case-coverage CSV that
-`00b_price_ms_cases.do` writes, and `02` filters the crosswalk `01` produces.
-Re-running `02` without rebuilding in between is a no-op by design, not an error --
-it refuses to overwrite the record of what it removed.
+- `00a` assigns every raw weighing its durable id and owns the registry. It reads only
+  the raw survey, so nothing downstream can move an id.
+- `01` needs that registry to number the price-only cases, and reads the case-coverage
+  CSV that `00b` writes.
+- `02` filters the crosswalk `01` produces. Re-running it without rebuilding in between
+  is a no-op **by design, not an error** — it refuses to overwrite the record of what it
+  removed.
+- `03` needs the crosswalk `01` and `02` produce.
+
+Seeding the registry later — which is where it started — left a fresh clone needing two
+passes to converge, the same circularity issue #33 was about.
 
 **After any change**, run the claim checker from the project root:
 
@@ -101,10 +117,33 @@ later is what once turned a 10 L gallon into 10 mL.
 
 | file | does |
 |---|---|
-| `26_psps_extract.do` | pulls the household side from the PSPS consumption module |
+| `26_psps_extract.do` | pulls the household side from the PSPS consumption module. **Case grain, not household grain** — it drops `hhid` and de-duplicates, so it answers "which cells exist and what prices appear in them", not "what did each household pay". A distribution over households needs a second extract. |
 
-Steps 20–25 and 27–30 are not written. `master_outcome2.do` lists them with the issue
-that owns each decision.
+**Steps 20–25 and 27–30 are not written.** This table is the source for what each owes and
+what blocks it; `master_outcome2.do` prints an abbreviated version when it stops.
+
+| step | owes | blocked on |
+|---|---|---|
+| `20_case_price_points.do` | how many price points a case gets, after the ₱20 union-merge | the `unique_mun_price` arm — **#23**. The merge rule itself is decided (#21 §2). |
+| `21_branch_size_based.do` | cut pooled weights into that many parts | 20, plus how a household reporting an unweighed spelling is routed (**#21 §5.3**, 273 cases) |
+| `22_branch_price_quantity.do` | `w_g` per case × `pull_price` | nothing — decided (#21 §2 rows 5–6) |
+| `23_branch_conventional.do` | one weight per case | **#28** — is "conventional" a unit property or a cell assignment? See A1 in `../docs/implicit_assumptions.md`. |
+| `24_inflate_to_psps_month.do` | `w_g_m`, `v_g_m` per interview month | nothing — decided (#5) |
+| `25_lookup.do` | append the three branches | #11 (the no-inflation variant) |
+| `27_standard_units.do` | kg/L answers convert directly | #14 |
+| `28_match_and_convert.do` | nearest point, `CF_h`, `grams_h` | nothing — decided (#5) |
+| `29_cap.do` | clamp `p_h/p_g`, flag | **#19**, and the threshold `t` is unset. Choosing `t` needs no weights — it needs step 20 and a household-grain extract. |
+| `30_fallback.do` | cases with no MS weight of their own | **#30 — the real blocker.** One PSPS observation in six needs a fallback, and borrowing weights across municipalities is unsolved. |
+
+**#30 gates the deliverable** regardless of what order the others land in. Note that #30's
+cost argument was written against a 14× cross-municipality spread; the corrected figure is
+**6.7×**, so re-read it against that.
+
+**Carry the uncertainty through.** Every weighing carries flags saying whether its weight
+was corrected and whether it is disputed, anchor-flagged or unusable —
+`weight_correction_report.csv`, written by `90_diagnostics/report_weight_corrections.py`.
+**1,742 weighings carry some uncertainty.** A conversion factor built on a disputed weight
+should say so, and no step currently reads that file.
 
 ## Conventions worth keeping
 
@@ -120,6 +159,13 @@ expects.
 that only says `assert n == 11458` invites whoever hits it to update the number. The
 one in `07_cpi_factor.do` shows the arithmetic that produces it and says to reconcile
 against the log instead.
+
+**A threshold must say what it claims about the data.** `KGMAX = 30`, `THIN = 3`,
+`FOLD = 0.85` and the rest are each a statement about the world, and several are safe
+only by accident. Every one is written up in `../docs/implicit_assumptions.md` with what
+rests on it and whether anything checks it. **Add an entry there before adding a
+constant here** — the test is whether a reader of the line would know a decision was
+made.
 
 ## Determinism
 

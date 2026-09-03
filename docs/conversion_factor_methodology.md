@@ -1107,6 +1107,21 @@ is deliberate — see assumption 7.
 
 ## Assumptions to keep visible
 
+**This section covers the assumptions the *method* makes.** The assumptions the *code*
+makes — a threshold set to 30, a tie rule that is lower-inclusive, a normalizer that drops
+accented characters — are a separate list in **`docs/implicit_assumptions.md`**, which is
+the register to read before changing any constant in a do-file.
+
+The two lists cross-reference rather than repeat. Where a register entry binds to one of
+the numbered assumptions below, it names it and the figures stay here:
+
+| register entry | binds to |
+| :-- | :-- |
+| A1 conventional units standard within a locality | assumption 6 |
+| A5b the field label is informative in aggregate | assumption 7 |
+| A9 shrinkflation, rank alignment, terciles | assumptions 3, 4, 5 |
+| A10 one peso-per-gram rate across acquisition modes | assumption 1 — its household-side counterpart |
+
 Each is tagged with the branch it binds on. **The two load-bearing ones are 2 and 3,
 and they are mirror images** — the price-quantity branch assumes the *price* schedule
 moved only with the index; the size-based branch assumes the *quantity* schedule did
@@ -1127,6 +1142,14 @@ thing.
    *matching* variable, so the caution applies to the hetero-group assignment. The
    quantity-discount point is why the method keeps a separate $`v_g`$ per hetero-group
    rather than one case-level scalar.
+
+   **Its household-side counterpart** is that the same schedule holds however the
+   household *acquired* the unit. Only the purchased slot supplies $`p_h`$ — gifts and
+   own production carry an imputed value, not a faced price — but the resulting
+   conversion factor is applied to every household's quantity regardless of mode, so a
+   gifted `bugkos` is assumed to be the same size as a bought one. Roughly one food
+   observation in five is acquired without a purchase, and the claim is untested. See
+   A10 in `docs/implicit_assumptions.md`.
 
 2. **Real price per gram moved only with the index.** *(price-quantity branch —
    load-bearing)* This licenses $`w_g^{\text{PSPS}} = w_g(1+\pi)`$: the only reason a
