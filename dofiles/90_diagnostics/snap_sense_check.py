@@ -161,6 +161,138 @@ COLS = ["id","cell","hetero_group","approach","unit","weight",
         "rule_used","cell_median","n_cell_agreeing","x_from_median",
         "review_step1","cleaning_notes"]
 
+# ---- carry the PREVIOUS review forward ---------------------------------------
+# A second review pass must not start from a blank sheet. Two things have to survive
+# a regeneration:
+#
+#   1. the verdicts already given, so they are not re-litigated, and
+#   2. whether each verdict actually LANDED, because one did not -- ANTIQUE /
+#      SAN REMIGIO / preserved meat / bilog, raw 60 g, was adjudicated to the block
+#      reading and still publishes 600 g.
+#
+# MATCHED ON CONTENT, NOT ON `id'. The reviewed workbook predates durable ids, so
+# every id in it points somewhere else now. The key is (cell, hetero_group, raw
+# weight) -- what the reviewer was actually looking at, and none of it renumbers.
+REVIEWED_DIR = Path("reference/reviewed")
+
+
+def _vkey(frame):
+    """cell | hetero_group | raw weight, rendered so float32 cannot break the join.
+
+    `weight' is a Stata float, so the .dta side renders 1265 as "1264.9999" and 3670
+    as "3670.0002", while the workbook side comes back from Excel as float64 and
+    renders them exactly. A decimal round cannot fix this across a range running from
+    0.007 to 7,680 -- float32's error is RELATIVE, so any fixed number of decimals is
+    too coarse at one end or too fine at the other. Six significant digits is inside
+    float32's ~7 and reproduces every raw reading in the file exactly.
+
+    This is the same trap as the float() wrapper in 05_manual_corrections.do sec 4a,
+    and it failed the same way: silently, matching nothing, on 2 of 10 verdicts.
+    """
+    return (frame.cell.astype(str) + "|" + frame.hetero_group.astype(str)
+            + "|" + frame.weight.map(lambda v: "" if pd.isna(v) else f"{v:.6g}"))
+
+
+prior = {}
+_src = sorted(REVIEWED_DIR.glob("snap_sense_check_REVIEWED_*.xlsx"))
+if _src:
+    _latest = _src[-1]
+    for _sheet in ("disagreements", "gate_overrules", "cell_context"):
+        try:
+            _r = pd.read_excel(_latest, sheet_name=_sheet)
+        except Exception:
+            continue
+        if "Corrected Value" not in _r.columns:
+            continue
+        _r = _r[_r["Corrected Value"].notna()]
+        for _k, _v in zip(_vkey(_r), _r["Corrected Value"]):
+            prior.setdefault(_k, _v)
+    print(f"carried {len(prior)} prior verdict(s) forward from {_latest.name}")
+else:
+    print("NO reviewed workbook found under reference/reviewed -- starting clean")
+
+# Verdicts given in an issue COMMENT rather than in the workbook. The second review
+# round on #18 adjudicated two rows in prose ("id: 2835, correction in cell_context"),
+# and the cell_context sheet has no `Corrected Value' column to have carried them, so
+# they cannot be recovered by the loop above. Keyed on content, like everything else:
+# the ids cited predate durable ids and no longer resolve.
+COMMENT_VERDICTS = {
+    # ANTIQUE / SAN REMIGIO / preserved meat / bilog, raw 60 g. Adjudicated to the
+    # block reading -- its only neighbour in the cell weighs 65 g, while the province
+    # pool for preserved meat `bilog' sits near 600 g (issue #28).
+    "ANTIQUE / SAN REMIGIO / preserved or processed meat (tocino, tapa, longaniza, "
+    "etc) / bilog|province_median|60": "60",
+}
+for _k, _v in COMMENT_VERDICTS.items():
+    prior.setdefault(_k, _v)
+
+d["prior_verdict"] = _vkey(d).map(prior)
+
+# A verdict that matches no current row is a broken reference, not a silent no-op.
+_unmatched = set(prior) - set(_vkey(d))
+if _unmatched:
+    print(f"WARNING: {len(_unmatched)} prior verdict(s) match no row in this build.")
+    print("  The content key moved, or the row was dropped upstream. Reconcile these")
+    print("  rather than letting a past decision fall out of the build silently:")
+    for _k in sorted(_unmatched):
+        print(f"    {_k}")
+
+
+def _landed(row):
+    """Did the published value end up where the reviewer said it should?
+
+    A row set unusable by hand counts as SETTLED, not as a verdict that failed to
+    land. The CAPIZ / PANAY mineral water is the case: the workbook says "7000 mL",
+    and the later instruction on #18 was to drop it as a non-sensical unit instead.
+    05_manual_corrections.do sec 4a does that (corrected_weight = .c), so falling
+    back to `published' here would report a wrong number as still standing.
+    """
+    if pd.isna(row.prior_verdict):
+        return ""
+    if row.final_differs and pd.isna(row.final_weight):
+        return "superseded -- row set unusable by hand"
+    m = re.search(r"[-+]?\d*\.?\d+", str(row.prior_verdict).replace(",", ""))
+    if not m:                      # a free-text verdict, e.g. "drop it"
+        return "check by hand"
+    want = float(m.group())
+    got = row.final_weight if pd.notna(row.final_weight) else row.published
+    if pd.isna(got):
+        return "row no longer published"
+    return "yes" if abs(got - want) < 0.5 else "NO -- still " + f"{got:g}"
+
+
+d["verdict_landed"] = d.apply(_landed, axis=1)
+
+# ---- what still needs a human ------------------------------------------------
+# Two populations, and they are different problems.
+#
+#   a) a verdict was given and did not land. A bug, and it publishes a wrong number.
+#   b) the anchor published, a PROVINCE pool refereed it, and the block reading sits
+#      closer to the row's OWN cell median in decades. "Default to the block" only
+#      fires where the referee is undecided; where the province pool has an opinion
+#      the anchor still wins, and for units whose local meaning varies that pool is
+#      the wrong authority (issue #28).
+_anchor_won = d.published.round(6).eq(d.anchor_says.round(6))
+_prov = d.snap_referee.astype(str).str.startswith("prov")
+_ok = d.cell_median.gt(0) & d.block_says.gt(0) & d.published.gt(0)
+_blk_closer = _ok & (
+    (np.log10(d.block_says.where(_ok)) - np.log10(d.cell_median.where(_ok))).abs()
+    < (np.log10(d.published.where(_ok)) - np.log10(d.cell_median.where(_ok))).abs())
+
+d["needs_review"] = ""
+d.loc[_anchor_won & _prov & _blk_closer, "needs_review"] = \
+    "province refereed; block sits closer to this cell"
+d.loc[d.verdict_landed.astype(str).str.startswith("NO"), "needs_review"] = \
+    "PRIOR VERDICT NOT APPLIED"
+
+# Blank column for the reviewer to fill in. Pre-created so annotation happens in
+# place and the next run can read it back through the same content key.
+d["Corrected Value"] = ""
+
+RCOLS = (COLS[:COLS.index("review_step1")]
+         + ["prior_verdict", "verdict_landed", "needs_review", "Corrected Value"]
+         + COLS[COLS.index("review_step1"):])
+
 dis = d[(d.anchor_says != d.block_says) & d.published.notna()]
 dis = dis.sort_values("x_from_median", ascending=False)
 gate = d[d.anchor_implausible]
@@ -169,11 +301,22 @@ ref_new = pd.read_stata(T/"nsu_reference_set.dta", convert_categoricals=False)
 touched = set(dis.cell)
 ctx = d[d.cell.isin(touched)].sort_values(["cell","published"])
 
+# The sheet to open first: only the rows a human still has to decide, worst first.
+todo = d[d.needs_review.ne("")].copy()
+todo["_order"] = np.where(todo.needs_review.eq("PRIOR VERDICT NOT APPLIED"), 0, 1)
+todo = todo.sort_values(["_order", "x_from_median"], ascending=[True, False])
+
 with pd.ExcelWriter(OUT) as w:
-    dis[COLS].to_excel(w, "disagreements", index=False)
-    gate[COLS].to_excel(w, "gate_overrules", index=False)
+    todo[RCOLS].to_excel(w, "to_review", index=False)
+    dis[RCOLS].to_excel(w, "disagreements", index=False)
+    gate[RCOLS].to_excel(w, "gate_overrules", index=False)
     ref_new.to_excel(w, "reference_set_now", index=False)
-    ctx[COLS].to_excel(w, "cell_context", index=False)
+    ctx[RCOLS].to_excel(w, "cell_context", index=False)
+
+print(f"\nprior verdicts matched to a current row : {int(d.prior_verdict.notna().sum())}")
+print(d.verdict_landed[d.verdict_landed.ne("")].value_counts().to_string())
+print(f"\nrows on the to_review sheet            : {len(todo)}")
+print(todo.needs_review.value_counts().to_string())
 
 # ---- score the two rules against an INDEPENDENT referee -----------------------
 # The referee must not be the pool the anchor snaps toward, or the comparison is
