@@ -350,6 +350,55 @@ to break it: a household harvesting its own camote tops is not buying a vendor's
 "one bundle" may mean whatever they chose to tie together. If own-production units are
 systematically larger or smaller, the error is one-directional across a sixth of the data.
 
+## A11 — `GAP_FLAG = 2.0`: when two pooled spellings are "the same object"
+
+**Claims.** Where a harmonized case pools a weighed spelling and a priced-but-never-weighed
+one, a price-level difference between them **up to 2×** is a pricing difference (vendor,
+quality, market), so the household can be converted using the weighed spelling's price
+point. **Beyond 2×** it is more likely a size difference, and the case is flagged rather
+than converted.
+
+**Where.** `90_diagnostics/scope_spelling_price_gap.py`. Not yet in a build step — it
+will bind at `21_branch_size_based.do`.
+
+**Rests on it.** 273 mixed cases carrying **1,778 MS weighings**. At the current cut, **54
+cases (345 weighings) are flagged** and 219 convert.
+
+**Status: DECIDED, and the cut is a judgement.** Settled on **#21 §5.3** — option (a) for
+the bulk, so those cases behave like every other case, and option (c) for the tail.
+
+**Why the underlying question cannot be measured.** The two candidate rules are opposite
+extremes about the same unobserved quantity:
+
+- **(a)** the whole price gap is size — a spelling costing 2.29× more *is* 2.29× bigger;
+- **(b)** none of it is size — the gap is vendor or quality pricing.
+
+**The data cannot adjudicate**, because the flagged spelling has no weighings. That is the
+definition of the population. So the cut is not a measurement and no sensitivity run will
+make it one; the flag exists precisely so those cases are not silently decided either way.
+
+**What the cut costs**, so a reader can disagree with it:
+
+| cut | cases flagged | MS weighings | share of 273 |
+| --: | --: | --: | --: |
+| 1.25× | 157 | 1,028 | 57.5% |
+| 1.5× | 98 | 617 | 35.9% |
+| **2.0× (current)** | **54** | **345** | **19.8%** |
+| 3.0× | 15 | 91 | 5.5% |
+| 5.0× | 4 | 28 | 1.5% |
+
+The median ratio across all 273 is **1.00** — half the cases sit at the same price level
+and nothing about them needs deciding. The cut only has to separate the tail.
+
+**Interaction with the #19 cap, worth knowing.** Without a flag, these cases are caught
+by nothing in Branch S — only by the `p_h/p_g` cap, whose threshold `t` is still unset.
+A 2.29× structural gap would present to the cap as an ordinary extrapolation. So flagging
+here keeps `t` answering the question it was designed for rather than absorbing this one.
+
+**Checked by** `scope_spelling_price_gap.py`, which also asserts that every mixed case
+carries at least one MS weighing — if that ever fails, the crosswalk's `source` column has
+drifted from the market-survey file.
+
 ---
 
 # Adding an assumption

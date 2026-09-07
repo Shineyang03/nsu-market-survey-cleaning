@@ -1,0 +1,274 @@
+﻿province,pull_municipal_city,cons_name,harmonized_nsu_unit,p_weighed,p_unweighed,ratio,flag_unconvertible,n_ms_weighings,n_price_spellings,n_unweighed
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,28.0,250.0,8.928571428571429,True,2,2,1
+ANTIQUE,CULASI,"crackers, cookies, buiscuits, chips/curls",pieces or units,36.0,280.0,7.777777777777778,True,9,2,1
+ILOILO,TUBUNGAN,fresh fish,pieces or units,100.0,770.0,7.7,True,12,2,1
+ANTIQUE,BARBAZA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,20.0,102.5,5.125,True,5,2,1
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,35.0,145.0,4.142857142857143,True,5,2,1
+ANTIQUE,LIBERTAD,fresh fish,pieces or units,70.0,290.0,4.142857142857143,True,7,2,1
+ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lipid/lapad,85.0,320.0,3.764705882352941,True,8,2,1
+ILOILO,MIAGAO,fresh fish,pieces or units,100.0,310.0,3.1,True,10,2,1
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,32.5,100.0,3.076923076923077,True,5,2,1
+AKLAN,MALINAO,loaf bread,small packs,50.0,140.0,2.8,True,2,2,1
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,17.5,45.0,2.5714285714285716,True,4,3,2
+ANTIQUE,PATNONGON,fresh fish,pieces or units,70.0,180.0,2.5714285714285716,True,7,2,1
+CAPIZ,SIGMA,fresh fish,pack,100.0,250.0,2.5,True,3,3,2
+CAPIZ,DUMALAG,loaf bread,large packs,85.0,200.0,2.3529411764705883,True,3,2,1
+ILOILO,GUIMBAL,carrot,pieces or units,35.0,80.0,2.2857142857142856,True,24,2,1
+CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,20.0,45.0,2.25,True,3,2,1
+CAPIZ,PANITAN,loaf bread,small packs,20.0,45.0,2.25,True,10,2,1
+ILOILO,SAN JOAQUIN,carrot,pieces or units,30.0,65.0,2.1666666666666665,True,13,2,1
+ANTIQUE,LIBERTAD,cabbage,pieces or units,35.0,75.0,2.142857142857143,True,13,2,1
+AKLAN,BURUANGA,loaf bread,small packs,40.0,85.0,2.125,True,4,2,1
+ILOILO,CALINOG,loaf bread,large packs,81.0,170.0,2.0987654320987654,True,6,2,1
+CAPIZ,IVISAN,loaf bread,large packs,85.0,174.0,2.0470588235294116,True,3,2,1
+ANTIQUE,PANDAN,carrot,pieces or units,27.5,56.25,2.0454545454545454,True,13,3,2
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,50.0,100.0,2.0,True,7,2,1
+ILOILO,BANATE,carrot,pieces or units,30.0,60.0,2.0,True,12,2,1
+ILOILO,MAASIN,loaf bread,large packs,82.5,165.0,2.0,True,1,2,1
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,30.0,60.0,2.0,True,1,2,1
+CAPIZ,DUMALAG,loaf bread,small packs,50.0,100.0,2.0,True,2,2,1
+ANTIQUE,SEBASTE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,30.0,60.0,2.0,True,4,2,1
+ILOILO,SAN JOAQUIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,40.0,72.5,1.8125,False,3,3,2
+CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,50.0,88.0,1.76,False,2,2,1
+ILOILO,OTON,loaf bread,large packs,98.0,170.0,1.7346938775510203,False,6,2,1
+CAPIZ,IVISAN,loaf bread,medium packs,65.0,112.5,1.7307692307692308,False,4,2,1
+ILOILO,AJUY,cabbage,pack,23.75,40.0,1.6842105263157894,False,2,4,2
+CAPIZ,CUARTERO,loaf bread,small packs,60.0,100.0,1.6666666666666667,False,2,2,1
+ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,30.0,50.0,1.6666666666666667,False,3,2,1
+ILOILO,TIGBAUAN,loaf bread,small packs,55.0,90.0,1.6363636363636365,False,3,2,1
+ANTIQUE,PATNONGON,loaf bread,large packs,92.5,150.0,1.6216216216216217,False,3,2,1
+ILOILO,TIGBAUAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,50.0,80.0,1.6,False,9,2,1
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,48.0,75.0,1.5625,False,8,2,1
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,20.0,30.0,1.5,False,4,2,1
+AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,30.0,45.0,1.5,False,3,3,2
+ILOILO,AJUY,fresh fish,pack,200.0,300.0,1.5,False,1,2,1
+ANTIQUE,SEBASTE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,20.0,30.0,1.5,False,3,2,1
+ANTIQUE,LIBERTAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,20.0,30.0,1.5,False,2,2,1
+ILOILO,CONCEPCION,loaf bread,small packs,47.0,70.0,1.4893617021276595,False,1,2,1
+ANTIQUE,SIBALOM,cabbage,pieces or units,50.0,72.5,1.45,False,10,2,1
+CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,50.0,72.5,1.45,False,2,2,1
+ANTIQUE,TIBIAO,loaf bread,large packs,85.0,120.0,1.411764705882353,False,3,2,1
+AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lipid/lapad,80.0,112.5,1.40625,False,6,2,1
+NEGROS OCCIDENTAL,CALATRAVA,chicken,whole (chicken),250.0,350.0,1.4,False,3,2,1
+ILOILO,BAROTAC VIEJO,cabbage,pack,20.0,27.5,1.375,False,2,2,1
+ILOILO,MAASIN,cabbage,pieces or units,40.0,53.75,1.34375,False,16,2,1
+AKLAN,ALTAVAS,carrot,pieces or units,25.0,33.5,1.34,False,6,2,1
+AKLAN,LIBACAO,carrot,pieces or units,30.0,40.0,1.3333333333333333,False,11,2,1
+ILOILO,BAROTAC VIEJO,carrot,pieces or units,30.0,40.0,1.3333333333333333,False,3,2,1
+AKLAN,MADALAG,carrot,pieces or units,30.0,40.0,1.3333333333333333,False,12,2,1
+ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,30.0,40.0,1.3333333333333333,False,2,2,1
+CAPIZ,IVISAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,45.0,60.0,1.3333333333333333,False,1,2,1
+ILOILO,TIGBAUAN,cabbage,pieces or units,37.5,50.0,1.3333333333333333,False,7,2,1
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,30.0,40.0,1.3333333333333333,False,2,2,1
+ANTIQUE,TIBIAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,22.5,30.0,1.3333333333333333,False,3,2,1
+AKLAN,IBAJAY,loaf bread,large packs,60.0,79.0,1.3166666666666667,False,3,2,1
+ILOILO,ALIMODIAN,loaf bread,large packs,70.0,91.25,1.3035714285714286,False,7,3,2
+AKLAN,IBAJAY,loaf bread,medium packs,50.0,65.0,1.3,False,2,2,1
+ANTIQUE,BUGASONG,cabbage,pieces or units,25.0,32.5,1.3,False,10,2,1
+AKLAN,MADALAG,"crackers, cookies, buiscuits, chips/curls",pieces or units,56.0,72.0,1.2857142857142858,False,8,2,1
+ILOILO,LEON,loaf bread,large packs,72.5,92.5,1.2758620689655173,False,5,2,1
+AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,102.5,130.0,1.2682926829268293,False,9,2,1
+ILOILO,LEMERY,loaf bread,large packs,82.5,103.75,1.2575757575757576,False,2,3,2
+CAPIZ,PANAY,loaf bread,small packs,45.0,56.5,1.2555555555555555,False,4,2,1
+ANTIQUE,VALDERRAMA,carrot,pieces or units,40.0,50.0,1.25,False,11,2,1
+ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,20.0,25.0,1.25,False,3,2,1
+ANTIQUE,LIBERTAD,chicken,whole (chicken),200.0,250.0,1.25,False,9,2,1
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,30.0,37.5,1.25,False,3,3,2
+ANTIQUE,SIBALOM,carrot,pieces or units,40.0,50.0,1.25,False,10,2,1
+ILOILO,TUBUNGAN,cabbage,pieces or units,40.0,50.0,1.25,False,5,2,1
+ILOILO,CARLES,loaf bread,small packs,35.0,42.5,1.2142857142857142,False,1,3,2
+AKLAN,MADALAG,loaf bread,small packs,50.0,60.0,1.2,False,1,3,2
+ILOILO,JANIUAY,loaf bread,small packs,50.0,60.0,1.2,False,3,2,1
+ANTIQUE,LIBERTAD,loaf bread,large packs,75.0,90.0,1.2,False,1,2,1
+ILOILO,BINGAWAN,loaf bread,large packs,75.0,90.0,1.2,False,5,2,1
+ILOILO,MIAGAO,cabbage,pieces or units,50.0,60.0,1.2,False,16,2,1
+ANTIQUE,SAN REMIGIO,loaf bread,medium packs,75.0,90.0,1.2,False,4,2,1
+ANTIQUE,SAN REMIGIO,loaf bread,large packs,92.5,110.625,1.195945945945946,False,3,3,2
+ILOILO,JANIUAY,loaf bread,medium packs,67.5,80.0,1.1851851851851851,False,5,2,1
+ANTIQUE,HAMTIC,loaf bread,medium packs,67.5,80.0,1.1851851851851851,False,6,2,1
+CAPIZ,IVISAN,carrot,pieces or units,38.0,45.0,1.1842105263157894,False,13,2,1
+AKLAN,ALTAVAS,loaf bread,large packs,79.0,93.0,1.1772151898734178,False,4,3,2
+ILOILO,SAN ENRIQUE,loaf bread,small packs,45.0,52.5,1.1666666666666667,False,2,2,1
+ILOILO,MIAGAO,loaf bread,small packs,48.0,56.0,1.1666666666666667,False,12,2,1
+ILOILO,LAMBUNAO,chicken,whole (chicken),300.0,350.0,1.1666666666666667,False,7,2,1
+ILOILO,DINGLE,loaf bread,large packs,90.0,105.0,1.1666666666666667,False,4,2,1
+ANTIQUE,TIBIAO,chicken,whole (chicken),215.0,250.0,1.1627906976744187,False,2,2,1
+ILOILO,TUBUNGAN,loaf bread,small packs,74.5,85.0,1.1409395973154361,False,5,2,1
+ILOILO,SAN ENRIQUE,loaf bread,large packs,90.0,102.5,1.1388888888888888,False,3,2,1
+AKLAN,ALTAVAS,"liquor (e.g, whisky, coconut wine)",lipid/lapad,75.0,85.0,1.1333333333333333,False,3,2,1
+ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,40.0,45.0,1.125,False,4,2,1
+ILOILO,IGBARAS,loaf bread,large packs,80.0,90.0,1.125,False,4,2,1
+ANTIQUE,HAMTIC,loaf bread,large packs,113.5,127.5,1.1233480176211454,False,6,4,2
+AKLAN,BATAN,carrot,pieces or units,30.0,33.5,1.1166666666666667,False,15,2,1
+ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,45.0,50.0,1.1111111111111112,False,2,2,1
+ILOILO,JANIUAY,loaf bread,large packs,81.0,90.0,1.1111111111111112,False,7,2,1
+ILOILO,ALIMODIAN,loaf bread,medium packs,59.0,65.0,1.1016949152542372,False,6,2,1
+ANTIQUE,VALDERRAMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,27.5,30.0,1.0909090909090908,False,4,2,1
+AKLAN,MADALAG,loaf bread,medium packs,60.0,65.0,1.0833333333333333,False,4,2,1
+ANTIQUE,BUGASONG,loaf bread,medium packs,60.0,65.0,1.0833333333333333,False,5,2,1
+ILOILO,SAN JOAQUIN,loaf bread,medium packs,65.0,70.0,1.0769230769230769,False,6,2,1
+AKLAN,BATAN,cabbage,pieces or units,65.0,70.0,1.0769230769230769,False,23,2,1
+AKLAN,NABAS,loaf bread,large packs,79.0,85.0,1.0759493670886076,False,1,2,1
+AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,75.0,80.0,1.0666666666666667,False,5,2,1
+AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,75.0,80.0,1.0666666666666667,False,9,2,1
+AKLAN,MALAY,carrot,pieces or units,40.0,42.5,1.0625,False,22,3,2
+ILOILO,LEON,loaf bread,medium packs,65.0,69.0,1.0615384615384615,False,6,2,1
+ANTIQUE,BUGASONG,chicken,whole (chicken),210.0,222.5,1.0595238095238095,False,4,2,1
+ILOILO,BANATE,loaf bread,large packs,85.0,90.0,1.0588235294117647,False,7,2,1
+ILOILO,LEMERY,loaf bread,small packs,45.0,47.5,1.0555555555555556,False,1,3,2
+ILOILO,BAROTAC VIEJO,loaf bread,small packs,50.0,52.5,1.05,False,1,3,2
+CAPIZ,IVISAN,loaf bread,small packs,50.0,52.5,1.05,False,3,3,2
+ILOILO,OTON,loaf bread,small packs,48.0,50.0,1.0416666666666667,False,2,2,1
+ILOILO,BAROTAC VIEJO,fresh fish,tumpok,300.0,312.5,1.0416666666666667,False,6,2,1
+ANTIQUE,HAMTIC,chicken,whole (chicken),270.0,280.0,1.037037037037037,False,5,2,1
+ANTIQUE,PATNONGON,loaf bread,medium packs,62.5,64.0,1.024,False,3,2,1
+ANTIQUE,VALDERRAMA,chicken,whole (chicken),250.0,250.0,1.0,False,6,2,1
+CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,20.0,20.0,1.0,False,5,2,1
+ANTIQUE,TOBIAS FORNIER,cabbage,pieces or units,50.0,50.0,1.0,False,20,2,1
+ANTIQUE,TOBIAS FORNIER,carrot,pieces or units,40.0,40.0,1.0,False,15,2,1
+AKLAN,ALTAVAS,loaf bread,medium packs,65.0,65.0,1.0,False,4,2,1
+ANTIQUE,VALDERRAMA,cabbage,pieces or units,50.0,50.0,1.0,False,21,2,1
+ANTIQUE,SIBALOM,loaf bread,large packs,85.0,85.0,1.0,False,6,2,1
+ANTIQUE,LIBERTAD,loaf bread,small packs,50.0,50.0,1.0,False,3,2,1
+ILOILO,LAMBUNAO,loaf bread,medium packs,65.0,65.0,1.0,False,5,2,1
+ILOILO,DUMANGAS,carrot,pieces or units,30.0,30.0,1.0,False,6,2,1
+ILOILO,MINA,loaf bread,small packs,50.0,50.0,1.0,False,3,2,1
+ILOILO,MIAGAO,loaf bread,medium packs,65.0,65.0,1.0,False,2,2,1
+ANTIQUE,BELISON,cabbage,pieces or units,50.0,50.0,1.0,False,13,2,1
+ANTIQUE,BUGASONG,carrot,pieces or units,20.0,20.0,1.0,False,11,2,1
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,30.0,30.0,1.0,False,6,2,1
+ANTIQUE,SIBALOM,loaf bread,small packs,50.0,50.0,1.0,False,6,2,1
+ANTIQUE,PANDAN,cabbage,pieces or units,50.0,50.0,1.0,False,13,2,1
+ILOILO,SAN JOAQUIN,cabbage,pieces or units,50.0,50.0,1.0,False,11,2,1
+AKLAN,IBAJAY,loaf bread,small packs,50.0,50.0,1.0,False,2,2,1
+ILOILO,SAN RAFAEL,loaf bread,small packs,50.0,49.0,0.98,False,6,2,1
+ILOILO,CALINOG,loaf bread,medium packs,66.5,65.0,0.9774436090225563,False,7,2,1
+CAPIZ,MA-AYON,loaf bread,large packs,77.0,75.0,0.974025974025974,False,3,2,1
+ILOILO,SARA,loaf bread,large packs,77.5,75.0,0.967741935483871,False,4,2,1
+CAPIZ,SIGMA,loaf bread,large packs,88.0,85.0,0.9659090909090909,False,13,2,1
+AKLAN,MALAY,loaf bread,medium packs,65.0,62.5,0.9615384615384616,False,4,2,1
+ILOILO,MINA,loaf bread,large packs,85.0,81.0,0.9529411764705882,False,3,3,2
+CAPIZ,PILAR,loaf bread,large packs,99.0,94.0,0.9494949494949495,False,10,2,1
+AKLAN,MALAY,loaf bread,large packs,79.0,75.0,0.9493670886075949,False,4,2,1
+ILOILO,POTOTAN,loaf bread,large packs,85.0,80.0,0.9411764705882353,False,8,2,1
+ILOILO,SAN ENRIQUE,cabbage,pieces or units,40.0,37.5,0.9375,False,13,2,1
+AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,160.0,150.0,0.9375,False,6,2,1
+AKLAN,IBAJAY,carrot,pieces or units,39.0,36.25,0.9294871794871795,False,15,3,2
+ANTIQUE,CULASI,loaf bread,medium packs,70.0,65.0,0.9285714285714286,False,3,2,1
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,35.0,32.5,0.9285714285714286,False,4,2,1
+ILOILO,DINGLE,loaf bread,medium packs,70.0,65.0,0.9285714285714286,False,4,2,1
+ILOILO,JANIUAY,chicken,whole (chicken),272.5,250.0,0.9174311926605505,False,9,3,1
+AKLAN,MALAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,60.0,55.0,0.9166666666666666,False,3,2,1
+ILOILO,AJUY,loaf bread,small packs,55.0,50.0,0.9090909090909091,False,1,2,1
+ILOILO,BADIANGAN,loaf bread,large packs,110.0,100.0,0.9090909090909091,False,4,2,1
+ILOILO,ALIMODIAN,cabbage,pieces or units,55.0,50.0,0.9090909090909091,False,12,2,1
+ANTIQUE,CULASI,carrot,pieces or units,27.5,25.0,0.9090909090909091,False,17,2,1
+ANTIQUE,PANDAN,chicken,whole (chicken),230.0,208.5,0.9065217391304348,False,4,2,1
+ILOILO,TUBUNGAN,mango,pieces or units,100.0,90.0,0.9,False,5,2,1
+AKLAN,MALINAO,"crackers, cookies, buiscuits, chips/curls",pieces or units,50.0,45.0,0.9,False,6,2,1
+ANTIQUE,CULASI,loaf bread,large packs,92.5,82.5,0.8918918918918919,False,5,3,2
+ILOILO,MIAGAO,chicken,whole (chicken),225.0,200.0,0.8888888888888888,False,15,2,1
+ILOILO,SAN ENRIQUE,carrot,pieces or units,45.0,40.0,0.8888888888888888,False,9,2,1
+ANTIQUE,SAN REMIGIO,cabbage,pieces or units,65.0,57.5,0.8846153846153846,False,9,2,1
+ILOILO,DUMANGAS,cabbage,pieces or units,40.0,35.0,0.875,False,6,2,1
+ANTIQUE,SIBALOM,mango,pieces or units,80.0,70.0,0.875,False,13,2,1
+ILOILO,POTOTAN,loaf bread,small packs,40.0,35.0,0.875,False,1,2,1
+AKLAN,MALAY,loaf bread,small packs,50.0,43.5,0.87,False,3,2,1
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,37.5,32.5,0.8666666666666667,False,1,3,2
+ILOILO,CONCEPCION,loaf bread,medium packs,75.0,65.0,0.8666666666666667,False,3,2,1
+CAPIZ,MA-AYON,loaf bread,small packs,55.0,47.5,0.8636363636363636,False,1,2,1
+ANTIQUE,PATNONGON,carrot,pieces or units,35.0,30.0,0.8571428571428571,False,15,2,1
+ANTIQUE,SEBASTE,loaf bread,medium packs,70.0,60.0,0.8571428571428571,False,4,2,1
+ANTIQUE,PATNONGON,chicken,whole (chicken),235.0,200.0,0.851063829787234,False,4,2,1
+ILOILO,LEMERY,fresh fish,pack,197.5,165.0,0.8354430379746836,False,2,4,2
+AKLAN,ALTAVAS,cabbage,pieces or units,60.0,50.0,0.8333333333333334,False,5,2,1
+AKLAN,BATAN,loaf bread,small packs,60.0,50.0,0.8333333333333334,False,2,2,1
+ILOILO,JANIUAY,cabbage,pieces or units,60.0,50.0,0.8333333333333334,False,21,2,1
+ANTIQUE,LAUA-AN,chicken,whole (chicken),300.0,250.0,0.8333333333333334,False,5,2,1
+ANTIQUE,PATNONGON,loaf bread,small packs,60.0,50.0,0.8333333333333334,False,3,2,1
+ILOILO,IGBARAS,loaf bread,small packs,60.0,50.0,0.8333333333333334,False,4,2,1
+ILOILO,BAROTAC VIEJO,loaf bread,large packs,85.0,70.5,0.8294117647058824,False,3,2,1
+ILOILO,MIAGAO,carrot,pieces or units,40.0,33.0,0.825,False,14,2,1
+ANTIQUE,SEBASTE,chicken,whole (chicken),280.0,230.0,0.8214285714285714,False,1,2,1
+ILOILO,LEON,loaf bread,small packs,60.0,49.0,0.8166666666666667,False,5,2,1
+ANTIQUE,SAN REMIGIO,carrot,pieces or units,40.0,32.5,0.8125,False,9,2,1
+ILOILO,LEON,cabbage,pieces or units,62.5,50.0,0.8,False,27,2,1
+ANTIQUE,SEBASTE,cabbage,pieces or units,50.0,40.0,0.8,False,17,2,1
+CAPIZ,JAMINDAN,loaf bread,small packs,50.0,40.0,0.8,False,1,2,1
+ILOILO,BINGAWAN,loaf bread,small packs,50.0,40.0,0.8,False,3,2,1
+CAPIZ,MAMBUSAO,loaf bread,small packs,62.5,50.0,0.8,False,1,2,1
+CAPIZ,DAO,cabbage,putos (mix vegetable),25.0,20.0,0.8,False,2,2,1
+AKLAN,IBAJAY,cabbage,pieces or units,50.0,40.0,0.8,False,14,2,1
+ILOILO,LEON,chicken,whole (chicken),255.0,200.0,0.7843137254901961,False,4,2,1
+ILOILO,LEMERY,"crackers, cookies, buiscuits, chips/curls",pieces or units,48.0,37.5,0.78125,False,3,2,1
+ILOILO,SAN JOAQUIN,loaf bread,large packs,160.0,123.75,0.7734375,False,6,3,2
+ILOILO,SAN JOAQUIN,loaf bread,small packs,74.5,57.5,0.7718120805369127,False,1,2,1
+ILOILO,BAROTAC NUEVO,loaf bread,large packs,117.5,90.0,0.7659574468085106,False,1,2,1
+ILOILO,TUBUNGAN,loaf bread,medium packs,85.0,65.0,0.7647058823529411,False,7,2,1
+AKLAN,BATAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,130.0,97.5,0.75,False,3,2,1
+ILOILO,BAROTAC VIEJO,cabbage,pieces or units,50.0,37.5,0.75,False,9,2,1
+ILOILO,CONCEPCION,cabbage,pieces or units,50.0,37.5,0.75,False,13,2,1
+ANTIQUE,LIBERTAD,carrot,pieces or units,43.5,32.5,0.7471264367816092,False,12,2,1
+ILOILO,LEGANES,loaf bread,large packs,104.0,77.0,0.7403846153846154,False,7,2,1
+ANTIQUE,TOBIAS FORNIER,chicken,whole (chicken),250.0,185.0,0.74,False,10,3,2
+ILOILO,DINGLE,cabbage,pack,27.5,20.0,0.7272727272727273,False,3,2,1
+ANTIQUE,SEBASTE,carrot,pieces or units,35.0,25.0,0.7142857142857143,False,15,2,1
+ILOILO,LEON,carrot,pieces or units,50.0,35.5,0.71,False,27,2,1
+ANTIQUE,SIBALOM,loaf bread,medium packs,85.0,60.0,0.7058823529411765,False,7,2,1
+ILOILO,LAMBUNAO,loaf bread,small packs,50.0,35.0,0.7,False,4,2,1
+ILOILO,GUIMBAL,cabbage,pieces or units,50.0,35.0,0.7,False,27,2,1
+ILOILO,LAMBUNAO,loaf bread,large packs,130.0,88.75,0.6826923076923077,False,4,3,2
+ILOILO,BALASAN,loaf bread,small packs,70.0,47.5,0.6785714285714286,False,2,2,1
+ILOILO,TUBUNGAN,carrot,pieces or units,45.0,30.0,0.6666666666666666,False,4,2,1
+ILOILO,LEGANES,carrot,pieces or units,45.0,30.0,0.6666666666666666,False,9,2,1
+CAPIZ,JAMINDAN,mango,pieces or units,75.0,50.0,0.6666666666666666,False,3,2,1
+ANTIQUE,HAMTIC,cabbage,pieces or units,90.0,60.0,0.6666666666666666,False,26,2,1
+ANTIQUE,PATNONGON,fresh fish,tumpok,300.0,200.0,0.6666666666666666,False,1,2,1
+ANTIQUE,HAMTIC,carrot,pieces or units,45.0,30.0,0.6666666666666666,False,27,2,1
+ILOILO,LEMERY,loaf bread,medium packs,65.0,42.5,0.6538461538461539,False,1,2,1
+ANTIQUE,BELISON,loaf bread,large packs,130.25,85.0,0.6525911708253359,False,4,2,1
+ILOILO,BATAD,loaf bread,small packs,50.0,32.5,0.65,False,1,3,2
+ANTIQUE,CULASI,loaf bread,small packs,50.0,32.5,0.65,False,2,2,1
+ILOILO,LEGANES,cabbage,pieces or units,55.0,35.0,0.6363636363636364,False,9,2,1
+ANTIQUE,BUGASONG,loaf bread,large packs,173.75,110.0,0.6330935251798561,False,2,2,1
+ILOILO,CONCEPCION,"crackers, cookies, buiscuits, chips/curls",pieces or units,64.0,40.0,0.625,False,1,2,1
+ILOILO,BANATE,cabbage,pieces or units,60.0,37.5,0.625,False,12,2,1
+ANTIQUE,LAUA-AN,cabbage,pieces or units,65.0,40.0,0.6153846153846154,False,11,2,1
+ANTIQUE,TOBIAS FORNIER,loaf bread,large packs,130.0,80.0,0.6153846153846154,False,3,2,1
+ANTIQUE,CULASI,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,45.0,27.5,0.6111111111111112,False,6,2,1
+ANTIQUE,LAUA-AN,carrot,pieces or units,54.0,32.5,0.6018518518518519,False,5,2,1
+ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,37.5,22.5,0.6,False,6,2,1
+ILOILO,DINGLE,"crackers, cookies, buiscuits, chips/curls",pieces or units,50.0,30.0,0.6,False,5,2,1
+ILOILO,BATAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,50.0,30.0,0.6,False,2,2,1
+ILOILO,TUBUNGAN,loaf bread,large packs,120.0,70.0,0.5833333333333334,False,5,2,1
+ILOILO,DINGLE,loaf bread,small packs,55.0,32.0,0.5818181818181818,False,3,2,1
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,35.0,20.0,0.5714285714285714,False,5,4,3
+ILOILO,JANIUAY,carrot,pieces or units,45.0,25.0,0.5555555555555556,False,19,2,1
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,90.0,50.0,0.5555555555555556,False,3,2,1
+ANTIQUE,PATNONGON,cabbage,pieces or units,90.0,50.0,0.5555555555555556,False,13,2,1
+AKLAN,MALAY,cabbage,pieces or units,96.0,50.0,0.5208333333333334,False,26,2,1
+NEGROS OCCIDENTAL,CALATRAVA,loaf bread,medium packs,100.0,50.0,0.5,True,3,2,1
+ILOILO,SAN ENRIQUE,fresh fish,pack,300.0,150.0,0.5,True,1,2,1
+ANTIQUE,BELISON,carrot,pieces or units,40.0,20.0,0.5,True,15,2,1
+CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,30.0,15.0,0.5,True,2,2,1
+AKLAN,MADALAG,cabbage,pieces or units,105.0,50.0,0.47619047619047616,True,18,2,1
+AKLAN,MADALAG,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,57.5,27.0,0.46956521739130436,True,4,2,1
+AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,80.0,37.5,0.46875,True,3,2,1
+ILOILO,SARA,loaf bread,small packs,60.0,27.5,0.4583333333333333,True,3,2,1
+AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,60.0,27.5,0.4583333333333333,True,2,3,2
+ILOILO,BALASAN,loaf bread,large packs,197.5,88.75,0.44936708860759494,True,2,3,2
+NEGROS OCCIDENTAL,TOBOSO,loaf bread,small packs,45.0,20.0,0.4444444444444444,True,1,2,1
+ILOILO,CONCEPCION,loaf bread,large packs,160.0,67.5,0.421875,True,7,2,1
+CAPIZ,JAMINDAN,fresh fish,pieces or units,120.0,50.0,0.4166666666666667,True,5,2,1
+ANTIQUE,VALDERRAMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,30.0,12.5,0.4166666666666667,True,3,2,1
+AKLAN,BATAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,66.0,27.0,0.4090909090909091,True,1,2,1
+ILOILO,SARA,fresh fish,pieces or units,250.0,100.0,0.4,True,14,2,1
+ANTIQUE,CULASI,cabbage,pieces or units,75.0,30.0,0.4,True,21,2,1
+CAPIZ,TAPAZ,loaf bread,large packs,200.0,80.0,0.4,True,10,2,1
+ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,70.0,25.0,0.35714285714285715,True,4,2,1
+ILOILO,SARA,fresh fish,pack,300.0,100.0,0.3333333333333333,True,7,2,1
+ILOILO,BAROTAC NUEVO,loaf bread,small packs,100.0,32.5,0.325,True,2,2,1
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,105.0,33.75,0.32142857142857145,True,2,3,2
+ANTIQUE,VALDERRAMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,93.0,25.0,0.26881720430107525,True,7,2,1
+AKLAN,MALAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,105.0,25.0,0.23809523809523808,True,4,2,1
+CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,455.0,105.0,0.23076923076923078,True,6,2,1
