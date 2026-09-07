@@ -318,10 +318,12 @@ can be applied to all three.
 
 **Status: NEW, and unmeasured.** Raised on **#27**.
 
-**What the code already does right.** `20_psps_retrofitting/26_psps_extract.do` refuses to
-treat gifts and own production as prices: only the **purchased** slot feeds `p_h`, because
-the other two carry an imputed value rather than a price the household faced. So the
-assumption does **not** bite at the price-construction step.
+**A convention worth carrying forward.** The archived `26_psps_extract.do` refused to treat
+gifts and own production as prices: only the **purchased** slot fed `p_h`, because the other
+two carry an imputed value rather than a price the household faced. That is the right rule
+and the assumption does **not** bite at price construction — but the file is now in
+`dofiles/archive/` and its replacement, `20a_psps_households.do`, is unwritten. **The rule
+has to be re-stated there**, or `p_h` will silently start absorbing imputed values.
 
 **Where it does bite.** It bites at conversion. A household that received camote tops as a
 gift still reports a quantity in a non-standard unit, and that quantity gets grams from a

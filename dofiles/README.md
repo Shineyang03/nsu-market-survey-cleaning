@@ -115,15 +115,23 @@ later is what once turned a 10 L gallon into 10 mL.
 
 ### `20_psps_retrofitting/` — Outcome 2
 
-| file | does |
-|---|---|
-| `26_psps_extract.do` | pulls the household side from the PSPS consumption module. **Case grain, not household grain** — it drops `hhid` and de-duplicates, so it answers "which cells exist and what prices appear in them", not "what did each household pay". A distribution over households needs a second extract. |
+**This folder is currently empty.** `26_psps_extract.do` was archived: it did vocabulary
+discovery — which NSU labels PSPS households use — that job is finished and now lives in
+the crosswalk, and it dropped `hhid` and `subdate`, so it could not serve either thing
+Outcome 2 needs from PSPS. See `../archive/README.md`.
 
-**Steps 20–25 and 27–30 are not written.** This table is the source for what each owes and
+**Nothing reads the PSPS consumption file on a critical path today.** The first Outcome 2
+step to write is a **household-grain extract** keeping `hhid`, `subdate`, quantity and
+expenditure. Three steps below need it, at two grains: `24` needs only the list of months
+occurring in each municipality, which is a by-product; `28` and `29` need the household
+rows themselves.
+
+**Steps 20–30 are not written.** This table is the source for what each owes and
 what blocks it; `master_outcome2.do` prints an abbreviated version when it stops.
 
 | step | owes | blocked on |
 |---|---|---|
+| `20a_psps_households.do` | the household side of PSPS — one row per household × item × unit × source, keeping `hhid`, `subdate`, quantity and expenditure, normalized into the crosswalk's vocabulary. Read by `24`, `28` and `29`. The `a` suffix follows `00a`/`00b`: it must run before the numbered chain, since `24` needs its month list. | nothing — write it first |
 | `20_case_price_points.do` | how many price points a case gets, after the ₱20 union-merge | the `unique_mun_price` arm — **#23**. The merge rule itself is decided (#21 §2). |
 | `21_branch_size_based.do` | cut pooled weights into that many parts | 20, plus how a household reporting an unweighed spelling is routed (**#21 §5.3**, 273 cases) |
 | `22_branch_price_quantity.do` | `w_g` per case × `pull_price` | nothing — decided (#21 §2 rows 5–6) |

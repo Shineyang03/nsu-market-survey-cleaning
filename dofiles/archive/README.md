@@ -97,6 +97,66 @@ input was stale.
 
 ---
 
+## `26_psps_extract.do` — its job is done, and its output fed nothing
+
+Formerly `psps_nsu_extraction.do`, renamed and repaired in the restructure. **It was never
+a designed pipeline step.** It arrived in commit `646877f`, whose message is about the
+price-point-to-size mapping and does not mention it; the restructure gave it a number and
+a folder, which made it look like part of the Outcome 2 build.
+
+**What it was actually for.** Its own first line said so: *"extract a list of municipality
+x item x unit (by purchase method) for food items from PSPS consumption module."* It ended
+with a frequency table of PSPS unit labels. **Vocabulary discovery** — finding out which
+NSU labels PSPS households use.
+
+Its consumer was `cleaning.do` (line 718), which merged those labels against the market
+survey's and recorded the result inline:
+
+```
+Matched            170
+MS only              3   (spelling: "Whole" vs "Whole (chicken)", "Pieces", "1.3 galĺon")
+PSPS only          188   - incl standard units which are not present in MS
+```
+
+then dropped the `(Kg)` / `(L)` / `kilo` / `litres` labels. **That block is the ancestor of
+issue #14 and of `../00_shared/02_drop_non_nsu_labels.py`.** The reconciliation it existed
+to perform is now baked into the crosswalk, so the job is finished.
+
+**Nothing live read its output.** `psps_cases.dta` was referenced only by `cleaning.do`,
+also archived. `01_build_crosswalk.py` reads the raw MS and `NSU_prices_from_Makayla.csv`,
+never PSPS; `90_diagnostics/scope_psps_exposure.py` reads the consumption file directly,
+bypassing this file entirely.
+
+**It cannot serve the two things Outcome 2 needs from PSPS**, which is the reason it is
+archived rather than repointed:
+
+```stata
+drop fourp_status fo_id sfo_id fc_id subdate random_select nonrandom_select fd_cons_6c
+drop brgy_code hhid count_res_members
+```
+
+`subdate` is the submission date — populated on all 129,094 food rows, spanning
+2023-12-07 to 2025-01-22 — and it is what the PSPS price-level adjustment keys on.
+`hhid` is what the final lookup join needs. Both are dropped on those two lines, and the
+`duplicates drop` further collapses 87,972 household observations to 32,313 distinct
+(case × source × price) rows.
+
+**What replaces it** is a household-grain extract that keeps `hhid`, `subdate`, quantity
+and expenditure, serving `24_inflate_to_psps_month.do` (which needs only the month list,
+a by-product), `28_match_and_convert.do` and `29_cap.do`. Not written yet; see
+`../README.md`.
+
+**Worth reading before writing that replacement.** Four defects were repaired here and each
+is a pattern to avoid: it read `3_publication_data` where the folder is `2_publication_data`;
+it set no globals, so its `save` wrote to a malformed path under the fresh-batch convention;
+it called `br` twice, which is interactive-only and silently does nothing in batch; and it
+dropped `_merge` on the municipality join without counting the unmatched, so a municipality
+with no mapping row would have carried a blank name into the case key undetected. It also
+gained an `nsu_normalize` call it never had — without it, raw-cased PSPS strings would have
+been joined against normalized crosswalk keys and matched nothing.
+
+---
+
 ## `snap_step1_vs_step3.py` — superseded, and its output was going stale
 
 Measured where the log10 anchor snap and the block reading disagree, to settle whether

@@ -3,7 +3,7 @@
 *
 * NOT YET BUILT. This file is the skeleton, so that the order of the steps and what
 * each one owes is written down in one place rather than rediscovered. Running it
-* today gets you the shared stage and the household extract, then stops.
+* today gets you the shared stage, then stops -- there is no Outcome 2 code yet.
 *
 * Outcome 2 converts PSPS household quantities into grams. It shares stage 00 with
 * Outcome 1 and then diverges: Outcome 1 slices weighings by the SIZE the field
@@ -14,7 +14,8 @@
 * HOW TO RUN, from the dofiles/ folder:
 *     "C:\Program Files\StataNow19\StataSE-64.exe" -e do master_outcome2.do
 *
-* Issue #7 carries the full skeleton with what each step owes and what blocks it.
+* dofiles/README.md is the source for what each step owes and what blocks it; the
+* list printed at the bottom of this file is an abbreviation of it.
 ********************************************************************************
 
 clear all
@@ -29,6 +30,7 @@ di as res "{hline 78}"
 * not in either master, so a routine rebuild does not regenerate the crosswalk. Run
 * them from the PROJECT ROOT when their inputs change, in this order:
 *
+*     "...StataSE-64.exe" -e do 00_shared\00a_weighing_ids.do     (from dofiles/)
 *     "...StataSE-64.exe" -e do 00_shared\00b_price_ms_cases.do   (from dofiles/)
 *     python dofiles/00_shared/01_build_crosswalk.py
 *     python dofiles/00_shared/02_drop_non_nsu_labels.py --apply
@@ -46,14 +48,20 @@ di as res _n ">>> 07_cpi_factor.do"
 do "00_shared/07_cpi_factor.do"
 
 * ---- the household side --------------------------------------------------------
-di as res _n ">>> 26_psps_extract.do"
-do "20_psps_retrofitting/26_psps_extract.do"
+* NOTHING YET. 26_psps_extract.do used to run here and is now in archive/: it did
+* vocabulary discovery (which NSU labels PSPS households use), that job is finished
+* and lives in the crosswalk, and it dropped `hhid' and `subdate' -- so it could serve
+* neither the price-level adjustment nor the lookup join. archive/README.md has the
+* full account.
+*
+* 20a_psps_households.do replaces it and is the first thing to write.
 
 di as res _n "{hline 78}"
 di as res "STOPPING HERE. The steps below are not written yet."
 di as res "This list is abbreviated; dofiles/README.md is the source for what each step"
 di as res "owes and what blocks it, and docs/implicit_assumptions.md for the thresholds."
 di as res ""
+di as res "  20a_psps_households.do    hhid, subdate, quantity, expenditure -- WRITE FIRST"
 di as res "  20_case_price_points.do   how many price points a case gets, after the"
 di as res "                            PHP20 union-merge on pooled spellings  [#21 sec2; ARM OPEN #23]"
 di as res "  21_branch_size_based.do   cut pooled weights into that many parts [#23; #21 sec5.3]"
