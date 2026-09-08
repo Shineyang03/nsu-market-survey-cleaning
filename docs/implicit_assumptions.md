@@ -399,6 +399,78 @@ here keeps `t` answering the question it was designed for rather than absorbing 
 carries at least one MS weighing — if that ever fails, the crosswalk's `source` column has
 drifted from the market-survey file.
 
+## A12 — A conventionally-weighed unit is the *typical* one, so it is a "medium"
+
+**Claims.** Where an (item, NSU) pair is recorded conventional in some municipalities and
+size-based or price-quantity in others, its conventional weighings represent the **typical**
+unit. The market survey imposed no size instruction on those weighings — the enumerator did
+not ask for a small or a large — so the vendor is assumed to have handed over a
+representative one. Those cases are therefore processed as size-based, publishing a single
+group as **medium** (`size_ord = 2`) and matching **mp50 / municipality median** in
+Outcome 2.
+
+**Where.** Not implemented yet. It will bind on the `branch` variable in `00_shared` and on
+`10_reference_set/10_size_assignment.do` §2a–2c.
+
+**Rests on it.** **99 of the 123 published conventional rows**, 388 weighings — four fifths
+of the branch. The other 24 cases, whose (item, unit) pair is conventional everywhere it
+appears, keep `weighing_approach == 1` and `size_ord = 0`.
+
+**Status: ADOPTED as a convention, with partial empirical support.** Decided on **#28**.
+
+**What the evidence says.** The claim is testable: if a vendor hands over a typical unit,
+the conventional weighings should sit at the **medium** tercile of the same item × unit
+measured size-based elsewhere. On the 16 pairs with enough of both:
+
+| conventional median ÷ size-based medium | |
+| :-- | --: |
+| median | **1.00** |
+| interquartile range | 0.93 – 1.25 |
+| min / max | 0.65 / 3.08 |
+
+That is a good result. But mean absolute log10 distance tells a more equivocal story:
+
+| tercile | distance |
+| :-- | --: |
+| small | **0.095** |
+| medium | 0.108 |
+| large | 0.256 |
+
+**Medium beats large decisively and ties with small.** Pair by pair it splits — camote tops
+`bugkos` and crackers `pieces or units` sit at the small tercile; prawns `tumpok`, preserved
+meat `cans` and loaf bread `medium packs` sit at the medium.
+
+Two explanations, pointing opposite ways, and nothing here separates them:
+
+1. **The comparator runs low.** A5b measures the modal field label sitting systematically
+   below its tercile, currently −0.131 of a rank. If the size-based "small" group is
+   over-populated, conventional looking small-ish is an artefact of the yardstick.
+2. **Vendors really do hand over a smaller-than-typical unit** when no size is named. That
+   would make "medium" an overstatement.
+
+**So medium is the better of two defensible choices, not a measured result**, and this entry
+exists to say so rather than let the ratio-median-of-1.00 stand alone.
+
+**It inherits A2's caveat.** "A median is a medium" was already a naming convention rather
+than a measurement, carrying 90% of Outcome 1's medium rows. This extends it to a fourth
+source, so a reader seeing "medium" now has one more thing it can mean. `n_g` and the
+planned `d_reclassified` flag are the only ways to tell them apart.
+
+**One caveat specific to this branch.** #28 Q4 found 41 of 106 conventional cases dispersing
+beyond 2× *within* one municipality. Calling the median of a case spanning 65–1,020 g a
+"medium" is a naming choice about a number that already describes little precisely. This
+does not make that worse, but it does file those rows alongside genuinely-terciled mediums
+where they are harder to spot.
+
+**Deliberately NOT re-terciled**, whatever the weighing count. A conventional case's
+weighings carry no size information to re-derive: they are not small, medium and large
+readings that lost their labels, they are readings taken without a size being asked for.
+Terciling them would manufacture a size structure the field never observed.
+
+**Checked by** `90_diagnostics/scope_conventional_units.py`, which must keep reading
+`weighing_approach` rather than `branch` — on `branch` it would report no mixed pairs at
+all, which is the finding erasing itself.
+
 ---
 
 # Adding an assumption

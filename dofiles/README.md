@@ -100,6 +100,14 @@ when one has moved. It is what catches a figure going stale in a document.
 | `05_manual_corrections.do` | every hand-made weight/unit fix, each asserting its row count |
 | `06_cpi_panel.py` | province × item-group × month CPI panel |
 | `07_cpi_factor.do` | drops the 98 vendor-priced rows; builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |
+| `08_branch.do` **(not written; decided on #28)** | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`. |
+
+**`branch` vs `weighing_approach`, once `08` exists.** Use **`branch`** wherever the code
+decides how a weighing is PROCESSED or PUBLISHED. Keep **`weighing_approach`** wherever it
+describes WHAT THE FIELD DID. `weighing_approach` is never overwritten: it is the field
+record, and the evidence for #28 is keyed on it — `scope_conventional_units.py` reading
+`branch` would report no mixed pairs at all, which is the finding erasing itself. Getting
+this backwards is a silent error in either direction. The site-by-site split is on #28.
 
 **Steps 03 → 04 → 05 must stay in that order.** `04`'s anchor is a median over
 whatever rows it is given, so the exclusion in `03` has to happen first. Running it
@@ -135,7 +143,7 @@ what blocks it; `master_outcome2.do` prints an abbreviated version when it stops
 | `20_case_price_points.do` | how many price points a case gets, after the ₱20 union-merge | the `unique_mun_price` arm — **#23**. The merge rule itself is decided (#21 §2). |
 | `21_branch_size_based.do` | cut pooled weights into that many parts | 20, plus how a household reporting an unweighed spelling is routed (**#21 §5.3**, 273 cases) |
 | `22_branch_price_quantity.do` | `w_g` per case × `pull_price` | nothing — decided (#21 §2 rows 5–6) |
-| `23_branch_conventional.do` | one weight per case | **#28** — is "conventional" a unit property or a cell assignment? See A1 in `../docs/implicit_assumptions.md`. |
+| `23_branch_conventional.do` | one weight per case, for the **24** cases whose (item, unit) pair is conventional everywhere it appears | **decided on #28**, not yet built. The other **99** conventional cases are reclassified to size-based and publish as medium — see `branch` below, and A1/A12 in `../docs/implicit_assumptions.md`. |
 | `24_inflate_to_psps_month.do` | `w_g_m`, `v_g_m` per interview month | nothing — decided (#5) |
 | `25_lookup.do` | append the three branches | #11 (the no-inflation variant) |
 | `27_standard_units.do` | kg/L answers convert directly | #14 |
