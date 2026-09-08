@@ -1036,8 +1036,8 @@ group empties.
 
 | $`k`$ labels recorded | groups filled | cases | which groups filled |
 |---|---|---|---|
-| 2 | 1 | 32 | group 1 |
-| 3 | 2 | 48 | groups 1, 2 — the **top** emptied |
+| 2 | 1 | 31 | group 1 |
+| 3 | 2 | 49 | groups 1, 2 — the **top** emptied |
 | 3 | 2 | 14 | groups 1, 3 — the **middle** emptied |
 | 3 | 1 | 3 | group 1 — both upper groups emptied |
 
@@ -1202,15 +1202,15 @@ thing.
 
    | | agreement with the field label |
    |---|---|
-   | per weighing — why re-terciling exists | **65.3%** (3,649 / 5,587) |
-   | per group, using the modal label — what the criterion assumes | **78.3%** (1,147 / 1,464) |
+   | per weighing — why re-terciling exists | **65.4%** (3,651 / 5,582) |
+   | per group, using the modal label — what the criterion assumes | **78.5%** (1,147 / 1,461) |
 
    Aggregating does recover signal, which is what the criterion needs. **But the
-   disagreement is not symmetric.** 240 groups carry a modal label *below* their tercile
-   position against 77 above — mean signed error **−0.131**. So the modal field label runs systematically *low*, and a
+   disagreement is not symmetric.** 238 groups carry a modal label *below* their tercile
+   position against 76 above — mean signed error **−0.131**. So the modal field label runs systematically *low*, and a
    criterion built on it is biased toward the *lower* of two candidate names.
 
-   **These three figures have improved three times, always for the same reason**, and it is
+   **These three figures have improved at every review round, always for the same reason**, and it is
    worth knowing why before reading too much into the level. Each round of the snap review
    moved published weights toward the block reading — the number the enumerator typed — and
    agreement with the field label rose each time. The snap never reads the field labels, so

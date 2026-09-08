@@ -1,81 +1,228 @@
-province,municipality,item,harmonized_nsu_unit,hetero_group,raw_unit,raw_weight,verdict,chose,block_says,anchor_says,round,id_at_review
-AKLAN,ALTAVAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.0,1000.0,block,1000,100,2026-09-07,66
-AKLAN,BURUANGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,small_size,2,250.0,250.0,block,250,25,2026-09-07,421
-AKLAN,BURUANGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,small_size,2,250.0,250.0,block,250,25,2026-09-07,420
-AKLAN,LIBACAO,fresh fish,pieces or units,large_size,1,1.669999957084656,1670.0,block,1670,167,2026-09-07,647
-AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,2,0.4950000047683716,495.0,block,495,50,2026-09-07,650
-AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,350.0,350.0,block,350,35,2026-09-07,651
-AKLAN,MALINAO,fresh fish,pieces or units,large_size,2,1735.0,1735.0,block,1735,174,2026-09-07,1163
-ANTIQUE,BELISON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,medium_size,1,1.0,1000.0,block,1000,100,2026-09-07,1833
-ANTIQUE,BELISON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.0,1000.0,block,1000,100,2026-09-07,1832
-ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,3,0.449999988079071,450.0,block,450,45,2026-09-07,2293
-ANTIQUE,LAUA-AN,fresh fish,pieces or units,large_size,1,2.884999990463257,2885.0,block,2885,288,2026-09-07,2393
-ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,municipality_median,2,0.4650000035762787,47.0,anchor,465,47,2026-09-07,2401
-ANTIQUE,PATNONGON,fresh fish,pieces or units,large_size,1,3.095000028610229,3095.0,block,3095,310,2026-09-07,2693
-ANTIQUE,SAN REMIGIO,fresh fish,pieces or units,large_size,1,3670.0,3670.0,block,3670,367,2026-09-07,2806
-ANTIQUE,TOBIAS FORNIER,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,conventional_nsu,1,1.0,1000.0,block,1000,100,2026-09-07,3381
-ANTIQUE,TOBIAS FORNIER,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,conventional_nsu,1,1.0,1000.0,block,1000,100,2026-09-07,3382
-CAPIZ,DAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,conventional_nsu,1,1.019999980926514,1020.0,block,1020,102,2026-09-07,3695
-CAPIZ,DAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,conventional_nsu,1,1.200000047683716,1200.0,block,1200,120,2026-09-07,3697
-CAPIZ,DUMALAG,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,municipality_median,1,1.0,1000.0,block,1000,100,2026-09-07,3792
-CAPIZ,DUMALAG,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,municipality_median,1,1.0,1000.0,block,1000,100,2026-09-07,3793
-CAPIZ,DUMARAO,cabbage,pack,medium_size,2,575.0,575.0,block,575,58,2026-09-07,3803
-CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,large_size,3,0.001249999972060323,1250.0,anchor,1,1250,2026-09-07,4005
-CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,large_size,3,0.001500000013038516,150.0,anchor,2,150,2026-09-07,4475
-CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,medium_size,3,1.0,1000.0,block,1000,100,2026-09-07,4474
-CAPIZ,PANITAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.200000047683716,1200.0,block,1200,120,2026-09-07,4516
-CAPIZ,PANITAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.200000047683716,1200.0,block,1200,120,2026-09-07,4519
-CAPIZ,PILAR,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.200000047683716,1200.0,block,1200,120,2026-09-07,4645
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,3,0.3499999940395355,35.0,anchor,350,35,2026-09-07,4944
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,large_size,3,0.001249999972060323,1250.0,anchor,1,1250,2026-09-07,4945
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,large_size,3,0.001249999972060323,1250.0,anchor,1,1250,2026-09-07,4947
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,large_size,3,0.001700000022538006,1700.0,anchor,2,1700,2026-09-07,4950
-ILOILO,AJUY,cabbage,pack,unique_mun_price6,2,785.0,785.0,block,785,79,2026-09-07,5075
-ILOILO,ANILAO,"crackers, cookies, buiscuits, chips/curls",pieces or units,medium_size,2,0.8999999761581421,90.0,anchor,900,90,2026-09-07,5352
-ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,3,0.4799999892711639,480.0,block,480,48,2026-09-07,5378
-ILOILO,BALASAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.0,1000.0,block,1000,100,2026-09-07,5556
-ILOILO,BALASAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.139999985694885,1140.0,block,1140,114,2026-09-07,5558
-ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,2,0.3549999892711639,355.0,block,355,35,2026-09-07,5645
-ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,2,0.375,375.0,block,375,38,2026-09-07,5646
-ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.5,500.0,block,500,50,2026-09-07,5804
-ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.6000000238418579,600.0,block,600,60,2026-09-07,5801
-ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.0,1000.0,block,1000,100,2026-09-07,5839
-ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.139999985694885,1140.0,block,1140,114,2026-09-07,5841
-ILOILO,BINGAWAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,small_size,3,0.75,750.0,block,750,75,2026-09-07,6065
-ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,2,0.949999988079071,950.0,block,950,95,2026-09-07,6202
-ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,500.0,500.0,block,500,50,2026-09-07,6205
-ILOILO,DINGLE,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,18.0,18.0,block,18,180,2026-09-07,6698
-ILOILO,DINGLE,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,24.0,24.0,block,24,240,2026-09-07,6701
-ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.4000000059604645,400.0,block,400,40,2026-09-07,6862
-ILOILO,IGBARAS,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,18.0,18.0,block,18,180,2026-09-07,7265
-ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.449999988079071,450.0,block,450,45,2026-09-07,7490
-ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.5,500.0,block,500,50,2026-09-07,7491
-ILOILO,MAASIN,camote,bilog,medium_size,2,0.550000011920929,550.0,block,550,55,2026-09-07,8062
-ILOILO,MAASIN,camote,bilog,large_size,2,0.8450000286102295,845.0,block,845,85,2026-09-07,8063
-ILOILO,MINA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,large_size,3,0.001200000056996942,120.0,anchor,1,120,2026-09-07,8405
-ILOILO,OTON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,medium_size,1,1.049999952316284,1050.0,block,1050,105,2026-09-07,8724
-ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,small_size,2,0.3300000131130219,33.0,anchor,330,33,2026-09-07,9074
-ILOILO,SAN JOAQUIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,medium_size,1,1.0,1000.0,block,1000,100,2026-09-07,9274
-ILOILO,SAN JOAQUIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,medium_size,1,1020.0,1020.0,block,1020,102,2026-09-07,9277
-ILOILO,SAN MIGUEL,camote tops,bugkos,large_size,1,1.174999952316284,1175.0,block,1175,117,2026-09-07,9308
-ILOILO,SAN RAFAEL,cabbage,pack,province_median,2,0.6000000238418579,600.0,block,600,60,2026-09-07,9424
-ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,large_size,1,1.039999961853027,104.0,anchor,1040,104,2026-09-07,9489
-ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,medium_size,2,0.2700000107288361,270.0,block,270,27,2026-09-07,9493
-ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,large_size,2,0.4650000035762787,465.0,block,465,47,2026-09-07,9494
-ILOILO,SANTA BARBARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,2,0.300000011920929,300.0,block,300,30,2026-09-07,9648
-ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,0.425000011920929,425.0,block,425,43,2026-09-07,9834
-ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,large_size,3,0.001210000016726553,121.0,anchor,1,121,2026-09-07,9836
-ILOILO,TIGBAUAN,chicken,pieces or units,province_median,1,1.414999961853027,1415.0,block,1415,141,2026-09-07,9951
-ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces,large_size,3,0.00183000008109957,183.0,anchor,2,183,2026-09-07,9996
-ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces,large_size,3,0.001835000002756715,184.0,anchor,2,184,2026-09-07,9998
-ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,485.0,485.0,block,485,49,2026-09-07,10047
-ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,490.0,490.0,block,490,49,2026-09-07,10035
-NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),camote tops,bugkos,large_size,2,1280.0,1280.0,block,1280,128,2026-09-07,11035
-NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,3,0.4000000059604645,400.0,block,400,40,2026-09-07,11161
-NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,3,0.449999988079071,450.0,block,450,45,2026-09-07,11162
-NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,2,400.0,400.0,block,400,40,2026-09-07,11164
-NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,450.0,450.0,block,450,45,2026-09-07,11165
-NEGROS OCCIDENTAL,PULUPANDAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,municipality_median,2,45.0,450.0,anchor,45,450,2026-09-07,11246
-NEGROS OCCIDENTAL,SAN ENRIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.0,1000.0,block,1000,100,2026-09-07,11396
-NEGROS OCCIDENTAL,SAN ENRIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.0,1000.0,block,1000,100,2026-09-07,11394
-NEGROS OCCIDENTAL,SAN ENRIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.0,1000.0,block,1000,100,2026-09-07,11398
+province,municipality,item,harmonized_nsu_unit,hetero_group,raw_unit,raw_weight,verdict,chose,block_says,anchor_says,id_at_review
+AKLAN,ALTAVAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.0,1000.0,block,1000.0,100.0,66
+AKLAN,BATAN,"crackers, cookies, buiscuits, chips/curls",putos,medium_size,2,420.0,420.0,block,420.0,42.0,231
+AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,250
+AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.7,700.0,block,700.0,70.0,249
+AKLAN,BURUANGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,small_size,2,250.0,250.0,block,250.0,25.0,421
+AKLAN,BURUANGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,small_size,2,250.0,250.0,block,250.0,25.0,420
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.35,350.0,block,350.0,35.0,523
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,525
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,524
+AKLAN,IBAJAY,"prawns, lobster, shrimp",tumpok,conventional_nsu,2,1040.0,1040.0,block,1040.0,104.0,563
+AKLAN,LIBACAO,fresh fish,pieces or units,large_size,1,1.67,1670.0,block,1670.0,167.0,647
+AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,350.0,350.0,block,350.0,35.0,651
+AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,2,0.495,495.0,block,495.0,50.0,650
+AKLAN,MALINAO,chicken,pieces or units,large_size,2,1210.0,1210.0,block,1210.0,121.0,1145
+AKLAN,MALINAO,fresh fish,pieces or units,large_size,2,1735.0,1735.0,block,1735.0,174.0,1163
+AKLAN,MALINAO,fresh fish,pieces or units,large_size,2,4850.0,4850.0,block,4850.0,485.0,1165
+AKLAN,MALINAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,1170
+AKLAN,MALINAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,1169
+AKLAN,MALINAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.7,700.0,block,700.0,70.0,1171
+AKLAN,NABAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,1282
+AKLAN,NABAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,1285
+AKLAN,NABAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.7,700.0,block,700.0,70.0,1283
+AKLAN,NABAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.85,850.0,block,850.0,85.0,1284
+AKLAN,NEW WASHINGTON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.2,1200.0,block,1200.0,120.0,1428
+ANTIQUE,BELISON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.7,700.0,block,700.0,70.0,1766
+ANTIQUE,BELISON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.0,1000.0,block,1000.0,100.0,1832
+ANTIQUE,BELISON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,medium_size,1,1.0,1000.0,block,1000.0,100.0,1833
+ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,1915
+ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.65,650.0,block,650.0,65.0,1916
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,3,0.45,450.0,block,450.0,45.0,2293
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,3,0.5,500.0,block,500.0,50.0,2291
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,3,0.85,850.0,block,850.0,85.0,2290
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,3,0.88,880.0,block,880.0,88.0,2292
+ANTIQUE,HAMTIC,"prawns, lobster, shrimp",tumpok,conventional_nsu,2,845.0,845.0,block,845.0,85.0,2334
+ANTIQUE,LAUA-AN,fresh fish,pieces or units,large_size,1,2.885,2885.0,block,2885.0,288.0,2393
+ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,municipality_median,2,0.465,47.0,anchor,465.0,47.0,2401
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,medium_size,2,0.645,645.0,raw-weight default (entry was 650),645.0,64.0,2574
+ANTIQUE,PATNONGON,fresh fish,pieces or units,large_size,1,3.095,3095.0,block,3095.0,310.0,2693
+ANTIQUE,SAN REMIGIO,fresh fish,pieces or units,large_size,2,920.0,920.0,block,920.0,92.0,2803
+ANTIQUE,SAN REMIGIO,fresh fish,pieces or units,large_size,1,1265.0,1265.0,block,1265.0,127.0,2809
+ANTIQUE,SAN REMIGIO,fresh fish,pieces or units,large_size,1,3670.0,3670.0,block,3670.0,367.0,2806
+ANTIQUE,SAN REMIGIO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,province_median,2,60.0,60.0,block,60.0,600.0,2848
+ANTIQUE,TOBIAS FORNIER,fresh fish,pieces or units,large_size,2,3920.0,3920.0,block,3920.0,392.0,3322
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,3,0.45,450.0,raw-weight default (entry was 650),450.0,45.0,3326
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,3,0.5,500.0,raw-weight default (entry was 650),500.0,50.0,3323
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,3,0.5,500.0,raw-weight default (entry was 650),500.0,50.0,3324
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,3,0.6,600.0,raw-weight default (entry was 650),600.0,60.0,3327
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,3,0.65,650.0,block,650.0,65.0,3325
+ANTIQUE,TOBIAS FORNIER,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,conventional_nsu,1,1.0,1000.0,block,1000.0,100.0,3381
+ANTIQUE,TOBIAS FORNIER,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,conventional_nsu,1,1.0,1000.0,block,1000.0,100.0,3382
+ANTIQUE,VALDERRAMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,small_size,3,0.9,900.0,block,900.0,90.0,3476
+CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,municipality_median,2,395.0,395.0,raw-weight default (entry was 650),395.0,40.0,3581
+CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,province_median,3,0.6,600.0,block,600.0,60.0,3586
+CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,province_median,3,0.6,600.0,block,600.0,60.0,3585
+CAPIZ,DAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,conventional_nsu,1,1.02,1020.0,block,1020.0,102.0,3695
+CAPIZ,DAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,conventional_nsu,1,1.2,1200.0,block,1200.0,120.0,3697
+CAPIZ,DUMALAG,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,municipality_median,1,1.0,1000.0,block,1000.0,100.0,3792
+CAPIZ,DUMALAG,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,municipality_median,1,1.0,1000.0,block,1000.0,100.0,3793
+CAPIZ,DUMARAO,cabbage,pack,large_size,2,770.0,770.0,block,770.0,77.0,3804
+CAPIZ,DUMARAO,cabbage,pack,medium_size,2,575.0,575.0,block,575.0,58.0,3803
+CAPIZ,IVISAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,province_median,3,0.7,700.0,block,700.0,70.0,3923
+CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,large_size,3,0.00125,1250.0,anchor,1.0,1250.0,4005
+CAPIZ,JAMINDAN,"prawns, lobster, shrimp",tumpok,conventional_nsu,1,1.0,1000.0,block,1000.0,100.0,4016
+CAPIZ,PANAY,cabbage,putos (mix vegetable),province_median,2,600.0,600.0,block,600.0,60.0,4252
+CAPIZ,PANAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.85,850.0,block,850.0,85.0,4323
+CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,large_size,3,0.0015,150.0,anchor,2.0,150.0,4475
+CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,medium_size,3,1.0,1000.0,block,1000.0,100.0,4474
+CAPIZ,PANITAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.2,1200.0,block,1200.0,120.0,4516
+CAPIZ,PANITAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.2,1200.0,block,1200.0,120.0,4519
+CAPIZ,PILAR,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.2,1200.0,block,1200.0,120.0,4645
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,3,0.35,35.0,anchor,350.0,35.0,4944
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,large_size,3,0.00125,1250.0,anchor,1.0,1250.0,4945
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,large_size,3,0.00125,1250.0,anchor,1.0,1250.0,4947
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,large_size,3,0.0017,1700.0,anchor,2.0,1700.0,4950
+ILOILO,AJUY,cabbage,pack,unique_mun_price6,2,785.0,785.0,block,785.0,79.0,5075
+ILOILO,ANILAO,"crackers, cookies, buiscuits, chips/curls",pieces or units,medium_size,2,0.9,90.0,anchor,900.0,90.0,5352
+ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,3,0.75,750.0,block,750.0,75.0,5379
+ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,3,0.48,480.0,block,480.0,48.0,5378
+ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,3,0.8,800.0,block,800.0,80.0,5375
+ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,3,0.8,800.0,block,800.0,80.0,5382
+ILOILO,BADIANGAN,camote tops,bundle,large_size,1,1.445,1445.0,block,1445.0,145.0,5424
+ILOILO,BADIANGAN,chicken,whole (chicken),large_size,3,0.001175,1175.0,anchor,1.0,1175.0,5443
+ILOILO,BADIANGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,2,0.9,90.0,anchor,900.0,90.0,5456
+ILOILO,BALASAN,"crackers, cookies, buiscuits, chips/curls",pack,small_size,2,20.0,20.0,block,20.0,200.0,5523
+ILOILO,BALASAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,5535
+ILOILO,BALASAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.0,1000.0,block,1000.0,100.0,5556
+ILOILO,BALASAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.14,1140.0,block,1140.0,114.0,5558
+ILOILO,BANATE,"crackers, cookies, buiscuits, chips/curls",pieces or units,large_size,2,640.0,640.0,block,640.0,64.0,5603
+ILOILO,BANATE,"crackers, cookies, buiscuits, chips/curls",pieces or units,medium_size,2,450.0,450.0,block,450.0,45.0,5602
+ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,medium_size,3,0.21,210.0,block,210.0,21.0,5644
+ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,2,0.355,355.0,block,355.0,35.0,5645
+ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,2,0.375,375.0,block,375.0,38.0,5646
+ILOILO,BAROTAC NUEVO,"crackers, cookies, buiscuits, chips/curls",pieces or units,large_size,2,420.0,420.0,block,420.0,42.0,5711
+ILOILO,BAROTAC NUEVO,"crackers, cookies, buiscuits, chips/curls",putos,large_size,2,400.0,400.0,block,400.0,40.0,5713
+ILOILO,BAROTAC NUEVO,"crackers, cookies, buiscuits, chips/curls",putos,large_size,2,420.0,420.0,block,420.0,42.0,5714
+ILOILO,BAROTAC VIEJO,"crackers, cookies, buiscuits, chips/curls",pieces or units,large_size,2,240.0,240.0,block,240.0,24.0,5788
+ILOILO,BAROTAC VIEJO,"crackers, cookies, buiscuits, chips/curls",pieces or units,large_size,2,280.0,280.0,block,280.0,28.0,5786
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,large_size,3,0.75,750.0,block,750.0,75.0,5802
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.5,500.0,block,500.0,50.0,5804
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.6,600.0,block,600.0,60.0,5801
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.7,700.0,block,700.0,70.0,5803
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.45,450.0,block,450.0,45.0,5809
+ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.0,1000.0,block,1000.0,100.0,5839
+ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,1,1.14,1140.0,block,1140.0,114.0,5841
+ILOILO,BATAD,camote tops,bugkos,large_size,2,555.0,555.0,block,555.0,56.0,5862
+ILOILO,BATAD,camote tops,bugkos,large_size,2,825.0,825.0,block,825.0,83.0,5865
+ILOILO,BATAD,"crackers, cookies, buiscuits, chips/curls",pack,medium_size,2,25.0,25.0,block,25.0,250.0,5914
+ILOILO,BATAD,"crackers, cookies, buiscuits, chips/curls",pack,medium_size,2,30.0,30.0,block,30.0,300.0,5911
+ILOILO,BATAD,"crackers, cookies, buiscuits, chips/curls",pack,medium_size,2,30.0,30.0,block,30.0,300.0,5916
+ILOILO,BATAD,"crackers, cookies, buiscuits, chips/curls",pack,medium_size,2,30.0,30.0,block,30.0,300.0,5915
+ILOILO,BATAD,"crackers, cookies, buiscuits, chips/curls",pack,small_size,2,30.0,30.0,block,30.0,300.0,5912
+ILOILO,BATAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.55,550.0,block,550.0,55.0,5928
+ILOILO,BATAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.6,600.0,block,600.0,60.0,5929
+ILOILO,BINGAWAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.7,700.0,block,700.0,70.0,6068
+ILOILO,BINGAWAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.85,850.0,block,850.0,85.0,6067
+ILOILO,BINGAWAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,small_size,3,0.75,750.0,block,750.0,75.0,6065
+ILOILO,CABATUAN,camote tops,bundle,large_size,1,1.025,1025.0,block,1025.0,102.0,6135
+ILOILO,CABATUAN,camote tops,bundle,large_size,1,1.885,1885.0,block,1885.0,188.0,6133
+ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,2,0.95,950.0,block,950.0,95.0,6202
+ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,large_size,2,0.55,550.0,block,550.0,55.0,6208
+ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,500.0,500.0,block,500.0,50.0,6205
+ILOILO,CABATUAN,"liquor (e.g, whisky, coconut wine)",long-neck,large_size,3,0.001215,1215.0,anchor,1.0,1215.0,6215
+ILOILO,CALINOG,camote tops,bundle,large_size,2,1170.0,1170.0,block,1170.0,117.0,6283
+ILOILO,CARLES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.48,480.0,block,480.0,48.0,6490
+ILOILO,DINGLE,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,18.0,18.0,block,18.0,180.0,6698
+ILOILO,DINGLE,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,24.0,24.0,block,24.0,240.0,6701
+ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.4,400.0,block,400.0,40.0,6862
+ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,2,0.35,350.0,block,350.0,35.0,6868
+ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.5,500.0,block,500.0,50.0,6869
+ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.55,550.0,block,550.0,55.0,6870
+ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.55,550.0,block,550.0,55.0,6872
+ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.65,650.0,block,650.0,65.0,6871
+ILOILO,ESTANCIA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.6,600.0,block,600.0,60.0,7045
+ILOILO,ESTANCIA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.6,600.0,block,600.0,60.0,7047
+ILOILO,GUIMBAL,chicken,bilog,small_size,2,190.0,190.0,block,190.0,1900.0,7161
+ILOILO,GUIMBAL,chicken,bilog,small_size,2,195.0,195.0,block,195.0,1950.0,7159
+ILOILO,GUIMBAL,chicken,bilog,small_size,2,200.0,200.0,block,200.0,2000.0,7158
+ILOILO,GUIMBAL,chicken,bilog,small_size,2,200.0,200.0,block,200.0,2000.0,7160
+ILOILO,GUIMBAL,chicken,bilog,small_size,2,210.0,210.0,block,210.0,2100.0,7162
+ILOILO,GUIMBAL,chicken,bilog,small_size,2,220.0,220.0,block,220.0,2200.0,7157
+ILOILO,IGBARAS,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,18.0,18.0,block,18.0,180.0,7265
+ILOILO,IGBARAS,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,25.0,25.0,block,25.0,250.0,7266
+ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.45,450.0,block,450.0,45.0,7490
+ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.48,480.0,block,480.0,48.0,7492
+ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.5,500.0,block,500.0,50.0,7491
+ILOILO,LAMBUNAO,"crackers, cookies, buiscuits, chips/curls",putos,medium_size,2,600.0,600.0,block,600.0,60.0,7637
+ILOILO,LEGANES,"crackers, cookies, buiscuits, chips/curls",putos,large_size,2,550.0,550.0,block,550.0,55.0,7751
+ILOILO,LEGANES,"crackers, cookies, buiscuits, chips/curls",putos,medium_size,2,420.0,420.0,block,420.0,42.0,7749
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.48,480.0,block,480.0,48.0,7955
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,7956
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,7952
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.6,600.0,block,600.0,60.0,7954
+ILOILO,MAASIN,camote,bilog,large_size,2,0.845,845.0,block,845.0,85.0,8063
+ILOILO,MAASIN,camote,bilog,medium_size,2,0.55,550.0,block,550.0,55.0,8062
+ILOILO,MAASIN,camote tops,bundle,large_size,1,1.04,1040.0,block,1040.0,104.0,8061
+ILOILO,MINA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,large_size,3,0.0012,120.0,anchor,1.0,120.0,8405
+ILOILO,NEW LUCENA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,medium_size,2,65.0,65.0,block,65.0,650.0,8534
+ILOILO,OTON,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,small_size,2,20.0,20.0,block,20.0,200.0,8716
+ILOILO,OTON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,medium_size,1,1.05,1050.0,block,1050.0,105.0,8724
+ILOILO,SAN DIONISIO,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,large_size,2,575.0,575.0,block,575.0,58.0,9008
+ILOILO,SAN ENRIQUE,camote tops,bundle,large_size,1,1.51,1510.0,block,1510.0,151.0,9032
+ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,small_size,2,0.33,33.0,anchor,330.0,33.0,9074
+ILOILO,SAN JOAQUIN,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,22.0,22.0,block,22.0,220.0,9177
+ILOILO,SAN JOAQUIN,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,25.0,25.0,block,25.0,250.0,9178
+ILOILO,SAN JOAQUIN,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,30.0,30.0,block,30.0,300.0,9171
+ILOILO,SAN JOAQUIN,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,38.0,38.0,block,38.0,380.0,9174
+ILOILO,SAN JOAQUIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,medium_size,1,1.0,1000.0,block,1000.0,100.0,9274
+ILOILO,SAN JOAQUIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,medium_size,1,1020.0,1020.0,block,1020.0,102.0,9277
+ILOILO,SAN MIGUEL,camote tops,bugkos,large_size,1,1.175,1175.0,block,1175.0,117.0,9308
+ILOILO,SAN MIGUEL,camote tops,bugkos,large_size,1,1.4,1400.0,block,1400.0,140.0,9311
+ILOILO,SAN MIGUEL,"crackers, cookies, buiscuits, chips/curls",pieces or units,large_size,2,120.0,120.0,block,120.0,12.0,9353
+ILOILO,SAN MIGUEL,"crackers, cookies, buiscuits, chips/curls",pieces or units,medium_size,2,120.0,120.0,block,120.0,12.0,9355
+ILOILO,SAN MIGUEL,"crackers, cookies, buiscuits, chips/curls",pieces or units,small_size,2,98.0,98.0,block,98.0,10.0,9351
+ILOILO,SAN MIGUEL,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,2,0.695,695.0,block,695.0,69.0,9410
+ILOILO,SAN RAFAEL,cabbage,pack,province_median,2,0.6,600.0,block,600.0,60.0,9424
+ILOILO,SAN RAFAEL,chicken,bilog,small_size,2,0.185,185.0,block,185.0,1850.0,9449
+ILOILO,SAN RAFAEL,chicken,bilog,small_size,2,0.195,195.0,block,195.0,1950.0,9448
+ILOILO,SAN RAFAEL,chicken,bilog,small_size,2,0.215,215.0,block,215.0,2150.0,9450
+ILOILO,SAN RAFAEL,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,0.025,25.0,block,25.0,250.0,9471
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,large_size,2,0.805,805.0,block,805.0,81.0,9486
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,large_size,1,1.04,104.0,anchor,1040.0,104.0,9489
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,medium_size,2,0.555,555.0,block,555.0,56.0,9485
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,medium_size,2,465.0,465.0,block,465.0,47.0,9488
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,large_size,2,0.465,465.0,block,465.0,47.0,9494
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,medium_size,2,0.27,270.0,block,270.0,27.0,9493
+ILOILO,SANTA BARBARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,medium_size,2,0.55,550.0,block,550.0,55.0,9646
+ILOILO,SANTA BARBARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,medium_size,2,0.845,845.0,block,845.0,85.0,9647
+ILOILO,SANTA BARBARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,2,0.3,300.0,block,300.0,30.0,9648
+ILOILO,SANTA BARBARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,2,0.655,655.0,block,655.0,65.0,9649
+ILOILO,SARA,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,0.025,25.0,block,25.0,250.0,9799
+ILOILO,SARA,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,0.025,25.0,block,25.0,250.0,9796
+ILOILO,SARA,"crackers, cookies, buiscuits, chips/curls",putos,small_size,2,0.03,30.0,block,30.0,300.0,9797
+ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,3,0.6,600.0,block,600.0,60.0,9828
+ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,0.425,425.0,block,425.0,43.0,9834
+ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,large_size,3,0.00121,121.0,anchor,1.0,121.0,9836
+ILOILO,TIGBAUAN,chicken,pieces or units,province_median,1,1.415,1415.0,block,1415.0,141.0,9951
+ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces,large_size,3,0.0018300001,183.0,anchor,2.0,183.0,9996
+ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces,large_size,3,0.001835,184.0,anchor,2.0,184.0,9998
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,large_size,2,485.0,485.0,block,485.0,49.0,10043
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,485.0,485.0,block,485.0,49.0,10047
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,490.0,490.0,block,490.0,49.0,10035
+ILOILO,TIGBAUAN,"liquor (e.g, whisky, coconut wine)",long-neck,medium_size,3,0.00116,1160.0,anchor,1.0,1160.0,10058
+ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,medium_size,2,50.0,50.0,block,50.0,500.0,10326
+ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,small_size,2,35.0,35.0,block,35.0,350.0,10325
+NEGROS OCCIDENTAL,LA CASTELLANA,chicken,bilog,mp50_price,1,0.148,1480.0,anchor,148.0,1480.0,10908
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),camote tops,bugkos,large_size,2,1280.0,1280.0,block,1280.0,128.0,11035
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),chicken,bilog,medium_size,2,220.0,220.0,block,220.0,2200.0,11049
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),chicken,bilog,small_size,2,185.0,185.0,block,185.0,1850.0,11048
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,large_size,2,695.0,695.0,block,695.0,70.0,11057
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,medium_size,2,585.0,585.0,block,585.0,59.0,11056
+NEGROS OCCIDENTAL,PONTEVEDRA,camote,bilog,large_size,2,0.275,275.0,block,275.0,28.0,11122
+NEGROS OCCIDENTAL,PONTEVEDRA,camote,bilog,large_size,2,0.39,390.0,block,390.0,39.0,11125
+NEGROS OCCIDENTAL,PONTEVEDRA,camote,bilog,large_size,2,0.475,475.0,block,475.0,47.0,11119
+NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,3,0.45,450.0,block,450.0,45.0,11162
+NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,450.0,450.0,block,450.0,45.0,11165
+NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,3,0.4,400.0,block,400.0,40.0,11161
+NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,2,400.0,400.0,block,400.0,40.0,11164
+NEGROS OCCIDENTAL,PULUPANDAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,municipality_median,2,45.0,450.0,anchor,45.0,450.0,11246
+NEGROS OCCIDENTAL,SALVADOR BENEDICTO,"liquor (e.g, whisky, coconut wine)",long-neck,unique_mun_price6,3,0.075,750.0,anchor,75.0,750.0,11276
+NEGROS OCCIDENTAL,SAN ENRIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.0,1000.0,block,1000.0,100.0,11396
+NEGROS OCCIDENTAL,SAN ENRIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.0,1000.0,block,1000.0,100.0,11394
+NEGROS OCCIDENTAL,SAN ENRIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,large_size,1,1.0,1000.0,block,1000.0,100.0,11398
+NEGROS OCCIDENTAL,TOBOSO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,medium_size,3,0.6,600.0,block,600.0,60.0,11426
+NEGROS OCCIDENTAL,TOBOSO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,small_size,3,0.85,850.0,block,850.0,85.0,11425
+NEGROS OCCIDENTAL,TOBOSO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,medium_size,3,0.45,450.0,block,450.0,45.0,11424
+NEGROS OCCIDENTAL,VALLADOLID,chicken,bilog,unique_mun_price6,2,0.205,205.0,block,205.0,2050.0,11467
+NEGROS OCCIDENTAL,VALLADOLID,chicken,bilog,unique_mun_price6,2,0.23,230.0,block,230.0,2300.0,11466

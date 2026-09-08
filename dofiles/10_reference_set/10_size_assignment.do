@@ -251,17 +251,21 @@ forvalues j = 1/3 {
 *              time and in the same direction: 65 of the 80 adopt the block
 *              reading, which restates the typed number rather than pulling it
 *              toward a median, so three more cases regained a group.
+*   97 ->  97  when the third review round took the ledger to 227 verdicts. The
+*              TOTAL held, but the shape moved: one case stopped collapsing to a
+*              single group and became small+medium instead. So the count being
+*              stable is not the same as nothing having changed, which is why all
+*              four numbers below are asserted and not just the total.
 *
 * The four counts below must reconcile against each other and against the crosstab:
-*     35 collapsed to one group  +  48 small+medium  +  14 small+large  =  97
-* and in the crosstab 32 (k=2, filled=1) + 3 (k=3, filled=1) = 35, while
-* 48 + 14 = 62 (k=3, filled=2). If one moves and the others do not, the tie rule
+*     34 collapsed to one group  +  49 small+medium  +  14 small+large  =  97
+* and in the crosstab (k=2, filled=1) + (k=3, filled=1) = 34, while
+* 49 + 14 = 63 (k=3, filled=2). If one moves and the others do not, the tie rule
 * changed rather than the weights.
 *
-* The 100 -> 97 move is one fewer single-group collapse (36 -> 35) and two fewer
-* small+medium (50 -> 48); small+large is unchanged at 14, as it was on the last
-* move. That it keeps not moving is itself informative: the cases whose MIDDLE
-* group empties are not the ones these corrections touch.
+* SMALL+LARGE HAS NEVER MOVED -- 14 across all four counts. That is informative
+* rather than reassuring: the cases whose MIDDLE group empties are not the ones any
+* of these corrections touch, so nothing done so far tests that shape.
 *
 * Under-filled cases are reported and not patched -- see issue #3, settled as status
 * quo.
@@ -274,10 +278,10 @@ di as txt "under-filled size-based cases: " r(N)
 assert r(N) == 97
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 1
 di as txt "  ... collapsed to a single group: " r(N)
-assert r(N) == 35
+assert r(N) == 34
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g2
 di as txt "  ... two groups, small+medium filled: " r(N)
-assert r(N) == 48
+assert r(N) == 49
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g3
 di as txt "  ... two groups, small+large filled: " r(N)
 assert r(N) == 14

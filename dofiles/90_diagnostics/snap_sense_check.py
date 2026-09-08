@@ -322,6 +322,67 @@ if _unmatched:
     for _k in sorted(_unmatched):
         print(f"    {_k}")
 
+# ---- write the ledger that 05_manual_corrections.do applies --------------------
+# The verdicts are collected here, so the ledger is written here. Building it by hand
+# once was fine for 80 rows; doing that every round is how a review pass and the build
+# drift apart.
+#
+# REWRITTEN IN FULL, not appended. Every verdict is derived from the reviewed archive,
+# so a full rewrite is idempotent -- re-running reproduces the same file -- while an
+# append duplicates on every run. The archive is the source of truth; the ledger is a
+# projection of it.
+#
+# THE THIRD CASE. A verdict equal to neither candidate cannot be applied as given and
+# is resolved to the BLOCK reading -- the raw weight read as canonical units, with its
+# decimals honoured and the kg/g/mL tick not taken literally. That is the standing
+# instruction for rows the rules do not settle, and it is what every neighbouring row
+# in the same review round chose.
+#
+# It is also what a spreadsheet fill-down produces. Round 3 carried six entries all
+# reading 650 across sheet rows 83-89, where row 86 (raw 0.650) legitimately IS 650 and
+# the value had been smeared over its neighbours -- whose raw weights were 0.645, 0.450,
+# 0.500, 0.600, 0.500 and 395. Resolving to the block reading recovers exactly those.
+# Recorded in `chose' so the substitution is visible rather than silent.
+LEDGER = Path("reference/reviewed/snap_verdicts.csv")
+
+_led = d[d.prior_verdict.notna()].copy()
+_led["verdict_raw"] = pd.to_numeric(_led.prior_verdict, errors="coerce")
+_ok_b = _led.verdict_raw.round(1).eq(_led.block_says.round(1))
+_ok_a = _led.verdict_raw.round(1).eq(_led.anchor_says.round(1))
+_led["chose"] = np.where(_ok_b, "block", np.where(_ok_a, "anchor", ""))
+_sub = _led.chose.eq("") & _led.block_says.notna()
+_led.loc[_sub, "chose"] = ("raw-weight default (entry was "
+                           + _led.loc[_sub, "verdict_raw"].map(lambda v: f"{v:g}") + ")")
+_led["verdict"] = np.where(_sub, _led.block_says, _led.verdict_raw)
+
+# A row set unusable by hand is settled by 05 sec 4 and must not be re-asserted here.
+_led = _led[~(_led.final_differs & _led.final_weight.isna())]
+
+_parts = _led.cell.str.split(" / ", n=3, expand=True)
+_out = pd.DataFrame({
+    "province": _parts[0], "municipality": _parts[1],
+    "item": _parts[2], "harmonized_nsu_unit": _parts[3],
+    "hetero_group": _led.hetero_group, "raw_unit": _led.unit.astype("Int64"),
+    "raw_weight": _led.weight, "verdict": _led.verdict, "chose": _led.chose,
+    "block_says": _led.block_says, "anchor_says": _led.anchor_says,
+    "id_at_review": _led.id.astype("Int64")})
+
+# One content key may carry several rows -- a cell can hold two identical readings from
+# different vendors -- but it may NOT carry two answers. 05 asserts the same thing.
+_ck = ["province", "municipality", "item", "harmonized_nsu_unit",
+       "hetero_group", "raw_weight"]
+_conf = _out.groupby(_ck).verdict.nunique()
+if (_conf > 1).any():
+    raise SystemExit(
+        f"{int((_conf > 1).sum())} content key(s) carry conflicting verdicts across "
+        "review rounds. Reconcile the reviewed workbooks before writing the ledger:\n"
+        + _conf[_conf > 1].to_string())
+
+_out.sort_values(_ck).to_csv(LEDGER, index=False, encoding="utf-8")
+print(f"\nwrote {LEDGER}: {len(_out)} verdict(s) on {_conf.size} content key(s)")
+print(_out.chose.str.replace(r"raw-weight default.*", "raw-weight default",
+                             regex=True).value_counts().to_string())
+
 
 def _landed(row):
     """Did the published value end up where the reviewer said it should?
@@ -343,7 +404,17 @@ def _landed(row):
     got = row.final_weight if pd.notna(row.final_weight) else row.published
     if pd.isna(got):
         return "row no longer published"
-    return "yes" if abs(got - want) < 0.5 else "NO -- still " + f"{got:g}"
+    if abs(got - want) < 0.5:
+        return "yes"
+    # An entry matching NEITHER candidate is resolved to the block reading when the
+    # ledger is written, and that substitution is deliberate. Compare against what was
+    # APPLIED, or the six fill-down rows report as unapplied forever while the build
+    # already holds the right number.
+    _cand = [row.block_says, row.anchor_says]
+    if all(pd.isna(c) or abs(c - want) >= 0.5 for c in _cand) \
+            and pd.notna(row.block_says) and abs(got - row.block_says) < 0.5:
+        return "yes (raw-weight default applied)"
+    return "NO -- still " + f"{got:g}"
 
 
 d["verdict_landed"] = d.apply(_landed, axis=1)
@@ -376,6 +447,17 @@ _disagree = d.anchor_says.round(6).ne(d.block_says.round(6))
 d["needs_review"] = ""
 d.loc[_anchor_won & _prov & _disagree, "needs_review"] = \
     "province refereed, anchor published -- own cell does not contradict it"
+
+# A ROW THE REVIEW HAS ALREADY SETTLED MUST NOT COME BACK. Switching the triage to
+# `final_says' stopped that for verdicts adopting the BLOCK reading, but not for
+# verdicts adopting the ANCHOR: there `final_says == anchor_says` is exactly what the
+# flag tests, so the condition stays true however many times a human confirms it. All
+# 15 anchor verdicts from round 2 were handed back in round 3 for that reason.
+#
+# The flag cannot distinguish "the anchor won because the algorithm chose it" from
+# "because the reviewer chose it" -- so the verdict, not the flag, decides.
+d.loc[d.verdict_landed.astype(str).str.strip().eq("yes"), "needs_review"] = ""
+
 d.loc[d.verdict_landed.astype(str).str.startswith("NO"), "needs_review"] = \
     "PRIOR VERDICT NOT APPLIED"
 
@@ -404,7 +486,19 @@ _sub1_in_cell = (d.weight.lt(1) & d.weight.notna()).groupby(d.cell).transform("s
 
 d["proposed_value"] = np.nan
 d["proposed_why"] = ""
-_out = d.needs_review.str.startswith("province refereed", na=False)
+
+# Every row still needing a decision gets a proposal -- including the ones flagged
+# PRIOR VERDICT NOT APPLIED, which previously got none. A row showing an unapplied
+# verdict and no proposal reads as emptier than it is; the reviewer has to reconstruct
+# what the candidates were.
+_out = d.needs_review.ne("")
+
+# A row carrying a LANDED verdict is not proposed against. The proposal machinery does
+# not consult prior_verdict, so on a settled row it can contradict a decision already
+# made -- it did, on 3 of the 15 anchor verdicts, proposing 350 g for an ice-cream
+# small cup the reviewer had put at 35 g.
+_settled = d.verdict_landed.astype(str).str.strip().eq("yes")
+_out = _out & ~_settled
 
 _whole = _out & d.raw_shape.eq("whole number")
 d.loc[_whole, "proposed_value"] = d.loc[_whole, "block_says"]
@@ -436,12 +530,14 @@ _prop_bad = _out & d.proposed_value.notna() & (
     d.proposed_value.lt(WFLOOR) | d.proposed_value.gt(WCEIL))
 _alt_ok = d.published.between(WFLOOR, WCEIL)
 _revert = _prop_bad & _alt_ok
-d.loc[_revert, "proposed_value"] = d.loc[_revert, "published"]
-d.loc[_revert, "proposed_why"] = (
-    "round-1 rule REJECTED: block reading is implausible ("
-    + d.loc[_revert, "block_says"].map(lambda v: f"{v:g}")
-    + f" outside [{WFLOOR}, {WCEIL}]) -- keeping the anchor")
+# Guarded: an empty slice makes the string concat below fail on dtype rather than
+# no-op, and the slice IS empty once every implausible row has been settled by review.
 if int(_revert.sum()):
+    d.loc[_revert, "proposed_value"] = d.loc[_revert, "published"]
+    d.loc[_revert, "proposed_why"] = (
+        "round-1 rule REJECTED: block reading is implausible ("
+        + d.loc[_revert, "block_says"].map(lambda v: f"{v:g}")
+        + f" outside [{WFLOOR}, {WCEIL}]) -- keeping the anchor")
     print(f"\n{int(_revert.sum())} proposal(s) reverted by the plausibility gate")
 
 # Blank column for the reviewer to fill in. Pre-created so annotation happens in

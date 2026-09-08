@@ -700,7 +700,7 @@ def c_underfilled_shapes(sized):
           # Moved by the STEP 3e adjudication (issue #18, from the manual review of
           # snap_sense_check.xlsx). The rules adopt the block reading on 431 rows where
           # the old plausibility gate moved only 42.
-          "35 with one group filled; 48 filled (1,2); 14 filled (1,3)",
+          "34 with one group filled; 49 filled (1,2); 14 filled (1,3)",
           f"{len(shape1)} with one group filled; {g12} filled (1,2); {g13} filled (1,3)",
           "the (1,2) and (1,3) split is why the rule cannot be keyed on the number of"
           " filled groups alone -- 'small + large' is right for (1,3) and wrong for (1,2)")
@@ -759,7 +759,7 @@ def c_modal_label_criterion(sized):
           # Rose again (64.0% -> 64.7%) when the referee became hetero-aware. The field
           # labels are a signal the snap never reads, so agreement improving is evidence
           # the rule picks better, not evidence of fitting to them.
-          "65.3% (3,649 of 5,587)",
+          "65.4% (3,651 of 5,582)",
           f"{per_row / len(full) * 100:.1f}% ({per_row:,} of {len(full):,})",
           "this is the number that justifies re-terciling in the first place -- the"
           " field label is wrong about a third of the time at row level")
@@ -770,7 +770,7 @@ def c_modal_label_criterion(sized):
     check("modal field label agrees with the tercile, per group",
           "methodology.md / assumption 7",
           # ROSE from 66.5%, same independence argument as the per-weighing figure above.
-          "78.3% (1,147 of 1,464)",
+          "78.5% (1,147 of 1,461)",
           f"{per_grp / len(g) * 100:.1f}% ({per_grp:,} of {len(g):,})",
           "aggregating recovers signal, which is what the naming criterion needs")
 
@@ -783,7 +783,7 @@ def c_modal_label_criterion(sized):
           # with the review's finding that the log-10 snap tends to underestimate: adopting
           # the block reading on 431 rows removes part of that downward pull. Still not
           # symmetric, so the caveat below stands.
-          "mean signed error -0.131; 240 groups below their tercile, 77 above",
+          "mean signed error -0.131; 238 groups below their tercile, 76 above",
           f"mean signed error {err.mean():+.3f};"
           f" {below} groups below their tercile, {above} above",
           "NOT symmetric. The modal field label runs systematically low, so a criterion"
