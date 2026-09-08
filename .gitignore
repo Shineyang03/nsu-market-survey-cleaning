@@ -26,3 +26,9 @@ __pycache__/
 # exists to remove. outputs/tables/build_manifest.json IS committed: it is the reference
 # the comparison is made against.
 outputs/temp/_verify_rebuild/
+
+# Variant builds from an experiment, e.g. 90_diagnostics/measure_anchor_keying.do, which
+# sets ${build_name} so the whole build goes to its own subtree instead of overwriting
+# the published one. Regenerated on demand and diffed against master_rename_build; there
+# is no reason to keep a second full build in the repo.
+outputs/anchor_*/

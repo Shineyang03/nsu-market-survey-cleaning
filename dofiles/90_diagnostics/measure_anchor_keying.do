@@ -12,9 +12,11 @@
 * would then depend on nothing the crosswalk produces, so the fold could legitimately
 * read corrected weights and the harmonization could respond to new evidence.
 *
-* THIS FILE MEASURES THE COST OF THAT, and changes nothing permanently. It runs the
-* normal Outcome 1 chain with the anchor re-keyed, writes the reference set to a
-* SEPARATE folder, and leaves the live build for the caller to restore.
+* THIS FILE MEASURES THE COST OF THAT AND TOUCHES NOTHING LIVE. It sets ${build_name}
+* so the whole variant build -- every .dta, every table -- goes to its own subtree under
+* outputs/, and the published build is never opened for writing. The first version of
+* this measurement did overwrite the live artifacts and relied on a hand-made backup to
+* put them back; that worked, but a safeguard a human has to remember is not one.
 *
 * NOT A REPLACEMENT for the restructure. Re-keying the anchor is necessary but not
 * sufficient: 05_manual_corrections.do references harmonized_nsu_unit 25 times, so a
@@ -25,12 +27,13 @@
 * RUN, from the dofiles/ folder:
 *   "C:\Program Files\StataNow19\StataSE-64.exe" -e do 90_diagnostics\measure_anchor_keying.do
 *
-* Pass a different pool by setting the global first; the three candidates are
+* Pass a different pool by setting ${keying} first; the three candidates are
 * pull_nsu_unit (raw), cleaned_nsu_unit (what the pre-Aug11 build used), and
 * harmonized_nsu_unit (current).
 *
-* AFTER RUNNING, the live build artifacts have been overwritten. Restore them from a
-* backup or re-run master_outcome1.do.
+* OUTPUT  ${output}\anchor_<keying>\temp\nsu_reference_set.dta   and the rest of the
+*         variant build. The published build under master_rename_build is untouched, so
+*         the two can be diffed afterwards with no restore step.
 ********************************************************************************
 
 clear all
@@ -38,12 +41,19 @@ set more off
 
 if "${keying}" == "" global keying "pull_nsu_unit"
 
+* Set BEFORE 00_globals.do runs, so every derived path points at the variant subtree.
+* This has to happen here rather than after the first `do' of the globals, because that
+* is where ${build}, ${btemp} and ${btables} are computed.
+global build_name "anchor_${keying}"
+
 di as res _n "{hline 78}"
 di as res "ANCHOR KEYING MEASUREMENT: pooling on pull_item x ${keying}"
+di as res "  variant build subtree : ${build_name}"
+di as res "  the published build under master_rename_build is NOT written to"
 di as res "{hline 78}"
 
-* This is the whole intervention: preset ${unitvar} so 03_clean_ms.do's default does
-* not fire. Everything downstream is the unmodified chain.
+* The whole intervention: preset ${unitvar} so 03_clean_ms.do's default does not fire.
+* Everything downstream is the unmodified chain.
 global unitvar "${keying}"
 
 do "00_shared/03_clean_ms.do"

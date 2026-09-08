@@ -80,7 +80,21 @@ foreach d in "${output}" "${temp}" "${graphs}" "${tables}" {
 
 * The current build writes to its own subtree so the pre-Aug11 outputs under
 * ${temp} stay inspectable. See dofiles/archive/README.md.
-global build   "${output}\master_rename_build"
+*
+* ${build_name} IS AN OVERRIDE, and it exists so a variant build cannot clobber the
+* published one. A caller that sets it before running this file sends every .dta, every
+* table and every graph to its own subtree -- which is what makes an experiment
+* (does re-keying the snap anchor change anything?) safe to run without backing up and
+* restoring 73 MB of artifacts by hand. Relying on a human to remember that backup is
+* the same fragile safeguard this project has been bitten by before.
+* FORWARD SLASH, deliberately, and it is not cosmetic. Written as
+* "${output}\${build_name}" the backslash is consumed: `\$' is Stata's escape for a
+* literal dollar sign, so the separator disappears and the path becomes
+* "...\outputsanchor_pull_nsu_unit". It creates the folder, saves into it, reports
+* success, and the variant build silently lands outside outputs/. Stata accepts a
+* forward slash on Windows, and it cannot be eaten.
+if "${build_name}" == "" global build_name "master_rename_build"
+global build   "${output}/${build_name}"
 global btemp   "${build}\temp"
 global btables "${build}\tables"
 global bgraphs "${build}\graphs"

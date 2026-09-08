@@ -320,11 +320,20 @@ def check_manifest(update):
                  if n in old.get(kind, {}) and old[kind][n]["sha256"] != v["sha256"]]
         added = [n for n in cur[kind] if n not in old.get(kind, {})]
         gone = [n for n in old.get(kind, {}) if n not in cur[kind]]
+        # A MOVED OUTPUT IS A FAILURE, not a warning, and the first version of this had
+        # it backwards. The case that matters is a variant build or a stray run having
+        # replaced a published artifact -- exactly what a measurement experiment does if
+        # it writes to the live subtree. Downgrading that to a warning means the one
+        # scenario this check exists for scrolls past in yellow.
+        #
+        # A deliberate rebuild is accepted by re-recording: --update-manifest. That
+        # makes accepting a change an explicit act rather than the default.
         if moved:
-            (warn if kind == "outputs" else bad)(
-                f"{kind} changed since the manifest: {', '.join(moved)}"
-                + ("" if kind == "outputs" else
-                   " -- the outputs may no longer follow from them"))
+            bad(f"{kind} changed since the manifest: {', '.join(moved)}"
+                + (" -- the outputs may no longer follow from them"
+                   if kind == "inputs" else
+                   " -- a published artifact was overwritten. If the rebuild was"
+                   " deliberate, re-record with --update-manifest"))
         if added:
             warn(f"{kind} not in the manifest: {', '.join(added)}")
         if gone:

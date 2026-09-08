@@ -148,6 +148,33 @@ record, and the evidence for #28 is keyed on it — `scope_conventional_units.py
 `branch` would report no mixed pairs at all, which is the finding erasing itself. Getting
 this backwards is a silent error in either direction. The site-by-site split is on #28.
 
+## Running a variant build without touching the published one
+
+`00_globals.do` takes a `${build_name}` override. Set it before the globals load and the
+whole build — every `.dta`, table and graph — goes to `outputs/<build_name>/` instead of
+`outputs/master_rename_build/`:
+
+```stata
+global build_name "anchor_pull_nsu_unit"
+global unitvar    "pull_nsu_unit"
+do "00_shared/03_clean_ms.do"
+```
+
+`90_diagnostics/measure_anchor_keying.do` is the worked example: it answers "would the
+snap give different weights if its anchor pooled on the raw label instead of the
+harmonized one?" by building the variant and leaving the published build alone, so the
+two can be diffed with no backup-and-restore step. `outputs/anchor_*/` is gitignored.
+
+**Which unit the anchor pools on.** `04_unit_snap.do` pools its anchor and all four
+referee rungs on `pull_item × ${unitvar}`, defaulting to `harmonized_nsu_unit`. Three
+candidates exist: the raw `pull_nsu_unit`, `cleaned_nsu_unit` (what the pre-Aug11 build
+used), and the current harmonized unit. The choice matters beyond accuracy, because
+`harmonized_nsu_unit` comes from the crosswalk while the fold decisions behind the
+crosswalk came from corrected weights — a loop, and the reason `nsu_fold_rule.py` is
+forbidden from reading a build output. Measured: re-keying to the raw label moves **17 of
+11,335** corrected weights and 34 of 3,305 published rows, and scored against the typed
+number the two keyings split 9–7. So it breaks the loop without improving the weights.
+
 **Steps 03 → 04 → 05 must stay in that order.** `04`'s anchor is a median over
 whatever rows it is given, so the exclusion in `03` has to happen first. Running it
 later is what once turned a 10 L gallon into 10 mL.
