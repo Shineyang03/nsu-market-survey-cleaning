@@ -19,3 +19,10 @@ Desktop.ini
 # up as a code change on every run that imported it.
 __pycache__/
 *.pyc
+
+# The scratch rebuild verify_pipeline.py writes to compare the crosswalk against a fresh
+# build. Regenerated on every run and never read by anything else -- committing it would
+# put a second copy of the crosswalk in the repo, which is the ambiguity the comparison
+# exists to remove. outputs/tables/build_manifest.json IS committed: it is the reference
+# the comparison is made against.
+outputs/temp/_verify_rebuild/

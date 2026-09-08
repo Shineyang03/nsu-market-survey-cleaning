@@ -65,14 +65,41 @@ python dofiles/00_shared/06_cpi_panel.py
 Seeding the registry later — which is where it started — left a fresh clone needing two
 passes to converge, the same circularity issue #33 was about.
 
-**After any change**, run the claim checker from the project root:
+**After any change**, run the verification master from the project root:
 
 ```
-python dofiles/90_diagnostics/verify_documented_claims.py
+python dofiles/verify_pipeline.py
 ```
 
-It re-derives every number recorded in `docs/` that no build file produces and fails
-when one has moved. It is what catches a figure going stale in a document.
+**This is the one command that says whether the pipeline on disk is the pipeline the code
+describes.** Exit 0 means it is. It does five things:
+
+1. **Rebuilds the crosswalk** into a scratch directory and compares content column by
+   column — `master_nsu_rename.csv` is in neither master, so it can otherwise drift from
+   its inputs with nothing noticing (#33).
+2. **Accounts for the trim**: the rebuild is pre-trim and the live file post-trim, so the
+   difference must be exactly the rows in `master_rename_dropped_labels.csv`.
+3. **Re-runs `validate_folds.py`** and checks that no folded group contradicts its own
+   weight test, per `../docs/master_rename.md` §6. Folds knowingly kept despite failing
+   are listed in `ACKNOWLEDGED` with their recorded figures and the reason — and they
+   fail again if those figures move, so an acknowledgement is not a mute button.
+4. **Runs `verify_documented_claims.py`**, which re-derives every number recorded in
+   `docs/` that no build file produces.
+5. **Checks the input manifest** — `outputs/tables/build_manifest.json` holds a SHA-256
+   of every hand-maintained input and headline output, so "these outputs came from these
+   inputs" is answerable rather than assumed. After a deliberate rebuild, re-record it
+   with `--update-manifest`.
+
+**Hashes, not timestamps, and that is not fussiness.** A git checkout rewrites the mtime
+of every file it touches, so a merge or a branch switch makes a stale artifact look fresh
+and a fresh one look stale. An earlier version of check 3 was guarded on mtime and would
+have passed over exactly the failure it exists to catch.
+
+`verify_documented_claims.py` can still be run alone for the per-claim detail; the
+verification master reports only its verdict counts.
+
+**What it does not do:** re-run the Stata build. That would overwrite the artifacts it is
+checking. Check 5 is what tells you those outputs still match their inputs.
 
 ## Folders
 

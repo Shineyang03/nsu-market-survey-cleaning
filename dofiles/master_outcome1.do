@@ -33,10 +33,12 @@
 * 00b writes, 02 filters the crosswalk 01 produces, and 03 needs the result. See
 * dofiles/README.md, which is the source for this list.
 *
-* AFTER ANY CHANGE, run the claim checker from the project root:
-*     python dofiles/90_diagnostics/verify_documented_claims.py
-* It re-derives every number recorded in docs/ that no build file produces and
-* fails when one has moved.
+* AFTER ANY CHANGE, run the verification master from the project root:
+*     python dofiles/verify_pipeline.py
+* It answers whether the pipeline on disk is the one the code describes: rebuilds the
+* crosswalk and diffs it, accounts for the non-NSU trim, re-runs the fold weight tests,
+* runs verify_documented_claims.py, and checks every input against a hash manifest.
+* Exit 0 means all of that holds. See dofiles/README.md for what each check covers.
 ********************************************************************************
 
 clear all

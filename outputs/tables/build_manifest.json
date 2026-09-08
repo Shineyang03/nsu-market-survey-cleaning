@@ -1,0 +1,54 @@
+{
+  "inputs": {
+    "CPI panel": {
+      "bytes": 279430,
+      "sha256": "fb62d0b0402d0d901fb0e9db74e9564d61d2595c12e79b581c5d395ca8aca0ce"
+    },
+    "curated field notes": {
+      "bytes": 121400,
+      "sha256": "0dd8b970cecbab47853d41d396dab4cee13a3e3b2de33a09c48a8c0cce64f991"
+    },
+    "durable id registry": {
+      "bytes": 906212,
+      "sha256": "76006a26df6819367ff6c49a47225023ed514e2bb757f902ffe0a40ce25cb943"
+    },
+    "hand rename": {
+      "bytes": 16261,
+      "sha256": "3cd5aa10fa6b988f6bcb7ff815fe15d94d97c7c508736d9b614e9be263699fff"
+    },
+    "official translation groups": {
+      "bytes": 12956,
+      "sha256": "484627d6527764303403ecea5db3714478bfa83f5e75af11222112f5747d0e88"
+    },
+    "price file (from the R script)": {
+      "bytes": 879595,
+      "sha256": "efa486a17d4267fcfec3ea8348531f83f6b3fea1cc9b86917f93e72077a9f956"
+    },
+    "price/MS case coverage": {
+      "bytes": 200305,
+      "sha256": "b03e79a1dee4e414b76c9ab9c7f22aa3b5c2cb1d3a58d69d97e4a83e803f0d49"
+    },
+    "raw market survey": {
+      "bytes": 7634461,
+      "sha256": "937b4a0d1f5d1fd07a7924e7088a8e3b593f7341d42f9432768d5e3e9aff45fc"
+    },
+    "snap review ledger": {
+      "bytes": 27827,
+      "sha256": "2c24f8c80cd7b8dc9bfe6822c7d927db6bdd8280779dc4e5f59ef1e1d5b021c5"
+    }
+  },
+  "outputs": {
+    "crosswalk": {
+      "bytes": 300486,
+      "sha256": "4620911d8e285729ad6706d246b524331fd4bb38f7690017f739d68e3a4723ca"
+    },
+    "reference set (Outcome 1)": {
+      "bytes": 477679,
+      "sha256": "9c93ebcabafb1cdb014e0d88722a0dd5c0217093ca62953fdb26fabbc1e64b90"
+    },
+    "weighings + cpi_factor": {
+      "bytes": 12407946,
+      "sha256": "f09841ca1c78bc8ad61f334e291e702b9c18b0c76ba76e63c2f5f941cda24986"
+    }
+  }
+}
