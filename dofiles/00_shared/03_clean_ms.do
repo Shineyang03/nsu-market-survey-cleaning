@@ -645,7 +645,13 @@ save "${btemp}\prelim_nsu_data", replace
 * harmonized_nsu_unit instead of item x cleaned_nsu_unit, which pools the folded
 * spellings and so gives each anchor more observations.
 
-global unitvar     "harmonized_nsu_unit"
+* DEFAULT, not an assignment: a caller that has already set ${unitvar} keeps its choice.
+* The comment above says this step is parameterized rather than copied, but the parameter
+* was hardcoded here, so the only way to try a different anchor pool was to edit the file
+* -- which is how you end up with two implementations of one rule. Overridable now, so
+* the re-keying question (raw label vs cleaned vs harmonized) can be MEASURED instead of
+* argued. See dofiles/README.md, "Which unit the anchor pools on".
+if "${unitvar}" == "" global unitvar "harmonized_nsu_unit"
 global snap_in     "${btemp}\prelim_nsu_data"
 global snap_out    "${btemp}\standard_weight_unit_correction"
 global snap_tables "${btables}"
