@@ -1029,17 +1029,17 @@ it is the cost of reading a central tendency as a size. Tracked on issue #27.
 ### Under-filled cases: naming the groups that actually survived
 
 Row 2's rule — *the $`g`$-th group inherits the $`g`$-th label present* — assumes every
-group it cuts comes back non-empty. **100 of the 1,565 size-based cases fill fewer groups
+group it cuts comes back non-empty. **97 of the 1,565 size-based cases fill fewer groups
 than the field recorded labels for.** Weights are whole grams, so vendors tie exactly on
 a cut point; the tie rule is lower-inclusive, so every tied row goes down, and the upper
 group empties.
 
 | $`k`$ labels recorded | groups filled | cases | which groups filled |
 |---|---|---|---|
-| 2 | 1 | 39 | group 1 |
-| 3 | 2 | 51 | groups 1, 2 — the **top** emptied |
+| 2 | 1 | 32 | group 1 |
+| 3 | 2 | 48 | groups 1, 2 — the **top** emptied |
 | 3 | 2 | 14 | groups 1, 3 — the **middle** emptied |
-| 3 | 1 | 4 | group 1 — both upper groups emptied |
+| 3 | 1 | 3 | group 1 — both upper groups emptied |
 
 ### What "medium" means in the published file
 
@@ -1068,8 +1068,10 @@ The last shape loses *two* groups. It did not occur under the previous magnitude
 and it is a direct consequence of the anchor snap: snapping a weight toward its cell
 median pulls outliers into the body of the distribution, so more vendors tie on a cut
 point. The under-filled total rose from 94 to 104 for the same reason, then fell to 100
-when STEP 3e began adjudicating by rule -- the block reading restates the typed number
-instead of pulling it toward the median, so fewer weights land on a cut. These cases are
+when STEP 3e began adjudicating by rule, and to 97 when the second review round's 80
+adjudicated verdicts were applied. Both falls are the same mechanism: the block reading
+restates the typed number instead of pulling it toward a median, so fewer weights land
+on a cut. These cases are
 reported and not patched — see issue #3.
 
 A rank rule under-names the survivors of the first shape. A case whose weights ran from
@@ -1200,15 +1202,15 @@ thing.
 
    | | agreement with the field label |
    |---|---|
-   | per weighing — why re-terciling exists | **65.0%** (3,625 / 5,581) |
-   | per group, using the modal label — what the criterion assumes | **77.6%** (1,131 / 1,458) |
+   | per weighing — why re-terciling exists | **65.3%** (3,649 / 5,587) |
+   | per group, using the modal label — what the criterion assumes | **78.3%** (1,147 / 1,464) |
 
    Aggregating does recover signal, which is what the criterion needs. **But the
-   disagreement is not symmetric.** 247 groups carry a modal label *below* their tercile
-   position against 80 above — mean signed error **−0.136**. So the modal field label runs systematically *low*, and a
+   disagreement is not symmetric.** 240 groups carry a modal label *below* their tercile
+   position against 77 above — mean signed error **−0.131**. So the modal field label runs systematically *low*, and a
    criterion built on it is biased toward the *lower* of two candidate names.
 
-   **These three figures have improved twice, both times for the same reason**, and it is
+   **These three figures have improved three times, always for the same reason**, and it is
    worth knowing why before reading too much into the level. Each round of the snap review
    moved published weights toward the block reading — the number the enumerator typed — and
    agreement with the field label rose each time. The snap never reads the field labels, so

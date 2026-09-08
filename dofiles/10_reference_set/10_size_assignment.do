@@ -246,15 +246,22 @@ forvalues j = 1/3 {
 *              decimal structure, 128 on a whole-number reading -- and the block
 *              reading restates the typed number instead of pulling it toward the
 *              median. Fewer weights land on a cut, so four cases regained a group.
+*  100 ->  97  when the 80 adjudicated verdicts from the second review round were
+*              applied (05_manual_corrections.do sec 6). Same mechanism a third
+*              time and in the same direction: 65 of the 80 adopt the block
+*              reading, which restates the typed number rather than pulling it
+*              toward a median, so three more cases regained a group.
 *
 * The four counts below must reconcile against each other and against the crosstab:
-*     36 collapsed to one group  +  50 small+medium  +  14 small+large  =  100
-* and in the crosstab 33 (k=2, filled=1) + 3 (k=3, filled=1) = 36, while
-* 50 + 14 = 64 (k=3, filled=2). If one moves and the others do not, the tie rule
+*     35 collapsed to one group  +  48 small+medium  +  14 small+large  =  97
+* and in the crosstab 32 (k=2, filled=1) + 3 (k=3, filled=1) = 35, while
+* 48 + 14 = 62 (k=3, filled=2). If one moves and the others do not, the tie rule
 * changed rather than the weights.
 *
-* The 104 -> 100 move is 3 fewer single-group collapses (39 -> 36) and one fewer
-* small+medium (51 -> 50); small+large is unchanged at 14.
+* The 100 -> 97 move is one fewer single-group collapse (36 -> 35) and two fewer
+* small+medium (50 -> 48); small+large is unchanged at 14, as it was on the last
+* move. That it keeps not moving is itself informative: the cases whose MIDDLE
+* group empties are not the ones these corrections touch.
 *
 * Under-filled cases are reported and not patched -- see issue #3, settled as status
 * quo.
@@ -264,13 +271,13 @@ egen byte tag_cell_sz = tag(cell) if weighing_approach == 3
 tab k_sizes n_filled if tag_cell_sz, m
 count if tag_cell_sz & n_filled < k_sizes
 di as txt "under-filled size-based cases: " r(N)
-assert r(N) == 100
+assert r(N) == 97
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 1
 di as txt "  ... collapsed to a single group: " r(N)
-assert r(N) == 36
+assert r(N) == 35
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g2
 di as txt "  ... two groups, small+medium filled: " r(N)
-assert r(N) == 50
+assert r(N) == 48
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g3
 di as txt "  ... two groups, small+large filled: " r(N)
 assert r(N) == 14

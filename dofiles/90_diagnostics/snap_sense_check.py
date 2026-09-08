@@ -137,6 +137,11 @@ d["cell"] = (d.pull_province+" / "+d.pull_municipal_city+" / "+d.pull_item
 d["published"] = d.corrected_weight.round()
 d["anchor_says"] = d.w_step1.round()
 
+# the value that actually ships: 04's answer unless 05 overrode it. Defined HERE,
+# before the triage below, because the triage must judge what ships rather than
+# what 04 proposed -- otherwise every row the review already settled comes back.
+d["final_says"] = d.final_weight.where(d.final_weight.notna(), d.published)
+
 # the block reading, recomputed exactly as 04_unit_snap.do states it
 blk = pd.Series(np.nan, index=d.index)
 m2, m3 = d.unit.eq(2), d.unit.eq(3)
@@ -276,6 +281,11 @@ if _src:
                 _r = _annotations(pd.read_excel(_f, sheet_name=_sheet))
             except Exception:
                 continue
+            # `reference_set_now' is case-level and carries none of the key columns.
+            # Reading every sheet is right; assuming every sheet has the key is not.
+            if not {"cell", "hetero_group", "weight",
+                    "Corrected Value"} <= set(_r.columns):
+                continue
             for _k, _v in zip(_vkey(_r), _r["Corrected Value"]):
                 prior[_k] = _v          # later file wins
                 _n_f += 1
@@ -347,7 +357,10 @@ d["verdict_landed"] = d.apply(_landed, axis=1)
 #      fires where the referee is undecided; where the province pool has an opinion
 #      the anchor still wins, and for units whose local meaning varies that pool is
 #      the wrong authority (issue #28).
-_anchor_won = d.published.round(6).eq(d.anchor_says.round(6))
+# Against the value that SHIPS, not 04's answer. `published' is pre-05, so a row the
+# review already adjudicated to the block reading still looks anchor-published there
+# and would be handed back for review a second time. final_says is post-05.
+_anchor_won = d.final_says.round(6).eq(d.anchor_says.round(6))
 _prov = d.snap_referee.astype(str).str.startswith("prov")
 _disagree = d.anchor_says.round(6).ne(d.block_says.round(6))
 
@@ -447,7 +460,6 @@ RCOLS = (COLS[:COLS.index("final_weight")]
 # hand and sets others unusable, so a review that reads `published' is reviewing an
 # intermediate. These two columns put the FINAL value in front of the reviewer and
 # say what moved it, so an adjustment is visible rather than implied.
-d["final_says"] = d.final_weight.where(d.final_weight.notna(), d.published)
 d["adjusted_by"] = np.where(
     d.final_differs & d.final_weight.isna(), "05 -- set unusable",
     np.where(d.final_differs, "05 -- hand correction",

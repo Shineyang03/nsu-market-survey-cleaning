@@ -281,6 +281,85 @@ replace corrected_weight = round(weight * 1000) ///
        & inlist(float(weight), float(0.270), float(0.335), float(0.445))
 
 
+********************************************************************************
+**# 6. Adjudicated snap verdicts, applied from the review ledger
+********************************************************************************
+* Section 5 is four hand-written blocks for twelve weighings. That pattern does not
+* scale: the review of snap_sense_check.xlsx now carries 80 verdicts and will carry
+* more, and eighty hand-written blocks would be unreadable and unmaintainable.
+*
+* So the verdicts live in a LEDGER -- reference/reviewed/snap_verdicts.csv, one row
+* per adjudicated weighing, written from the annotated workbook by
+* 90_diagnostics/snap_sense_check.py. It is committed, diffable, and grows by review
+* round rather than by editing code.
+*
+* KEYED ON CONTENT, for the same reason section 5 is: `id' is durable now, but the
+* workbook a reviewer annotates may predate the registry, and content is what the
+* reviewer was actually looking at.
+*
+* THE KEY IS BUILT AS A STRING AT SIX SIGNIFICANT DIGITS. `weight' is a Stata float,
+* so 1265 holds as 1264.9999 and 3670 as 3670.0002, while the CSV carries the exact
+* decimal. An exact float join drops those rows SILENTLY -- it did, on 2 of 10, in the
+* Python that reads this ledger back. Six digits is inside float's ~7 and reproduces
+* every raw reading in the file.
+*
+* Duplicate content keys are expected and fine: 80 verdicts sit on 73 keys, because a
+* cell can hold two identical readings from different vendors. Both rows take the same
+* verdict, which is why the ledger is checked for CONFLICTING verdicts on one key
+* rather than for uniqueness.
+
+capture confirm file "${root}\Data Cleaning\reference\reviewed\snap_verdicts.csv"
+if _rc {
+	di as error "NO VERDICT LEDGER at reference/reviewed/snap_verdicts.csv."
+	di as error "Every adjudicated snap decision lives there. Running without it"
+	di as error "publishes the algorithm's answer on rows a human has overruled."
+	exit 601
+}
+
+preserve
+	import delimited using ///
+		"${root}\Data Cleaning\reference\reviewed\snap_verdicts.csv", ///
+		clear varnames(1) encoding("utf-8") stringcols(1 2 3 4 5)
+	* one key may legitimately carry several rows; it may NOT carry two answers
+	bysort province municipality item harmonized_nsu_unit hetero_group raw_weight: ///
+		egen double _vmin = min(verdict)
+	bysort province municipality item harmonized_nsu_unit hetero_group raw_weight: ///
+		egen double _vmax = max(verdict)
+	assert _vmin == _vmax
+	gen str244 _vk = province + "|" + municipality + "|" + item + "|" ///
+		+ harmonized_nsu_unit + "|" + hetero_group + "|" ///
+		+ strofreal(raw_weight, "%9.6g")
+	keep _vk verdict
+	duplicates drop
+	isid _vk
+	qui count
+	local n_led = r(N)
+	tempfile ledger
+	save "`ledger'"
+restore
+
+decode item_nsu_hetero_type, gen(_hg)
+gen str244 _vk = pull_province + "|" + pull_municipal_city + "|" + pull_item + "|" ///
+	+ harmonized_nsu_unit + "|" + _hg + "|" + strofreal(weight, "%9.6g")
+
+merge m:1 _vk using "`ledger'", keep(1 2 3) gen(_m_verdict)
+
+* A verdict that matches no weighing is a decision falling out of the build. Loudly.
+count if _m_verdict == 2
+if r(N) > 0 {
+	di as error "`r(N)' verdict(s) in the ledger match no weighing in this build."
+	di as error "The content key moved -- an upstream respelling, a changed fold, or"
+	di as error "a row dropped. Reconcile it; do not delete the ledger row."
+	list _vk if _m_verdict == 2, noobs abbrev(90)
+	exit 459
+}
+
+count if _m_verdict == 3
+di as result "6. review ledger: `n_led' key(s) -> " r(N) " weighing(s) adjudicated"
+replace corrected_weight = verdict if _m_verdict == 3
+drop _vk _hg verdict _m_verdict
+
+
 capture program drop _chk
 di as txt "05_manual_corrections.do: all blocks matched their expected counts"
 di as txt "{hline 78}" _n
