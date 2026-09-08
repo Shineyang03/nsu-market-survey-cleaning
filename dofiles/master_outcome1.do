@@ -17,12 +17,21 @@
 * Each step writes a .dta and the next one reads it, so a step can also be run on
 * its own after an earlier one has been run at least once.
 *
-* THE PYTHON STEPS ARE NOT RUN FROM HERE. 01, 02 and 06 build the crosswalk and the
-* CPI panel and change rarely; run them by hand from the project root when their
-* inputs change:
+* THE PREREQUISITES ARE NOT RUN FROM HERE. They build the id registry, the crosswalk
+* and the CPI panel, change rarely, and are deliberately outside both masters so a
+* routine rebuild does not regenerate the crosswalk. Run them in THIS ORDER when their
+* inputs change -- 00a and 00b are Stata and are easy to forget because the other three
+* are Python:
+*     "...StataSE-64.exe" -e do 00_shared\00a_weighing_ids.do     (from dofiles/)
+*     "...StataSE-64.exe" -e do 00_shared\00b_price_ms_cases.do   (from dofiles/)
 *     python dofiles/00_shared/01_build_crosswalk.py
 *     python dofiles/00_shared/02_drop_non_nsu_labels.py --apply
 *     python dofiles/00_shared/06_cpi_panel.py
+*
+* The order is a straight line and it matters: 00a owns the durable id registry, 01
+* needs that registry to number the price-only cases and reads the case-coverage CSV
+* 00b writes, 02 filters the crosswalk 01 produces, and 03 needs the result. See
+* dofiles/README.md, which is the source for this list.
 *
 * AFTER ANY CHANGE, run the claim checker from the project root:
 *     python dofiles/90_diagnostics/verify_documented_claims.py

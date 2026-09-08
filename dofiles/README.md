@@ -99,8 +99,10 @@ when one has moved. It is what catches a figure going stale in a document.
 | `04_unit_snap.do` | magnitude correction — kg→g, L→mL, decimal slips |
 | `05_manual_corrections.do` | every hand-made weight/unit fix. §1–5 are one block per correction, each asserting its row count; **§6 applies the review ledger**, `reference/reviewed/snap_verdicts.csv`, which is where the bulk of the adjudicated decisions now live. See *Adjudicating a weight* below. |
 | `06_cpi_panel.py` | province × item-group × month CPI panel |
-| `07_cpi_factor.do` | drops the 98 vendor-priced rows; builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |
+| `07_cpi_factor.do` | drops 98 price-quantity rows whose recorded price was not the price handed over — 71 vendor-priced (a further 23 are rescued where they were the case's only rung) and 27 where the vendor gave no price at all. **The only place those rows are dropped, and both outcomes depend on it.** Builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |
 | `08_branch.do` **(not written; decided on #28)** | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`. |
+| `nsu_fold_rule.py` | **THE fold rule** — which raw spellings mean the same thing, and therefore what `harmonized_nsu_unit` is. Pure functions of (item, raw label); reads no build output, deliberately (#33). Imported by `01`, never re-implemented. Its carve-outs are the item-specific separations in `../docs/master_rename.md` §6. |
+| `nsu_normalize.py` | the one definition of the project's string normalization (`nz`/`ni`/`ng`). The Stata counterpart is `nsu_normalize` in `00_globals.do` and must agree character for character. **Never NFKD-decompose** — `DUEÑAS` becomes `DUEAS`, not `DUENAS`. |
 
 **`branch` vs `weighing_approach`, once `08` exists.** Use **`branch`** wherever the code
 decides how a weighing is PROCESSED or PUBLISHED. Keep **`weighing_approach`** wherever it
