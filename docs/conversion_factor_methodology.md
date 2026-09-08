@@ -1200,13 +1200,20 @@ thing.
 
    | | agreement with the field label |
    |---|---|
-   | per weighing — why re-terciling exists | **64.7%** (3,609 / 5,581) |
-   | per group, using the modal label — what the criterion assumes | **77.0%** (1,122 / 1,458) |
+   | per weighing — why re-terciling exists | **65.0%** (3,625 / 5,581) |
+   | per group, using the modal label — what the criterion assumes | **77.6%** (1,131 / 1,458) |
 
    Aggregating does recover signal, which is what the criterion needs. **But the
-   disagreement is not symmetric.** 356 groups carry a modal label *below* their tercile
-   position against 83 above — mean signed error **−0.138**. So the modal field label runs systematically *low*, and a
+   disagreement is not symmetric.** 247 groups carry a modal label *below* their tercile
+   position against 80 above — mean signed error **−0.136**. So the modal field label runs systematically *low*, and a
    criterion built on it is biased toward the *lower* of two candidate names.
+
+   **These three figures have improved twice, both times for the same reason**, and it is
+   worth knowing why before reading too much into the level. Each round of the snap review
+   moved published weights toward the block reading — the number the enumerator typed — and
+   agreement with the field label rose each time. The snap never reads the field labels, so
+   that rise is independent corroboration that the block reading is the better one, not a
+   result of fitting to the labels.
 
    That bias points the same way as the status quo, which is the uncomfortable part: it
    is part of why "small + medium" beat "small + large" for the 50 cases whose top group

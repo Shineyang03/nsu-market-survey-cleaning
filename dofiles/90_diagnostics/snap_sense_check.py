@@ -7,14 +7,26 @@ says, what the rest of the cell says, and whether the row reaches the deliverabl
 
 Sheets, in the order worth reading:
 
-  disagreements   every row where the anchor and the block reading differ. Sorted by
-                  how far the published value sits from its cell median, so the rows
-                  most likely to be wrong are at the top whichever rule produced them.
-  gate_overrules  rows where the anchor was REJECTED as implausible and the block
-                  reading published instead. These are the contaminated cells.
-  published_diff  case x size rows of the deliverable whose value moved, old vs new.
-  cell_context    every weighing in any cell touched above, so a disputed row can be
-                  read against its neighbours rather than in isolation.
+  to_review        OPEN THIS FIRST. Only the rows still needing a decision, worst
+                   first, each with a `proposed_value' and the rule behind it. Fill in
+                   `Corrected Value' where you disagree; the next run reads it back.
+  disagreements    every row where the anchor and the block reading differ, sorted by
+                   how far the published value sits from its cell median.
+  gate_overrules   rows where the anchor was REJECTED as implausible and the block
+                   reading published instead. These are the contaminated cells.
+  reference_set_now  the published deliverable as it currently stands.
+  all_weighings    EVERY weighing, sorted so a cell reads as one block, showing the
+                   value that actually ships (`final_says') and what moved it
+                   (`adjusted_by'). This is the sheet for an overall review.
+
+A REVIEW ROUND SURVIVES A REGENERATION. Verdicts are read back from the newest
+reference/reviewed/snap_sense_check_REVIEWED_*.xlsx and matched on CONTENT -- cell,
+hetero_group, raw weight -- because ids in older workbooks predate the durable id
+registry. `verdict_landed' says whether each one actually reached the published value,
+and a verdict matching no current row raises a warning rather than disappearing.
+
+Save your annotated copy into reference/reviewed/ before re-running, or this
+regenerates over it.
 
 Run from the project root:  python dofiles/90_diagnostics/snap_sense_check.py
 """
@@ -197,7 +209,12 @@ prior = {}
 _src = sorted(REVIEWED_DIR.glob("snap_sense_check_REVIEWED_*.xlsx"))
 if _src:
     _latest = _src[-1]
-    for _sheet in ("disagreements", "gate_overrules", "cell_context"):
+    # EVERY sheet that can carry an annotation, not the three that could in the first
+    # round. `to_review' is where round 2 was actually done, and reading only the
+    # original three silently lost all 34 of its verdicts -- the failure this whole
+    # carry-forward exists to prevent, reintroduced by an out-of-date sheet list.
+    for _sheet in ("to_review", "disagreements", "gate_overrules",
+                   "cell_context", "all_weighings"):
         try:
             _r = pd.read_excel(_latest, sheet_name=_sheet)
         except Exception:
@@ -274,25 +291,71 @@ d["verdict_landed"] = d.apply(_landed, axis=1)
 #      the wrong authority (issue #28).
 _anchor_won = d.published.round(6).eq(d.anchor_says.round(6))
 _prov = d.snap_referee.astype(str).str.startswith("prov")
-_ok = d.cell_median.gt(0) & d.block_says.gt(0) & d.published.gt(0)
-_blk_closer = _ok & (
-    (np.log10(d.block_says.where(_ok)) - np.log10(d.cell_median.where(_ok))).abs()
-    < (np.log10(d.published.where(_ok)) - np.log10(d.cell_median.where(_ok))).abs())
+_disagree = d.anchor_says.round(6).ne(d.block_says.round(6))
 
+# ROUND 2 SETTLED THE OTHER HALF OF THIS. Every row where a province pool published
+# the anchor while the block reading sat closer to the row's OWN cell was reviewed,
+# and all 34 were adjudicated to the block. That is now STEP 3e-ii-b in
+# 04_unit_snap.do, so those rows no longer reach this flag.
+#
+# What is left is the mirror image: a province pool published the anchor and the row's
+# own cell AGREES with it. The local evidence does not contradict the province here,
+# so the round-2 argument does not reach these -- but they were never looked at, and
+# they are the largest remaining block of anchor-published rows. Round 3.
 d["needs_review"] = ""
-d.loc[_anchor_won & _prov & _blk_closer, "needs_review"] = \
-    "province refereed; block sits closer to this cell"
+d.loc[_anchor_won & _prov & _disagree, "needs_review"] = \
+    "province refereed, anchor published -- own cell does not contradict it"
 d.loc[d.verdict_landed.astype(str).str.startswith("NO"), "needs_review"] = \
     "PRIOR VERDICT NOT APPLIED"
+
+# The shape of the raw number is the evidence the round-1 rules turn on ("a whole
+# number should follow block_says"; "a shared 0.xxx structure is the market's
+# convention"). Surfaced as a column so a reviewer can sort on it rather than reading
+# it off `weight' one row at a time.
+d["raw_shape"] = np.where(d.weight.isna(), "",
+    np.where(d.weight < 1, "sub-1 decimal (0.xxx)",
+             np.where(d.weight.eq(d.weight.round()), "whole number", "decimal")))
+
+# ---- a proposed verdict, so the reviewer edits rather than starts blank ---------
+# This applies the reviewer's OWN round-1 rules to the rows still outstanding. Those
+# rules exist in 04_unit_snap.do as 3e-iii and 3e-iv, but only as FALLBACKS: they are
+# guarded by `if missing(_pick_block)', so they never fire on a row that rule 1 has
+# already decided. On these rows rule 1 always decides, using a province pool.
+#
+# The proposal is therefore: where the ONLY referee available is a province pool, let
+# the shape of the raw number outrank it. A whole number typed as-is, or a sub-1
+# decimal repeated within the cell, is evidence about THIS reading; a province median
+# is evidence about other municipalities.
+#
+# NOT IMPLEMENTED, and deliberately so -- it would flip published weights on rows
+# nobody has looked at. It is a column in a workbook, for a human to agree with or not.
+_sub1_in_cell = (d.weight.lt(1) & d.weight.notna()).groupby(d.cell).transform("sum")
+
+d["proposed_value"] = np.nan
+d["proposed_why"] = ""
+_out = d.needs_review.str.startswith("province refereed", na=False)
+
+_whole = _out & d.raw_shape.eq("whole number")
+d.loc[_whole, "proposed_value"] = d.loc[_whole, "block_says"]
+d.loc[_whole, "proposed_why"] = "round-1: a whole number was typed as-is"
+
+_dec = _out & d.raw_shape.eq("sub-1 decimal (0.xxx)") & _sub1_in_cell.ge(2)
+d.loc[_dec, "proposed_value"] = d.loc[_dec, "block_says"]
+d.loc[_dec, "proposed_why"] = "round-1: 0.xxx repeated in this cell, a convention"
+
+_keep = _out & d.proposed_value.isna()
+d.loc[_keep, "proposed_value"] = d.loc[_keep, "published"]
+d.loc[_keep, "proposed_why"] = "no round-1 rule reaches it -- province referee stands"
 
 # Blank column for the reviewer to fill in. Pre-created so annotation happens in
 # place and the next run can read it back through the same content key.
 d["Corrected Value"] = ""
 
 RCOLS = (COLS[:COLS.index("final_weight")]
-         + ["final_says", "adjusted_by"]
+         + ["final_says", "adjusted_by", "raw_shape"]
          + COLS[COLS.index("final_weight"):COLS.index("review_step1")]
-         + ["prior_verdict", "verdict_landed", "needs_review", "Corrected Value"]
+         + ["prior_verdict", "verdict_landed", "needs_review",
+            "proposed_value", "proposed_why", "Corrected Value"]
          + COLS[COLS.index("review_step1"):])
 
 # ---- the value that actually ships, and what moved it -------------------------

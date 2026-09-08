@@ -383,6 +383,40 @@ replace _pick_block = (abs(log10(w_block/_ref_med)) < abs(log10(base_corr/_ref_m
      & !missing(w_block) & w_block > 0 & !missing(base_corr) & base_corr > 0
 gen str16 _rule = "log10 median" if !missing(_pick_block)
 
+* ---- 3e-ii-b. the row's OWN cell overrules a province referee ---------------------
+* Rule 1 scores the two candidates against whichever pool the ladder reached. Where a
+* cell is too thin to referee itself the ladder falls through to a PROVINCE pool, and
+* the anchor then wins on the strength of readings from other municipalities.
+*
+* THE REVIEW SAID THAT IS THE WRONG AUTHORITY. Every row where a province pool
+* published the anchor while the block reading sat closer to the row's own cell was
+* put to manual review (issue #18): 34 rows, and all 34 were adjudicated to the block
+* reading. Not one went the other way.
+*
+* The reasoning, and it is #28's finding at row level: a province pool for a unit
+* whose local meaning varies -- preserved meat `bilog' runs 60-70 g in several
+* municipalities against a provincial median near 600 g -- describes none of the
+* municipalities in it. Where the row's OWN cell has an opinion, however thin, it is
+* about the same object; the province pool may not be.
+*
+* Deliberately NARROW. It fires only when the province pool published the anchor AND
+* the local cell prefers the block. Where the local cell agrees with the province, or
+* has no median at all, nothing changes. That is why this reproduces exactly the 34
+* rows reviewed and touches nothing else.
+* The flip is captured BEFORE _pick_block moves. Writing the label off the post-flip
+* value would also relabel rows rule 1 had already sent to the block, destroying the
+* provenance `snap_rule' exists to record.
+gen byte _own_flip = (_pick_block == 0 ///
+    & inlist(_ref_src, "prov", "prov_hetero") ///
+    & !missing(_cell_med) & _cell_med > 0 ///
+    & !missing(w_block) & w_block > 0 & !missing(base_corr) & base_corr > 0 ///
+    & abs(log10(w_block/_cell_med)) < abs(log10(base_corr/_cell_med)))
+count if _own_flip
+di as result "3e-ii-b: own cell overrules a province referee on " r(N) " row(s)"
+replace _pick_block = 1     if _own_flip
+replace _rule = "own cell"  if _own_flip
+drop _own_flip
+
 * ---- 3e-iii. rule 2: a shared sub-1 decimal structure inside the cell -------------
 * Sub-1 decimals repeated within one cell are a market's recording convention, not a
 * slip. Requires at least two such rows in the cell -- a single 0.xxx reading is the
