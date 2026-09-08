@@ -265,12 +265,32 @@ if OUT.exists():
 # Sheets: all of them. Reading only the three that existed in round one silently lost
 # every round-two verdict, which is the exact failure this carry-forward exists to
 # prevent, reintroduced by an out-of-date list.
+def _norm_verdict(v):
+    """Canonical form of a Corrected Value, for COMPARING entries only.
+
+    Excel gives back a different dtype per sheet depending on what else is in the
+    column -- disagreements read 3670 as float64, gate_overrules read "7000 mL (7 L)"
+    as object, a later to_review read the same number as int64. 3670, 3670.0 and
+    "3670" must compare equal or every one of those dtype seams reads as a fabricated
+    conflict. Free text (a real verdict, e.g. "drop it") is compared as its stripped
+    string since it has no numeric form.
+    """
+    s = str(v).strip()
+    try:
+        return f"{float(s):.6g}"
+    except ValueError:
+        return s
+
+
 prior = {}
 _src = sorted(REVIEWED_DIR.glob("snap_sense_check_REVIEWED_*.xlsx"))
 if _src:
     _per_file = []
     for _f in _src:
         _n_f = 0
+        # Collected for this ONE file before anything folds into `prior`, so a
+        # same-round conflict can be checked on the raw annotations -- see below.
+        _file_rows = []           # (key, value, sheet)
         try:
             _sheets = pd.ExcelFile(_f).sheet_names
         except Exception as _e:
@@ -287,8 +307,43 @@ if _src:
                     "Corrected Value"} <= set(_r.columns):
                 continue
             for _k, _v in zip(_vkey(_r), _r["Corrected Value"]):
-                prior[_k] = _v          # later file wins
-                _n_f += 1
+                _file_rows.append((_k, _v, _sheet))
+
+        # A SAME-ROUND CONFLICT: one content key given two DIFFERENT Corrected Value
+        # entries inside this one workbook -- whether typed twice on one sheet (a
+        # fill-down smear) or once each on two sheets that both surfaced the same row
+        # (e.g. disagreements and gate_overrules can overlap). This has to be caught
+        # HERE, on every row this file contributed, before the `prior[_k] = _v` fold
+        # below -- that fold keeps whichever write it sees last and would hide exactly
+        # this, which is the gap #18's round-3 review turned up nobody had checked.
+        #
+        # A later FILE giving a key a different value than an earlier file is NOT this
+        # bug -- it is a reviewer revising a past decision, and folding forward with
+        # "later file wins" is what makes that possible. Only compare WITHIN one file.
+        if _file_rows:
+            _fdf = pd.DataFrame(_file_rows, columns=["key", "value", "sheet"])
+            _fdf["_norm"] = _fdf.value.map(_norm_verdict)
+            _nun = _fdf.groupby("key")._norm.nunique()
+            _bad = _nun[_nun > 1]
+            if len(_bad):
+                _lines = [f"{_f.name}: {len(_bad)} content key(s) received "
+                          "conflicting Corrected Value entries within this one "
+                          "review round (not across files -- that part is fine):"]
+                for _k in _bad.index:
+                    _sub = _fdf[_fdf.key == _k]
+                    _pairs = ", ".join(f"{_row.value!r} ({_row.sheet})"
+                                        for _row in _sub.itertuples())
+                    _lines.append(f"  {_k}\n    {_pairs}")
+                raise SystemExit(
+                    "\n".join(_lines) + "\n"
+                    "Reconcile these in the workbook by hand before re-running --"
+                    " otherwise whichever entry happens to be read last is applied"
+                    " silently, and the conflict-check downstream never sees it"
+                    " because it runs on the deduplicated ledger.")
+
+        for _k, _v, _sheet in _file_rows:
+            prior[_k] = _v          # later FILE wins -- an intentional revision
+            _n_f += 1
         _per_file.append(f"{_f.name}: {_n_f}")
     print(f"carried {len(prior)} prior verdict(s) forward from {len(_src)} file(s)")
     for _line in _per_file:

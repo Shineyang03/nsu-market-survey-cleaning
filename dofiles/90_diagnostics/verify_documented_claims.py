@@ -792,6 +792,76 @@ def c_modal_label_criterion(sized):
           " of the field labels (the reference photographs).")
 
 
+def c_fold_policy_still_holds():
+    """The fold rule's weight evidence, re-checked against the CURRENT weights.
+
+    docs/master_rename.md sec 6 states the policy: "when the weight evidence is weak, do
+    not fold ... a group is kept folded only where the test CONFIRMS the members weigh
+    the same; where it shows a difference, or the data are too thin to be confident, the
+    labels are kept separate."
+
+    That policy is enforced by nobody. The fold rule is a pure function of (item, raw
+    label) -- deliberately, because reading a build output would reintroduce issue #33's
+    circularity, and the snap's anchor pool is keyed on harmonized_nsu_unit, so a fold
+    that depended on corrected weights would close a genuine loop. The carve-out
+    CONSTANTS in nsu_fold_rule.py were therefore decided once from the weight tests and
+    hardcoded.
+
+    Which means new weights cannot change the harmonization, but they CAN invalidate the
+    evidence the harmonization was built on -- and nothing noticed. This check is the
+    tripwire: it reads what validate_folds.py measured and fails when a fold the policy
+    says should hold no longer does, so a human re-decides rather than the pipeline
+    quietly carrying a superseded justification.
+
+    The freshness guard is not optional. validate_folds.py spent six weeks pointed at
+    outputs/temp/nsu_data.dta -- the pre-Aug11 build -- so it reproduced its own past
+    answers no matter what happened upstream. A stale CSV read here would launder that
+    same failure into an OK verdict.
+
+    docs/master_rename.md / sec 6, item-specific separations
+    """
+    A = Path(DC) / "outputs" / "temp" / "fold_validation_A.csv"
+    B = Path(DC) / "outputs" / "temp" / "fold_validation_B.csv"
+    src = Path(RESTATED)
+    for f in (A, B):
+        if not f.exists():
+            skip("the fold policy still holds", "master_rename.md / sec 6",
+                 f"{f.name} absent -- run 90_diagnostics/validate_folds.py")
+            return
+        if f.stat().st_mtime < src.stat().st_mtime:
+            skip("the fold policy still holds", "master_rename.md / sec 6",
+                 f"{f.name} is OLDER than {src.name}; it describes a previous build."
+                 " Re-run 90_diagnostics/validate_folds.py before trusting it.")
+            return
+
+    a = pd.read_csv(A)
+    b = pd.read_csv(B)
+    # Panel A: these groups ARE folded, so the policy requires the test to CONFIRM they
+    # weigh the same. A DIFFER verdict with the ratio outside the band contradicts that.
+    susp = a[a.verdict.eq("DIFFER")
+             & ((a.size_ctrl_ratio > 1.25) | (a.size_ctrl_ratio < 0.80))]
+    # Panel B: these are kept apart, so a verdict of "agree" would mean the split is
+    # doing nothing. "insufficient" is tolerated -- the policy keeps thin cases separate
+    # on purpose, which is why camote is unfolded at all.
+    idle = b[b.verdict.eq("agree")]
+    note = ("panel A folds that the test now contradicts, and panel B splits the test"
+            " says are unnecessary. `insufficient' is not a failure: the policy keeps"
+            " thin groups separate deliberately.")
+    if len(susp) or len(idle):
+        det = "; ".join(
+            [f"FOLDED BUT DIFFERS: {r.item[:28]} {r.label_ref}/{r.label_other}"
+             f" p={r.p:.3g} ratio={r.size_ctrl_ratio}" for r in susp.itertuples()]
+            + [f"SPLIT BUT AGREES: {r.item[:28]} {r.harm_A}/{r.harm_B}"
+               for r in idle.itertuples()])
+    else:
+        det = "none"
+    check("the fold policy still holds", "master_rename.md / sec 6",
+          "no folded group contradicts its weight test; no split is idle",
+          det if det != "none"
+          else "no folded group contradicts its weight test; no split is idle",
+          note)
+
+
 def main():
     head("INPUTS")
     prelim = pd.read_stata(PRELIM, convert_categoricals=False)
@@ -816,6 +886,8 @@ def main():
     c_ascii_strip_no_collisions(rest)
     c_restaurant_collapse_is_one_item(rest)
     c_harmonization_is_cell_independent()
+
+    c_fold_policy_still_holds()
 
     head("CLAIMS ABOUT PRICES")
     c_pull_price_preload(rest)

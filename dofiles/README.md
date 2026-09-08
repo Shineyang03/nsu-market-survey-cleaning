@@ -93,11 +93,11 @@ when one has moved. It is what catches a figure going stale in a document.
 | `00_globals.do` | paths, plus the two shared programs `def_hetero` and `nsu_normalize` |
 | `00a_weighing_ids.do` | assigns every raw weighing a durable `id` and owns `weighing_id_registry.csv`. Reads only the raw survey, so nothing downstream can affect an id |
 | `00b_price_ms_cases.do` | which cases exist in the price file, the MS, or both. Reads the RAW market survey, so the crosswalk cannot depend on its own downstream output (#33) |
-| `01_build_crosswalk.py` | folds raw NSU spellings into `harmonized_nsu_unit`; writes `master_nsu_rename.csv` |
+| `01_build_crosswalk.py` | folds raw NSU spellings into `harmonized_nsu_unit`; writes `master_nsu_rename.csv`. `--outdir <dir>` builds it somewhere else and refuses to touch the id registry, for comparing a rebuild against the live crosswalk |
 | `02_drop_non_nsu_labels.py` | removes labels that are not NSUs (standard quantity, ambiguous quantity, free text) and reports what it removed |
 | `03_clean_ms.do` | load, comments, normalize, **exclude non-NSU labels**, harmonize, identifiers. Calls 04 and 05. |
 | `04_unit_snap.do` | magnitude correction — kg→g, L→mL, decimal slips |
-| `05_manual_corrections.do` | every hand-made weight/unit fix, each asserting its row count |
+| `05_manual_corrections.do` | every hand-made weight/unit fix. §1–5 are one block per correction, each asserting its row count; **§6 applies the review ledger**, `reference/reviewed/snap_verdicts.csv`, which is where the bulk of the adjudicated decisions now live. See *Adjudicating a weight* below. |
 | `06_cpi_panel.py` | province × item-group × month CPI panel |
 | `07_cpi_factor.do` | drops the 98 vendor-priced rows; builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |
 | `08_branch.do` **(not written; decided on #28)** | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`. |
@@ -158,8 +158,41 @@ cost argument was written against a 14× cross-municipality spread; the correcte
 **Carry the uncertainty through.** Every weighing carries flags saying whether its weight
 was corrected and whether it is disputed, anchor-flagged or unusable —
 `weight_correction_report.csv`, written by `90_diagnostics/report_weight_corrections.py`.
-**1,742 weighings carry some uncertainty.** A conversion factor built on a disputed weight
-should say so, and no step currently reads that file.
+Roughly one weighing in seven carries some uncertainty; run that script for the current
+count rather than trusting a number written here, because it moves with every review
+round. A conversion factor built on a disputed weight should say so, and no step
+currently reads that file.
+
+## Adjudicating a weight: the snap review loop
+
+`04_unit_snap.do` decides magnitude by rule, but some readings cannot be settled by rule —
+a raw `0.00125` might be 1 mL or 1,250 mL, and only the surrounding cell says which. Those
+go to a human, and the loop that does it is:
+
+1. **`python dofiles/90_diagnostics/snap_sense_check.py`** writes
+   `outputs/master_rename_build/tables/snap_sense_check.xlsx`. Open the **`to_review`**
+   sheet first — it holds only the rows still needing a decision, each with a
+   `proposed_value` and the rule behind it. `all_weighings` holds the whole file for an
+   overall pass.
+2. **Fill in `Corrected Value`** where you disagree. Leave it blank to accept.
+3. **Re-run the same script.** It archives your annotated copy into `reference/reviewed/`
+   automatically *before* regenerating — no manual copy needed — then rewrites
+   `reference/reviewed/snap_verdicts.csv` from the whole archive.
+4. **Re-run `master_outcome1.do`.** §6 of `05_manual_corrections.do` applies the ledger.
+
+Two properties worth knowing before you touch it:
+
+- **Verdicts are matched on CONTENT** — cell, hetero group, raw weight at six significant
+  digits — not on `id`, because the earliest review workbooks predate the durable id
+  registry and their ids now point elsewhere. Six significant digits because `weight` is a
+  Stata float: 1265 stores as 1264.9999, and an exact float join drops such rows silently.
+- **The ledger is rewritten in full from the archive on every run, never appended.** That
+  makes it idempotent. Do not hand-edit `snap_verdicts.csv` — the next run overwrites it.
+  Across review rounds a later verdict overrides an earlier one on the same row, which is
+  how a decision gets revised; a conflict *within* one round halts the run instead.
+
+`verdict_landed` in the workbook says whether each past verdict actually reached the
+published value, so a decision cannot fall out of the build unnoticed.
 
 ## Conventions worth keeping
 
@@ -182,6 +215,23 @@ only by accident. Every one is written up in `../docs/implicit_assumptions.md` w
 rests on it and whether anything checks it. **Add an entry there before adding a
 constant here** — the test is whether a reader of the line would know a decision was
 made.
+
+**A diagnostic must read the build it claims to validate.** `validate_folds.py` spent six
+weeks pointed at `outputs/temp/nsu_data.dta` — the pre-Aug11 build — so it reproduced its
+own past answers no matter what changed upstream, which is worse than not running: it
+looked like confirmation. Three files were archived for hardcoding that same path
+(`archive/README.md`). **The live weighings are
+`outputs/master_rename_build/temp/nsu_weighings_cpi.dta`**; anything reading
+`outputs/temp/` is reading a build from July. `verify_documented_claims.py` now refuses to
+score a fold check whose input CSV is older than the weighings it describes.
+
+**A decision made from data must be re-checked against that data.** The fold rule is a
+pure function of (item, raw label) and reads no weights — deliberately, because the snap's
+anchor pool is keyed on `harmonized_nsu_unit`, so a fold that depended on corrected
+weights would close a genuine loop (#33). But its carve-outs were *decided* from weight
+tests and then hardcoded, so new weights cannot change the harmonization while still
+invalidating the evidence it rests on. The check "the fold policy still holds" in
+`verify_documented_claims.py` is the tripwire for exactly that gap.
 
 ## Determinism
 

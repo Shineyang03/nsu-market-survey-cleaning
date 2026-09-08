@@ -40,7 +40,22 @@ MIN_STRATA=2        # need >=this many strata where BOTH labels appear
 # vol->mL, order-of-magnitude entry errors fixed). Size = item_nsu_hetero_type (== the raw obs_type:
 # small/medium/large_size). This avoids the raw 'weight' column's mixed units (g/kg/L) and magnitude
 # errors, while still keying on the RAW unit name (not cleaned_nsu_unit).
-raw=pd.read_stata(BOX+r'\Data Cleaning\outputs\temp\nsu_data.dta',
+# THIS READ WAS STALE, and silently so for six weeks. It pointed at
+# outputs/temp/nsu_data.dta -- written by archive/cleaning.do, the PRE-AUG11 build,
+# last touched 27 July and holding 11,259 rows against the live 11,335. So every run
+# since then scored the fold rule against weights that predate the anchor snap (#18 A1),
+# the snap adjudication, and all 227 adjudicated review verdicts.
+#
+# That matters beyond tidiness. nsu_fold_rule.py cites this script for the ONE carve-out
+# justified by a statistic -- "camote bilog != binilog (p=0.004, ratio 1.61)". Re-running
+# after three rounds of weight corrections reproduced that figure exactly, which looked
+# like the carve-out surviving the corrections. It was not: the INPUT had not changed.
+# A diagnostic that cannot see the build it is meant to validate reproduces its own past
+# answer no matter what happens upstream, which is worse than not running at all.
+#
+# Same defect that archived summarize_corrected_weight_by_cell.do, build_forests.py and
+# build_forest_medians.py -- all three hardcoded this same path. See archive/README.md.
+raw=pd.read_stata(BOX+r'\Data Cleaning\outputs\master_rename_build\temp\nsu_weighings_cpi.dta',
                   columns=['pull_province','pull_municipal_city','pull_item','pull_nsu_unit',
                            'item_nsu_hetero_type','corrected_unit','corrected_weight'])
 raw['size']=raw.item_nsu_hetero_type.astype(str)
