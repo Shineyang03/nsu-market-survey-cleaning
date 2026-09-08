@@ -1200,7 +1200,6 @@ AKLAN,ALTAVAS,camote tops,bundle,1,bundle,1,1
 AKLAN,ALTAVAS,chicken,bilog,1,bilog,1,1
 AKLAN,ALTAVAS,"crackers, cookies, buiscuits, chips/curls",pieces or units,1,binilog,1,1
 AKLAN,ALTAVAS,"drinks at restaurant, hotel, cafe, or kiosk",pieces,1,pieces,1,1
-AKLAN,ALTAVAS,fresh fish,he buy cooked food for his meals,1,he buy cooked food for his meals,1,1
 AKLAN,ALTAVAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,putos,1,1
 AKLAN,ALTAVAS,loaf bread,small packs,1,maisot nga putos,1,1
 AKLAN,ALTAVAS,pork,slice,1,slice,1,1
@@ -1230,7 +1229,6 @@ AKLAN,BATAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1
 AKLAN,BATAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,1,lata,1,1
 AKLAN,BATAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,putos,1,1
 AKLAN,BATAN,rice,gantang,1,ganta,1,1
-AKLAN,BURUANGA,beer,bottle 500ml,1,bottle (500 ml),1,1
 AKLAN,BURUANGA,cabbage,pieces or units,1,binilog,1,1
 AKLAN,BURUANGA,cabbage,small packs,1,small pack for pancit (noodles),1,1
 AKLAN,BURUANGA,camote,binilog,1,binilog,1,1
@@ -1405,7 +1403,6 @@ ANTIQUE,HAMTIC,fresh fish,pieces or units,1,binilog,1,1
 ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,1,cone,1,1
 ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone ( dirty ice cream ) 10 pesos per cone,1,cone ( dirty ice cream ) 10 pesos per cone,1,1
 ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,putos,1,1
-ANTIQUE,HAMTIC,"mineral or spring water, all drinking water sold in containers",bottle 500ml,1,500,1,1
 ANTIQUE,HAMTIC,"mineral or spring water, all drinking water sold in containers",tab,1,tab,1,1
 ANTIQUE,HAMTIC,"prawns, lobster, shrimp",tumpok,1,tumpok,1,1
 ANTIQUE,HAMTIC,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
@@ -1457,8 +1454,6 @@ ANTIQUE,PATNONGON,camote,tumpok,1,tumpok,1,1
 ANTIQUE,PATNONGON,camote tops,bugkos,1,bugkos,1,1
 ANTIQUE,PATNONGON,camote tops,bundle,1,bundle,1,1
 ANTIQUE,PATNONGON,carrot,putos (mix vegetable),1,mixmix,1,1
-ANTIQUE,PATNONGON,"crackers, cookies, buiscuits, chips/curls",1.5kg per balde,1,1.5kg per balde,1,1
-ANTIQUE,PATNONGON,"liquor (e.g, whisky, coconut wine)",bottle of ginebra s. miguel 350ml,1,bottle of ginebra s. miguel 350ml,1,1
 ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,1,tama-tama nga putos,1,1
 ANTIQUE,PATNONGON,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
 ANTIQUE,PATNONGON,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,binilog,1,1
@@ -1514,7 +1509,6 @@ ANTIQUE,TIBIAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",piece
 ANTIQUE,TIBIAO,loaf bread,medium packs,1,medium nga putos,1,1
 ANTIQUE,TIBIAO,loaf bread,small packs,1,gagmay nga putos,1,1
 ANTIQUE,TIBIAO,loaf bread,tama-tama nga putos,1,tama-tama nga putos,1,1
-ANTIQUE,TIBIAO,"mineral or spring water, all drinking water sold in containers",7 liters of gallons,1,7 liters of gallons,1,1
 ANTIQUE,TIBIAO,rice,salmon,1,salmon,1,1
 ANTIQUE,TOBIAS FORNIER,camote,bilog,1,bilog,1,1
 ANTIQUE,TOBIAS FORNIER,camote tops,bugkos,1,bugkos,1,1
@@ -1600,7 +1594,6 @@ CAPIZ,DUMARAO,rice,letse,1,letse,1,1
 CAPIZ,IVISAN,camote,bilog,1,bilog,1,1
 CAPIZ,IVISAN,camote tops,bugkos,1,bugkos,1,1
 CAPIZ,IVISAN,camote tops,bundle,1,bundle,1,1
-CAPIZ,IVISAN,carrot,1/4 kilo,1,1/4 kilo,1,1
 CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",large packs,1,large packs,1,1
 CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",pack,1,packs,1,1
 CAPIZ,IVISAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,bilog,1,1
@@ -1631,7 +1624,6 @@ CAPIZ,MA-AYON,camote,bilog,1,bilog,1,1
 CAPIZ,MA-AYON,camote,small size plastic,1,small size plastic,1,1
 CAPIZ,MA-AYON,camote tops,bugkos,1,bugkos,1,1
 CAPIZ,MA-AYON,camote tops,bundle,1,bundle,1,1
-CAPIZ,MA-AYON,carrot,10,1,10,1,1
 CAPIZ,MA-AYON,carrot,pack,1,pack,1,1
 CAPIZ,MA-AYON,carrot,pieces or units,1,bilog,1,1
 CAPIZ,MA-AYON,chicken,1order,1,1order,1,1
@@ -1719,7 +1711,6 @@ CAPIZ,PILAR,loaf bread,medium packs,1,medium,1,1
 CAPIZ,PILAR,loaf bread,piece,1,piece,1,1
 CAPIZ,PILAR,loaf bread,tama-tama nga putos,1,tama-tama nga putos,1,1
 CAPIZ,PILAR,mango,"papaya, mango, banana",1,"papaya, mango, banana",1,1
-CAPIZ,PILAR,mango,pieces/ kilo,1,pieces/ kilo,1,1
 CAPIZ,PILAR,"prawns, lobster, shrimp",tumpok,1,tumpok,1,1
 CAPIZ,PILAR,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
 CAPIZ,PONTEVEDRA,cabbage,pieces or units,1,bilog,1,1
@@ -1777,9 +1768,7 @@ CAPIZ,SIGMA,camote tops,bundle,1,bundle,1,1
 CAPIZ,SIGMA,carrot,mix slice of carrot,1,mix slice of carrot,1,1
 CAPIZ,SIGMA,carrot,pieces or units,1,bilog,1,1
 CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,1,cone,1,1
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",per bowl serving of halo halo,1,per bowl serving of halo halo,1,1
 CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,1,tub,1,1
-CAPIZ,SIGMA,"liquor (e.g, whisky, coconut wine)",bottle 500ml,1,500ml 1 redhorse.,1,1
 CAPIZ,SIGMA,loaf bread,tama-tama nga putos,1,tama-tama nga putos,1,1
 CAPIZ,SIGMA,mango,pieces or units,1,bilog,1,1
 CAPIZ,SIGMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
@@ -1828,7 +1817,6 @@ ILOILO,ALIMODIAN,loaf bread,small packs,1,gagmay nga putos,1,1
 ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,1,tama-tama nga putos,1,1
 ILOILO,ALIMODIAN,mango,pieces or units,1,bilog,1,1
 ILOILO,ALIMODIAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
-ILOILO,ANILAO,cabbage,pack 25 per pack in the market,1,pack 25 per pack in the market,1,1
 ILOILO,ANILAO,camote tops,bugkos,1,bugkos,1,1
 ILOILO,ANILAO,carrot,pieces or units,1,bilog,1,1
 ILOILO,ANILAO,chicken,whole (chicken),1,whole (chicken),1,1
@@ -1843,7 +1831,6 @@ ILOILO,BADIANGAN,camote tops,bundle,1,bundle,1,1
 ILOILO,BADIANGAN,carrot,pieces or units,1,bilog,1,1
 ILOILO,BADIANGAN,"crackers, cookies, buiscuits, chips/curls",tupperware,1,tupperware,1,1
 ILOILO,BADIANGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,putos,1,1
-ILOILO,BADIANGAN,"liquor (e.g, whisky, coconut wine)",6 bottles of redhorse,1,6 bottles of redhorse,1,1
 ILOILO,BADIANGAN,"liquor (e.g, whisky, coconut wine)",junior lapad,1,junior,1,1
 ILOILO,BADIANGAN,loaf bread,plastic bag,1,plastic bag,1,1
 ILOILO,BADIANGAN,mango,pieces or units,1,bilog,1,1
@@ -1994,8 +1981,6 @@ ILOILO,DINGLE,loaf bread,tama-tama nga putos,1,tama-tama nga putos,1,1
 ILOILO,DINGLE,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
 ILOILO,DINGLE,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,1,packs,1,1
 ILOILO,DINGLE,rice,letse,1,letse,1,1
-ILOILO,DUEAS,cabbage,2 kapinutos nga cabbage/20pesos,1,2 kapinutos nga cabbage/20pesos,1,1
-ILOILO,DUEAS,cabbage,3 for 25 pesos (putos),1,3 for 25 pesos (putos),1,1
 ILOILO,DUEAS,cabbage,pack,1,putos,1,1
 ILOILO,DUEAS,cabbage,pieces or units,1,bilog,1,1
 ILOILO,DUEAS,camote,bilog,1,bilog,1,1
@@ -2027,7 +2012,6 @@ ILOILO,DUMANGAS,loaf bread,medium packs,1,medium,1,1
 ILOILO,DUMANGAS,"prawns, lobster, shrimp",pack,1,pack,1,1
 ILOILO,DUMANGAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
 ILOILO,DUMANGAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,1,packs,1,1
-ILOILO,DUMANGAS,rice,1 sack is 2900/for salary/inkind,1,1 sack is 2900/for salary/inkind,1,1
 ILOILO,DUMANGAS,rice,sack of rice,1,1/2 sack of rice,1,1
 ILOILO,DUMANGAS,rice,salmon,1,salmon,1,1
 ILOILO,ESTANCIA,cabbage,pack,1,packs,1,1
@@ -2055,7 +2039,6 @@ ILOILO,IGBARAS,carrot,pieces or units,1,bilog,1,1
 ILOILO,IGBARAS,carrot,putos (mix vegetable),1,putos (mix vegetable),1,1
 ILOILO,IGBARAS,carrot,putos or pack,1,putos or pack,1,1
 ILOILO,IGBARAS,"drinks at restaurant, hotel, cafe, or kiosk",pieces,1,pieces,1,1
-ILOILO,IGBARAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2 bowls halohalo and 10 popcicle sticks,1,2 bowls halohalo and 10 popcicle sticks,1,1
 ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",cup,1,cup,1,1
 ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",glass/shots,1,glass/shots,1,1
 ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",junior lapad,1,junior lapad,1,1
@@ -2156,7 +2139,6 @@ ILOILO,MINA,pork,portion,1,portion,1,1
 ILOILO,MINA,"prawns, lobster, shrimp",tumpok,1,tumpok,1,1
 ILOILO,MINA,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
 ILOILO,MINA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,1,packs,1,1
-ILOILO,MINA,rice,1/2 sack of rice (25kls.),1,1/2 sack of rice (25kls.),1,1
 ILOILO,MINA,rice,gantang,1,ganta,1,1
 ILOILO,NEW LUCENA,cabbage,pack,1,putos,1,1
 ILOILO,NEW LUCENA,cabbage,pieces or units,1,bilog,1,1
@@ -2186,7 +2168,6 @@ ILOILO,OTON,carrot,putos (mix vegetable),1,pack of mixed vegetables,1,1
 ILOILO,OTON,"crackers, cookies, buiscuits, chips/curls",small box,1,small box,1,1
 ILOILO,OTON,"drinks at restaurant, hotel, cafe, or kiosk",pieces,1,pieces,1,1
 ILOILO,OTON,fresh fish,pieces or units,1,bilog,1,1
-ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3 serving of halo-halo in a bowl,1,3 serving of halo-halo in a bowl,1,1
 ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pitcher,1,pitcher,1,1
 ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,putos,1,1
 ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,gamay nga cup,1,1
@@ -2249,7 +2230,6 @@ ILOILO,SAN MIGUEL,cabbage,pieces or units,1,bilog,1,1
 ILOILO,SAN MIGUEL,camote tops,bugkos,1,bugkos,1,1
 ILOILO,SAN MIGUEL,carrot,pieces or units,1,bilog,1,1
 ILOILO,SAN MIGUEL,fresh fish,pieces or units,1,bilog,1,1
-ILOILO,SAN MIGUEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1.3 gallon,1,1.3 galon,1,1
 ILOILO,SAN MIGUEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,bilog,1,1
 ILOILO,SAN MIGUEL,loaf bread,large packs,1,dalagku nga putos,1,1
 ILOILO,SAN MIGUEL,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
@@ -2288,12 +2268,12 @@ ILOILO,SARA,mango,pieces or units,1,bilog,1,1
 ILOILO,SARA,"prawns, lobster, shrimp",tumpok,1,tumpok,1,1
 ILOILO,SARA,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
 ILOILO,SARA,rice,gantang,1,ganta,1,1
-ILOILO,TIGBAUAN,cabbage,pack,1,putos,1,1
+ILOILO,TIGBAUAN,cabbage,putos (mix vegetable),1,putos,1,1
 ILOILO,TIGBAUAN,camote,bilog,1,bilog,1,1
 ILOILO,TIGBAUAN,camote,small packs,1,packs in cellophane,1,1
 ILOILO,TIGBAUAN,camote tops,bugkos,1,bugkos,1,1
 ILOILO,TIGBAUAN,camote tops,bundle,1,bundle,1,1
-ILOILO,TIGBAUAN,carrot,pack,1,putos,1,1
+ILOILO,TIGBAUAN,carrot,putos (mix vegetable),1,putos,1,1
 ILOILO,TIGBAUAN,carrot,slice,1,slice,1,1
 ILOILO,TIGBAUAN,chicken,pieces or units,1,pieces or units,1,1
 ILOILO,TIGBAUAN,chicken,slice,1,slice,1,1
@@ -2307,8 +2287,6 @@ ILOILO,TUBUNGAN,camote tops,bundle,1,bundle,1,1
 ILOILO,TUBUNGAN,carrot,pack,1,pack,1,1
 ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gallons,1,gallon,1,1
 ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,putos,1,1
-ILOILO,TUBUNGAN,"mineral or spring water, all drinking water sold in containers",6 liters of water (2 blue container),1,6 liters of water (2 blue container),1,1
-ILOILO,TUBUNGAN,"mineral or spring water, all drinking water sold in containers",each 10 litres of gallon,1,each 10 litres of gallon,1,1
 ILOILO,TUBUNGAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,bilog,1,1
 ILOILO,ZARRAGA,cabbage,pack,1,putos,1,1
 ILOILO,ZARRAGA,cabbage,pieces or units,1,bilog,1,1
@@ -2370,7 +2348,6 @@ NEGROS OCCIDENTAL,CAUAYAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-h
 NEGROS OCCIDENTAL,CAUAYAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,gamay nga cup,1,1
 NEGROS OCCIDENTAL,CAUAYAN,loaf bread,medium packs,1,medium,1,1
 NEGROS OCCIDENTAL,CAUAYAN,loaf bread,small packs,1,small,1,1
-NEGROS OCCIDENTAL,CAUAYAN,pork,1 whole pigs for her grandson's birthday,1,1 whole pigs for her grandson's birthday,1,1
 NEGROS OCCIDENTAL,CAUAYAN,"prawns, lobster, shrimp",tumpok,1,tumpok,1,1
 NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),cabbage,pieces or units,1,bilog,1,1
 NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),camote,bilog,1,bilog,1,1

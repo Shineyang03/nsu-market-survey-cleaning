@@ -1,0 +1,43 @@
+﻿province,municipality,item,harmonized_nsu_unit,spellings,price_types,central_values,central_ratio,diff_composition,diff_level_same_rung,diff_central_tendency,conflict,n_ms_weighings
+ILOILO,LAMBUNAO,carrot,pieces or units,bilog + binilog,municipality median vs municipality median,30 vs 35,1.17,0,1,1,1,20
+ILOILO,LAMBUNAO,cabbage,pieces or units,bilog + binilog,municipality median vs municipality median,55 vs 60,1.09,0,1,1,1,17
+ILOILO,BALASAN,carrot,pieces or units,bilog + pieces or units,municipality median vs province median/unique_mun_price,35 vs 120,3.43,1,0,1,1,13
+ILOILO,TIGBAUAN,carrot,pieces or units,bilog + pieces or units,municipality median vs province median,30 vs 40,1.33,0,0,1,1,13
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,bilog + pieces or units,mp25_price/mp50_price/mp75_price vs province median,50,,1,0,0,1,11
+CAPIZ,JAMINDAN,cabbage,pieces or units,bilog + binilog,mp25_price/mp50_price/mp75_price vs province median,40,,1,0,0,1,10
+ILOILO,CARLES,chicken,whole (chicken),whole (chicken) + whole chicken,mp25_price/mp50_price/mp75_price vs province median/unique_mun_price,380,,1,0,0,1,10
+CAPIZ,MAMBUSAO,loaf bread,large packs,dalagku nga putos + large,municipality median vs municipality median,75 vs 85,1.13,0,1,1,1,9
+ILOILO,JANIUAY,chicken,whole (chicken),whole + whole (chicken),province median vs mp25_price/mp50_price/mp75_price,280,,1,0,0,1,9
+ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,bilog + binilog,municipality median vs municipality median,30 vs 50,1.67,0,1,1,1,9
+ILOILO,CARLES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,gamay nga cup + gmay nga cup,municipality median vs mp25_price/mp50_price/mp75_price,30,,1,0,0,1,8
+ILOILO,DUEAS,loaf bread,large packs,dalagku nga putos + large,mp25_price/mp50_price/mp75_price vs mp25_price/mp50_price/mp75_price,,,0,1,0,1,8
+ILOILO,DUEAS,loaf bread,small packs,gagmay nga putos + small,municipality median vs municipality median,58.5 vs 56,1.04,0,1,1,1,8
+ILOILO,TIGBAUAN,loaf bread,large packs,dalagku nga putos + large,mp25_price/mp50_price/mp75_price vs mp25_price/mp50_price/mp75_price,,,0,1,0,1,8
+ILOILO,GUIMBAL,loaf bread,large packs,daragkul nga putos + large,province median vs province median,92.5 vs 85,1.09,0,1,1,1,7
+ANTIQUE,HAMTIC,loaf bread,large packs,large + large packs,mp25_price/mp50_price/mp75_price vs province median,130,,1,0,0,1,6
+ILOILO,CABATUAN,loaf bread,large packs,dalagku nga putos + large,mp25_price/mp50_price/mp75_price vs municipality median,80,,1,0,0,1,6
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,large packs,dagko nga pakete + large,province median vs province median,160 vs 90,1.78,0,1,1,1,6
+NEGROS OCCIDENTAL,VALLADOLID,cabbage,pieces or units,bilog + pieces or units,municipality median vs province median,30 vs 60,2.0,0,0,1,1,6
+NEGROS OCCIDENTAL,VALLADOLID,carrot,pieces or units,bilog + pieces or units,municipality median vs province median,30 vs 40,1.33,0,0,1,1,6
+CAPIZ,CUARTERO,loaf bread,large packs,dalagku nga putos + large,mp25_price/mp50_price/mp75_price vs mp25_price/mp50_price/mp75_price,,,0,1,0,1,5
+CAPIZ,DUMARAO,cabbage,pack,pack + packs,province median vs province median,15 vs 25,1.67,0,1,1,1,5
+ILOILO,BADIANGAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,bilog + pieces or units,mp25_price/mp50_price/mp75_price vs mp25_price/mp50_price/mp75_price,,,0,1,0,1,5
+ILOILO,BAROTAC VIEJO,"crackers, cookies, buiscuits, chips/curls",pieces or units,bilog + pieces or units,municipality median vs province median,27 vs 48,1.78,0,0,1,1,5
+ILOILO,CARLES,loaf bread,large packs,dalagku nga putos + large,mp25_price/mp50_price/mp75_price vs province median/unique_mun_price,120,,1,0,0,1,5
+ILOILO,GUIMBAL,loaf bread,medium packs,medium + medium nga putos,municipality median vs province median,69.5 vs 65,1.07,0,0,1,1,5
+ILOILO,MINA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,lapad + lipid / lapad,province median vs mp25_price/mp50_price/mp75_price,75,,1,0,0,1,5
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,gamay nga cup + small cup,mp25_price/mp50_price/mp75_price vs province median,45,,1,0,0,1,5
+NEGROS OCCIDENTAL,ILOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,gamay na tasa + gamay nga cup,province median vs municipality median,20 vs 30,1.5,0,0,1,1,5
+ILOILO,CABATUAN,loaf bread,medium packs,medium + medium packs,municipality median vs province median,67 vs 65,1.03,0,0,1,1,4
+ILOILO,CABATUAN,loaf bread,small packs,gagmay nga putos + small,municipality median vs mp25_price/mp50_price/mp75_price,50,,1,0,0,1,4
+ILOILO,DUMANGAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,bilog + piraso,mp25_price/mp50_price/mp75_price vs province median,22.5,,1,0,0,1,4
+ILOILO,MAASIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,gamay nga cup + gmay nga cup,mp25_price/mp50_price/mp75_price vs province median/unique_mun_price,60,,1,0,0,1,4
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,gamay nga cup + gmay nga cup,municipality median vs province median/unique_mun_price,40 vs 20,2.0,1,1,1,1,3
+ILOILO,BADIANGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,gamay nga cup + gmay nga cup,municipality median vs municipality median,30 vs 20,1.5,0,1,1,1,3
+ILOILO,SAN RAFAEL,loaf bread,large packs,dalagku nga putos + large,province median/unique_mun_price vs mp25_price/mp50_price/mp75_price,80,,1,1,0,1,3
+ILOILO,AJUY,cabbage,pack,pack + shredded cabbage(pack),province median vs province median,27.5 vs 20,1.38,0,1,1,1,2
+ILOILO,AJUY,loaf bread,large packs,dalagku nga putos + large,mp25_price/mp50_price/mp75_price vs mp25_price/mp50_price/mp75_price,,,0,1,0,1,2
+ILOILO,CONCEPCION,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,bilog + pieces or units,municipality median vs province median/unique_mun_price,30 vs 100,3.33,1,0,1,1,2
+ILOILO,LEMERY,fresh fish,pack,fish sold per pack 90 each pack + pack,province median vs province median/unique_mun_price,270 vs 50,5.4,1,1,1,1,2
+ILOILO,ALIMODIAN,carrot,pieces or units,bilog + binilog,municipality median vs municipality median,50 vs 50,1.0,0,0,0,0,11
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,medium packs,medium + medium nga pakete,municipality median vs province median,50 vs 50,1.0,0,0,0,0,6

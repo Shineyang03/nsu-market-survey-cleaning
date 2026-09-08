@@ -18,9 +18,10 @@ what the data look like at each end, not a step in producing either.
   every statistic below (and several not shown here) in tidy long format:
   `statistic, grouping, level, value`. Pivot on `statistic` to get a wide table for
   any one metric.
-- `outputs/master_rename_build/tables/summary_stats.json` -- the same content,
-  self-describing (each statistic carries a title, description and grouping),
-  organized for a program to read directly.
+- `outputs/master_rename_build/tables/summary_stats.json` -- the same numbers, each
+  carrying its title, description and grain, for a script to read without this page.
+  Not used by anything in the repository today; open the CSVs instead unless you are
+  writing code against it.
 
 Where a count differs between raw and cleaned, this page reports the difference and
 moves on. It does not attempt to explain why the two differ -- that is what the
@@ -211,7 +212,7 @@ weighings under that type):
 ## Weight distribution: before vs after the order-of-magnitude correction
 
 Raw data records `weight` in whatever unit was handy (`unit`: Kilograms / grams /
-Litres). `dofiles/correct_unit_snap.do` canonicalizes the dimension (kg to g, L to
+Litres). `dofiles/00_shared/04_unit_snap.do` canonicalizes the dimension (kg to g, L to
 mL) and snaps obvious order-of-magnitude entry errors toward an item x
 harmonized-NSU anchor, producing `corrected_weight` / `corrected_unit` (g / mL). Raw
 `weight` and `unit` do not survive into `nsu_data_master.dta`, so "before" always
@@ -295,6 +296,19 @@ breakdowns, the complete item x unit weight tables, per-cell vendor counts) is i
 `summary_stats_raw.csv` and `summary_stats_cleaned.csv` as one row per
 `(statistic, grouping, level, value)`. `grouping` names the dimension `level` runs
 over ("overall" means a single scalar, its `level` is always `"all"`).
-`summary_stats.json` carries the same data with a `title` and `description` on every
-statistic, meant to be consumed directly by a front end without needing this page as
-a decoder.
+**Which file to open.** For reading numbers yourself, use the CSVs -- they open in
+Excel and filtering on `statistic` gives you one metric at a time.
+
+`summary_stats.json` holds the same numbers plus, for each statistic, a `title`, a
+`description` naming its caveats, and the grain definitions the statistic was computed
+at. It exists so a script can pick up a statistic and know what it means without
+parsing this page. Nothing in the repository reads it today; it is a convenience for
+code that might, and it is safe to ignore or delete if nothing ever does. To list what
+it contains:
+
+```
+python -c "import json,io; d=json.load(io.open(r'outputs/master_rename_build/tables/summary_stats.json',encoding='utf-8')); [print(s['id'], '|', s['grouping'], '|', s['title']) for s in d['cleaned']['statistics']]"
+```
+
+Read the `$schema_note` key first if you do use it -- it states the one place where the
+same statistic id means different things on the raw and cleaned sides.

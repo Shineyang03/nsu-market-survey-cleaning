@@ -9,40 +9,24 @@ before treating any single-case discrepancy as a bug.
 `docs/inflation_adjustment_spec.md` is the build spec for the CPI inputs.
 `docs/master_rename.md` documents the NSU vocabulary.
 
-### Which files are live
+**How to read this.** The sections below run in dependency order, but most readers do
+not need all of them:
 
-Run in this order. Anything not listed here is not part of the pipeline.
-
-| file | does | status |
-|---|---|---|
-| `dofiles/cleaning_Aug11.do` | raw MS → cleaned weighings on the harmonized NSU key | live |
-| `dofiles/correct_unit_snap.do` | called by the above; kg→g, L→mL, magnitude snap | live |
-| `dofiles/build_cpi_level_panel.py` | PSA CPI → `cpi_level_panel.csv` (levels only) | live |
-| `dofiles/nsu_restate_weights.do` | price-quantity weights → one price frame (`w_ref`) | live |
-| `dofiles/nsu_reference_set.do` | **Outcome 1** — the reference set | live |
-| *Outcome 2 — PSPS conversion factors* | | **not yet written** |
-| `dofiles/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
-
-Not part of the build, but not throwaway either — run these to check the build rather
-than to produce it:
-
-| file | does |
+| if you want to… | read |
 |---|---|
-| `dofiles/verify_documented_claims.py` | re-derives every number in `docs/` that no build file produces, and prints the documented value beside the current one. Exits non-zero if any has moved. **Run it after any pipeline change.** |
-| `dofiles/diagnose_price_only.py` | the authoritative raw → cleaned → harmonized NSU crosswalk; writes `master_nsu_rename.csv`, which everything else reads instead of re-deriving the fold |
-| `dofiles/validate_folds.py` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
-| `dofiles/tally_price_points.py` | how many price points each case has, under both readings of the price file |
-| `dofiles/scope_multi_price_points.py` | measures the multi-price-point-within-a-case problem |
-| `dofiles/plot_cpi_inflation.py` | the two CPI figures embedded below, and the $`\pi`$ figures quoted with them |
-| `dofiles/summary_statistics.py` | raw vs cleaned summary tables |
+| know what this produces | **Two deliverables** |
+| use the reference table in the field | **Two deliverables** → **Conventional NSU** → **Step A** |
+| convert PSPS household quantities to grams | **Notation** → **Step A** → **Step B** |
+| understand why a particular case looks odd | **Decision tree** → `docs/data_oddities.md` |
+| know which price points a case gets | **Decision rule (Outcome 2)** |
+| judge whether to trust a number | **Assumptions to keep visible** → **Warning for downstream use** |
+| run or modify the pipeline | **Reference: which files are live** (at the end) |
 
-Any number quoted in this document should be traceable to one of the files above. If
-you find one that is not, it is unverified — treat it as a claim, not a measurement.
-
-> **`nsu_step_a_rungs.do` is kept only as a record of a rejected approach.** It set
-> the group count from the *weighing count*, which neither outcome uses, and assumed
-> one resolution could serve both deliverables, which it cannot. Its output
-> `nsu_rungs.dta` is stale and nothing reads it. The file carries a banner saying so.
+Two things to know before reading anything else. **There are two deliverables, not
+one, and they are not derivable from each other** — the same weighings are sliced
+differently for each. And **a "case" means province × municipality × item ×
+harmonized NSU unit × corrected unit**; nearly every count in this document is at that
+grain.
 
 ## Two deliverables
 
@@ -185,13 +169,13 @@ flowchart TB
         U1 --> U2 --> U3
     end
 
-    subgraph DESK["STAGE 2 - DESK. cleaning_Aug11.do, in this order"]
+    subgraph DESK["STAGE 2 - DESK. 03_clean_ms.do, in this order"]
         direction TB
         D1["Parse comments into obs_type / item_nsu_hetero_type.<br/>BEFORE normalization - the comment strings are case-sensitive."]
         D2["Normalize the merge keys, then merge the rename sheet.<br/>ASCII-drop, casefold, trim, collapse whitespace, uppercase geo.<br/>Same rule applied to both sides, so the merge must come second."]
         D3["DROP the standard-quantity labels.<br/>Before the snap, so they never pollute an anchor."]
         D4["Rebuild identifiers on harmonized_nsu_unit,<br/>not on the cleaned or raw label."]
-        D5["Canonicalize dimension, then fix magnitude.<br/>kg to g and L to mL, then a threshold rule<br/>(a number below 10 is in the bigger unit) for 99.2%<br/>of rows; a log10 snap toward the item x harmonized<br/>anchor decides the remaining 89.<br/>corrected_weight, corrected_unit"]
+        D5["Canonicalize dimension, then fix magnitude.<br/>kg to g and L to mL, then TWO rules are computed:<br/>a log10 anchor snap and a threshold block reading.<br/>A referee median picks between them by order of<br/>magnitude; plausibility bounds apply last.<br/>See Correcting the raw weight and unit.<br/>corrected_weight, corrected_unit"]
         D6["Resolve items recorded in BOTH mass and volume.<br/>One verdict per item; unverdicted items keep<br/>the dimension the enumerator recorded."]
         D1 --> D2 --> D3 --> D4 --> D5 --> D6
     end
@@ -215,8 +199,8 @@ flowchart TB
 | stage | harmonizes | from → to | where |
 |---|---|---|---|
 | 0 field | *nothing* — this is the input | — | the instrument and the enumerator |
-| 1 upstream | NSU **names**, MS and price side alike | `pull_nsu_unit` → `cleaned_nsu_unit` → `harmonized_nsu_unit` | `dofiles/diagnose_price_only.py` → `outputs/tables/master_nsu_rename.csv`; see `docs/master_rename.md` |
-| 2 desk | the **grain**, then the **unit of measure** | raw MS rows → `corrected_weight` in g or mL, keyed on `harmonized_nsu_unit` | `dofiles/cleaning_Aug11.do` → `dofiles/correct_unit_snap.do` |
+| 1 upstream | NSU **names**, MS and price side alike | `pull_nsu_unit` → `cleaned_nsu_unit` → `harmonized_nsu_unit` | `dofiles/00_shared/01_build_crosswalk.py` → `outputs/tables/master_nsu_rename.csv`; see `docs/master_rename.md` |
+| 2 desk | the **grain**, then the **unit of measure** | raw MS rows → `corrected_weight` in g or mL, keyed on `harmonized_nsu_unit` | `dofiles/00_shared/03_clean_ms.do` → `dofiles/00_shared/04_unit_snap.do` |
 | 3 pending | **sizes**, and the price **round** | field S/M/L → weight terciles; nominal PSPS pesos → MS-frame weights | Step A and Step B1 below |
 
 **The size labels are the one field artefact cleaning replaces outright.** Stage 0
@@ -252,8 +236,8 @@ character silently breaks a join**. The rule, in order:
 > script written with NFKD once reported 26 phantom unmatched cells for this reason.
 
 The authoritative implementation is `nz()` / `ni()` / `ng()` in
-`dofiles/diagnose_price_only.py`, mirrored operation-for-operation by the
-`nsu_normalize` program in `cleaning_Aug11.do`. **Import or call those. Never write
+`dofiles/00_shared/01_build_crosswalk.py`, mirrored operation-for-operation by the
+`nsu_normalize` program in `03_clean_ms.do`. **Import or call those. Never write
 a fourth copy**, including in throwaway diagnostics — a normalizer that disagrees
 produces findings that look like data problems and are not.
 
@@ -292,7 +276,7 @@ A **case** $`c`$ is a province × municipality × item × NSU combination, where
 means **`harmonized_nsu_unit`** — the folded pooling key, not the raw `pull_nsu_unit`
 or the spelling-corrected `cleaned_nsu_unit`. Every count in this document is at
 that grain; the same tabulation on a different unit column gives different numbers
-(1,952 cases harmonized, 1,964 cleaned, 1,992 raw). See *Practical prerequisites*.
+(1,943 cases harmonized, 1,957 cleaned, 1,985 raw). See *Practical prerequisites*.
 
 **Market survey (MS) side.** A case is resolved into up to three **hetero-groups** — an
 *ordinal* ladder from smallest/cheapest to largest/dearest, indexed
@@ -335,6 +319,134 @@ Throughout, **$`p`$ is always PHP per NSU** and **$`v`$ is always PHP per gram**
 never interchangeable. Grams carry no round: they do not inflate.
 
 ---
+
+## Correcting the raw weight and unit
+
+Every weighing arrives as two fields: a number the enumerator read off a scale, and a
+**unit tick** — `1 = kg`, `2 = g`, `3 = litres`. Neither is reliable on its own, and the
+two fail independently: the number can carry a misplaced decimal, and the tick can
+contradict the number's scale. This section is what the pipeline does about that. It runs
+before both deliverables, in `dofiles/00_shared/04_unit_snap.do`.
+
+### 1. Canonical dimension
+
+Mass readings become grams (`kg × 1000`), volume readings become millilitres
+(`L × 1000`). The items recorded by volume are near water density, so a gram and a
+millilitre are the same reading at the precision recorded — the same assumption used
+everywhere downstream.
+
+**This conversion is not a correction.** Every mass row gets it. When counting how many
+readings the pipeline *changed*, it is applied to the raw value first, so a kilogram row
+published in grams does not count.
+
+### 2. Two candidate answers, computed independently
+
+**The anchor snap.** For each `item × harmonized unit` pool, take the median of the
+base-10 logarithm of the canonical readings. Snap each reading to the nearest integer
+power of ten toward that median. The pool falls back to item level when a cell is thin,
+and the row is flagged when the anchor is itself untrustworthy — below 5 g, more than 1.5
+decades from the item-level reference, or leaving a post-snap residual above 0.35
+decades. Its strength is that it moves **however many decades the data implies**.
+
+**The block reading.** A threshold on the raw number: below 10, the number was written in
+the larger unit and needs `× 1000`; at or above 10, it is already in the canonical unit.
+Its strength is that it restates *what the enumerator typed* rather than inferring a
+scale from neighbours.
+
+Both are kept. The anchor's answer survives as `w_step1` and its flag as `review_step1`
+precisely so the choice below can be audited without re-running anything.
+
+### 3. Choosing between them
+
+Neither rule dominates, so the choice is made per row, in this order. The precedence
+matters: the first two rules disagree on 259 of the 818 disputed rows that have a usable
+median, so this is a decision and not a formality.
+
+| order | condition | published |
+|---|---|---|
+| 1 | a referee median exists | whichever candidate is closer **in orders of magnitude** |
+| 2 | no median; the cell holds two or more sub-1 decimal readings | the block reading |
+| 3 | no median; the raw number is a whole number | the block reading |
+| 4 | nothing above fires | the anchor snap |
+| 5 | *always, last* | the other candidate, if the chosen one falls outside 10–50,000 g/mL and the other is inside |
+
+**Orders of magnitude, not grams.** A 255 g reading against a 152.5 g cell median is the
+same decade; 25 g is a decade out. Absolute distance would prefer the value that is ten
+times too small, because 127 g is closer to 190 g than 1,265 g is. The decade is the thing
+the two rules disagree about, so the decade is what gets compared.
+
+**The referee** is the median of the rows in a cell where the two rules *already agree*.
+Those rows carry no information about which rule is better, which is exactly what makes
+their median a usable yardstick for the rows that disagree. A pool must hold more than 5
+agreeing rows to referee; below that the ladder widens:
+
+| pool | rows refereed by it |
+|---|---|
+| province × municipality × item × harmonized unit (the cell) | 7,517 |
+| province × item × unit × hetero-group | 3,289 |
+| province × item × unit | 394 |
+| no usable pool — rules 2 to 4 decide | 233 |
+
+**Repeated sub-1 decimals are a convention, not a slip.** Where several readings in one
+cell are 0.xxx, that is what the enumerators in that market wrote on purpose, and the
+block reading — which restates the number — is the better reading. A *single* 0.xxx
+reading is not covered by this: that is the one-off the anchor is for.
+
+**The bounds are the last word.** Nothing below 10 g/mL or above 50,000 g/mL is published
+while the other candidate is inside those bounds, whichever rule chose it. The ceiling is
+twice the largest defensible purchase in the file (a 25 kg sack of rice); the floor sits
+below anything legitimate. This is what catches a *contaminated pool*: where a whole cell
+shares one recording error, the median encodes that error and the snap faithfully
+reproduces it. Two beer "case" rows reaching 1.2 million g and thirty-eight fresh-fish
+rows falling to 4–9 g are caught here.
+
+### 4. Hand corrections
+
+`dofiles/00_shared/05_manual_corrections.do` holds every reading set by hand: 12 rows
+adjudicated during review where the rules did not reach the reviewer's answer, the g/mL
+dimension verdicts, and the readings no interpretation rescues (set to `.c` rather than
+deleted, so the attrition ledger can still account for them). Every block asserts its own
+row count — a correction that silently matches nothing once shipped a 1 gram whole chicken
+to the published reference set.
+
+### 5. What this did
+
+Of **11,433** weighings:
+
+| | weighings | share |
+|---|---|---|
+| published at the typed magnitude (conversion only) | 8,838 | 77.3% |
+| **published at a corrected magnitude** | **2,583** | **22.6%** |
+
+And the corrections are mostly *not* arithmetic errors:
+
+| mechanism | weighings |
+|---|---|
+| `× 1000` — a kilogram number ticked as grams (or mL as L) | **1,882** |
+| `÷ 1000` — a gram number ticked as kilograms | 145 |
+| one decade either way — an actual decimal slip | 412 |
+| any other distance | 144 |
+
+The largest category by far is a **unit-tick error**: an enumerator who writes `0.275` and
+ticks grams has written the kilogram number. Calling that a decimal error misdescribes
+what the field actually did.
+
+### 6. What remains uncertain
+
+| | weighings | share |
+|---|---|---|
+| **any of the three below** | **1,742** | 15.2% |
+| disputed — the rules disagreed and the block reading won | 607 | 5.3% |
+| the anchor machinery distrusted its own answer | 1,500 | 13.1% |
+| no defensible reading — weight is `.c` | 12 | 0.1% |
+
+These are three different things needing different follow-up, so they are not summed into
+one error rate. A disputed row has two defensible readings; a flagged row has one the
+anchor is unsure of; an unusable row has none.
+
+`dofiles/90_diagnostics/report_weight_corrections.py` writes this per weighing, including
+which rule decided it and which pool refereed it, and the pipeline explorer carries the
+same table as `weight_corrections`.
 
 ## Conventional NSU (the simple case)
 
@@ -476,9 +588,18 @@ publishes a reference table where M > L.
 
 **Outcome 2 counts the price points the price file holds.** A size is only useful if there is a
 price to pair it with, so a cell with a single median price supports one hetero-group no
-matter how often we weighed it. The four dominant `price_type` combinations map
-one-to-one onto the four branches of the field protocol above, which is a useful
-confirmation that the protocol description and the file agree:
+matter how often we weighed it.
+
+**Read these counts at the right grain.** The price file is keyed on the *raw* NSU label;
+both outcomes pool at the *harmonized* unit. Harmonization merges spellings, and two
+spellings of one unit can carry different `price_type`s — so the harmonized cell holds
+combinations that never existed in the price file and that no protocol branch produced.
+The two grains are reported separately below because they answer different questions:
+the raw grain checks the protocol description against the file, and the harmonized grain
+is what the pipeline actually operates on.
+
+*Raw grain — 2,950 cells. Six combinations, mapping one-to-one onto the four branches of
+the field protocol above, which confirms the protocol description and the file agree:*
 
 | `price_type` combination | protocol branch | cases | share |
 |---|---|---|---|
@@ -488,40 +609,85 @@ confirmation that the protocol description and the file agree:
 | `province median` + `unique_mun_price` | ≤2 unique prices, > ₱20 from province median | 350 | 11.9% |
 | quartile triple + an extra point | — | 5 | 0.2% |
 
-Reading that as hetero-groups needs one judgement call. In the fourth row the province
-median accompanies the municipal price *because* the municipal evidence is thin, so
-it is a **fallback reference, not a second hetero-group** — the two are estimates of the
-same central tendency at different geographies, and pairing them as small/large
-would be meaningless. Of those 350 cases, 253 have one distinct municipal price
-level and 97 have two. So:
+*Harmonized grain — 2,550 cells. Twelve combinations. The eight marked ✦ do not exist in
+the price file at all; the fold creates them:*
 
-| hetero-groups available on price grounds | cases | share |
+| `price_type` combination | cells |
+|---|---|
+| `mp25+mp50+mp75` | 782 |
+| `province median` | 620 |
+| `municipality median` | 602 |
+| `province median` + `unique_mun_price` | 290 |
+| ✦ `municipality median` + `province median` | 81 |
+| ✦ `mp25+mp50+mp75` + `province median` | 63 |
+| ✦ `mp25+mp50+mp75` + `municipality median` | 47 |
+| ✦ `mp25+mp50+mp75` + `province median` + `unique_mun_price` | 27 |
+| ✦ `municipality median` + `province median` + `unique_mun_price` | 27 |
+| ✦ `mp25+mp50+mp75` + `municipality median` + `province median` | 4 |
+| `mp25+mp50+mp75` + `unique_mun_price` | 4 |
+| ✦ `mp25+mp50+mp75` + `municipality median` + `province median` + `unique_mun_price` | 3 |
+
+**115 harmonized cells hold both a municipality median and a province median; no raw cell
+does.** Every one of the 115 pools more than one spelling. AKLAN / ALTAVAS / cabbage is
+typical: `bilog` carries a province median of ₱60 and `binilog` a municipality median of
+₱50, and folding them into `pieces or units` gives one cell two medians at two
+geographies with two values. See issue #21.
+
+Reading any of this as hetero-groups needs one judgement call. Where a province median
+accompanies a thin municipal observation (the fourth raw-grain row), it is a **fallback
+reference, not a second hetero-group** — the two are estimates of the same central
+tendency at different geographies, and pairing them as small/large would be meaningless.
+Note the scope: this call was made about that one raw-grain combination. It does not by
+itself settle the ✦ combinations, which arise from a different mechanism and need their
+own rule — see issue #23.
+
+| hetero-groups on price grounds | harmonized (operative) | raw |
 |---|---|---|
-| 3 | 959 | 32.5% |
-| 2 | 97 | 3.3% |
-| 1 | 1,894 | **64.2%** |
+| 3 | 930 · **36.5%** | 959 · 32.5% |
+| 2 | 90 · **3.5%** | 97 · 3.3% |
+| 1 | 1,530 · **60.0%** | 1,894 · 64.2% |
 
-(The alternative reading — every distinct price level is a hetero-group — gives 33.6% / 10.7%
-/ 55.6%. Either way the qualitative conclusion is the same.) Tallied by
-`dofiles/tally_price_points.py`.
+(Under the alternative reading — every distinct price level counts — the harmonized split
+is 40.4% / 13.3% / 45.8%, plus 11 cells with 4 or 5 groups. The qualitative conclusion
+holds either way.) Both grains are tallied by `dofiles/90_diagnostics/scope_price_combo_grain.py`;
+`dofiles/90_diagnostics/tally_price_points.py` computes the raw grain only.
 
-So on the Outcome 2 side about two thirds of cases collapse to a single group on
-price grounds (64.2%), and the two-group case is genuinely rare at 3.3% — in
-practice a case has either the full three-group ladder or no ladder at all.
+So on the Outcome 2 side about **60%** of cases collapse to a single group on price
+grounds, and the two-group case is genuinely rare at 3.5% — in practice a case has either
+the full three-group ladder or no ladder at all.
 
-Two caveats on those price-side figures. They cover all **2,950** price-file cases
-including the 949 price-only ones with no MS weighings, so the shares among cases
-that actually have weights will differ. And **38 of the 350** province-median-plus-
-municipal-price cases have their municipal price within ₱20 of the province median,
-which the stated protocol would have collapsed to province median only — still worth
-confirming whether those are exceptions or a different threshold was applied.
+Two caveats. These figures cover all price-file cases, including price-only ones with no
+MS weighings, so the shares among cases that actually have weights will differ. And the
+₱20 rule has exceptions: **42 (case, unique price) pairs sit within ₱20 of their province
+median**, including several exact ties, which the stated protocol would have collapsed to
+province median only. (Counting strictly under ₱20 gives 34. An earlier version of this
+document said 38, which reproduces under neither cut.) Measured by
+`dofiles/90_diagnostics/scope_unique_price_size_based.py`; see issue #6.
 
-**Almost every size-based case has a price-file row.** Checked directly by
-`dofiles/verify_documented_claims.py`: **1,514 of 1,515** size-based cells match. The
-single exception is ILOILO / DUEÑAS / cabbage / `putos (mix vegetable)`, whose
-harmonized unit is the mixed-vegetable canonical label — a fold target that exists on
-the market-survey side but has no counterpart in the price file. That one cell needs
-either a fallback price or exclusion; nothing else does.
+**Every size-based case has a price-file row.** Checked directly by
+`dofiles/90_diagnostics/verify_documented_claims.py`: all size-based cells match.
+
+This held at **1,514 of 1,515** until the one exception was removed at source. That
+cell was ILOILO / DUEÑAS / cabbage, reached through the raw label
+`2 kapinutos nga cabbage/20pesos` — a label that bundles a count, the item name and a
+price, so what one unit *is* cannot be recovered from it. It is now an exact-match
+literal in `02_drop_non_nsu_labels.py`'s `AMBIGUOUS` set and excluded with the other
+non-NSU labels, taking its 4 weighings with it.
+
+The cell was resolved by **dropping the ambiguous label**, not by giving it a fallback
+price: a conversion factor whose unit is unrecoverable is worse than none. See issue #22.
+
+**Two changes were needed, and they are often confused.** Dropping the label removed the
+symptom; moving the mixed-bag fold into the crosswalk removed the cause.
+
+The cause was the mixed-vegetable override that used to sit in `03_clean_ms.do`, which
+rewrote `harmonized_nsu_unit` *after* the crosswalk merge whenever a curated note
+matched. One of the four DUEÑAS weighings carried the note
+"consider changing the unit to plutos (halo halo)", so that row alone was rewritten to
+`putos (mix vegetable)` — a fold target the price file had nothing for in DUEÑAS — while
+its three siblings kept the self-mapped label. One cell, one raw label, two harmonized
+units. The fold now lives in `CELL_MIX` in `nsu_fold_rule.py`, where the join validates
+it and both sides move together.
 
 An earlier count of 26 unmatched cells was an artefact of a checking script that
 Unicode-normalized `DUEÑAS` differently from the pipeline — see the normalization
@@ -690,7 +856,410 @@ higher $`v`$" diverge, and why the tie rule is stated on $`v`$. A household spen
 ₱65 per NSU matches ₱50, and receives $`65 / 0.33 = 195`$ g per NSU — more than the
 150 g weighed for the small group, because it paid more than the small group's price.
 
-#### Why the adjustment sits on the weight
+## Decision rule (Outcome 2): which price points a case gets
+
+A case is province × municipality × item × harmonized NSU unit × corrected unit.
+Harmonization pools raw spellings, and the price file is keyed on the **raw** spelling,
+so a case can inherit more than one set of price points. This section states what
+happens in every case, exhaustively.
+
+Two facts drive the whole rule:
+
+- **On the price-quantity branch a price was spent.** The peso amount was printed on
+  the form from PSPS-round prices, the enumerator handed it over, and weighed what came
+  back. The weight was elicited *at* that price.
+- **On the size-based branch no price was spent.** The enumerator asked for a small, a
+  medium, a large. The price file enters only afterwards, to say how many groups the
+  case supports and what each group's price is.
+
+So merging price points is harmless where no price was spent, and destroys a
+measurement where one was.
+
+### The partition
+
+Every one of the 2,020 cases falls in exactly one row.
+
+| # | branch | pools >1 weighed spelling | cases | weighings | price points the case gets |
+|---|---|---|---|---|---|
+| 1 | conventional | no | 123 | 468 | none — one group, the case median. The price file is not used for grouping. |
+| 2 | conventional | yes | **0** | 0 | *(does not occur; verified, not assumed)* |
+| 3 | size-based | no | 1,534 | 9,505 | the spelling's own points, **exactly as recorded**. No merge. |
+| 4 | size-based | **yes** | **39** | **256** | the **union** across weighed spellings, then merged — see below |
+| 5 | price-quantity | no | 320 | 1,104 | `pull_price` per weighing. The price file is not used. |
+| 6 | price-quantity | **yes** | **3** | **14** | every distinct `pull_price`, **kept separate**. No merge. |
+| 7 | price-quantity + size-based | yes | 1 | 13 | Outcome 1 takes the size-based rows under row 4; Outcome 2 takes the price-quantity rows under row 6 |
+| | | | **2,020** | **11,360** | |
+
+Price rows belonging to a spelling that was **never weighed in that cell** are excluded
+from every row above. They contribute no weight, so they cannot inform a weight moment.
+They are retained for one purpose only: matching a PSPS household that reports that
+spelling.
+
+### Row 4 in detail — the merge rule
+
+1. **Pool the weights** across the weighed spellings. This is what harmonization is
+   for: more observations behind each estimate.
+2. **Take the union of price points** from those spellings, on the peso value.
+3. **Merge points within ₱20 of each other**, single-linkage, so a chain of near-equal
+   values collapses to one group. Merging is on the **value, not the rung label** — the
+   `mp25` of one spelling may merge with the `mp50` of another.
+4. **The merged point takes the mean** of the values merged into it. Two points at ₱17.50
+   and ₱8 become one point at ₱12.75.
+5. **Cut the pooled weight distribution into as many parts as there are surviving
+   points**, lowest weights to the lowest price.
+
+**Why ₱20 and not another number.** It is the threshold the price file already uses.
+`NSU_Price.R`, which builds that file, does not record a municipal price separately when
+it is within ₱20 of the province median, and collapses quartiles to the median alone
+when both quartile gaps are within ₱20. Reusing it keeps the merge consistent with the
+data it operates on rather than adding a second, unrelated tolerance.
+
+**Why the mean rather than one of the two values.** Mapping a size onto a price rung
+already assumes small ↔ mp25, medium ↔ mp50, large ↔ mp75 — an assumption nothing in the
+data establishes, since the weight and price distributions come from different rounds
+and different respondents. Against that, the choice between two prices ₱20 apart is not
+material. The mean avoids privileging one spelling arbitrarily.
+
+**Effect** (measured by `dofiles/90_diagnostics/scope_price_point_merge_rule.py`, 38 cases at the
+four-key grain):
+
+| rule | mean points per case | cases with >3 points | cases with <2 weighings per point |
+|---|---|---|---|
+| no merge | 3.37 | 17 | 18 |
+| ≤ ₱10 | 2.55 | 10 | 14 |
+| **≤ ₱20** | **1.97** | **1** | **10** |
+| ≤ ₱30 | 1.84 | 1 | 8 |
+| relative ≤ 10% | 2.82 | 11 | 16 |
+
+Picking one spelling's ladder and discarding the other's would give a mean of 2.11, so
+₱20 lands slightly below that without having to choose a spelling.
+
+**The one case that does not resolve.** ILOILO / CARLES / chicken / `whole (chicken)` —
+10 weighings, 5 union points, still 4 after merging, because chicken prices are high
+enough that ₱20 is a small relative gap. Its weights are cut into 4 parts and mapped
+onto the 4 surviving points. No special rule.
+
+### Row 6 in detail — why no merge
+
+The enumerator spent a specific amount. Collapsing two spellings to one price would
+misattribute the treatment:
+
+| case | spelling | n | price handed over | median weight |
+|---|---|---|---|---|
+| NEGROS OCCIDENTAL / VALLADOLID / cabbage | `bilog` | 3 | ₱25 | 325 g |
+| | `pieces or units` | 3 | ₱60 | 780 g |
+| NEGROS OCCIDENTAL / VALLADOLID / carrot | `bilog` | 3 | ₱17.50 | 150 g |
+| | `pieces or units` | 3 | ₱8 | 95 g |
+| ILOILO / AJUY / cabbage `pack` | `pack` | 1 | ₱50 | 785 g |
+| | `shredded cabbage(pack)` | 1 | ₱20 | 135 g |
+
+₱60 bought 2.4× what ₱25 bought. That is the price–quantity relationship the branch
+exists to measure.
+
+Keeping both points is also a **gain at the matching step**: Valladolid carrot ends up
+with two conversion factors under one harmonized unit, at ₱17.50 and ₱8. A PSPS
+household reporting `bilog` can be matched to whichever point its own unit value is
+closer to, including the one collected under `pieces or units`. Harmonization buys that
+flexibility precisely by not collapsing the price dimension.
+
+No implementation is required for rows 5 and 6: Outcome 2's price-quantity branch
+already uses `pull_price` as $`p_g`$, so the price file is never consulted there.
+
+### Known inconsistency in this rule
+
+The ₱20 merge applies to row 4 only. Row 3 — a size-based case with a single weighed
+spelling — keeps its price points as recorded, however close together they are.
+
+Those points are not always far apart. Of 959 single-spelling full quartile triples in
+the price file, **452 (47%) have at least one adjacent gap of ₱20 or less**: 376 have
+`mp50 − mp25 ≤ 20` and 76 have `mp75 − mp50 ≤ 20`. Across all single-spelling ladders
+with more than one point, 446 of 1,310 (34%) contain a pair within ₱20.
+
+So the same closeness is merged in row 4 and kept in row 3. The rule is deliberate — it
+is scoped to the problem harmonization created, and leaves the price file's own output
+untouched elsewhere — but it is not internally consistent, and a reader comparing two
+cases will see identical price gaps treated differently. Extending ₱20 to row 3 would
+change 452 cases and is not part of this decision.
+
+## Decision rule (Outcome 1): how a weighing gets its size
+
+Outcome 1 publishes **grams by size** — small, medium, large, or conventional. It has
+no price dimension, so the price file runs the opposite way from Outcome 2: instead of
+prices setting how many groups the weights are cut into, a price rung decides which
+*size* a weighing is called.
+
+Outcome 1 applies its own exclusions first — rows with no usable weight (7),
+`unique_mun_price` weighings (33, which are not a size), and the price-quantity rows of
+the one mixed-branch cell (4). **2,005 cases and 11,316 weighings** remain, and every
+case falls in exactly one row:
+
+| # | branch | pools >1 weighed spelling | cases | weighings | how the size is decided |
+|---|---|---|---|---|---|
+| 1 | conventional | no | 123 | 468 | no size; one row, the case median |
+| 2 | size-based | no | 1,532 | 9,511 | $`k`$ = distinct S/M/L field labels; re-tercile the weights into $`k`$ groups; the $`g`$-th group inherits the $`g`$-th label present |
+| 3 | size-based | yes | 39 | 256 | same, but $`k`$ counts labels across both spellings and the terciles are cut on the **pooled** weights |
+| 4 | price-quantity | no | 309 | 1,069 | read off the rung: mp25→S, mp50→M, mp75→L, **any median→M** |
+| 5 | price-quantity | yes | 2 | 12 | same rule; both cases collide, see below |
+| | | | **2,005** | **11,316** | |
+
+Conventional cases never pool more than one spelling — verified, not assumed.
+
+**Row 3 is the design, not a defect.** Pooling changes the tercile inputs in 39 cases.
+Oseni, Durazo & McGee (2017) §3 step 3 prescribes re-deriving sizes from the pooled
+distribution precisely because a small in one market can outweigh a large in another.
+Spelling is a vendor-level attribute here (no vendor in the file ever used two
+spellings), so a spelling gap *is* vendor heterogeneity, which the re-tercile exists to
+absorb. Pooling raises $`k`$ above what any single spelling recorded in 3 of the 39.
+
+**Row 5 collides, in both cases.** Both are NEGROS OCCIDENTAL / VALLADOLID,
+`pieces or units`: cabbage has `bilog` at a municipality median (n=3, median 325 g) and
+`pieces or units` at a province median (n=3, 780 g); carrot has the same pair at 150 g
+and 95 g. Because `mp50`, `municipality median` and `province median` all map to
+`size_ord = 2`, cabbage collapses a 2.4× weight spread into one published "medium".
+Unresolved — see issue #21.
+
+**What row 4 exposes, which is larger than the pooling question.** Of the rows Outcome 1
+publishes as "medium", only 92 come from a real `mp50`; **861 come from a municipality
+or province median**. And **277 of the 311 price-quantity cases carry only a median
+label**, so each publishes exactly one row, called "medium", with no small and no large
+beside it. A future enumerator reading the table sees "medium" and reasonably infers the
+other sizes exist for that cell. They do not. This is not caused by harmonization;
+it is the cost of reading a central tendency as a size. Tracked on issue #27.
+
+### Under-filled cases: naming the groups that actually survived
+
+Row 2's rule — *the $`g`$-th group inherits the $`g`$-th label present* — assumes every
+group it cuts comes back non-empty. **97 of the 1,565 size-based cases fill fewer groups
+than the field recorded labels for.** Weights are whole grams, so vendors tie exactly on
+a cut point; the tie rule is lower-inclusive, so every tied row goes down, and the upper
+group empties.
+
+| $`k`$ labels recorded | groups filled | cases | which groups filled |
+|---|---|---|---|
+| 2 | 1 | 31 | group 1 |
+| 3 | 2 | 49 | groups 1, 2 — the **top** emptied |
+| 3 | 2 | 14 | groups 1, 3 — the **middle** emptied |
+| 3 | 1 | 3 | group 1 — both upper groups emptied |
+
+### What "medium" means in the published file
+
+`size_ord = 2` is published as **medium** on 1,274 of the 3,307 reference-set rows, and
+the label does not mean the same thing on all of them. The decision (issue #21 §3) is to
+keep the single name and state the composition here rather than split it into two labels
+the field cannot act on.
+
+| what the case looks like | medium rows | what "medium" is describing |
+|---|---|---|
+| publishes all three sizes | 502 | the middle tercile, as the name implies |
+| publishes two sizes | 273 | the upper or lower of two groups, named by position |
+| publishes one size only | 499 | **the case's only value.** Not a middle of anything — the case never separated into sizes, so its single median is labelled medium by default |
+
+The third row is the one to read carefully. For 499 cases the published "medium" is the
+whole case: a municipality/item/unit median with no size structure behind it. `n_g` on
+those rows is the weighing count the value rests on, and `d_thin` marks the ones resting
+on fewer than three. A reader wanting only genuinely-middle values should keep rows whose
+case publishes three sizes; a reader wanting a best single estimate per case should
+prefer the one-size rows precisely because they pool everything.
+
+This is a naming convention, not a measurement claim. Nothing downstream keys on the
+label — the case grain plus `size_ord` identifies a row, and `grams` is the estimate.
+
+The last shape loses *two* groups. It did not occur under the previous magnitude rule,
+and it is a direct consequence of the anchor snap: snapping a weight toward its cell
+median pulls outliers into the body of the distribution, so more vendors tie on a cut
+point. The under-filled total rose from 94 to 104 for the same reason, then fell to 100
+when STEP 3e began adjudicating by rule, and to 97 when the second review round's 80
+adjudicated verdicts were applied. Both falls are the same mechanism: the block reading
+restates the typed number instead of pulling it toward a median, so fewer weights land
+on a cut. These cases are
+reported and not patched — see issue #3.
+
+A rank rule under-names the survivors of the first shape. A case whose weights ran from
+small to medium and collapsed into one group published as **small**, even where most of
+its weighings were the ones the field had called medium.
+
+**The rule, which fires only where groups-filled < $`k`$:**
+
+| shape | published as |
+|---|---|
+| 1 group filled, $`k \ge 2`$ | **medium** |
+| groups 1, 2 filled of 3 | small + medium (the rank rule already gives this) |
+| groups 1, 3 filled of 3 | small + large (the rank rule already gives this) |
+| groups filled = $`k`$ | untouched, whatever $`k`$ is |
+
+Only the first line changes anything, and it moves **25 published rows from small to
+medium** — small 1,173 → 1,148, medium 1,245 → 1,270. Grams and $`n_g`$ are untouched:
+this renames groups, it does not recut them, so it cannot create a non-monotonic row and
+it cannot change the published row count (3,321 either way).
+
+Both two-group shapes already come out right, because `ord_at1` and `ord_at3` on a case
+holding {S, M, L} *are* small and large. `10_size_assignment.do` §2d asserts that rather
+than relying on it.
+
+**It must be keyed on groups-filled < $`k`$, not on groups-filled alone.** Read as "1
+group filled → medium", the rule would also catch the 753 cases where the field recorded
+one label and one group filled — relabelling **408 cases the field called small** and
+**155 it called large** to medium. That is the same defect the rank mechanism exists to
+prevent, mirrored: `verify_documented_claims.py` already asserts that a naive
+group-number-to-size map mislabels 449 of 1,565 cases.
+
+**A missing size stays missing.** A case that filled two groups publishes two rows, so a
+field lookup for the third size returns nothing rather than an interpolated guess. That
+is deliberate — see assumption 7.
+
+## Assumptions to keep visible
+
+**This section covers the assumptions the *method* makes.** The assumptions the *code*
+makes — a threshold set to 30, a tie rule that is lower-inclusive, a normalizer that drops
+accented characters — are a separate list in **`docs/implicit_assumptions.md`**, which is
+the register to read before changing any constant in a do-file.
+
+The two lists cross-reference rather than repeat. Where a register entry binds to one of
+the numbered assumptions below, it names it and the figures stay here:
+
+| register entry | binds to |
+| :-- | :-- |
+| A1 conventional units standard within a locality | assumption 6 |
+| A5b the field label is informative in aggregate | assumption 7 |
+| A9 shrinkflation, rank alignment, terciles | assumptions 3, 4, 5 |
+| A10 one peso-per-gram rate across acquisition modes | assumption 1 — its household-side counterpart |
+
+Each is tagged with the branch it binds on. **The two load-bearing ones are 2 and 3,
+and they are mirror images** — the price-quantity branch assumes the *price* schedule
+moved only with the index; the size-based branch assumes the *quantity* schedule did
+not move at all. Neither branch is assumption-free, and they do not lean on the same
+thing.
+
+1. **Single price schedule within a case.** *(all branches)* Households in a case
+   face the same price-per-gram schedule, so a higher PHP-per-gram means a bigger
+   unit, not a different deal. Bargaining, quality and vendor differences violate
+   it; within a matched hetero-group, any price variation that is *not* size passes
+   proportionally into $`\widehat g_h`$.
+
+   The LSMS guidebook names this as the known weakness of price-based conversion and
+   its reason for preferring direct weighing (Oseni, Durazo & McGee 2017, §1.2,
+   p. 3): *"unit prices can vary because of factors unrelated to the actual mass or
+   volume of an item… quality differences… price discounts on larger units."* Step A
+   does weigh directly, as recommended, but Step B reintroduces price as the
+   *matching* variable, so the caution applies to the hetero-group assignment. The
+   quantity-discount point is why the method keeps a separate $`v_g`$ per hetero-group
+   rather than one case-level scalar.
+
+   **Its household-side counterpart** is that the same schedule holds however the
+   household *acquired* the unit. Only the purchased slot supplies $`p_h`$ — gifts and
+   own production carry an imputed value, not a faced price — but the resulting
+   conversion factor is applied to every household's quantity regardless of mode, so a
+   gifted `bugkos` is assumed to be the same size as a bought one. Roughly one food
+   observation in five is acquired without a purchase, and the claim is untested. See
+   A10 in `docs/implicit_assumptions.md`.
+
+2. **Real price per gram moved only with the index.** *(price-quantity branch —
+   load-bearing)* This licenses $`w_g^{\text{PSPS}} = w_g(1+\pi)`$: the only reason a
+   fixed peso amount buys less now is general inflation for that item, not a change
+   in its real price. Since $`\pi`$ comes from a province × COICOP-group index, the
+   assumption is *within-group* — no differential real price change between, say,
+   cabbage and other leafy vegetables.
+
+3. **Unit size stable between rounds.** *(size-based branch — load-bearing)* This
+   licenses $`w_g^{\text{PSPS}} = w_g`$: a "medium" unit is assumed to have been the
+   same physical size in both rounds, so an MS-measured weight can be paired with a
+   PSPS-round price. Shrinkflation — vendors holding the peso price and reducing the
+   unit — violates it and would make size-based weights too small. No price
+   adjustment can repair this; it needs a size-comparability check against the
+   reference photos, which the guidebook recommends and which has not been done.
+
+4. **Rank alignment of the two ladders.** *(size-based branch)* Pairing the $`k`$-th
+   weight tercile with the $`k`$-th price percentile assumes households who paid
+   least bought the lightest units. Nothing in the data establishes it: the two
+   distributions come from different rounds and different respondents, and only rank
+   order links them. Where size and price are weakly related (assumption 1), the
+   pairing misassigns *systematically*, not noisily. Does **not** apply to the
+   price-quantity branch, where $`w_g`$ and $`p_g`$ were observed in the same
+   transaction.
+
+5. **Terciles are the right cut.** *(size-based branch)* Bottom / middle / top thirds
+   is a convention; if transactions concentrate in one size the cut misallocates the
+   tails. Worth a robustness check against alternative cuts or a modal-size rule.
+
+6. **Conventional units are standard within a locality.** *(conventional branch)*
+   They may still vary *across* municipalities, which is testable wherever the MS
+   weighed the same unit in several of them.
+
+7. **The field label is wrong per weighing but informative in aggregate.**
+   *(size-based branch — and it is the criterion that CHOSE the under-filled rule, so
+   read this before trusting that rule)*
+
+   Deciding what to call a surviving group needs a standard for "right", and the one
+   used was: **if a group is made mostly of weighings the enumerator called large, then
+   "large" is the right name for it** — the modal field label of a group's own members.
+   That is an assumption, and it sits in open tension with the reason re-terciling
+   exists at all. If the field labels could be trusted, they would simply be used, and
+   Step A would not re-cut anything.
+
+   The tension resolves only if the labels are **noisy per weighing but unbiased in
+   aggregate**. Measured on the 489 cases where all three groups filled, so that
+   terciles and labels are both observable:
+
+   | | agreement with the field label |
+   |---|---|
+   | per weighing — why re-terciling exists | **65.4%** (3,651 / 5,582) |
+   | per group, using the modal label — what the criterion assumes | **78.5%** (1,147 / 1,461) |
+
+   Aggregating does recover signal, which is what the criterion needs. **But the
+   disagreement is not symmetric.** 238 groups carry a modal label *below* their tercile
+   position against 76 above — mean signed error **−0.131**. So the modal field label runs systematically *low*, and a
+   criterion built on it is biased toward the *lower* of two candidate names.
+
+   **These three figures have improved at every review round, always for the same reason**, and it is
+   worth knowing why before reading too much into the level. Each round of the snap review
+   moved published weights toward the block reading — the number the enumerator typed — and
+   agreement with the field label rose each time. The snap never reads the field labels, so
+   that rise is independent corroboration that the block reading is the better one, not a
+   result of fitting to the labels.
+
+   That bias points the same way as the status quo, which is the uncomfortable part: it
+   is part of why "small + medium" beat "small + large" for the 50 cases whose top group
+   emptied. The margin there was wide enough to survive it — 36 rows moved from correct
+   to incorrect against 11 the other way, against a mean bias of a tenth of a rank — but
+   the direction of the bias and the direction of the conclusion coincide, so the
+   conclusion is weaker than the raw counts suggest.
+
+   **What would settle it** is evidence independent of the field labels: the reference
+   photographs the guidebook recommends, or a size-comparability check against them.
+   Until then the under-filled rule is the best available reading of the labels, not a
+   measurement. All three figures above are re-derived by
+   `verify_documented_claims.py`, so a change in the data moves them visibly.
+
+## Warning for downstream use
+
+**Measurement error in $`p_h`$ propagates into grams.** $`p_h = e_h / q_h`$ is a
+derived unit value: misreporting $`e_h`$ or $`q_h`$ feeds into $`p_h`$, which can
+flip the household across a size boundary in B2 and scales $`\widehat g_h`$
+proportionally in B3.
+
+## Practical prerequisites
+
+- **Unit-name harmonization.** Already done, upstream of everything here —
+  `harmonized_nsu_unit` in `master_nsu_rename.csv` is the pooling key, and the price
+  side is mapped onto it too. Pool on it, never on the raw or cleaned label. See
+  *Harmonization stages* above and `docs/master_rename.md`.
+- **Multiple vendors.** Vendor-level weights within a case are aggregated with a
+  robust estimator (median, or a light fixed-trim mean); the Step A pooling already
+  dilutes single-vendor outliers.
+- **Join the two hetero-group limits.** The weighing-count and price-point tallies in
+  *Degrading gracefully* are marginal. Joining them on `harmonized_nsu_unit` gives
+  the real joint distribution and is the first implementation task.
+
+
+---
+
+# Reference
+
+## Why the inflation adjustment is built this way
+
+*Moved out of the main sequence: these justify choices already stated in Step B.*
+
+### Why the adjustment sits on the weight
 
 Adjusting the weight up by $`(1+\pi)`$ and deflating the price by $`(1+\pi)`$ are
 the same operation: $`p_h\,w_g(1+\pi)/p_g = p_h\,w_g/\bigl(p_g/(1+\pi)\bigr)`$.
@@ -711,7 +1280,7 @@ Two ways to get this wrong:
   MS terms, $`p_h`$ must be too. A household-level $`\pi`$ on one side and a
   cell-level $`\pi`$ on the other leaves a residue that is pure artefact.
 
-#### Why $`\pi`$ cannot just be set to zero
+### Why $`\pi`$ cannot just be set to zero
 
 The simplest thing to do about inflation is nothing, and that would be defensible if
 $`\pi`$ were small and roughly the same everywhere. It would then wash out of the
@@ -788,77 +1357,37 @@ arithmetically immune to CPI mismeasurement — worth knowing given the spread a
 
 ---
 
-## Assumptions to keep visible
+## Which files are live
 
-Each is tagged with the branch it binds on. **The two load-bearing ones are 2 and 3,
-and they are mirror images** — the price-quantity branch assumes the *price* schedule
-moved only with the index; the size-based branch assumes the *quantity* schedule did
-not move at all. Neither branch is assumption-free, and they do not lean on the same
-thing.
+Run in this order. Anything not listed here is not part of the pipeline.
 
-1. **Single price schedule within a case.** *(all branches)* Households in a case
-   face the same price-per-gram schedule, so a higher PHP-per-gram means a bigger
-   unit, not a different deal. Bargaining, quality and vendor differences violate
-   it; within a matched hetero-group, any price variation that is *not* size passes
-   proportionally into $`\widehat g_h`$.
+| file | does | status |
+|---|---|---|
+| `dofiles/00_shared/03_clean_ms.do` | raw MS → cleaned weighings on the harmonized NSU key | live |
+| `dofiles/00_shared/04_unit_snap.do` | called by the above; kg→g, L→mL, magnitude snap | live |
+| `dofiles/build_cpi_level_panel.py` | PSA CPI → `cpi_level_panel.csv` (levels only) | live |
+| `dofiles/00_shared/07_cpi_factor.do` | builds `cpi_factor`, the province × item-group × month index ratio Outcome 2 uses for the MS → PSPS adjustment. It no longer restates weights: the former `w_ref` is retired (issue #29). | live |
+| `dofiles/10_reference_set/12_publish_reference_set.do` | **Outcome 1** — the reference set | live |
+| *Outcome 2 — PSPS conversion factors* | | **not yet written** |
+| `dofiles/archive/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
 
-   The LSMS guidebook names this as the known weakness of price-based conversion and
-   its reason for preferring direct weighing (Oseni, Durazo & McGee 2017, §1.2,
-   p. 3): *"unit prices can vary because of factors unrelated to the actual mass or
-   volume of an item… quality differences… price discounts on larger units."* Step A
-   does weigh directly, as recommended, but Step B reintroduces price as the
-   *matching* variable, so the caution applies to the hetero-group assignment. The
-   quantity-discount point is why the method keeps a separate $`v_g`$ per hetero-group
-   rather than one case-level scalar.
+Not part of the build, but not throwaway either — run these to check the build rather
+than to produce it:
 
-2. **Real price per gram moved only with the index.** *(price-quantity branch —
-   load-bearing)* This licenses $`w_g^{\text{PSPS}} = w_g(1+\pi)`$: the only reason a
-   fixed peso amount buys less now is general inflation for that item, not a change
-   in its real price. Since $`\pi`$ comes from a province × COICOP-group index, the
-   assumption is *within-group* — no differential real price change between, say,
-   cabbage and other leafy vegetables.
+| file | does |
+|---|---|
+| `dofiles/90_diagnostics/verify_documented_claims.py` | re-derives every number in `docs/` that no build file produces, and prints the documented value beside the current one. Exits non-zero if any has moved. **Run it after any pipeline change.** |
+| `dofiles/00_shared/01_build_crosswalk.py` | the authoritative raw → cleaned → harmonized NSU crosswalk; writes `master_nsu_rename.csv`, which everything else reads instead of re-deriving the fold |
+| `dofiles/90_diagnostics/validate_folds.py` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
+| `dofiles/90_diagnostics/tally_price_points.py` | how many price points each case has, under both readings of the price file |
+| `dofiles/90_diagnostics/scope_multi_price_points.py` | measures the multi-price-point-within-a-case problem |
+| `dofiles/plot_cpi_inflation.py` | the two CPI figures embedded below, and the $`\pi`$ figures quoted with them |
+| `dofiles/summary_statistics.py` | raw vs cleaned summary tables |
 
-3. **Unit size stable between rounds.** *(size-based branch — load-bearing)* This
-   licenses $`w_g^{\text{PSPS}} = w_g`$: a "medium" unit is assumed to have been the
-   same physical size in both rounds, so an MS-measured weight can be paired with a
-   PSPS-round price. Shrinkflation — vendors holding the peso price and reducing the
-   unit — violates it and would make size-based weights too small. No price
-   adjustment can repair this; it needs a size-comparability check against the
-   reference photos, which the guidebook recommends and which has not been done.
+Any number quoted in this document should be traceable to one of the files above. If
+you find one that is not, it is unverified — treat it as a claim, not a measurement.
 
-4. **Rank alignment of the two ladders.** *(size-based branch)* Pairing the $`k`$-th
-   weight tercile with the $`k`$-th price percentile assumes households who paid
-   least bought the lightest units. Nothing in the data establishes it: the two
-   distributions come from different rounds and different respondents, and only rank
-   order links them. Where size and price are weakly related (assumption 1), the
-   pairing misassigns *systematically*, not noisily. Does **not** apply to the
-   price-quantity branch, where $`w_g`$ and $`p_g`$ were observed in the same
-   transaction.
-
-5. **Terciles are the right cut.** *(size-based branch)* Bottom / middle / top thirds
-   is a convention; if transactions concentrate in one size the cut misallocates the
-   tails. Worth a robustness check against alternative cuts or a modal-size rule.
-
-6. **Conventional units are standard within a locality.** *(conventional branch)*
-   They may still vary *across* municipalities, which is testable wherever the MS
-   weighed the same unit in several of them.
-
-## Warning for downstream use
-
-**Measurement error in $`p_h`$ propagates into grams.** $`p_h = e_h / q_h`$ is a
-derived unit value: misreporting $`e_h`$ or $`q_h`$ feeds into $`p_h`$, which can
-flip the household across a size boundary in B2 and scales $`\widehat g_h`$
-proportionally in B3.
-
-## Practical prerequisites
-
-- **Unit-name harmonization.** Already done, upstream of everything here —
-  `harmonized_nsu_unit` in `master_nsu_rename.csv` is the pooling key, and the price
-  side is mapped onto it too. Pool on it, never on the raw or cleaned label. See
-  *Harmonization stages* above and `docs/master_rename.md`.
-- **Multiple vendors.** Vendor-level weights within a case are aggregated with a
-  robust estimator (median, or a light fixed-trim mean); the Step A pooling already
-  dilutes single-vendor outliers.
-- **Join the two hetero-group limits.** The weighing-count and price-point tallies in
-  *Degrading gracefully* are marginal. Joining them on `harmonized_nsu_unit` gives
-  the real joint distribution and is the first implementation task.
+> **`nsu_step_a_rungs.do` is kept only as a record of a rejected approach.** It set
+> the group count from the *weighing count*, which neither outcome uses, and assumed
+> one resolution could serve both deliverables, which it cannot. Its output
+> `nsu_rungs.dta` is stale and nothing reads it. The file carries a banner saying so.

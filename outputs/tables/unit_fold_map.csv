@@ -37,7 +37,7 @@ chicken,binilog,pieces or units,safe-fold,mass(g),88,380.0
 chicken,pieces or units,pieces or units,safe-fold,mass(g),13,270.0
 chicken,piraso,pieces or units,safe-fold,mass(g),8,537.5
 chicken,slice,slice,identity(ungrouped),mass(g),14,242.5
-chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),mass(g),476,1120.0
+chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),mass(g),480,1120.0
 "crackers, cookies, buiscuits, chips/curls",balde,balde,identity(ungrouped),mass(g),9,1500.0
 "crackers, cookies, buiscuits, chips/curls",big can,big can,identity(ungrouped),mass(g),5,1400.0
 "crackers, cookies, buiscuits, chips/curls",bucket,bucket,identity(ungrouped),mass(g),2,1065.0
@@ -46,25 +46,27 @@ chicken,whole (chicken),whole (chicken),fold(untested/minor-flag),mass(g),476,11
 "crackers, cookies, buiscuits, chips/curls",binilog,pieces or units,safe-fold,mass(g),90,31.5
 "crackers, cookies, buiscuits, chips/curls",pieces or units,pieces or units,safe-fold,mass(g),10,40.0
 "crackers, cookies, buiscuits, chips/curls",putos,putos,keep-separate,mass(g),500,160.0
+"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces,identity(ungrouped),vol(mL),189,355.0
 fresh fish,pack,pack,keep-separate,mass(g),29,620.0
 fresh fish,bilog,pieces or units,safe-fold,mass(g),599,377.5
 fresh fish,binilog,pieces or units,safe-fold,mass(g),99,435.0
 fresh fish,pinutos / plastic,pinutos / plastic,identity(ungrouped),mass(g),4,347.5
 fresh fish,tumpok,tumpok,safe-fold,mass(g),25,750.0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1.3 gallon,1.3 gallon,identity(ungrouped),vol(mL),1,1300.0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bowl,bowl,identity(ungrouped),mass(g),3,720.0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,cone,identity(ungrouped),vol(mL),40,110.0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",container,container,identity(ungrouped),vol(mL),3,950.0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gallon,gallons,safe-fold,mass(g),5,950.0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pack,pack,keep-separate,mass(g),10,525.0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,mass(g),221,85.0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,vol(mL),37,100.0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,pieces or units,safe-fold,mass(g),4,97.5
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,pieces or units,safe-fold,vol(mL),221,85.0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,safe-fold,mass(g),37,100.0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,pieces or units,safe-fold,vol(mL),4,97.5
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",piraso,pieces or units,safe-fold,vol(mL),2,46.5
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",plastic cup,plastic cup,identity(ungrouped),mass(g),1,485.0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,putos,keep-separate,vol(mL),231,60.0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,putos,keep-separate,mass(g),231,60.0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,small cup,fold(untested/minor-flag),vol(mL),305,100.0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,tub,identity(ungrouped),vol(mL),10,1000.0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tupperware,tupperware,identity(ungrouped),mass(g),5,700.0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tupperware,tupperware,identity(ungrouped),vol(mL),5,700.0
 "liquor (e.g, whisky, coconut wine)",6 bottles of redhorse,6 bottles of redhorse,identity(ungrouped),vol(mL),3,330.0
 "liquor (e.g, whisky, coconut wine)",baso,baso,identity(ungrouped),vol(mL),1,750.0
 "liquor (e.g, whisky, coconut wine)",gin,gin,identity(ungrouped),vol(mL),3,350.0
@@ -100,5 +102,5 @@ pork,stick,stick,identity(ungrouped),mass(g),1,25.0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",role,role,identity(ungrouped),mass(g),1,250.0
 rice,ganta,gantang,safe-fold,mass(g),28,2245.0
 rice,letse,letse,safe-fold,mass(g),3,425.0
-rice,sack of rice,sack of rice,identity(ungrouped),mass(g),3,2500.0
+rice,sack of rice,sack of rice,identity(ungrouped),mass(g),3,25000.0
 rice,salmon,salmon,safe-fold,mass(g),21,410.0

@@ -1,0 +1,141 @@
+********************************************************************************
+* 00_globals.do -- paths and shared programs for the whole pipeline
+*
+* Every numbered do-file in this project starts by running this file. Nothing here
+* touches data; it only defines where things live and the two programs that more
+* than one step needs.
+*
+* CALLED BY   both master do-files, and by each numbered step so a single step can
+*             still be run on its own without the master.
+*
+* Run a step on its own like this, from the dofiles/ folder:
+*     "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\03_clean_ms.do
+********************************************************************************
+
+set more off
+
+* ---- deterministic sorting -----------------------------------------------------
+* Since Stata 13, `sort' places TIED observations in a random order, drawn from the
+* sort seed. Two runs of the same do-file on the same data therefore produce the same
+* rows in a different order unless the seed is pinned -- which is exactly what
+* happened here: 07_cpi_factor.do's output stopped reproducing between a standalone
+* run and a run from master_outcome1.do, with identical values throughout.
+*
+* This matters beyond reproducibility. Any `bysort key: ... _n' where `key' does not
+* uniquely identify a row is reading an order the sort seed chose, and this pipeline
+* has such a construction (the running-sum-over-tags in 10_size_assignment.do, issue
+* #18). Pinning makes those reproducible; it does not make them correct, and the
+* right fix there is still to sort on something unique.
+*
+* The value is arbitrary. What matters is that it never changes.
+set sortseed 20260831
+
+* No `version' pin. One was added and removed again during the restructure -- it
+* looked like pinning changed cpi_factor, but the apparent change was the row-order
+* problem above. A pin may still be worth adding; it just has to be a deliberate
+* decision rather than a side effect.
+
+* ---- root ---------------------------------------------------------------------
+* `c(username)' rather than a hardcoded user, so the same file works on any machine
+* with the Box folder mounted in the usual place.
+global root    "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
+global proj    "${root}\Data Cleaning"
+global dofiles "${proj}\dofiles"
+
+* ---- raw inputs ---------------------------------------------------------------
+global data      "${root}\NSU Market Survey Launch\data\PSPS NSU Market Survey Launch.dta"
+global pricedata "${root}\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
+
+* The PSPS household consumption file, for Outcome 2. Note 2_publication_data --
+* an earlier version of the extraction do-file read 3_publication_data, which does
+* not exist, so the file had never run.
+global psps_cons "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\08 Analysis & Data\14 Wave 1_Pub\Household survey\5_outputs\2_publication_data\2_consumption\2_consumption.dta"
+
+* ---- outputs ------------------------------------------------------------------
+global output "${proj}\outputs"
+global temp   "${output}\temp"
+global graphs "${output}\graphs"
+global tables "${output}\tables"
+* Silent mkdir, not `cap noi mkdir'. On every run after the first these folders all
+* exist, so `noi' logged a mkdir failure eight times per build -- noise on a perfectly
+* healthy build, which is the fastest way to train a reader to skip real errors. (The
+* wording is left out of this comment on purpose: it was worth being able to grep a log
+* for that message and get only genuine hits.) The failure that matters is not a
+* redundant mkdir; it is a folder that cannot be reached at all, and mkdir_missing
+* below halts on exactly that.
+capture program drop mkdir_missing
+program define mkdir_missing
+	args d
+	cap mkdir "`d'"
+	mata: st_local("ok", strofreal(direxists(st_local("d"))))
+	if "`ok'" != "1" {
+		di as err "output folder is unreachable and could not be created: `d'"
+		exit 693
+	}
+end
+
+foreach d in "${output}" "${temp}" "${graphs}" "${tables}" {
+	mkdir_missing "`d'"
+}
+
+* The current build writes to its own subtree so the pre-Aug11 outputs under
+* ${temp} stay inspectable. See dofiles/archive/README.md.
+global build   "${output}\master_rename_build"
+global btemp   "${build}\temp"
+global btables "${build}\tables"
+global bgraphs "${build}\graphs"
+foreach d in "${build}" "${btemp}" "${btables}" "${bgraphs}" {
+	mkdir_missing "`d'"
+}
+
+
+********************************************************************************
+* Shared programs
+********************************************************************************
+
+* ---- def_hetero ---------------------------------------------------------------
+* The obs_type value label. Defined as a program rather than once at the top
+* because `use ..., clear' on the raw launch data wipes value labels along with the
+* data, so it has to be re-declared after every load.
+*
+* The ORDER IS SEMANTIC and is relied on downstream: codes 2/3/4 are small/medium/
+* large and are compared with < and >, so they must stay in ascending size order.
+capture program drop def_hetero
+program define def_hetero
+	label define hetero 1 "conventional_nsu" 2 "small_size" 3 "medium_size" 4 "large_size" ///
+		5 "mp25_price" 6 "mp50_price" 7 "mp75_price" 8 "municipality_median" ///
+		9 "province_median" 10 "unique_mun_price6" 11 "unique_mun_price7", replace
+end
+
+* ---- nsu_normalize ------------------------------------------------------------
+* THE authoritative string normalization on the Stata side. Its Python counterpart
+* is nz()/ni()/ng() in 00_shared/01_build_crosswalk.py, and the two MUST agree
+* character for character -- master_nsu_rename.csv is built by the Python side and
+* joined by this one.
+*
+* mode 2 DROPS non-ASCII rather than transliterating. That is deliberate: a clean
+* n-tilde and a mojibaked one must collapse to the SAME string, and they do only if
+* both lose the character (DUENAS -> DUEAS either way). Do not "improve" this to
+* NFKD-decompose -- that maps a clean DUENAS to DUENAS and a mojibaked one to
+* something else, and the join silently loses rows.
+capture program drop nsu_normalize
+program define nsu_normalize
+	syntax , Item(name) Unit(name) [Mun(name) PROVince(name)]
+
+	foreach v in `item' `unit' {
+		replace `v' = ustrto(`v', "ascii", 2)
+		replace `v' = ustrtrim(ustrlower(`v'))
+		replace `v' = ustrregexra(`v', "\s+", " ")
+	}
+
+	* prepped food: the item string differs across datasets only in the accent
+	replace `item' = "drinks at restaurant, hotel, cafe, or kiosk" if strpos(`item', "restaurant") > 0
+
+	foreach v in `mun' `province' {
+		replace `v' = ustrto(`v', "ascii", 2)
+		replace `v' = ustrtrim(ustrupper(`v'))
+		replace `v' = ustrregexra(`v', "\s+", " ")
+	}
+end
+
+di as txt "00_globals.do loaded -- build subtree: ${build}"

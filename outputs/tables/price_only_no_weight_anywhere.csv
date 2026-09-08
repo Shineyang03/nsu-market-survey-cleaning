@@ -1,0 +1,587 @@
+﻿province,municipality,item,harmonized_nsu_unit,item_weighed_in_this_municipality,n_weighings_of_item_here,other_units_weighed_here,this_unit_weighed_anywhere
+AKLAN,MALINAO,loaf bread,100pcs of pandesal,1,13,large packs | medium packs | small packs,0
+ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",bul,1,18,gin | lipid/lapad | long-neck,0
+ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",jr,1,18,gin | lipid/lapad | long-neck,0
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone ( dirty ice cream ) 10 pesos per cone,1,12,cone | pieces or units | putos | small cup,0
+ANTIQUE,HAMTIC,"mineral or spring water, all drinking water sold in containers",tab,1,5,bottle 500ml,0
+ANTIQUE,PANDAN,beef,patupa,0,0,,0
+ANTIQUE,PANDAN,pork,pieces barbeque,0,0,,0
+ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",ball (tuba),1,16,lipid/lapad | long-neck,0
+ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",glass,1,16,lipid/lapad | long-neck,0
+ANTIQUE,SIBALOM,carrot,tumpok,1,10,pieces or units,0
+ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",apa,1,14,pieces or units | putos | small cup,0
+ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",14 tasa,1,18,lipid/lapad | long-neck,0
+ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",7 ball,1,18,lipid/lapad | long-neck,0
+ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",boll,1,18,lipid/lapad | long-neck,0
+ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",coconut wine,1,18,lipid/lapad | long-neck,0
+ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",takal ng tuba,1,18,lipid/lapad | long-neck,0
+ANTIQUE,VALDERRAMA,"prawns, lobster, shrimp",plastic,0,0,,0
+CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",large packs,1,5,pieces or units | putos,0
+CAPIZ,IVISAN,"prawns, lobster, shrimp",1 pc. prawn,1,3,tumpok,0
+CAPIZ,JAMINDAN,camote tops,cassava leaves,1,2,bugkos | bundle,0
+CAPIZ,JAMINDAN,loaf bread,pieces,1,4,individual | large packs | medium packs | small packs,0
+CAPIZ,MA-AYON,camote,small size plastic,1,3,bilog,0
+CAPIZ,MA-AYON,chicken,1order,1,7,pack | whole (chicken),0
+CAPIZ,MA-AYON,chicken,tingi tingi,1,7,pack | whole (chicken),0
+CAPIZ,MAMBUSAO,loaf bread,pieces,1,10,large packs | small packs,0
+CAPIZ,PANAY,cabbage,tumpok,1,18,pieces or units | putos (mix vegetable),0
+CAPIZ,PANAY,camote tops,"cassava & malunggay leaves, paco or fern, squash leaves",1,5,bugkos,0
+CAPIZ,PANAY,carrot,tumpok,1,15,pieces or units,0
+CAPIZ,PANAY,loaf bread,per piece,1,8,medium packs | small packs,0
+CAPIZ,PANAY,loaf bread,piece,1,8,medium packs | small packs,0
+CAPIZ,PANAY,"mineral or spring water, all drinking water sold in containers",distilled water,0,0,,0
+CAPIZ,PANAY,pork,pack,0,0,,0
+CAPIZ,PANAY,"prawns, lobster, shrimp",caltex,1,11,cup | tumpok,0
+CAPIZ,PILAR,cabbage,mix vegetables (per tumbok),1,9,pieces or units,0
+CAPIZ,PILAR,carrot,mix vegetables (per tumpok),1,9,pieces or units,0
+CAPIZ,PILAR,fresh fish,puts or plastic,1,18,pieces or units | pinutos / plastic,0
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ice cream stick,1,1,pieces or units,0
+CAPIZ,PILAR,loaf bread,piece,1,10,large packs,0
+CAPIZ,PONTEVEDRA,"prawns, lobster, shrimp",1 k caltex(kabo),1,4,tumpok,0
+CAPIZ,SIGMA,carrot,mix slice of carrot,1,3,pieces or units,0
+CAPIZ,TAPAZ,"mineral or spring water, all drinking water sold in containers",5-gallon blue container,0,0,,0
+ILOILO,AJUY,"crackers, cookies, buiscuits, chips/curls",cans,1,6,pieces or units | putos,0
+ILOILO,ALIMODIAN,chicken,patupong,1,15,bilog | pieces or units,0
+ILOILO,ALIMODIAN,"crackers, cookies, buiscuits, chips/curls",tupper ware,1,32,pieces or units | putos,0
+ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",4 later galon,1,18,lipid/lapad | long-neck,0
+ILOILO,BADIANGAN,"crackers, cookies, buiscuits, chips/curls",tupperware,1,10,pieces or units | putos,0
+ILOILO,BADIANGAN,loaf bread,plastic bag,1,9,large packs | medium packs,0
+ILOILO,BAROTAC VIEJO,cabbage,1 chop,1,11,pack | pieces or units,0
+ILOILO,BAROTAC VIEJO,carrot,pack of slices,1,3,pieces or units,0
+ILOILO,BAROTAC VIEJO,chicken,half,1,8,bilog,0
+ILOILO,CABATUAN,"crackers, cookies, buiscuits, chips/curls",can o lata,1,9,pack | pieces or units | putos,0
+ILOILO,CABATUAN,pork,pcs,1,4,pieces or units,0
+ILOILO,CALINOG,"mineral or spring water, all drinking water sold in containers",black gallon,0,0,,0
+ILOILO,DINGLE,carrot,slice,1,7,pieces or units,0
+ILOILO,DUEAS,camote,bundle,1,12,bilog,0
+ILOILO,DUEAS,chicken,patopung,1,5,whole (chicken),0
+ILOILO,DUMANGAS,chicken,putos,0,0,,0
+ILOILO,ESTANCIA,"prawns, lobster, shrimp",putos,1,9,tumpok,0
+ILOILO,IGBARAS,carrot,putos or pack,1,12,pieces or units | putos (mix vegetable),0
+ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",cup,1,20,junior lapad | lipid/lapad | long-neck,0
+ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",glass/shots,1,20,junior lapad | lipid/lapad | long-neck,0
+ILOILO,JANIUAY,fresh fish,patupa,1,18,pieces or units,0
+ILOILO,LEMERY,cabbage,buskos,1,7,pieces or units,0
+ILOILO,MAASIN,camote tops,pieces or units,1,10,bugkos | bundle,0
+ILOILO,MAASIN,loaf bread,pieces,1,3,large packs | medium packs,0
+ILOILO,MINA,camote,putos,1,17,bilog,0
+ILOILO,MINA,pork,portion,0,0,,0
+ILOILO,OTON,"crackers, cookies, buiscuits, chips/curls",small box,1,17,pieces or units | putos,0
+ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pitcher,1,15,pieces or units | putos | small cup,0
+ILOILO,OTON,rice,rice cooker cup (small),1,4,salmon,0
+ILOILO,OTON,rice,"rice cooker cup, small",1,4,salmon,0
+ILOILO,OTON,rice,small rice cooker cup,1,4,salmon,0
+ILOILO,POTOTAN,pork,1 bowl cooked,1,7,pieces or units,0
+ILOILO,SAN DIONISIO,carrot,sliced,1,9,pieces or units,0
+ILOILO,SAN ENRIQUE,carrot,small packs,1,9,pieces or units,0
+ILOILO,TIGBAUAN,carrot,slice,1,16,pieces or units | putos (mix vegetable),0
+NEGROS OCCIDENTAL,CALATRAVA,fresh fish,cup,0,0,,0
+NEGROS OCCIDENTAL,CALATRAVA,"liquor (e.g, whisky, coconut wine)",cup,1,10,lipid/lapad | long-neck,0
+NEGROS OCCIDENTAL,CAUAYAN,camote tops,tumpok,1,6,bugkos,0
+NEGROS OCCIDENTAL,ISABELA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cup,1,7,putos | small cup,0
+ANTIQUE,LIBERTAD,carrot,pack,1,12,pieces or units,1
+ANTIQUE,PANDAN,carrot,pack,1,13,pieces or units,1
+CAPIZ,DUMARAO,carrot,pack,1,5,pieces or units,1
+CAPIZ,MA-AYON,carrot,pack,1,6,10 | pieces or units,1
+CAPIZ,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",plastic cup,1,11,pieces or units | putos | small cup,1
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",plastic cup,1,17,pieces or units | putos | small cup,1
+ILOILO,CABATUAN,carrot,pack,1,27,pieces or units | putos (mix vegetable),1
+ILOILO,DINGLE,carrot,pack,1,7,pieces or units,1
+ILOILO,DUEAS,carrot,pack,1,22,pieces or units,1
+ILOILO,DUMANGAS,carrot,pack,1,6,pieces or units,1
+ILOILO,IGBARAS,carrot,pack,1,12,pieces or units | putos (mix vegetable),1
+ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",baso,1,10,lipid/lapad | long-neck,1
+ILOILO,LEGANES,carrot,pack,1,9,pieces or units,1
+ILOILO,NEW LUCENA,carrot,pack,1,9,pieces or units,1
+ILOILO,SAN JOAQUIN,carrot,pack,1,13,pieces or units,1
+ILOILO,SAN RAFAEL,carrot,pack,1,9,pieces or units,1
+ILOILO,TIGBAUAN,carrot,pack,1,16,pieces or units | putos (mix vegetable),1
+ILOILO,TUBUNGAN,carrot,pack,1,4,pieces or units,1
+ANTIQUE,TIBIAO,beer,case,0,0,,2
+CAPIZ,MAMBUSAO,beer,case,0,0,,2
+ILOILO,DINGLE,cabbage,sliced,1,11,pack | pieces or units,2
+AKLAN,ALTAVAS,rice,letse,0,0,,3
+AKLAN,BURUANGA,rice,letse,0,0,,3
+ANTIQUE,BARBAZA,rice,letse,0,0,,3
+ANTIQUE,BUGASONG,rice,letse,0,0,,3
+ANTIQUE,CULASI,rice,letse,0,0,,3
+ANTIQUE,HAMTIC,rice,letse,1,3,gantang,3
+ANTIQUE,LAUA-AN,rice,letse,0,0,,3
+ANTIQUE,PANDAN,rice,letse,0,0,,3
+ANTIQUE,PATNONGON,rice,letse,0,0,,3
+ANTIQUE,SAN REMIGIO,rice,letse,0,0,,3
+ANTIQUE,SEBASTE,rice,letse,0,0,,3
+ANTIQUE,SIBALOM,rice,letse,0,0,,3
+ANTIQUE,TIBIAO,rice,letse,0,0,,3
+ANTIQUE,TOBIAS FORNIER,rice,letse,1,3,gantang,3
+CAPIZ,DUMALAG,rice,letse,0,0,,3
+CAPIZ,DUMARAO,rice,letse,0,0,,3
+CAPIZ,MAMBUSAO,rice,letse,0,0,,3
+CAPIZ,PANAY,rice,letse,0,0,,3
+CAPIZ,PILAR,rice,letse,0,0,,3
+CAPIZ,SAPI-AN,rice,letse,1,3,gantang,3
+ILOILO,AJUY,"prawns, lobster, shrimp",pack,1,3,tumpok,3
+ILOILO,AJUY,rice,letse,0,0,,3
+ILOILO,BADIANGAN,rice,letse,0,0,,3
+ILOILO,BALASAN,rice,letse,1,3,gantang,3
+ILOILO,BANATE,rice,letse,0,0,,3
+ILOILO,BAROTAC VIEJO,rice,letse,0,0,,3
+ILOILO,CARLES,rice,letse,0,0,,3
+ILOILO,CONCEPCION,rice,letse,0,0,,3
+ILOILO,DINGLE,rice,letse,0,0,,3
+ILOILO,DUMANGAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bowl,1,8,cone | pieces or units | small cup,3
+ILOILO,DUMANGAS,"prawns, lobster, shrimp",pack,0,0,,3
+ILOILO,DUMANGAS,rice,letse,0,0,,3
+ILOILO,DUMANGAS,rice,sack of rice,0,0,,3
+ILOILO,LEMERY,rice,letse,0,0,,3
+ILOILO,SAN DIONISIO,rice,letse,0,0,,3
+ILOILO,SAN ENRIQUE,rice,letse,0,0,,3
+ILOILO,SARA,rice,letse,1,5,gantang,3
+NEGROS OCCIDENTAL,LA CASTELLANA,rice,letse,0,0,,3
+CAPIZ,DAO,cabbage,small packs,1,9,pieces or units | putos (mix vegetable),5
+CAPIZ,MA-AYON,chicken,slice,1,7,pack | whole (chicken),11
+CAPIZ,DAO,carrot,putos (mix vegetable),1,8,pieces or units,16
+CAPIZ,PANAY,carrot,putos (mix vegetable),1,15,pieces or units,16
+CAPIZ,PANITAN,carrot,putos (mix vegetable),1,18,pieces or units,16
+CAPIZ,PRESIDENT ROXAS,carrot,putos (mix vegetable),1,9,pieces or units,16
+CAPIZ,SAPI-AN,carrot,putos (mix vegetable),1,9,pieces or units,16
+ILOILO,ALIMODIAN,carrot,putos (mix vegetable),1,11,pieces or units,16
+ILOILO,OTON,carrot,putos (mix vegetable),1,14,pieces or units,16
+ANTIQUE,HAMTIC,camote,tumpok,1,24,bilog,17
+CAPIZ,SIGMA,camote,tumpok,0,0,,17
+ILOILO,LEGANES,camote,tumpok,1,9,bilog,17
+NEGROS OCCIDENTAL,PONTEVEDRA,camote,tumpok,1,9,bilog,17
+AKLAN,LIBACAO,rice,salmon,0,0,,21
+ANTIQUE,BARBAZA,rice,salmon,0,0,,21
+ANTIQUE,BUGASONG,rice,salmon,0,0,,21
+ANTIQUE,HAMTIC,rice,salmon,1,3,gantang,21
+ANTIQUE,LAUA-AN,rice,salmon,0,0,,21
+ANTIQUE,PATNONGON,rice,salmon,0,0,,21
+ANTIQUE,SIBALOM,rice,salmon,0,0,,21
+ANTIQUE,TIBIAO,rice,salmon,0,0,,21
+ANTIQUE,TOBIAS FORNIER,rice,salmon,1,3,gantang,21
+ANTIQUE,VALDERRAMA,rice,salmon,0,0,,21
+CAPIZ,CUARTERO,rice,salmon,0,0,,21
+CAPIZ,DUMARAO,rice,salmon,0,0,,21
+CAPIZ,JAMINDAN,rice,salmon,1,1,letse,21
+CAPIZ,MA-AYON,rice,salmon,0,0,,21
+CAPIZ,SIGMA,rice,salmon,0,0,,21
+CAPIZ,TAPAZ,rice,salmon,0,0,,21
+ILOILO,BADIANGAN,rice,salmon,0,0,,21
+ILOILO,BALASAN,rice,salmon,1,3,gantang,21
+ILOILO,BANATE,rice,salmon,0,0,,21
+ILOILO,BAROTAC NUEVO,rice,salmon,1,1,letse,21
+ILOILO,BAROTAC VIEJO,rice,salmon,0,0,,21
+ILOILO,BINGAWAN,rice,salmon,0,0,,21
+ILOILO,CABATUAN,rice,salmon,0,0,,21
+ILOILO,CALINOG,rice,salmon,0,0,,21
+ILOILO,CARLES,rice,salmon,0,0,,21
+ILOILO,DINGLE,rice,salmon,0,0,,21
+ILOILO,DUEAS,rice,salmon,1,7,gantang,21
+ILOILO,DUMANGAS,rice,salmon,0,0,,21
+ILOILO,IGBARAS,rice,salmon,0,0,,21
+ILOILO,JANIUAY,rice,salmon,0,0,,21
+ILOILO,LAMBUNAO,rice,salmon,0,0,,21
+ILOILO,LEGANES,rice,salmon,0,0,,21
+ILOILO,LEMERY,rice,salmon,0,0,,21
+ILOILO,LEON,rice,salmon,0,0,,21
+ILOILO,MAASIN,rice,salmon,1,3,sack of rice,21
+ILOILO,MIAGAO,rice,salmon,0,0,,21
+ILOILO,MINA,rice,salmon,1,4,gantang,21
+ILOILO,NEW LUCENA,rice,salmon,0,0,,21
+ILOILO,SAN DIONISIO,rice,salmon,0,0,,21
+ILOILO,SAN ENRIQUE,rice,salmon,0,0,,21
+ILOILO,SAN RAFAEL,rice,salmon,0,0,,21
+ILOILO,SANTA BARBARA,rice,salmon,0,0,,21
+ILOILO,SARA,rice,salmon,1,5,gantang,21
+NEGROS OCCIDENTAL,CAUAYAN,rice,salmon,0,0,,21
+NEGROS OCCIDENTAL,HINIGARAN,rice,salmon,0,0,,21
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),rice,salmon,0,0,,21
+AKLAN,BURUANGA,loaf bread,tama-tama nga putos,1,12,large packs | medium packs | small packs,23
+ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,1,7,large packs | medium packs,23
+ANTIQUE,CULASI,loaf bread,tama-tama nga putos,1,10,large packs | medium packs | small packs,23
+ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,1,14,large packs | medium packs | small packs,23
+ANTIQUE,LAUA-AN,loaf bread,tama-tama nga putos,1,7,large packs | medium packs | small packs,23
+ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,1,6,large packs | medium packs | small packs,23
+ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,1,1,small packs,23
+ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,1,9,large packs | medium packs | small packs,23
+ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,1,9,large packs | medium packs | small packs,23
+ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,1,10,large packs | medium packs | small packs,23
+ANTIQUE,SIBALOM,loaf bread,tama-tama nga putos,1,19,large packs | medium packs | small packs,23
+ANTIQUE,TIBIAO,loaf bread,tama-tama nga putos,1,10,large packs | medium packs | small packs,23
+ANTIQUE,TOBIAS FORNIER,loaf bread,tama-tama nga putos,1,8,large packs | medium packs | small packs,23
+CAPIZ,DUMALAG,loaf bread,tama-tama nga putos,1,10,large packs | medium packs | small packs,23
+CAPIZ,IVISAN,loaf bread,tama-tama nga putos,1,10,large packs | medium packs | small packs,23
+CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,1,4,individual | large packs | medium packs | small packs,23
+CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,1,7,large packs | medium packs | small packs,23
+CAPIZ,MAMBUSAO,loaf bread,tama-tama nga putos,1,10,large packs | small packs,23
+CAPIZ,PANAY,loaf bread,tama-tama nga putos,1,8,medium packs | small packs,23
+CAPIZ,PANITAN,loaf bread,tama-tama nga putos,1,10,small packs,23
+CAPIZ,PILAR,loaf bread,tama-tama nga putos,1,10,large packs,23
+CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,1,7,large packs | medium packs,23
+CAPIZ,SIGMA,loaf bread,tama-tama nga putos,1,13,large packs,23
+CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,1,10,large packs,23
+ILOILO,AJUY,loaf bread,tama-tama nga putos,1,7,large packs | medium packs | small packs,23
+ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,1,19,large packs | medium packs | small packs,23
+ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,1,9,large packs | medium packs,23
+ILOILO,BALASAN,loaf bread,tama-tama nga putos,1,8,large packs | medium packs | small packs,23
+ILOILO,BANATE,loaf bread,tama-tama nga putos,1,7,large packs,23
+ILOILO,BAROTAC VIEJO,loaf bread,tama-tama nga putos,1,6,large packs | medium packs | small packs,23
+ILOILO,BATAD,loaf bread,tama-tama nga putos,1,10,large packs | medium packs | small packs,23
+ILOILO,CABATUAN,loaf bread,tama-tama nga putos,1,14,large packs | medium packs | small packs,23
+ILOILO,CARLES,loaf bread,tama-tama nga putos,1,8,large packs | medium packs | small packs,23
+ILOILO,DINGLE,loaf bread,tama-tama nga putos,1,11,large packs | medium packs | small packs,23
+ILOILO,IGBARAS,loaf bread,tama-tama nga putos,1,13,large packs | medium packs | small packs,23
+ILOILO,JANIUAY,loaf bread,tama-tama nga putos,1,15,large packs | medium packs | small packs,23
+ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,1,13,large packs | medium packs | small packs,23
+ILOILO,LEGANES,loaf bread,tama-tama nga putos,1,7,large packs,23
+ILOILO,LEMERY,loaf bread,tama-tama nga putos,1,4,large packs | medium packs | small packs,23
+ILOILO,MAASIN,loaf bread,tama-tama nga putos,1,3,large packs | medium packs,23
+ILOILO,MIAGAO,loaf bread,tama-tama nga putos,1,16,large packs | medium packs | small packs,23
+ILOILO,MINA,loaf bread,tama-tama nga putos,1,9,large packs | medium packs | small packs,23
+ILOILO,OTON,loaf bread,tama-tama nga putos,1,14,large packs | medium packs | small packs,23
+ILOILO,POTOTAN,loaf bread,tama-tama nga putos,1,17,large packs | medium packs | small packs,23
+ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,1,8,large packs | medium packs | small packs,23
+ILOILO,SAN JOAQUIN,loaf bread,tama-tama nga putos,1,13,large packs | medium packs | small packs,23
+ILOILO,SAN RAFAEL,loaf bread,tama-tama nga putos,1,11,large packs | medium packs | small packs,23
+ILOILO,SARA,loaf bread,tama-tama nga putos,1,8,large packs | medium packs | small packs,23
+ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,1,16,large packs | medium packs | small packs,23
+NEGROS OCCIDENTAL,CAUAYAN,fresh fish,tumpok,1,3,pieces or units,25
+AKLAN,ALTAVAS,rice,gantang,0,0,,28
+AKLAN,BATAN,rice,gantang,0,0,,28
+AKLAN,MALAY,rice,gantang,0,0,,28
+AKLAN,MALINAO,rice,gantang,0,0,,28
+ANTIQUE,CULASI,rice,gantang,0,0,,28
+ANTIQUE,LIBERTAD,rice,gantang,0,0,,28
+ANTIQUE,SIBALOM,rice,gantang,0,0,,28
+CAPIZ,DUMALAG,fresh fish,pack,1,4,pieces or units,29
+CAPIZ,MA-AYON,fresh fish,pack,1,4,pieces or units,29
+CAPIZ,PILAR,fresh fish,pack,1,18,pieces or units | pinutos / plastic,29
+ILOILO,BALASAN,fresh fish,pack,1,5,pieces or units,29
+ILOILO,BAROTAC VIEJO,fresh fish,pack,1,11,pieces or units | tumpok,29
+ILOILO,DINGLE,fresh fish,pack,1,9,pieces or units,29
+ILOILO,DUEAS,fresh fish,pack,1,9,pieces or units,29
+ILOILO,DUMANGAS,fresh fish,pack,0,0,,29
+ILOILO,ESTANCIA,fresh fish,pack,1,15,pieces or units,29
+ILOILO,JANIUAY,fresh fish,pack,1,18,pieces or units,29
+ILOILO,MINA,fresh fish,pack,0,0,,29
+ILOILO,SAN RAFAEL,fresh fish,pack,1,9,pieces or units,29
+AKLAN,BANGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,1,putos,38
+AKLAN,MALAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,16,bilog | putos,38
+AKLAN,MALINAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,3,putos,38
+ANTIQUE,CULASI,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,13,bilog | putos,38
+ANTIQUE,LAUA-AN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,3,putos,38
+ANTIQUE,PANDAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,5,putos,38
+ANTIQUE,PATNONGON,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,5,putos,38
+ANTIQUE,SAN REMIGIO,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,6,bilog | putos,38
+ANTIQUE,SEBASTE,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,15,bilog | cans | putos,38
+ANTIQUE,SIBALOM,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,13,bilog | putos,38
+ANTIQUE,TOBIAS FORNIER,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,19,cans | pack | putos,38
+ANTIQUE,VALDERRAMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,11,cans | putos,38
+CAPIZ,SAPI-AN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,6,bilog | putos,38
+ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,15,bilog | putos,38
+ILOILO,MIAGAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,1,11,bilog,38
+CAPIZ,MAMBUSAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,1,1,bowl,39
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,1,1,pieces or units,39
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,1,15,pieces or units | small cup | tub,39
+ANTIQUE,LIBERTAD,cabbage,pack,1,13,pieces or units,46
+CAPIZ,PANITAN,cabbage,pack,1,21,half | pieces or units | putos (mix vegetable),46
+CAPIZ,SIGMA,cabbage,pack,1,15,half | pieces or units | putos (mix vegetable),46
+ILOILO,CABATUAN,cabbage,pack,1,29,pieces or units | putos (mix vegetable),46
+ILOILO,DUEAS,cabbage,pack,1,29,2 kapinutos nga cabbage/20pesos | 3 for 25 pesos (putos) | pieces or units | put,46
+ILOILO,DUMANGAS,cabbage,pack,1,6,pieces or units,46
+ILOILO,IGBARAS,cabbage,pack,1,3,pieces or units,46
+ILOILO,MIAGAO,cabbage,pack,1,16,pieces or units,46
+ILOILO,OTON,cabbage,pack,1,15,pieces or units | putos (mix vegetable),46
+ILOILO,SAN DIONISIO,cabbage,pack,1,6,pieces or units | sliced,46
+AKLAN,ALTAVAS,camote,binilog,0,0,,56
+AKLAN,BATAN,"crackers, cookies, buiscuits, chips/curls",pack,1,11,pieces or units | putos,63
+AKLAN,MALINAO,"crackers, cookies, buiscuits, chips/curls",pack,1,7,pieces or units | putos,63
+CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",pack,1,5,pieces or units | putos,63
+ILOILO,LEMERY,"crackers, cookies, buiscuits, chips/curls",pack,1,8,bucket | pieces or units | putos,63
+AKLAN,IBAJAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,1,13,pieces or units | putos,85
+ILOILO,BALASAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,1,6,bilog | putos,85
+ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,1,7,bilog | cans,85
+ILOILO,CARLES,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,1,6,bilog,85
+ILOILO,DUEAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,1,10,bilog | putos,85
+NEGROS OCCIDENTAL,CALATRAVA,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,1,4,bilog | putos,85
+AKLAN,ALTAVAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,1,7,pieces or units | putos,95
+CAPIZ,DAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,1,5,bilog | putos,95
+CAPIZ,MA-AYON,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,1,8,bilog | putos,95
+CAPIZ,SIGMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,1,4,putos,95
+ILOILO,MAASIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,1,11,pack | putos,95
+AKLAN,BATAN,camote tops,bundle,1,3,bugkos,101
+AKLAN,IBAJAY,camote tops,bundle,1,4,bugkos,101
+AKLAN,MADALAG,camote tops,bundle,1,4,bugkos,101
+AKLAN,MALAY,camote tops,bundle,1,6,bugkos,101
+AKLAN,NABAS,camote tops,bundle,1,5,bugkos,101
+ANTIQUE,BUGASONG,camote tops,bundle,1,3,bugkos,101
+ANTIQUE,CULASI,camote tops,bundle,1,5,bugkos,101
+ANTIQUE,HAMTIC,camote tops,bundle,1,7,bugkos,101
+ANTIQUE,LIBERTAD,camote tops,bundle,1,1,bugkos,101
+ANTIQUE,PANDAN,camote tops,bundle,1,3,bugkos,101
+ANTIQUE,PATNONGON,camote tops,bundle,1,9,bugkos,101
+ANTIQUE,SAN REMIGIO,camote tops,bundle,1,6,bugkos,101
+ANTIQUE,SEBASTE,camote tops,bundle,1,3,bugkos,101
+ANTIQUE,SIBALOM,camote tops,bundle,1,4,bugkos,101
+ANTIQUE,TIBIAO,camote tops,bundle,1,6,bugkos,101
+CAPIZ,DUMALAG,camote tops,bundle,1,2,bugkos,101
+CAPIZ,DUMARAO,camote tops,bundle,1,1,bugkos,101
+CAPIZ,MA-AYON,camote tops,bundle,1,9,bugkos,101
+CAPIZ,MAMBUSAO,camote tops,bundle,1,4,bugkos,101
+CAPIZ,SIGMA,camote tops,bundle,1,3,bugkos,101
+CAPIZ,TAPAZ,camote tops,bundle,1,3,bugkos,101
+ILOILO,BANATE,camote tops,bundle,1,3,bugkos,101
+ILOILO,BAROTAC VIEJO,camote tops,bundle,1,3,bugkos,101
+ILOILO,BATAD,camote tops,bundle,1,7,bugkos,101
+ILOILO,CONCEPCION,camote tops,bundle,1,6,bugkos,101
+ILOILO,DINGLE,camote tops,bundle,1,3,bugkos,101
+ILOILO,DUEAS,camote tops,bundle,1,5,bugkos,101
+ILOILO,DUMANGAS,camote tops,bundle,1,2,bugkos,101
+ILOILO,MINA,camote tops,bundle,1,4,bugkos,101
+ILOILO,NEW LUCENA,camote tops,bundle,1,3,bugkos,101
+ILOILO,OTON,camote tops,bundle,1,9,bugkos,101
+ILOILO,SAN JOAQUIN,camote tops,bundle,1,10,bugkos,101
+ILOILO,SAN RAFAEL,camote tops,bundle,1,3,bugkos,101
+ILOILO,SARA,camote tops,bundle,1,6,bugkos,101
+ILOILO,TUBUNGAN,camote tops,bundle,1,3,bugkos,101
+NEGROS OCCIDENTAL,SALVADOR BENEDICTO,camote tops,bundle,1,3,bugkos,101
+NEGROS OCCIDENTAL,TOBOSO,camote tops,bundle,0,0,,101
+ANTIQUE,HAMTIC,chicken,pieces or units,1,5,whole (chicken),108
+ANTIQUE,LAUA-AN,chicken,pieces or units,1,5,whole (chicken),108
+ANTIQUE,SEBASTE,chicken,pieces or units,1,1,whole (chicken),108
+CAPIZ,JAMINDAN,chicken,pieces or units,1,3,bilog | chicken wings | whole (chicken),108
+ILOILO,BAROTAC VIEJO,chicken,pieces or units,1,8,bilog,108
+ILOILO,GUIMBAL,chicken,pieces or units,1,18,bilog | whole (chicken),108
+ILOILO,JANIUAY,chicken,pieces or units,1,12,patupa | whole (chicken),108
+ILOILO,LAMBUNAO,chicken,pieces or units,1,7,whole (chicken),108
+ILOILO,MIAGAO,chicken,pieces or units,1,15,whole (chicken),108
+ILOILO,MINA,chicken,pieces or units,1,4,whole (chicken),108
+ILOILO,TUBUNGAN,chicken,pieces or units,1,3,bilog,108
+AKLAN,BURUANGA,"prawns, lobster, shrimp",tumpok,0,0,,150
+AKLAN,LIBACAO,"prawns, lobster, shrimp",tumpok,0,0,,150
+AKLAN,MADALAG,"prawns, lobster, shrimp",tumpok,0,0,,150
+AKLAN,MALINAO,"prawns, lobster, shrimp",tumpok,0,0,,150
+AKLAN,TANGALAN,"prawns, lobster, shrimp",tumpok,0,0,,150
+ANTIQUE,BUGASONG,"prawns, lobster, shrimp",tumpok,0,0,,150
+ANTIQUE,SAN REMIGIO,"prawns, lobster, shrimp",tumpok,0,0,,150
+CAPIZ,TAPAZ,"prawns, lobster, shrimp",tumpok,0,0,,150
+ILOILO,DUMANGAS,"prawns, lobster, shrimp",tumpok,0,0,,150
+ILOILO,MINA,"prawns, lobster, shrimp",tumpok,0,0,,150
+ILOILO,SAN RAFAEL,"prawns, lobster, shrimp",tumpok,0,0,,150
+NEGROS OCCIDENTAL,CALATRAVA,"prawns, lobster, shrimp",tumpok,0,0,,150
+AKLAN,ALTAVAS,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+AKLAN,MALAY,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+AKLAN,MALINAO,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+ANTIQUE,BARBAZA,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+CAPIZ,MAMBUSAO,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+CAPIZ,PONTEVEDRA,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+CAPIZ,SIGMA,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+CAPIZ,TAPAZ,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+ILOILO,BADIANGAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+ILOILO,DUEAS,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+ILOILO,MAASIN,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+NEGROS OCCIDENTAL,PONTEVEDRA,"drinks at restaurant, hotel, cafe, or kiosk",pieces,0,0,,189
+AKLAN,ALTAVAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,7,pieces or units | putos,225
+AKLAN,BATAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,23,cans | pieces or units | putos,225
+AKLAN,LIBACAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,8,pieces or units | putos,225
+ANTIQUE,LAUA-AN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,3,putos,225
+ANTIQUE,LIBERTAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,10,pieces or units | putos,225
+ANTIQUE,PANDAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,5,putos,225
+ANTIQUE,PATNONGON,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,5,putos,225
+ANTIQUE,TOBIAS FORNIER,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,19,cans | pack | putos,225
+CAPIZ,SIGMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,4,putos,225
+ILOILO,BADIANGAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,4,putos,225
+ILOILO,BAROTAC NUEVO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,6,putos,225
+ILOILO,LAMBUNAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,6,putos,225
+ILOILO,MAASIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,11,pack | putos,225
+ILOILO,SAN DIONISIO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,5,cans | putos,225
+ILOILO,SAN ENRIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,1,4,putos,225
+CAPIZ,MAMBUSAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,1,bowl,230
+CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,14,pieces or units | small cup,230
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,1,pieces or units,230
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,15,pieces or units | small cup | tub,230
+CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,11,cone | pieces or units | small cup,230
+ILOILO,CARLES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,11,pieces or units | small cup,230
+ILOILO,MINA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,1,12,container | pack | pieces or units | small cup,230
+AKLAN,ALTAVAS,chicken,bilog,1,4,pieces or units | whole (chicken),232
+AKLAN,LIBACAO,chicken,bilog,1,9,pieces or units | whole (chicken),232
+AKLAN,MALAY,chicken,bilog,1,8,whole (chicken),232
+ANTIQUE,BARBAZA,chicken,bilog,1,3,whole (chicken),232
+ANTIQUE,BUGASONG,chicken,bilog,1,9,pieces or units | whole (chicken),232
+ANTIQUE,CULASI,chicken,bilog,1,6,whole (chicken),232
+ANTIQUE,HAMTIC,chicken,bilog,1,5,whole (chicken),232
+ANTIQUE,LAUA-AN,chicken,bilog,1,5,whole (chicken),232
+ANTIQUE,LIBERTAD,chicken,bilog,1,17,pieces or units | whole (chicken),232
+ANTIQUE,PANDAN,chicken,bilog,1,4,whole (chicken),232
+ANTIQUE,PATNONGON,chicken,bilog,1,8,pieces or units | whole (chicken),232
+ANTIQUE,SEBASTE,chicken,bilog,1,1,whole (chicken),232
+ANTIQUE,TIBIAO,chicken,bilog,1,4,pieces or units | whole (chicken),232
+ANTIQUE,TOBIAS FORNIER,chicken,bilog,1,12,pieces or units | whole (chicken),232
+ANTIQUE,VALDERRAMA,chicken,bilog,1,10,pieces or units | whole (chicken),232
+CAPIZ,DUMALAG,chicken,bilog,1,5,whole (chicken),232
+CAPIZ,IVISAN,chicken,bilog,1,9,whole (chicken),232
+CAPIZ,MA-AYON,chicken,bilog,1,7,pack | whole (chicken),232
+CAPIZ,PANITAN,chicken,bilog,1,9,whole (chicken),232
+CAPIZ,PILAR,chicken,bilog,1,9,whole (chicken),232
+CAPIZ,SIGMA,chicken,bilog,1,6,whole (chicken),232
+CAPIZ,TAPAZ,chicken,bilog,1,5,whole (chicken),232
+ILOILO,AJUY,chicken,bilog,1,1,whole (chicken),232
+ILOILO,BADIANGAN,chicken,bilog,1,3,whole (chicken),232
+ILOILO,BATAD,chicken,bilog,1,8,whole (chicken),232
+ILOILO,BINGAWAN,chicken,bilog,1,1,whole (chicken),232
+ILOILO,CABATUAN,chicken,bilog,1,5,whole (chicken),232
+ILOILO,CALINOG,chicken,bilog,1,6,whole (chicken),232
+ILOILO,CARLES,chicken,bilog,1,10,whole (chicken),232
+ILOILO,DUEAS,chicken,bilog,1,5,whole (chicken),232
+ILOILO,DUMANGAS,chicken,bilog,0,0,,232
+ILOILO,JANIUAY,chicken,bilog,1,12,patupa | whole (chicken),232
+ILOILO,LAMBUNAO,chicken,bilog,1,7,whole (chicken),232
+ILOILO,LEMERY,chicken,bilog,1,3,whole (chicken),232
+ILOILO,LEON,chicken,bilog,1,4,whole (chicken),232
+ILOILO,MAASIN,chicken,bilog,1,4,whole (chicken),232
+ILOILO,MIAGAO,chicken,bilog,1,15,whole (chicken),232
+ILOILO,MINA,chicken,bilog,1,4,whole (chicken),232
+ILOILO,NEW LUCENA,chicken,bilog,1,5,whole (chicken),232
+ILOILO,POTOTAN,chicken,bilog,1,10,whole (chicken),232
+ILOILO,SAN ENRIQUE,chicken,bilog,1,4,whole (chicken),232
+ILOILO,SAN MIGUEL,chicken,bilog,1,8,whole (chicken),232
+ILOILO,SANTA BARBARA,chicken,bilog,1,15,whole (chicken),232
+ILOILO,SARA,chicken,bilog,1,12,whole (chicken),232
+NEGROS OCCIDENTAL,CALATRAVA,chicken,bilog,1,3,whole (chicken),232
+NEGROS OCCIDENTAL,CAUAYAN,chicken,bilog,1,8,pieces or units | whole (chicken),232
+NEGROS OCCIDENTAL,ISABELA,chicken,bilog,1,9,whole (chicken),232
+NEGROS OCCIDENTAL,MANAPLA,chicken,bilog,1,4,whole (chicken),232
+NEGROS OCCIDENTAL,SAN ENRIQUE,chicken,bilog,1,10,whole (chicken),232
+AKLAN,LIBACAO,loaf bread,small packs,0,0,,259
+ANTIQUE,BUGASONG,loaf bread,small packs,1,7,large packs | medium packs,259
+CAPIZ,PILAR,loaf bread,small packs,1,10,large packs,259
+CAPIZ,SAPI-AN,loaf bread,small packs,1,7,large packs | medium packs,259
+CAPIZ,SIGMA,loaf bread,small packs,1,13,large packs,259
+CAPIZ,TAPAZ,loaf bread,small packs,1,10,large packs,259
+ILOILO,BADIANGAN,loaf bread,small packs,1,9,large packs | medium packs,259
+ILOILO,BANATE,loaf bread,small packs,1,7,large packs,259
+ILOILO,CALINOG,loaf bread,small packs,1,13,large packs | medium packs,259
+ILOILO,LEGANES,loaf bread,small packs,1,7,large packs,259
+ILOILO,MAASIN,loaf bread,small packs,1,3,large packs | medium packs,259
+ILOILO,SAN DIONISIO,loaf bread,small packs,1,10,medium packs | tama-tama nga putos,259
+NEGROS OCCIDENTAL,CALATRAVA,loaf bread,small packs,1,4,large packs | medium packs,259
+AKLAN,ALTAVAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,2,putos,260
+AKLAN,BURUANGA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,5,pack | small cup,260
+AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,7,putos | small cup,260
+ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,5,putos | small cup,260
+ANTIQUE,PATNONGON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,8,putos | small cup,260
+ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,9,putos | small cup,260
+CAPIZ,IVISAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,2,putos | small cup,260
+CAPIZ,MA-AYON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,4,putos | small cup,260
+CAPIZ,MAMBUSAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,1,bowl,260
+CAPIZ,PANAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,3,putos | small cup,260
+CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,7,putos | small cup,260
+ILOILO,AJUY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,7,bowl | cone | putos | small cup,260
+ILOILO,BALASAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,4,putos | small cup,260
+ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,4,putos,260
+ILOILO,CALINOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,8,pack | putos | small cup,260
+ILOILO,DINGLE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,11,cone | putos | small cup,260
+ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,8,putos | small cup,260
+ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,20,putos | small cup,260
+ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,6,putos | small cup,260
+ILOILO,LEON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,14,cone | putos | small cup,260
+ILOILO,MAASIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,7,putos | small cup,260
+ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,7,putos | small cup,260
+ILOILO,NEW LUCENA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,10,putos | small cup,260
+NEGROS OCCIDENTAL,CANDONI,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,8,cone | putos | small cup,260
+NEGROS OCCIDENTAL,ISABELA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,7,putos | small cup,260
+NEGROS OCCIDENTAL,MANAPLA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,1,9,putos | small cup,260
+AKLAN,ALTAVAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,2,putos,305
+AKLAN,BANGA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,2,pieces or units | putos,305
+AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,7,pieces or units | putos,305
+AKLAN,NABAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,8,pieces or units | putos,305
+CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,8,cone | pieces or units | putos | tupperware,305
+CAPIZ,MAMBUSAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,1,bowl,305
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,1,pieces or units,305
+ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,4,putos,305
+ILOILO,SAN DIONISIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,1,4,pieces or units,305
+AKLAN,LIBACAO,loaf bread,medium packs,0,0,,352
+ANTIQUE,PANDAN,loaf bread,medium packs,1,1,small packs,352
+CAPIZ,MAMBUSAO,loaf bread,medium packs,1,10,large packs | small packs,352
+CAPIZ,PANITAN,loaf bread,medium packs,1,10,small packs,352
+CAPIZ,PILAR,loaf bread,medium packs,1,10,large packs,352
+CAPIZ,SIGMA,loaf bread,medium packs,1,13,large packs,352
+CAPIZ,TAPAZ,loaf bread,medium packs,1,10,large packs,352
+ILOILO,BANATE,loaf bread,medium packs,1,7,large packs,352
+AKLAN,LIBACAO,loaf bread,large packs,0,0,,411
+ANTIQUE,PANDAN,loaf bread,large packs,1,1,small packs,411
+CAPIZ,PANAY,loaf bread,large packs,1,8,medium packs | small packs,411
+CAPIZ,PANITAN,loaf bread,large packs,1,10,small packs,411
+ILOILO,SAN DIONISIO,loaf bread,large packs,1,10,medium packs | tama-tama nga putos,411
+CAPIZ,IVISAN,camote tops,bugkos,1,3,bundle,449
+CAPIZ,SAPI-AN,camote tops,bugkos,1,3,bundle,449
+ILOILO,LEMERY,camote tops,bugkos,1,6,bundle,449
+NEGROS OCCIDENTAL,CALATRAVA,camote tops,bugkos,1,4,bundle,449
+NEGROS OCCIDENTAL,TOBOSO,camote tops,bugkos,0,0,,449
+ANTIQUE,HAMTIC,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,8,bilog | pack,474
+CAPIZ,IVISAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,6,bilog | pack,474
+ILOILO,BANATE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,7,pack,474
+ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,7,bilog | cans,474
+ILOILO,BATAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,10,bilog | pack,474
+ILOILO,CABATUAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,4,bilog | pack,474
+ILOILO,CALINOG,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,15,bilog | pack,474
+ILOILO,CARLES,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,6,bilog,474
+ILOILO,CONCEPCION,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,10,bilog,474
+ILOILO,DINGLE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,8,bilog | pack,474
+ILOILO,LEMERY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,4,bilog | pack,474
+ILOILO,MIAGAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,11,bilog,474
+ILOILO,MINA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,8,bilog | pack,474
+ILOILO,SAN JOAQUIN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,14,pack | pieces or units,474
+ILOILO,SAN RAFAEL,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,1,3,bilog,474
+ANTIQUE,SAN REMIGIO,chicken,whole (chicken),1,7,bilog | pieces or units,476
+ANTIQUE,SIBALOM,chicken,whole (chicken),1,15,bilog | pieces or units,476
+CAPIZ,DUMARAO,chicken,whole (chicken),1,2,bilog,476
+CAPIZ,PANAY,chicken,whole (chicken),1,18,bilog | slice,476
+CAPIZ,PONTEVEDRA,chicken,whole (chicken),1,10,bilog,476
+CAPIZ,PRESIDENT ROXAS,chicken,whole (chicken),1,1,bilog,476
+ILOILO,ALIMODIAN,chicken,whole (chicken),1,15,bilog | pieces or units,476
+ILOILO,ANILAO,chicken,whole (chicken),1,11,bilog,476
+ILOILO,BALASAN,chicken,whole (chicken),1,3,bilog,476
+ILOILO,BANATE,chicken,whole (chicken),1,10,bilog,476
+ILOILO,BAROTAC VIEJO,chicken,whole (chicken),1,8,bilog,476
+ILOILO,CONCEPCION,chicken,whole (chicken),1,13,bilog,476
+ILOILO,DINGLE,chicken,whole (chicken),1,4,bilog,476
+ILOILO,DUMANGAS,chicken,whole (chicken),0,0,,476
+ILOILO,IGBARAS,chicken,whole (chicken),1,5,bilog,476
+ILOILO,LEGANES,chicken,whole (chicken),1,9,bilog,476
+ILOILO,OTON,chicken,whole (chicken),1,9,bilog,476
+ILOILO,SAN DIONISIO,chicken,whole (chicken),1,3,bilog,476
+ILOILO,SAN JOAQUIN,chicken,whole (chicken),1,7,bilog | pieces or units,476
+ILOILO,TUBUNGAN,chicken,whole (chicken),1,3,bilog,476
+NEGROS OCCIDENTAL,LA CASTELLANA,chicken,whole (chicken),1,4,bilog,476
+NEGROS OCCIDENTAL,MURCIA,chicken,whole (chicken),1,4,bilog,476
+NEGROS OCCIDENTAL,PULUPANDAN,chicken,whole (chicken),1,2,bilog,476
+NEGROS OCCIDENTAL,SALVADOR BENEDICTO,chicken,whole (chicken),1,2,bilog,476
+ANTIQUE,HAMTIC,"crackers, cookies, buiscuits, chips/curls",putos,1,16,balde | pack,482
+ANTIQUE,LAUA-AN,"crackers, cookies, buiscuits, chips/curls",putos,1,14,pack | pieces or units,482
+ANTIQUE,LIBERTAD,"crackers, cookies, buiscuits, chips/curls",putos,1,6,pack | pieces or units,482
+CAPIZ,SAPI-AN,"crackers, cookies, buiscuits, chips/curls",putos,1,11,pack | pieces or units,482
+ILOILO,BAROTAC VIEJO,"crackers, cookies, buiscuits, chips/curls",putos,1,5,pieces or units,482
+ILOILO,BATAD,"crackers, cookies, buiscuits, chips/curls",putos,1,15,pack | pieces or units,482
+ILOILO,MAASIN,"crackers, cookies, buiscuits, chips/curls",putos,1,14,pack | pieces or units,482
+ILOILO,MIAGAO,"crackers, cookies, buiscuits, chips/curls",putos,1,12,pieces or units,482
+ILOILO,MINA,"crackers, cookies, buiscuits, chips/curls",putos,1,15,pack | pieces or units,482
+CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",long-neck,1,11,lipid/lapad,486
+CAPIZ,SIGMA,"liquor (e.g, whisky, coconut wine)",long-neck,1,1,lipid/lapad,486
+CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",long-neck,1,13,lipid/lapad,486
+AKLAN,BURUANGA,"crackers, cookies, buiscuits, chips/curls",pieces or units,1,25,pack | putos,505
+ANTIQUE,HAMTIC,"crackers, cookies, buiscuits, chips/curls",pieces or units,1,16,balde | pack,505
+ANTIQUE,TOBIAS FORNIER,"crackers, cookies, buiscuits, chips/curls",pieces or units,1,8,putos,505
+ILOILO,BALASAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,1,4,pack | putos,505
+ILOILO,DUEAS,"crackers, cookies, buiscuits, chips/curls",pieces or units,1,23,balde | putos,505
+ILOILO,JANIUAY,"crackers, cookies, buiscuits, chips/curls",pieces or units,1,21,putos,505
+CAPIZ,SIGMA,camote,bilog,0,0,,509
+AKLAN,ALTAVAS,mango,pieces or units,0,0,,539
+CAPIZ,MAMBUSAO,mango,pieces or units,0,0,,539
+ILOILO,BADIANGAN,mango,pieces or units,0,0,,539
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),mango,pieces or units,0,0,,539
+ILOILO,GUIMBAL,"liquor (e.g, whisky, coconut wine)",lipid/lapad,0,0,,618
+ILOILO,BADIANGAN,fresh fish,pieces or units,0,0,,688
+ILOILO,DUMANGAS,fresh fish,pieces or units,0,0,,688
+ILOILO,MINA,fresh fish,pieces or units,0,0,,688

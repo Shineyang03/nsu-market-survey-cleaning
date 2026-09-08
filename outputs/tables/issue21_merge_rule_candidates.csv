@@ -1,0 +1,39 @@
+﻿case,n_weighings,n_points_union,n_points_best_single,no merge,abs <= P5,abs <= P10,abs <= P20  (the price file's own rule),abs <= P30,rel <= 10%,rel <= 20%,abs<=P20 OR rel<=10%
+"ANTIQUE / HAMTIC / ice cream, sorbet, edibl / small cup",3,3,2,3,3,3,2,2,3,3,2
+ANTIQUE / HAMTIC / loaf bread / large packs,6,4,3,4,4,4,3,3,4,3,3
+CAPIZ / CUARTERO / loaf bread / large packs,5,6,3,6,6,6,3,3,6,3,3
+CAPIZ / DUMARAO / cabbage / pack,5,2,1,2,2,1,1,1,2,2,1
+CAPIZ / JAMINDAN / cabbage / pieces or units,10,4,3,4,4,4,2,2,4,4,2
+CAPIZ / MAMBUSAO / loaf bread / large packs,9,2,1,2,2,1,1,1,2,1,1
+ILOILO / AJUY / loaf bread / large packs,2,6,3,6,4,4,2,2,3,2,2
+ILOILO / ALIMODIAN / carrot / pieces or units,11,1,1,1,1,1,1,1,1,1,1
+"ILOILO / BADIANGAN / crackers, cookies, buisc / pieces or units",5,6,3,6,6,4,2,1,6,5,2
+"ILOILO / BADIANGAN / ice cream, sorbet, edibl / small cup",3,2,1,2,2,1,1,1,2,2,1
+ILOILO / BALASAN / carrot / pieces or units,13,3,2,3,2,2,2,2,3,2,2
+"ILOILO / BAROTAC VIEJO / crackers, cookies, buisc / pieces or units",5,2,1,2,2,2,2,1,2,2,2
+ILOILO / CABATUAN / loaf bread / large packs,6,4,3,4,3,3,2,2,2,2,2
+ILOILO / CABATUAN / loaf bread / medium packs,4,2,1,2,1,1,1,1,1,1,1
+ILOILO / CABATUAN / loaf bread / small packs,4,3,3,3,3,3,2,2,3,3,2
+ILOILO / CARLES / chicken / whole (chicken),10,5,3,5,5,4,4,4,4,2,4
+"ILOILO / CARLES / ice cream, sorbet, edibl / small cup",8,3,3,3,3,2,2,2,3,3,2
+ILOILO / CARLES / loaf bread / large packs,5,5,3,5,5,3,3,3,4,3,3
+"ILOILO / CONCEPCION / ice cream, sorbet, edibl / pieces or units",2,3,2,3,3,3,2,2,3,3,2
+ILOILO / DUEAS / loaf bread / large packs,8,6,3,6,5,4,3,2,4,2,3
+ILOILO / DUEAS / loaf bread / small packs,8,2,1,2,1,1,1,1,1,1,1
+"ILOILO / DUMANGAS / ice cream, sorbet, edibl / pieces or units",4,4,3,4,4,4,3,2,4,4,3
+ILOILO / GUIMBAL / loaf bread / large packs,7,2,1,2,2,1,1,1,1,1,1
+ILOILO / GUIMBAL / loaf bread / medium packs,5,2,1,2,1,1,1,1,1,1,1
+ILOILO / JANIUAY / chicken / whole (chicken),9,4,3,4,4,4,2,2,2,2,2
+ILOILO / LAMBUNAO / cabbage / pieces or units,17,2,1,2,1,1,1,1,1,1,1
+ILOILO / LAMBUNAO / carrot / pieces or units,20,2,1,2,1,1,1,1,2,1,1
+ILOILO / LEMERY / fresh fish / pack,2,3,2,3,3,3,3,3,3,3,3
+"ILOILO / MAASIN / ice cream, sorbet, edibl / small cup",4,5,3,5,5,3,3,2,5,4,3
+"ILOILO / MINA / liquor (e.g, whisky, coc / lipid/lapad",5,4,3,4,3,3,3,3,3,3,3
+ILOILO / SAN RAFAEL / loaf bread / large packs,3,5,3,5,4,3,3,3,3,3,3
+"ILOILO / TIGBAUAN / ice cream, sorbet, edibl / pieces or units",11,4,3,4,3,3,3,3,3,3,3
+"ILOILO / TIGBAUAN / ice cream, sorbet, edibl / small cup",5,4,3,4,3,3,2,2,4,3,2
+ILOILO / TIGBAUAN / loaf bread / large packs,8,6,3,6,6,4,2,2,5,3,2
+"ILOILO / TUBUNGAN / ice cream, sorbet, edibl / pieces or units",9,2,1,2,2,2,1,1,2,2,1
+NEGROS OCCIDENTAL / HINOBA-AN (ASIA) / loaf bread / large packs,6,2,1,2,2,2,2,2,2,2,2
+NEGROS OCCIDENTAL / HINOBA-AN (ASIA) / loaf bread / medium packs,6,1,1,1,1,1,1,1,1,1,1
+"NEGROS OCCIDENTAL / ILOG / ice cream, sorbet, edibl / small cup",5,2,1,2,2,1,1,1,2,2,1

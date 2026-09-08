@@ -1,0 +1,9 @@
+﻿category,n
+direct in-cell match (harmonizable),304
+resolved via in-cell fallback,198
+"no MS presence in cell at all (no match, no fallback)",447
+  of which: nonsensical (unmappable) -- no weight at all (.c),66
+  of which: nonsensical (recoverable) -- heuristic salvage only,9
+"  of which: empty/uncommon, item absent from cell",136
+"  of which: empty/uncommon, valid for item elsewhere (has an item-level pool, just not local)",236
+TOTAL price-only cases,949

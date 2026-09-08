@@ -1,7 +1,7 @@
 # The master NSU rename sheet — construction & use
 
 **File:** `outputs/tables/master_nsu_rename.csv` (also published as `.xlsx`, see §9)
-**Built by:** `dofiles/diagnose_price_only.py`
+**Built by:** `dofiles/00_shared/01_build_crosswalk.py`
 
 This is the authoritative map from every raw non-standard unit (NSU) recorded in the survey to a
 weight-validated pooling key, and it makes explicit which raw NSUs in the same cell are the same referent
@@ -58,10 +58,23 @@ The fold from a label to its harmonized key is decided per **item**, and is the 
 
   So the rule is keyed on `(item × unit)`, never on the unit alone.
 
-- **Cell-independent.** Given the item, the harmonized key does not depend on province or municipality —
-  cabbage `binilog` → `pieces or units` everywhere. This lets a thin cell reuse a conversion factor
-  estimated from richer cells for the same unit. If the key were cell-specific, the identical physical
-  unit would fall into different pools town-by-town and could not share weights.
+- **Cell-independent, with two declared exceptions.** Given the item, the harmonized key does not
+  normally depend on province or municipality — cabbage `binilog` → `pieces or units` everywhere. This
+  lets a thin cell reuse a conversion factor estimated from richer cells for the same unit. If the key
+  were routinely cell-specific, the identical physical unit would fall into different pools
+  town-by-town and could not share weights.
+
+  The exceptions are declared in `CELL_MIX` in `dofiles/00_shared/nsu_fold_rule.py`, keyed on
+  (province, municipality, item, raw unit). Today it holds two entries: at **ILOILO / TIGBAUAN** a
+  `putos` of cabbage or of carrot folds to `putos (mix vegetable)`, where the same spelling elsewhere
+  is correctly a `pack`. The field officer recorded why — *"There is no cabbage packs alone this is
+  mixed with carrots"* — which is a statement about that market, not about those vendors.
+
+  **What must never happen is the within-cell version:** one raw label mapping to two harmonized units
+  *inside a single cell*. That would make a case pool two different objects under one median.
+  `verify_documented_claims.py` asserts it directly (0 of 2,927 cells today) and separately asserts
+  that the only cell-conditioned pairs are the ones `CELL_MIX` declares, so a new one is a finding
+  rather than drift.
 
 Note the contrast with two neighbouring columns: `in_MS_as` **is** cell-specific (the concrete sibling
 found in that one cell), and the conversion *weight in grams* is still estimated per prov-mun. Only the
@@ -191,7 +204,7 @@ translation group (§6). Some raw units are plain-language size synonyms that we
 a group in the crosswalk, so they'd never surface as a fallback match at all. `tama-tama nga putos`
 ("medium" in Kinaray-a/Hiligaynon, for loaf bread) is one such case: it is ungrouped, so its own
 `harmonized_nsu_unit` is itself, but for **fallback matching only** it is treated as a `medium packs`
-member (`FALLBACK_GROUP_OVERRIDE` in `diagnose_price_only.py`) — in both directions: a price-only
+member (`FALLBACK_GROUP_OVERRIDE` in `00_shared/01_build_crosswalk.py`) — in both directions: a price-only
 `tama-tama nga putos` case can fall back onto an in-cell `medium packs`/`medium nga putos`/etc. sibling,
 and a price-only `medium`-family case can fall back onto an in-cell `tama-tama nga putos`. This does not
 change `harmonized_nsu_unit`, `cleaned_nsu_unit`, or the translation-group crosswalk — only the fallback
@@ -221,13 +234,13 @@ Pick the layer the change belongs to:
 2. **Change which pool a unit belongs to** (a unit should fold into, or out of, a translation group):
    edit **`price_ms_unit_harmonization_crosswalk.xlsx`** — set the unit's `translation_group`.
 3. **Add an item-specific exception** (keep a unit separate for one item only, as in §6): add it to the
-   corresponding rule in `diagnose_price_only.py` (`KEEP_SEPARATE`, `PUTOS_KEEP_SEPARATE_ITEMS`, or
+   corresponding rule in `00_shared/01_build_crosswalk.py` (`KEEP_SEPARATE`, `PUTOS_KEEP_SEPARATE_ITEMS`, or
    `unsafe_pieces`).
 
 Then re-run:
 
 ```bash
-python dofiles/diagnose_price_only.py
+python dofiles/00_shared/01_build_crosswalk.py
 ```
 
 and spot-check the cell(s) you touched.

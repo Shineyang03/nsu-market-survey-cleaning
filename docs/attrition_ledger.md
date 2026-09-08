@@ -16,10 +16,10 @@ read as describing it.
 
 > province × municipality × item × `harmonized_nsu_unit` × `corrected_unit`
 
-This is the grain `nsu_reference_set.do` actually pools on (it groups on all five
+This is the grain `10_reference_set/10_size_assignment.do` actually pools on (it groups on all five
 columns to build `cell`). It is one column finer than the grain used for the
 headline case counts elsewhere in the project docs (`docs/conversion_factor_methodology.md`'s
-"1,952 cases harmonized" figure, which omits `corrected_unit`) — the extra split
+"1,951 cases harmonized" figure, which omits `corrected_unit`) — the extra split
 comes from the two mixed-dimension items (ice cream; drinks at restaurant/hotel/cafe/kiosk)
 that get separate grams and millilitres cases. Where the coarser, no-`corrected_unit`
 grain is used below, it is labeled explicitly, because the two grains give different
@@ -34,7 +34,7 @@ real `nsu_reference_set.dta` output exactly, case for case).
 
 ---
 
-## 1. Raw weighings → `nsu_data_master.dta` (`cleaning_Aug11.do`)
+## 1. Raw weighings → `nsu_data_master.dta` (`03_clean_ms.do`)
 
 | step | drop | rows in | dropped | rows out |
 |---|---|---:|---:|---:|
@@ -54,12 +54,12 @@ of the four drops above empties a case of every one of its rows.
 
 ---
 
-## 2. `nsu_data_master.dta` → `nsu_weights_restated.dta` (`nsu_restate_weights.do`)
+## 2. `nsu_data_master.dta` → `nsu_weighings_cpi.dta` (`07_cpi_factor.do`)
 
 | step | drop | rows in | dropped | rows out |
 |---|---|---:|---:|---:|
 | 2a | vendor-priced price-quantity rows where the case keeps a preloaded rung | 11,458 | 74 | 11,384 |
-| **out** | **`nsu_weights_restated.dta`** | | **74** | **11,384** |
+| **out** | **`nsu_weighings_cpi.dta`** | | **74** | **11,384** |
 
 Of 95 rows where `actual_price` was recorded (a field-officer comment saying the
 vendor's own price governed, not the preloaded amount), 74 are dropped and 21 are
@@ -75,7 +75,7 @@ previously documented:
 
 Ice cream is one of the two items recorded in both mass and volume
 (`docs/data_oddities.md` §4), so this cell splits into a `g` case and an `mL` case.
-The rescue rule in `nsu_restate_weights.do` decides "does this case keep a preloaded
+The rescue rule in `07_cpi_factor.do` decides "does this case keep a preloaded
 rung" at the grain province × municipality × item × `harmonized_nsu_unit` —
 **without `corrected_unit`**. The `g`-side case had a preloaded row and survived; the
 `mL`-side case's only price-quantity row was vendor-priced (`actual_price = 12`). The
@@ -88,20 +88,20 @@ grouping variables are one column coarser than the case grain it is protecting.
 
 Not corrected here, per this task's no-`.do`-edit rule. The fix is to add
 `corrected_unit` to the rescue rule's `bysort`/`egen` grouping in
-`nsu_restate_weights.do`.
+`07_cpi_factor.do`.
 
 ---
 
-## 3. `nsu_weights_restated.dta` → Outcome 1 (`nsu_reference_set.do`)
+## 3. `nsu_weighings_cpi.dta` → Outcome 1 (the `10_reference_set/` steps)
 
 | step | drop | rows in | dropped | rows out |
 |---|---|---:|---:|---:|
-| 3a | rows with no usable `w_ref` (missing `corrected_weight`) | 11,384 | 7 | 11,377 |
+| 3a | rows with no usable weight (missing `corrected_weight`) | 11,384 | 7 | 11,377 |
 | 3b | `unique_mun_price` weighings (**Outcome 1 only** — not a size) | 11,377 | 33 | 11,344 |
 | 3c | the carrot's price-quantity rows (mixed-branch cell; **Outcome 1 only** — keeps the 9 size-based rows) | 11,344 | 7 | 11,337 |
-| 3d | *aggregation, not attrition* — collapse to median(`w_ref`) within case × size | 11,337 | — | **3,321** |
+| 3d | *aggregation, not attrition* — collapse to median(`corrected_weight`) within case × size | 11,337 | — | **3,321** |
 
-**Step 3a — the 7 rows with no usable `w_ref`:**
+**Step 3a — the 7 rows with no usable weight:**
 
 | province | municipality | item | NSU | branch | reason |
 |---|---|---|---|---|---|
@@ -121,13 +121,13 @@ below for why this matters.)
 **Step 3b — `unique_mun_price` (33 rows / 11 cases, Outcome 1 only).** It is a raw
 observed price recorded because the municipality had too few distinct prices to
 take quartiles — not a percentile, so it has no position on a size ladder. Excluding
-it is deliberate (`docs/data_oddities.md`; `nsu_reference_set.do` header). 11 cases
+it is deliberate (`docs/data_oddities.md`; `10_reference_set/10_size_assignment.do` header). 11 cases
 lose every price-quantity row to this drop — see the full list under "The 315 → 310
 question".
 
 **Step 3c — the carrot (7 rows, 1 case removed from the price-quantity population,
 0 cases removed overall).** ILOILO/TIGBAUAN/carrot/pieces or units is the one
-harmonized cell in 1,952 that spans both weighing approaches (9 size-based `bilog`
+harmonized cell in 1,951 that spans both weighing approaches (9 size-based `bilog`
 rows fold with 7 price-quantity `pieces or units` rows). Outcome 1 keeps only the
 9 size-based rows; Outcome 2 will keep only the 7 price-quantity rows. The case
 survives in the output (via its size-based rows), so it does not reduce the
@@ -155,8 +155,8 @@ named and matches the ~11–12 originally expected.
 
 315 is the count of price-quantity-*touching* cases at the **coarse** grain
 (province × municipality × item × `harmonized_nsu_unit`, **without**
-`corrected_unit`), measured on `nsu_weights_restated.dta` (the literal input to
-`nsu_reference_set.do`). It equals **314 + 1**:
+`corrected_unit`), measured on `nsu_weighings_cpi.dta` (the literal input to
+`10_reference_set/10_size_assignment.do`). It equals **314 + 1**:
 
 - 314 is the modal price-quantity case count from
   `docs/conversion_factor_methodology.md`'s "Branch shares" table (measured the
@@ -166,16 +166,16 @@ named and matches the ~11–12 originally expected.
   still counts as "price-quantity-touching" under an any-row test, because it does
   contain price-quantity rows.
 
-This count is identical on `nsu_data_master.dta` and `nsu_weights_restated.dta` —
+This count is identical on `nsu_data_master.dta` and `nsu_weighings_cpi.dta` —
 the Stage 2 ice-cream-`mL` loss doesn't move it, because that case's `g`-side
 sibling (same coarse key) survives.
 
 ### What "310" actually is
 
 310 is the price-quantity case count in the **fine**-grain (with `corrected_unit`)
-published output — the grain `nsu_reference_set.do` itself pools on, and the one
+published output — the grain `10_reference_set/12_publish_reference_set.do` itself pools on, and the one
 this ledger uses throughout. It was verified two ways: (1) replicating
-`nsu_reference_set.do`'s §1 drop logic step by step in Python, and (2) reading the
+`10_reference_set/10_size_assignment.do`'s §1 drop logic step by step in Python, and (2) reading the
 actual `nsu_reference_set.dta` file and taking its price-quantity case set directly.
 **The two are set-identical** — same 310 cases, not just the same count.
 
@@ -206,7 +206,7 @@ cell:
 | # | province | municipality | item | NSU | `corrected_unit` | stage lost | reason |
 |---|---|---|---|---|---|---|---|
 | 1 | NEGROS OCCIDENTAL | ENRIQUE B. MAGALONA (SARAVIA) | ice cream, sorbet, edible ice | putos | mL | Stage 2 | restate rescue-rule grain mismatch |
-| 2 | CAPIZ | TAPAZ | chicken | whole (chicken) | *(missing)* | Stage 3a | no usable `w_ref` (blank field weight) |
+| 2 | CAPIZ | TAPAZ | chicken | whole (chicken) | *(missing)* | Stage 3a | no usable weight (blank field weight) |
 | 3 | ANTIQUE | LIBERTAD | preserved or processed meat | pieces or units | g | Stage 3b | `unique_mun_price` only |
 | 4 | NEGROS OCCIDENTAL | VALLADOLID | chicken | bilog | g | Stage 3b | `unique_mun_price` only |
 | 5 | NEGROS OCCIDENTAL | PULUPANDAN | liquor | long-neck | mL | Stage 3b | `unique_mun_price` only |
@@ -256,8 +256,8 @@ Row-level, raw MS weighing to the last row that enters the Outcome 1 collapse:
    − 3   TIGBAUAN fresh fish bilog, no price
  = 11,458  (nsu_data_master.dta)
    − 74  vendor-priced rows not rescued
- = 11,384  (nsu_weights_restated.dta)
-   − 7   no usable w_ref
+ = 11,384  (nsu_weighings_cpi.dta)
+   − 7   no usable weight
    − 33  unique_mun_price (Outcome 1 only)
    − 7   carrot price-quantity rows (Outcome 1 only)
  = 11,337  rows entering the median collapse
@@ -274,8 +274,8 @@ Case-level, at the fine grain (province × municipality × item ×
 ```
 2,020 cases (nsu_data_master.dta)
    − 1   ice cream mL, restate rescue-rule grain mismatch
- = 2,019 (nsu_weights_restated.dta)
-   − 4   no usable w_ref (1 price-quantity case + 3 size-based cases)
+ = 2,019 (nsu_weighings_cpi.dta)
+   − 4   no usable weight (1 price-quantity case + 3 size-based cases)
  = 2,015
    − 11  unique_mun_price-only (price-quantity cases)
  = 2,004
