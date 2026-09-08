@@ -1,0 +1,8 @@
+﻿name,lives,provenance,sets,evidence,weighings
+camote pieces-group kept unfolded,nsu_fold_rule.py NOFOLD_PIECES,weight test (snap output),harmonized_nsu_unit,"validate_folds.py: camote bilog != binilog, p=0.004, ratio 1.61, but on only 3 strata -> low confidence, so do not fold",565
+"putos kept separate from pack (ice cream, crackers)",nsu_fold_rule.py PUTOS_KEEP_SEPARATE_ITEMS,weight test (snap output),harmonized_nsu_unit,weight test: a putos is a ~60 g (ice cream) / ~160 g (crackers) sachet against a ~300-525 g pack,712
+chicken bilog <-> whole (chicken) fallback pairing,01_build_crosswalk.py FALLBACK_GROUP_OVERRIDE,weight test (snap output),fallback_harmonized_nsu_unit only,"weight test: bilog ~1,095 g (n=233) vs whole (chicken) ~1,120 g (n=476), agreeing to within 2%",712
+bundle / packs groups never fold,nsu_fold_rule.py KEEP_SEPARATE,conceptual (referent differs),harmonized_nsu_unit,"the group name describes a container, not a size, so two members need not weigh the same",1985
+chicken / preserved-meat bilog is not a piece,nsu_fold_rule.py unsafe_pieces(),conceptual (referent differs),harmonized_nsu_unit,"a whole bird is not a piece; stated as a referent difference, not measured",457
+mixed-vegetable putos folds (incl. cell-level),nsu_fold_rule.py MIX_UNITS / CELL_MIX,field-officer comment,harmonized_nsu_unit,"field comments quoted verbatim, e.g. ""There is no cabbage packs alone this is mixed with carrots""",53
+"hand rename, reduce-and-retry, fuzzy at 0.85, heuristic",nsu_fold_rule.py to_cleaned(),string / semantic,cleaned_nsu_unit -> harmonized_nsu_unit,spelling and word-order reconciliation; no weight is consulted,11335

@@ -135,11 +135,54 @@ re-implement them differently.
 
 | module | defines | imported by |
 |---|---|---|
-| `nsu_fold_rule.py` | **THE fold rule** — which raw spellings mean the same thing, and therefore what `harmonized_nsu_unit` is. Pure functions of (item, raw label), reading no build output, deliberately: the snap's anchor pool is keyed on `harmonized_nsu_unit`, so a fold that read corrected weights would close a loop (#33). Its carve-outs are the item-specific separations in `../docs/master_rename.md` §6. | `01`, plus `90_diagnostics/fold_map.py` and `verify_documented_claims.py` |
+| `nsu_fold_rule.py` | **THE fold rule** — which raw spellings mean the same thing, and therefore what `harmonized_nsu_unit` is. Pure functions of (item, raw label), reading no build output, deliberately: the snap's anchor pool is keyed on `harmonized_nsu_unit`, so a fold that read corrected weights would close a loop (#33). Its carve-outs are the item-specific separations in `../docs/master_rename.md` §6, and **their provenance is not uniform** — see "Two different loops" below. | `01`, plus `90_diagnostics/fold_map.py` and `verify_documented_claims.py` |
 | `nsu_normalize.py` | the one definition of the project's string normalization (`nz` / `ni` / `ng`). The Stata counterpart is the `nsu_normalize` program in `00_globals.do` and must agree with it character for character. **Never NFKD-decompose** — `DUEÑAS` becomes `DUEAS`, not `DUENAS`. | `01`, `02`, `nsu_fold_rule.py`, and 16 diagnostics |
 
 There used to be eleven byte-identical copies of the normalizers across `90_diagnostics/`;
 a fix to any one of them reached none of the others (#32). Import these, never copy them.
+
+### Two different loops, and only one of them is real
+
+"The snap depends on the harmonization and the harmonization depends on the snap" is
+half true, and which half matters for what you can rely on.
+
+**The runtime edge is forward-only, and is not a cycle.** Within one build the order is
+fixed: `00a` assigns durable ids from the raw data, `01` builds the crosswalk from the
+raw survey plus the price file plus that registry, `03` merges the harmonized unit at
+§339, and the snap runs afterwards at §659. `03_clean_ms.do:370` is the *only* write to
+`harmonized_nsu_unit` anywhere in the pipeline — every reference in
+`05_manual_corrections.do` is a read-only lookup key. So the build is a DAG and it
+reproduces: `verify_pipeline.py` check 1 rebuilds the crosswalk from raw inputs and gets
+zero differing cells across 2,927 rows × 9 columns. Re-keying the snap's anchor would
+remove this edge, and remove nothing that was a defect.
+
+**The evidence edge is a real loop, and it is latched through a person.** Some carve-outs
+were *decided* by looking at corrected weights — the snap's own output — and then frozen
+by hand into `nsu_fold_rule.py` and the crosswalk workbooks:
+
+```
+a carve-out        (frozen in nsu_fold_rule.py / the crosswalks)
+  ← a weight test  (90_diagnostics/validate_folds.py, van Elteren)
+    ← corrected_weight
+      ← 04_unit_snap.do
+        ← harmonized_nsu_unit   (the snap pools its anchor on this)
+          ← the carve-out
+```
+
+Nothing re-runs by itself, so a snap change cannot silently move a fold. What it can do
+is leave a frozen carve-out contradicting the evidence that justified it — which has
+already happened once, to the crackers `bilog` fold. **Re-keying the anchor does not
+close this loop**, because the test still reads corrected weights. Testing folds on the
+*block reading* instead — the typed number in canonical units, a function of the raw
+weight, the unit tick and `KGMAX` alone — would.
+
+`90_diagnostics/audit_weight_derived_folds.py` is the register of which decisions are
+exposed. It reports provenance and how many weighings each governs; it does not re-run
+the tests, because `validate_folds.py` owns those and a second copy would diverge.
+Currently **1,277 weighings (11.3%)** have their final `harmonized_nsu_unit` set by a
+weight-derived decision, plus 712 more where only `fallback_harmonized_nsu_unit` does.
+The rest of the carve-outs rest on a stated referent difference, a quoted field comment,
+or string normalization, and no snap change can touch them.
 
 **`branch` vs `weighing_approach`, once `08` exists.** Use **`branch`** wherever the code
 decides how a weighing is PROCESSED or PUBLISHED. Keep **`weighing_approach`** wherever it
