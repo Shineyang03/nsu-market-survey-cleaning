@@ -25,12 +25,13 @@ hetero_group, raw weight -- because ids in older workbooks predate the durable i
 registry. `verdict_landed' says whether each one actually reached the published value,
 and a verdict matching no current row raises a warning rather than disappearing.
 
-Save your annotated copy into reference/reviewed/ before re-running, or this
-regenerates over it.
+Your annotated copy is archived into reference/reviewed/ AUTOMATICALLY before this
+regenerates, so a review pass cannot be lost by re-running. No manual copy needed.
 
 Run from the project root:  python dofiles/90_diagnostics/snap_sense_check.py
 """
-import io, re
+import datetime as dt
+import io, re, shutil
 import numpy as np, pandas as pd
 from pathlib import Path
 
@@ -205,26 +206,83 @@ def _vkey(frame):
             + "|" + frame.weight.map(lambda v: "" if pd.isna(v) else f"{v:.6g}"))
 
 
+# ---- never overwrite a review pass ---------------------------------------------
+# This script regenerates OUT in place. If a reviewer has annotated that workbook and
+# not copied it anywhere, re-running destroys the pass -- and asking a human to
+# remember a manual copy before every run is a bad safeguard, because the one time
+# they forget is the time it matters.
+#
+# So the copy happens HERE, automatically, before anything is written: an annotated
+# live workbook is filed into reference/reviewed/ under its own last-modified date.
+# The carry-forward below then picks it up as the newest reviewed file, which is why
+# this must run first.
+REVIEWED_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _annotations(frame):
+    """Rows carrying a REAL verdict.
+
+    `Corrected Value' is written out as an empty string, not a null, so a bare
+    .notna() is True on every row and would report a freshly generated workbook as
+    fully annotated. That is not hypothetical -- it fired on the first run and
+    archived an un-annotated file over the top of a real review pass.
+    """
+    if "Corrected Value" not in frame.columns:
+        return frame.iloc[0:0]
+    v = frame["Corrected Value"]
+    return frame[v.notna() & v.astype(str).str.strip().ne("")]
+
+
+if OUT.exists():
+    try:
+        _x = pd.ExcelFile(OUT)
+        _n_notes = sum(len(_annotations(_x.parse(_s))) for _s in _x.sheet_names)
+    except Exception as _e:                     # unreadable or mid-save: assume yes
+        print(f"could not scan {OUT.name} for annotations ({_e}); archiving anyway")
+        _n_notes = -1
+    if _n_notes != 0:
+        # Timestamped to the MINUTE, not the day. Two passes on one day are two
+        # passes, and a date-only name made the second collide with the first --
+        # which the first attempt "resolved" by writing a _2 file that then sorted
+        # last and shadowed the fuller review.
+        _stamp = dt.datetime.fromtimestamp(OUT.stat().st_mtime).strftime("%Y-%m-%d_%H%M")
+        _dest = REVIEWED_DIR / f"snap_sense_check_REVIEWED_{_stamp}.xlsx"
+        if not _dest.exists():
+            shutil.copy2(OUT, _dest)
+            print(f"archived {_n_notes} annotation(s) to {_dest.name} before regenerating")
+    else:
+        print("no annotations in the current workbook -- nothing to archive")
+
+# EVERY reviewed workbook, oldest first, so a later verdict overrides an earlier one
+# on the same row and nothing is lost. Reading only the newest file was wrong: a review
+# pass that covers 4 rows would have shadowed the pass before it that covered 34.
+#
+# Sheets: all of them. Reading only the three that existed in round one silently lost
+# every round-two verdict, which is the exact failure this carry-forward exists to
+# prevent, reintroduced by an out-of-date list.
 prior = {}
 _src = sorted(REVIEWED_DIR.glob("snap_sense_check_REVIEWED_*.xlsx"))
 if _src:
-    _latest = _src[-1]
-    # EVERY sheet that can carry an annotation, not the three that could in the first
-    # round. `to_review' is where round 2 was actually done, and reading only the
-    # original three silently lost all 34 of its verdicts -- the failure this whole
-    # carry-forward exists to prevent, reintroduced by an out-of-date sheet list.
-    for _sheet in ("to_review", "disagreements", "gate_overrules",
-                   "cell_context", "all_weighings"):
+    _per_file = []
+    for _f in _src:
+        _n_f = 0
         try:
-            _r = pd.read_excel(_latest, sheet_name=_sheet)
-        except Exception:
+            _sheets = pd.ExcelFile(_f).sheet_names
+        except Exception as _e:
+            print(f"  could not open {_f.name} ({_e}) -- skipped")
             continue
-        if "Corrected Value" not in _r.columns:
-            continue
-        _r = _r[_r["Corrected Value"].notna()]
-        for _k, _v in zip(_vkey(_r), _r["Corrected Value"]):
-            prior.setdefault(_k, _v)
-    print(f"carried {len(prior)} prior verdict(s) forward from {_latest.name}")
+        for _sheet in _sheets:
+            try:
+                _r = _annotations(pd.read_excel(_f, sheet_name=_sheet))
+            except Exception:
+                continue
+            for _k, _v in zip(_vkey(_r), _r["Corrected Value"]):
+                prior[_k] = _v          # later file wins
+                _n_f += 1
+        _per_file.append(f"{_f.name}: {_n_f}")
+    print(f"carried {len(prior)} prior verdict(s) forward from {len(_src)} file(s)")
+    for _line in _per_file:
+        print(f"  {_line}")
 else:
     print("NO reviewed workbook found under reference/reviewed -- starting clean")
 
@@ -346,6 +404,32 @@ d.loc[_dec, "proposed_why"] = "round-1: 0.xxx repeated in this cell, a conventio
 _keep = _out & d.proposed_value.isna()
 d.loc[_keep, "proposed_value"] = d.loc[_keep, "published"]
 d.loc[_keep, "proposed_why"] = "no round-1 rule reaches it -- province referee stands"
+
+# THE PLAUSIBILITY GATE APPLIES TO A PROPOSAL TOO, and leaving it off was a real bug
+# rather than a tidiness point. The "0.xxx repeated in the cell is a convention"
+# argument assumes multiplying by 1,000 lands somewhere sensible. It does for 0.275 ->
+# 275 g. It does NOT for 0.001175, which is a six-decade slip, not a three-decade
+# convention: the block reading there is 1 g.
+#
+# Ten of the 185 proposals were outside [WFLOOR, WCEIL], and one of them was ILOILO /
+# BADIANGAN chicken `whole (chicken)' -- the ONE GRAM WHOLE CHICKEN that was the
+# headline defect on issue #31. A proposal that reinstates a fixed bug is worse than
+# no proposal, because it arrives carrying a rule's authority.
+#
+# 04_unit_snap.do already applies these bounds last (3e-vi), so the pipeline would
+# have rejected these anyway. The failure was showing a reviewer a number the pipeline
+# would never publish.
+_prop_bad = _out & d.proposed_value.notna() & (
+    d.proposed_value.lt(WFLOOR) | d.proposed_value.gt(WCEIL))
+_alt_ok = d.published.between(WFLOOR, WCEIL)
+_revert = _prop_bad & _alt_ok
+d.loc[_revert, "proposed_value"] = d.loc[_revert, "published"]
+d.loc[_revert, "proposed_why"] = (
+    "round-1 rule REJECTED: block reading is implausible ("
+    + d.loc[_revert, "block_says"].map(lambda v: f"{v:g}")
+    + f" outside [{WFLOOR}, {WCEIL}]) -- keeping the anchor")
+if int(_revert.sum()):
+    print(f"\n{int(_revert.sum())} proposal(s) reverted by the plausibility gate")
 
 # Blank column for the reviewer to fill in. Pre-created so annotation happens in
 # place and the next run can read it back through the same content key.
