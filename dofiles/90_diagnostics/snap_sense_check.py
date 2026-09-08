@@ -289,17 +289,37 @@ d.loc[d.verdict_landed.astype(str).str.startswith("NO"), "needs_review"] = \
 # place and the next run can read it back through the same content key.
 d["Corrected Value"] = ""
 
-RCOLS = (COLS[:COLS.index("review_step1")]
+RCOLS = (COLS[:COLS.index("final_weight")]
+         + ["final_says", "adjusted_by"]
+         + COLS[COLS.index("final_weight"):COLS.index("review_step1")]
          + ["prior_verdict", "verdict_landed", "needs_review", "Corrected Value"]
          + COLS[COLS.index("review_step1"):])
+
+# ---- the value that actually ships, and what moved it -------------------------
+# `published' is 04's answer. 05_manual_corrections.do then overrides some rows by
+# hand and sets others unusable, so a review that reads `published' is reviewing an
+# intermediate. These two columns put the FINAL value in front of the reviewer and
+# say what moved it, so an adjustment is visible rather than implied.
+d["final_says"] = d.final_weight.where(d.final_weight.notna(), d.published)
+d["adjusted_by"] = np.where(
+    d.final_differs & d.final_weight.isna(), "05 -- set unusable",
+    np.where(d.final_differs, "05 -- hand correction",
+             np.where(d.published.round(1) != d.base.round(1), "04 -- snap", "")))
 
 dis = d[(d.anchor_says != d.block_says) & d.published.notna()]
 dis = dis.sort_values("x_from_median", ascending=False)
 gate = d[d.anchor_implausible]
 
 ref_new = pd.read_stata(T/"nsu_reference_set.dta", convert_categoricals=False)
-touched = set(dis.cell)
-ctx = d[d.cell.isin(touched)].sort_values(["cell","published"])
+
+# ---- EVERY weighing, at its FINAL value ---------------------------------------
+# This sheet used to be `cell_context' and held only the cells a disagreement had
+# touched -- 3,450 of 11,335 rows. That made an overall review impossible: a cell
+# where both rules agreed, or where a hand correction had already settled it, was
+# simply not in the workbook to be looked at.
+#
+# It now holds the whole file, sorted so a cell reads as one block.
+allw = d.sort_values(["cell", "hetero_group", "weight"])
 
 # The sheet to open first: only the rows a human still has to decide, worst first.
 todo = d[d.needs_review.ne("")].copy()
@@ -307,11 +327,11 @@ todo["_order"] = np.where(todo.needs_review.eq("PRIOR VERDICT NOT APPLIED"), 0, 
 todo = todo.sort_values(["_order", "x_from_median"], ascending=[True, False])
 
 with pd.ExcelWriter(OUT) as w:
-    todo[RCOLS].to_excel(w, "to_review", index=False)
-    dis[RCOLS].to_excel(w, "disagreements", index=False)
-    gate[RCOLS].to_excel(w, "gate_overrules", index=False)
-    ref_new.to_excel(w, "reference_set_now", index=False)
-    ctx[RCOLS].to_excel(w, "cell_context", index=False)
+    todo[RCOLS].to_excel(w, sheet_name="to_review", index=False)
+    dis[RCOLS].to_excel(w, sheet_name="disagreements", index=False)
+    gate[RCOLS].to_excel(w, sheet_name="gate_overrules", index=False)
+    ref_new.to_excel(w, sheet_name="reference_set_now", index=False)
+    allw[RCOLS].to_excel(w, sheet_name="all_weighings", index=False)
 
 print(f"\nprior verdicts matched to a current row : {int(d.prior_verdict.notna().sum())}")
 print(d.verdict_landed[d.verdict_landed.ne("")].value_counts().to_string())
@@ -336,7 +356,12 @@ print()
 print(f"rows where the two rules disagree : {len(dis):,}")
 print(f"  anchor published                : {(dis.rule_used=='anchor').sum():,}")
 print(f"  block published (anchor rejected): {(dis.rule_used!='anchor').sum():,}")
-print(f"cells touched                     : {len(touched):,}")
+print(f"cells with a disagreement         : {dis.cell.nunique():,}")
+print(f"all_weighings sheet               : {len(allw):,} rows, "
+      f"{allw.cell.nunique():,} cells")
+print("  (that is every weighing reaching 04_unit_snap, BEFORE 07_cpi_factor drops")
+print("   the 98 vendor-priced rows -- the snap runs first, so the review sees them)")
+print(allw.adjusted_by.replace("", "not adjusted").value_counts().to_string())
 print(f"published rows now                : {len(ref_new):,}")
 print(f"\nfurthest from the cell median (check these first):")
 top = dis.head(12)[["cell","weight","block_says","anchor_says","published","cell_median"]]
