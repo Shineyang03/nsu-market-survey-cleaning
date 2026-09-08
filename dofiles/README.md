@@ -101,8 +101,18 @@ when one has moved. It is what catches a figure going stale in a document.
 | `06_cpi_panel.py` | province × item-group × month CPI panel |
 | `07_cpi_factor.do` | drops 98 price-quantity rows whose recorded price was not the price handed over — 71 vendor-priced (a further 23 are rescued where they were the case's only rung) and 27 where the vendor gave no price at all. **The only place those rows are dropped, and both outcomes depend on it.** Builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |
 | `08_branch.do` **(not written; decided on #28)** | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`. |
-| `nsu_fold_rule.py` | **THE fold rule** — which raw spellings mean the same thing, and therefore what `harmonized_nsu_unit` is. Pure functions of (item, raw label); reads no build output, deliberately (#33). Imported by `01`, never re-implemented. Its carve-outs are the item-specific separations in `../docs/master_rename.md` §6. |
-| `nsu_normalize.py` | the one definition of the project's string normalization (`nz`/`ni`/`ng`). The Stata counterpart is `nsu_normalize` in `00_globals.do` and must agree character for character. **Never NFKD-decompose** — `DUEÑAS` becomes `DUEAS`, not `DUENAS`. |
+
+**Two shared MODULES live in `00_shared/` alongside the steps.** Nothing runs them; they
+are imported, and they are where two decision rules are defined once so no caller can
+re-implement them differently.
+
+| module | defines | imported by |
+|---|---|---|
+| `nsu_fold_rule.py` | **THE fold rule** — which raw spellings mean the same thing, and therefore what `harmonized_nsu_unit` is. Pure functions of (item, raw label), reading no build output, deliberately: the snap's anchor pool is keyed on `harmonized_nsu_unit`, so a fold that read corrected weights would close a loop (#33). Its carve-outs are the item-specific separations in `../docs/master_rename.md` §6. | `01`, plus `90_diagnostics/fold_map.py` and `verify_documented_claims.py` |
+| `nsu_normalize.py` | the one definition of the project's string normalization (`nz` / `ni` / `ng`). The Stata counterpart is the `nsu_normalize` program in `00_globals.do` and must agree with it character for character. **Never NFKD-decompose** — `DUEÑAS` becomes `DUEAS`, not `DUENAS`. | `01`, `02`, `nsu_fold_rule.py`, and 16 diagnostics |
+
+There used to be eleven byte-identical copies of the normalizers across `90_diagnostics/`;
+a fix to any one of them reached none of the others (#32). Import these, never copy them.
 
 **`branch` vs `weighing_approach`, once `08` exists.** Use **`branch`** wherever the code
 decides how a weighing is PROCESSED or PUBLISHED. Keep **`weighing_approach`** wherever it
