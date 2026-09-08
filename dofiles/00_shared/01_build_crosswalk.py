@@ -39,10 +39,40 @@ then re-apply the non-NSU label trim, which this file deliberately does not do:
 from pathlib import Path
 import sys
 
+import argparse
 import pandas as pd, re, os, difflib
 from collections import defaultdict
 
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
+
+# ---- --outdir: build the crosswalk somewhere else, and touch nothing live ------------
+# The question this exists for is "would the harmonization differ if an upstream input
+# changed?", which can only be answered by building it again and diffing. Doing that in
+# place destroys the crosswalk you are comparing against, and this build also APPENDS to
+# the durable id registry -- a file that must only ever grow deliberately.
+#
+# With --outdir every output goes to that directory instead, and the registry write is
+# refused rather than redirected: a comparison build has no business minting ids.
+_ap = argparse.ArgumentParser(add_help=True)
+_ap.add_argument("--outdir", default=None,
+                 help="write all outputs here instead of outputs/tables and "
+                      "outputs/temp; also refuses to append to the id registry")
+_ARGS, _ = _ap.parse_known_args()
+DRY = _ARGS.outdir is not None
+if DRY:
+    _OD = Path(_ARGS.outdir)
+    (_OD / "tables").mkdir(parents=True, exist_ok=True)
+    (_OD / "temp").mkdir(parents=True, exist_ok=True)
+    print(f"--outdir given: writing to {_OD}")
+    print("  the id registry will NOT be appended to (comparison build)")
+
+
+def OUTPATH(kind, name):
+    """Where an output goes. `kind' is 'tables' or 'temp'."""
+    if DRY:
+        return str(_OD / kind / name)
+    return BOX + rf"\Data Cleaning\outputs\{kind}\{name}"
+
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from nsu_normalize import A, nz, ni, ng
@@ -167,7 +197,7 @@ po['mn_item_unit_pairs']=[mn_map.get((p,c,i,u)) for p,c,i,u in zip(po.P,po.C,po.
 po['pn_item_unit_pairs']=[pn_map.get((p,i,u)) for p,i,u in zip(po.P,po.I,po.U)]
 print('=== v5 cause distribution ==='); print(po.cause_label.value_counts().to_string())
 
-out=BOX+r'\Data Cleaning\outputs\temp\cases_in_price_not_in_MS_diagnosed.csv'
+out=OUTPATH('temp','cases_in_price_not_in_MS_diagnosed.csv')
 po=po.rename(columns={'canonical_unit':'harmonized_nsu_unit','link_target':'in_MS_as'})
 cols=['province','pull_municipal_city','cons_name','unit_lbl','harmonized_nsu_unit','fallback_harmonized_nsu_unit',
       'fold_verdict','in_MS_as','freq_price','mn_item_unit_pairs','pn_item_unit_pairs','cause','cause_label',
@@ -190,7 +220,7 @@ cov=pd.DataFrame([
     ['  of which: empty/uncommon, valid for item elsewhere (has an item-level pool, just not local)',int((none&(po.cause_label=='empty/uncommon')&po.detail.str.contains('valid for item elsewhere')).sum())],
     ['TOTAL price-only cases',len(po)],
 ],columns=['category','n'])
-cov.to_csv(BOX+r'\Data Cleaning\outputs\temp\price_only_coverage_summary.csv',index=False,encoding='utf-8-sig')
+cov.to_csv(OUTPATH('temp','price_only_coverage_summary.csv'),index=False,encoding='utf-8-sig')
 print('=== price-only coverage summary ==='); print(cov.to_string(index=False))
 
 # ================= MASTER rename: prov x mun x item x nsu (MS union Price), with in-cell merges =================
@@ -277,7 +307,11 @@ if REG.exists():
                                             "id": range(nxt, nxt + len(fresh))})],
                         ignore_index=True).sort_values("id")
         assert reg.id.is_unique and reg.idkey.is_unique
-        reg.to_csv(REG, index=False, encoding="utf-8-sig")
+        if DRY:
+            print(f"id registry: {len(fresh):,} new price-only case(s) WOULD be"
+                  " appended; not written because --outdir was given")
+        else:
+            reg.to_csv(REG, index=False, encoding="utf-8-sig")
         print(f"id registry: appended {len(fresh):,} price-only case(s), "
               f"ids {nxt:,}-{nxt + len(fresh) - 1:,}; registry now {len(reg):,} rows")
     else:
@@ -301,7 +335,7 @@ else:
 
 master = master.drop(columns="_idkey")
 
-out3=BOX+r'\Data Cleaning\outputs\tables\master_nsu_rename.csv'
+out3=OUTPATH('tables','master_nsu_rename.csv')
 master.sort_values(['cons_name','province','pull_municipal_city','harmonized_nsu_unit','pull_nsu_unit']).to_csv(out3,index=False,encoding='utf-8-sig')
 print('wrote',out3, master.shape)
 print('rows in an in-cell merge (n_cell_merged>1):',(master.n_cell_merged>1).sum(),'/',len(master))
@@ -310,7 +344,7 @@ print(master.source.value_counts().to_string())
 # ---- Excel-safe copy: format the raw-unit columns as Text so Excel won't coerce strings like '1/2'
 # into a date on open (the plain .csv has no stored cell format, so Excel guesses the type at open time).
 import openpyxl
-xout=BOX+r'\Data Cleaning\outputs\tables\master_nsu_rename.xlsx'
+xout=OUTPATH('tables','master_nsu_rename.xlsx')
 with pd.ExcelWriter(xout, engine='openpyxl') as xw:
     master.sort_values(['cons_name','province','pull_municipal_city','harmonized_nsu_unit','pull_nsu_unit']).to_excel(xw, index=False, sheet_name='master_nsu_rename')
     ws=xw.sheets['master_nsu_rename']

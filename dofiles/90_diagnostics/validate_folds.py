@@ -125,6 +125,13 @@ fold.to_csv(BOX+r'\Data Cleaning\outputs\temp\fold_validation_A.csv',index=False
 # (item substring filter, harmonized A, harmonized B); '' item = any item
 SPLITS=[('chicken','bilog','pieces or units'),
         ('preserved','bilog','pieces or units'),
+        # The camote split is the ONLY carve-out whose justification is a number:
+        # nsu_fold_rule.py cites "camote bilog != binilog (p=0.004, ratio 1.61) but on
+        # only 3 strata -> LOW CONFIDENCE" as the reason NOFOLD_PIECES exists. That
+        # number came from this script and was then not re-derived by it -- the pair was
+        # never in this list, so every later run silently stopped checking the one
+        # carve-out that rests on evidence rather than on meaning. Added so it is.
+        ('camote','bilog','binilog'),
         ('ice cream','putos','pack'),
         ('crackers','putos','pack'),
         ('','bundle','bugkos'),

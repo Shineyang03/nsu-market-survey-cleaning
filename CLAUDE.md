@@ -1,9 +1,18 @@
 # Project instructions
 
-## Editing files: use Edit/Write, not Python heredocs
+## Editing files: use Edit/Write. Never a heredoc.
 
-**Default to the Edit and Write tools for every file change.** They have no string-literal
-layer, so no escape can be silently eaten.
+**Use the Edit and Write tools for every file change. Not "by default" — always.** They
+have no string-literal layer, so no escape can be silently eaten.
+
+**A heredoc is not permitted to edit a file, even for a one-line substitution, even with
+a raw string, even when it looks safe.** Every recurrence in this project started as a
+substitution that looked safe. If a change feels too small to be worth an Edit call, that
+is not a reason to reach for `sed` or `python - <<'PY'` — it is a reason to make the Edit
+call, which costs the same.
+
+Reading, measuring and running things with Bash/Python is fine and expected. The rule is
+about **writing file content**.
 
 This has bitten this project four times, always the same way. The shell heredoc is not the
 problem — `python - <<'PY'` is quoted and expands nothing. **The problem is the Python
