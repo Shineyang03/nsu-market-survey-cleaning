@@ -140,16 +140,27 @@ def main():
         sys.exit(f"build not found at {f}; run master_outcome1.do first")
     w = pd.read_stata(f, convert_categoricals=False)
 
-    # cleaned_nsu_unit already rides along on the built weighings -- do NOT re-merge it
-    # off master_nsu_rename.dta. The crosswalk is keyed at cell x raw label and holds
-    # price-only cells with no weighing, so a merge silently suffixes the column that is
-    # already there and every predicate below then reads a column of NaN.
-    if "cleaned_nsu_unit" not in w.columns:
-        sys.exit("nsu_weighings_cpi.dta has no cleaned_nsu_unit column; the fold-route "
-                 "predicates below cannot be evaluated")
+    # ASK THE RULE, do not read the build's record of it. cleaned_nsu_unit does ride
+    # along on the built weighings, and today it agrees with to_cleaned() on all 11,335
+    # rows -- but it is labelled "ref only" in 03_clean_ms.do for a reason, and a
+    # register whose whole job is to catch staleness must not itself depend on a column
+    # that can go stale. validate_folds.py read a build column for six weeks and
+    # reproduced its own past answers; this is that shape.
+    #
+    # The build column is still read, as a TRIPWIRE: a disagreement means the crosswalk
+    # on disk was built by a different version of the fold rule than the one imported
+    # here, and the counts below would describe neither.
+    cleaned = [FR.to_cleaned(i, u)[0] for i, u in
+               zip(w.pull_item.fillna(""), w.pull_nsu_unit.fillna(""))]
+    if "cleaned_nsu_unit" in w.columns:
+        off = sum(1 for a, b in zip(cleaned, w.cleaned_nsu_unit.fillna("")) if a != b)
+        if off:
+            sys.exit(f"{off} weighing(s) where the built cleaned_nsu_unit disagrees with "
+                     "nsu_fold_rule.to_cleaned(). The crosswalk on disk was not built by "
+                     "this fold rule -- re-run 01_build_crosswalk.py before trusting any "
+                     "count below.")
 
-    trip = list(zip(w.pull_item.fillna(""), w.cleaned_nsu_unit.fillna(""),
-                    w.harmonized_nsu_unit.fillna("")))
+    trip = list(zip(w.pull_item.fillna(""), cleaned, w.harmonized_nsu_unit.fillna("")))
 
     rows = []
     for d in decisions():
