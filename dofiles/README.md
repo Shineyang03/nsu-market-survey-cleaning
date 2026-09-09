@@ -315,7 +315,7 @@ what blocks it; `master_outcome2.do` prints an abbreviated version when it stops
 | `27_standard_units.do` | kg/L answers convert directly | #14 |
 | `28_match_and_convert.do` | nearest point, `CF_h`, `grams_h` | nothing — decided (#5) |
 | `29_cap.do` | clamp `p_h/p_g`, flag | **#19**, and the threshold `t` is unset. Choosing `t` needs no weights — it needs step 20 and a household-grain extract. |
-| `30_fallback.do` | cases with no MS weight of their own | **#30 — the real blocker.** One PSPS observation in six needs a fallback, and borrowing weights across municipalities is unsolved. |
+| `30_fallback.do` **(written; builds the schedule, does not yet apply it)** | cases with no MS weight of their own. Builds the **province grams-per-peso schedule** — median `w/p` per province × item × harmonized unit — plus `cv_gpp`, `n_pairs`, `n_price`, `n_mun`, and the refusal list. Also **owns the (price, weight) pair construction**: pairs meet at (case × rung) because `size_ord` puts mp25/50/75 and the re-terciled sizes on one ladder. Outputs `price_weight_pairs.dta`, `province_schedule.dta/.csv`, `fallback_refused.csv` | Attaching a weight to a PSPS household still needs the retrofit above it, and `branch` from `08_branch.do`. The rule it implements is settled on #30: offer a fallback wherever the schedule is estimable (≥3 distinct prices, ≥2 municipalities), publish `cv_gpp` rather than gate on it, refuse the rest. |
 
 **#30 gates the deliverable** regardless of what order the others land in. Note that #30's
 cost argument was written against a 14× cross-municipality spread; the corrected figure is

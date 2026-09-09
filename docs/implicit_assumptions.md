@@ -513,6 +513,34 @@ fix it appears to be.
 
 # Adding an assumption
 
+## A14 — The province fallback is validated on cells that do not need it
+
+**Claims.** The province grams-per-peso schedule in `20_psps_retrofitting/30_fallback.do` gives a
+weight to cases with no market-survey weighing of their own. Its accuracy is known from a
+leave-one-municipality-out test: hold out a municipality, estimate the median `w/p` from the others
+in the province × item × harmonized unit, predict the held-out municipality's grams from its own
+price, and compare to the grams the reference set publishes there.
+
+**The assumption.** That test can only run where the answer is known — that is, on cells that **do**
+have their own weighings. The cases the fallback actually serves are by construction the ones nobody
+weighed locally. Using the harness figures for them assumes the two populations behave alike.
+
+**What rests on it.** Every accuracy figure quoted for the fallback, including the `cv_gpp` bands
+that motivate publishing that statistic alongside each fallback weight. There is a plausible reason
+the assumption fails in the pessimistic direction: a cell with no local weighing is more likely to
+hold a rarer unit in a thinner market, so the schedule may do worse there than the harness suggests.
+
+**Status: UNTESTED and not testable from this data.** Measuring it would need weighings in the very
+cells that lack them. The gap is not quantified and should not be assumed small.
+
+Mitigated rather than resolved: no accuracy threshold is enforced. `cv_gpp`, `n_pairs`, `n_price`
+and `n_mun` ship with every fallback weight so a reader can apply their own cut, and cases whose
+province group cannot support a schedule at all are refused outright rather than served a weak one.
+
+**Checked by:** nothing.
+
+---
+
 Add an entry when you write a threshold, a tie rule, a fallback, or a normalizer choice that
 could reasonably have gone another way. The test is: *would a reader of this line know that
 a decision was made here?* If not, it belongs in the register.

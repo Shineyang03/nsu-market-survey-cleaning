@@ -1,0 +1,139 @@
+pull_item,pull_province,harmonized_nsu_unit,n_price,n_mun,fallback_status
+cabbage,AKLAN,small packs,,,refused: no group
+camote,AKLAN,binilog,,,refused: no group
+camote tops,AKLAN,2bond,,,refused: no group
+camote tops,AKLAN,3bugkos,,,refused: no group
+camote tops,AKLAN,bugkos,,,refused: no group
+camote tops,AKLAN,bundle,,,refused: no group
+carrot,AKLAN,pieces or units,3,1,refused: no ray
+"crackers, cookies, buiscuits, chips/curls",AKLAN,pack,,,refused: no group
+fresh fish,AKLAN,pieces or units,1,1,refused: no ray
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AKLAN,pack,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AKLAN,pieces or units,1,1,refused: no ray
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AKLAN,putos,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AKLAN,small cup,2,2,refused: no ray
+mango,AKLAN,pieces or units,,,refused: no group
+pork,AKLAN,slice,,,refused: no group
+"prawns, lobster, shrimp",AKLAN,tumpok,,,refused: no group
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,bilog,,,refused: no group
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,cans,,,refused: no group
+cabbage,ANTIQUE,pack,,,refused: no group
+cabbage,ANTIQUE,putos (mix vegetable),,,refused: no group
+camote,ANTIQUE,bilog,,,refused: no group
+camote,ANTIQUE,binilog,,,refused: no group
+camote,ANTIQUE,tumpok,,,refused: no group
+camote tops,ANTIQUE,bugkos,,,refused: no group
+camote tops,ANTIQUE,bundle,,,refused: no group
+carrot,ANTIQUE,putos (mix vegetable),,,refused: no group
+chicken,ANTIQUE,bilog,2,1,refused: no ray
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,balde,,,refused: no group
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,pack,,,refused: no group
+"drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,pieces,2,2,refused: no ray
+fresh fish,ANTIQUE,pieces or units,,,refused: no group
+fresh fish,ANTIQUE,tumpok,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,cone,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,pieces or units,2,3,refused: no ray
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,putos,,,refused: no group
+"liquor (e.g, whisky, coconut wine)",ANTIQUE,baso,,,refused: no group
+"liquor (e.g, whisky, coconut wine)",ANTIQUE,gin,,,refused: no group
+loaf bread,ANTIQUE,tama-tama nga putos,1,1,refused: no ray
+mango,ANTIQUE,pieces or units,,,refused: no group
+"prawns, lobster, shrimp",ANTIQUE,tumpok,,,refused: no group
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,bilog,,,refused: no group
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,cans,3,1,refused: no ray
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,pack,,,refused: no group
+rice,ANTIQUE,gantang,,,refused: no group
+beer,CAPIZ,case,,,refused: no group
+cabbage,CAPIZ,half,,,refused: no group
+cabbage,CAPIZ,pack,,,refused: no group
+cabbage,CAPIZ,putos (mix vegetable),,,refused: no group
+camote,CAPIZ,bilog,,,refused: no group
+camote tops,CAPIZ,bugkos,,,refused: no group
+camote tops,CAPIZ,bundle,,,refused: no group
+chicken,CAPIZ,chicken wings,,,refused: no group
+chicken,CAPIZ,pack,,,refused: no group
+chicken,CAPIZ,pieces or units,,,refused: no group
+chicken,CAPIZ,slice,,,refused: no group
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,balde,,,refused: no group
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,big can,,,refused: no group
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,pack,,,refused: no group
+"drinks at restaurant, hotel, cafe, or kiosk",CAPIZ,pieces,,,refused: no group
+fresh fish,CAPIZ,pack,,,refused: no group
+fresh fish,CAPIZ,pinutos / plastic,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,bowl,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,cone,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,putos,2,1,refused: no ray
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,tub,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,tupperware,,,refused: no group
+loaf bread,CAPIZ,individual,,,refused: no group
+mango,CAPIZ,"papaya, mango, banana",,,refused: no group
+mango,CAPIZ,pieces or units,3,1,refused: no ray
+"mineral or spring water, all drinking water sold in containers",CAPIZ,container,,,refused: no group
+"mineral or spring water, all drinking water sold in containers",CAPIZ,refilled,,,refused: no group
+pork,CAPIZ,1 order,,,refused: no group
+pork,CAPIZ,2 slice,,,refused: no group
+"prawns, lobster, shrimp",CAPIZ,cup,,,refused: no group
+"prawns, lobster, shrimp",CAPIZ,tumpok,1,1,refused: no ray
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,pack,,,refused: no group
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,role,,,refused: no group
+rice,CAPIZ,gantang,,,refused: no group
+rice,CAPIZ,letse,,,refused: no group
+beef,ILOILO,half,,,refused: no group
+beef,ILOILO,intestine,,,refused: no group
+beef,ILOILO,pieces or units,,,refused: no group
+cabbage,ILOILO,half,,,refused: no group
+cabbage,ILOILO,pack,,,refused: no group
+cabbage,ILOILO,putos (mix vegetable),,,refused: no group
+cabbage,ILOILO,sliced,,,refused: no group
+cabbage,ILOILO,small packs,,,refused: no group
+camote,ILOILO,bilog,3,1,refused: no ray
+camote,ILOILO,small packs,,,refused: no group
+camote tops,ILOILO,bugkos,,,refused: no group
+camote tops,ILOILO,bundle,,,refused: no group
+carrot,ILOILO,pack,,,refused: no group
+carrot,ILOILO,putos (mix vegetable),,,refused: no group
+chicken,ILOILO,patupa,,,refused: no group
+chicken,ILOILO,pieces of fried chicken,,,refused: no group
+chicken,ILOILO,slice,,,refused: no group
+"crackers, cookies, buiscuits, chips/curls",ILOILO,balde,,,refused: no group
+"crackers, cookies, buiscuits, chips/curls",ILOILO,bucket,,,refused: no group
+"crackers, cookies, buiscuits, chips/curls",ILOILO,pack,,,refused: no group
+"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,pieces,,,refused: no group
+fresh fish,ILOILO,tumpok,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,bowl,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,cone,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,container,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,gallons,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,pack,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,plastic cup,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,tupperware,,,refused: no group
+"liquor (e.g, whisky, coconut wine)",ILOILO,junior lapad,,,refused: no group
+pork,ILOILO,1 serve,,,refused: no group
+pork,ILOILO,pieces or units,,,refused: no group
+pork,ILOILO,slice,,,refused: no group
+pork,ILOILO,stick,,,refused: no group
+"prawns, lobster, shrimp",ILOILO,pack,,,refused: no group
+"prawns, lobster, shrimp",ILOILO,pieces or units,,,refused: no group
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,cans,2,1,refused: no ray
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,pack,2,1,refused: no ray
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,pieces or units,,,refused: no group
+rice,ILOILO,gantang,,,refused: no group
+rice,ILOILO,letse,,,refused: no group
+rice,ILOILO,sack of rice,,,refused: no group
+rice,ILOILO,salmon,,,refused: no group
+cabbage,NEGROS OCCIDENTAL,pack,,,refused: no group
+camote,NEGROS OCCIDENTAL,bilog,,,refused: no group
+camote tops,NEGROS OCCIDENTAL,bugkos,,,refused: no group
+camote tops,NEGROS OCCIDENTAL,bundle,,,refused: no group
+carrot,NEGROS OCCIDENTAL,pieces or units,1,1,refused: no ray
+chicken,NEGROS OCCIDENTAL,pieces or units,,,refused: no group
+"drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,pieces,,,refused: no group
+fresh fish,NEGROS OCCIDENTAL,pieces or units,2,1,refused: no ray
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,cone,,,refused: no group
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,putos,1,1,refused: no ray
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,tupperware,,,refused: no group
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,long-neck,1,1,refused: no ray
+mango,NEGROS OCCIDENTAL,pieces or units,,,refused: no group
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,tumpok,3,1,refused: no ray
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,cans,,,refused: no group
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,pack,,,refused: no group

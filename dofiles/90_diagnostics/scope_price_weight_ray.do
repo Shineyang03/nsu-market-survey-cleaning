@@ -70,83 +70,36 @@ clear all
 set more off
 do "00_shared/00_globals.do"
 
-* ---- 1. the tercile prices ----------------------------------------------------
-import delimited using "${pricedata}", clear varnames(1) encoding("utf-8") ///
-	stringcols(_all)
-
-keep if inlist(price_type, "mp25_price", "mp50_price", "mp75_price")
-gen byte rung = 1 if price_type == "mp25_price"
-replace  rung = 2 if price_type == "mp50_price"
-replace  rung = 3 if price_type == "mp75_price"
-assert !missing(rung)
-
-destring price, gen(p) force
-rename (cons_name unit_lbl) (pull_item pull_nsu_unit)
-rename province pull_province
-keep pull_province pull_municipal_city pull_item pull_nsu_unit rung p
-drop if missing(p) | p <= 0
-
-* THE authoritative normalization, from 00_globals.do. Its Python counterpart is
-* nz()/ni()/ng() in nsu_normalize.py and the two must agree character for character --
-* the crosswalk joined below is built by the Python side.
-nsu_normalize, item(pull_item) unit(pull_nsu_unit) ///
-	mun(pull_municipal_city) province(pull_province)
-
-tempfile prices
-save `prices'
-qui count
-di as res _n "tercile price rows: " r(N)
-
-* ---- 2. resolve each price row to a harmonized unit ---------------------------
-* The crosswalk is keyed at cell x raw label, which is exactly the price file's grain.
-import delimited using "${tables}\master_nsu_rename.csv", clear varnames(1) ///
-	encoding("utf-8") stringcols(_all)
-rename (province cons_name) (pull_province pull_item)
-keep pull_province pull_municipal_city pull_item pull_nsu_unit harmonized_nsu_unit
-drop if missing(harmonized_nsu_unit)
-nsu_normalize, item(pull_item) unit(pull_nsu_unit) ///
-	mun(pull_municipal_city) province(pull_province)
-replace harmonized_nsu_unit = ustrtrim(ustrlower(ustrto(harmonized_nsu_unit,"ascii",2)))
-duplicates drop pull_province pull_municipal_city pull_item pull_nsu_unit, force
-tempfile xw
-save `xw'
-
-use `prices', clear
-merge m:1 pull_province pull_municipal_city pull_item pull_nsu_unit using `xw', ///
-	keep(1 3) gen(_m_xw)
-count if _m_xw == 1
-di as txt "price rows with no harmonized unit: " r(N)
-keep if _m_xw == 3
-drop _m_xw
-
-* ---- 3. attach the grams the reference set publishes at that rung -------------
-tempfile withprice
-save `withprice'
-
-use "${btemp}\nsu_reference_set", clear
-keep pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
-	size_ord grams n_g d_thin weighing_approach
-nsu_normalize, item(pull_item) unit(harmonized_nsu_unit) ///
-	mun(pull_municipal_city) province(pull_province)
-rename size_ord rung
-duplicates drop pull_province pull_municipal_city pull_item harmonized_nsu_unit rung, force
-tempfile ref
-save `ref'
-
-use `withprice', clear
-merge m:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit rung ///
-	using `ref', keep(3) gen(_m_ref)
-drop _m_ref
-drop if missing(grams) | grams <= 0
+* ---- the pairs are READ, not rebuilt ------------------------------------------
+* 20_psps_retrofitting/30_fallback.do owns the pair construction, because it is the file
+* that acts on them: it builds the province schedule and the refusal list. This file
+* measures the same pairs and must not construct them a second time -- see CLAUDE.md,
+* "A diagnostic reads the quantity the pipeline computed."
+*
+* That matters more than usual here. The pairing is the thing this measurement got wrong
+* once: pairing on `pull_price', the market-survey price, sees only the price-quantity
+* branch and misses all 1,046 size-based pairs. A second copy of the construction is a
+* second place for that to come back.
+capture confirm file "${btemp}\price_weight_pairs.dta"
+if _rc {
+	di as err "no price_weight_pairs.dta -- run 20_psps_retrofitting/30_fallback.do first."
+	di as err "It builds the (price, grams) pairs this file measures."
+	exit 601
+}
+use "${btemp}\price_weight_pairs", clear
 
 qui count
-di as res "(price, grams) pairs on case x rung: " r(N)
-di as res "  by branch of the reference rung:"
-tab weighing_approach
+di as res _n "pairs read from 30_fallback.do: " r(N)
+foreach v in p grams gpp rung pull_province pull_municipal_city pull_item ///
+             harmonized_nsu_unit weighing_approach d_thin {
+	capture confirm variable `v'
+	if _rc {
+		di as err "price_weight_pairs.dta has no `v'; 30_fallback.do's output has changed."
+		exit 111
+	}
+}
 
-gen double gpp = grams / p
-label var gpp "grams per peso at this case x rung"
-
+* Everything from here down is measurement over those pairs.
 egen long grp = group(pull_province pull_item harmonized_nsu_unit), label
 
 * ---- steps 1 & 2. spread of w/p against spread of w --------------------------
