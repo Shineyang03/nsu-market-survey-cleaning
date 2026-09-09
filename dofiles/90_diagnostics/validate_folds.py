@@ -55,12 +55,63 @@ MIN_STRATA=2        # need >=this many strata where BOTH labels appear
 #
 # Same defect that archived summarize_corrected_weight_by_cell.do, build_forests.py and
 # build_forest_medians.py -- all three hardcoded this same path. See archive/README.md.
-raw=pd.read_stata(BOX+r'\Data Cleaning\outputs\master_rename_build\temp\nsu_weighings_cpi.dta',
+#
+# ---- WHICH WEIGHT, AND WHY IT IS A PARAMETER --------------------------------------
+# `--weight' selects what the test measures. This is not a convenience: the default is
+# CIRCULAR and the alternative is the point.
+#
+#   corrected  the published weight. 04_unit_snap.do snapped it toward the median of a
+#              pool keyed on harmonized_nsu_unit -- so two labels FOLDED TOGETHER were
+#              snapped toward one median, which nudges this test toward "they weigh the
+#              same", which is what justified folding them. The fold decision and the
+#              evidence for it are not independent.
+#   block      the block reading, w_block, kept by 04_unit_snap.do. The typed number in
+#              canonical units: a function of the raw weight, the unit tick and KGMAX
+#              alone. NO POOL IS INVOLVED, so it carries no grouping bias in either
+#              direction. Noisier -- the decade entry errors the snap exists to fix are
+#              still in it -- but the noise is not correlated with the fold under test.
+#
+# `--build' points at a variant subtree (see 00_globals.do's ${build_name}). Combined with
+# a variant built on ${unitvar}="pull_nsu_unit", it gives a third reading: snapped weights
+# whose pool was keyed on the RAW label, so the pool boundary does not depend on the fold.
+# That one is decade-corrected AND independent of the carve-out -- but it biases the other
+# way, pooling each label separately and so nudging toward "they differ".
+#
+# Run all three and compare. Agreement means the circularity was harmless in practice.
+_ARGS=dict(weight='corrected', build='master_rename_build')
+for _a in sys.argv[1:]:
+    if _a.startswith('--weight='): _ARGS['weight']=_a.split('=',1)[1]
+    elif _a.startswith('--build='): _ARGS['build']=_a.split('=',1)[1]
+    elif _a in ('-h','--help'):
+        sys.exit(__doc__+"\nusage: validate_folds.py [--weight=corrected|block] "
+                 "[--build=<subtree under outputs/>]")
+    else: sys.exit(f"unknown argument {_a!r}; try --help")
+if _ARGS['weight'] not in ('corrected','block'):
+    sys.exit("--weight must be 'corrected' or 'block'")
+_WCOL={'corrected':'corrected_weight','block':'w_block'}[_ARGS['weight']]
+_DTA=(Path(BOX)/'Data Cleaning'/'outputs'/_ARGS['build']/'temp'/'nsu_weighings_cpi.dta')
+if not _DTA.exists():
+    sys.exit(f"no build at {_DTA}\nBuild a variant with 90_diagnostics/"
+             "measure_anchor_keying.do, which writes to its own subtree.")
+print(f"[validate_folds] weight={_ARGS['weight']} ({_WCOL})  build={_ARGS['build']}")
+
+# ONLY THE DEFAULT RUN MAY WRITE THE CANONICAL FILENAMES. fold_validation_A.csv and
+# fold_validation_B.csv are what verify_pipeline.py check 3 reads back to decide whether a
+# folded group contradicts its own weight test. A variant run landing on those names would
+# leave the build verified against a test it never agreed to -- the same class of failure
+# as this script's own six-week stale read, but pointing forward instead of backward.
+_TAG=('' if (_ARGS['weight']=='corrected' and _ARGS['build']=='master_rename_build')
+      else f"_{_ARGS['weight']}"
+           + ('' if _ARGS['build']=='master_rename_build' else f"_{_ARGS['build']}"))
+def _OUT(p):
+    return Path(BOX)/'Data Cleaning'/'outputs'/'temp'/f'fold_validation_{p}{_TAG}.csv'
+
+raw=pd.read_stata(_DTA,
                   columns=['pull_province','pull_municipal_city','pull_item','pull_nsu_unit',
-                           'item_nsu_hetero_type','corrected_unit','corrected_weight'])
+                           'item_nsu_hetero_type','corrected_unit',_WCOL])
 raw['size']=raw.item_nsu_hetero_type.astype(str)
 raw=raw[raw['size'].isin(SIZES)].copy()
-raw['w']=pd.to_numeric(raw.corrected_weight,errors='coerce')
+raw['w']=pd.to_numeric(raw[_WCOL],errors='coerce')
 raw=raw[raw.w.notna() & (raw.w>0)]
 raw['P']=raw.pull_province.map(ng); raw['C']=raw.pull_municipal_city.map(ng)
 raw['I']=raw.pull_item.map(ni);     raw['U']=raw.pull_nsu_unit.map(nz)
@@ -134,7 +185,7 @@ susp=fold[fold.verdict=='DIFFER']
 print(f'pooled-label pairs tested: {len(fold)} | ratio band for "sufficiently different": outside [{RATIO_LO:.2f}, {RATIO_HI:.2f}]')
 print('SUSPECT folds (DIFFER = sig AND size-ctrl ratio outside band):',len(susp))
 print(fold.to_string(index=False))
-fold.to_csv(BOX+r'\Data Cleaning\outputs\temp\fold_validation_A.csv',index=False,encoding='utf-8-sig')
+fold.to_csv(_OUT('A'),index=False,encoding='utf-8-sig')
 
 # ================= (B) SPLIT validation: documented keep-separate pairs =================
 # (item substring filter, harmonized A, harmonized B); '' item = any item
@@ -167,5 +218,5 @@ for itf,ha,hb in SPLITS:
         splitrows.append([it,ha,hb,res['verdict'],res.get('p'),rt,res['nstr'],ma,mb])
 split=pd.DataFrame(splitrows,columns=['item','harm_A','harm_B','verdict','p','size_ctrl_ratio','n_strata','med_A_med_g','med_B_med_g'])
 print(split.to_string(index=False))
-split.to_csv(BOX+r'\Data Cleaning\outputs\temp\fold_validation_B.csv',index=False,encoding='utf-8-sig')
-print('\nwrote fold_validation_A.csv and fold_validation_B.csv')
+split.to_csv(_OUT('B'),index=False,encoding='utf-8-sig')
+print(f"\nwrote {_OUT('A').name} and {_OUT('B').name}")
