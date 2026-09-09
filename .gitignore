@@ -34,6 +34,11 @@ outputs/temp/_verify_rebuild/
 reference/archive/*
 !reference/archive/README.md
 
+# The sandbox validate_folds.do writes to while it is validated against validate_folds.py.
+# Holds intermediate .dta files and a second copy of both fold-validation CSVs; the
+# canonical pair under outputs/temp/ is what verify_pipeline check 3 reads.
+outputs/temp/_folds_port/
+
 # The sandbox 06_cpi_panel.do writes to so its output can be diffed against the published
 # CSVs without overwriting them. Regenerated on demand; committing it would put a second
 # copy of the CPI panel in the repo, which is the ambiguity the comparison exists to remove.
