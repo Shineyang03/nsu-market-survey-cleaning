@@ -83,10 +83,12 @@ local MIN   = 10      // min item_nsu cell size before falling back to item leve
 local FLOOR = 5       // g/mL: an anchor below this is physically implausible
 local SIB   = 1.5     // decades: item_nsu anchor this far from item ref => contaminated
 local AMB   = 0.35    // decades: post-snap residual above this => ambiguous snap
-local KGMAX = 30      // kg: at or below this a "kg" tick is believed; above it the
-                      //     number is read as grams mis-ticked as kg. Empirically
-                      //     clean -- the only kg rows in (20,30] are three 25 kg
-                      //     rice sacks, and (30,50] is empty.
+* KGMAX IS NOT DEFINED HERE ANY MORE. It belongs to the block reading, which moved to
+* 00_shared/03a_block_reading.do so it is computed before the harmonization merge; the
+* threshold moved with the computation so the rule has one home. Nothing in this file
+* reads it -- STEP 3a-3d now merges w_block in. Do not re-add it as a convenience:
+* two files disagreeing about where a threshold lives is how the block reading came to
+* have three implementations in the first place.
 
 
 ********************************************************************************
@@ -248,33 +250,49 @@ label var review_step1 "STEP 1 flag_review, before STEP 3 cleared it"
 * number -- sets the decade, and the block reading is the fallback for when the
 * anchor is itself untrustworthy. See the plausibility gate below.
 
-* --- 3a. unit==2 (grams): decimal / same-input-same-output consistency ---------
-*   weight >= 10 : already plausible grams          -> read as typed
-*   weight <  10 : kg-magnitude misentry            -> read as kg
-gen double w_block = .
-replace w_block = cond(weight>=10, weight, weight*1000) if unit==2 & !missing(weight)
+* --- 3a-3d. THE BLOCK READING IS MERGED IN, NOT COMPUTED HERE ------------------
+* The five branches that build it (grams, litres, and the three kg bands around
+* KGMAX) moved to 00_shared/03a_block_reading.do, which 03_clean_ms.do runs BEFORE it
+* merges the harmonization crosswalk.
+*
+* Nothing about the computation changed and nothing about it depended on this file. What
+* changed is its POSITION, and that is the entire point. The fold test
+* (90_diagnostics/validate_folds.py --weight=block) asks whether two raw labels folded
+* into one harmonized_nsu_unit actually weigh the same. It cannot answer that from the
+* published weight, because STEP 1 below snaps that weight toward the median of a pool
+* keyed on ${unitvar} -- harmonized_nsu_unit -- so the grouping under test helped produce
+* the evidence for it. Computing the block reading upstream of the merge makes its
+* independence structural: everything the fold test reads is complete before a single
+* fold has been applied.
+*
+* KGMAX moved with it. There is one definition of the rule and one definition of the
+* threshold, in the same file.
+* NOT assert(3). block_reading is built from the raw MS BEFORE the crosswalk merge and
+* before the non-NSU trim, so it legitimately holds rows this file no longer has -- that
+* asymmetry is the whole point of computing it upstream. What must hold is the other
+* direction: every row the snap is about to adjudicate has to carry a reading.
+merge 1:1 id using "${btemp}\block_reading", keepusing(w_block) gen(_m_block)
+count if _m_block == 1
+if r(N) > 0 {
+	di as err "04_unit_snap.do: " r(N) " row(s) have no block reading."
+	di as err "block_reading is built from the raw MS in 03a; a row here that is not"
+	di as err "there means an id was created after 03a ran."
+	exit 459
+}
+qui count if _m_block == 2
+di as txt "3a-3d: " r(N) " block reading(s) belong to rows dropped upstream of the snap"
+drop if _m_block == 2
+drop _m_block
 
-* --- 3a (litres). Same premise in the volume dimension. A genuine 20 L reading
-*   would become 20 mL here; safe only because the one cell with real litre
-*   readings (mineral water) is removed upstream by the non-NSU exclusion.
-replace w_block = cond(weight>=10, weight, weight*1000) if unit==3 & !missing(weight)
-
-* --- 3b. unit==1 (kg) sub-1 entries are true kg -> grams via x1000 -------------
-replace w_block = weight*1000 if unit==1 & weight<1 & !missing(weight)
-
-* --- 3c. unit==1 (kg) plausible bulk kg entries: trust the reading (-> grams) ---
-*   THE CEILING MATTERS. It used to be 20, which left (20,1000) handled by nothing:
-*   three 25 kg rice sacks fell through to the anchor and published at 2,500 g.
-count if inrange(weight,1,`KGMAX') & unit==1 & !missing(weight)
-di as txt "3c kg-plausibility: " r(N) " row(s) matched"
-replace w_block = weight*1000 if inrange(weight,1,`KGMAX') & unit==1 & !missing(weight)
-
-* --- 3d. unit==1 (kg) but far too big for kg: grams mis-ticked as kg ------------
-*   A cabbage does not weigh 1,180 kg. Above `KGMAX' the typed number is already
-*   grams and the UNIT tick is the error, so take the reading as it stands.
-count if weight > `KGMAX' & unit==1 & !missing(weight)
-di as txt "3d kg-implausibility (read as grams): " r(N) " row(s) matched"
-replace w_block = weight if weight > `KGMAX' & unit==1 & !missing(weight)
+* The merge is asserted match-only above, so a missing w_block here means the reading
+* itself came out missing -- which STEP 3e cannot adjudicate against. Every row with a
+* usable weight must carry one.
+count if !missing(weight) & weight > 0 & missing(w_block)
+if r(N) > 0 {
+	di as err "04_unit_snap.do: " r(N) " row(s) have a weight but no block reading."
+	di as err "03a_block_reading.do covers unit codes 1/2/3 only -- check its exit 459."
+	exit 459
+}
 
 
 ********************************************************************************

@@ -62,6 +62,52 @@ python dofiles/00_shared/06_cpi_panel.py
   removed.
 - `03` needs the crosswalk `01` and `02` produce.
 
+### Where the fold evidence is produced, and why it is produced there
+
+Inside `03_clean_ms.do` there is one ordering constraint that is not about which file
+needs which `.dta`. It is about what a piece of evidence is allowed to have seen.
+
+```
+03    raw MS prep — comments, obs_type → item_nsu_hetero_type      no folds applied yet
+03a   00_shared/03a_block_reading.do → w_block                     reads weight, unit only
+───── everything the fold test reads is complete at this line ─────────────────────────
+03    merge master_nsu_rename → harmonized_nsu_unit
+04    00_shared/04_unit_snap.do → published corrected_weight        pools on ${unitvar}
+05    00_shared/05_manual_corrections.do
+```
+
+The **block reading** is the typed weight in canonical units, with the kg/g/L tick not
+taken literally — a pure function of `weight`, `unit` and `KGMAX`. It used to be STEP
+3a–3d of `04_unit_snap.do`, which runs *after* the crosswalk merge. Nothing about it
+depended on that merge, but its position meant a reader had to trace `04` to establish
+as much.
+
+That matters because of what reads it. `validate_folds.py` asks whether two raw labels
+folded into one `harmonized_nsu_unit` actually weigh the same. **The published weight
+cannot answer that**: `04` snaps it toward the median of a pool keyed on
+`harmonized_nsu_unit`, so two labels folded together are snapped toward one median,
+nudging the test toward "they weigh the same" — which is what justified folding them.
+
+Measured on the current build, all three candidate inputs:
+
+| test input | crackers `bilog`/`pieces or units` | fresh fish `bilog`/`binilog` |
+| :-- | :-- | :-- |
+| published weight (pool keyed on harmonized unit) | **DIFFER** p=0.043 | agree p=0.469 |
+| **block reading** | agree p=0.220 | agree p=0.944 |
+| published weight (pool keyed on raw label) | **DIFFER** p=0.043 | **DIFFER** p=0.041 |
+
+The crackers fold contradicts the documented fold policy only on the published weight;
+on block readings it passes, with an identical size-controlled ratio of 0.62. Keying the
+snap on the raw label does not fix it and breaks a different fold instead — each label
+snapped toward its own median, pushing folded labels apart. The block reading is the only
+input with no grouping bias in either direction. The carve-outs themselves (`camote`
+pieces, `putos` for ice cream and crackers) hold identically under all three, so nothing
+rests on the choice except which folds look suspect.
+
+So: run the fold test with `--weight=block`, and keep `03a` above the merge. `04` merges
+`w_block` in rather than recomputing it, and `KGMAX` lives in `03a` with the computation
+it belongs to.
+
 Seeding the registry later — which is where it started — left a fresh clone needing two
 passes to converge, the same circularity issue #33 was about.
 
@@ -122,8 +168,9 @@ checking. Check 5 is what tells you those outputs still match their inputs.
 | `00b_price_ms_cases.do` | which cases exist in the price file, the MS, or both. Reads the RAW market survey, so the crosswalk cannot depend on its own downstream output (#33) |
 | `01_build_crosswalk.py` | folds raw NSU spellings into `harmonized_nsu_unit`; writes `master_nsu_rename.csv`. `--outdir <dir>` builds it somewhere else and refuses to touch the id registry, for comparing a rebuild against the live crosswalk |
 | `02_drop_non_nsu_labels.py` | removes labels that are not NSUs (standard quantity, ambiguous quantity, free text) and reports what it removed |
-| `03_clean_ms.do` | load, comments, normalize, **exclude non-NSU labels**, harmonize, identifiers. Calls 04 and 05. |
-| `04_unit_snap.do` | magnitude correction — kg→g, L→mL, decimal slips |
+| `03_clean_ms.do` | load, comments, normalize, **exclude non-NSU labels**, harmonize, identifiers. Calls 03a, 04 and 05. |
+| `03a_block_reading.do` | the **block reading** `w_block` — typed weight in g/mL, kg tick not taken literally. Called from `03` *before* the crosswalk merge, deliberately: it reads only `weight`, `unit` and `KGMAX`, so everything the fold test needs is complete before any fold is applied. Owns `KGMAX`. Output: `block_reading.dta`, merged into `04`. See "Where the fold evidence is produced" above. |
+| `04_unit_snap.do` | magnitude correction — kg→g, L→mL, decimal slips. Merges `w_block` in rather than recomputing it |
 | `05_manual_corrections.do` | every hand-made weight/unit fix. §1–5 are one block per correction, each asserting its row count; **§6 applies the review ledger**, `reference/reviewed/snap_verdicts.csv`, which is where the bulk of the adjudicated decisions now live. See *Adjudicating a weight* below. |
 | `06_cpi_panel.py` | province × item-group × month CPI panel |
 | `07_cpi_factor.do` | drops 98 price-quantity rows whose recorded price was not the price handed over — 71 vendor-priced (a further 23 are rescued where they were the case's only rung) and 27 where the vendor gave no price at all. **The only place those rows are dropped, and both outcomes depend on it.** Builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |

@@ -78,7 +78,10 @@ MIN_STRATA=2        # need >=this many strata where BOTH labels appear
 # way, pooling each label separately and so nudging toward "they differ".
 #
 # Run all three and compare. Agreement means the circularity was harmless in practice.
-_ARGS=dict(weight='corrected', build='master_rename_build')
+# THE DEFAULT IS `block', and that is the decision this file exists to encode. The
+# published weight is available with --weight=corrected for comparison, but it must not
+# be what the fold policy is judged on: the grouping under test helped produce it.
+_ARGS=dict(weight='block', build='master_rename_build')
 for _a in sys.argv[1:]:
     if _a.startswith('--weight='): _ARGS['weight']=_a.split('=',1)[1]
     elif _a.startswith('--build='): _ARGS['build']=_a.split('=',1)[1]
@@ -100,7 +103,7 @@ print(f"[validate_folds] weight={_ARGS['weight']} ({_WCOL})  build={_ARGS['build
 # folded group contradicts its own weight test. A variant run landing on those names would
 # leave the build verified against a test it never agreed to -- the same class of failure
 # as this script's own six-week stale read, but pointing forward instead of backward.
-_TAG=('' if (_ARGS['weight']=='corrected' and _ARGS['build']=='master_rename_build')
+_TAG=('' if (_ARGS['weight']=='block' and _ARGS['build']=='master_rename_build')
       else f"_{_ARGS['weight']}"
            + ('' if _ARGS['build']=='master_rename_build' else f"_{_ARGS['build']}"))
 def _OUT(p):
@@ -109,6 +112,45 @@ def _OUT(p):
 raw=pd.read_stata(_DTA,
                   columns=['pull_province','pull_municipal_city','pull_item','pull_nsu_unit',
                            'item_nsu_hetero_type','corrected_unit',_WCOL])
+# ---- the block reading must be the one computed UPSTREAM of the harmonization ------
+# w_block is read off the built weighings for convenience -- that file also carries the
+# labels, sizes and dimension this test strata on. But its VALUE has to be the one
+#00_shared/03a_block_reading.do produced before 03_clean_ms.do merged the crosswalk,
+# because that is the entire basis for calling this test non-circular.
+#
+# 04_unit_snap.do merges block_reading.dta in and rounds it at save, so the two should
+# agree to the rounding and nothing else. If they ever diverge, someone has reintroduced
+# a computation of the block reading downstream of the fold decisions, and this test is
+# quietly circular again. That is not a difference worth tolerating silently: it is the
+# exact failure the restructure removed.
+if _ARGS['weight']=='block':
+    _bp=Path(BOX)/'Data Cleaning'/'outputs'/_ARGS['build']/'temp'/'block_reading.dta'
+    if not _bp.exists():
+        sys.exit(f"no block_reading.dta at {_bp}\n"
+                 "It is written by 00_shared/03a_block_reading.do, called from "
+                 "03_clean_ms.do before the crosswalk merge. Rebuild.")
+    _up=pd.read_stata(_bp).set_index('id').w_block
+    _tmp=pd.read_stata(_DTA,columns=['id','w_block']).set_index('id').w_block
+    _both=pd.concat([_tmp.rename('build'),_up.rename('upstream')],axis=1,join='inner')
+    # Tested as "the build holds a valid rounding of the upstream value", NOT by rounding
+    # both sides and comparing. Stata's round() breaks a .5 tie away from zero and
+    # numpy's breaks it to even, so id 5189 -- weight 20.5 g, block reading 20.5 --
+    # is stored as 21 by the build and rounds to 20 in pandas. That is a disagreement
+    # between two rounding conventions, not evidence of a recomputation, and reporting it
+    # as one sent me looking for a pipeline defect that was not there.
+    _gap=(_both.build-_both.upstream).abs()
+    _off=(_gap>0.5+1e-9) & _both.build.notna() & _both.upstream.notna()
+    _off|=_both.build.isna()!=_both.upstream.isna()
+    if _off.any():
+        sys.exit(f"{int(_off.sum())} of {len(_both)} block readings on the build are not "
+                 "a rounding of 03a_block_reading.do's output.\nThe build's w_block is "
+                 "supposed to BE that output, merged in and rounded to the unit. A "
+                 "downstream recomputation would make this test circular again -- find "
+                 "it before trusting any verdict below.\n"
+                 f"worst gap: {_gap[_off].max():.4g} at id {_gap[_off].idxmax()}")
+    print(f"[validate_folds] w_block matches 03a's upstream output on all "
+          f"{len(_both):,} shared ids")
+
 raw['size']=raw.item_nsu_hetero_type.astype(str)
 raw=raw[raw['size'].isin(SIZES)].copy()
 raw['w']=pd.to_numeric(raw[_WCOL],errors='coerce')

@@ -40,20 +40,17 @@ OUT = Path("outputs/master_rename_build/tables/snap_sense_check.xlsx")
 SNAP_DO = Path("dofiles/00_shared/04_unit_snap.do")
 
 # ---------------------------------------------------------------- constant tripwire
-# This script RE-IMPLEMENTS the block reading (see `block_says' below), because the
-# block rule is a plain threshold and the .dta does not carry its answer separately.
-# That leaves three constants duplicated from 04_unit_snap.do. They agree today, and
-# nothing would tell you if they stopped: this file would keep scoring the two rules
-# against a threshold the pipeline no longer uses, on the very workbook the rule is
-# being judged from. Silent, and wrong in the direction of looking fine.
+# NEITHER RULE IS RE-IMPLEMENTED HERE ANY MORE. `anchor_says' reads w_step1 and
+# `block_says' reads w_block, both carried forward by 04_unit_snap.do for exactly this
+# comparison. So the block rule's own threshold, KGMAX, is no longer needed by this file
+# and is no longer read: it moved to 00_shared/03a_block_reading.do along with the
+# computation, and this script would have kept scraping it out of 04 and finding nothing.
 #
-# So: read them out of the do-file and fail if they have moved. The do-file is the
-# source of truth; EXPECTED is only what this script last agreed with.
-#
-# The anchor snap is NOT re-implemented -- `anchor_says' is read from `w_step1', which
-# 04_unit_snap.do carries forward for exactly this comparison. Only the block reading
-# is duplicated, and only because it is three lines of threshold.
-EXPECTED = {"KGMAX": 30, "WFLOOR": 10, "WCEIL": 50000}
+# What remains duplicated is the plausibility band, which this file uses to label a row
+# `block (anchor rejected)'. They agree today and nothing would tell you if they stopped,
+# so: read them out of the do-file and fail if they have moved. The do-file is the source
+# of truth; EXPECTED is only what this script last agreed with.
+EXPECTED = {"WFLOOR": 10, "WCEIL": 50000}
 
 
 def _locals_from_do(path, names):
@@ -85,7 +82,6 @@ if _moved:
           " Any comparison produced before that is scored against a rule the"
           " pipeline no longer applies.")
 
-KGMAX = _have["KGMAX"]
 WFLOOR, WCEIL = _have["WFLOOR"], _have["WCEIL"]
 
 pre = pd.read_stata(T/"prelim_nsu_data.dta", convert_categoricals=False)

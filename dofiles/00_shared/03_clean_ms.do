@@ -299,6 +299,24 @@ label var id "Durable weighing id: assigned in 00a_weighing_ids.do, held in outp
 tempfile rawms
 save `rawms'
 
+* ---- the block reading, computed HERE and deliberately not later ---------------
+* This is the last point in the build at which no fold decision has been applied: the
+* crosswalk merge is below, at "merge master_nsu_rename with raw data". The block
+* reading is a pure function of `weight', `unit' and KGMAX, so it COULD be computed
+* anywhere -- it used to be STEP 3a-3d of 04_unit_snap.do, which runs after the merge.
+*
+* Position is the point. The fold test asks whether two raw labels folded into one
+* harmonized unit actually weigh the same, and it cannot answer that from a weight the
+* snap moved toward a pool keyed on that same harmonized unit. Computing the block
+* reading above the merge makes its independence STRUCTURAL rather than something a
+* reader has to establish by tracing 04. See 03a_block_reading.do's header and
+* dofiles/README.md, "Two different loops".
+global block_in  "`rawms'"
+global block_out "${btemp}\block_reading"
+do "${dofiles}/00_shared/03a_block_reading.do"
+global block_in  ""
+global block_out ""
+
 import excel "${tables}\add_comments_crosswalk.xlsx", clear firstrow
 
 def_hetero

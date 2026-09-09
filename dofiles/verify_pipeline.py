@@ -102,14 +102,24 @@ XW_KEY = ["province", "pull_municipal_city", "cons_name", "pull_nsu_unit"]
 #
 # Keyed on (item substring, label_ref, label_other) as validate_folds.py reports them.
 RATIO_TOL = 0.15
-ACKNOWLEDGED = {
-    ("crackers", "bilog", "pieces or units"): dict(
-        ratio=0.62, p=0.043, n_strata=3,
-        why="3 strata is one above the MIN_STRATA floor, and MIN_STRATA, MIN_LABEL_N "
-            "and RATIO_HI are all listed untested in docs/implicit_assumptions.md A9. "
-            "Decision: do not flip a harmonization on thin evidence. Splitting it "
-            "would move the published pooling key for every crackers `bilog' row."),
-}
+#
+# EMPTY, AND THAT IS THE RESULT OF FIXING THE TEST RATHER THAN EXCUSING IT.
+#
+# The one entry here was crackers `bilog' / `pieces or units', a fold that failed its own
+# weight test at p=0.043 with a size-controlled ratio of 0.62. It was acknowledged on the
+# grounds that 3 strata is thin evidence on which to flip a harmonization.
+#
+# It was not thin evidence. It was the WRONG evidence. The test read corrected_weight --
+# the published weight, which 04_unit_snap.do snaps toward the median of a pool keyed on
+# harmonized_nsu_unit. So the fold under test helped produce the number judging it. On the
+# block reading, which is a function of the raw weight, the unit tick and KGMAX alone, the
+# same comparison gives p=0.220 on an IDENTICAL ratio of 0.62: the fold passes.
+# validate_folds.py now defaults to that reading, and Panel A has no DIFFER rows at all.
+#
+# Keep this dict for the case it was built for -- a fold genuinely kept against its own
+# evidence -- but do not put one here to quiet a red check before establishing that the
+# test is measuring the right thing. That is what happened last time.
+ACKNOWLEDGED = {}
 
 _fail = []
 _warn = []
