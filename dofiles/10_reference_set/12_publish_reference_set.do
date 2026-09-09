@@ -43,8 +43,98 @@ collapse (median) grams = corrected_weight (count) n_g = corrected_weight (first
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
             corrected_unit size_ord)
 
+********************************************************************************
+**# 5b. FALLBACK LEVEL 1 -- a cell with any thin rung publishes one pooled weight
+********************************************************************************
+* THE RULE (issue #30, settled there). A size ladder cut from one or two weighings per
+* rung is not a size distribution; it is noise with three labels on it. So where ANY rung
+* in a cell is thin, the cell stops publishing per-rung weights and publishes a single
+* median pooled across its rungs, at
+*
+*     province x municipality x item x harmonized_nsu_unit x corrected_unit
+*
+* WHOLE CELL, NOT THE THIN RUNGS ONLY, and that is the part worth understanding. Replacing
+* only the thin rungs would leave one cell publishing `small' at its own median and
+* `medium' at the cell-pooled median -- two different estimators inside one ladder, which
+* can invert the size ordering. The monotonicity check further down exports exactly that
+* as a defect, so a rung-by-rung rule would manufacture the failures it then reports.
+*
+* OUTCOME 1 STOPS HERE. It does not fall back to province x item, nor to item x unit. The
+* reference set is the record of what was weighed in that cell; borrowing another
+* municipality's weight into it changes what the table is. A cell with no weighing at all
+* is absent from the table rather than imputed. Outcome 2's retrofit is where borrowing
+* belongs, and its ladder continues past this point -- see 20_psps_retrofitting/
+* 30_fallback.do.
+*
+* corrected_unit STAYS IN THE KEY. Pooling across rungs must never pool grams with
+* millilitres.
+*
+* This does NOT rescue a thin cell, and must not be read as if it did: a cell whose rungs
+* hold one weighing each pools to n_g = 2 and is still thin. It carries fallback_level = 1
+* AND d_thin = 1, and both are published.
+tempvar anythin
+bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit: ///
+	egen byte `anythin' = max(n_g < `THIN')
+
+gen byte fallback_level = 0
+replace  fallback_level = 1 if `anythin' == 1
+
+qui count if fallback_level == 1
+local n_pre = r(N)
+
+* Re-collapse only the affected cells. The weighing-level median cannot be recovered from
+* rung medians, so the pooled median is taken over the WEIGHINGS -- which is why this
+* re-reads the pre-collapse data rather than averaging the rungs.
+preserve
+	keep if fallback_level == 1
+	keep pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
+	duplicates drop
+	tempfile thincells
+	save "`thincells'"
+restore
+
+preserve
+	use "${btemp}\ref_11_checked", clear
+	merge m:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+		corrected_unit using "`thincells'", keep(3) nogen
+	collapse (median) grams = corrected_weight (count) n_g = corrected_weight ///
+	         (first) weighing_approach, ///
+	         by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+	            corrected_unit)
+	* NOT 0 -- that code already means "conventional_nsu" in szlbl, and a pooled row is
+	* not a conventional unit. 4 is a distinct code, added to the label below.
+	*
+	* Safe against the monotonicity check further down, which compares grams across
+	* consecutive size_ord within a cell: a pooled cell holds exactly ONE row, since its
+	* per-rung rows are dropped above, so `_n > 1' is never true for it and no comparison
+	* is attempted. If that check is ever rewritten to compare across cells, this needs
+	* an explicit exclusion.
+	gen byte size_ord = 4
+	gen byte fallback_level = 1
+	tempfile pooled
+	save "`pooled'"
+restore
+
+drop if fallback_level == 1
+append using "`pooled'"
+drop `anythin'
+
+qui count if fallback_level == 1
+di as res _n "fallback level 1 (cell pooled across rungs): " r(N) " cell(s), from " ///
+	"`n_pre' per-rung row(s)"
+qui count if fallback_level == 1 & n_g < `THIN'
+di as res "  of those, still thin after pooling: " r(N) ///
+	" -- Outcome 1 has no further level, so they publish flagged"
+
+* Code 4 carries the pooled rows created above; see the note there for why not 0.
+label define szlbl 0 "conventional_nsu" 1 "small" 2 "medium" 3 "large" ///
+	4 "pooled across sizes", replace
 label values size_ord szlbl
 gen byte d_thin = n_g < `THIN'
+
+label define fblbl 0 "own cell x size" 1 "cell pooled across sizes", replace
+label values fallback_level fblbl
+label var fallback_level "how this weight was arrived at; 0 = the cell's own size rung"
 
 label var grams  "reference weight: median grams (or mL) for one unit of this size"
 label var n_g    "weighings behind this estimate"

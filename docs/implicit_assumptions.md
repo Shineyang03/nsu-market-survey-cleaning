@@ -116,19 +116,29 @@ about; three or more is not.
 
 **Rests on it.** The `d_thin` flag only. No weight changes, nothing is dropped.
 
-**Status: ACCEPTED, with the sensitivity stated.** The threshold sits **exactly on the
-median** of `n_g`, which is the least robust place to put a cut:
+**Status: ACCEPTED, with the sensitivity stated.**
 
-| threshold | rows flagged | share of 3,302 |
+| threshold | rows flagged | share of 2,557 |
 | --: | --: | --: |
-| 2 | 559 | 16.9% |
-| **3 (current)** | **1,266** | **38.3%** |
-| 4 | 1,968 | 59.6% |
-| 5 | 2,479 | 75.1% |
+| 2 | 270 | 10.6% |
+| **3 (current)** | **518** | **20.3%** |
+| 4 | 1,038 | 40.6% |
+| 5 | 1,470 | 57.5% |
 
-Moving the cut by one changes the flagged share by roughly 20 points. A threshold on a flat
-part of the distribution would be robust; this one is not, and no substantive argument
-selects 3 over 2 or 4.
+Moving the cut by one still roughly doubles or halves the flagged share, so the threshold
+sits on a steep part of the distribution and no substantive argument selects 3 over 2 or 4.
+
+**These figures changed when the fallback ladder landed, and the direction is worth
+understanding.** `THIN = 3` now does two jobs rather than one. It still flags a published
+row as resting on few weighings, but it *also* decides which cells collapse across their
+size rungs — see A15 and the L1 rule. So a cell with any thin rung publishes one pooled
+row instead of two or three per-rung rows, the denominator falls from 3,305 rows to 2,557,
+and the flagged share falls further because pooling raises `n_g` on the rows that survive.
+
+The flagged share therefore reads *lower* than before while the underlying evidence is
+unchanged. Do not read the fall from 38.3% to 20.3% as an improvement in coverage: 518 of
+the 962 collapsed cells are still thin after pooling, and the rest were thin at rung level
+before being pooled. `n_g` on every row is the quantity to reason from, not the share.
 
 **Why that is tolerable.** `n_g` is published on every row, so a user who disagrees with the
 cut can set their own. The flag is a convenience, not a filter — treat `d_thin` as one
@@ -538,6 +548,24 @@ and `n_mun` ship with every fallback weight so a reader can apply their own cut,
 province group cannot support a schedule at all are refused outright rather than served a weak one.
 
 **Checked by:** nothing.
+
+## A15 — Within-NSU heterogeneity ignored from L1 down (Outcome 2 fallback ladder)
+
+**Claims.** When the reference set's cell-level data are thin or absent, Outcome 2 climbs a fallback ladder pooling across geographies. Beginning at level L1, every rung treats all hetero-groups (sizes) alike by pooling them: a household that bought the cheap, small version and one that bought the expensive, large version receive the same grams per NSU. In exchange, the estimate no longer depends on validating a price–weight relationship across municipalities — it rests instead on a municipal or provincial median.
+
+**Where.** `dofiles/20_psps_retrofitting/30_fallback.do`, the L0–L3 rung structure and the pooling logic at each level. Outcome 1 stops at L1 and does not borrow further; Outcome 2 continues to L3 because the PSPS retroactively needs a conversion factor and there is no other source.
+
+**Rests on it.** The fallback ladder's grain and what happens when a cell holds no weighings at all. L1 collapses hetero-groups by pooling across size terciles within the cell; L2 pools across municipalities when there is no MS weighing at that grain; L3 pools across provinces when provincial coverage fails. **518 of 962 cells that lose their size ladder** remain thin even after pooling to L1 and publish a median with both `fallback_level = 1` and `d_thin = 1`, resting on one or two weighings. Every household in those cells receives a single conversion factor regardless of what it paid, so size heterogeneity is erased from the household-level estimate, yet size-specific medians survive in Outcome 1 and can be compared by a reader.
+
+**Status: ACCEPTED, and deliberate.** This is an explicit trade: narrower precision — fewer weighings behind the conversion factor, higher `fallback_level` values — in exchange for dropping a cross-municipality price–weight relationship that is unobserved on both PSPS and MS sides and cannot be validated. It is a design choice, not a threshold or a tie rule.
+
+**What gets published.** `fallback_level` (0–3, ordinal) flags which rung supplied the weight, and `n_g` gives the weighing count **at the rung actually used** — so a reader can keep L1 and drop L3 rather than facing one all-or-nothing switch. Those two columns are the whole apparatus; there is deliberately nothing else.
+
+`cv_gpp`, `n_pairs`, `n_price` and `n_mun` are **not** published on fallback rows. They belong to a superseded design in which the fallback borrowed a *price–weight slope* across municipalities and needed a ray-fit statistic to say where that was safe. This ladder borrows a *median weight* at a coarser grain instead, so the statistic has nothing to qualify. They survive only in `90_diagnostics/scope_price_weight_ray.do` as a measurement of the alternative that was not taken.
+
+L3 is flagged distinctly because the same NSU varies up to **6.7×** across municipalities — see A1, which supersedes an earlier 14× reading — so a national median describes no single municipality.
+
+**Checked by** nothing.
 
 ---
 

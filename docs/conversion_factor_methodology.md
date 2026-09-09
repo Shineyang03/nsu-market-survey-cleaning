@@ -1107,6 +1107,79 @@ group-number-to-size map mislabels 449 of 1,565 cases.
 field lookup for the third size returns nothing rather than an interpolated guess. That
 is deliberate — see assumption 7.
 
+## Fallback ladder (Outcome 2): borrowing when cells lack data
+
+A household in a PSPS case needs a conversion factor. Outcome 2 provides one whenever possible, even when that case's own market-survey cell has no weighing or too few to sustain all hetero-groups. The fallback ladder climbs step by step across geographies, re-testing at each rung whether enough weighings exist to meet the count condition.
+
+**Outcome 1 does not use this ladder.** It publishes what was measured in the cell only. A cell with no MS weighing does not appear in Outcome 1 at all, which is correct: the reference set is the record of weights measured in that specific place, and borrowing another municipality's weight changes what the table *is*.
+
+Outcome 2's exposure is different: the PSPS asks for a quantity in an NSU, and that household needs a grams-per-unit figure whether or not the MS weighed that exact cell. The fallback exists to provide one, and the `fallback_level` flag and its companions (`cv_gpp`, `n_pairs`, `n_price`, `n_mun`) let an analyst set their own confidence threshold rather than having one choice imposed.
+
+### The two ladders
+
+Both outcomes use `corrected_unit` as a key at every level — grams are never pooled with millilitres. The difference in when they stop determines the published size composition.
+
+**Outcome 1 (reference set): stops at L1, does NOT borrow further**
+
+| level | grain | condition |
+|---|---|---|
+| L0 | prov × mun × item × harmonized_nsu_unit × corrected_unit × hetero | $`n_g \geq 3`$ on every rung in the cell |
+| L1 | prov × mun × item × harmonized_nsu_unit × corrected_unit | ANY rung in the cell is thin ($`n_g < 3`$) |
+| — | not published at all | the cell has no MS weighing |
+
+Reason: the reference set publishes the *measured* weights for that cell. ANY thin rung collapses the WHOLE cell to L1, not just the thin rung — replacing only thin rungs leaves a published small at the cell's own median alongside medium at the pooled median, which can invert the size ordering (M > L). Outcome 1 validates this, so a non-monotonic result is caught before export.
+
+**Outcome 2 (PSPS conversion factors): climbs until $`n_g \geq 3`$**
+
+| level | grain | condition |
+|---|---|---|
+| L0 | prov × mun × item × nsu × unit × hetero | $`n_g \geq 3`$ on the rung; the household's price selects it |
+| L1 | prov × mun × item × nsu × unit | any rung thin — pool across hetero, NO price match |
+| L2 | prov × item × nsu × unit | no MS weighing at the cell grain |
+| L3 | item × nsu × unit | still nothing anywhere |
+| — | unconvertible | nothing anywhere (80 cases, 82 PSPS observations) — reported, never imputed |
+
+**Re-test at every level.** Reaching L1 does not end it: a cell whose two rungs hold one weighing each pools to $`n_g = 2`$ and continues to L2.
+
+### How the fallback works at each level
+
+**L0 → L1 transition: pooling within the municipality.** If ANY hetero-group in the cell falls below the count, pool all of them together within that municipality. This answers "what is the typical size that market had?" when the price distribution did not support separating sizes. One conversion factor applies to every household in that cell, regardless of what it paid.
+
+**L1 → L2 transition: crossing into other municipalities.** There is no MS weighing for that case (prov × mun × item × nsu × unit). Look for the same item × nsu × unit in other municipalities of the same province; pool all weighings at that grain. The cell still emits one row per municipality, so every municipality gets its own row, but all municipalities in a province share the same $`w_g`$ and the same `fallback_level = 2`.
+
+**L2 → L3 transition: provincial boundary.** No province × item × nsu × unit weighing exists. Fall back to the national (item × nsu × unit) median — whatever was measured of that NSU anywhere in the data. This is the weakest rung. Conventional units vary up to **6.7×** across municipalities — camote tops `bundle` 95 g to 635 g over 28 municipalities — so a national median describes no municipality in particular and should be used sparingly. See `implicit_assumptions.md` A1, which also records that the spread is not only between municipalities: of 106 conventional cases with at least two weighings, 41 disperse beyond 2× *inside* one municipality.
+
+**The conventional branch has no hetero levels** (`size_ord = 0`), so L1 is a no-op — hetero-groups do not exist to pool. A conventional case with no local weighing goes straight to L2.
+
+### What gets published on fallback rows
+
+**The ordinal flag.** `fallback_level` ranges 0–3 and is ordinal — a reader can keep L0 only, or set any cut, or use the attached statistics to make their own call.
+
+**Weighing count.** `n_g` on a fallback row is the denominator at that rung — the weighing count in the pool actually used, not the original cell. Comparing `n_g` across fallback levels thus shows how much the pool broadened. `d_thin` flags rows resting on fewer than 3 weighings *before* the fallback pool, so a reader can see whether the case had any structure to begin with.
+
+**Reliability on L2 and L3 rows.** Four columns quantify the pool:
+- $`v_g`$ is the grams-per-peso schedule, with spread quantified by `cv_gpp` (coefficient of variation)
+- `n_pairs` — the (price, weight) pairs that went into that schedule
+- `n_price` — how many distinct price points supported it
+- `n_mun` — for L2, how many municipalities contributed; 1 for L0, L1, L3
+
+These let an analyst apply their own confidence threshold — e.g., "keep only rows with `n_pairs ≥ 5`" — without guessing at what the project intended.
+
+**Why L3 is flagged distinctly.** The same NSU varies widely across municipalities — prawns `tumpok` runs 95 g to 570 g over 17 of them — so a national median for such a unit describes no single municipality and is the least reliable rung. `fallback_level = 3` signals this unambiguously.
+
+### Cost and resilience of the ladder
+
+On **Outcome 1's reference set**, the size-ladder costs are measured:
+- **3,305 cases capable of a size ladder** → 2,557 published (748 fewer)
+- **962 of 1,995 cases lose their size ladder** because they hit L1 — they publish 1,710 rows at L0, but 962 fewer after the cell thin rule
+- **1,033 cases with no thin rung** are untouched, all L0, 1,595 rows
+
+On **Outcome 2's conversion factors**, fallback depth is the exposure:
+- **518 of 962 cells** that lost their size ladder remain thin even after pooling to L1, so they publish `fallback_level = 1` and `d_thin = 1` together, resting on 1–2 weighings
+- Every household in those cells receives a single $`\widehat{CF}`$ — heterogeneity is erased from the household estimate, but the reference set still holds size-specific medians for comparison
+
+This is a deliberate trade — narrower precision for independence from cross-municipality price–weight relationships that are unobserved and cannot be validated.
+
 ## Assumptions to keep visible
 
 **This section covers the assumptions the *method* makes.** The assumptions the *code*
