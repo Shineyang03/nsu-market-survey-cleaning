@@ -27,6 +27,13 @@ __pycache__/
 # the comparison is made against.
 outputs/temp/_verify_rebuild/
 
+# Retired external inputs, kept only so a past question can be re-answered without
+# re-sourcing them. Large, externally sourced and re-downloadable, so the bytes stay out
+# of git and reference/archive/README.md carries the provenance instead. The README is
+# tracked; the data is not.
+reference/archive/*
+!reference/archive/README.md
+
 # The sandbox 06_cpi_panel.do writes to so its output can be diffed against the published
 # CSVs without overwriting them. Regenerated on demand; committing it would put a second
 # copy of the CPI panel in the repo, which is the ambiguity the comparison exists to remove.

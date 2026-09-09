@@ -1,0 +1,101 @@
+grp,pull_province,pull_item,harmonized_nsu_unit,n_pairs,n_price,n_mun,gpp_med,cv_gpp,cv_corrected_weight,cv_p_real,estimable,tighten
+"AKLAN crackers, cookies, buiscuits, chips/curls putos",AKLAN,"crackers, cookies, buiscuits, chips/curls",putos,59,8,9,4.615384615384615,1.261174298751626,.3260903701947516,.4088956563160724,1,3.86756069490311
+"CAPIZ ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) pieces or units",CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,10,3,5,4.75,1.174900462550124,1.295008605957519,.2821807524652851,1,.9072530152658038
+ILOILO cabbage pack,ILOILO,cabbage,pack,11,4,4,10.1350971019597,1.125562719530535,1.035497316371405,.8336033779704256,1,1.086977920401317
+"CAPIZ crackers, cookies, buiscuits, chips/curls putos",CAPIZ,"crackers, cookies, buiscuits, chips/curls",putos,19,6,6,5,.9855915487078531,.5268678543713541,.554494046823602,1,1.870661761826098
+"NEGROS OCCIDENTAL preserved or processed meat (tocino, tapa, longaniza, etc) bilog",NEGROS OCCIDENTAL,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,37,8,15,5,.8162215354558092,.7664322564791168,.5732662068155662,1,1.064962400206663
+"CAPIZ preserved or processed meat (tocino, tapa, longaniza, etc) putos",CAPIZ,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,15,3,6,5.4,.7853767585978324,.7511787660926745,.0672825034078379,1,1.045525771026572
+"AKLAN preserved or processed meat (tocino, tapa, longaniza, etc) pieces or units",AKLAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,11,3,4,5.784502998586163,.5317771494135002,.5649505594744489,.0493252290104546,1,.9412808616530822
+CAPIZ cabbage putos (mix vegetable),CAPIZ,cabbage,putos (mix vegetable),8,3,3,9,.5301373853266652,.6416756618346204,.6557853167227713,1,.826176551267263
+NEGROS OCCIDENTAL fresh fish pieces or units,NEGROS OCCIDENTAL,fresh fish,pieces or units,12,5,4,4.672864135223216,.4492652109169537,.5672117264976888,.5622024259521117,1,.7920591023232033
+ILOILO pork pieces or units,ILOILO,pork,pieces or units,15,4,3,4.315789473684211,.4271110555801704,.4891265939906121,.3400522510419436,1,.8732116814494203
+ILOILO fresh fish pieces or units,ILOILO,fresh fish,pieces or units,29,8,3,4.060902749360558,.4019529852041726,.6154783515989398,.4338983102315264,1,.6530741238257144
+"ANTIQUE preserved or processed meat (tocino, tapa, longaniza, etc) putos",ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,20,6,2,5.107673967044777,.3838033869908182,.6219543030524783,.3225388095031238,1,.6170925823764808
+"AKLAN preserved or processed meat (tocino, tapa, longaniza, etc) putos",AKLAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,40,10,7,2.95,.38124878880208,.3390874416777648,.1345970131396246,1,1.124337683860263
+"ANTIQUE ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) pieces or units",ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,16,4,4,10.75,.3145862897199149,.1616523674100486,.2504320641295497,1,1.946066703260416
+ILOILO cabbage pieces or units,ILOILO,cabbage,pieces or units,21,4,2,11.26121900217744,.299510197374447,.4461526300769188,.4784336305936391,1,.6713177894363416
+NEGROS OCCIDENTAL camote bilog,NEGROS OCCIDENTAL,camote,bilog,29,4,9,15.00000035762788,.2912282218748424,.3827858631975611,.2068910708843354,1,.7608123754678354
+ILOILO mango pieces or units,ILOILO,mango,pieces or units,11,3,4,10.6519215085634,.288539272874837,.3282599444512042,.2349301353497931,1,.8789962886188459
+NEGROS OCCIDENTAL carrot pieces or units,NEGROS OCCIDENTAL,carrot,pieces or units,61,10,16,8.400000320434582,.2820671594659038,.3025227560804354,.18014804092081,1,.9323832795933779
+"AKLAN crackers, cookies, buiscuits, chips/curls pieces or units",AKLAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,35,3,5,3.703703703703704,.1994952719659775,.1535135511804226,.0891802815968764,1,1.299528741482328
+"NEGROS OCCIDENTAL preserved or processed meat (tocino, tapa, longaniza, etc) putos",NEGROS OCCIDENTAL,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,53,15,17,4.8,.1906523937797196,.1710068967050988,.1443483099596073,1,1.114881314456571
+"NEGROS OCCIDENTAL prawns, lobster, shrimp tumpok",NEGROS OCCIDENTAL,"prawns, lobster, shrimp",tumpok,24,7,8,2.580555555555556,.1901493738323734,.2654697746980974,.2448208611234491,1,.7162750412871622
+NEGROS OCCIDENTAL cabbage pieces or units,NEGROS OCCIDENTAL,cabbage,pieces or units,31,8,8,12.20848124021369,.1776787005361778,.2834633039020406,.2738797120234979,1,.626813764216832
+CAPIZ carrot pieces or units,CAPIZ,carrot,pieces or units,9,3,3,5.333333333333333,.17556058263,.2555681565544269,.1347816380869365,1,.686942320971869
+"NEGROS OCCIDENTAL liquor (e.g, whisky, coconut wine) long-neck",NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",long-neck,50,8,13,4.761904761904762,.1546665534039512,.1009942161847742,.1098123651117123,1,1.531439712557209
+NEGROS OCCIDENTAL chicken whole (chicken),NEGROS OCCIDENTAL,chicken,whole (chicken),34,13,9,4.719411233915134,.1309441199285357,.1903895627550539,.1955911006321907,1,.6877694240886625
+CAPIZ chicken whole (chicken),CAPIZ,chicken,whole (chicken),14,4,3,4.720000000000001,.1223504152335682,.1690017085880401,.1744503086793087,1,.7239596348212698
+NEGROS OCCIDENTAL chicken bilog,NEGROS OCCIDENTAL,chicken,bilog,45,16,11,4.907407407407407,.1065724910994622,.2659876732771814,.2637867168673023,1,.4006670301161091
+CAPIZ mango pieces or units,CAPIZ,mango,pieces or units,6,3,3,8.01428576076275,.0969261524777656,.1996792840912475,.1362365009562788,1,.4854091545794665
+"NEGROS OCCIDENTAL liquor (e.g, whisky, coconut wine) lipid/lapad",NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",lipid/lapad,57,8,17,4.6875,.0710903687881193,0,.0660281332238649,1,
+"CAPIZ ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) putos",CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,12,1,6,3.125,1.281053378802768,1.281053378802769,0,0,.9999999999999998
+CAPIZ beer case,CAPIZ,beer,case,2,1,1,7.047619047619047,1.031993680650637,1.031993680650637,0,0,.9999999999999998
+"AKLAN preserved or processed meat (tocino, tapa, longaniza, etc) bilog",AKLAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,2,2,1,19.55891816595975,.9959633031933346,.9929584586874923,.0059440088224463,0,1.003026153289246
+"ANTIQUE preserved or processed meat (tocino, tapa, longaniza, etc) bilog",ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,3,1,2,4.333333333333333,.8662563131083088,.8662563131083086,0,0,1
+ILOILO chicken pieces or units,ILOILO,chicken,pieces or units,4,1,1,6.558726521215279,.7922867725921683,.7922867725921684,0,0,.9999999999999999
+"ANTIQUE preserved or processed meat (tocino, tapa, longaniza, etc) pieces or units",ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",pieces or units,5,1,1,1.181818181818182,.7536891516255934,.7536891516255932,0,0,1
+"CAPIZ preserved or processed meat (tocino, tapa, longaniza, etc) bilog",CAPIZ,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,6,2,3,5.625,.7252101284884022,.7467205789561777,.0407682457495518,0,.9711934409282726
+ILOILO camote tops bundle,ILOILO,camote tops,bundle,8,1,1,14.45189771946105,.6593881061178322,.6593881061178321,1.42567433460e-16,0,1
+CAPIZ fresh fish pack,CAPIZ,fresh fish,pack,4,2,2,9.689996924531549,.6147027649365937,.5375269157774196,.401644060434916,0,1.143575785498212
+ANTIQUE camote tops bugkos,ANTIQUE,camote tops,bugkos,4,1,2,18.25,.4564544165318106,.4564544165318106,0,0,1
+"ANTIQUE crackers, cookies, buiscuits, chips/curls pieces or units",ANTIQUE,"crackers, cookies, buiscuits, chips/curls",pieces or units,3,1,1,3.125,.4491913324916182,.4491913324916182,0,0,1
+"CAPIZ crackers, cookies, buiscuits, chips/curls pieces or units",CAPIZ,"crackers, cookies, buiscuits, chips/curls",pieces or units,16,2,4,3.75,.4121790414943483,.4121963209947531,.0001208285157802,0,.9999580794404883
+ILOILO camote tops bugkos,ILOILO,camote tops,bugkos,16,1,3,17.45488945337503,.3927584174372222,.392758417437222,2.06599839001e-16,0,1
+ANTIQUE cabbage pieces or units,ANTIQUE,cabbage,pieces or units,6,1,1,12.1,.3860838053634192,.3860838053634192,0,0,1
+"ANTIQUE ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) small cup",ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,3,2,1,10,.3609463553349315,.3716546267253057,.0152501258476926,0,.9711875741068364
+"NEGROS OCCIDENTAL preserved or processed meat (tocino, tapa, longaniza, etc) pack",NEGROS OCCIDENTAL,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,6,2,3,6.686060310132576,.3576501984842534,.1106566670344976,.6592125649784039,0,3.232070945827012
+ANTIQUE loaf bread small packs,ANTIQUE,loaf bread,small packs,3,2,2,14.4,.3557792526919787,.0237267233913545,.4330127018922193,0,14.99487505390724
+"ILOILO prawns, lobster, shrimp tumpok",ILOILO,"prawns, lobster, shrimp",tumpok,4,2,1,2.7699117278723,.3546675844076524,.2475355552547787,.3849001794597505,0,1.432794509227601
+ILOILO fresh fish pack,ILOILO,fresh fish,pack,8,2,2,5.508959031080087,.3365132596820691,.2276309374638407,.1219713137745355,0,1.478328312624572
+NEGROS OCCIDENTAL mango pieces or units,NEGROS OCCIDENTAL,mango,pieces or units,18,2,5,7.416666666666666,.3093728963300295,.3055357450778016,.0046290386663524,0,1.01255876379129
+CAPIZ cabbage pieces or units,CAPIZ,cabbage,pieces or units,6,2,2,8.708333333333334,.2985343733749756,.2308490679038695,.0995859195463938,0,1.29320155409634
+CAPIZ fresh fish pinutos / plastic,CAPIZ,fresh fish,pinutos / plastic,4,1,1,6.95,.2859522818286177,.2859522818286176,0,0,1
+"AKLAN ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) putos",AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,4,1,1,5.457395778362507,.2841313105924598,.2841313105924598,0,0,.9999999999999998
+ILOILO pork slice,ILOILO,pork,slice,3,2,1,8.832622463627098,.277456778111056,.2724704844658372,.0079344958998155,0,1.018300307480989
+"NEGROS OCCIDENTAL ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) putos",NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,2,1,1,4.12,.2334138889353652,.2334138889353652,0,0,1
+ILOILO camote small packs,ILOILO,camote,small packs,6,1,1,17.95884993731261,.2314854391016115,.2314854391016115,0,0,1
+ILOILO carrot pieces or units,ILOILO,carrot,pieces or units,16,1,4,6.792545368194487,.2287243205582101,.22872432055821,0,0,1
+ILOILO cabbage putos (mix vegetable),ILOILO,cabbage,putos (mix vegetable),6,2,2,9.600832890740227,.2280037793760102,.3639042509436723,.2261354956191922,0,.626548820973521
+ANTIQUE camote tops bundle,ANTIQUE,camote tops,bundle,4,2,1,29.53123417900372,.2153187009630434,.1911993973555657,.0293466429088579,0,1.126147382999456
+ILOILO loaf bread medium packs,ILOILO,loaf bread,medium packs,2,1,1,8.018126731468115,.2103189400452295,.2103189400452295,0,0,.9999999999999999
+"CAPIZ ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) small cup",CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,3,2,2,10,.2006908483439057,.0541265877365274,.2474358296526968,0,3.707805290087946
+NEGROS OCCIDENTAL camote tops bundle,NEGROS OCCIDENTAL,camote tops,bundle,3,1,1,27,.1987599287374121,.1987599287374121,0,0,1
+ILOILO camote bilog,ILOILO,camote,bilog,7,1,2,17.24049610423829,.1835185050756491,.1835185050756491,1.37829482103e-16,0,1
+ILOILO chicken pieces of fried chicken,ILOILO,chicken,pieces of fried chicken,4,1,1,3.263048020505114,.1649572197684645,.1649572197684645,0,0,.9999999999999997
+"CAPIZ crackers, cookies, buiscuits, chips/curls pack",CAPIZ,"crackers, cookies, buiscuits, chips/curls",pack,5,1,1,3.759398496240602,.1553822858170684,.1553822858170684,0,0,1
+"AKLAN liquor (e.g, whisky, coconut wine) long-neck",AKLAN,"liquor (e.g, whisky, coconut wine)",long-neck,4,1,1,5.160474165834234,.1538461538461538,.1538461538461539,0,0,.9999999999999998
+CAPIZ cabbage pack,CAPIZ,cabbage,pack,4,2,2,8.375,.1476546580520632,.1020089567796251,.145553123329248,0,1.447467582391306
+"CAPIZ ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) tupperware",CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tupperware,2,1,1,4.840425531914894,.1398672753995368,.1398672753995369,0,0,.9999999999999994
+CAPIZ camote tops bugkos,CAPIZ,camote tops,bugkos,10,1,3,20.5,.0878143970911063,.0878143970911063,0,0,1
+ILOILO chicken slice,ILOILO,chicken,slice,2,1,1,4.796680590142518,.0865845038187609,.0865845038187609,0,0,.9999999999999999
+NEGROS OCCIDENTAL chicken pieces or units,NEGROS OCCIDENTAL,chicken,pieces or units,2,1,1,4.526316097639679,.0856312799235085,.0856312799235085,0,0,.9999999999999993
+"ANTIQUE liquor (e.g, whisky, coconut wine) long-neck",ANTIQUE,"liquor (e.g, whisky, coconut wine)",long-neck,18,2,3,5.357142857142857,.080665328901458,.0817893509600962,.0035114030087479,0,.9862571099361503
+"NEGROS OCCIDENTAL preserved or processed meat (tocino, tapa, longaniza, etc) cans",NEGROS OCCIDENTAL,"preserved or processed meat (tocino, tapa, longaniza, etc)",cans,6,2,2,3.899187409300041,.078243402014132,.0780087142709494,.0011870377439538,0,1.003008481108501
+"ANTIQUE ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) cone",ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,2,1,1,21,.0673435029701474,.0673435029701474,0,0,1
+"CAPIZ ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) cone",CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,2,1,1,7,.0673435029701473,.0673435029701474,0,0,.999999999999999
+ILOILO chicken patupa,ILOILO,chicken,patupa,3,1,1,4.576424848758422,.0656716703419202,.0656716703419203,0,0,.9999999999999993
+CAPIZ fresh fish pieces or units,CAPIZ,fresh fish,pieces or units,4,2,1,4.474285714285715,.0632110195486878,.1872096261904105,.1924500897298753,0,.337648340178811
+"NEGROS OCCIDENTAL ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) small cup",NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,3,1,1,5,.0558726066957702,.0558726066957702,0,0,1
+ANTIQUE loaf bread large packs,ANTIQUE,loaf bread,large packs,6,2,1,9.014084507042254,.0525603998084847,.0507717050528044,.0016539334040223,0,1.035230149427125
+CAPIZ chicken bilog,CAPIZ,chicken,bilog,6,2,1,5.11831983805668,.0467447592615504,.0858152906976142,.0495427438949397,0,.5447136388113399
+ANTIQUE loaf bread medium packs,ANTIQUE,loaf bread,medium packs,4,1,1,6.666666666666667,.0454545454545454,.0454545454545455,0,0,.9999999999999999
+CAPIZ pork 2 slice,CAPIZ,pork,2 slice,2,1,1,4.375,.0404061017820884,.0404061017820884,0,0,1
+ILOILO carrot putos (mix vegetable),ILOILO,carrot,putos (mix vegetable),3,1,1,9.426389490555614,.0333086693763245,.0333086693763246,0,0,.9999999999999993
+CAPIZ camote bilog,CAPIZ,camote,bilog,3,1,1,15.83333333333333,.0298629449580841,.0298629449580841,0,0,1.000000000000001
+"CAPIZ liquor (e.g, whisky, coconut wine) long-neck",CAPIZ,"liquor (e.g, whisky, coconut wine)",long-neck,2,2,1,6.996086105675147,.0296688159938412,.2020305089104422,.1728798142379936,0,.1468531468531471
+"ANTIQUE liquor (e.g, whisky, coconut wine) gin",ANTIQUE,"liquor (e.g, whisky, coconut wine)",gin,3,2,1,10,.0229702149221591,.0251021856169403,.0053108912183756,0,.9150683240369974
+"CAPIZ preserved or processed meat (tocino, tapa, longaniza, etc) pack",CAPIZ,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,3,1,1,5.209302325581396,.0208680820189022,.0208680820189021,0,0,1.000000000000002
+"ANTIQUE preserved or processed meat (tocino, tapa, longaniza, etc) pack",ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",pack,6,1,2,5,.0162217863760476,.0162217863760475,0,0,1.000000000000001
+"ANTIQUE liquor (e.g, whisky, coconut wine) lipid/lapad",ANTIQUE,"liquor (e.g, whisky, coconut wine)",lipid/lapad,7,2,1,4.6875,.0034828969528616,0,.0034601222326334,0,
+CAPIZ loaf bread large packs,CAPIZ,loaf bread,large packs,1,1,1,9.035293793252606,,,,0,
+"CAPIZ liquor (e.g, whisky, coconut wine) lipid/lapad",CAPIZ,"liquor (e.g, whisky, coconut wine)",lipid/lapad,1,1,1,5.38775847867717,,,,0,
+CAPIZ cabbage half,CAPIZ,cabbage,half,1,1,1,15,,,,0,
+ILOILO carrot pack,ILOILO,carrot,pack,1,1,1,6.149094452938749,,,,0,
+NEGROS OCCIDENTAL camote tops bugkos,NEGROS OCCIDENTAL,camote tops,bugkos,1,1,1,14.40884704513593,,,,0,
+"CAPIZ preserved or processed meat (tocino, tapa, longaniza, etc) role",CAPIZ,"preserved or processed meat (tocino, tapa, longaniza, etc)",role,1,1,1,3.125,,,,0,
+"AKLAN crackers, cookies, buiscuits, chips/curls pack",AKLAN,"crackers, cookies, buiscuits, chips/curls",pack,1,1,1,2.882352941176471,,,,0,
+ILOILO beef intestine,ILOILO,beef,intestine,1,1,1,13.6293650000538,,,,0,
+ANTIQUE loaf bread tama-tama nga putos,ANTIQUE,loaf bread,tama-tama nga putos,1,1,1,8.333333333333334,,,,0,
+CAPIZ chicken chicken wings,CAPIZ,chicken,chicken wings,1,1,1,1.5,,,,0,
+"CAPIZ crackers, cookies, buiscuits, chips/curls balde",CAPIZ,"crackers, cookies, buiscuits, chips/curls",balde,1,1,1,4.12087912087912,,,,0,
+"CAPIZ prawns, lobster, shrimp tumpok",CAPIZ,"prawns, lobster, shrimp",tumpok,1,1,1,2.5,,,,0,

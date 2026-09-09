@@ -1,0 +1,783 @@
+pull_item,pull_province,pull_municipal_city,harmonized_nsu_unit,pull_price,item_nsu_hetero_type,corrected_weight,p_real,gpp,n_pairs,n_price,n_mun,gpp_loo,w_pred,ratio
+"crackers, cookies, buiscuits, chips/curls",AKLAN,ALTAVAS,putos,64.5,municipality_median,320,64.5,4.961240310077519,59,8,9,4.615384615384615,297.6923076923077,.9302884615384615
+"crackers, cookies, buiscuits, chips/curls",AKLAN,ALTAVAS,putos,64.5,municipality_median,270,64.5,4.186046511627907,59,8,9,4.615384615384615,297.6923076923077,1.102564102564102
+"crackers, cookies, buiscuits, chips/curls",AKLAN,ALTAVAS,putos,64.5,municipality_median,250,64.5,3.875968992248062,59,8,9,4.615384615384615,297.6923076923077,1.190769230769231
+"crackers, cookies, buiscuits, chips/curls",AKLAN,ALTAVAS,putos,64.5,municipality_median,220,64.5,3.410852713178294,59,8,9,4.615384615384615,297.6923076923077,1.353146853146853
+"crackers, cookies, buiscuits, chips/curls",AKLAN,ALTAVAS,putos,64.5,municipality_median,320,64.5,4.961240310077519,59,8,9,4.615384615384615,297.6923076923077,.9302884615384615
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,ALTAVAS,pieces or units,12,municipality_median,65,12.10129893909801,5.371324212972866,11,3,4,5.909090909090909,71.50767554921552,1.100118085372547
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,ALTAVAS,pieces or units,12,municipality_median,70,12.10129893909801,5.784502998586163,11,3,4,5.909090909090909,71.50767554921552,1.02153822213165
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,ALTAVAS,pieces or units,12,municipality_median,70,12.10129893909801,5.784502998586163,11,3,4,5.909090909090909,71.50767554921552,1.02153822213165
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BANGA,pieces or units,8,municipality_median,28,8,3.5,35,3,5,3.703703703703704,29.62962962962963,1.058201058201058
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BANGA,pieces or units,8,municipality_median,25,8,3.125,35,3,5,3.703703703703704,29.62962962962963,1.185185185185185
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BANGA,pieces or units,8,municipality_median,32,8,4,35,3,5,3.703703703703704,29.62962962962963,.9259259259259259
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BANGA,pieces or units,8,municipality_median,25,8,3.125,35,3,5,3.703703703703704,29.62962962962963,1.185185185185185
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BANGA,pieces or units,8,municipality_median,30,8,3.75,35,3,5,3.703703703703704,29.62962962962963,.9876543209876544
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BANGA,pieces or units,8,municipality_median,30,8,3.75,35,3,5,3.703703703703704,29.62962962962963,.9876543209876544
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BANGA,putos,59,municipality_median,330,59,5.593220338983051,59,8,9,4.615384615384615,272.3076923076923,.825174825174825
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BANGA,putos,59,municipality_median,280,59,4.745762711864407,59,8,9,4.615384615384615,272.3076923076923,.9725274725274724
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BANGA,putos,59,municipality_median,320,59,5.423728813559322,59,8,9,4.615384615384615,272.3076923076923,.8509615384615383
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BANGA,putos,59,municipality_median,300,59,5.084745762711864,59,8,9,4.615384615384615,272.3076923076923,.9076923076923076
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,BANGA,putos,110,municipality_median,360,110.9285736083984,3.245331552453536,40,10,7,2.9,321.6928634643555,.8935912874009874
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,8,mp25_price,330,8,41.25,59,8,9,4.745762711864407,37.96610169491525,.1150487930148947
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,32,mp50_price,100,32,3.125,59,8,9,4.745762711864407,151.864406779661,1.51864406779661
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,70,mp75_price,310,70,4.428571428571429,59,8,9,4.745762711864407,332.2033898305085,1.071623838162931
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,8,mp25_price,250,8,31.25,59,8,9,4.745762711864407,37.96610169491525,.151864406779661
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,32,mp50_price,125,32,3.90625,59,8,9,4.745762711864407,151.864406779661,1.214915254237288
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,70,mp75_price,250,70,3.571428571428572,59,8,9,4.745762711864407,332.2033898305085,1.328813559322034
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,8,mp25_price,320,8,40,59,8,9,4.745762711864407,37.96610169491525,.1186440677966102
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,32,mp50_price,85,32,2.65625,59,8,9,4.745762711864407,151.864406779661,1.786640079760718
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,70,mp75_price,330,70,4.714285714285714,59,8,9,4.745762711864407,332.2033898305085,1.006676938880329
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,8,mp25_price,300,8,37.5,59,8,9,4.745762711864407,37.96610169491525,.1265536723163842
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,32,mp50_price,78,32,2.4375,59,8,9,4.745762711864407,151.864406779661,1.946979574098218
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,70,mp75_price,310,70,4.428571428571429,59,8,9,4.745762711864407,332.2033898305085,1.071623838162931
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,8,mp25_price,228,8,28.5,59,8,9,4.745762711864407,37.96610169491525,.1665179898899792
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,32,mp50_price,130,32,4.0625,59,8,9,4.745762711864407,151.864406779661,1.168187744458931
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,70,mp75_price,295,70,4.214285714285714,59,8,9,4.745762711864407,332.2033898305085,1.12611318586613
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,8,mp25_price,250,8,31.25,59,8,9,4.745762711864407,37.96610169491525,.151864406779661
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,32,mp50_price,90,32,2.8125,59,8,9,4.745762711864407,151.864406779661,1.687382297551789
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,70,mp75_price,300,70,4.285714285714286,59,8,9,4.745762711864407,332.2033898305085,1.107344632768362
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,8,mp25_price,300,8,37.5,59,8,9,4.745762711864407,37.96610169491525,.1265536723163842
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,32,mp50_price,85,32,2.65625,59,8,9,4.745762711864407,151.864406779661,1.786640079760718
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,70,mp75_price,300,70,4.285714285714286,59,8,9,4.745762711864407,332.2033898305085,1.107344632768362
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,8,mp25_price,280,8,35,59,8,9,4.745762711864407,37.96610169491525,.1355932203389831
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,32,mp50_price,90,32,2.8125,59,8,9,4.745762711864407,151.864406779661,1.687382297551789
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,70,mp75_price,280,70,4,59,8,9,4.745762711864407,332.2033898305085,1.186440677966102
+"crackers, cookies, buiscuits, chips/curls",AKLAN,IBAJAY,putos,65,municipality_median,300,65,4.615384615384615,59,8,9,4.615384615384615,300,1
+"crackers, cookies, buiscuits, chips/curls",AKLAN,IBAJAY,putos,65,municipality_median,300,65,4.615384615384615,59,8,9,4.615384615384615,300,1
+"crackers, cookies, buiscuits, chips/curls",AKLAN,LIBACAO,pieces or units,8,municipality_median,30,8,3.75,35,3,5,3.555555555555555,28.44444444444444,.9481481481481481
+"crackers, cookies, buiscuits, chips/curls",AKLAN,LIBACAO,pieces or units,8,municipality_median,25,8,3.125,35,3,5,3.555555555555555,28.44444444444444,1.137777777777778
+"crackers, cookies, buiscuits, chips/curls",AKLAN,LIBACAO,pieces or units,8,municipality_median,32,8,4,35,3,5,3.555555555555555,28.44444444444444,.8888888888888888
+"crackers, cookies, buiscuits, chips/curls",AKLAN,LIBACAO,pieces or units,8,municipality_median,30,8,3.75,35,3,5,3.555555555555555,28.44444444444444,.9481481481481481
+"crackers, cookies, buiscuits, chips/curls",AKLAN,LIBACAO,pieces or units,8,municipality_median,33,8,4.125,35,3,5,3.555555555555555,28.44444444444444,.8619528619528619
+"crackers, cookies, buiscuits, chips/curls",AKLAN,LIBACAO,pieces or units,8,municipality_median,30,8,3.75,35,3,5,3.555555555555555,28.44444444444444,.9481481481481481
+"crackers, cookies, buiscuits, chips/curls",AKLAN,LIBACAO,pieces or units,8,municipality_median,28,8,3.5,35,3,5,3.555555555555555,28.44444444444444,1.015873015873016
+"crackers, cookies, buiscuits, chips/curls",AKLAN,LIBACAO,pieces or units,8,municipality_median,33,8,4.125,35,3,5,3.555555555555555,28.44444444444444,.8619528619528619
+"crackers, cookies, buiscuits, chips/curls",AKLAN,LIBACAO,pieces or units,8,municipality_median,35,8,4.375,35,3,5,3.555555555555555,28.44444444444444,.8126984126984127
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,LIBACAO,pieces or units,12,province_median,65,12.10129893909801,5.371324212972866,11,3,4,5.784502998586163,70,1.076923076923077
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,LIBACAO,pieces or units,12,province_median,185,12.10129893909801,15.287615067692,11,3,4,5.784502998586163,70,.3783783783783784
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,LIBACAO,putos,115,municipality_median,305,115.9707814996893,2.629972791903771,40,10,7,3,347.9123444990678,1.140696211472354
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,LIBACAO,putos,115,municipality_median,310,115.9707814996893,2.673087099967767,40,10,7,3,347.9123444990678,1.122297885480864
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,LIBACAO,putos,115,municipality_median,250,115.9707814996893,2.155715403199812,40,10,7,3,347.9123444990678,1.391649377996271
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,LIBACAO,putos,115,municipality_median,305,115.9707814996893,2.629972791903771,40,10,7,3,347.9123444990678,1.140696211472354
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,LIBACAO,putos,115,municipality_median,500,115.9707814996893,4.311430806399624,40,10,7,3,347.9123444990678,.6958246889981357
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,LIBACAO,putos,115,municipality_median,360,115.9707814996893,3.104230180607729,40,10,7,3,347.9123444990678,.9664231791640774
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MADALAG,putos,60,municipality_median,330,60,5.5,59,8,9,4.615384615384615,276.9230769230769,.8391608391608391
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MADALAG,putos,60,municipality_median,300,60,5,59,8,9,4.615384615384615,276.9230769230769,.923076923076923
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MADALAG,putos,60,municipality_median,250,60,4.166666666666667,59,8,9,4.615384615384615,276.9230769230769,1.107692307692308
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MADALAG,putos,60,municipality_median,200,60,3.333333333333333,59,8,9,4.615384615384615,276.9230769230769,1.384615384615385
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MADALAG,putos,60,municipality_median,330,60,5.5,59,8,9,4.615384615384615,276.9230769230769,.8391608391608391
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MADALAG,putos,60,municipality_median,330,60,5.5,59,8,9,4.615384615384615,276.9230769230769,.8391608391608391
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MADALAG,putos,107.5,municipality_median,300,108.407469662753,2.767336982712317,40,10,7,2.95,319.8020355051214,1.066006785017071
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MADALAG,putos,107.5,municipality_median,360,108.407469662753,3.320804379254781,40,10,7,2.95,319.8020355051214,.8883389875142261
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MADALAG,putos,107.5,municipality_median,360,108.407469662753,3.320804379254781,40,10,7,2.95,319.8020355051214,.8883389875142261
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MADALAG,putos,107.5,municipality_median,280,108.407469662753,2.582847850531496,40,10,7,2.95,319.8020355051214,1.142150126804005
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MADALAG,putos,107.5,municipality_median,275,108.407469662753,2.536725567486291,40,10,7,2.95,319.8020355051214,1.162916492745896
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MADALAG,putos,107.5,municipality_median,360,108.407469662753,3.320804379254781,40,10,7,2.95,319.8020355051214,.8883389875142261
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,pieces or units,9,municipality_median,25,9,2.777777777777778,35,3,5,3.75,33.75,1.35
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,pieces or units,9,municipality_median,32,9,3.555555555555555,35,3,5,3.75,33.75,1.0546875
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,pieces or units,9,municipality_median,32,9,3.555555555555555,35,3,5,3.75,33.75,1.0546875
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,pieces or units,9,municipality_median,30,9,3.333333333333333,35,3,5,3.75,33.75,1.125
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,pieces or units,9,municipality_median,25,9,2.777777777777778,35,3,5,3.75,33.75,1.35
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,pieces or units,9,municipality_median,30,9,3.333333333333333,35,3,5,3.75,33.75,1.125
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,pieces or units,9,municipality_median,27,9,3,35,3,5,3.75,33.75,1.25
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,pieces or units,9,municipality_median,32,9,3.555555555555555,35,3,5,3.75,33.75,1.0546875
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,putos,65,municipality_median,300,65,4.615384615384615,59,8,9,4.615384615384615,300,1
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,putos,65,municipality_median,300,65,4.615384615384615,59,8,9,4.615384615384615,300,1
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,putos,65,municipality_median,320,65,4.923076923076923,59,8,9,4.615384615384615,300,.9375
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,putos,65,municipality_median,300,65,4.615384615384615,59,8,9,4.615384615384615,300,1
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,putos,65,municipality_median,300,65,4.615384615384615,59,8,9,4.615384615384615,300,1
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,putos,65,municipality_median,270,65,4.153846153846154,59,8,9,4.615384615384615,300,1.111111111111111
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,putos,65,municipality_median,250,65,3.846153846153846,59,8,9,4.615384615384615,300,1.2
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,putos,65,municipality_median,330,65,5.076923076923077,59,8,9,4.615384615384615,300,.9090909090909091
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MAKATO,putos,65,municipality_median,330,65,5.076923076923077,59,8,9,4.615384615384615,300,.9090909090909091
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,pieces or units,11,municipality_median,65,11,5.909090909090909,11,3,4,5.784502998586163,63.62953298444779,.9789158920684276
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,pieces or units,11,municipality_median,40,11.09285736083984,3.605923947170595,11,3,4,5.784502998586163,64.16666666666667,1.604166666666667
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,pieces or units,11,municipality_median,65,11,5.909090909090909,11,3,4,5.784502998586163,63.62953298444779,.9789158920684276
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,pieces or units,11,municipality_median,25,11,2.272727272727273,11,3,4,5.784502998586163,63.62953298444779,2.545181319377912
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,pieces or units,11,municipality_median,65,11,5.909090909090909,11,3,4,5.784502998586163,63.62953298444779,.9789158920684276
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,putos,100,municipality_median,200,100,2,40,10,7,2.946540880503145,294.6540880503145,1.473270440251572
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,putos,100,municipality_median,500,100,5,40,10,7,2.946540880503145,294.6540880503145,.589308176100629
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,putos,100,municipality_median,325,100.8441578258168,3.222794527783719,40,10,7,2.946540880503145,297.1414335936802,.9142813341344007
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,putos,100,municipality_median,290,100,2.9,40,10,7,2.946540880503145,294.6540880503145,1.016048579483843
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,putos,100,municipality_median,350,100,3.5,40,10,7,2.946540880503145,294.6540880503145,.8418688230008986
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,putos,100,municipality_median,200,100,2,40,10,7,2.946540880503145,294.6540880503145,1.473270440251572
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,putos,100,municipality_median,500,100,5,40,10,7,2.946540880503145,294.6540880503145,.589308176100629
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MAKATO,putos,100,municipality_median,200,100,2,40,10,7,2.946540880503145,294.6540880503145,1.473270440251572
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,pieces or units,8,province_median,30,8,3.75,35,3,5,3.703703703703704,29.62962962962963,.9876543209876544
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,pieces or units,8,province_median,30,8,3.75,35,3,5,3.703703703703704,29.62962962962963,.9876543209876544
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,pieces or units,8,province_median,32,8,4,35,3,5,3.703703703703704,29.62962962962963,.9259259259259259
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,pieces or units,8,province_median,25,8,3.125,35,3,5,3.703703703703704,29.62962962962963,1.185185185185185
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,pieces or units,8,province_median,25,8,3.125,35,3,5,3.703703703703704,29.62962962962963,1.185185185185185
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,pieces or units,8,province_median,25,8,3.125,35,3,5,3.703703703703704,29.62962962962963,1.185185185185185
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,putos,72.5,municipality_median,360,72.5,4.96551724137931,59,8,9,4.615384615384615,334.6153846153846,.9294871794871794
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,putos,72.5,municipality_median,600,72.5,8.275862068965518,59,8,9,4.615384615384615,334.6153846153846,.5576923076923076
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,putos,72.5,municipality_median,320,72.5,4.413793103448276,59,8,9,4.615384615384615,334.6153846153846,1.045673076923077
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,putos,72.5,municipality_median,180,72.5,2.482758620689655,59,8,9,4.615384615384615,334.6153846153846,1.858974358974359
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,putos,72.5,municipality_median,330,72.5,4.551724137931035,59,8,9,4.615384615384615,334.6153846153846,1.013986013986014
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,putos,72.5,municipality_median,250,72.5,3.448275862068965,59,8,9,4.615384615384615,334.6153846153846,1.338461538461538
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALAY,putos,72.5,municipality_median,410,72.5,5.655172413793103,59,8,9,4.615384615384615,334.6153846153846,.8161350844277673
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,79.5,mp25_price,275,79.5,3.459119496855346,40,10,7,2.720212041340042,216.2568572865333,.7863885719510304
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,120,mp50_price,360,120,3,40,10,7,2.720212041340042,326.4254449608051,.9067373471133474
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,79.5,mp25_price,500,79.5,6.289308176100629,40,10,7,2.720212041340042,216.2568572865333,.4325137145730667
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,120,mp50_price,360,120,3,40,10,7,2.720212041340042,326.4254449608051,.9067373471133474
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,79.5,mp25_price,230,79.5,2.893081761006289,40,10,7,2.720212041340042,216.2568572865333,.9402472055936233
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,120,mp50_price,300,120,2.5,40,10,7,2.720212041340042,326.4254449608051,1.088084816536017
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,79.5,mp25_price,250,79.5,3.144654088050315,40,10,7,2.720212041340042,216.2568572865333,.8650274291461334
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,120,mp50_price,114,120,.95,40,10,7,2.720212041340042,326.4254449608051,2.863381096147413
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,79.5,mp25_price,500,79.5,6.289308176100629,40,10,7,2.720212041340042,216.2568572865333,.4325137145730667
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,120,mp50_price,114,120,.95,40,10,7,2.720212041340042,326.4254449608051,2.863381096147413
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,79.5,mp25_price,380,80.17110547152433,4.739862295337449,40,10,7,2.720212041340042,218.082406471183,.573901069661008
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,120,mp50_price,500,121.0129893909801,4.131787856132974,40,10,7,2.720212041340042,329.1809908998989,.6583619817997978
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,79.5,mp25_price,250,79.5,3.144654088050315,40,10,7,2.720212041340042,216.2568572865333,.8650274291461334
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,120,mp50_price,500,120,4.166666666666667,40,10,7,2.720212041340042,326.4254449608051,.6528508899216101
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALINAO,pieces or units,6.75,province_median,28,6.75,4.148148148148148,35,3,5,3.555555555555555,24,.8571428571428571
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALINAO,pieces or units,6.75,province_median,30,6.75,4.444444444444445,35,3,5,3.555555555555555,24,.8
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALINAO,pieces or units,6.75,province_median,28,6.75,4.148148148148148,35,3,5,3.555555555555555,24,.8571428571428571
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALINAO,pieces or units,6.75,province_median,25,6.75,3.703703703703704,35,3,5,3.555555555555555,24,.96
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALINAO,pieces or units,6.75,province_median,48,6.75,7.111111111111111,35,3,5,3.555555555555555,24,.5
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALINAO,pieces or units,6.75,province_median,22,6.75,3.259259259259259,35,3,5,3.555555555555555,24,1.090909090909091
+"crackers, cookies, buiscuits, chips/curls",AKLAN,MALINAO,putos,60,municipality_median,300,60,5,59,8,9,4.615384615384615,276.9230769230769,.923076923076923
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALINAO,putos,110,municipality_median,250,110.9285736083984,2.253702466981622,40,10,7,3,332.7857208251953,1.331142883300781
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALINAO,putos,110,municipality_median,200,110.9285736083984,1.802961973585298,40,10,7,3,332.7857208251953,1.663928604125977
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALINAO,putos,110,municipality_median,200,110.9285736083984,1.802961973585298,40,10,7,3,332.7857208251953,1.663928604125977
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,NABAS,pieces or units,11,municipality_median,70,11,6.363636363636363,11,3,4,5.784502998586163,63.62953298444779,.9089933283492542
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,NABAS,putos,90,municipality_median,225,90,2.5,40,10,7,3,270,1.2
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,NABAS,putos,90,municipality_median,250,90,2.777777777777778,40,10,7,3,270,1.08
+"crackers, cookies, buiscuits, chips/curls",AKLAN,NEW WASHINGTON,putos,65,municipality_median,320,65,4.923076923076923,59,8,9,,,
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,BARBAZA,pieces or units,10,province_median,140,10,14,16,4,4,10,100,.7142857142857143
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,BARBAZA,pieces or units,10,province_median,90,10,9,16,4,4,10,100,1.111111111111111
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,BARBAZA,pieces or units,10,province_median,110,10,11,16,4,4,10,100,.9090909090909091
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,BARBAZA,pieces or units,10,province_median,110,9.73816543751499,11.29576209254359,16,4,4,10,97.38165437514991,.8852877670468173
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,BARBAZA,pieces or units,10,province_median,110,10,11,16,4,4,10,100,.9090909090909091
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,45,mp50_price,230,45.06060513583097,5.104236822978444,20,6,2,4.732142857142858,213.2332207320573,.9271009597045968
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,87.5,mp75_price,500,87.61784331967132,5.706600174758509,20,6,2,4.732142857142858,414.6201514234447,.8292403028468894
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,45,mp50_price,230,45,5.111111111111111,20,6,2,4.732142857142858,212.9464285714286,.9258540372670808
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,87.5,mp75_price,1000,87.5,11.42857142857143,20,6,2,4.732142857142858,414.0625000000001,.4140625000000001
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,45,mp50_price,270,45,6,20,6,2,4.732142857142858,212.9464285714286,.7886904761904763
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,87.5,mp75_price,540,87.5,6.171428571428572,20,6,2,4.732142857142858,414.0625000000001,.7667824074074076
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,45,mp50_price,165,45.06060513583097,3.661735112136709,20,6,2,4.732142857142858,213.2332207320573,1.292322549891256
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,87.5,mp75_price,370,87.61784331967132,4.222884129321296,20,6,2,4.732142857142858,414.6201514234447,1.120595003847148
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,45,mp50_price,360,45,8,20,6,2,4.732142857142858,212.9464285714286,.5915178571428572
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,87.5,mp75_price,250,87.5,2.857142857142857,20,6,2,4.732142857142858,414.0625000000001,1.65625
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,45,mp50_price,250,45,5.555555555555555,20,6,2,4.732142857142858,212.9464285714286,.8517857142857144
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BARBAZA,putos,87.5,mp75_price,535,87.5,6.114285714285714,20,6,2,4.732142857142858,414.0625000000001,.7739485981308413
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SAN REMIGIO,pieces or units,10,municipality_median,90,9.73816543751499,9.241987166626574,16,4,4,,,
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SAN REMIGIO,pieces or units,10,municipality_median,70,9.73816543751499,7.188212240709558,16,4,4,,,
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SAN REMIGIO,pieces or units,10,municipality_median,105,10,10.5,16,4,4,,,
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SAN REMIGIO,pieces or units,10,municipality_median,100,10,10,16,4,4,,,
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SEBASTE,pieces or units,15,municipality_median,100,15,6.666666666666667,16,4,4,11,165,1.65
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SEBASTE,pieces or units,15,municipality_median,100,15,6.666666666666667,16,4,4,11,165,1.65
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SEBASTE,pieces or units,15,municipality_median,110,15,7.333333333333333,16,4,4,11,165,1.5
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,putos,56,mp50_price,250,56,4.464285714285714,20,6,2,5.631077865157032,315.3403604487938,1.261361441795175
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,putos,100,mp75_price,500,100,5,20,6,2,5.631077865157032,563.1077865157032,1.126215573031406
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,putos,56,mp50_price,250,56,4.464285714285714,20,6,2,5.631077865157032,315.3403604487938,1.261361441795175
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,putos,100,mp75_price,500,100,5,20,6,2,5.631077865157032,563.1077865157032,1.126215573031406
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,putos,56,mp50_price,250,56,4.464285714285714,20,6,2,5.631077865157032,315.3403604487938,1.261361441795175
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,putos,100,mp75_price,1000,100,10,20,6,2,5.631077865157032,563.1077865157032,.5631077865157031
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,putos,56,mp50_price,250,56,4.464285714285714,20,6,2,5.631077865157032,315.3403604487938,1.261361441795175
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,putos,100,mp75_price,1000,100,10,20,6,2,5.631077865157032,563.1077865157032,.5631077865157031
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,VALDERRAMA,pieces or units,7.5,municipality_median,100,7.5,13.33333333333333,16,4,4,9.620993583313286,72.15745187484964,.7215745187484964
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,VALDERRAMA,pieces or units,7.5,municipality_median,140,7.5,18.66666666666667,16,4,4,9.620993583313286,72.15745187484964,.5154103705346403
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,VALDERRAMA,pieces or units,7.5,municipality_median,115,7.5,15.33333333333333,16,4,4,9.620993583313286,72.15745187484964,.6274561032595621
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,VALDERRAMA,pieces or units,7.5,municipality_median,110,7.5,14.66666666666667,16,4,4,9.620993583313286,72.15745187484964,.6559768352259059
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,CUARTERO,putos,60,municipality_median,300,60,5,19,6,6,5,300,1
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,CUARTERO,putos,60,municipality_median,300,60,5,19,6,6,5,300,1
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,CUARTERO,putos,60,municipality_median,250,60,4.166666666666667,19,6,6,5,300,1.2
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,CUARTERO,putos,60,municipality_median,280,60,4.666666666666667,19,6,6,5,300,1.071428571428571
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,pieces or units,10,municipality_median,395,10,39.5,10,3,5,4.5,45,.1139240506329114
+cabbage,CAPIZ,DAO,putos (mix vegetable),8.333333015441895,province_median,110,8.333333015441895,13.20000050354006,8,3,3,8.375,69.79166400432587,.6344696727665988
+cabbage,CAPIZ,DAO,putos (mix vegetable),8.333333015441895,province_median,210,8.333333015441895,25.20000096130375,8,3,3,8.375,69.79166400432587,.3323412571634565
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,DAO,pieces or units,5,municipality_median,85,5,17,10,3,5,4.05,20.25,.238235294117647
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,DAO,pieces or units,5,municipality_median,65,5,13,10,3,5,4.05,20.25,.3115384615384615
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,DUMALAG,pieces or units,10,province_median,45,10,4.5,10,3,5,5,50,1.111111111111111
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DUMALAG,putos,45,municipality_median,1000,45,22.22222222222222,15,3,6,5.35,240.75,.24075
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DUMALAG,putos,45,municipality_median,1000,45,22.22222222222222,15,3,6,5.35,240.75,.24075
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DUMALAG,putos,45,municipality_median,225,45,5,15,3,6,5.35,240.75,1.07
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DUMARAO,putos,45,municipality_median,250,45,5.555555555555555,15,3,6,5.3,238.5,.954
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DUMARAO,putos,45,municipality_median,250,45,5.555555555555555,15,3,6,5.3,238.5,.954
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,IVISAN,putos,60,municipality_median,300,60,5,19,6,6,5,300,1
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,IVISAN,putos,60,municipality_median,250,60,4.166666666666667,19,6,6,5,300,1.2
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,IVISAN,putos,60,municipality_median,250,60,4.166666666666667,19,6,6,5,300,1.2
+carrot,CAPIZ,JAMINDAN,pieces or units,25,municipality_median,170,25,6.8,9,3,3,5.158333333333333,128.9583333333333,.7585784313725491
+carrot,CAPIZ,JAMINDAN,pieces or units,25,municipality_median,145,25,5.8,9,3,3,5.158333333333333,128.9583333333333,.889367816091954
+carrot,CAPIZ,JAMINDAN,pieces or units,25,municipality_median,145,25,5.8,9,3,3,5.158333333333333,128.9583333333333,.889367816091954
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,JAMINDAN,putos,8,mp25_price,240,8,30,19,6,6,4.666666666666667,37.33333333333334,.1555555555555556
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,JAMINDAN,putos,52,mp50_price,330,52,6.346153846153846,19,6,6,4.666666666666667,242.6666666666667,.7353535353535354
+mango,CAPIZ,JAMINDAN,pieces or units,23.33333396911621,province_median,185,23.33333396911621,7.928571212535008,6,3,3,9,210.0000057220459,1.135135166065113
+mango,CAPIZ,JAMINDAN,pieces or units,23.33333396911621,province_median,180,23.33333396911621,7.714285504088116,6,3,3,9,210.0000057220459,1.166666698455811
+mango,CAPIZ,JAMINDAN,pieces or units,23.33333396911621,province_median,185,23.33333396911621,7.928571212535008,6,3,3,9,210.0000057220459,1.135135166065113
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,JAMINDAN,putos,40,municipality_median,250,40,6.25,15,3,6,5.35,214,.856
+carrot,CAPIZ,MA-AYON,pieces or units,18.75,municipality_median,100,18.75,5.333333333333333,9,3,3,5.8,108.75,1.0875
+carrot,CAPIZ,MA-AYON,pieces or units,18.75,municipality_median,85,18.75,4.533333333333333,9,3,3,5.8,108.75,1.279411764705882
+carrot,CAPIZ,MA-AYON,pieces or units,18.75,municipality_median,95,18.75,5.066666666666666,9,3,3,5.8,108.75,1.144736842105263
+chicken,CAPIZ,MA-AYON,whole (chicken),200,mp25_price,960,200,4.8,14,4,3,4.78,956,.9958333333333333
+chicken,CAPIZ,MA-AYON,whole (chicken),250,mp50_price,1080,250,4.32,14,4,3,4.78,1195,1.106481481481481
+chicken,CAPIZ,MA-AYON,whole (chicken),300,mp75_price,1165,300,3.883333333333333,14,4,3,4.78,1434,1.230901287553648
+cabbage,CAPIZ,PANAY,putos (mix vegetable),50,province_median,345,50,6.9,8,3,3,8.5,425,1.231884057971014
+cabbage,CAPIZ,PANAY,putos (mix vegetable),50,province_median,475,50,9.5,8,3,3,8.5,425,.8947368421052632
+cabbage,CAPIZ,PANAY,putos (mix vegetable),50,province_median,600,50,12,8,3,3,8.5,425,.7083333333333334
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,PILAR,putos,9.25,mp25_price,55,9.25,5.945945945945946,19,6,6,5,46.25,.8409090909090909
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,PILAR,putos,9.25,mp25_price,28,9.25,3.027027027027027,19,6,6,5,46.25,1.651785714285714
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,PILAR,putos,51,mp50_price,280,51,5.490196078431373,19,6,6,5,255,.9107142857142857
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,PILAR,putos,9.25,mp25_price,42,9.25,4.54054054054054,19,6,6,5,46.25,1.101190476190476
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,PILAR,putos,51,mp50_price,210,51,4.117647058823529,19,6,6,5,255,1.214285714285714
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,PILAR,putos,9.25,mp25_price,32,9.25,3.45945945945946,19,6,6,5,46.25,1.4453125
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,PILAR,putos,9.25,mp25_price,28,9.25,3.027027027027027,19,6,6,5,46.25,1.651785714285714
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,SAPI-AN,putos,50,municipality_median,250,50,5,15,3,6,5.555555555555555,277.7777777777778,1.111111111111111
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,SAPI-AN,putos,50,municipality_median,250,50,5,15,3,6,5.555555555555555,277.7777777777778,1.111111111111111
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,SAPI-AN,putos,50,municipality_median,250,50,5,15,3,6,5.555555555555555,277.7777777777778,1.111111111111111
+cabbage,CAPIZ,SIGMA,putos (mix vegetable),20,province_median,170,20,8.5,8,3,3,12,240,1.411764705882353
+cabbage,CAPIZ,SIGMA,putos (mix vegetable),20,province_median,145,20,7.25,8,3,3,12,240,1.655172413793103
+cabbage,CAPIZ,SIGMA,putos (mix vegetable),20,province_median,165,20,8.25,8,3,3,12,240,1.454545454545455
+carrot,CAPIZ,SIGMA,pieces or units,20,municipality_median,105,20,5.25,9,3,3,5.566666666666666,111.3333333333333,1.06031746031746
+carrot,CAPIZ,SIGMA,pieces or units,20,municipality_median,100,20,5,9,3,3,5.566666666666666,111.3333333333333,1.113333333333333
+carrot,CAPIZ,SIGMA,pieces or units,20,municipality_median,155,20,7.75,9,3,3,5.566666666666666,111.3333333333333,.7182795698924731
+chicken,CAPIZ,SIGMA,whole (chicken),205,mp25_price,995,205,4.853658536585366,14,4,3,4.8375,991.6875000000001,.9966708542713569
+chicken,CAPIZ,SIGMA,whole (chicken),250,mp50_price,1070,250,4.28,14,4,3,4.8375,1209.375,1.130257009345794
+chicken,CAPIZ,SIGMA,whole (chicken),300,mp75_price,1145,300,3.816666666666667,14,4,3,4.8375,1451.25,1.267467248908297
+chicken,CAPIZ,SIGMA,whole (chicken),205,mp25_price,875,205,4.26829268292683,14,4,3,4.8375,991.6875000000001,1.133357142857143
+chicken,CAPIZ,SIGMA,whole (chicken),250,mp50_price,1165,250,4.66,14,4,3,4.8375,1209.375,1.038090128755365
+chicken,CAPIZ,SIGMA,whole (chicken),300,mp75_price,1285,300,4.283333333333333,14,4,3,4.8375,1451.25,1.129377431906615
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,SIGMA,putos,60,municipality_median,300,59.9710020321581,5.002417665776733,19,6,6,4.833333333333334,289.8598431554308,.9661994771847695
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,SIGMA,pieces or units,12.5,municipality_median,45,12.5,3.6,10,3,5,6,75,1.666666666666667
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,SIGMA,pieces or units,12.5,municipality_median,35,12.5,2.8,10,3,5,6,75,2.142857142857143
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,SIGMA,pieces or units,12.5,municipality_median,35,12.5,2.8,10,3,5,6,75,2.142857142857143
+mango,CAPIZ,SIGMA,pieces or units,25,municipality_median,225,25,9,6,3,3,7.928571212535008,198.2142803133752,.8809523569483343
+mango,CAPIZ,SIGMA,pieces or units,25,municipality_median,245,25,9.800000000000001,6,3,3,7.928571212535008,198.2142803133752,.8090378788301029
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,SIGMA,putos,50,municipality_median,270,50,5.4,15,3,6,5.555555555555555,277.7777777777778,1.02880658436214
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,SIGMA,putos,50,municipality_median,250,50,5,15,3,6,5.555555555555555,277.7777777777778,1.111111111111111
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,SIGMA,putos,50,municipality_median,250,50,5,15,3,6,5.555555555555555,277.7777777777778,1.111111111111111
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,SIGMA,putos,50,municipality_median,265,50,5.3,15,3,6,5.555555555555555,277.7777777777778,1.048218029350105
+chicken,CAPIZ,TAPAZ,whole (chicken),200,mp25_price,1050,200,5.25,14,4,3,4.283333333333333,856.6666666666666,.8158730158730159
+chicken,CAPIZ,TAPAZ,whole (chicken),250,mp50_price,1195,250,4.78,14,4,3,4.283333333333333,1070.833333333333,.8960948396094839
+chicken,CAPIZ,TAPAZ,whole (chicken),200,mp25_price,1140,200,5.7,14,4,3,4.283333333333333,856.6666666666666,.7514619883040935
+chicken,CAPIZ,TAPAZ,whole (chicken),300,mp75_price,1670,300,5.566666666666666,14,4,3,4.283333333333333,1285,.7694610778443114
+chicken,CAPIZ,TAPAZ,whole (chicken),200,mp25_price,975,200,4.875,14,4,3,4.283333333333333,856.6666666666666,.8786324786324786
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,TAPAZ,putos,60,municipality_median,320,60,5.333333333333333,19,6,6,4.666666666666667,280,.875
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,TAPAZ,putos,60,municipality_median,300,60,5,19,6,6,4.666666666666667,280,.9333333333333333
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,TAPAZ,pieces or units,10,municipality_median,35,10,3.5,10,3,5,4.5,45,1.285714285714286
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,TAPAZ,pieces or units,10,municipality_median,60,10,6,10,3,5,4.5,45,.75
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,TAPAZ,pieces or units,10,municipality_median,50,10,5,10,3,5,4.5,45,.9
+mango,CAPIZ,TAPAZ,pieces or units,16.66666603088379,municipality_median,135,16.66666603088379,8.10000030899049,6,3,3,7.928571212535008,132.1428485014003,.9788359148251876
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,TAPAZ,putos,45,municipality_median,250,45,5.555555555555555,15,3,6,5.3,238.5,.954
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,TAPAZ,putos,45,municipality_median,255,45,5.666666666666667,15,3,6,5.3,238.5,.9352941176470588
+cabbage,ILOILO,AJUY,pack,50,unique_mun_price6,785,56.32891555935821,13.9360041322433,11,4,4,10.1350971019597,570.8990288421838,.7272599093531005
+cabbage,ILOILO,AJUY,pack,20,province_median,135,17.76006664654408,7.601322826469772,11,4,4,10.1350971019597,180,1.333333333333333
+mango,ILOILO,AJUY,pieces or units,28.33333396911621,municipality_median,250,27.3220757345728,9.150110058572713,11,3,4,11.02952948544332,301.3496399179862,1.205398559671945
+cabbage,ILOILO,BAROTAC NUEVO,pack,20,province_median,130,17.76006664654408,7.319792351415336,11,4,4,,,
+cabbage,ILOILO,BAROTAC NUEVO,pack,20,province_median,175,22.53156622374328,7.76688128389356,11,4,4,,,
+cabbage,ILOILO,BAROTAC NUEVO,pack,20,province_median,180,17.76006664654408,10.1350971019597,11,4,4,,,
+fresh fish,ILOILO,BAROTAC NUEVO,pieces or units,33.33333206176758,mp25_price,345,33.43039194923149,10.31995079578871,29,8,3,,,
+fresh fish,ILOILO,BAROTAC NUEVO,pieces or units,80,mp50_price,655,80.23294373879949,8.163728880899225,29,8,3,,,
+fresh fish,ILOILO,BAROTAC NUEVO,pieces or units,120,mp75_price,985,120.3494156081993,8.184501727924411,29,8,3,,,
+fresh fish,ILOILO,BAROTAC NUEVO,pieces or units,33.33333206176758,mp25_price,265,33.43039194923149,7.926918727200023,29,8,3,,,
+fresh fish,ILOILO,BAROTAC NUEVO,pieces or units,80,mp50_price,535,80.23294373879949,6.668083895085626,29,8,3,,,
+fresh fish,ILOILO,BAROTAC NUEVO,pieces or units,120,mp75_price,800,120.3494156081993,6.647311048060437,29,8,3,,,
+mango,ILOILO,BAROTAC NUEVO,pieces or units,20,province_median,280,19.28617067398725,14.51817495204777,11,3,4,,,
+mango,ILOILO,BAROTAC NUEVO,pieces or units,20,province_median,245,19.28617067398725,12.7034030830418,11,3,4,,,
+mango,ILOILO,BAROTAC NUEVO,pieces or units,20,province_median,380,19.28617067398725,19.70323743492197,11,3,4,,,
+pork,ILOILO,CABATUAN,pieces or units,90,province_median,595,90.68654335657759,6.561061630284798,15,4,3,4.492049271862392,407.3684210526316,.6846528084918178
+pork,ILOILO,CABATUAN,pieces or units,90,province_median,270,91.93857954734008,2.936743218454602,15,4,3,4.492049271862392,412.9926293116916,1.529602330784043
+pork,ILOILO,CABATUAN,pieces or units,90,province_median,275,91.93857954734008,2.991127352129688,15,4,3,4.492049271862392,412.9926293116916,1.501791379315242
+pork,ILOILO,CABATUAN,pieces or units,90,province_median,260,91.93857954734008,2.827974951104432,15,4,3,4.492049271862392,412.9926293116916,1.588433189660353
+pork,ILOILO,MAASIN,pieces or units,47.5,province_median,250,47.5,5.263157894736842,15,4,3,4,190,.76
+pork,ILOILO,MAASIN,pieces or units,47.5,province_median,260,47.5,5.473684210526316,15,4,3,4,190,.7307692307692307
+pork,ILOILO,MAASIN,pieces or units,47.5,province_median,100,47.86234232708262,2.089325242726694,15,4,3,4,191.4493693083305,1.914493693083305
+pork,ILOILO,MAASIN,pieces or units,47.5,province_median,265,47.5,5.578947368421052,15,4,3,4,190,.7169811320754716
+pork,ILOILO,POTOTAN,pieces or units,47.5,province_median,205,47.5,4.315789473684211,15,4,3,4.127142623433265,196.0392746130801,.9562891444540492
+pork,ILOILO,POTOTAN,pieces or units,47.5,province_median,84,47.5,1.768421052631579,15,4,3,4.127142623433265,196.0392746130801,2.333800888250953
+pork,ILOILO,POTOTAN,pieces or units,47.5,province_median,135,47.5,2.842105263157895,15,4,3,4.127142623433265,196.0392746130801,1.452142774911704
+pork,ILOILO,POTOTAN,pieces or units,47.5,province_median,215,47.86234232708262,4.492049271862392,15,4,3,4.127142623433265,197.5347130754568,.9187661073277058
+pork,ILOILO,POTOTAN,pieces or units,47.5,province_median,300,47.5,6.315789473684211,15,4,3,4.127142623433265,196.0392746130801,.653464248710267
+pork,ILOILO,POTOTAN,pieces or units,47.5,province_median,190,47.5,4,15,4,3,4.127142623433265,196.0392746130801,1.031785655858316
+pork,ILOILO,POTOTAN,pieces or units,47.5,province_median,400,47.5,8.421052631578947,15,4,3,4.127142623433265,196.0392746130801,.4900981865327003
+cabbage,ILOILO,SAN JOAQUIN,pack,10,province_median,115,8.880033323272041,12.95040185250406,11,4,4,,,
+cabbage,ILOILO,SAN JOAQUIN,pack,10,province_median,70,8.880033323272041,7.882853301524209,11,4,4,,,
+cabbage,ILOILO,SAN JOAQUIN,pack,10,province_median,130,8.880033323272041,14.63958470283067,11,4,4,,,
+cabbage,ILOILO,SAN RAFAEL,pack,10,province_median,600,8.880033323272041,67.56731401306465,11,4,4,,,
+cabbage,ILOILO,SAN RAFAEL,pack,10,province_median,90,8.880033323272041,10.1350971019597,11,4,4,,,
+cabbage,ILOILO,SAN RAFAEL,pack,10,province_median,95,8.880033323272041,10.69815805206857,11,4,4,,,
+cabbage,ILOILO,SARA,pieces or units,25,mp25_price,160,22.2000833081801,7.207180161393562,21,4,2,13.88883676935218,308.3333333333334,1.927083333333333
+cabbage,ILOILO,SARA,pieces or units,56,mp50_price,475,49.72818661032343,9.551926832204078,21,4,2,13.88883676935218,690.6666666666667,1.454035087719298
+cabbage,ILOILO,SARA,pieces or units,80,mp75_price,670,71.04026658617633,9.431270914323607,21,4,2,13.88883676935218,986.6666666666667,1.472636815920398
+cabbage,ILOILO,SARA,pieces or units,25,mp25_price,250,22.2000833081801,11.26121900217744,21,4,2,13.88883676935218,308.3333333333334,1.233333333333333
+cabbage,ILOILO,SARA,pieces or units,56,mp50_price,555,49.72818661032343,11.16067240394371,21,4,2,13.88883676935218,690.6666666666667,1.244444444444445
+cabbage,ILOILO,SARA,pieces or units,80,mp75_price,805,71.04026658617633,11.33160162094105,21,4,2,13.88883676935218,986.6666666666667,1.225672877846791
+cabbage,ILOILO,SARA,pieces or units,25,mp25_price,315,22.2000833081801,14.18913594274357,21,4,2,13.88883676935218,308.3333333333334,.9788359788359789
+cabbage,ILOILO,SARA,pieces or units,56,mp50_price,790,49.72818661032343,15.88636252092889,21,4,2,13.88883676935218,690.6666666666667,.8742616033755275
+cabbage,ILOILO,SARA,pieces or units,80,mp75_price,925,71.04026658617633,13.02078447126767,21,4,2,13.88883676935218,986.6666666666667,1.066666666666667
+cabbage,ILOILO,SARA,pieces or units,25,mp25_price,220,22.2000833081801,9.909872721916146,21,4,2,13.88883676935218,308.3333333333334,1.401515151515152
+cabbage,ILOILO,SARA,pieces or units,56,mp50_price,455,49.72818661032343,9.14974043926917,21,4,2,13.88883676935218,690.6666666666667,1.517948717948718
+cabbage,ILOILO,SARA,pieces or units,80,mp75_price,685,71.04026658617633,9.642418770614434,21,4,2,13.88883676935218,986.6666666666667,1.440389294403893
+cabbage,ILOILO,SARA,pieces or units,25,mp25_price,535,22.2000833081801,24.09900866465972,21,4,2,13.88883676935218,308.3333333333334,.5763239875389409
+cabbage,ILOILO,SARA,pieces or units,56,mp50_price,710,49.72818661032343,14.27761694918926,21,4,2,13.88883676935218,690.6666666666667,.9727699530516433
+fresh fish,ILOILO,SARA,pieces or units,50,mp50_price,185,50.14558983674969,3.689257631673542,29,8,3,5.148644557224993,258.1818181818182,1.395577395577396
+fresh fish,ILOILO,SARA,pieces or units,100,mp75_price,460,100.2911796734994,4.586644623161702,29,8,3,5.148644557224993,516.3636363636364,1.122529644268775
+fresh fish,ILOILO,SARA,pieces or units,50,mp50_price,165,50.14558983674969,3.290418968789916,29,8,3,5.148644557224993,258.1818181818182,1.564738292011019
+fresh fish,ILOILO,SARA,pieces or units,100,mp75_price,250,100.2911796734994,2.492741643022664,29,8,3,5.148644557224993,516.3636363636364,2.065454545454545
+fresh fish,ILOILO,SARA,pieces or units,50,mp50_price,170,50.14558983674969,3.390128634510823,29,8,3,5.148644557224993,258.1818181818182,1.518716577540107
+fresh fish,ILOILO,SARA,pieces or units,100,mp75_price,365,100.2911796734994,3.639402798813089,29,8,3,5.148644557224993,516.3636363636364,1.414694894146949
+fresh fish,ILOILO,SARA,pieces or units,50,mp50_price,145,50.14558983674969,2.89158030590629,29,8,3,5.148644557224993,258.1818181818182,1.780564263322884
+fresh fish,ILOILO,SARA,pieces or units,100,mp75_price,485,100.2911796734994,4.835918787463967,29,8,3,5.148644557224993,516.3636363636364,1.064667291471415
+fresh fish,ILOILO,SARA,pieces or units,50,mp50_price,175,50.14558983674969,3.489838300231729,29,8,3,5.148644557224993,258.1818181818182,1.475324675324675
+fresh fish,ILOILO,SARA,pieces or units,100,mp75_price,300,100.2911796734994,2.991289971627197,29,8,3,5.148644557224993,516.3636363636364,1.721212121212121
+fresh fish,ILOILO,SARA,pieces or units,50,mp50_price,160,50.14558983674969,3.190709303069009,29,8,3,5.148644557224993,258.1818181818182,1.613636363636364
+fresh fish,ILOILO,SARA,pieces or units,100,mp75_price,460,100.2911796734994,4.586644623161702,29,8,3,5.148644557224993,516.3636363636364,1.122529644268775
+fresh fish,ILOILO,SARA,pieces or units,50,mp50_price,135,50.14558983674969,2.692160974464477,29,8,3,5.148644557224993,258.1818181818182,1.912457912457912
+fresh fish,ILOILO,SARA,pieces or units,100,mp75_price,405,100.2911796734994,4.038241461696715,29,8,3,5.148644557224993,516.3636363636364,1.274971941638608
+cabbage,ILOILO,TIGBAUAN,pieces or units,30,province_median,420,26.64009996981612,15.76570660304842,21,4,2,11.21094570306058,298.6607142857143,.7110969387755102
+cabbage,ILOILO,TIGBAUAN,pieces or units,30,province_median,275,26.64009996981612,10.32278408532932,21,4,2,11.21094570306058,298.6607142857143,1.086038961038961
+cabbage,ILOILO,TIGBAUAN,pieces or units,30,province_median,485,26.64009996981612,18.20563738685353,21,4,2,11.21094570306058,298.6607142857143,.6157952871870398
+cabbage,ILOILO,TIGBAUAN,pieces or units,30,province_median,300,26.64009996981612,11.26121900217744,21,4,2,11.21094570306058,298.6607142857143,.9955357142857143
+cabbage,ILOILO,TIGBAUAN,pieces or units,30,province_median,370,26.64009996981612,13.88883676935218,21,4,2,11.21094570306058,298.6607142857143,.8071911196911197
+cabbage,ILOILO,TIGBAUAN,pieces or units,30,province_median,395,26.64009996981612,14.8272716862003,21,4,2,11.21094570306058,298.6607142857143,.7561030741410488
+cabbage,ILOILO,TIGBAUAN,pieces or units,30,province_median,300,26.64009996981612,11.26121900217744,21,4,2,11.21094570306058,298.6607142857143,.9955357142857143
+fresh fish,ILOILO,TIGBAUAN,pieces or units,21.875,mp25_price,105,21.93869555357799,4.786063954603515,29,8,3,3.863749546685129,84.76562499999999,.8072916666666665
+fresh fish,ILOILO,TIGBAUAN,pieces or units,68.75,mp50_price,295,68.95018602553081,4.278451110933445,29,8,3,3.863749546685129,266.4062499999999,.9030720338983049
+fresh fish,ILOILO,TIGBAUAN,pieces or units,107.5,mp75_price,425,107.8130181490118,3.942010040128864,29,8,3,3.863749546685129,416.5625,.9801470588235294
+fresh fish,ILOILO,TIGBAUAN,pieces or units,21.875,mp25_price,85,21.93869555357799,3.874432725155226,29,8,3,3.863749546685129,84.76562499999999,.9972426470588234
+fresh fish,ILOILO,TIGBAUAN,pieces or units,68.75,mp50_price,280,68.95018602553081,4.060902749360558,29,8,3,3.863749546685129,266.4062499999999,.9514508928571427
+fresh fish,ILOILO,TIGBAUAN,pieces or units,107.5,mp75_price,410,107.8130181490118,3.802880274006669,29,8,3,3.863749546685129,416.5625,1.016006097560976
+fresh fish,ILOILO,TIGBAUAN,pieces or units,21.875,mp25_price,130,21.93869555357799,5.925602991413875,29,8,3,3.863749546685129,84.76562499999999,.6520432692307692
+fresh fish,ILOILO,TIGBAUAN,pieces or units,68.75,mp50_price,355,68.95018602553081,5.148644557224993,29,8,3,3.863749546685129,266.4062499999999,.7504401408450703
+fresh fish,ILOILO,TIGBAUAN,pieces or units,107.5,mp75_price,540,107.8130181490118,5.008671580399026,29,8,3,3.863749546685129,416.5625,.7714120370370371
+mango,ILOILO,TIGBAUAN,pieces or units,13.14285755157471,municipality_median,130,12.6737696941786,10.25740589713512,11,3,4,10.37012496574841,131.4285755157471,1.010989042428824
+mango,ILOILO,TIGBAUAN,pieces or units,13.14285755157471,municipality_median,210,12.6737696941786,16.56965567998751,11,3,4,10.37012496574841,131.4285755157471,.6258503595987955
+mango,ILOILO,TIGBAUAN,pieces or units,13.14285755157471,municipality_median,135,12.6737696941786,10.6519215085634,11,3,4,10.37012496574841,131.4285755157471,.9735450038203487
+mango,ILOILO,ZARRAGA,pieces or units,20,municipality_median,180,19.28617067398725,9.333112469173566,11,3,4,12.7034030830418,245,1.361111111111111
+mango,ILOILO,ZARRAGA,pieces or units,20,municipality_median,180,19.28617067398725,9.333112469173566,11,3,4,12.7034030830418,245,1.361111111111111
+mango,ILOILO,ZARRAGA,pieces or units,20,municipality_median,220,19.28617067398725,11.40713746232325,11,3,4,12.7034030830418,245,1.113636363636364
+mango,ILOILO,ZARRAGA,pieces or units,20,municipality_median,180,19.28617067398725,9.333112469173566,11,3,4,12.7034030830418,245,1.361111111111111
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,BINALBAGAN,lipid/lapad,80,province_median,375,80,4.6875,57,8,17,4.6875,375,1
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,BINALBAGAN,lipid/lapad,80,province_median,375,80,4.6875,57,8,17,4.6875,375,1
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,BINALBAGAN,lipid/lapad,80,province_median,375,80,4.6875,57,8,17,4.6875,375,1
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,BINALBAGAN,lipid/lapad,80,province_median,375,80,4.6875,57,8,17,4.6875,375,1
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,BINALBAGAN,lipid/lapad,80,province_median,375,80,4.6875,57,8,17,4.6875,375,1
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,BINALBAGAN,lipid/lapad,80,province_median,375,80,4.6875,57,8,17,4.6875,375,1
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,BINALBAGAN,putos,50,province_median,250,50,5,53,15,17,4.775757364380412,238.7878682190206,.9551514728760824
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,BINALBAGAN,putos,50,province_median,250,50,5,53,15,17,4.775757364380412,238.7878682190206,.9551514728760824
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,BINALBAGAN,putos,50,province_median,180,50,3.6,53,15,17,4.775757364380412,238.7878682190206,1.326599267883448
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,BINALBAGAN,putos,50,province_median,240,50,4.8,53,15,17,4.775757364380412,238.7878682190206,.9949494509125858
+cabbage,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,35,municipality_median,430,35.22141628752451,12.20848124021369,31,8,8,11.75894414028334,414.1666666666667,.9631782945736435
+cabbage,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,35,municipality_median,430,35.22141628752451,12.20848124021369,31,8,8,11.75894414028334,414.1666666666667,.9631782945736435
+cabbage,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,35,municipality_median,625,35.22141628752451,17.74488552356641,31,8,8,11.75894414028334,414.1666666666667,.6626666666666667
+cabbage,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,35,municipality_median,605,35.22141628752451,17.17704918681229,31,8,8,11.75894414028334,414.1666666666667,.6845730027548209
+cabbage,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,35,municipality_median,525,35.22141628752451,14.90570383979579,31,8,8,11.75894414028334,414.1666666666667,.788888888888889
+cabbage,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,35,municipality_median,465,35.22141628752451,13.20219482953341,31,8,8,11.75894414028334,414.1666666666667,.8906810035842294
+carrot,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,10,municipality_median,90,10.45537987243164,8.608008613566367,61,10,16,8.400000320434582,87.82519427869107,.9758354919854564
+carrot,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,10,municipality_median,90,10.45537987243164,8.608008613566367,61,10,16,8.400000320434582,87.82519427869107,.9758354919854564
+carrot,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,10,municipality_median,80,10.45537987243164,7.651563212058993,61,10,16,8.400000320434582,87.82519427869107,1.097814928483638
+carrot,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,10,municipality_median,80,10.45537987243164,7.651563212058993,61,10,16,8.400000320434582,87.82519427869107,1.097814928483638
+carrot,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,10,municipality_median,80,10.45537987243164,7.651563212058993,61,10,16,8.400000320434582,87.82519427869107,1.097814928483638
+carrot,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,10,municipality_median,90,10.45537987243164,8.608008613566367,61,10,16,8.400000320434582,87.82519427869107,.9758354919854564
+chicken,NEGROS OCCIDENTAL,CALATRAVA,whole (chicken),250,province_median,1145,250.8478511385336,4.564519866537188,34,13,9,4.797289771654805,1203.389830508474,1.05099548516024
+chicken,NEGROS OCCIDENTAL,CALATRAVA,whole (chicken),250,province_median,1150,250.8478511385336,4.584452267701106,34,13,9,4.797289771654805,1203.389830508474,1.046425939572587
+chicken,NEGROS OCCIDENTAL,CALATRAVA,whole (chicken),250,province_median,1175,250.8478511385336,4.684114273520695,34,13,9,4.797289771654805,1203.389830508474,1.024161557879553
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,4.6875,370.7349991269109,.9886266643384291
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,4.6875,370.7349991269109,.9886266643384291
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,4.6875,370.7349991269109,.9886266643384291
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,4.6875,370.7349991269109,.9886266643384291
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,4.6875,370.7349991269109,.9886266643384291
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,long-neck,157.5,province_median,750,155.7086996333026,4.816686554869873,50,8,13,4.761904761904762,741.4699982538217,.9886266643384289
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,long-neck,157.5,province_median,750,155.7086996333026,4.816686554869873,50,8,13,4.761904761904762,741.4699982538217,.9886266643384289
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,long-neck,157.5,province_median,750,155.7086996333026,4.816686554869873,50,8,13,4.761904761904762,741.4699982538217,.9886266643384289
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,long-neck,157.5,province_median,750,155.7086996333026,4.816686554869873,50,8,13,4.761904761904762,741.4699982538217,.9886266643384289
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,long-neck,157.5,province_median,750,155.7086996333026,4.816686554869873,50,8,13,4.761904761904762,741.4699982538217,.9886266643384289
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CALATRAVA,bilog,13,province_median,65,12.96229208930785,5.014545232599432,37,8,15,4.821428571428571,62.49676543059141,.9614886989321755
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CALATRAVA,putos,50,municipality_median,250,49.85496957426095,5.014545232599432,53,15,17,4.762878682190205,237.4531717864888,.9498126871459551
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CALATRAVA,putos,50,municipality_median,250,49.85496957426095,5.014545232599432,53,15,17,4.762878682190205,237.4531717864888,.9498126871459551
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CALATRAVA,putos,50,municipality_median,250,49.85496957426095,5.014545232599432,53,15,17,4.762878682190205,237.4531717864888,.9498126871459551
+cabbage,NEGROS OCCIDENTAL,CANDONI,pieces or units,50,municipality_median,625,50.31630898217787,12.42141986649649,31,8,8,12.29174062010685,618.4750189700827,.9895600303521324
+cabbage,NEGROS OCCIDENTAL,CANDONI,pieces or units,50,municipality_median,600,50.31630898217787,11.92456307183663,31,8,8,12.29174062010685,618.4750189700827,1.030791698283471
+cabbage,NEGROS OCCIDENTAL,CANDONI,pieces or units,50,municipality_median,555,50.31630898217787,11.03022084144888,31,8,8,12.29174062010685,618.4750189700827,1.114369403549698
+carrot,NEGROS OCCIDENTAL,CANDONI,pieces or units,15,municipality_median,100,15.68306980864746,6.376302676715827,61,10,16,8.589718592497469,134.7131563227748,1.347131563227748
+carrot,NEGROS OCCIDENTAL,CANDONI,pieces or units,15,municipality_median,100,15.68306980864746,6.376302676715827,61,10,16,8.589718592497469,134.7131563227748,1.347131563227748
+carrot,NEGROS OCCIDENTAL,CANDONI,pieces or units,15,municipality_median,95,15.68306980864746,6.057487542880036,61,10,16,8.589718592497469,134.7131563227748,1.418033224450261
+chicken,NEGROS OCCIDENTAL,CANDONI,bilog,250,mp50_price,1080,250.8478511385336,4.305398651406256,45,16,11,4.907407407407407,1231.012602809471,1.139826484082843
+chicken,NEGROS OCCIDENTAL,CANDONI,bilog,275,mp75_price,1390,275.932636252387,5.037461385062875,45,16,11,4.907407407407407,1354.113863090418,.9741826353168472
+chicken,NEGROS OCCIDENTAL,CANDONI,whole (chicken),250,mp50_price,1125,250.8478511385336,4.484790261881517,34,13,9,4.719411233915134,1183.854166666667,1.052314814814815
+chicken,NEGROS OCCIDENTAL,CANDONI,whole (chicken),295,mp75_price,1420,296.0004643434697,4.797289771654805,34,13,9,4.719411233915134,1396.947916666667,.9837661384976526
+fresh fish,NEGROS OCCIDENTAL,CANDONI,pieces or units,100,province_median,460,101.193906153749,4.545728270446432,12,5,4,4.8,485.7307495379952,1.05593641203912
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CANDONI,lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,4.6875,370.7349991269109,.9886266643384291
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CANDONI,lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,4.6875,370.7349991269109,.9886266643384291
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CANDONI,lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,4.6875,370.7349991269109,.9886266643384291
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CANDONI,lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,4.6875,370.7349991269109,.9886266643384291
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,CANDONI,tumpok,80,province_median,210,78.97759124886933,2.658982081870045,24,7,8,2.55,201.3928576846168,.9590136080219847
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CANDONI,bilog,10,municipality_median,65,9.97099391485219,6.518908802379261,37,8,15,4.642857142857143,46.2939003189566,.7122138510608708
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CANDONI,bilog,10,municipality_median,60,9.97099391485219,6.017454279119319,37,8,15,4.642857142857143,46.2939003189566,.7715650053159434
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CANDONI,putos,52.5,mp50_price,180,52.347718052974,3.438545302353896,53,15,17,4.975609756097561,260.4618166538219,1.447010092521233
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CANDONI,putos,83.5,mp75_price,300,83.25779918901578,3.60326603540079,53,15,17,4.975609756097561,414.2583179160785,1.380861059720262
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CANDONI,putos,52.5,mp50_price,250,52.347718052974,4.775757364380412,53,15,17,4.975609756097561,260.4618166538219,1.041847266615287
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CANDONI,putos,83.5,mp75_price,228,83.25779918901578,2.7384821869046,53,15,17,4.975609756097561,414.2583179160785,1.816922447000344
+cabbage,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,60,municipality_median,705,60.37957077861345,11.6761346745067,31,8,8,12.39820993324824,748.5985941926707,1.061841977578256
+cabbage,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,60,municipality_median,710,60.37957077861345,11.75894414028334,31,8,8,12.39820993324824,748.5985941926707,1.054364217172776
+cabbage,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,60,municipality_median,690,60.37957077861345,11.42770627717677,31,8,8,12.39820993324824,748.5985941926707,1.084925498829957
+camote,NEGROS OCCIDENTAL,CAUAYAN,bilog,6.666666507720947,province_median,145,6.610218523904042,21.93573472278523,29,4,9,15.00000035762788,99.15328022255905,.683815725672821
+camote,NEGROS OCCIDENTAL,CAUAYAN,bilog,6.666666507720947,province_median,155,6.610218523904042,23.44854401401179,29,4,9,15.00000035762788,99.15328022255905,.6396985820810261
+carrot,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,20,municipality_median,135,20.91075974486328,6.456006460174775,61,10,16,8.485714445931578,177.4427360423909,1.314390637351044
+carrot,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,20,municipality_median,140,20.91075974486328,6.695117810551618,61,10,16,8.485714445931578,177.4427360423909,1.267448114588506
+carrot,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,20,municipality_median,210,20.91075974486328,10.04267671582743,61,10,16,8.485714445931578,177.4427360423909,.8449654097256709
+chicken,NEGROS OCCIDENTAL,CAUAYAN,whole (chicken),200,mp25_price,975,200.6782809108269,4.858522783704976,34,13,9,4.74070202258775,951.3559322033898,.9757496740547588
+chicken,NEGROS OCCIDENTAL,CAUAYAN,whole (chicken),240,mp50_price,1145,240.8139370929923,4.754708194309571,34,13,9,4.74070202258775,1141.627118644068,.9970542520908889
+chicken,NEGROS OCCIDENTAL,CAUAYAN,whole (chicken),300,mp75_price,1275,301.0174213662403,4.235635247332544,34,13,9,4.74070202258775,1427.033898305085,1.119242273180459
+chicken,NEGROS OCCIDENTAL,CAUAYAN,whole (chicken),200,mp25_price,750,200.6782809108269,3.737325218234597,34,13,9,4.74070202258775,951.3559322033898,1.268474576271186
+chicken,NEGROS OCCIDENTAL,CAUAYAN,whole (chicken),240,mp50_price,1060,240.8139370929923,4.401738590365192,34,13,9,4.74070202258775,1141.627118644068,1.077006715701951
+chicken,NEGROS OCCIDENTAL,CAUAYAN,whole (chicken),300,mp75_price,1445,301.0174213662403,4.80038661364355,34,13,9,4.74070202258775,1427.033898305085,.9875667116298164
+fresh fish,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,200,unique_mun_price6,1060,202.387812307498,5.237469528992627,12,5,4,4.8,971.4614990759904,.9164731123358401
+fresh fish,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,200,unique_mun_price6,840,202.387812307498,4.150447551277177,12,5,4,4.8,971.4614990759904,1.156501784614274
+fresh fish,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,200,unique_mun_price6,765,202.387812307498,3.779871877056,12,5,4,4.8,971.4614990759904,1.269884312517635
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,lipid/lapad,90,municipality_median,375,88.97639979045861,4.214600735511139,57,8,17,4.6875,417.0768740177747,1.112204997380733
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,lipid/lapad,90,municipality_median,375,88.97639979045861,4.214600735511139,57,8,17,4.6875,417.0768740177747,1.112204997380733
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,lipid/lapad,90,municipality_median,375,88.97639979045861,4.214600735511139,57,8,17,4.6875,417.0768740177747,1.112204997380733
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,lipid/lapad,90,municipality_median,375,88.97639979045861,4.214600735511139,57,8,17,4.6875,417.0768740177747,1.112204997380733
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,lipid/lapad,90,municipality_median,375,88.97639979045861,4.214600735511139,57,8,17,4.6875,417.0768740177747,1.112204997380733
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,long-neck,195,municipality_median,750,192.7821995459936,3.890400678933359,50,8,13,4.761904761904762,918.0104740285411,1.224013965371388
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,long-neck,195,municipality_median,750,192.7821995459936,3.890400678933359,50,8,13,4.761904761904762,918.0104740285411,1.224013965371388
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,long-neck,195,municipality_median,750,192.7821995459936,3.890400678933359,50,8,13,4.761904761904762,918.0104740285411,1.224013965371388
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,long-neck,195,municipality_median,750,192.7821995459936,3.890400678933359,50,8,13,4.761904761904762,918.0104740285411,1.224013965371388
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,long-neck,195,municipality_median,750,192.7821995459936,3.890400678933359,50,8,13,4.761904761904762,918.0104740285411,1.224013965371388
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,CAUAYAN,tumpok,80,province_median,230,78.97759124886933,2.912218470619573,24,7,8,2.5,197.4439781221733,.8584520787920579
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,CAUAYAN,tumpok,80,province_median,260,78.97759124886933,3.292073053743865,24,7,8,2.5,197.4439781221733,.7593999158545127
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,CAUAYAN,tumpok,80,province_median,285,78.97759124886933,3.608618539680775,24,7,8,2.5,197.4439781221733,.6927858881479766
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CAUAYAN,putos,55,municipality_median,250,54.84046653168705,4.558677484181302,53,15,17,4.878048780487805,267.5144708862783,1.070057883545113
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CAUAYAN,putos,55,municipality_median,250,54.84046653168705,4.558677484181302,53,15,17,4.878048780487805,267.5144708862783,1.070057883545113
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CAUAYAN,putos,55,municipality_median,250,54.84046653168705,4.558677484181302,53,15,17,4.878048780487805,267.5144708862783,1.070057883545113
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CAUAYAN,putos,55,municipality_median,285,54.84046653168705,5.196892331966684,53,15,17,4.878048780487805,267.5144708862783,.9386472662676431
+cabbage,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),pieces or units,40,municipality_median,465,40,11.625,31,8,8,,,
+cabbage,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),pieces or units,40,municipality_median,435,40,10.875,31,8,8,,,
+cabbage,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),pieces or units,40,municipality_median,460,40,11.5,31,8,8,,,
+camote,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),bilog,6.666666507720947,province_median,65,6.666666507720947,9.75000023245812,29,4,9,,,
+camote,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),bilog,6.666666507720947,province_median,65,6.666666507720947,9.75000023245812,29,4,9,,,
+carrot,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),pieces or units,17.5,municipality_median,140,17.5,8,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),pieces or units,17.5,municipality_median,125,17.5,7.142857142857143,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),pieces or units,17.5,municipality_median,175,17.5,10,61,10,16,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),bilog,13,province_median,60,13,4.615384615384615,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),bilog,13,province_median,65,13,5,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),putos,55.55555725097656,municipality_median,205,55.55555725097656,3.68999988739014,53,15,17,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),putos,55.55555725097656,municipality_median,225,55.55555725097656,4.049999876403812,53,15,17,,,
+camote,NEGROS OCCIDENTAL,HINIGARAN,bilog,5,municipality_median,125,5,25,29,4,9,15.00000035762788,75.00000178813939,.6000000143051151
+camote,NEGROS OCCIDENTAL,HINIGARAN,bilog,5,municipality_median,100,5,20,29,4,9,15.00000035762788,75.00000178813939,.7500000178813938
+carrot,NEGROS OCCIDENTAL,HINIGARAN,pieces or units,15.83333301544189,municipality_median,140,15.83333301544189,8.842105440683977,61,10,16,8.324671052557658,131.8072890191546,.9414806358511043
+carrot,NEGROS OCCIDENTAL,HINIGARAN,pieces or units,15.83333301544189,municipality_median,105,15.83333301544189,6.631579080512982,61,10,16,8.324671052557658,131.8072890191546,1.255307514468139
+carrot,NEGROS OCCIDENTAL,HINIGARAN,pieces or units,15.83333301544189,municipality_median,190,15.83333301544189,12.00000024092825,61,10,16,8.324671052557658,131.8072890191546,.6937225737850242
+carrot,NEGROS OCCIDENTAL,HINIGARAN,pieces or units,15.83333301544189,municipality_median,100,15.83333301544189,6.315789600488555,61,10,16,8.324671052557658,131.8072890191546,1.318072890191546
+carrot,NEGROS OCCIDENTAL,HINIGARAN,pieces or units,15.83333301544189,municipality_median,235,15.83333301544189,14.8421055611481,61,10,16,8.324671052557658,131.8072890191546,.5608820809325729
+chicken,NEGROS OCCIDENTAL,HINIGARAN,bilog,150,mp25_price,760,150,5.066666666666666,45,16,11,4.907407407407407,736.1111111111111,.9685672514619883
+chicken,NEGROS OCCIDENTAL,HINIGARAN,bilog,235,mp50_price,1090,235,4.638297872340425,45,16,11,4.907407407407407,1153.240740740741,1.058019028202514
+chicken,NEGROS OCCIDENTAL,HINIGARAN,bilog,150,mp25_price,855,150,5.7,45,16,11,4.907407407407407,736.1111111111111,.8609486679662118
+chicken,NEGROS OCCIDENTAL,HINIGARAN,bilog,235,mp50_price,1000,235,4.25531914893617,45,16,11,4.907407407407407,1153.240740740741,1.153240740740741
+chicken,NEGROS OCCIDENTAL,HINIGARAN,bilog,150,mp25_price,900,150,6,45,16,11,4.907407407407407,736.1111111111111,.8179012345679012
+chicken,NEGROS OCCIDENTAL,HINIGARAN,bilog,235,mp50_price,1095,235,4.659574468085107,45,16,11,4.907407407407407,1153.240740740741,1.053187891087434
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINIGARAN,lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,4.6875,375,1
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINIGARAN,lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,4.6875,375,1
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINIGARAN,long-neck,130,unique_mun_price6,750,130,5.769230769230769,50,8,13,4.761904761904762,619.047619047619,.8253968253968254
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINIGARAN,long-neck,130,unique_mun_price6,750,130,5.769230769230769,50,8,13,4.761904761904762,619.047619047619,.8253968253968254
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINIGARAN,long-neck,130,unique_mun_price6,750,130,5.769230769230769,50,8,13,4.761904761904762,619.047619047619,.8253968253968254
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,HINIGARAN,tumpok,80,province_median,270,80,3.375,24,7,8,2.580555555555556,206.4444444444445,.7646090534979424
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,HINIGARAN,tumpok,80,province_median,200,80,2.5,24,7,8,2.580555555555556,206.4444444444445,1.032222222222222
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINIGARAN,bilog,11,municipality_median,75,11,6.818181818181818,37,8,15,4.642857142857143,51.07142857142858,.680952380952381
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINIGARAN,bilog,11,municipality_median,250,11,22.72727272727273,37,8,15,4.642857142857143,51.07142857142858,.2042857142857143
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINIGARAN,bilog,11,municipality_median,250,11,22.72727272727273,37,8,15,4.642857142857143,51.07142857142858,.2042857142857143
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINIGARAN,bilog,11,municipality_median,250,11,22.72727272727273,37,8,15,4.642857142857143,51.07142857142858,.2042857142857143
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINIGARAN,putos,51.25,municipality_median,250,51.25,4.878048780487805,53,15,17,4.8,246,.984
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINIGARAN,putos,51.25,municipality_median,255,51.25,4.975609756097561,53,15,17,4.8,246,.9647058823529412
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINIGARAN,putos,51.25,municipality_median,225,51.25,4.390243902439025,53,15,17,4.8,246,1.093333333333333
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINIGARAN,putos,51.25,municipality_median,200,51.25,3.902439024390244,53,15,17,4.8,246,1.23
+carrot,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),pieces or units,15,province_median,105,15.68306980864746,6.695117810551618,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),pieces or units,15,province_median,75,15.68306980864746,4.78222700753687,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),pieces or units,15,province_median,125,15.68306980864746,7.970378345894784,61,10,16,,,
+chicken,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),bilog,187.5,mp25_price,910,188.1358883539002,4.836929349110732,45,16,11,,,
+chicken,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),bilog,225,mp50_price,1125,225.7630660246803,4.983100290979463,45,16,11,,,
+chicken,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),bilog,225,mp50_price,980,225.7630660246803,4.340834031253221,45,16,11,,,
+chicken,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),bilog,257.5,mp75_price,1135,258.3732866726896,4.392868994378012,45,16,11,,,
+chicken,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),whole (chicken),150,unique_mun_price6,910,150.5087106831202,6.046161686388416,34,13,9,,,
+chicken,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),whole (chicken),180,unique_mun_price7,960,180.6104528197442,5.315306977044761,34,13,9,,,
+chicken,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),whole (chicken),150,unique_mun_price6,980,150.5087106831202,6.511251046879832,34,13,9,,,
+chicken,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),whole (chicken),180,unique_mun_price7,1135,180.6104528197442,6.284243144735212,34,13,9,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),long-neck,157.5,province_median,750,155.7086996333026,4.816686554869873,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),long-neck,157.5,province_median,750,155.7086996333026,4.816686554869873,50,8,13,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),bilog,45,unique_mun_price6,200,44.86947261683486,4.457373540088384,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),bilog,45,unique_mun_price6,200,44.86947261683486,4.457373540088384,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),bilog,45,unique_mun_price6,200,44.86947261683486,4.457373540088384,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),putos,48,municipality_median,250,47.86077079129051,5.223484617291075,53,15,17,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),putos,48,municipality_median,250,47.86077079129051,5.223484617291075,53,15,17,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),putos,48,municipality_median,250,47.86077079129051,5.223484617291075,53,15,17,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),putos,48,municipality_median,250,47.86077079129051,5.223484617291075,53,15,17,,,
+carrot,NEGROS OCCIDENTAL,ILOG,pieces or units,15,municipality_median,140,15,9.333333333333334,61,10,16,8.485714445931578,127.2857166889737,.9091836906355262
+carrot,NEGROS OCCIDENTAL,ILOG,pieces or units,15,municipality_median,100,15,6.666666666666667,61,10,16,8.485714445931578,127.2857166889737,1.272857166889737
+carrot,NEGROS OCCIDENTAL,ILOG,pieces or units,15,municipality_median,100,15,6.666666666666667,61,10,16,8.485714445931578,127.2857166889737,1.272857166889737
+chicken,NEGROS OCCIDENTAL,ILOG,bilog,245,mp25_price,1230,245,5.020408163265306,45,16,11,4.904545454545454,1201.613636363636,.9769216555801921
+chicken,NEGROS OCCIDENTAL,ILOG,bilog,270,mp50_price,1430,270,5.296296296296297,45,16,11,4.904545454545454,1324.227272727273,.9260330578512397
+chicken,NEGROS OCCIDENTAL,ILOG,bilog,310,mp75_price,1685,310,5.435483870967742,45,16,11,4.904545454545454,1520.409090909091,.9023199352576207
+chicken,NEGROS OCCIDENTAL,ILOG,bilog,245,mp25_price,1125,245,4.591836734693878,45,16,11,4.904545454545454,1201.613636363636,1.06810101010101
+chicken,NEGROS OCCIDENTAL,ILOG,bilog,270,mp50_price,1325,270,4.907407407407407,45,16,11,4.904545454545454,1324.227272727273,.9994168096054888
+chicken,NEGROS OCCIDENTAL,ILOG,bilog,310,mp75_price,1580,310,5.096774193548387,45,16,11,4.904545454545454,1520.409090909091,.9622842347525891
+chicken,NEGROS OCCIDENTAL,ILOG,bilog,245,mp25_price,895,245,3.653061224489796,45,16,11,4.904545454545454,1201.613636363636,1.342585068562722
+chicken,NEGROS OCCIDENTAL,ILOG,bilog,270,mp50_price,1175,270,4.351851851851852,45,16,11,4.904545454545454,1324.227272727273,1.127001934235977
+chicken,NEGROS OCCIDENTAL,ILOG,bilog,310,mp75_price,1300,310,4.193548387096774,45,16,11,4.904545454545454,1520.409090909091,1.169545454545454
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ILOG,lipid/lapad,82.5,municipality_median,375,82.5,4.545454545454546,57,8,17,4.6875,386.71875,1.03125
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ILOG,bilog,13,province_median,60,13,4.615384615384615,37,8,15,5,65,1.083333333333333
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ILOG,bilog,13,province_median,60,13,4.615384615384615,37,8,15,5,65,1.083333333333333
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ILOG,bilog,13,province_median,65,13,5,37,8,15,5,65,1
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ILOG,putos,55,municipality_median,200,55,3.636363636363636,53,15,17,4.839024390243902,266.1463414634146,1.330731707317073
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ILOG,putos,55,municipality_median,250,55,4.545454545454546,53,15,17,4.839024390243902,266.1463414634146,1.064585365853658
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ILOG,putos,55,municipality_median,320,55,5.818181818181818,53,15,17,4.839024390243902,266.1463414634146,.8317073170731707
+camote,NEGROS OCCIDENTAL,ISABELA,bilog,6.666666507720947,province_median,120,6.666666507720947,18.00000042915345,29,4,9,14.62500034868718,97.5,.8125
+camote,NEGROS OCCIDENTAL,ISABELA,bilog,6.666666507720947,province_median,115,6.666666507720947,17.25000041127206,29,4,9,14.62500034868718,97.5,.8478260869565217
+camote,NEGROS OCCIDENTAL,ISABELA,bilog,6.666666507720947,province_median,140,6.666666507720947,21.00000050067903,29,4,9,14.62500034868718,97.5,.6964285714285714
+carrot,NEGROS OCCIDENTAL,ISABELA,pieces or units,15,municipality_median,135,15,9,61,10,16,8.187170892340369,122.8075633851055,.9096856547044855
+carrot,NEGROS OCCIDENTAL,ISABELA,pieces or units,15,municipality_median,130,15,8.666666666666666,61,10,16,8.187170892340369,122.8075633851055,.9446735645008119
+carrot,NEGROS OCCIDENTAL,ISABELA,pieces or units,15,municipality_median,135,15,9,61,10,16,8.187170892340369,122.8075633851055,.9096856547044855
+chicken,NEGROS OCCIDENTAL,ISABELA,whole (chicken),210,mp25_price,1100,210,5.238095238095238,34,13,9,4.684114273520695,983.663997439346,.8942399976721327
+chicken,NEGROS OCCIDENTAL,ISABELA,whole (chicken),250,mp50_price,1140,250,4.56,34,13,9,4.684114273520695,1171.028568380174,1.027218042438749
+chicken,NEGROS OCCIDENTAL,ISABELA,whole (chicken),300,mp75_price,1660,300,5.533333333333333,34,13,9,4.684114273520695,1405.234282056208,.846526675937475
+chicken,NEGROS OCCIDENTAL,ISABELA,whole (chicken),210,mp25_price,1035,210,4.928571428571429,34,13,9,4.684114273520695,983.663997439346,.9503999975259382
+chicken,NEGROS OCCIDENTAL,ISABELA,whole (chicken),250,mp50_price,1400,250,5.6,34,13,9,4.684114273520695,1171.028568380174,.8364489774144098
+chicken,NEGROS OCCIDENTAL,ISABELA,whole (chicken),300,mp75_price,1505,300,5.016666666666667,34,13,9,4.684114273520695,1405.234282056208,.9337104864160853
+chicken,NEGROS OCCIDENTAL,ISABELA,whole (chicken),210,mp25_price,970,210,4.619047619047619,34,13,9,4.684114273520695,983.663997439346,1.014086595298295
+chicken,NEGROS OCCIDENTAL,ISABELA,whole (chicken),250,mp50_price,1000,250,4,34,13,9,4.684114273520695,1171.028568380174,1.171028568380174
+chicken,NEGROS OCCIDENTAL,ISABELA,whole (chicken),300,mp75_price,1340,300,4.466666666666667,34,13,9,4.684114273520695,1405.234282056208,1.048682300041947
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ISABELA,lipid/lapad,85,municipality_median,375,84.03326646876647,4.462518425835324,57,8,17,4.6875,393.9059365723429,1.050415830859581
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ISABELA,lipid/lapad,85,municipality_median,375,84.03326646876647,4.462518425835324,57,8,17,4.6875,393.9059365723429,1.050415830859581
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ISABELA,lipid/lapad,85,municipality_median,375,84.03326646876647,4.462518425835324,57,8,17,4.6875,393.9059365723429,1.050415830859581
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ISABELA,long-neck,155,municipality_median,750,153.2371329724565,4.894375047690355,50,8,13,4.761904761904762,729.7006332021738,.9729341776028984
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ISABELA,long-neck,155,municipality_median,750,153.2371329724565,4.894375047690355,50,8,13,4.761904761904762,729.7006332021738,.9729341776028984
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ISABELA,long-neck,155,municipality_median,750,153.2371329724565,4.894375047690355,50,8,13,4.761904761904762,729.7006332021738,.9729341776028984
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ISABELA,long-neck,155,municipality_median,375,153.2371329724565,2.447187523845177,50,8,13,4.761904761904762,729.7006332021738,1.945868355205797
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ISABELA,bilog,13,province_median,60,13,4.615384615384615,37,8,15,5,65,1.083333333333333
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ISABELA,bilog,13,province_median,60,13,4.615384615384615,37,8,15,5,65,1.083333333333333
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ISABELA,bilog,13,province_median,55,13,4.230769230769231,37,8,15,5,65,1.181818181818182
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ISABELA,putos,50,municipality_median,250,50,5,53,15,17,4.762878682190205,238.1439341095103,.9525757364380411
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ISABELA,putos,50,municipality_median,250,50,5,53,15,17,4.762878682190205,238.1439341095103,.9525757364380411
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ISABELA,putos,50,municipality_median,250,50,5,53,15,17,4.762878682190205,238.1439341095103,.9525757364380411
+camote,NEGROS OCCIDENTAL,LA CASTELLANA,bilog,6.666666507720947,province_median,160,6.666666507720947,24.0000005722046,29,4,9,,,
+camote,NEGROS OCCIDENTAL,LA CASTELLANA,bilog,6.666666507720947,province_median,140,6.666666507720947,21.00000050067903,29,4,9,,,
+camote,NEGROS OCCIDENTAL,LA CASTELLANA,bilog,6.666666507720947,province_median,130,6.666666507720947,19.50000046491624,29,4,9,,,
+carrot,NEGROS OCCIDENTAL,LA CASTELLANA,pieces or units,15,province_median,175,15,11.66666666666667,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,LA CASTELLANA,pieces or units,15,province_median,155,15,10.33333333333333,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,LA CASTELLANA,pieces or units,15,province_median,195,15,13,61,10,16,,,
+chicken,NEGROS OCCIDENTAL,LA CASTELLANA,bilog,250,mp25_price,1095,250,4.38,45,16,11,,,
+chicken,NEGROS OCCIDENTAL,LA CASTELLANA,bilog,290,mp50_price,1400,290,4.827586206896552,45,16,11,,,
+chicken,NEGROS OCCIDENTAL,LA CASTELLANA,bilog,250,mp25_price,1065,250,4.26,45,16,11,,,
+chicken,NEGROS OCCIDENTAL,LA CASTELLANA,bilog,290,mp50_price,1480,290,5.103448275862069,45,16,11,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,long-neck,157.5,province_median,375,157.5,2.380952380952381,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,LA CASTELLANA,bilog,13,province_median,60,13,4.615384615384615,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,LA CASTELLANA,bilog,13,province_median,250,13,19.23076923076923,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,LA CASTELLANA,putos,45,municipality_median,200,45,4.444444444444445,53,15,17,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,LA CASTELLANA,putos,45,municipality_median,250,45,5.555555555555555,53,15,17,,,
+carrot,NEGROS OCCIDENTAL,MANAPLA,pieces or units,15,municipality_median,140,15,9.333333333333334,61,10,16,8.400000320434582,126.0000048065187,.9000000343322766
+carrot,NEGROS OCCIDENTAL,MANAPLA,pieces or units,15,municipality_median,115,15,7.666666666666667,61,10,16,8.400000320434582,126.0000048065187,1.095652215708859
+carrot,NEGROS OCCIDENTAL,MANAPLA,pieces or units,15,municipality_median,105,15,7,61,10,16,8.400000320434582,126.0000048065187,1.200000045776369
+carrot,NEGROS OCCIDENTAL,MANAPLA,pieces or units,15,municipality_median,135,15,9,61,10,16,8.400000320434582,126.0000048065187,.9333333689371758
+chicken,NEGROS OCCIDENTAL,MANAPLA,whole (chicken),250,province_median,1300,250,5.2,34,13,9,4.719411233915134,1179.852808478783,.907579083445218
+chicken,NEGROS OCCIDENTAL,MANAPLA,whole (chicken),250,province_median,1275,250,5.1,34,13,9,4.719411233915134,1179.852808478783,.9253747517480654
+chicken,NEGROS OCCIDENTAL,MANAPLA,whole (chicken),250,province_median,1160,250,4.64,34,13,9,4.719411233915134,1179.852808478783,1.017114490067917
+chicken,NEGROS OCCIDENTAL,MANAPLA,whole (chicken),250,province_median,1060,250,4.24,34,13,9,4.719411233915134,1179.852808478783,1.113068687244135
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MANAPLA,lipid/lapad,75,municipality_median,375,75,5,57,8,17,4.6875,351.5625,.9375
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MANAPLA,lipid/lapad,75,municipality_median,375,75,5,57,8,17,4.6875,351.5625,.9375
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MANAPLA,lipid/lapad,75,municipality_median,375,75,5,57,8,17,4.6875,351.5625,.9375
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MANAPLA,lipid/lapad,75,municipality_median,375,75,5,57,8,17,4.6875,351.5625,.9375
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MANAPLA,lipid/lapad,75,municipality_median,375,75,5,57,8,17,4.6875,351.5625,.9375
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MANAPLA,lipid/lapad,75,municipality_median,375,75,5,57,8,17,4.6875,351.5625,.9375
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,75,mp25_price,120,75,1.6,24,7,8,2.722222222222222,204.1666666666667,1.701388888888889
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,100,mp50_price,180,100,1.8,24,7,8,2.722222222222222,272.2222222222222,1.512345679012346
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,125,mp75_price,280,125,2.24,24,7,8,2.722222222222222,340.2777777777778,1.215277777777778
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,75,mp25_price,135,75,1.8,24,7,8,2.722222222222222,204.1666666666667,1.512345679012346
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,100,mp50_price,205,100,2.05,24,7,8,2.722222222222222,272.2222222222222,1.327913279132791
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,125,mp75_price,270,125,2.16,24,7,8,2.722222222222222,340.2777777777778,1.260288065843621
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,75,mp25_price,180,75,2.4,24,7,8,2.722222222222222,204.1666666666667,1.134259259259259
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,100,mp50_price,265,100,2.65,24,7,8,2.722222222222222,272.2222222222222,1.027253668763103
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,125,mp75_price,345,125,2.76,24,7,8,2.722222222222222,340.2777777777778,.9863123993558776
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MANAPLA,bilog,13,province_median,70,13,5.384615384615385,37,8,15,4.642857142857143,60.35714285714286,.8622448979591837
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MANAPLA,bilog,13,province_median,65,13,5,37,8,15,4.642857142857143,60.35714285714286,.9285714285714286
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MANAPLA,bilog,13,province_median,65,13,5,37,8,15,4.642857142857143,60.35714285714286,.9285714285714286
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MANAPLA,putos,47.5,municipality_median,250,47.5,5.263157894736842,53,15,17,4.787878682190206,227.4242374040348,.9096969496161391
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MANAPLA,putos,47.5,municipality_median,190,47.5,4,53,15,17,4.787878682190206,227.4242374040348,1.196969670547551
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MANAPLA,putos,47.5,municipality_median,250,47.5,5.263157894736842,53,15,17,4.787878682190206,227.4242374040348,.9096969496161391
+camote,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),bilog,6.666666507720947,province_median,75,6.666666507720947,11.25000026822091,29,4,9,,,
+camote,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),bilog,6.666666507720947,province_median,90,6.666666507720947,13.50000032186509,29,4,9,,,
+camote,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),bilog,6.666666507720947,province_median,80,6.666666507720947,12.0000002861023,29,4,9,,,
+camote,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),bilog,6.666666507720947,province_median,70,6.666666507720947,10.50000025033951,29,4,9,,,
+camote,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),bilog,6.666666507720947,province_median,70,6.666666507720947,10.50000025033951,29,4,9,,,
+carrot,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),pieces or units,15,province_median,150,15,10,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),pieces or units,15,province_median,210,15,14,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),pieces or units,15,province_median,135,15,9,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),pieces or units,15,province_median,130,15,8.666666666666666,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),pieces or units,15,province_median,155,15,10.33333333333333,61,10,16,,,
+chicken,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),whole (chicken),220,mp50_price,1090,220,4.954545454545454,34,13,9,,,
+chicken,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),whole (chicken),250,mp75_price,1305,250,5.22,34,13,9,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),putos,50,municipality_median,250,50,5,53,15,17,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),putos,50,municipality_median,250,49.85496957426095,5.014545232599432,53,15,17,,,
+cabbage,NEGROS OCCIDENTAL,MURCIA,pieces or units,37.5,municipality_median,530,37.5,14.13333333333333,31,8,8,12.29174062010685,460.9402732540067,.8696986287811448
+cabbage,NEGROS OCCIDENTAL,MURCIA,pieces or units,37.5,municipality_median,405,37.5,10.8,31,8,8,12.29174062010685,460.9402732540067,1.138124131491375
+cabbage,NEGROS OCCIDENTAL,MURCIA,pieces or units,37.5,municipality_median,390,37.5,10.4,31,8,8,12.29174062010685,460.9402732540067,1.181898136548735
+carrot,NEGROS OCCIDENTAL,MURCIA,pieces or units,15,province_median,150,15,10,61,10,16,8.324671052557658,124.8700657883649,.8324671052557658
+carrot,NEGROS OCCIDENTAL,MURCIA,pieces or units,15,province_median,165,15,11,61,10,16,8.324671052557658,124.8700657883649,.7567882775052416
+carrot,NEGROS OCCIDENTAL,MURCIA,pieces or units,15,province_median,115,15,7.666666666666667,61,10,16,8.324671052557658,124.8700657883649,1.08582665902926
+chicken,NEGROS OCCIDENTAL,MURCIA,bilog,220,mp25_price,1200,220,5.454545454545454,45,16,11,4.9,1078,.8983333333333333
+chicken,NEGROS OCCIDENTAL,MURCIA,bilog,250,mp50_price,1250,250,5,45,16,11,4.9,1225,.98
+chicken,NEGROS OCCIDENTAL,MURCIA,bilog,220,mp25_price,1080,220,4.909090909090909,45,16,11,4.9,1078,.9981481481481481
+chicken,NEGROS OCCIDENTAL,MURCIA,bilog,250,mp50_price,1120,250,4.48,45,16,11,4.9,1225,1.09375
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MURCIA,lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,4.6875,375,1
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MURCIA,lipid/lapad,80,municipality_median,375,80,4.6875,57,8,17,4.6875,375,1
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MURCIA,tumpok,100,unique_mun_price6,245,100,2.45,24,7,8,2.65,265,1.081632653061225
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MURCIA,tumpok,100,unique_mun_price6,245,100,2.45,24,7,8,2.65,265,1.081632653061225
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,MURCIA,tumpok,100,unique_mun_price6,255,100,2.55,24,7,8,2.65,265,1.03921568627451
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MURCIA,bilog,13,province_median,60,13,4.615384615384615,37,8,15,5,65,1.083333333333333
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MURCIA,bilog,13,province_median,60,13,4.615384615384615,37,8,15,5,65,1.083333333333333
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MURCIA,bilog,13,province_median,60,13,4.615384615384615,37,8,15,5,65,1.083333333333333
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MURCIA,putos,57.5,municipality_median,250,57.5,4.347826086956522,53,15,17,4.878048780487805,280.4878048780488,1.121951219512195
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MURCIA,putos,57.5,municipality_median,450,57.5,7.826086956521739,53,15,17,4.878048780487805,280.4878048780488,.6233062330623307
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MURCIA,putos,57.5,municipality_median,250,57.5,4.347826086956522,53,15,17,4.878048780487805,280.4878048780488,1.121951219512195
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MURCIA,putos,57.5,municipality_median,250,57.5,4.347826086956522,53,15,17,4.878048780487805,280.4878048780488,1.121951219512195
+cabbage,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,30,municipality_median,245,30,8.166666666666666,31,8,8,12.20848124021369,366.2544372064107,1.494916070230248
+cabbage,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,30,municipality_median,445,30,14.83333333333333,31,8,8,12.20848124021369,366.2544372064107,.8230436791155298
+cabbage,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,30,municipality_median,495,30,16.5,31,8,8,12.20848124021369,366.2544372064107,.7399079539523449
+chicken,NEGROS OCCIDENTAL,PONTEVEDRA,bilog,150,mp25_price,740,150,4.933333333333334,45,16,11,4.836929349110732,725.5394023666098,.9804586518467701
+chicken,NEGROS OCCIDENTAL,PONTEVEDRA,bilog,250,mp50_price,1240,250,4.96,45,16,11,4.836929349110732,1209.232337277683,.9751873687723249
+chicken,NEGROS OCCIDENTAL,PONTEVEDRA,bilog,150,mp25_price,745,150,4.966666666666667,45,16,11,4.836929349110732,725.5394023666098,.9738783924384025
+chicken,NEGROS OCCIDENTAL,PONTEVEDRA,bilog,250,mp50_price,1225,250,4.9,45,16,11,4.836929349110732,1209.232337277683,.9871284385940269
+chicken,NEGROS OCCIDENTAL,PONTEVEDRA,bilog,150,mp25_price,745,150,4.966666666666667,45,16,11,4.836929349110732,725.5394023666098,.9738783924384025
+chicken,NEGROS OCCIDENTAL,PONTEVEDRA,bilog,250,mp50_price,1285,250,5.14,45,16,11,4.836929349110732,1209.232337277683,.9410368383483915
+fresh fish,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,47.5,mp25_price,165,47.5,3.473684210526316,12,5,4,4.672864135223216,221.9610464231028,1.34521846317032
+fresh fish,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,80,mp50_price,320,80,4,12,5,4,4.672864135223216,373.8291308178573,1.168216033805804
+fresh fish,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,47.5,mp25_price,240,47.5,5.052631578947368,12,5,4,4.672864135223216,221.9610464231028,.9248376934295949
+fresh fish,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,80,mp50_price,410,80,5.125,12,5,4,4.672864135223216,373.8291308178573,.9117783678484324
+fresh fish,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,47.5,mp25_price,205,47.5,4.315789473684211,12,5,4,4.672864135223216,221.9610464231028,1.082736811820014
+fresh fish,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,80,mp50_price,985,80,12.3125,12,5,4,4.672864135223216,373.8291308178573,.3795219602211749
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,PONTEVEDRA,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,4.761904761904762,750,1
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,PONTEVEDRA,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,4.761904761904762,750,1
+cabbage,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,40,municipality_median,495,40,12.375,31,8,8,12.20848124021369,488.3392496085477,.9865439386031266
+cabbage,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,40,municipality_median,450,40,11.25,31,8,8,12.20848124021369,488.3392496085477,1.085198332463439
+cabbage,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,40,municipality_median,415,40,10.375,31,8,8,12.20848124021369,488.3392496085477,1.176721083394091
+cabbage,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,40,municipality_median,505,40,12.625,31,8,8,12.20848124021369,488.3392496085477,.9670084150664311
+camote,NEGROS OCCIDENTAL,PULUPANDAN,bilog,6.666666507720947,province_median,100,6.666666507720947,15.00000035762788,29,4,9,16.62500020563603,110.8333320617676,1.108333320617676
+camote,NEGROS OCCIDENTAL,PULUPANDAN,bilog,6.666666507720947,province_median,100,6.666666507720947,15.00000035762788,29,4,9,16.62500020563603,110.8333320617676,1.108333320617676
+camote,NEGROS OCCIDENTAL,PULUPANDAN,bilog,6.666666507720947,province_median,90,6.666666507720947,13.50000032186509,29,4,9,16.62500020563603,110.8333320617676,1.231481467352973
+carrot,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,16.66666603088379,municipality_median,205,16.66666603088379,12.30000046920778,61,10,16,8.571428571428571,142.8571374075753,.6968640849150016
+carrot,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,16.66666603088379,municipality_median,95,16.66666603088379,5.700000217437752,61,10,16,8.571428571428571,142.8571374075753,1.503759341132372
+carrot,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,16.66666603088379,municipality_median,135,16.66666603088379,8.10000030899049,61,10,16,8.571428571428571,142.8571374075753,1.058201017833891
+carrot,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,16.66666603088379,municipality_median,140,16.66666603088379,8.400000320434582,61,10,16,8.571428571428571,142.8571374075753,1.020408124339824
+chicken,NEGROS OCCIDENTAL,PULUPANDAN,bilog,250,province_median,1115,250,4.46,45,16,11,4.909090909090909,1227.272727272727,1.10069302894415
+chicken,NEGROS OCCIDENTAL,PULUPANDAN,bilog,250,province_median,1120,250,4.48,45,16,11,4.909090909090909,1227.272727272727,1.095779220779221
+fresh fish,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,100,province_median,535,100,5.35,12,5,4,4.430758872065321,443.0758872065321,.8281792284234245
+fresh fish,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,100,province_median,480,100,4.8,12,5,4,4.430758872065321,443.0758872065321,.9230747650136085
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,PULUPANDAN,lipid/lapad,65,municipality_median,375,65,5.769230769230769,57,8,17,4.6875,304.6875,.8125
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,PULUPANDAN,lipid/lapad,65,municipality_median,375,65,5.769230769230769,57,8,17,4.6875,304.6875,.8125
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,PULUPANDAN,lipid/lapad,65,municipality_median,375,65,5.769230769230769,57,8,17,4.6875,304.6875,.8125
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,PULUPANDAN,long-neck,120,unique_mun_price6,750,120,6.25,50,8,13,4.761904761904762,571.4285714285714,.761904761904762
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,PULUPANDAN,long-neck,120,unique_mun_price6,750,120,6.25,50,8,13,4.761904761904762,571.4285714285714,.761904761904762
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,PULUPANDAN,long-neck,120,unique_mun_price6,750,120,6.25,50,8,13,4.761904761904762,571.4285714285714,.761904761904762
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,PULUPANDAN,tumpok,80,province_median,200,80,2.5,24,7,8,2.611111111111111,208.8888888888889,1.044444444444445
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,PULUPANDAN,bilog,15,municipality_median,250,15,16.66666666666667,37,8,15,4.642857142857143,69.64285714285715,.2785714285714286
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,PULUPANDAN,bilog,15,municipality_median,250,15,16.66666666666667,37,8,15,4.642857142857143,69.64285714285715,.2785714285714286
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,PULUPANDAN,bilog,15,municipality_median,450,15,30,37,8,15,4.642857142857143,69.64285714285715,.1547619047619048
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,PULUPANDAN,putos,62.5,municipality_median,150,62.5,2.4,53,15,17,4.975609756097561,310.9756097560976,2.073170731707317
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,PULUPANDAN,putos,62.5,municipality_median,250,62.5,4,53,15,17,4.975609756097561,310.9756097560976,1.24390243902439
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,PULUPANDAN,putos,62.5,municipality_median,250,62.5,4,53,15,17,4.975609756097561,310.9756097560976,1.24390243902439
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,PULUPANDAN,putos,62.5,municipality_median,180,62.5,2.88,53,15,17,4.975609756097561,310.9756097560976,1.727642276422764
+carrot,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,pieces or units,14.16666698455811,municipality_median,80,14.81178848497907,5.401103322608853,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,pieces or units,14.16666698455811,municipality_median,150,14.81178848497907,10.1270687298916,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,pieces or units,14.16666698455811,municipality_median,80,14.81178848497907,5.401103322608853,61,10,16,,,
+carrot,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,pieces or units,14.16666698455811,municipality_median,80,14.81178848497907,5.401103322608853,61,10,16,,,
+chicken,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,bilog,150,mp25_price,950,150.5087106831202,6.311927035240654,45,16,11,,,
+chicken,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,bilog,250,mp50_price,985,250.8478511385336,3.926683029291817,45,16,11,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,lipid/lapad,80,municipality_median,375,79.09013314707433,4.741425827450031,57,8,17,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,long-neck,130,unique_mun_price6,750,128.5214663639958,5.835601018400039,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,long-neck,130,unique_mun_price6,750,128.5214663639958,5.835601018400039,50,8,13,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,bilog,13,province_median,250,12.96229208930785,19.28671243307474,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,bilog,13,province_median,250,12.96229208930785,19.28671243307474,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,putos,55,municipality_median,200,54.84046653168705,3.646941987345041,53,15,17,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,putos,55,municipality_median,230,54.84046653168705,4.193983285446798,53,15,17,,,
+camote,NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,10,municipality_median,130,10,13,29,4,9,,,
+camote,NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,10,municipality_median,210,10,21,29,4,9,,,
+camote,NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,10,municipality_median,245,10,24.5,29,4,9,,,
+camote,NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,10,municipality_median,160,10,16,29,4,9,,,
+camote,NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,10,municipality_median,225,10,22.5,29,4,9,,,
+camote,NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,10,municipality_median,130,10,13,29,4,9,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SAN ENRIQUE,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SAN ENRIQUE,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SAN ENRIQUE,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SAN ENRIQUE,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SAN ENRIQUE,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,,,
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,SAN ENRIQUE,tumpok,40,municipality_median,110,40,2.75,24,7,8,,,
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,SAN ENRIQUE,tumpok,40,municipality_median,120,40,3,24,7,8,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,14,municipality_median,65,14,4.642857142857143,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,14,municipality_median,60,14,4.285714285714286,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,14,municipality_median,65,14,4.642857142857143,37,8,15,,,
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,14,municipality_median,60,14,4.285714285714286,37,8,15,,,
+carrot,NEGROS OCCIDENTAL,TOBOSO,pieces or units,13.33333301544189,municipality_median,80,13.94050616420795,5.73867254586486,61,10,16,8.589718592497469,119.7450249875226,1.496812812344032
+carrot,NEGROS OCCIDENTAL,TOBOSO,pieces or units,13.33333301544189,municipality_median,105,13.94050616420795,7.532007716447629,61,10,16,8.589718592497469,119.7450249875226,1.140428809404977
+carrot,NEGROS OCCIDENTAL,TOBOSO,pieces or units,13.33333301544189,municipality_median,115,13.94050616420795,8.249341784680736,61,10,16,8.589718592497469,119.7450249875226,1.041261086848023
+chicken,NEGROS OCCIDENTAL,TOBOSO,bilog,200,mp50_price,805,200.6782809108269,4.011395734238468,45,16,11,4.907407407407407,984.8100822475765,1.223366561798232
+chicken,NEGROS OCCIDENTAL,TOBOSO,bilog,250,mp75_price,1215,250.8478511385336,4.843573482832038,45,16,11,4.907407407407407,1231.012602809471,1.013179096962527
+chicken,NEGROS OCCIDENTAL,TOBOSO,bilog,200,mp50_price,1000,200.6782809108269,4.983100290979463,45,16,11,4.907407407407407,984.8100822475765,.9848100822475765
+chicken,NEGROS OCCIDENTAL,TOBOSO,bilog,250,mp75_price,1265,250.8478511385336,5.042897494471217,45,16,11,4.907407407407407,1231.012602809471,.9731324923395024
+chicken,NEGROS OCCIDENTAL,TOBOSO,whole (chicken),220,unique_mun_price6,805,220.7461090019096,3.646723394762243,34,13,9,4.775998982982188,1054.283192090395,1.309668561602976
+chicken,NEGROS OCCIDENTAL,TOBOSO,whole (chicken),220,unique_mun_price6,1000,220.7461090019096,4.530091173617694,34,13,9,4.775998982982188,1054.283192090395,1.054283192090395
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,lipid/lapad,85,municipality_median,375,84.03326646876647,4.462518425835324,57,8,17,4.6875,393.9059365723429,1.050415830859581
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,lipid/lapad,85,municipality_median,375,84.03326646876647,4.462518425835324,57,8,17,4.6875,393.9059365723429,1.050415830859581
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,lipid/lapad,85,municipality_median,375,84.03326646876647,4.462518425835324,57,8,17,4.6875,393.9059365723429,1.050415830859581
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,lipid/lapad,85,municipality_median,375,84.03326646876647,4.462518425835324,57,8,17,4.6875,393.9059365723429,1.050415830859581
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,long-neck,160,municipality_median,750,158.1802662941487,4.741425827450031,50,8,13,4.761904761904762,753.2393633054697,1.00431915107396
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,long-neck,160,municipality_median,750,158.1802662941487,4.741425827450031,50,8,13,4.761904761904762,753.2393633054697,1.00431915107396
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,long-neck,160,municipality_median,750,158.1802662941487,4.741425827450031,50,8,13,4.761904761904762,753.2393633054697,1.00431915107396
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,long-neck,160,municipality_median,750,158.1802662941487,4.741425827450031,50,8,13,4.761904761904762,753.2393633054697,1.00431915107396
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,long-neck,160,municipality_median,750,158.1802662941487,4.741425827450031,50,8,13,4.761904761904762,753.2393633054697,1.00431915107396
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,TOBOSO,bilog,13,province_median,60,12.96229208930785,4.628810983937937,37,8,15,5,64.81146044653924,1.080191007442321
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,TOBOSO,putos,45,municipality_median,250,44.86947261683486,5.57171692511048,53,15,17,4.75,213.1299949299656,.8525199797198623
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,TOBOSO,putos,45,municipality_median,250,44.86947261683486,5.57171692511048,53,15,17,4.75,213.1299949299656,.8525199797198623
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,TOBOSO,putos,45,municipality_median,250,44.86947261683486,5.57171692511048,53,15,17,4.75,213.1299949299656,.8525199797198623
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,TOBOSO,putos,45,municipality_median,250,44.86947261683486,5.57171692511048,53,15,17,4.75,213.1299949299656,.8525199797198623
+cabbage,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,25,municipality_median,350,25,14,31,8,8,11.92456307183663,298.1140767959158,.8517545051311879
+cabbage,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,25,municipality_median,325,25,13,31,8,8,11.92456307183663,298.1140767959158,.9172740824489716
+cabbage,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,25,municipality_median,315,25,12.6,31,8,8,11.92456307183663,298.1140767959158,.9463938945902087
+cabbage,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,60,province_median,920,60,15.33333333333333,31,8,8,11.92456307183663,715.4737843101977,.7776888959893453
+cabbage,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,60,province_median,780,60,13,31,8,8,11.92456307183663,715.4737843101977,.9172740824489715
+cabbage,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,60,province_median,500,60,8.333333333333334,31,8,8,11.92456307183663,715.4737843101977,1.430947568620395
+camote,NEGROS OCCIDENTAL,VALLADOLID,bilog,6.666666507720947,province_median,95,6.666666507720947,14.25000033974648,29,4,9,16.62500020563603,110.8333320617676,1.166666653281764
+camote,NEGROS OCCIDENTAL,VALLADOLID,bilog,6.666666507720947,province_median,95,6.666666507720947,14.25000033974648,29,4,9,16.62500020563603,110.8333320617676,1.166666653281764
+camote,NEGROS OCCIDENTAL,VALLADOLID,bilog,6.666666507720947,province_median,95,6.666666507720947,14.25000033974648,29,4,9,16.62500020563603,110.8333320617676,1.166666653281764
+carrot,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,17.5,municipality_median,185,17.5,10.57142857142857,61,10,16,8.249341784680736,144.3634812319129,.7803431417941237
+carrot,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,17.5,municipality_median,150,17.5,8.571428571428571,61,10,16,8.249341784680736,144.3634812319129,.9624232082127526
+carrot,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,17.5,municipality_median,135,17.5,7.714285714285714,61,10,16,8.249341784680736,144.3634812319129,1.069359120236392
+carrot,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,8,province_median,65,8,8.125,61,10,16,8.249341784680736,65.99473427744589,1.015303604268398
+carrot,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,8,province_median,140,8,17.5,61,10,16,8.249341784680736,65.99473427744589,.4713909591246135
+carrot,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,8,province_median,95,8,11.875,61,10,16,8.249341784680736,65.99473427744589,.6946814134467988
+chicken,NEGROS OCCIDENTAL,VALLADOLID,bilog,45,unique_mun_price6,230,45,5.111111111111111,45,16,11,4.907407407407407,220.8333333333333,.9601449275362319
+chicken,NEGROS OCCIDENTAL,VALLADOLID,bilog,45,unique_mun_price6,205,45,4.555555555555555,45,16,11,4.907407407407407,220.8333333333333,1.077235772357724
+chicken,NEGROS OCCIDENTAL,VALLADOLID,whole (chicken),350,unique_mun_price6,1585,350,4.528571428571428,34,13,9,4.775998982982188,1671.599644043766,1.054636999396698
+chicken,NEGROS OCCIDENTAL,VALLADOLID,whole (chicken),350,unique_mun_price6,1620,350,4.628571428571429,34,13,9,4.775998982982188,1671.599644043766,1.031851632125781
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,VALLADOLID,lipid/lapad,70,municipality_median,375,70,5.357142857142857,57,8,17,4.6875,328.125,.875
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,VALLADOLID,lipid/lapad,70,municipality_median,375,70,5.357142857142857,57,8,17,4.6875,328.125,.875
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,VALLADOLID,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,4.761904761904762,750,1
+"liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,VALLADOLID,long-neck,157.5,province_median,750,157.5,4.761904761904762,50,8,13,4.761904761904762,750,1
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,VALLADOLID,tumpok,90,municipality_median,260,90,2.888888888888889,24,7,8,2.5,225,.8653846153846154
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,VALLADOLID,tumpok,90,municipality_median,235,90,2.611111111111111,24,7,8,2.5,225,.9574468085106383
+"prawns, lobster, shrimp",NEGROS OCCIDENTAL,VALLADOLID,tumpok,90,municipality_median,245,90,2.722222222222222,24,7,8,2.5,225,.9183673469387755
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,VALLADOLID,bilog,16.5,municipality_median,160,16.5,9.696969696969697,37,8,15,4.821428571428571,79.55357142857143,.4972098214285715
+"preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,VALLADOLID,putos,60,municipality_median,285,60,4.75,53,15,17,4.839024390243902,290.3414634146341,1.018741976893453

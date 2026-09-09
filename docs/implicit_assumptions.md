@@ -471,6 +471,28 @@ Terciling them would manufacture a size structure the field never observed.
 `weighing_approach` rather than `branch` — on `branch` it would report no mixed pairs at
 all, which is the finding erasing itself.
 
+## A13 — CPI panel precision and base-break tolerance
+
+**Claims.** Two thresholds in the CPI panel build:
+
+1. A month-on-month move is a "base break" only if it exceeds the typical month-on-month move elsewhere by more than **2 percentage points**. The `+2` is a tolerance on the reference median applied in the base-break check (see spec section 8, index-integrity validation).
+2. When writing the panel CSV, the CPI values are serialized with **default pandas float precision** (all available digits, round-tripped through IEEE doubles, no manually-specified format).
+
+**Where.**
+
+- Base-break tolerance: `dofiles/00_shared/06_cpi_panel.py` lines 425–437, the validation section comparing `med_boundary` to `med_other + 2`.
+- CSV precision: line 364, `panel.to_csv(OUT_PANEL, index=False)` with no `float_format` parameter.
+
+**Status: UNDOCUMENTED threshold; precision is inconsistent with the Stata port.**
+
+The `+2` percentage-point tolerance has no stated justification in the code. It is an undocumented design choice used to flag suspicious moves for review. New data with different month-to-month volatility would need a real rule.
+
+**On precision.** The Stata port (`dofiles/00_shared/06_cpi_panel.do`, documented around line 200) implements a careful **15/16/17 significant-digit ladder** — it tries 15, 16, then 17 significant digits and keeps the shortest that round-trips exactly through `real()`. This minimizes spurious noise in output while preserving all information. The Python version uses default precision, which preserves all available digits without the Stata version's cleanup. Both approaches round-trip correctly, but they produce different spellings: Python may output `157.20000000000002` where Stata outputs `157.2`. This is not a numerical error — both parse to the identical IEEE double — but the spellings differ, and only the Stata version documents why the format was chosen.
+
+**Rests on it.** Nothing substantial rests on the `+2` — it is diagnostic only, flagging cases for human review and not altering any computation. The precision difference matters only to readers inspecting the CSV by eye or comparing ASCII content; the double values are bit-identical once loaded.
+
+**Checked by** nothing.
+
 ---
 
 # Adding an assumption
