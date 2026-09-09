@@ -289,10 +289,17 @@ later is what once turned a 10 L gallon into 10 mL.
 
 ### `20_psps_retrofitting/` — Outcome 2
 
-**This folder is currently empty.** `26_psps_extract.do` was archived: it did vocabulary
-discovery — which NSU labels PSPS households use — that job is finished and now lives in
-the crosswalk, and it dropped `hhid` and `subdate`, so it could not serve either thing
-Outcome 2 needs from PSPS. See `../archive/README.md`.
+**One of eleven steps is written.** `30_fallback.do` builds the weight ladder; the other
+ten, including everything that touches a PSPS household row, are not. So **no PSPS
+observation has been converted yet** — the ladder is a lookup with nothing joined to it.
+
+`26_psps_extract.do` was archived: it did vocabulary discovery — which NSU labels PSPS
+households use — that job is finished and now lives in the crosswalk, and it dropped
+`hhid` and `subdate`, so it could not serve either thing Outcome 2 needs from PSPS. See
+`../archive/README.md`.
+
+**Four steps have no blocker at all** and can be written in any order: `20a`, `22`, `24`,
+`28`. `23` is decided (#28) and unbuilt. The rest wait on a decision, named in the table.
 
 **Nothing reads the PSPS consumption file on a critical path today.** The first Outcome 2
 step to write is a **household-grain extract** keeping `hhid`, `subdate`, quantity and
