@@ -177,3 +177,45 @@ positional scheme. Anyone joining on those ids would have mis-keyed. Moved to
 The whole docstring describes the pre-adjudication pipeline — STEP 3 "overwrites STEP 1
 on every row", the anchor "decides nothing". True when written, wrong now. Read it as a
 record of why the adjudication exists, not as a description of the build.
+
+---
+
+## `scope_price_weight_ray.do`
+
+Measured whether a **province grams-per-peso schedule** could stand in for a missing
+weight: pool `(price, weight)` pairs across a province, estimate one grams-per-peso rate,
+and apply it to the price a household actually faced. Superseded by the weight ladder in
+`../20_psps_retrofitting/30_fallback.do`.
+
+**Read it for the measurement, not for the method.** The approach it evaluated was not
+adopted, and the reason is in the numbers it produced rather than in any objection to it:
+
+- The schedule's accuracy is predictable. Validated by holding out one municipality at a
+  time and predicting it from the others, the group's ray fit `CV(w/p)` sorts predictions
+  cleanly — 92.7% within 2× of the weighed value where `CV < 0.2`, against 51.6% where
+  `CV > 0.6`.
+- **But 41% of the need cannot be estimated at all.** Measured in PSPS observations rather
+  than groups, 2,338 of 5,741 fallback observations sit in a province group with fewer
+  than three distinct prices, so no ray is identified and no threshold reaches them.
+- Gating on the fit answers almost nothing: `CV < 0.2` covers 5.5% of fallback
+  observations, `CV < 0.4` covers 30.1%.
+
+The ladder that replaced it borrows a **median weight** at a coarser grain instead of a
+price–weight *slope*, so it needs no ray statistic and serves every cell with weighings
+anywhere. `cv_gpp`, `n_pairs`, `n_price` and `n_mun` are therefore **not** published on
+fallback rows; `docs/implicit_assumptions.md` A15 records that, so a reader does not go
+looking for columns that were designed for a different rule.
+
+**Two warnings if you run it.**
+
+It rebuilds the `(price, weight)` pairs itself. `30_fallback.do` briefly owned that
+construction and this file read it, which was the right arrangement while both existed;
+when the ladder replaced the schedule the pair table went with it, so the copy here is
+live again and is now the only one. Do not treat it as authoritative.
+
+Its pairing is also the one thing this measurement got wrong once, and the header says so
+at length: pairing on `pull_price`, the market-survey price, sees only the price-quantity
+branch, misses all 1,046 size-based pairs, and cuts the estimable base from 79 groups to
+29 — which reversed two conclusions before it was caught. The pairs meet at
+**(case × rung)**, because `size_ord` puts mp25/mp50/mp75 and the re-terciled sizes on one
+ladder.

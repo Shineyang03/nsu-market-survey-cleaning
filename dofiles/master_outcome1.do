@@ -55,6 +55,13 @@ do "00_shared/03_clean_ms.do"
 di as res _n ">>> 07_cpi_factor.do"
 do "00_shared/07_cpi_factor.do"
 
+* `branch' must exist before anything assigns sizes: 10_size_assignment.do sends
+* conventional rows to size_ord = 0, and the reclassified cases have to reach the
+* size-based arm instead. See #28 and dofiles/README.md for which sites read `branch'
+* and which must keep reading `weighing_approach'.
+di as res _n ">>> 08_branch.do"
+do "00_shared/08_branch.do"
+
 * ---- Outcome 1 ----------------------------------------------------------------
 di as res _n ">>> 10_size_assignment.do"
 do "10_reference_set/10_size_assignment.do"
