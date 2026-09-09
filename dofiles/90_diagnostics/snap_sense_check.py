@@ -94,7 +94,8 @@ mas = pd.read_stata(T/"nsu_data_master.dta", convert_categoricals=False)
 
 d = pre[["id","pull_province","pull_municipal_city","pull_item","harmonized_nsu_unit",
          "unit","weight","weighing_approach","item_nsu_hetero_type"]].merge(
-    snap[["id","corrected_weight","w_step1","review_step1"]], on="id", validate="1:1")
+    snap[["id","corrected_weight","w_step1","w_block","review_step1"]], on="id",
+    validate="1:1")
 
 # hetero_group and approach are labelled numerics; the codes alone are unreadable in a
 # workbook a human is scanning. Decode from the value labels IN THE FILE rather than a
@@ -164,6 +165,45 @@ d = d.join(med, on="cell").join(n_cell, on="cell")
 d["x_from_median"] = (d.published / d.cell_median).where(d.cell_median > 0)
 d["x_from_median"] = d.x_from_median.where(d.x_from_median >= 1, 1/d.x_from_median)
 
+# ---- the SIZE-SPECIFIC median, which is the one 04_unit_snap.do actually decides on --
+#
+# `cell_median' above pools small, medium and large together, so it sits BELOW the larges
+# and a large item's block reading looks a decade too big against it. 04's referee ladder
+# does not have that problem: it tries the cell WITHIN a hetero-group first (`cell_hetero',
+# NAGREE_HET) and only falls back to the pooled cell. So the number this sheet displayed
+# was not the number the pipeline decided on.
+#
+# Measured on the current build: of 571 disputed rows with both medians usable, the two
+# differ on 389 and imply the OPPOSITE rule on 100 -- 96 of those 100 favouring the block
+# reading, which is the same downward bias STEP 3e documents.
+#
+# `cell' IS DELIBERATELY LEFT POOLED. It is half of the verdict key that
+# 05_manual_corrections.do joins on and that reference/reviewed/snap_verdicts.csv is filed
+# under, so redefining it would orphan every verdict already given. The size-specific
+# median is added ALONGSIDE instead, and it is the column to judge by.
+_ck = ["cell", "hetero_group"]
+d = d.join(agree.groupby(_ck).published.median().rename("cell_median_size"), on=_ck)
+d = d.join(agree.groupby(_ck).size().rename("n_size_agreeing"), on=_ck)
+d["x_from_median_size"] = (d.published / d.cell_median_size).where(d.cell_median_size > 0)
+d["x_from_median_size"] = d.x_from_median_size.where(
+    d.x_from_median_size >= 1, 1/d.x_from_median_size)
+
+# Which reading each median points at, and whether they disagree. This is the column to
+# scan: `medians_disagree' TRUE means the pooled number in `cell_median' argues for the
+# opposite rule from the size-specific one the pipeline used.
+def _closer(ref):
+    """the reading nearer the reference in orders of magnitude -- 04's rule 1"""
+    ok = ref.notna() & (ref > 0) & d.block_says.gt(0) & d.anchor_says.gt(0)
+    pick = np.where(np.log10(d.block_says/ref).abs() < np.log10(d.anchor_says/ref).abs(),
+                    "block", "anchor")
+    return pd.Series(pick, index=d.index).where(ok)
+
+
+d["pooled_points_to"] = _closer(d.cell_median)
+d["size_points_to"] = _closer(d.cell_median_size)
+d["medians_disagree"] = (d.pooled_points_to.notna() & d.size_points_to.notna()
+                         & (d.pooled_points_to != d.size_points_to))
+
 d["anchor_implausible"] = d.anchor_says.notna() & (
     (d.anchor_says < WFLOOR) | (d.anchor_says > WCEIL))
 d["rule_used"] = np.where(d.anchor_implausible, "block (anchor rejected)", "anchor")
@@ -178,10 +218,13 @@ d["rule_used"] = np.where(d.anchor_implausible, "block (anchor rejected)", "anch
 # fired and which pool refereed it. final_weight is what ships after
 # 05_manual_corrections.do; final_differs marks the rows where 04's answer was
 # subsequently overridden by hand or set unusable, so they are not read as errors.
+# cell_median_size sits immediately after cell_median so the two are read together, and
+# medians_disagree flags the rows where choosing between them changes the answer.
 COLS = ["id","cell","hetero_group","approach","unit","weight",
         "block_says","anchor_says","published","final_weight","final_differs",
         "snap_rule","snap_referee",
         "rule_used","cell_median","n_cell_agreeing","x_from_median",
+        "cell_median_size","n_size_agreeing","x_from_median_size","medians_disagree",
         "review_step1","cleaning_notes"]
 
 # ---- carry the PREVIOUS review forward ---------------------------------------
