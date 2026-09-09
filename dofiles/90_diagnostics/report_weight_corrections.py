@@ -73,6 +73,33 @@ d["disputed"] = d.snap_block.fillna(0).astype(int).eq(1) & ~d.unusable
 d["step1_flagged"] = d.review_step1.fillna(0).astype(int).eq(1)
 d["any_uncertainty"] = d.unusable | d.disputed | d.step1_flagged
 
+# `branch' is ADDED, not substituted. The subject of this report is the weight correction,
+# which happens upstream of branching and is unaffected by it -- so weighing_approach, the
+# field record, stays. But the report describes rows that SHIP, and a reader asking why a
+# conventional case appears as medium needs to see it here rather than having to join the
+# reference set. #28 lists this file among those that must follow `branch'.
+#
+# It comes from nsu_weighings_cpi rather than nsu_data_master, because 08_branch.do writes
+# into the former. Absent when 08 has not run, and the report is still usable without it,
+# so this warns rather than exits -- unlike the two scope_* scripts, whose whole output is
+# a partition keyed on it.
+_wc = T / "nsu_weighings_cpi.dta"
+if _wc.exists():
+    # Asked by trying the read, not by inspecting varlist -- StataReader exposes the
+    # variable list under different names across pandas versions, and a wrong guess here
+    # would silently take the else branch and drop the column with a misleading note.
+    try:
+        _b = pd.read_stata(_wc, columns=["id", "branch", "d_reclassified"])
+    except (ValueError, KeyError):
+        _b = None
+    if _b is not None:
+        d = d.merge(_b, on="id", how="left", validate="1:1")
+    else:
+        print("note: nsu_weighings_cpi.dta has no `branch' -- run 00_shared/08_branch.do "
+              "to have the reclassified conventional cases identified in this report")
+else:
+    print(f"note: {_wc.name} not found; `branch' omitted from this report")
+
 cols = ["id", "pull_province", "pull_municipal_city", "pull_item",
         "harmonized_nsu_unit", "weighing_approach", "item_nsu_hetero_type",
         "unit", "weight", "raw_canonical", "published", "corrected_unit",

@@ -724,6 +724,67 @@ def c_underfilled_shapes(sized):
           " labelled today; a rule reading 'n_filled == 1' would overwrite them")
 
 
+def c_thin_sensitivity():
+    """A3's sensitivity table. It had NO CHECK BEHIND IT and went stale unnoticed.
+
+    Every figure in it moved when the fallback ladder landed -- the reference set went
+    3,305 rows to 2,557 and the flagged share fell from 38.3% to 20.3% -- and all 28
+    checks in this file passed while it was wrong. That is the failure this check exists
+    to prevent, and it is the argument for the register's own rule: name a check, do not
+    restate a figure.
+
+    The share is what matters rather than the count, because A3's claim is about
+    SENSITIVITY: moving the cut by one roughly doubles or halves the flagged share, which
+    is why the threshold is called badly placed.
+
+    docs/implicit_assumptions.md / A3
+    """
+    ref = pd.read_stata(TEMP + r"\nsu_reference_set.dta", convert_categoricals=False)
+    n = len(ref)
+    got = {t: int((ref.n_g < t).sum()) for t in (2, 3, 4, 5)}
+    check("A3 rows flagged at THIN = 2 / 3 / 4 / 5",
+          "implicit_assumptions.md / A3",
+          "270 / 518 / 1038 / 1470 of 2557",
+          f"{got[2]} / {got[3]} / {got[4]} / {got[5]} of {n}",
+          note="A3's table is a claim about sensitivity; if these move, the argument for "
+               "calling THIN = 3 badly placed has to be re-made on the new numbers.")
+
+
+def c_reclassification_counts():
+    """#28's reclassification, and the split it predicted.
+
+    Two things are asserted in the issue and neither was checked anywhere: that 388
+    weighings in 99 cases move from conventional to size-based, and that the 123
+    field-conventional cases still publish 123 rows because only the LABEL moves.
+
+    The 78 / 21 split is the interesting one. #28 predicted that 21 of the 99 could not be
+    finished until the province fallback existed; those 21 are exactly the reclassified
+    cases too thin to publish a size rung, which now land on the pooled row. Nothing
+    coordinated those two numbers, so a divergence would mean one of the two rules changed
+    scope without the other noticing.
+
+    issue #28 / branch, and docs/implicit_assumptions.md A12
+    """
+    ref = pd.read_stata(TEMP + r"\nsu_reference_set.dta", convert_categoricals=False)
+    if "d_reclassified" not in ref.columns:
+        skip("#28 reclassification reaches the published set", "issue #28",
+             "nsu_reference_set.dta has no d_reclassified -- run 00_shared/08_branch.do")
+        return
+    conv = ref[ref.weighing_approach == 1]
+    rc = conv[conv.d_reclassified == 1]
+    check("#28 field-conventional rows: always-conventional vs reclassified",
+          "issue #28 / branch",
+          "24 always-conventional, 99 reclassified, 123 rows in total",
+          f"{int((conv.d_reclassified == 0).sum())} always-conventional, "
+          f"{int(len(rc))} reclassified, {len(conv)} rows in total")
+    check("#28 reclassified rows: published medium vs pooled across sizes",
+          "issue #28 / branch",
+          "78 medium, 21 pooled",
+          f"{int((rc.size_ord == 2).sum())} medium, {int((rc.size_ord == 4).sum())} pooled",
+          note="the 21 are #28's 'cannot be finished until the fallback lands'; they are "
+               "the reclassified cases too thin to publish a size rung.")
+
+
 def c_modal_label_criterion(sized):
     """ASSUMPTION 7. The under-filled naming rule was chosen by asking whether a group's
     published label matches the MODAL field label of its own weighings. That treats the
@@ -841,6 +902,8 @@ def main():
     c_label_rank_is_load_bearing(rest)
     c_underfilled_shapes(sized)
     c_modal_label_criterion(sized)
+    c_thin_sensitivity()
+    c_reclassification_counts()
 
     head("SUMMARY")
     df = pd.DataFrame(results, columns=["check", "doc", "recorded", "computed",

@@ -39,7 +39,14 @@ label values size_ord szlbl
 * MEDIAN within case x size. The guidebook allows mean or median; the median is
 * robust to a single mis-keyed vendor the magnitude snap did not catch.
 
-collapse (median) grams = corrected_weight (count) n_g = corrected_weight (first) weighing_approach, ///
+* `branch' and `d_reclassified' ride along so a published row can say WHY it is called
+* medium. Without them a reclassified case is indistinguishable from a case the field
+* actually recorded as medium, and #28's decision becomes invisible in the deliverable
+* it changed. Both are constant within a case by construction -- 08_branch.do asserts no
+* case mixes conventional with another approach internally -- so (first) is exact rather
+* than a choice among differing values.
+collapse (median) grams = corrected_weight (count) n_g = corrected_weight ///
+         (first) weighing_approach branch d_reclassified, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
             corrected_unit size_ord)
 
@@ -98,7 +105,7 @@ preserve
 	merge m:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
 		corrected_unit using "`thincells'", keep(3) nogen
 	collapse (median) grams = corrected_weight (count) n_g = corrected_weight ///
-	         (first) weighing_approach, ///
+	         (first) weighing_approach branch d_reclassified, ///
 	         by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
 	            corrected_unit)
 	* NOT 0 -- that code already means "conventional_nsu" in szlbl, and a pooled row is
@@ -147,6 +154,11 @@ label var size_ord "size"
 * field-facing lookup table, and it was going out with three columns headed pull_item /
 * pull_province / pull_municipal_city and a fourth headed "(first) weighing_approach" --
 * collapse syntax leaking into a deliverable.
+* Both new columns need a label for the same reason as the rest: the export uses
+* firstrow(varlabels), so an unlabelled variable ships under its raw variable name.
+label values branch branchlbl
+label var branch         "how this row was PROCESSED (see weighing_approach for the field record)"
+label var d_reclassified "1 = field-conventional, published size-based; its item x unit mixes approaches"
 label var pull_item           "item"
 label var pull_province       "province"
 label var pull_municipal_city "municipality"

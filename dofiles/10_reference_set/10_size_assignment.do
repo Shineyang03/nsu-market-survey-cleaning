@@ -30,6 +30,19 @@ local THIN = 3      // carried through for 12_publish; see there
 ********************************************************************************
 
 use "${btemp}\nsu_weighings_cpi.dta", clear
+
+* `branch' and `d_reclassified' come from 00_shared/08_branch.do, which must run first.
+* Without them 2a below would fall back to no-size treatment for all 468 field-conventional
+* weighings and #28's reclassification would silently not happen -- the exact failure mode
+* worth an explicit stop rather than a wrong number.
+foreach v in branch d_reclassified {
+	capture confirm variable `v'
+	if _rc {
+		di as err "10_size_assignment.do: `v' not found. Run 00_shared/08_branch.do first;"
+		di as err "master_outcome1.do and master_outcome2.do both call it after 07."
+		exit 111
+	}
+}
 count
 di as txt "weighings in: " r(N)
 
@@ -78,7 +91,38 @@ gen byte size_ord = .
 *-------------------------------------------------------------------------------
 * 2a. CONVENTIONAL -- no size
 *-------------------------------------------------------------------------------
-replace size_ord = 0 if weighing_approach == 1
+* READS `branch', NOT `weighing_approach', and that is the whole of #28's change here.
+* Only the cases whose (item, harmonized unit) pair is conventional EVERYWHERE it appears
+* keep the no-size treatment -- 80 weighings in 24 cases. The other 388 weighings in 99
+* cases are field-conventional but processed size-based, because the same item x unit is
+* treated as size- or price-varying in other municipalities, so "conventional" there
+* described the cell assignment rather than the unit. They are handled in 2a-ii.
+*
+* On `weighing_approach' this line would send all 468 to size_ord = 0 and the
+* reclassification would have no effect on published output.
+replace size_ord = 0 if branch == 1
+
+
+*-------------------------------------------------------------------------------
+* 2a-ii. RECLASSIFIED CONVENTIONAL -- one group, published as medium
+*-------------------------------------------------------------------------------
+* These were weighed AS conventional, so there are no S/M/L labels to tercile and no
+* price point recorded per weighing. There is nothing to cut, and re-cutting the pooled
+* distribution against price points the enumerator never spent would be Outcome 2's
+* Branch S rather than a size-based case. So: one group, no tercile, published medium.
+*
+* MEDIUM IS THE BETTER OF TWO DEFENSIBLE CHOICES, not a measured result, and
+* docs/implicit_assumptions.md A12 says so. The conventional median sits at the
+* size-based medium with a ratio median of 1.00 (IQR 0.93-1.25) and far from the large
+* tercile -- but it is equally close to the small tercile on average log-distance.
+*
+* k_sizes = 1 is set explicitly. Left to 2c's `total(first_lbl)' it would come out 0,
+* because first_lbl is only tagged on field-labelled size-based rows, and a zero would
+* make the under-filled gate in 2d read these cases as having filled 0 of 0 groups.
+replace size_ord = 2 if d_reclassified == 1
+
+count if d_reclassified == 1
+di as res "2a-ii reclassified conventional -> one medium group: " r(N) " weighing(s)"
 
 
 *-------------------------------------------------------------------------------
@@ -108,7 +152,13 @@ assert !missing(field_ord) if weighing_approach == 3
 * k = how many DISTINCT field labels this case recorded
 bysort cell field_ord: gen byte first_lbl = (_n == 1) if weighing_approach == 3
 bysort cell: egen byte k_sizes = total(first_lbl)
-label var k_sizes "distinct S/M/L labels the field recorded for this case"
+
+* A RECLASSIFIED CASE HAS ONE GROUP, and it has to be said rather than counted. `total()'
+* reads missing as zero and first_lbl is tagged only on field-labelled size-based rows, so
+* these cases would otherwise carry k_sizes = 0 -- which 2d's under-filled gate would read
+* as "filled 0 of 0 groups" and 2c's rank assert would reject.
+replace k_sizes = 1 if d_reclassified == 1
+label var k_sizes "distinct S/M/L labels the field recorded for this case (1 if reclassified)"
 
 * rank those labels 1..k in natural order, and remember which label sits at each
 * rank -- so a case holding only {small, large} gives its lower group "small" and
@@ -217,6 +267,19 @@ forvalues j = 1/3 {
 * how many of the three empirical groups actually came back non-empty
 egen byte tag_cellgrp = tag(cell grp) if weighing_approach == 3 & !missing(grp)
 bysort cell: egen byte n_filled = total(tag_cellgrp)
+
+* A RECLASSIFIED CASE FILLED ITS ONE GROUP. `tag_cellgrp' is only set inside the tercile,
+* which these cases never enter, so they arrive here with n_filled = 0 against the
+* k_sizes = 1 set in 2a-ii -- reading as "the field labelled one group and none filled",
+* which is false: the single pooled group is exactly what they publish.
+*
+* THIS IS NOT COSMETIC. `n_filled < k_sizes' is the under-filled gate, and on all 388 of
+* these rows the inconsistent pair makes it TRUE. 11_size_checks.do counts under-filled
+* cases and would report 99 spurious ones the moment it reads `branch' instead of
+* `weighing_approach' -- which #28 asks it to do. Fixing the data rather than the
+* condition means either variable gives the right answer, so the check does not depend on
+* which one it happens to read.
+replace n_filled = 1 if d_reclassified == 1
 label var n_filled "empirical size groups that came back non-empty (compare k_sizes)"
 
 * WHICH groups filled -- needed to tell the two n_filled == 2 shapes apart, and the

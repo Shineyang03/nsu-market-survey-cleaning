@@ -52,7 +52,18 @@ def h(t):
 def main():
     d = pd.read_stata(MS, convert_categoricals=False)
     d = d[d.corrected_weight.notna()]
-    d["branch"] = d.weighing_approach.map(lambda v: BR.get(float(v), "?"))
+    # `branch', not `weighing_approach'. This report is about PUBLISHED groups -- which
+    # groups rest on a single weighing -- so it must describe how a case was processed,
+    # not what the field recorded. The 99 reclassified conventional cases publish on the
+    # size-based branch (#28), and labelling them conventional here would put them in a
+    # column whose singleton counts are not about them.
+    _bcol = "branch" if "branch" in d.columns else "weighing_approach"
+    if _bcol == "weighing_approach":
+        raise SystemExit(
+            "nsu_weighings_cpi.dta has no `branch' column. Run 00_shared/08_branch.do; "
+            "this report describes published groups and must key on how a case was "
+            "processed, not on the field record.")
+    d["branch"] = d[_bcol].map(lambda v: BR.get(float(v), "?"))
     d["label"] = d.item_nsu_hetero_type.map(lambda v: LBL.get(int(v), str(v)))
     print(f"weighings with a usable weight: {len(d):,}")
 

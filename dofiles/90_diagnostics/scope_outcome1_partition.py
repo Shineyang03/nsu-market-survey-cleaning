@@ -45,7 +45,15 @@ ms = pd.read_stata(DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dt
 ms["prov"] = ms.pull_province.map(ng); ms["mun"] = ms.pull_municipal_city.map(ng)
 ms["item"] = ms.pull_item.map(ni); ms["raw"] = ms.pull_nsu_unit.map(nz)
 ms["harm"] = ms.harmonized_nsu_unit.map(nz)
-ms["branch"] = ms.weighing_approach.map(lambda v: BR.get(float(v), "?"))
+# `branch', not `weighing_approach' -- this reports the partition the BUILD actually
+# uses, so it has to follow the 99 reclassified conventional cases onto the size-based
+# branch where they publish (#28). On the field record it would report a partition the
+# pipeline no longer produces.
+if "branch" not in ms.columns:
+    raise SystemExit(
+        "nsu_weighings_cpi.dta has no `branch' column. Run 00_shared/08_branch.do; "
+        "this script reports the partition the build uses, which is keyed on branch.")
+ms["branch"] = ms.branch.map(lambda v: BR.get(float(v), "?"))
 ms["lbl"] = ms.item_nsu_hetero_type.map(lambda v: LBL.get(int(v), v))
 
 print("=" * 74)
@@ -56,6 +64,12 @@ d = ms[ms.corrected_weight.notna()]
 print(f"  after dropping missing corrected_weight                {len(d):>6,}")
 d = d[~d.item_nsu_hetero_type.isin([10, 11])]
 print(f"  after excluding unique_mun_price (10, 11)   {len(d):>6,}")
+# These two DELIBERATELY keep reading weighing_approach, to mirror the build: the same
+# rule in 10_size_assignment.do is written on weighing_approach. The choice is a no-op
+# either way -- 08_branch.do asserts no case mixes conventional with another approach
+# internally, so no case holds both a reclassified row and a price-quantity row, and the
+# reclassification cannot move a row into or out of this rule's scope. Mirroring the
+# build is the tie-breaker, since this script exists to report what the build did.
 g = d.groupby(K, dropna=False).weighing_approach
 d = d[~(g.transform(lambda s: (s == 3).any()) & g.transform(lambda s: (s == 2).any())
         & (d.weighing_approach == 2))]
