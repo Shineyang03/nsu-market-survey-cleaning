@@ -31,7 +31,7 @@ regenerates, so a review pass cannot be lost by re-running. No manual copy neede
 Run from the project root:  python dofiles/90_diagnostics/snap_sense_check.py
 """
 import datetime as dt
-import io, re, shutil
+import io, re, shutil, sys
 import numpy as np, pandas as pd
 from pathlib import Path
 
@@ -142,14 +142,19 @@ d["anchor_says"] = d.w_step1.round()
 # what 04 proposed -- otherwise every row the review already settled comes back.
 d["final_says"] = d.final_weight.where(d.final_weight.notna(), d.published)
 
-# the block reading, recomputed exactly as 04_unit_snap.do states it
-blk = pd.Series(np.nan, index=d.index)
-m2, m3 = d.unit.eq(2), d.unit.eq(3)
-blk[m2] = np.where(d.weight[m2] >= 10, d.weight[m2], d.weight[m2]*1000)
-blk[m3] = np.where(d.weight[m3] >= 10, d.weight[m3], d.weight[m3]*1000)
-m1 = d.unit.eq(1)
-blk[m1] = np.where(d.weight[m1] > KGMAX, d.weight[m1], d.weight[m1]*1000)
-d["block_says"] = blk.round()
+# THE BLOCK READING IS READ, NOT RECOMPUTED. 04_unit_snap.do keeps `w_block', so this
+# is now the same single definition the pipeline published -- as `anchor_says' already
+# was via w_step1.
+#
+# It used to be re-derived here from weight, unit and a scraped KGMAX. The EXPECTED
+# guard above catches a moved CONSTANT but not a moved BRANCH: changing STEP 3a's
+# `weight>=10' would have left this file proposing values from a rule the pipeline no
+# longer used, and this file builds the workbook whose verdicts are frozen into the
+# ledger. A stale block reading here becomes a permanent hand-adjudicated weight.
+if "w_block" not in d.columns:
+    sys.exit("the build has no w_block column -- rebuild with a 04_unit_snap.do that "
+             "keeps it, rather than reintroducing a second copy of the block rule here")
+d["block_says"] = d.w_block.round()
 
 # cell median of the rows the two rules AGREE on -- an independent-ish yardstick
 agree = d[(d.anchor_says == d.block_says) & d.published.notna()]

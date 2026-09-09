@@ -41,6 +41,45 @@ transformation, anything reading a Box path — then:
 "It ran without error" does not mean the file is what you meant. Interpreters tolerate
 corruption a diff would show instantly.
 
+## Build objects in Stata. Python only where Stata cannot.
+
+**Any object the pipeline reads — a `.dta`, a crosswalk, a CSV, a column — is produced in
+Stata.** Python is for the things Stata genuinely cannot do:
+
+* fuzzy string matching (`difflib.SequenceMatcher`, as in `01_build_crosswalk.py`),
+* `.xlsx` reading and writing, including the review workbooks,
+* unicode normalization.
+
+Everything else belongs in a do-file. This is not a style preference — each language
+boundary is a place where Stata's data model has to be re-interpreted, and that
+re-interpretation fails silently:
+
+| what happened | why |
+| :-- | :-- |
+| `unit == 1` matched nothing | a labelled numeric read back as the label string `"Kilograms (Kgs)"` |
+| `wider`/`narrower` came out inverted | `.map()` on a Categorical returns a Categorical, whose `>` compares category ORDER |
+
+Both ran without error. Neither can happen inside a do-file, where the variable is just
+a variable.
+
+**A diagnostic reads the quantity the pipeline computed. It never recomputes it.** If the
+build discards something a diagnostic needs, the fix is to KEEP it, not to re-derive it.
+The block reading was computed in `04_unit_snap.do`, used, and dropped, so two Python
+diagnostics each carried their own copy of the rule — scraping `KGMAX` out of the do-file
+to do it. Those copies guarded the *constant* and not the *branch structure*, so changing
+`weight>=10` in STEP 3a would have left both silently computing a rule the pipeline no
+longer used. One of them builds the review workbook whose verdicts are frozen into a
+ledger, so a stale reading there becomes a permanent hand-adjudicated weight. The fix was
+one word: add `w_block` to the `keep`.
+
+The same rule applies to reading a build column that records a decision rather than the
+rule that made it. `audit_weight_derived_folds.py` asks `nsu_fold_rule.py` for fold
+membership and treats the built `cleaned_nsu_unit` only as a tripwire, because a register
+whose purpose is catching staleness must not depend on something that can go stale.
+
+**Do not add a new script where an existing one or a do-file will do.** The diagnostic
+layer is already larger than the pipeline it validates.
+
 ## Everything else
 
 See `~/.claude/CLAUDE.md` for the general working style, Stata conventions, and the

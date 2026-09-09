@@ -174,7 +174,17 @@ is leave a frozen carve-out contradicting the evidence that justified it — whi
 already happened once, to the crackers `bilog` fold. **Re-keying the anchor does not
 close this loop**, because the test still reads corrected weights. Testing folds on the
 *block reading* instead — the typed number in canonical units, a function of the raw
-weight, the unit tick and `KGMAX` alone — would.
+weight, the unit tick and `KGMAX` alone — would. `04_unit_snap.do` keeps that reading as
+**`w_block`** for exactly this purpose; it reads no harmonized unit, so a fold test built
+on it is not circular.
+
+`w_block` is also the single definition of the block reading. It used to be computed in
+`04`, used, and dropped, so `snap_sense_check.py` and `compare_anchor_keying.py` each
+carried a hand-written copy of the rule, scraping `KGMAX` out of the do-file. Both copies
+checked that the *constant* still matched and neither checked the *branches*, so a change
+to STEP 3a's `weight>=10` would have left them computing a rule the pipeline no longer
+used — and `snap_sense_check.py` builds the workbook whose verdicts are frozen into the
+ledger. Read `w_block`; never re-derive it.
 
 `90_diagnostics/audit_weight_derived_folds.py` is the register of which decisions are
 exposed. It reports provenance and how many weighings each governs; it does not re-run

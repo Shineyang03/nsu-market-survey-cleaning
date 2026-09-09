@@ -39,30 +39,12 @@ LIVE = DC / "outputs" / "master_rename_build" / "temp"
 VAR = DC / "outputs" / "anchor_pull_nsu_unit" / "temp"
 OUT = DC / "outputs" / "tables" / "anchor_keying_diff.csv"
 
-# KGMAX from 04_unit_snap.do. Duplicated here only to recompute the block reading, and
-# read from the do-file rather than retyped so it cannot drift -- the same tripwire
-# snap_sense_check.py uses for the same three constants.
-_snap = (DC / "dofiles" / "00_shared" / "04_unit_snap.do").read_text(
-    encoding="utf-8", errors="replace")
-import re
-_m = re.search(r"^\s*local\s+KGMAX\s*=\s*(\d+)", _snap, re.M)
-if not _m:
-    sys.exit("could not read KGMAX out of 04_unit_snap.do; the block reading below "
-             "would be scored against a threshold the pipeline no longer uses")
-KGMAX = int(_m.group(1))
-
-
-def block_reading(weight, unit):
-    """The typed number in canonical units: g for mass, mL for volume.
-
-    unit 1 = kg, 2 = g, 3 = litres. Below the threshold the number is believed to be in
-    the larger unit and multiplied; above it, believed as typed.
-    """
-    if pd.isna(weight):
-        return np.nan
-    if unit == 1:
-        return weight if weight > KGMAX else weight * 1000
-    return weight if weight >= 10 else weight * 1000
+# THE BLOCK READING IS READ FROM THE BUILD, not recomputed here. 04_unit_snap.do keeps
+# it as `w_block', so there is one definition of the rule and this file cannot drift from
+# it. It used to re-derive the reading from weight, unit and a KGMAX scraped out of the
+# do-file -- which guarded the constant but not the branch structure, so a change to
+# STEP 3a's `weight>=10' would have left this file scoring against a rule the pipeline
+# no longer used, with nothing to catch it.
 
 
 def main():
@@ -74,7 +56,7 @@ def main():
 
     keep = ["id", "pull_province", "pull_municipal_city", "pull_item",
             "pull_nsu_unit", "harmonized_nsu_unit", "item_nsu_hetero_type",
-            "corrected_weight", "corrected_unit"]
+            "corrected_weight", "corrected_unit", "w_block"]
     h = pd.read_stata(LIVE / "nsu_weighings_cpi.dta", convert_categoricals=False)[keep]
     r = pd.read_stata(VAR / "nsu_weighings_cpi.dta",
                       convert_categoricals=False)[["id", "corrected_weight"]]
@@ -103,7 +85,7 @@ def main():
           f"{len(moved) - len(real)}")
     print(f"REAL weight changes             : {len(real)}")
 
-    real["block"] = [block_reading(w, u) for w, u in zip(real.weight, real.unit)]
+    real["block"] = real.w_block
     real["harm_is_block"] = real.corrected_weight_harm.round(0) == real.block.round(0)
     real["raw_is_block"] = real.corrected_weight_raw.round(0) == real.block.round(0)
     real["closer_to_typed"] = np.where(real.harm_is_block, "harmonized",

@@ -1,8 +1,8 @@
 ﻿id,pull_province,pull_municipal_city,pull_item,pull_nsu_unit,harmonized_nsu_unit,hetero,unit_tick,weight,block,corrected_weight_harm,corrected_weight_raw,ratio,closer_to_typed,n_pool_harm,n_pool_raw,rule_H,referee_H,rule_R,referee_R,rung
-7576,ILOILO,LAMBUNAO,cabbage,binilog,pieces or units,small_size,g,0.105,104.99999672174454,1050.0,105.0,0.1,raw,1306,162,log10 median,cell_hetero,cell decimals,,n/a
-8364,ILOILO,MINA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",container,container,medium_size,L,0.00125,1.2499999720603228,1250.0,125.0,0.1,neither,3,3,gate override,,gate override,,n/a
+7576,ILOILO,LAMBUNAO,cabbage,binilog,pieces or units,small_size,g,0.105,105.0,1050.0,105.0,0.1,raw,1306,162,log10 median,cell_hetero,cell decimals,,n/a
+8364,ILOILO,MINA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",container,container,medium_size,L,0.00125,1.0,1250.0,125.0,0.1,neither,3,3,gate override,,gate override,,n/a
 10039,ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,pieces or units,large_size,g,485.0,485.0,49.0,485.0,9.89795918367347,raw,260,4,log10 median,cell,whole number,,n/a
-5171,ILOILO,ALIMODIAN,carrot,binilog,pieces or units,large_size,g,0.575,574.999988079071,57.0,575.0,10.087719298245615,raw,1173,131,log10 median,cell,cell decimals,,n/a
+5171,ILOILO,ALIMODIAN,carrot,binilog,pieces or units,large_size,g,0.575,575.0,57.0,575.0,10.087719298245615,raw,1173,131,log10 median,cell,cell decimals,,n/a
 510,AKLAN,IBAJAY,fresh fish,binilog,pieces or units,large_size,g,1025.0,1025.0,103.0,1025.0,9.951456310679612,raw,689,99,log10 median,cell,log10 median,cell_hetero,narrower
 504,AKLAN,IBAJAY,fresh fish,binilog,pieces or units,large_size,g,940.0,940.0,94.0,940.0,10.0,raw,689,99,log10 median,cell,log10 median,cell_hetero,narrower
 512,AKLAN,IBAJAY,fresh fish,binilog,pieces or units,large_size,g,1200.0,1200.0,120.0,1200.0,10.0,raw,689,99,log10 median,cell,log10 median,cell_hetero,narrower
@@ -12,7 +12,7 @@
 755,AKLAN,MADALAG,fresh fish,binilog,pieces or units,small_size,g,60.0,60.0,60.0,600.0,10.0,harmonized,689,99,log10 median,cell_hetero,log10 median,cell_hetero,same
 2923,ANTIQUE,SEBASTE,fresh fish,binilog,pieces or units,small_size,g,60.0,60.0,60.0,600.0,10.0,harmonized,689,99,log10 median,prov_hetero,log10 median,prov_hetero,same
 1908,ANTIQUE,BUGASONG,fresh fish,bilog,pieces or units,large_size,g,1590.0,1590.0,1590.0,159.0,0.1,harmonized,689,590,log10 median,prov_hetero,log10 median,prov,wider
-2490,ANTIQUE,LIBERTAD,fresh fish,bilog,pieces or units,large_size,kg,1.7,1700.0000476837158,1700.0,170.0,0.1,harmonized,689,590,log10 median,prov_hetero,log10 median,prov,wider
-2691,ANTIQUE,PATNONGON,fresh fish,bilog,pieces or units,large_size,kg,1.69,1690.000057220459,1690.0,169.0,0.1,harmonized,689,590,log10 median,prov_hetero,log10 median,prov,wider
+2490,ANTIQUE,LIBERTAD,fresh fish,bilog,pieces or units,large_size,kg,1.7,1700.0,1700.0,170.0,0.1,harmonized,689,590,log10 median,prov_hetero,log10 median,prov,wider
+2691,ANTIQUE,PATNONGON,fresh fish,bilog,pieces or units,large_size,kg,1.69,1690.0,1690.0,169.0,0.1,harmonized,689,590,log10 median,prov_hetero,log10 median,prov,wider
 1633,ANTIQUE,BARBAZA,fresh fish,bilog,pieces or units,large_size,kg,2055.0,2055.0,2055.0,206.0,0.10024330900243308,harmonized,689,590,log10 median,prov_hetero,log10 median,prov,wider
 3318,ANTIQUE,TOBIAS FORNIER,fresh fish,binilog,pieces or units,large_size,g,1805.0,1805.0,1805.0,181.0,0.10027700831024931,harmonized,689,99,log10 median,prov_hetero,log10 median,prov,wider

@@ -568,7 +568,21 @@ order id, last
 * downstream without re-running the snap. They are diagnostics: nothing in the build
 * reads them, and 03_clean_ms.do renames only correct_* -> corrected_*.
 replace w_step1 = round(w_step1, 1)
-keep correct* w_step1 review_step1 snap_rule snap_referee snap_block id
+
+* w_block RIDES ALONG FOR THE SAME REASON, and keeping it retires three hand-written
+* copies of the rule above. It used to be computed here, used, and dropped -- so every
+* consumer that needed the block reading re-derived it: snap_sense_check.py and
+* compare_anchor_keying.py each carried their own version, scraping `KGMAX' out of this
+* file to do it. Those copies guarded the CONSTANT and not the branch structure, so
+* changing `weight>=10' in STEP 3a would have left both of them silently computing a
+* rule the pipeline no longer used -- and snap_sense_check.py is what builds the review
+* workbook whose verdicts get frozen into the ledger.
+*
+* It is also the weight a fold test must use to be non-circular: it is a function of
+* the typed weight, the unit tick and `KGMAX' alone, and reads no harmonized unit.
+replace w_block = round(w_block, 1)
+label var w_block "STEP 3 block reading: typed weight in g/mL, kg-tick not taken literally"
+keep correct* w_step1 w_block review_step1 snap_rule snap_referee snap_block id
 
 * Deterministic row order: `id' is unique, so this leaves no ties for the sort
 * seed to break. Without it the saved file's ORDER varies between runs.

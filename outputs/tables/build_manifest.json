@@ -44,11 +44,11 @@
     },
     "reference set (Outcome 1)": {
       "bytes": 477679,
-      "sha256": "9c93ebcabafb1cdb014e0d88722a0dd5c0217093ca62953fdb26fabbc1e64b90"
+      "sha256": "7b30415e9e33246c5ab4ef99c4dd54a18ace9e405cc3632c84baf01d0c7232a6"
     },
     "weighings + cpi_factor": {
-      "bytes": 12407946,
-      "sha256": "f09841ca1c78bc8ad61f334e291e702b9c18b0c76ba76e63c2f5f941cda24986"
+      "bytes": 12431256,
+      "sha256": "d929ba17dacb4cc7ea4633588f5cf577136e2b5c57a4315553952c3ae2db3eb9"
     }
   }
 }
