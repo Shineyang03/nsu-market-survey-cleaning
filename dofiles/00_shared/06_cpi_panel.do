@@ -104,7 +104,12 @@ global cpisha  "62e938ef119b91dd0e9d5b6badff4eeb17108151d921591dcbfabec9cba0a4be
 * backtick. Written "${output}\${build_name}" the separator would VANISH -- `\$'
 * is Stata's escape for a literal dollar sign -- and the folder would be created
 * one level up with a mangled name. See the same warning in 00_globals.do.
-global cpiout  "${output}\temp\_cpi_port"
+* WIRED IN. This writes the published CPI panel; 06_cpi_panel.py is retired to
+* dofiles/archive/. While the port was being validated this pointed at
+* ${output}/temp/_cpi_port/ so the two could be diffed without overwriting the
+* reference -- see dofiles/archive/README.md for that comparison and its one residual
+* difference, a single cpi_ma3 value 1 ULP apart from the Python's.
+global cpiout  "${tables}"
 mkdir_missing "${cpiout}"
 
 global outpanel "${cpiout}\cpi_level_panel.csv"

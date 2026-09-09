@@ -2,7 +2,7 @@
   "inputs": {
     "CPI panel": {
       "bytes": 279430,
-      "sha256": "fb62d0b0402d0d901fb0e9db74e9564d61d2595c12e79b581c5d395ca8aca0ce"
+      "sha256": "7fd7f4cb46bea1a8d02bf91b3ba5afe8d6e747deddf4c5d4a4effe6a4bf70d0c"
     },
     "curated field notes": {
       "bytes": 121400,
@@ -44,11 +44,11 @@
     },
     "reference set (Outcome 1)": {
       "bytes": 477679,
-      "sha256": "d1e105d95c7b214d8555ba7a9105127ed23cabe9d370e142012e6606d865998f"
+      "sha256": "56fee0a42abaf0971150c4a3201aa771ba132353ff58ad81ac4a1a52add723c1"
     },
     "weighings + cpi_factor": {
       "bytes": 12431256,
-      "sha256": "8b465bc5e64321e1272f5338d1fe34ec8d72d14eeb346755872d7045f35da6a8"
+      "sha256": "3d5fb59ccd1ed3e8907d2dba28f263d78fc7055af4f61bf5a3c6adda0e223c4a"
     }
   }
 }

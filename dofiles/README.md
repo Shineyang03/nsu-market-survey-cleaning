@@ -48,7 +48,7 @@ panel and change rarely; run them from the project root when their inputs change
 "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\00b_price_ms_cases.do
 python dofiles/00_shared/01_build_crosswalk.py
 python dofiles/00_shared/02_drop_non_nsu_labels.py --apply
-python dofiles/00_shared/06_cpi_panel.py
+"C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\06_cpi_panel.do
 ```
 
 **That order matters, and it is a straight line on purpose.** Each link:
@@ -172,7 +172,7 @@ checking. Check 5 is what tells you those outputs still match their inputs.
 | `03a_block_reading.do` | the **block reading** `w_block` — typed weight in g/mL, kg tick not taken literally. Called from `03` *before* the crosswalk merge, deliberately: it reads only `weight`, `unit` and `KGMAX`, so everything the fold test needs is complete before any fold is applied. Owns `KGMAX`. Output: `block_reading.dta`, merged into `04`. See "Where the fold evidence is produced" above. |
 | `04_unit_snap.do` | magnitude correction — kg→g, L→mL, decimal slips. Merges `w_block` in rather than recomputing it |
 | `05_manual_corrections.do` | every hand-made weight/unit fix. §1–5 are one block per correction, each asserting its row count; **§6 applies the review ledger**, `reference/reviewed/snap_verdicts.csv`, which is where the bulk of the adjudicated decisions now live. See *Adjudicating a weight* below. |
-| `06_cpi_panel.py` | province × item-group × month CPI panel |
+| `06_cpi_panel.do` | province × item-group × month CPI panel, plus the item crosswalk and the spec's validation report. Stata port of a retired Python step (`archive/06_cpi_panel.py`), verified against its output before the switch |
 | `07_cpi_factor.do` | drops 98 price-quantity rows whose recorded price was not the price handed over — 71 vendor-priced (a further 23 are rescued where they were the case's only rung) and 27 where the vendor gave no price at all. **The only place those rows are dropped, and both outcomes depend on it.** Builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |
 | `08_branch.do` **(not written; decided on #28)** | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`. |
 

@@ -34,7 +34,7 @@ di as res "{hline 78}"
 *     "...StataSE-64.exe" -e do 00_shared\00b_price_ms_cases.do   (from dofiles/)
 *     python dofiles/00_shared/01_build_crosswalk.py
 *     python dofiles/00_shared/02_drop_non_nsu_labels.py --apply
-*     python dofiles/00_shared/06_cpi_panel.py
+*     "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\06_cpi_panel.do
 *
 * 00b must precede 01: 01_build_crosswalk.py reads the case-coverage CSV that 00b
 * writes. That ordering used to be undocumented because the CSV had no producer at

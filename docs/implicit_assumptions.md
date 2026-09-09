@@ -476,18 +476,34 @@ all, which is the finding erasing itself.
 **Claims.** Two thresholds in the CPI panel build:
 
 1. A month-on-month move is a "base break" only if it exceeds the typical month-on-month move elsewhere by more than **2 percentage points**. The `+2` is a tolerance on the reference median applied in the base-break check (see spec section 8, index-integrity validation).
-2. When writing the panel CSV, the CPI values are serialized with **default pandas float precision** (all available digits, round-tripped through IEEE doubles, no manually-specified format).
+2. When writing the panel CSV, the CPI values are serialized through a **15/16/17 significant-digit ladder**: try 15 digits, then 16, then 17, and keep the shortest spelling that round-trips exactly through `real()`.
 
 **Where.**
 
-- Base-break tolerance: `dofiles/00_shared/06_cpi_panel.py` lines 425–437, the validation section comparing `med_boundary` to `med_other + 2`.
-- CSV precision: line 364, `panel.to_csv(OUT_PANEL, index=False)` with no `float_format` parameter.
+- Base-break tolerance: `dofiles/00_shared/06_cpi_panel.do`, the validation section comparing `med_boundary` to `med_other + 2`. Inherited from the retired Python step, `dofiles/archive/06_cpi_panel.py` lines 425–437.
+- CSV precision: the digit ladder in `06_cpi_panel.do`, around line 150. The retired Python wrote `panel.to_csv(...)` with no `float_format`, i.e. whatever pandas chose.
 
 **Status: UNDOCUMENTED threshold; precision is inconsistent with the Stata port.**
 
 The `+2` percentage-point tolerance has no stated justification in the code. It is an undocumented design choice used to flag suspicious moves for review. New data with different month-to-month volatility would need a real rule.
 
-**On precision.** The Stata port (`dofiles/00_shared/06_cpi_panel.do`, documented around line 200) implements a careful **15/16/17 significant-digit ladder** — it tries 15, 16, then 17 significant digits and keeps the shortest that round-trips exactly through `real()`. This minimizes spurious noise in output while preserving all information. The Python version uses default precision, which preserves all available digits without the Stata version's cleanup. Both approaches round-trip correctly, but they produce different spellings: Python may output `157.20000000000002` where Stata outputs `157.2`. This is not a numerical error — both parse to the identical IEEE double — but the spellings differ, and only the Stata version documents why the format was chosen.
+**On precision.** The ladder exists because a double carries between 1 and 17 significant decimal
+digits: a fixed `%21.17g` always round-trips but spells short values noisily (`100.49232867321599`),
+while `%21.15g` is exact for every value in the current source file and is not guaranteed to be for
+the next one. Taking the shortest spelling that round-trips gives both properties.
+
+**One value does not agree with the retired Python's spelling**, and it is worth knowing about
+rather than discovering later. Stata's number-to-text converter tops out at 18 significant digits,
+so a request for 17 is rounded a second time from that 18-digit intermediate; where the 18th digit
+is exactly 5 the two roundings disagree. Four `cpi_ma3` values are spelled differently as a result,
+and one of them — ANTIQUE / ice cream and sorbet / 2025-05 — parses to a double **1 ULP** away from
+the Python's (relative difference 1.1e-16). No downstream figure can turn on that, but it is not
+exactly zero, and it is the only respect in which the current panel differs from the one the project
+published before the port.
+
+Repairing it properly needs an exact decimal expansion of the mantissa in Mata big-integer
+arithmetic. Truncating instead of rounding fixes these four rows and breaks others, so it is not the
+fix it appears to be.
 
 **Rests on it.** Nothing substantial rests on the `+2` — it is diagnostic only, flagging cases for human review and not altering any computation. The precision difference matters only to readers inspecting the CSV by eye or comparing ASCII content; the double values are bit-identical once loaded.
 

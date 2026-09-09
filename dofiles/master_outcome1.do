@@ -26,7 +26,7 @@
 *     "...StataSE-64.exe" -e do 00_shared\00b_price_ms_cases.do   (from dofiles/)
 *     python dofiles/00_shared/01_build_crosswalk.py
 *     python dofiles/00_shared/02_drop_non_nsu_labels.py --apply
-*     python dofiles/00_shared/06_cpi_panel.py
+*     "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\06_cpi_panel.do
 *
 * The order is a straight line and it matters: 00a owns the durable id registry, 01
 * needs that registry to number the price-only cases and reads the case-coverage CSV

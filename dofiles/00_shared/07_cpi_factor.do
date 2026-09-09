@@ -310,7 +310,7 @@ drop _merge_cw item_norm
 * item_group is a COICOP label, and 189 weighings carry
 *     "11.1.1 - Restaurants, cafe and the like (S)"
 * where the "e" is an e-acute (UTF-8 C3 A9). It used to be the merge key against the
-* CPI panel below. Both sides are written by 06_cpi_panel.py so they matched byte for
+* CPI panel below. Both sides are written by 06_cpi_panel.do so they matched byte for
 * byte, but nothing made that robust: re-encode or hand-edit either CSV and the join
 * drops those rows.
 *

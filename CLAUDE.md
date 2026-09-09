@@ -41,6 +41,29 @@ transformation, anything reading a Box path — then:
 "It ran without error" does not mean the file is what you meant. Interpreters tolerate
 corruption a diff would show instantly.
 
+## Read the written record before running anything
+
+**Before any diagnostic and before any implementation, read — in this order:**
+
+1. the GitHub issue the work belongs to, **body and all comments**;
+2. `dofiles/README.md`, for the run order and where a quantity is produced;
+3. `docs/conversion_factor_methodology.md` and `docs/implicit_assumptions.md`.
+
+Not after the first result looks odd. Before the first command.
+
+This is not diligence for its own sake. Two analyses in one session were wrong because
+they rested on a half-remembered premise instead of the written one:
+
+| what happened | what the record already said |
+| :-- | :-- |
+| the #30 grams-per-peso measurement paired on `pull_price`, the market-survey price | Outcome 2 pairs at **(case × rung)** through `size_ord`, documented in `10_size_assignment.do`. `pull_price` exists only on the price-quantity branch, so the wrong pairing missed all 1,046 size-based pairs, cut the estimable base from 79 groups to 29, and reversed **both** conclusions — including "the ray screen does not work", which on the correct pairing is cleanly monotonic |
+| a `KGMAX` figure was quoted from a diagnostic that recomputed the block rule | the pipeline publishes `w_block`; the diagnostic should read it |
+
+The issue body usually already carries the counts and the grain. **Quote the numbers that
+are written down rather than deriving fresh ones**, which risks answering a different
+question and reporting it as if it were the same one. Where a derived number must
+disagree with a recorded one, that disagreement is the finding — say so explicitly.
+
 ## Build objects in Stata. Python only where Stata cannot.
 
 **Any object the pipeline reads — a `.dta`, a crosswalk, a CSV, a column — is produced in
