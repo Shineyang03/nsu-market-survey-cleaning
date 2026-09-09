@@ -1,252 +1,215 @@
 ********************************************************************************
-* 30_fallback.do -- the province grams-per-peso schedule, and who is refused a weight
+* 30_fallback.do -- the Outcome 2 weight ladder, and who is refused a weight
 *
-* WHAT THIS OWNS. 494 price-file cases have no market-survey weighing of their own --
-* 5,741 PSPS observations, roughly one in six of all non-standard-unit answers. This file
-* builds the object that gives them a weight where one can honestly be given, and the
-* list of those it cannot.
+* WHAT THIS OWNS. A PSPS household reports an item and a non-standard unit. Where its
+* province x municipality x item x harmonized unit cell has a thick market-survey
+* weighing of its own, Outcome 2 uses it. Where the cell is thin or absent, this file
+* decides what weight the household gets instead -- or that it gets none.
 *
-* THE RULE (issue #30, settled there):
+* THE LADDER (issue #30, settled there). Each rung is tried in turn and the first that
+* clears THIN wins:
 *
-*   1  A fallback is offered wherever a province schedule is ESTIMABLE: the province x
-*      item x harmonized-unit group has >=3 distinct prices and spans >=2 municipalities.
-*   2  The estimator is the MEDIAN OF PER-PAIR w/p, applied to the price the household
-*      actually faced. Scale-free, and it does not weight pairs by price level.
-*   3  There is NO ACCURACY THRESHOLD. Every fallback weight ships with cv_gpp, n_pairs,
-*      n_price and n_mun so a reader can set their own cut -- the same convention
-*      12_publish_reference_set.do uses for n_g and d_thin.
-*   4  Where the schedule is not estimable the case is REFUSED and reported unconvertible.
+*   L0  prov x mun x item x nsu x unit x hetero    n_g >= 3; the price selects the rung
+*   L1  prov x mun x item x nsu x unit            pool across hetero -- NO price match
+*   L2  prov x item x nsu x unit                  no usable weighing in the cell
+*   L3  item x nsu x unit                         still nothing
+*   --  unconvertible                             nothing anywhere; reported, never imputed
 *
-* WHY NO THRESHOLD, since a gate looks safer. Measured in PSPS observations rather than
-* groups, a gate buys almost nothing and costs almost everything:
+* RE-TESTED AT EVERY RUNG. Reaching L1 does not end the climb: a cell whose two rungs
+* hold one weighing each pools to n_g = 2, is still thin, and continues to L2. The ladder
+* stops at the first rung with n_g >= 3, or falls off the bottom.
 *
-*     gate                          fallback obs answered    share of 5,741
-*     CV(w/p) < 0.2                              317               5.5%
-*     CV(w/p) < 0.4                            1,726              30.1%
-*     estimable only, no gate                  3,403              59.3%
-*     not estimable at all                     2,338              40.7%
+* IGNORING WITHIN-NSU HETEROGENEITY IS THE COST, and it is accepted rather than
+* incidental. From L1 down a household that bought the cheap version and one that bought
+* the expensive version of the same unit RECEIVE THE SAME GRAMS. In exchange the estimate
+* does not depend on a price-weight relationship holding across municipalities. See
+* docs/implicit_assumptions.md A15.
 *
-* The binding constraint is ESTIMABILITY, not fit: 41% of the fallback need has a province
-* group with fewer than three distinct prices, so no threshold reaches it either way.
-* Gating at 0.2 answers one PSPS observation in eighteen -- not a conservative fallback,
-* but declining to have one. The ray statistic is published instead of enforced.
+* WHY NO RAY-FIT STATISTIC. An earlier design borrowed the price-weight SLOPE across
+* municipalities and needed a ray-fit statistic (cv_gpp) to say where that was safe. This
+* ladder borrows a MEDIAN WEIGHT at a coarser grain, so there is no slope to qualify and
+* the statistic has nothing to say. It survives only in 90_diagnostics/
+* scope_price_weight_ray.do, as a measurement of the road not taken.
 *
-* WHAT cv_gpp MEANS AND WHY IT IS WORTH PUBLISHING. w/p is grams per peso. If a peso buys
-* the same amount of food across a province then w/p is constant within province x item x
-* unit, and the (price, weight) pairs lie on a ray through the origin. cv_gpp is how much
-* it wobbles, and it predicts accuracy sharply -- validated by holding out one
-* municipality at a time and predicting it from the others:
-*
-*     cv_gpp        pairs   within 2x of the weighed value
-*     < 0.2           109              92.7%
-*     0.2-0.4         549              79.1%
-*     0.4-0.6         350              69.7%
-*     > 0.6           184              51.6%
-*
-* AN ASSUMPTION, recorded rather than measured: those figures come from cells that DO
-* have their own weighings, because only there is the answer known. The 494 fallback cells
-* are by construction ones nobody weighed locally -- plausibly rarer units in thinner
-* markets -- so the figures are optimistic for them. See docs/implicit_assumptions.md.
+* HOW THIS DIFFERS FROM OUTCOME 1, and why the same evidence gives opposite answers.
+* 12_publish_reference_set.do stops at L1: the reference set records what was weighed in
+* a cell, so borrowing another municipality's weight would change what the table is, and
+* a cell with no weighing is simply absent. Outcome 2's job is to produce a usable number
+* for a household that exists, so it climbs. A singleton is kept and flagged in Outcome 1;
+* in Outcome 2 the ladder may carry it past its own cell.
 *
 * ------------------------------------------------------------------------------
-* WHAT THIS FILE DOES NOT DO. It does not attach a weight to a PSPS household. That needs
-* the retrofit, which is not written: 20_psps_retrofitting/ is otherwise empty and
-* `branch' comes from 08_branch.do (#28), also unwritten. This file builds the SCHEDULE
-* and the REFUSAL LIST; the step that joins them to household rows consumes both.
+* WHAT THIS FILE DOES NOT DO. It does not attach a weight to a PSPS household row. That
+* needs the retrofit, which is not written -- 20_psps_retrofitting/ holds only this file --
+* and `branch' from 08_branch.do (#28), also unwritten. This builds the LADDER as a lookup
+* keyed at every level, plus the refusal list; the step that joins it to household rows
+* consumes both.
 *
-* IT ALSO OWNS THE PAIR CONSTRUCTION, and that is deliberate. 90_diagnostics/
-* scope_price_weight_ray.do measures the same pairs and must not build them a second time
-* -- see CLAUDE.md, "A diagnostic reads the quantity the pipeline computed."
+* CALLED BY   master_outcome2.do, after the Outcome 1 reference set exists.
 *
-* CALLED BY   master_outcome2.do. Runs after the Outcome 1 reference set exists, because
-*             the weight half of every pair is a published reference-set row.
-*
-* OUTPUT  ${btemp}\price_weight_pairs.dta     one row per (case x rung) pair
-*         ${btemp}\province_schedule.dta      one row per province x item x harmonized unit
-*         ${btables}\province_schedule.csv    the same, for inspection
-*         ${btables}\fallback_refused.csv     cases with no estimable schedule
+* OUTPUT  ${btemp}\outcome2_weight_ladder.dta   every (cell x hetero) with its resolved
+*                                              weight, fallback_level and n_g_used
+*         ${btables}\outcome2_weight_ladder.csv the same, for inspection
+*         ${btables}\fallback_refused.csv       cells the ladder cannot serve
 ********************************************************************************
 
 clear all
 set more off
 do "00_shared/00_globals.do"
 
-local MINPRICE = 3    // distinct prices a group needs before a ray is identified
-local MINMUN   = 2    // municipalities it must span, so the schedule is not one place's
+local THIN = 3    // must match 12_publish_reference_set.do; see docs A3
 
 ********************************************************************************
-**# 1. the (price, weight) pairs, at case x rung
+**# 1. the weighing-level base
 ********************************************************************************
-* Both branches meet on one rung ladder. 10_size_assignment.do maps mp25/mp50/mp75 to
-* rungs 1/2/3 on the price-quantity branch and RE-TERCILES the size-based branch's pooled
-* weights into the same three, so `size_ord' is comparable across branches. The reference
-* set publishes grams at each rung; the price file carries a price at each rung. They meet
-* at (province x municipality x item x harmonized unit x rung).
-*
-* NOT on pull_price. The market survey records a price only on the price-quantity branch,
-* so pairing there sees 1,109 weighings, misses all 1,046 size-based pairs, and cuts the
-* estimable base from 79 groups to 29. That mistake reversed two conclusions on #30.
+* Read the weighings, not the reference set. The reference set has ALREADY applied
+* Outcome 1's L1 collapse, so its rows are a mixture of per-rung and pooled medians and
+* its n_g is the count at whichever grain survived. Reconstructing a ladder from that
+* would inherit Outcome 1's stopping rule, which is not Outcome 2's.
+use "${btemp}\ref_11_checked", clear
 
-import delimited using "${pricedata}", clear varnames(1) encoding("utf-8") stringcols(_all)
-
-keep if inlist(price_type, "mp25_price", "mp50_price", "mp75_price")
-gen byte rung = 1 if price_type == "mp25_price"
-replace  rung = 2 if price_type == "mp50_price"
-replace  rung = 3 if price_type == "mp75_price"
-assert !missing(rung)
-
-destring price, gen(p) force
-rename (cons_name unit_lbl province) (pull_item pull_nsu_unit pull_province)
-keep pull_province pull_municipal_city pull_item pull_nsu_unit rung p
-drop if missing(p) | p <= 0
-
-* THE authoritative normalization, from 00_globals.do. Its Python counterpart is
-* nz()/ni()/ng() in nsu_normalize.py and the two must agree character for character --
-* the crosswalk joined below is built by the Python side.
-nsu_normalize, item(pull_item) unit(pull_nsu_unit) ///
-	mun(pull_municipal_city) province(pull_province)
-tempfile prices
-save `prices'
-qui count
-di as res _n "tercile price rows: " r(N)
-
-* ---- resolve each priced spelling to its harmonized unit ---------------------
-import delimited using "${tables}\master_nsu_rename.csv", clear varnames(1) ///
-	encoding("utf-8") stringcols(_all)
-rename (province cons_name) (pull_province pull_item)
-keep pull_province pull_municipal_city pull_item pull_nsu_unit harmonized_nsu_unit
-drop if missing(harmonized_nsu_unit)
-nsu_normalize, item(pull_item) unit(pull_nsu_unit) ///
-	mun(pull_municipal_city) province(pull_province)
-replace harmonized_nsu_unit = ustrtrim(ustrlower(ustrto(harmonized_nsu_unit,"ascii",2)))
-duplicates drop pull_province pull_municipal_city pull_item pull_nsu_unit, force
-tempfile xw
-save `xw'
-
-use `prices', clear
-merge m:1 pull_province pull_municipal_city pull_item pull_nsu_unit using `xw', ///
-	keep(1 3) gen(_m_xw)
-count if _m_xw == 1
-di as txt "  price rows with no harmonized unit: " r(N)
-keep if _m_xw == 3
-drop _m_xw
-tempfile withprice
-save `withprice'
-
-* ---- attach the grams published at that rung --------------------------------
-use "${btemp}\nsu_reference_set", clear
 keep pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
-	size_ord grams n_g d_thin weighing_approach
-nsu_normalize, item(pull_item) unit(harmonized_nsu_unit) ///
-	mun(pull_municipal_city) province(pull_province)
-rename size_ord rung
-duplicates drop pull_province pull_municipal_city pull_item harmonized_nsu_unit rung, force
-tempfile ref
-save `ref'
-
-use `withprice', clear
-merge m:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit rung ///
-	using `ref', keep(3) gen(_m_ref)
-drop _m_ref
-drop if missing(grams) | grams <= 0
-
-gen double gpp = grams / p
-label var gpp   "grams per peso at this case x rung"
-label var p     "price at this rung, from the price file"
-label var grams "grams the reference set publishes at this rung"
-label var rung  "size_ord: 1 small / mp25, 2 medium / mp50, 3 large / mp75"
+	corrected_unit size_ord corrected_weight weighing_approach
+drop if missing(corrected_weight) | corrected_weight <= 0
+drop if missing(corrected_unit)
 
 qui count
-di as res "(price, grams) pairs on case x rung: " r(N)
-di as res "  by branch of the reference rung:"
-tab weighing_approach
+di as res _n "weighings available to the ladder: " r(N)
 
-sort pull_province pull_municipal_city pull_item harmonized_nsu_unit rung
-save "${btemp}\price_weight_pairs", replace
-di as txt "wrote ${btemp}\price_weight_pairs.dta"
+* corrected_unit STAYS IN EVERY KEY below. Grams must never be pooled with millilitres,
+* and the ladder's coarser rungs are exactly where that could happen unnoticed.
 
 ********************************************************************************
-**# 2. the province schedule
+**# 2. one median per rung of the ladder
 ********************************************************************************
-egen long grp = group(pull_province pull_item harmonized_nsu_unit), label
+* Each level gets a median and a count computed over the WEIGHINGS at that grain -- not
+* an average of the finer level's medians, which would weight cells rather than
+* observations.
+tempfile base
+save "`base'"
 
-egen double gpp_med  = median(gpp), by(grp)
-egen double _gpp_m   = mean(gpp),   by(grp)
-egen double _gpp_sd  = sd(gpp),     by(grp)
-gen  double cv_gpp   = _gpp_sd / _gpp_m if _gpp_m > 0
-egen long   n_pairs  = count(gpp), by(grp)
-egen long   n_price  = nvals(p),   by(grp)
-egen long   n_mun    = nvals(pull_municipal_city), by(grp)
+* ---- L0: the cell's own hetero rung -----------------------------------------
+collapse (median) w_l0 = corrected_weight (count) n_l0 = corrected_weight ///
+         (first) weighing_approach, ///
+         by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+            corrected_unit size_ord)
+tempfile l0
+save "`l0'"
 
-* nvals is from egenmore. Without it these come back missing and the estimable gate below
-* silently passes everything, which is the worst possible failure for this file.
-count if missing(n_price) | missing(n_mun)
-if r(N) > 0 {
-	di as err "egen nvals() returned missing -- egenmore is not installed."
-	di as err "ssc install egenmore, or replace nvals with a tag-and-total."
-	exit 199
+* ---- L1: the cell, pooled across hetero -------------------------------------
+use "`base'", clear
+collapse (median) w_l1 = corrected_weight (count) n_l1 = corrected_weight, ///
+         by(pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit)
+tempfile l1
+save "`l1'"
+
+* ---- L2: the province, dropping municipality --------------------------------
+use "`base'", clear
+collapse (median) w_l2 = corrected_weight (count) n_l2 = corrected_weight, ///
+         by(pull_province pull_item harmonized_nsu_unit corrected_unit)
+tempfile l2
+save "`l2'"
+
+* ---- L3: the whole sample, dropping province --------------------------------
+* THE WEAKEST RUNG BY A WIDE MARGIN, and flagged distinctly for it. Conventional units
+* vary up to 6.7x across municipalities (implicit_assumptions.md A1: camote tops `bundle'
+* 95 g to 635 g over 28 municipalities), and 41 of 106 conventional cases disperse beyond
+* 2x INSIDE one municipality. A national median for such a unit describes nowhere in
+* particular. It is offered because the alternative is no number at all, and the flag is
+* what lets a reader refuse it.
+use "`base'", clear
+collapse (median) w_l3 = corrected_weight (count) n_l3 = corrected_weight, ///
+         by(pull_item harmonized_nsu_unit corrected_unit)
+tempfile l3
+save "`l3'"
+
+********************************************************************************
+**# 3. climb
+********************************************************************************
+use "`l0'", clear
+merge m:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+	corrected_unit using "`l1'", keep(1 3) nogen
+merge m:1 pull_province pull_item harmonized_nsu_unit corrected_unit ///
+	using "`l2'", keep(1 3) nogen
+merge m:1 pull_item harmonized_nsu_unit corrected_unit using "`l3'", keep(1 3) nogen
+
+* ANY THIN RUNG DISQUALIFIES THE WHOLE CELL FROM L0, exactly as Outcome 1's L1 rule works.
+* Without this the ladder mixes estimators inside one cell -- `small' at its own median,
+* `medium' at the cell-pooled one -- and the mixture is what breaks the ordering rather
+* than either estimator being wrong.
+*
+* MEASURED, not assumed. Resolving rung by rung leaves 165 rows where the price rung rises
+* and the resolved grams FALL, and 164 of those 165 sit in the 294 cells that hold both a
+* thick and a thin rung. A household paying a mid price would be told it received less food
+* than one paying a low price, for no reason other than which rung happened to be thin.
+*
+* The cost is real and accepted: 440 rows at 294 cells hold a thick rung of their own and
+* still lose it to the cell median. That is the same trade Outcome 1 makes, and it is why
+* the flag is published.
+bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit: ///
+	egen byte _cell_has_thin = max(n_l0 < `THIN')
+
+* First rung clearing THIN wins, ordered finest to coarsest so the earliest assignment
+* sticks and no later replace can overwrite a better one. L0 is available only to cells
+* with no thin rung anywhere.
+gen double grams_used   = .
+gen long   n_g_used     = .
+gen byte   fallback_level = .
+
+replace fallback_level = 0 if n_l0 >= `THIN' & _cell_has_thin == 0
+replace grams_used     = w_l0 if fallback_level == 0
+replace n_g_used       = n_l0 if fallback_level == 0
+
+foreach L in 1 2 3 {
+	replace fallback_level = `L' if missing(fallback_level) & n_l`L' >= `THIN'
+	replace grams_used     = w_l`L'  if fallback_level == `L' & missing(grams_used)
+	replace n_g_used       = n_l`L'  if fallback_level == `L' & missing(n_g_used)
 }
+drop _cell_has_thin
 
-collapse (first) pull_province pull_item harmonized_nsu_unit ///
-         gpp_med cv_gpp n_pairs n_price n_mun, by(grp)
+* THE CONVENTIONAL BRANCH HAS NO HETERO LEVELS to pool (size_ord == 0), so L1 is a no-op
+* there and those cells go straight to L2 if their own count is thin. Not a special case
+* in the code -- L1's key simply drops a variable that was already constant -- but worth
+* naming, because it means the conventional branch reaches coarser rungs sooner than the
+* others. #28's reclassification is shrinking this population.
 
-gen byte estimable = (n_price >= `MINPRICE' & n_mun >= `MINMUN')
+* Cells no rung can serve: even the national item x unit pool is under THIN.
+gen byte unconvertible = missing(fallback_level)
 
-label var gpp_med   "median grams per peso across the province -- the estimator"
-label var cv_gpp    "ray fit: CV of w/p in this group. Lower predicts better accuracy"
-label var n_pairs   "case x rung pairs behind the estimate"
-label var n_price   "DISTINCT prices behind it -- the binding constraint"
-label var n_mun     "municipalities it spans"
-label var estimable "1 = >=3 distinct prices and >=2 municipalities; 0 = refuse a fallback"
+label define fbl 0 "own cell x size" 1 "cell pooled across sizes" ///
+	2 "province x item x unit" 3 "item x unit (national)", replace
+label values fallback_level fbl
+label var fallback_level "rung of the ladder that supplied the weight; 0 = the cell's own"
+label var grams_used     "weight this cell x size resolves to, in g or mL"
+label var n_g_used       "weighings behind grams_used, AT THE RUNG USED"
+label var unconvertible  "1 = no rung reached THIN; report as unconvertible, do not impute"
 
-di as res _n "province x item x harmonized-unit groups: " _N
-count if estimable
-di as res "  estimable (offer a fallback):     " r(N)
-count if !estimable
-di as res "  not estimable (refuse):           " r(N)
+di as res _n "rung that supplied the weight:"
+tab fallback_level, m
+di as res _n "still thin at the rung used (should be none by construction):"
+count if !unconvertible & n_g_used < `THIN'
+assert r(N) == 0
 
-di as res _n "ray fit among estimable groups -- published, NOT enforced:"
-summ cv_gpp if estimable, detail
+di as res _n "cells x sizes no rung can serve: "
+count if unconvertible
+di as res "  " r(N)
 
-sort pull_province pull_item harmonized_nsu_unit
-save "${btemp}\province_schedule", replace
-export delimited using "${btables}\province_schedule.csv", replace
-di as txt "wrote ${btemp}\province_schedule.dta and ${btables}\province_schedule.csv"
+* A weight that fell off the bottom must carry nothing, or a downstream join will read a
+* stale value as if it were an estimate.
+assert missing(grams_used) & missing(n_g_used) if unconvertible
 
-********************************************************************************
-**# 3. who is refused, and why
-********************************************************************************
-* A case is refused for one of two reasons, and they are not the same finding:
-*   no schedule   -- its province group is not estimable (too few distinct prices)
-*   no group      -- the item x harmonized unit was never weighed in this province
-* Reported separately so the 41% is attributable rather than a single bucket.
-tempfile sched
-save `sched'
-
-use "${btemp}\nsu_reference_set", clear
-keep pull_province pull_item harmonized_nsu_unit
-nsu_normalize, item(pull_item) unit(harmonized_nsu_unit) ///
-	mun(pull_province) province(pull_province)
-duplicates drop
-merge 1:1 pull_province pull_item harmonized_nsu_unit using `sched', ///
-	keepusing(estimable cv_gpp n_price n_mun) gen(_m_s)
-
-gen str24 fallback_status = ""
-replace  fallback_status = "offered"          if _m_s == 3 & estimable == 1
-replace  fallback_status = "refused: no ray"  if _m_s == 3 & estimable == 0
-replace  fallback_status = "refused: no group" if _m_s == 1
-assert fallback_status != ""
-drop _m_s
-
-di as res _n "reference-set (province x item x unit) combinations by fallback status:"
-tab fallback_status
+sort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit size_ord
+save "${btemp}\outcome2_weight_ladder", replace
+export delimited using "${btables}\outcome2_weight_ladder.csv", replace
+di as txt "wrote ${btemp}\outcome2_weight_ladder.dta and the .csv"
 
 preserve
-	keep if fallback_status != "offered"
-	keep pull_province pull_item harmonized_nsu_unit fallback_status n_price n_mun
+	keep if unconvertible
+	keep pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+	     corrected_unit size_ord n_l0 n_l1 n_l2 n_l3
 	export delimited using "${btables}\fallback_refused.csv", replace
-	di as txt "wrote ${btables}\fallback_refused.csv (" _N " combination(s))"
+	di as txt "wrote ${btables}\fallback_refused.csv (" _N " row(s))"
 restore
 
-di as res _n "30_fallback.do done -- schedule built; ATTACHING it to PSPS households"
-di as res "needs the retrofit, which is not written (see dofiles/README.md)."
+di as res _n "30_fallback.do done -- ladder built. ATTACHING it to PSPS households"
+di as res "needs the retrofit and 08_branch.do, neither written."
