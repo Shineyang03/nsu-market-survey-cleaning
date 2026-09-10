@@ -493,10 +493,18 @@ preserve
 restore
 
 preserve
+	* PER UNWEIGHED SPELLING, not per case, and the grain is the point of the flag. A case
+	* can pool several priced-but-unweighed spellings at different levels; flagging the
+	* case would refuse a household reporting the close one because a different spelling
+	* in the same cell was far away. #21 sec 5.3's own example is a household reporting
+	* `binilog' specifically -- and 20a keeps the household's reported `pull_nsu_unit', so
+	* 28_match_and_convert.do can refuse exactly the households that reported a flagged
+	* spelling and convert the rest normally. The case-level count is still reported
+	* below, because that is the number #21 quotes.
 	use "`unweighed'", clear
 	collapse (median) lvl_unweighed = p_raw, ///
-		by(pull_province pull_municipal_city pull_item harmonized_nsu_unit)
-	merge 1:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+		by(pull_province pull_municipal_city pull_item harmonized_nsu_unit pull_nsu_unit)
+	merge m:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
 		using "`lvlweighed'", keep(3) nogen
 
 	* Both sides present by construction of keep(3): these are the MIXED cases -- at least
@@ -521,12 +529,30 @@ preserve
 	label var d_spelling_gap "1 = the two levels differ by GAP_FLAG or more; flag, do not convert (A11)"
 
 	qui count
-	di as res _n "mixed cases (a weighed AND an unweighed spelling): " r(N)
+	di as res _n "priced-but-unweighed spellings in a case that has weighings: " r(N)
+	* Counted in place. A `preserve' here would be NESTED inside the one this section
+	* opened, which is r(621) -- see the Stata note in ~/.claude/CLAUDE.md. A tag and a
+	* by-group max answer the same question without touching the data.
+	egen byte _tagcase = tag(pull_province pull_municipal_city pull_item harmonized_nsu_unit)
+	bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit: ///
+		egen byte _anyflag = max(d_spelling_gap)
+	qui count if _tagcase
+	di as res "  the mixed CASES behind them: " r(N)
+	qui count if _tagcase & _anyflag == 1
+	di as res "  cases holding at least one flagged spelling: " r(N)
+	drop _tagcase _anyflag
 	qui count if d_spelling_gap == 1
-	di as res "  flagged at `GAP_FLAG'x: " r(N)
+	di as res "  spellings flagged at `GAP_FLAG'x: " r(N)
 	qui su gap_sym, detail
 	di as res "  gap distribution -- median " %5.2f r(p50) ", p75 " %5.2f r(p75) ///
 		", max " %6.2f r(max)
+
+	* THIS WILL NOT REPRODUCE #21's FIGURES EXACTLY, and the disagreement is the finding
+	* rather than a defect. #21 sec 5.3 reports 273 cases and 54 flagged at 2x, measured on
+	* each side's RAW price points at case grain. Two things differ here: the weighed side
+	* is the median of the MERGED convertible points, so the PHP 20 merge moves it on the
+	* cases where it fires; and the grain is the spelling. The maximum agrees to two
+	* decimals, which is the check that the two are measuring the same thing.
 
 	* The sensitivity, so a reader can disagree with the cut without rerunning anything.
 	di as res "  cases flagged at other cuts:"
@@ -535,8 +561,10 @@ preserve
 		di as res "    " %5.2f `c' "x : " r(N)
 	}
 
+	label var pull_nsu_unit "the priced-but-unweighed spelling this row is about"
 	compress
-	sort pull_province pull_municipal_city pull_item harmonized_nsu_unit
+	sort pull_province pull_municipal_city pull_item harmonized_nsu_unit pull_nsu_unit
+	isid pull_province pull_municipal_city pull_item harmonized_nsu_unit pull_nsu_unit
 	save "${btemp}\case_spelling_gap", replace
 restore
 
