@@ -49,12 +49,12 @@
 * the net is 98).
 *
 * INPUTS  (read only)
-*   outputs/master_rename_build/temp/nsu_data_master.dta   11,433 weighings
+*   outputs/build/temp/nsu_data_master.dta   11,433 weighings
 *   outputs/tables/cpi_level_panel.csv                      2,250 rows
 *   outputs/tables/cpi_item_crosswalk.csv                       95 rows
 *
 * OUTPUT
-*   outputs/master_rename_build/temp/nsu_weighings_cpi.dta
+*   outputs/build/temp/nsu_weighings_cpi.dta
 *
 * Run as a fresh isolated batch process:
 *   "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\07_cpi_factor.do

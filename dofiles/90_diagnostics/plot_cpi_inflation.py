@@ -19,7 +19,7 @@ from matplotlib.colors import LinearSegmentedColormap
 
 BOX  = Path(r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey")
 DATA = BOX / "NSU Market Survey Launch" / "data"
-OUT  = BOX / "Data Cleaning" / "outputs" / "master_rename_build" / "graphs"
+OUT  = BOX / "Data Cleaning" / "outputs" / "build" / "graphs"
 OUT.mkdir(parents=True, exist_ok=True)
 
 # ---- palette (dataviz skill reference instance) --------------------------------

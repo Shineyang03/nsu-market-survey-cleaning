@@ -4,8 +4,11 @@ Nothing in the live pipeline writes these, and nothing reads them. They are kept
 they are the only surviving output of a rejected approach, and a rejected approach is
 easier to argue against when you can see what it produced.
 
+**`graphs/` is the one exception, and it is a different case — read the section at the
+foot of this file before assuming those figures are dead.**
+
 **These files are frozen. Do not cite a number from them as current.** A full rebuild
-with `outputs/master_rename_build/` cleared does not recreate them — that is how they
+with `outputs/build/` cleared does not recreate them — that is how they
 were identified (`dofiles/90_diagnostics/verify_reproducibility.py` reported them as
 MISSING).
 
@@ -55,3 +58,33 @@ there is no province or municipality — so a few rows may be ambiguous.
 Weighing ids are now assigned once and remembered in
 `outputs/tables/weighing_id_registry.csv` (`dofiles/00_shared/00a_weighing_ids.do`), so
 an id written down today keeps its meaning. That was not true when this file was made.
+
+---
+
+## `graphs/` — superseded figures, not dead code
+
+17 files moved here from `outputs/graphs/`: six forest plots (`forest_v1` … `forest_v6`),
+four heatmaps, a per-province forest dot-plot set, and one size-check panel. All dated
+**24 July 2026**, six weeks stale at the time they were moved.
+
+**Unlike everything else in this folder, the code that writes them still runs.**
+
+| figure set | written by | status |
+|---|---|---|
+| `heatmap_prov_mun_by_nsu_item*.png` | `dofiles/90_diagnostics/heatmaps.do` | **live**, just not run since July |
+| `forest_v1` … `forest_v6`, `forest_dotplot/` | `dofiles/archive/build_forests.py`, `build_forest_medians.py` | archived code |
+| `sizecheck_Chicken_Bilog.png` | an ad-hoc check | no producer in the tree |
+
+So these are **superseded outputs**, not the residue of a rejected approach. They were
+archived because they are stale — they predate the fallback ladder, the `branch`
+reclassification (#28), the uncertainty columns (#35) and the A10 reversal, so any figure
+here is drawn on a build that no longer exists. Do not read a level off them.
+
+`${graphs}` still points at `outputs/graphs/`, and `00_globals.do` recreates that folder
+on every run, so it will reappear (empty) immediately and refill the moment `heatmaps.do`
+is run again. That is correct: it is a live output location whose *contents* went stale,
+which is a different thing from a dead path. If you want the heatmaps current, re-run
+`heatmaps.do` rather than reading these.
+
+The two `build_forest*.py` scripts are in `dofiles/archive/`; `dofiles/archive/README.md`
+says why. Regenerating the forest plots would mean reviving them first.

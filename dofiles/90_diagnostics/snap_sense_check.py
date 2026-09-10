@@ -41,9 +41,9 @@ from pathlib import Path
 # for it. This workbook's verdicts are frozen into a ledger, so writing it to the wrong
 # place is not a cosmetic failure.
 DC = Path(__file__).resolve().parents[2]
-T = DC / "outputs" / "master_rename_build" / "intermediate"
-DELIV = DC / "outputs" / "master_rename_build" / "deliverables"
-OUT = DC / "outputs" / "master_rename_build" / "diagnostics" / "snap_sense_check.xlsx"
+T = DC / "outputs" / "build" / "intermediate"
+DELIV = DC / "outputs" / "build" / "deliverables"
+OUT = DC / "outputs" / "build" / "diagnostics" / "snap_sense_check.xlsx"
 SNAP_DO = DC / "dofiles" / "00_shared" / "04_unit_snap.do"
 
 # ---------------------------------------------------------------- constant tripwire

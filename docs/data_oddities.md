@@ -22,7 +22,7 @@ under different approaches:
 This is the **only** such case in 1,943, and the fold creates it — not the
 fieldwork. At the raw and cleaned NSU grains every case is single-branch with zero
 exceptions, and that holds when the grain is split further by `corrected_unit`.
-Exported to `outputs/master_rename_build/diagnostics/fold_multi_weighing_approach.xlsx`.
+Exported to `outputs/build/diagnostics/fold_multi_weighing_approach.xlsx`.
 
 **Decision — split by deliverable rather than assigning the case a branch:**
 
@@ -190,7 +190,7 @@ are excluded under §5.
 non-standard units at all — `bottle (500 ml)`, `1.5kg per balde`,
 `1/2 sack of rice (25kls.)`, `bottle of ginebra s. miguel 350ml`, `pieces/ kilo`,
 `1/4 kilo`, `6 liters of water (2 blue containers)`, `each 10 litres of gallon`.
-Listed in `outputs/master_rename_build/diagnostics/excluded_standard_unit_obs.xlsx`.
+Listed in `outputs/build/diagnostics/excluded_standard_unit_obs.xlsx`.
 
 They are dropped **before** the order-of-magnitude snap, so they can never become an
 anchor for it. They are reconciled by hand on the PSPS side at merge time.
@@ -309,9 +309,17 @@ Consequences worth being explicit about:
 The kg bands used to be `< 1`, `[1, 20]` and `>= 1000`, leaving **(20, 1000)
 handled by nothing**. Three ILOILO / MAASIN `sack of rice` rows at 25 kg fell through
 to the anchor, which pulled them toward the item-level rice anchor — dominated by
-gantang at ~2,250 g — and published them as **2,500 g, ten times too small**, in the
-Outcome 1 table. They did not look anomalous because legitimate rice rows nearby are
-genuinely ~2,230 g.
+gantang at ~2,250 g — and published **those three sack rows** at **2,500 g** when a
+25 kg sack is 25,000 g: **ten times too small**. They did not look anomalous because
+legitimate rice rows nearby are genuinely ~2,230 g.
+
+**The 2,500 g here is the sack's wrong value, not the gantang's.** A gantang is
+**2,250 g** everywhere in the build — one distinct value across all 11,665 household
+rows that report it, `std_basis = "measured"`, set in the factor table in
+`20_psps_retrofitting/20a_psps_households.do` §1 and recorded as A17. The traditional
+definition of ~2.5 kg for a 3-litre salop is discussed in A17 and is **not** the figure
+this project uses; the two differ by 10% because the volume half of the traditional
+figure is solid and the bulk-density half is loose.
 
 The kg readings above 20 separate cleanly, which is what makes a threshold safe:
 
@@ -326,7 +334,7 @@ The kg readings above 20 separate cleanly, which is what makes a threshold safe:
 ### The review queue
 
 Rows the rules cannot resolve carry `flag_review` and are exported to
-`outputs/master_rename_build/diagnostics/unit_correction_review_queue.xlsx`.
+`outputs/build/diagnostics/unit_correction_review_queue.xlsx`.
 
 This existed in the pre-Aug11 build, was lost during parameterization, and is
 restored. In between, the file called `br` — interactive-only, and silently a no-op

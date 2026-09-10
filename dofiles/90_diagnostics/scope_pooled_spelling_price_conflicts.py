@@ -65,7 +65,7 @@ pd.set_option("display.width", 220)
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
 PRICE = BOX + r"\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
-MS = DC + r"\outputs\master_rename_build\intermediate\nsu_weighings_cpi.dta"
+MS = DC + r"\outputs\build\intermediate\nsu_weighings_cpi.dta"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
 OUT = DC + r"\outputs\tables\issue21_pooled_spelling_conflicts.csv"
 

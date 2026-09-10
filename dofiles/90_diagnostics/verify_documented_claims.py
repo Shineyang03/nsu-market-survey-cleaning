@@ -39,8 +39,8 @@ import pandas as pd
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
 LAUNCH = BOX + r"\NSU Market Survey Launch"
-TEMP = DC + r"\outputs\master_rename_build\intermediate"
-DELIV = DC + r"\outputs\master_rename_build\deliverables"
+TEMP = DC + r"\outputs\build\intermediate"
+DELIV = DC + r"\outputs\build\deliverables"
 
 RAW = LAUNCH + r"\data\PSPS NSU Market Survey Launch.dta"
 PRICE = LAUNCH + r"\data\NSU_prices_from_Makayla.csv"

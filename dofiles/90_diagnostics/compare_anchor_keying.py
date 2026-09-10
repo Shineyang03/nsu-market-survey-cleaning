@@ -9,7 +9,7 @@ Re-keying to the RAW label breaks the loop. This file answers the separate quest
 whether it also changes the ANSWERS, and if so which way.
 
 READS TWO BUILDS and diffs them:
-    outputs/master_rename_build/     the published build, anchor on harmonized_nsu_unit
+    outputs/build/     the published build, anchor on harmonized_nsu_unit
     outputs/anchor_pull_nsu_unit/    the variant, anchor on pull_nsu_unit
 
 Build the variant first, which touches nothing live:
@@ -35,7 +35,7 @@ import numpy as np
 import pandas as pd
 
 DC = Path(__file__).resolve().parent.parent.parent
-LIVE = DC / "outputs" / "master_rename_build" / "intermediate"
+LIVE = DC / "outputs" / "build" / "intermediate"
 VAR = DC / "outputs" / "anchor_pull_nsu_unit" / "intermediate"
 OUT = DC / "outputs" / "tables" / "anchor_keying_diff.csv"
 

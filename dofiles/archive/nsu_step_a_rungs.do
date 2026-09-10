@@ -116,7 +116,7 @@
 clear all
 set more off
 
-global build "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning\outputs\master_rename_build"
+global build "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning\outputs\build"
 global btemp   "${build}\temp"
 global btables "${build}\tables"
 

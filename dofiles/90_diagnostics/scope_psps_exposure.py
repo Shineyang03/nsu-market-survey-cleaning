@@ -47,7 +47,7 @@ CONS = (BOX + r"\08 Analysis & Data\14 Wave 1_Pub\Household survey"
 # so the key matches.
 MUNMAP = (BOX + r"\08 Analysis & Data\14 Wave 1_Pub\Household survey"
                 r"\3_input_data\municipal_mapping.dta")
-MS = DC + r"\outputs\master_rename_build\intermediate\nsu_weighings_cpi.dta"
+MS = DC + r"\outputs\build\intermediate\nsu_weighings_cpi.dta"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
 OUT = DC + r"\outputs\tables\psps_conversion_exposure.csv"
 
@@ -75,7 +75,7 @@ OUT = DC + r"\outputs\tables\psps_conversion_exposure.csv"
 # a list attributed to someone else. Reading the table keeps the two sides from diverging
 # again.
 def _load_std():
-    fac = (DC + r"\outputs\master_rename_build\intermediate\standard_unit_factors.dta")
+    fac = (DC + r"\outputs\build\intermediate\standard_unit_factors.dta")
     if not os.path.exists(fac):
         raise SystemExit(
             "standard_unit_factors.dta is missing. Run 20a_psps_households.do first --\n"

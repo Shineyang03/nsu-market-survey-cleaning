@@ -37,7 +37,7 @@ import pandas as pd
 
 DC = Path(r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel"
           r"\14 NSU Market Survey\Data Cleaning")
-TEMP = DC / "outputs" / "master_rename_build" / "temp"
+TEMP = DC / "outputs" / "build" / "temp"
 SNAP = TEMP / "standard_weight_unit_correction.dta"
 PRELIM = TEMP / "prelim_nsu_data.dta"
 OUT = DC / "outputs" / "tables" / "snap_step1_vs_step3.csv"

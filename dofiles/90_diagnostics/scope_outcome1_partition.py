@@ -40,7 +40,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
 from nsu_normalize import A, nz, ni, ng
 
 
-ms = pd.read_stata(DC + r"\outputs\master_rename_build\intermediate\nsu_weighings_cpi.dta",
+ms = pd.read_stata(DC + r"\outputs\build\intermediate\nsu_weighings_cpi.dta",
                    convert_categoricals=False)
 ms["prov"] = ms.pull_province.map(ng); ms["mun"] = ms.pull_municipal_city.map(ng)
 ms["item"] = ms.pull_item.map(ni); ms["raw"] = ms.pull_nsu_unit.map(nz)

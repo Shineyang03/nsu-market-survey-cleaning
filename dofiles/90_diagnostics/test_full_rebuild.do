@@ -5,7 +5,7 @@
 * "does it still reproduce from raw?" cannot be asked without risking the artifacts the
 * answer is about. This file asks it safely: it sets ${build_name}, so every .dta, table
 * and graph the two masters write goes to outputs/test_full_rebuild/ and
-* outputs/master_rename_build/ is never touched.
+* outputs/build/ is never touched.
 *
 * WHAT "FROM RAW" MEANS HERE, precisely, because it is not everything.
 *
@@ -220,8 +220,8 @@ do "90_diagnostics/attrition_ledger.do"
 * confused about which folder it is compared in.
 clear all
 do "00_shared/00_globals.do"
-local pub_temp  "${output}/master_rename_build/intermediate"
-local pub_deliv "${output}/master_rename_build/deliverables"
+local pub_temp  "${output}/build/intermediate"
+local pub_deliv "${output}/build/deliverables"
 global build_name "test_full_rebuild"
 do "00_shared/00_globals.do"
 local tst_temp  "${btemp}"

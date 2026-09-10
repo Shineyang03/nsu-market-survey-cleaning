@@ -81,7 +81,7 @@ MIN_STRATA=2        # need >=this many strata where BOTH labels appear
 # THE DEFAULT IS `block', and that is the decision this file exists to encode. The
 # published weight is available with --weight=corrected for comparison, but it must not
 # be what the fold policy is judged on: the grouping under test helped produce it.
-_ARGS=dict(weight='block', build='master_rename_build')
+_ARGS=dict(weight='block', build='build')
 for _a in sys.argv[1:]:
     if _a.startswith('--weight='): _ARGS['weight']=_a.split('=',1)[1]
     elif _a.startswith('--build='): _ARGS['build']=_a.split('=',1)[1]
@@ -103,9 +103,9 @@ print(f"[validate_folds] weight={_ARGS['weight']} ({_WCOL})  build={_ARGS['build
 # folded group contradicts its own weight test. A variant run landing on those names would
 # leave the build verified against a test it never agreed to -- the same class of failure
 # as this script's own six-week stale read, but pointing forward instead of backward.
-_TAG=('' if (_ARGS['weight']=='block' and _ARGS['build']=='master_rename_build')
+_TAG=('' if (_ARGS['weight']=='block' and _ARGS['build']=='build')
       else f"_{_ARGS['weight']}"
-           + ('' if _ARGS['build']=='master_rename_build' else f"_{_ARGS['build']}"))
+           + ('' if _ARGS['build']=='build' else f"_{_ARGS['build']}"))
 def _OUT(p):
     return Path(BOX)/'Data Cleaning'/'outputs'/'temp'/f'fold_validation_{p}{_TAG}.csv'
 

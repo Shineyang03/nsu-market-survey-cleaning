@@ -48,7 +48,7 @@ import pandas as pd
 
 BOX = Path(r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey")
 DC = BOX / "Data Cleaning"
-RESTATED = DC / "outputs" / "master_rename_build" / "intermediate" / "nsu_weighings_cpi.dta"
+RESTATED = DC / "outputs" / "build" / "intermediate" / "nsu_weighings_cpi.dta"
 PRICE = BOX / "NSU Market Survey Launch" / "data" / "NSU_prices_from_Makayla.csv"
 OUT = DC / "outputs" / "tables" / "case_lookup.xlsx"
 

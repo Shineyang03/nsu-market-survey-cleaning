@@ -93,7 +93,7 @@ foreach d in "${output}" "${temp}" "${graphs}" "${tables}" {
 * "...\outputsanchor_pull_nsu_unit". It creates the folder, saves into it, reports
 * success, and the variant build silently lands outside outputs/. Stata accepts a
 * forward slash on Windows, and it cannot be eaten.
-if "${build_name}" == "" global build_name "master_rename_build"
+if "${build_name}" == "" global build_name "build"
 global build   "${output}/${build_name}"
 
 * Five subtrees, split by what a reader would need to know before opening one:

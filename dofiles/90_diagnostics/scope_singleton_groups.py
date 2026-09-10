@@ -33,8 +33,8 @@ import pandas as pd
 pd.set_option("display.width", 220)
 DC = (r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel"
       r"\14 NSU Market Survey\Data Cleaning")
-MS = DC + r"\outputs\master_rename_build\intermediate\nsu_weighings_cpi.dta"
-REF = DC + r"\outputs\master_rename_build\deliverables\nsu_reference_set.dta"
+MS = DC + r"\outputs\build\intermediate\nsu_weighings_cpi.dta"
+REF = DC + r"\outputs\build\deliverables\nsu_reference_set.dta"
 OUT = DC + r"\outputs\tables\singleton_hetero_groups.csv"
 
 BR = {1.0: "conventional", 2.0: "price-quantity", 3.0: "size-based"}

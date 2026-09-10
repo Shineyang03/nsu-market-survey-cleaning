@@ -31,7 +31,7 @@ reference output disagree, read this file before constructing an explanation —
 of `../00_shared/03_clean_ms.do` lists every behaviour that deliberately differs from it.
 
 Writes `outputs/temp/nsu_data.dta`. The current pipeline writes to
-`outputs/master_rename_build/temp/` instead, so the two builds do not overwrite each
+`outputs/build/temp/` instead, so the two builds do not overwrite each
 other and the pre-Aug11 outputs remain inspectable.
 
 ## `analysis.do`
@@ -79,7 +79,7 @@ It ran without error while silently summarising a month-old dataset disconnected
 live `corrected_weight` / `cpi_factor` pipeline.
 
 Reviving it means re-pointing line 31 at
-`outputs/master_rename_build/temp/nsu_weighings_cpi.dta` and checking that the
+`outputs/build/temp/nsu_weighings_cpi.dta` and checking that the
 variables it collapses on still carry those names. Its per-cell summary layout is
 otherwise sound and is the closest thing the project has to a cell-level summary sheet.
 
@@ -91,7 +91,7 @@ and the non-NSU label trim, so their plots described a build that no longer exis
 Same defect that archived `summarize_corrected_weight_by_cell.do`.
 
 Reviving either means pointing it at
-`outputs/master_rename_build/temp/nsu_weighings_cpi.dta` and checking the columns it
+`outputs/build/temp/nsu_weighings_cpi.dta` and checking the columns it
 groups on still carry those names. The forest-plot layout itself is fine; only the
 input was stale.
 

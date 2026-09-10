@@ -10,15 +10,15 @@ what the data look like at each end, not a step in producing either.
 | | file | rows |
 |---|---|---|
 | raw | `NSU Market Survey Launch/data/PSPS NSU Market Survey Launch.dta` | 11,495 |
-| cleaned | `outputs/master_rename_build/intermediate/nsu_data_master.dta` | 11,433 |
+| cleaned | `outputs/build/intermediate/nsu_data_master.dta` | 11,433 |
 
 **Built by** `dofiles/90_diagnostics/summary_statistics.py`. **Full output**:
 
-- `outputs/master_rename_build/summary/summary_stats_raw.csv` and `summary_stats_cleaned.csv` --
+- `outputs/build/summary/summary_stats_raw.csv` and `summary_stats_cleaned.csv` --
   every statistic below (and several not shown here) in tidy long format:
   `statistic, grouping, level, value`. Pivot on `statistic` to get a wide table for
   any one metric.
-- `outputs/master_rename_build/summary/summary_stats.json` -- the same numbers, each
+- `outputs/build/summary/summary_stats.json` -- the same numbers, each
   carrying its title, description and grain, for a script to read without this page.
   Not used by anything in the repository today; open the CSVs instead unless you are
   writing code against it.
@@ -307,7 +307,7 @@ code that might, and it is safe to ignore or delete if nothing ever does. To lis
 it contains:
 
 ```
-python -c "import json,io; d=json.load(io.open(r'outputs/master_rename_build/summary/summary_stats.json',encoding='utf-8')); [print(s['id'], '|', s['grouping'], '|', s['title']) for s in d['cleaned']['statistics']]"
+python -c "import json,io; d=json.load(io.open(r'outputs/build/summary/summary_stats.json',encoding='utf-8')); [print(s['id'], '|', s['grouping'], '|', s['title']) for s in d['cleaned']['statistics']]"
 ```
 
 Read the `$schema_note` key first if you do use it -- it states the one place where the

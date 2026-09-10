@@ -32,7 +32,7 @@
 * harmonized_nsu_unit (current).
 *
 * OUTPUT  ${output}\anchor_<keying>\deliverables\nsu_reference_set.dta   and the rest of
-*         the variant build. The published build under master_rename_build is untouched,
+*         the variant build. The published build under build is untouched,
 *         so the two can be diffed afterwards with no restore step.
 ********************************************************************************
 
@@ -49,7 +49,7 @@ global build_name "anchor_${keying}"
 di as res _n "{hline 78}"
 di as res "ANCHOR KEYING MEASUREMENT: pooling on pull_item x ${keying}"
 di as res "  variant build subtree : ${build_name}"
-di as res "  the published build under master_rename_build is NOT written to"
+di as res "  the published build under build is NOT written to"
 di as res "{hline 78}"
 
 * The whole intervention: preset ${unitvar} so 03_clean_ms.do's default does not fire.

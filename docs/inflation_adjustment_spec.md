@@ -209,7 +209,7 @@ Do **not**:
   CPI by another, stop
 - aggregate to case, municipality, or any survey grain
 - apply anything to any weight
-- modify `dofiles/00_shared/03_clean_ms.do`, anything under `outputs/master_rename_build/`,
+- modify `dofiles/00_shared/03_clean_ms.do`, anything under `outputs/build/`,
   or `docs/conversion_factor_methodology.md`
 - run `git commit` or `git push` — leave work uncommitted and list files created
 

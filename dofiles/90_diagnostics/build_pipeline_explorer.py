@@ -19,19 +19,19 @@ through stages, which is what a Sankey diagram plus a per-row drill-down are for
 WHAT THIS READS (build outputs only -- nothing here is written by this script)
   raw MS            NSU Market Survey Launch/data/PSPS NSU Market Survey Launch.dta
   price file        NSU Market Survey Launch/data/NSU_prices_from_Makayla.csv
-  arrival stage      outputs/master_rename_build/intermediate/prelim_nsu_data.dta
-  weight/unit stage   outputs/master_rename_build/intermediate/standard_weight_unit_correction.dta
-  restated stage     outputs/master_rename_build/intermediate/nsu_weighings_cpi.dta
-  Outcome 1 output   outputs/master_rename_build/deliverables/nsu_reference_set.dta
+  arrival stage      outputs/build/intermediate/prelim_nsu_data.dta
+  weight/unit stage   outputs/build/intermediate/standard_weight_unit_correction.dta
+  restated stage     outputs/build/intermediate/nsu_weighings_cpi.dta
+  Outcome 1 output   outputs/build/deliverables/nsu_reference_set.dta
   harmonization map  outputs/tables/master_nsu_rename.csv
   comment crosswalk  outputs/tables/add_comments_crosswalk.xlsx
-  non-NSU drops  outputs/master_rename_build/diagnostics/excluded_standard_unit_obs.xlsx
-  attrition ledger   outputs/master_rename_build/summary/attrition_ledger.csv (context only,
+  non-NSU drops  outputs/build/diagnostics/excluded_standard_unit_obs.xlsx
+  attrition ledger   outputs/build/summary/attrition_ledger.csv (context only,
                       see "KNOWN DISCREPANCY" below -- this script does not trust its
                       row counts, only its prose reasons)
 
 WHAT THIS WRITES
-  outputs/master_rename_build/summary/nsu_pipeline_explorer.html   -- the only output.
+  outputs/build/summary/nsu_pipeline_explorer.html   -- the only output.
       Self-contained: inline CSS/JS, data embedded as JSON, no CDN, no build step. Opens
       from disk with file://. Nothing anywhere else is touched -- no .do file, no .dta.
       Lives under the build's own subtree, not a top-level outputs/explorer/, because it
@@ -66,7 +66,7 @@ Every one of the 37 raw rows that fails to join is independently explained:
     (enumerator re-entered 225 weight for the 187.5 price mark)" -- matched back
     to its raw row by the same 7-field key with obs_type read off the crosswalk's
     own hetero label.
-  - 38 rows: present in outputs/master_rename_build/diagnostics/excluded_standard_unit_obs.xlsx
+  - 38 rows: present in outputs/build/diagnostics/excluded_standard_unit_obs.xlsx
     (the non-NSU label drop -- standard quantity, ambiguous quantity, or not a unit;
     the file's drop_reason column says which), matched back the same way.
   - 3 rows: pull_price missing & item=="fresh fish" & pull_nsu_unit=="bilog" &
@@ -277,13 +277,13 @@ LAUNCH = BOX / "NSU Market Survey Launch"
 
 RAW_PATH = LAUNCH / "data" / "PSPS NSU Market Survey Launch.dta"
 PRICE_PATH = LAUNCH / "data" / "NSU_prices_from_Makayla.csv"
-PRELIM_PATH = DC / "outputs" / "master_rename_build" / "intermediate" / "prelim_nsu_data.dta"
-WTUNIT_PATH = DC / "outputs" / "master_rename_build" / "intermediate" / "standard_weight_unit_correction.dta"
-RESTATED_PATH = DC / "outputs" / "master_rename_build" / "intermediate" / "nsu_weighings_cpi.dta"
-REFSET_PATH = DC / "outputs" / "master_rename_build" / "deliverables" / "nsu_reference_set.dta"
+PRELIM_PATH = DC / "outputs" / "build" / "intermediate" / "prelim_nsu_data.dta"
+WTUNIT_PATH = DC / "outputs" / "build" / "intermediate" / "standard_weight_unit_correction.dta"
+RESTATED_PATH = DC / "outputs" / "build" / "intermediate" / "nsu_weighings_cpi.dta"
+REFSET_PATH = DC / "outputs" / "build" / "deliverables" / "nsu_reference_set.dta"
 MASTER_RENAME_PATH = DC / "outputs" / "tables" / "master_nsu_rename.csv"
 COMMENTS_XW_PATH = DC / "outputs" / "tables" / "add_comments_crosswalk.xlsx"
-STDQTY_PATH = DC / "outputs" / "master_rename_build" / "diagnostics" / "excluded_standard_unit_obs.xlsx"
+STDQTY_PATH = DC / "outputs" / "build" / "diagnostics" / "excluded_standard_unit_obs.xlsx"
 
 # ---- price-side analysis tables (all read-only; see "THE PRICE-FILE SIDE" above) ----
 T = DC / "outputs" / "tables"
@@ -291,7 +291,7 @@ PRICE_ONLY_PATH = T / "price_only_no_weight_anywhere.csv"
 POOLED_SPELLING_PATH = T / "issue21_pooled_spelling_conflicts.csv"
 MERGE_RULE_PATH = T / "issue21_merge_rule_candidates.csv"
 DROPPED_LABELS_PATH = T / "master_rename_dropped_labels.csv"
-WEIGHT_CORRECTION_PATH = (DC / "outputs" / "master_rename_build" / "summary"
+WEIGHT_CORRECTION_PATH = (DC / "outputs" / "build" / "summary"
                           / "weight_correction_report.csv")
 CONV_OVERLAP_PATH = T / "conventional_unit_overlap.csv"
 CONV_COVERAGE_PATH = T / "conventional_price_coverage.csv"
@@ -311,19 +311,19 @@ SINGLETON_PATH = T / "singleton_hetero_groups.csv"
 # BT is intermediate/, for the one file here that stayed there (psps_households.dta).
 # BDELIV is deliverables/: the lookup and the two household-level files all moved there
 # in the restructure that split temp/ into intermediate/ + deliverables/.
-BT = DC / "outputs" / "master_rename_build" / "intermediate"
-BDELIV = DC / "outputs" / "master_rename_build" / "deliverables"
+BT = DC / "outputs" / "build" / "intermediate"
+BDELIV = DC / "outputs" / "build" / "deliverables"
 O2_LOOKUP_PATH = BDELIV / "outcome2_lookup.dta"
 O2_CONVERTED_PATH = BDELIV / "psps_converted_capped.dta"
 O2_STANDARD_PATH = BDELIV / "psps_standard_units.dta"
 O2_HOUSEHOLDS_PATH = BT / "psps_households.dta"
-LEDGER_PATH = DC / "outputs" / "master_rename_build" / "summary" / "attrition_ledger.csv"
+LEDGER_PATH = DC / "outputs" / "build" / "summary" / "attrition_ledger.csv"
 
 # Lives under the build's own subtree rather than a top-level outputs/explorer/: the
 # explorer is built from one specific build, so a variant build set via ${build_name}
 # should get its own explorer rather than overwriting the published one -- the same
 # argument 00_globals.do makes for every other build output.
-OUT_DIR = DC / "outputs" / "master_rename_build" / "summary"
+OUT_DIR = DC / "outputs" / "build" / "summary"
 OUT_HTML = OUT_DIR / "nsu_pipeline_explorer.html"
 
 
@@ -1952,7 +1952,7 @@ a { color: var(--accent); }
   <p style="color:var(--muted);font-size:12.5px;margin:0 0 10px 0">
     Sections 1&ndash;6 follow a market-survey weighing. This one follows the other side: a
     household that reported a quantity in a non-standard unit, and what it received. Every
-    figure below is read from <code>outputs/master_rename_build/summary/attrition_ledger.csv</code>
+    figure below is read from <code>outputs/build/summary/attrition_ledger.csv</code>
     and the build's own <code>.dta</code> files &mdash; nothing on this page recomputes an
     Outcome 2 decision, which is the same rule the rest of the tool follows.
   </p>

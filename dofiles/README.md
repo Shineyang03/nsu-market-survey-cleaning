@@ -179,7 +179,7 @@ checking. Check 5 is what tells you those outputs still match their inputs.
 
 ## Where a build's output lands
 
-Every do-file writes under `outputs/<build_name>/` — `outputs/master_rename_build/` for
+Every do-file writes under `outputs/<build_name>/` — `outputs/build/` for
 the published build, some other subtree for a variant (see *Running a variant build*
 below). Five folders, split by what a reader needs to know before opening a file:
 
@@ -300,7 +300,7 @@ this backwards is a silent error in either direction. The site-by-site split is 
 
 `00_globals.do` takes a `${build_name}` override. Set it before the globals load and the
 whole build — every `.dta`, table and graph — goes to `outputs/<build_name>/` instead of
-`outputs/master_rename_build/`:
+`outputs/build/`:
 
 ```stata
 global build_name "anchor_pull_nsu_unit"
@@ -475,7 +475,7 @@ a raw `0.00125` might be 1 mL or 1,250 mL, and only the surrounding cell says wh
 go to a human, and the loop that does it is:
 
 1. **`python dofiles/90_diagnostics/snap_sense_check.py`** writes
-   `outputs/master_rename_build/diagnostics/snap_sense_check.xlsx`. Open the **`to_review`**
+   `outputs/build/diagnostics/snap_sense_check.xlsx`. Open the **`to_review`**
    sheet first — it holds only the rows still needing a decision, each with a
    `proposed_value` and the rule behind it. `all_weighings` holds the whole file for an
    overall pass.
@@ -526,7 +526,7 @@ weeks pointed at `outputs/temp/nsu_data.dta` — the pre-Aug11 build — so it r
 own past answers no matter what changed upstream, which is worse than not running: it
 looked like confirmation. Three files were archived for hardcoding that same path
 (`archive/README.md`). **The live weighings are
-`outputs/master_rename_build/intermediate/nsu_weighings_cpi.dta`**; anything reading
+`outputs/build/intermediate/nsu_weighings_cpi.dta`**; anything reading
 `outputs/temp/` is reading a build from July. `verify_documented_claims.py` now refuses to
 score a fold check whose input CSV is older than the weighings it describes.
 

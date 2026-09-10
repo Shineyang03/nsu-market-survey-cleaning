@@ -33,8 +33,8 @@ import pandas as pd
 
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
-TEMP = DC + r"\outputs\master_rename_build\intermediate"
-DELIV = DC + r"\outputs\master_rename_build\deliverables"
+TEMP = DC + r"\outputs\build\intermediate"
+DELIV = DC + r"\outputs\build\deliverables"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
 
 

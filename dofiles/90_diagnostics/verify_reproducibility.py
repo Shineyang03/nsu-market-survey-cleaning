@@ -24,9 +24,9 @@ HOW TO USE IT. Three commands, in this order:
         Snapshot the current build outputs to a side folder.
 
     (clear the build outputs, then rebuild:
-     rm outputs/master_rename_build/intermediate/*.dta
-     rm outputs/master_rename_build/deliverables/*.dta
-     rm outputs/master_rename_build/diagnostics/*.xlsx
+     rm outputs/build/intermediate/*.dta
+     rm outputs/build/deliverables/*.dta
+     rm outputs/build/diagnostics/*.xlsx
      cd dofiles && StataSE-64 -e do master_outcome1.do)
 
     python dofiles/90_diagnostics/verify_reproducibility.py
@@ -37,8 +37,8 @@ more is not detectable if it is left sitting on disk -- nothing overwrites it, s
 compares SAME and reads as reproduced. Deleting the tables first is what turns such a
 file into a MISSING line. This is how three orphaned stepA_*.xlsx were found; they are
 written only by the archived nsu_step_a_rungs.do. The build's .xlsx/.csv exports are all
-git-tracked, so `git checkout -- outputs/master_rename_build/diagnostics
-outputs/master_rename_build/deliverables outputs/master_rename_build/summary` restores
+git-tracked, so `git checkout -- outputs/build/diagnostics
+outputs/build/deliverables outputs/build/summary` restores
 anything the rebuild turns out not to produce.
 
 HOW TO READ THE OUTPUT.
@@ -127,7 +127,7 @@ import pandas as pd
 
 DC = Path(r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel"
           r"\14 NSU Market Survey\Data Cleaning")
-BUILD = DC / "outputs" / "master_rename_build"
+BUILD = DC / "outputs" / "build"
 
 # What a rebuild is expected to reproduce. Only the build subtree: outputs/temp/ and
 # outputs/tables/ hold hand-made inputs and pre-Aug11 artefacts that no live step

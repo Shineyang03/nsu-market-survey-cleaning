@@ -539,7 +539,7 @@ The fold introduces exactly one exception, so the table above assigns each case 
 modal approach: ILOILO / TIGBAUAN / carrot, where `bilog` (9 size-based weighings)
 and `pieces or units` (7 price-quantity weighings) both fold to harmonized
 `pieces or units`. It is exported to
-`outputs/master_rename_build/diagnostics/fold_multi_weighing_approach.xlsx` and needs a
+`outputs/build/diagnostics/fold_multi_weighing_approach.xlsx` and needs a
 manual branch assignment — either pick a branch for the pooled case, or keep the two
 raw labels apart for this cell.
 
@@ -1467,7 +1467,7 @@ All figures below are measured on the PSA province × COICOP food CPI over the a
 pair PSPS 2024m5 → MS 2026m4, by `dofiles/90_diagnostics/plot_cpi_inflation.py`, which also writes
 the two figures shown here.
 
-![Cumulative food-price change from the PSPS round to the market survey, by province and COICOP group, with a panel showing how far the estimate moves when the PSPS anchor month is shifted across its range](../outputs/master_rename_build/graphs/cpi_inflation_psps_to_ms.png)
+![Cumulative food-price change from the PSPS round to the market survey, by province and COICOP group, with a panel showing how far the estimate moves when the PSPS anchor month is shifted across its range](../outputs/build/graphs/cpi_inflation_psps_to_ms.png)
 
 *$`\pi`$ by province × COICOP group, PSPS 2024m5 → MS 2026m4. Read the columns for
 cross-province disagreement within a group and the right-hand panel for how much the
@@ -1503,7 +1503,7 @@ for other vegetables, 10.5 pp for tubers and 9.3 pp for fruits. A cell-level pro
 date would introduce an error of the same order as the adjustment itself, so use the
 household's own interview month. It is available on the PSPS side.
 
-![CPI paths for each COICOP food group, one line per province, indexed to December 2023, with the PSPS fieldwork window and the market survey window shaded](../outputs/master_rename_build/graphs/cpi_paths_by_coicop_group.png)
+![CPI paths for each COICOP food group, one line per province, indexed to December 2023, with the PSPS fieldwork window and the market survey window shaded](../outputs/build/graphs/cpi_paths_by_coicop_group.png)
 
 *Index paths by group, each province a grey line and the cross-province median in
 blue, indexed to 2023m12 = 100. The grey band is the PSPS fieldwork window and the

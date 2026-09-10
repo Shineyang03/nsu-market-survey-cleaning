@@ -25,10 +25,10 @@ WHY BOTH NUMBERS MATTER TOGETHER. The corrected count on its own reads as a defe
 It is not: most corrections are decimal slips the pipeline is meant to repair. The
 uncertain count is the part a reader should discount, and it is much smaller.
 
-OUTPUT  outputs/master_rename_build/summary/weight_correction_report.csv
+OUTPUT  outputs/build/summary/weight_correction_report.csv
         one row per weighing, with the flags below -- built long so the pipeline
         explorer can filter and group it rather than re-deriving any of it
-        outputs/master_rename_build/summary/weight_correction_summary.csv
+        outputs/build/summary/weight_correction_summary.csv
         the counts, for citation
 
 Run from the project root:  python dofiles/90_diagnostics/report_weight_corrections.py
@@ -38,13 +38,13 @@ from pathlib import Path
 
 # ANCHORED ON THE REPO ROOT, not on the working directory. These used to be relative
 # (`Path("outputs/...")`), which means running this script from dofiles/ -- the directory
-# every do-file must be run from -- silently CREATES dofiles/outputs/master_rename_build/
+# every do-file must be run from -- silently CREATES dofiles/outputs/build/
 # and writes there. An empty three-level tree of exactly that shape was sitting in the
 # repo, which is how the defect was found. Deriving the root from this file's own location
 # makes the script work from anywhere and makes that failure impossible.
 DC = Path(__file__).resolve().parents[2]
-T = DC / "outputs" / "master_rename_build" / "intermediate"
-OUT = DC / "outputs" / "master_rename_build" / "summary"
+T = DC / "outputs" / "build" / "intermediate"
+OUT = DC / "outputs" / "build" / "summary"
 
 pre = pd.read_stata(T / "prelim_nsu_data.dta", convert_categoricals=False)
 mas = pd.read_stata(T / "nsu_data_master.dta", convert_categoricals=True)

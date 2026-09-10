@@ -23,7 +23,7 @@ fold map described a build that no longer existed. Reading nsu_data_master.dta (
 rows) changes the numbers, and that is a correction, not a regression. Do not "restore"
 the old figures.
 
-INPUT   outputs/master_rename_build/intermediate/nsu_data_master.dta
+INPUT   outputs/build/intermediate/nsu_data_master.dta
 OUTPUT  outputs/tables/unit_fold_map.csv
 
 RUN, from the project root, after master_outcome1.do has run at least once:
@@ -40,7 +40,7 @@ from nsu_fold_rule import canonical, fold_verdict, to_cleaned
 
 DC = Path(r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel"
           r"\14 NSU Market Survey\Data Cleaning")
-IN_DTA = DC / "outputs" / "master_rename_build" / "intermediate" / "nsu_data_master.dta"
+IN_DTA = DC / "outputs" / "build" / "intermediate" / "nsu_data_master.dta"
 OUT_CSV = DC / "outputs" / "tables" / "unit_fold_map.csv"
 
 # corrected_unit is 1 = grams, 2 = millilitres. Set by an encode() in 04_unit_snap.do, so
