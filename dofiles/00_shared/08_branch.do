@@ -172,7 +172,24 @@ drop _conv_here _other_here _mixed_pair _case _conv_in_case _other_in_case
 ********************************************************************************
 
 gen byte d_unusable      = missing(corrected_weight)
-gen byte d_disputed      = (snap_block == 1) & !d_unusable
+
+* `d_disputed' REQUIRES THE TWO READINGS TO ACTUALLY DIFFER, not merely that the block
+* rule was the one that decided.
+*
+* `snap_block == 1' records which code path chose the published value. It does NOT record
+* that the two candidates disagreed: STEP 3e compares w_block against w_step1 on every row
+* it touches, including rows where the two round to the identical gram value, so the block
+* rule can "win" a contest with nothing at stake. 125 of the 644 rows at snap_block == 1
+* -- 19.4% -- have w_step1 == w_block exactly, and on 122 of those the published weight is
+* that same number. Calling them disputed labels the path travelled rather than the fact
+* about the row, which is the mislabel class closed in 12_publish_reference_set.do sec 5c.
+*
+* Where either candidate is MISSING the readings cannot be shown to agree, so the row
+* stays disputed. Conservative on purpose: 5 rows, and the alternative is silently
+* declaring a comparison settled that was never made.
+gen byte d_disputed = (snap_block == 1) & !d_unusable & ///
+	(missing(w_step1) | missing(w_block) | reldif(w_step1, w_block) > 1e-9)
+
 gen byte d_step1_flagged = (review_step1 == 1)
 gen byte d_any_uncertain = d_unusable | d_disputed | d_step1_flagged
 

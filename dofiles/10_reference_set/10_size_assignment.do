@@ -414,8 +414,20 @@ assert size_ord == 3 if weighing_approach == 3 & n_filled < k_sizes & n_filled =
 * ---- the one substantive change: a lone surviving group is a MEDIUM -------------
 count if weighing_approach == 3 & n_filled < k_sizes & n_filled == 1 & size_ord != 2
 local n_relabel = r(N)
+
+* The CASE count, counted rather than typed. It used to read "30 cases" as a literal,
+* beside an assertion seventeen lines above putting the same population at 34 -- two
+* numbers for one set, one of them unchecked. A count that cannot be re-derived on the
+* run that prints it is how this project's stale figures start.
+egen byte _tag_uf = tag(pull_province pull_municipal_city pull_item harmonized_nsu_unit) ///
+	if weighing_approach == 3 & n_filled < k_sizes & n_filled == 1
+count if _tag_uf == 1
+local n_uf_cases = r(N)
+drop _tag_uf
+
 replace size_ord = 2 if weighing_approach == 3 & n_filled < k_sizes & n_filled == 1
-di as res "under-filled cases relabelled to medium: 30 cases, `n_relabel' weighing rows"
+di as res "under-filled cases relabelled to medium: `n_uf_cases' cases, " ///
+	"`n_relabel' weighing rows"
 assert `n_relabel' > 0
 
 drop tag_cellgrp tag_cell_sz fill_g1 fill_g2 fill_g3

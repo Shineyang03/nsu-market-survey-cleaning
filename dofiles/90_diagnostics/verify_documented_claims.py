@@ -859,6 +859,43 @@ def c_modal_label_criterion(sized):
           " of the field labels (the reference photographs).")
 
 
+def c_reference_docs_row_totals():
+    """The row totals two REFERENCE docs state about files they describe.
+
+    docs/summary_statistics.md and docs/data_dictionary.md / docs/master_rename.md
+
+    WHY THESE TWO ARE HERE NOW. Both sat outside this file's net and both drifted: the
+    summary doc quoted a cleaned row count of 11,458 against a build of 11,433 (and the
+    CSV nominally backing it said 11,453 -- a third number, because the script had not
+    been re-run), and the crosswalk totals said 2,950 rows against 2,927 on disk. Nothing
+    noticed, which is the same failure the attrition ledger was rebuilt to prevent, just
+    recurring in the docs that this file did not reach.
+
+    These are the cheapest possible checks -- a row count of a file the doc names -- and
+    they are the ones that would have caught both.
+    """
+    cleaned = pd.read_stata(DC + r"\outputs\master_rename_build\temp\nsu_data_master.dta",
+                            convert_categoricals=False)
+    check("summary_statistics.md: cleaned row count",
+          "summary_statistics.md / Sources, Grain, Counts",
+          "11,433 rows in nsu_data_master.dta",
+          f"{len(cleaned):,} rows in nsu_data_master.dta",
+          "quoted in three places in that doc (Sources, Grain, Counts). Re-run"
+          " 90_diagnostics/summary_statistics.py, then update the doc from its CSVs")
+
+    xw = pd.read_csv(DC + r"\outputs\tables\master_nsu_rename.csv")
+    src = xw.source.value_counts()
+    n_merged = int((xw.n_cell_merged > 1).sum())
+    check("master_rename.md / data_dictionary.md: crosswalk totals",
+          "master_rename.md / source table, data_dictionary.md / master rename sheet",
+          "2,927 rows: 1,985 MS & Price + 942 Price Only + 0 MS-only; 757 in-cell merged",
+          f"{len(xw):,} rows: {src.get('MS & Price', 0):,} MS & Price"
+          f" + {src.get('Price Only', 0):,} Price Only + {src.get('MS', 0)} MS-only;"
+          f" {n_merged} in-cell merged",
+          "both docs state this total; they disagreed with each other on the merged"
+          " count as well as with the file, which is what an unchecked figure does")
+
+
 def main():
     head("INPUTS")
     prelim = pd.read_stata(PRELIM, convert_categoricals=False)
@@ -874,6 +911,7 @@ def main():
 
     head("BUILD HYGIENE")
     c_no_corrupt_source_files()
+    c_reference_docs_row_totals()
 
     head("CLAIMS ABOUT IDENTIFICATION AND VOCABULARY")
     c_harmonization_uniqueness(rest)

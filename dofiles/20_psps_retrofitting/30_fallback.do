@@ -39,11 +39,11 @@
 * in Outcome 2 the ladder may carry it past its own cell.
 *
 * ------------------------------------------------------------------------------
-* WHAT THIS FILE DOES NOT DO. It does not attach a weight to a PSPS household row. That
-* needs the retrofit, which is not written -- 20_psps_retrofitting/ holds only this file --
-* and `branch' from 08_branch.do (#28), also unwritten. This builds the LADDER as a lookup
-* keyed at every level, plus the refusal list; the step that joins it to household rows
-* consumes both.
+* WHAT THIS FILE DOES NOT DO. It does not attach a weight to a PSPS household row. This
+* builds the LADDER as a lookup keyed at every level, plus the refusal list;
+* 28_match_and_convert.do consumes both and does the attaching, and it runs immediately
+* after this file in master_outcome2.do. `branch' comes from 08_branch.do, which runs
+* earlier still.
 *
 * CALLED BY   master_outcome2.do, after the Outcome 1 reference set exists.
 *
@@ -458,5 +458,5 @@ foreach L in 2 3 {
 * describes nowhere in particular. It is offered because the alternative is no number, and
 * `fallback_level' is what lets a reader refuse it.
 
-di as res _n "30_fallback.do done -- ladder built. ATTACHING it to PSPS households"
-di as res "needs the retrofit and 08_branch.do, neither written."
+di as res _n "30_fallback.do done -- ladder built, with nu_lN beside every rung's count."
+di as res "28_match_and_convert.do runs next and attaches it to PSPS household rows."

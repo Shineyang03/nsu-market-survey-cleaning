@@ -222,9 +222,19 @@ price-file row was a different problem, resolved by dropping an ambiguous label 
 
 ## What this ledger does not do
 
-It counts rows. It does not carry the **uncertainty** attached to a weight: every weighing
-has flags saying whether its weight was corrected and whether it is disputed,
-anchor-flagged or unusable (`weight_correction_report.csv`, written by
-`90_diagnostics/report_weight_corrections.py`), roughly one weighing in seven carries some
-uncertainty, and **no step in either outcome reads that file**. A conversion factor built
-on a disputed weight does not currently say so.
+It counts rows, and a row count is not the whole of what a reader needs.
+
+**The uncertainty attached to a weight is carried separately, and it is carried.** Roughly
+one weighing in seven is disputed, anchor-flagged or unusable. `08_branch.do` defines the
+four flags from build columns, and both deliverables publish them per row — the reference
+set and the Outcome 2 lookup as `n_disputed` / `n_flagged` / `n_uncertain` /
+`share_uncertain`, and every converted household row as `nu_used` at the fallback rung that
+supplied its weight. See A20 and issue #35. This ledger does not aggregate those counts,
+because a stage total would mix weighings that were questioned with weighings that were
+dropped, and the two are different facts about different rows.
+
+**It does not say whether a published weight differs from what the enumerator typed.**
+That is `magnitude_corrected` in `weight_correction_report.csv`, and it is deliberately not
+one of the uncertainty flags: most corrections are decimal slips the pipeline exists to
+repair, so a correction count read as a defect rate would misdescribe the work. No
+deliverable currently carries it.

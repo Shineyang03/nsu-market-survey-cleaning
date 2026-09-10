@@ -16,11 +16,11 @@ the union of the market survey (MS) and the price (PSPS-derived) data:
 
 | `source` | meaning | rows |
 |---|---|---|
-| `MS & Price` | raw NSU present in both the market survey and the price data | 2,001 |
-| `Price Only` | raw NSU in the price data but not in the raw MS data for that cell | 949 |
+| `MS & Price` | raw NSU present in both the market survey and the price data | 1,985 |
+| `Price Only` | raw NSU in the price data but not in the raw MS data for that cell | 942 |
 | `MS` | raw NSU present only in the market survey, never in the price data | 0 currently |
 
-Total **2,950 rows**; **757** are part of an in-cell merge (`n_cell_merged > 1`).
+Total **2,927 rows**; **757** are part of an in-cell merge (`n_cell_merged > 1`).
 
 ---
 

@@ -48,15 +48,27 @@ that file defines.
 Any step can also be run on its own once an earlier one has run at least once — each
 writes a `.dta` the next one reads.
 
-The Python steps are not run from the masters. They build the crosswalk and the CPI
-panel and change rarely; run them from the project root when their inputs change:
+Five prerequisite steps are not run from the masters. They build the id registry, the
+crosswalk and the CPI panel, and they change rarely. Run them when their inputs change.
+
+**They do not all run from the same directory, and the commands below are written for
+where each one actually works.** The three Stata steps reach `00_shared/00_globals.do` by
+a relative path, so like every other do-file here they need the working directory to be
+`dofiles/`. The two Python steps take a path *from the project root*.
+
+From `dofiles/`:
 
 ```
 "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\00a_weighing_ids.do
 "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\00b_price_ms_cases.do
+"C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\06_cpi_panel.do
+```
+
+From the project root, between `00b` and `06`:
+
+```
 python dofiles/00_shared/01_build_crosswalk.py
 python dofiles/00_shared/02_drop_non_nsu_labels.py --apply
-"C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\06_cpi_panel.do
 ```
 
 **That order matters, and it is a straight line on purpose.** Each link:
@@ -394,13 +406,20 @@ inherit the uncertainty of the pool it got, not of its own cell — so the ladde
 from one rung printed beside a weight from another is the mislabel class closed in
 `12_publish_reference_set.do` section 5c.
 
-**Read the counts, not a dummy.** 29.7% of reference-set rows rest on at least one
-questioned weighing but only 8.8% rest entirely on them, and the median row sits on three
+**Read the counts, not a dummy.** 27.7% of reference-set rows rest on at least one
+questioned weighing but only 7.6% rest entirely on them, and the median row sits on four
 weighings. `share_uncertain == 1` is the signal worth acting on.
 
 **Nothing is dropped or down-weighted.** The columns let a reader apply a tolerance; the
 build applies none. A20 says why the three kinds of doubt are not weighted against each
 other.
+
+**The coarser fallback rungs are not cleaner than L0, but do not overstate the gradient.**
+Per household row the mean `share_uncertain` runs L0 0.120 → L2 0.195 → L3 0.384; pooled
+over the weighings themselves it runs 0.121 → 0.148 → 0.148, because L2 and L3 draw on much
+larger pools (median 60 and 21 weighings against L0's 4). Both are correct and they answer
+different questions — A20 states both with their formulas. Quote neither without naming the
+aggregation.
 
 `90_diagnostics/report_weight_corrections.py` still writes
 `weight_correction_report.csv`, which the pipeline explorer reads — but it now **reads**

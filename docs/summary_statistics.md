@@ -10,9 +10,9 @@ what the data look like at each end, not a step in producing either.
 | | file | rows |
 |---|---|---|
 | raw | `NSU Market Survey Launch/data/PSPS NSU Market Survey Launch.dta` | 11,495 |
-| cleaned | `outputs/master_rename_build/temp/nsu_data_master.dta` | 11,458 |
+| cleaned | `outputs/master_rename_build/temp/nsu_data_master.dta` | 11,433 |
 
-**Built by** `dofiles/summary_statistics.py`. **Full output**:
+**Built by** `dofiles/90_diagnostics/summary_statistics.py`. **Full output**:
 
 - `outputs/master_rename_build/tables/summary_stats_raw.csv` and `summary_stats_cleaned.csv` --
   every statistic below (and several not shown here) in tidy long format:
@@ -38,7 +38,7 @@ unique at this grain -- verified directly, not assumed:
 | | rows | distinct groups |
 |---|---|---|
 | raw | 11,495 | 11,495 |
-| cleaned | 11,458 | 11,458 |
+| cleaned | 11,433 | 11,433 |
 
 A **case** is province x municipality x item x NSU, the pooling unit. Raw data has
 no harmonized NSU column, so `pull_nsu_unit` (the free-text field) stands in for it
@@ -52,7 +52,7 @@ that shouldn't be inflated.
 | | case key | distinct cases |
 |---|---|---|
 | raw | province x municipality x item x `pull_nsu_unit` | 2,001 |
-| cleaned | province x municipality x item x `harmonized_nsu_unit` x `corrected_unit` | 2,020 |
+| cleaned | province x municipality x item x `harmonized_nsu_unit` x `corrected_unit` | 2,011 |
 
 **The raw `uuid` column is never used.** It is `item_unit_MUNICIPALITY` with no
 province, and PONTEVEDRA (Capiz and Negros Occidental) and SAN ENRIQUE (Iloilo and
@@ -66,17 +66,17 @@ alongside it, written `PROVINCE | MUNICIPALITY`, so the two repeats never collid
 
 | metric | raw | cleaned |
 |---|---:|---:|
-| weighings | 11,495 | 11,458 |
+| weighings | 11,495 | 11,433 |
 | distinct items | 19 | 19 |
 | distinct provinces | 5 | 5 |
 | distinct province x municipality pairs | 104 | 104 |
-| distinct vendors | 7,857 | 7,828 |
+| distinct vendors | 7,857 | 7,803 |
 | distinct markets | 709 | 709 |
 | distinct NSU raw labels (`pull_nsu_unit`) | 129 | 119 |
 | distinct NSU harmonized labels (`harmonized_nsu_unit`) | -- | 64 |
 | distinct item x NSU-raw-label pairs | 173 | 162 |
 | distinct item x NSU-harmonized pairs | -- | 93 |
-| distinct cases (own case key, see above) | 2,001 | 2,020 |
+| distinct cases (own case key, see above) | 2,001 | 2,011 |
 | max vendors observed in one (case x hetero-type x market_type) cell | 5 | 6 |
 | average vendors per (case x hetero-type x market_type) cell | 1.98 | 1.98 |
 | cases with weighings spanning more than one weighing approach | 0 | 1 |
@@ -137,7 +137,7 @@ pipeline's.
 `market_type` carries a stored value label on the raw side (1=Public Market,
 2=Talipapa, 3=Roadside Vendors) but not on the cleaned side. This table applies the
 raw labels to the cleaned data's numeric codes on the assumption the coding survived
-the build unchanged -- the same assumption `dofiles/cleaning.do`'s own summary
+the build unchanged -- the same assumption `dofiles/archive/cleaning.do`'s own summary
 section made. The near-identical shares above (55.2/16.6/28.2 on both sides, to one
 decimal place) support that assumption but do not prove it.
 

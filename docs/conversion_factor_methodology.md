@@ -1399,10 +1399,14 @@ estimate went unquestioned.
 reader can apply their own tolerance; the build applies none. See A20 for why the three
 kinds of doubt are not weighted against each other.
 
-**The coarser fallback rungs are more questioned, not equally so.** 12.6% of the weighings
-behind an L0 household row, against 20.6% at L2 and 38.7% at L3. L3 was already the
-weakest rung on dispersion grounds (A1); it is the most uncertain on provenance grounds
-too, so a reader discounting L3 has two independent reasons rather than one.
+**The coarser fallback rungs are not cleaner than L0 — but read the aggregation before
+quoting a figure.** Averaging each converted household row's `share_uncertain` gives L0
+0.120, L2 0.195, L3 0.384. Pooling the weighings themselves (`Σ nu_used / Σ n_g_used`)
+gives 0.121, 0.148, 0.148. The two differ because L2 and L3 borrow from much larger pools
+— median 60 and 21 weighings against L0's 4 — so per-row averaging weights a handful of
+small questioned pools heavily while pooling weights the large clean ones. Both are
+correct; A20 states both. What holds under either is the weaker claim: borrowing buys
+coverage without buying better provenance.
 
 **A standard-unit household row has none of these columns populated**, and that is
 correct: its grams come from a stated container size, not from a market-survey weighing,
@@ -1460,7 +1464,7 @@ question is whether that holds here. It does not, and the data say so in three
 separate ways.
 
 All figures below are measured on the PSA province × COICOP food CPI over the anchor
-pair PSPS 2024m5 → MS 2026m4, by `dofiles/plot_cpi_inflation.py`, which also writes
+pair PSPS 2024m5 → MS 2026m4, by `dofiles/90_diagnostics/plot_cpi_inflation.py`, which also writes
 the two figures shown here.
 
 ![Cumulative food-price change from the PSPS round to the market survey, by province and COICOP group, with a panel showing how far the estimate moves when the PSPS anchor month is shifted across its range](../outputs/master_rename_build/graphs/cpi_inflation_psps_to_ms.png)
@@ -1582,8 +1586,8 @@ than to produce it:
 | `dofiles/90_diagnostics/validate_folds.do` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
 | `dofiles/90_diagnostics/tally_price_points.py` | how many price points each case has, under both readings of the price file |
 | `dofiles/90_diagnostics/scope_multi_price_points.py` | measures the multi-price-point-within-a-case problem |
-| `dofiles/plot_cpi_inflation.py` | the two CPI figures embedded below, and the $`\pi`$ figures quoted with them |
-| `dofiles/summary_statistics.py` | raw vs cleaned summary tables |
+| `dofiles/90_diagnostics/plot_cpi_inflation.py` | the two CPI figures embedded below, and the $`\pi`$ figures quoted with them |
+| `dofiles/90_diagnostics/summary_statistics.py` | raw vs cleaned summary tables |
 
 Any number quoted in this document should be traceable to one of the files above. If
 you find one that is not, it is unverified — treat it as a claim, not a measurement.

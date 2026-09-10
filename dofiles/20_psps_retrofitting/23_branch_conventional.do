@@ -127,10 +127,14 @@ di as res "  min " r(min) "  median " r(p50) "  max " r(max)
 * existed and both splits (24/99 and 78/21) matched when 08_branch.do landed. If this
 * moves, either the mixed-pair set changed or `branch' did, and #28's arithmetic has to be
 * re-derived rather than the number here updated.
+* IT EXITS, for the same reason as the stacked-row tripwire in 20a: a check that only
+* prints cannot be caught by grepping the log for an r() code, which is how a run here is
+* verified, so it was not a tripwire at all.
 qui count
 if r(N) != 24 {
 	di as err "Branch C has " r(N) " case(s), not the 24 #28 predicted."
 	di as err "Re-derive #28's mixed-pair count before changing this."
+	exit 459
 }
 
 label var w_g   "reference weight for one unit of this conventional NSU, g or mL"

@@ -228,10 +228,15 @@ if r(N) > 0 {
 * WHAT THE CAP COSTS IN GRAMS, computed against the counterfactual total rather than
 * against cf_h, which is a per-unit factor and does not sum to anything meaningful.
 gen double _g_uncapped = q_h * cf_h_uncapped
+* %21x, not the default. `local x = r(sum)' formats the double as ~13 significant digits
+* and silently drops the rest, which on a total of this size is grams of real difference.
+* These two feed a printed percentage rather than a saved column, so the loss would not
+* corrupt anything -- but the same shortcut has produced a wrong figure in this project
+* before, and the hex-float form costs nothing.
 qui su grams_h if d_converted
-local after = r(sum)
+local after : di %21x r(sum)
 qui su _g_uncapped if d_converted
-local before = r(sum)
+local before : di %21x r(sum)
 di as res _n "total grams, uncapped: " %16.0fc `before'
 di as res "total grams, capped  : " %16.0fc `after'
 di as res "  net effect of the cap: " %14.0fc `after' - `before' " g, " ///

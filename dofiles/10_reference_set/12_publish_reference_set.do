@@ -45,10 +45,12 @@ label values size_ord szlbl
 * it changed. Both are constant within a case by construction -- 08_branch.do asserts no
 * case mixes conventional with another approach internally -- so (first) is exact rather
 * than a choice among differing values.
-* THE UNCERTAINTY COUNTS ride along too, as counts rather than as a dummy. 26% of
-* published rows rest on at least one questioned weighing but only 12% rest ENTIRELY on
-* them, and the median row sits on 3 weighings -- so "this row touches an uncertain
-* weight" would condemn a quarter of the table while saying nothing about degree. Counts
+* THE UNCERTAINTY COUNTS ride along too, as counts rather than as a dummy. 27.7% of
+* published rows rest on at least one questioned weighing but only 7.6% rest ENTIRELY on
+* them, and the median row sits on 4 weighings -- so "this row touches an uncertain
+* weight" would condemn more than a quarter of the table while saying nothing about degree.
+* (Section 6 prints all three figures on every run; the numbers here are the current ones
+* and are not asserted, so read the log rather than this comment.) Counts
 * plus `share_uncertain' let a reader set the tolerance; `share_uncertain == 1' is the
 * sharp signal, meaning nothing behind the estimate went unquestioned. See #35.
 *
@@ -372,6 +374,50 @@ if r(N) > 0 {
 	export excel using "${btables}\ref_nonmonotonic.xlsx" if nonmono == 1, ///
 		replace firstrow(variables)
 }
+
+********************************************************************************
+* THE VIOLATION IS PUBLISHED, NOT JUST EXPORTED
+********************************************************************************
+* This check used to write a side file and say nothing in the deliverable. That left the
+* table's most basic promise -- that "large" outweighs "small" -- unenforced AND
+* unannounced: a reader pulling one row, which is exactly what this table is for, had no
+* way to learn that its size label might be backwards. The side file only helps someone
+* who already suspected.
+*
+* IT IS A FLAG RATHER THAN AN `assert', deliberately. The violation is real and it is not
+* a coding error: on the price-quantity branch `size_ord' comes from the PRICE rank
+* (mp25 -> small, mp50 -> medium, mp75 -> large), so "medium" there names a price point
+* and carries no claim about weight. Where a mid-priced unit genuinely weighs less than a
+* cheap one, the ladder inverts and the data is right. Halting the build would force the
+* row to be deleted or the label to be falsified; flagging it keeps the number and tells
+* the truth about it.
+*
+* THE FLAG IS ON EVERY ROW OF THE CELL, not only the row that falls. The comparison is
+* between two rows, so a reader filtering on the lower one alone would still take the
+* other at face value, and the size ordering is a property of the ladder rather than of
+* one rung.
+tempvar cellmono
+bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit: ///
+	egen byte `cellmono' = max(nonmono == 1)
+gen byte d_size_nonmono = (`cellmono' == 1)
+label var d_size_nonmono ///
+	"1 = grams do not rise with size_ord in this cell; the size label is a price rank"
+
+qui count if d_size_nonmono
+di as res "  rows carrying d_size_nonmono (the whole cell, not just the falling rung): " r(N)
+if r(N) > 0 {
+	di as res "  These publish their measured grams. On the price-quantity branch size_ord"
+	di as res "  is a price rank, so an inverted ladder can be the data rather than a bug."
+	list pull_province pull_municipal_city pull_item harmonized_nsu_unit size_ord ///
+		grams n_g n_uncertain branch if d_size_nonmono, noobs abbrev(24) sep(0)
+}
+
+* The flag must be true of the cell it marks, and of every row in it -- the same standard
+* section 5c holds every other label to.
+assert d_size_nonmono == 1 if nonmono == 1
+bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit: ///
+	assert d_size_nonmono == d_size_nonmono[1]
+
 drop nonmono
 
 compress

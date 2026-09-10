@@ -4,7 +4,7 @@
     "raw_source": "C:\\Users\\uzj5150\\Box\\Philippines Panel\\01 Panel\\14 NSU Market Survey\\NSU Market Survey Launch\\data\\PSPS NSU Market Survey Launch.dta",
     "cleaned_source": "C:\\Users\\uzj5150\\Box\\Philippines Panel\\01 Panel\\14 NSU Market Survey\\Data Cleaning\\outputs\\master_rename_build\\temp\\nsu_data_master.dta",
     "raw_n_rows": 11495,
-    "cleaned_n_rows": 11453
+    "cleaned_n_rows": 11433
   },
   "grain_definitions": {
     "weighing": {
@@ -2640,11 +2640,11 @@
         "data": [
           {
             "level": "n_rows",
-            "value": 11453
+            "value": 11433
           },
           {
             "level": "n_distinct_groups",
-            "value": 11453
+            "value": 11433
           }
         ]
       },
@@ -2657,7 +2657,7 @@
         "data": [
           {
             "level": "all",
-            "value": 11453
+            "value": 11433
           }
         ]
       },
@@ -2709,7 +2709,7 @@
         "data": [
           {
             "level": "all",
-            "value": 7823
+            "value": 7803
           }
         ]
       },
@@ -2735,7 +2735,7 @@
         "data": [
           {
             "level": "all",
-            "value": 118
+            "value": 112
           }
         ]
       },
@@ -2748,7 +2748,7 @@
         "data": [
           {
             "level": "all",
-            "value": 161
+            "value": 155
           }
         ]
       },
@@ -2761,7 +2761,7 @@
         "data": [
           {
             "level": "all",
-            "value": 64
+            "value": 58
           }
         ]
       },
@@ -2774,7 +2774,7 @@
         "data": [
           {
             "level": "all",
-            "value": 105
+            "value": 99
           }
         ]
       },
@@ -2787,7 +2787,7 @@
         "data": [
           {
             "level": "all",
-            "value": 63
+            "value": 57
           }
         ]
       },
@@ -2800,7 +2800,7 @@
         "data": [
           {
             "level": "all",
-            "value": 92
+            "value": 86
           }
         ]
       },
@@ -2813,7 +2813,7 @@
         "data": [
           {
             "level": "all",
-            "value": 2019
+            "value": 2011
           }
         ]
       },
@@ -2834,11 +2834,11 @@
           },
           {
             "level": "CAPIZ",
-            "value": 1543
+            "value": 1540
           },
           {
             "level": "ILOILO",
-            "value": 5255
+            "value": 5238
           },
           {
             "level": "NEGROS OCCIDENTAL",
@@ -2991,7 +2991,7 @@
           },
           {
             "level": "CAPIZ | MA-AYON",
-            "value": 95
+            "value": 92
           },
           {
             "level": "CAPIZ | MAMBUSAO",
@@ -3039,11 +3039,11 @@
           },
           {
             "level": "ILOILO | ANILAO",
-            "value": 91
+            "value": 86
           },
           {
             "level": "ILOILO | BADIANGAN",
-            "value": 83
+            "value": 80
           },
           {
             "level": "ILOILO | BALASAN",
@@ -3091,7 +3091,7 @@
           },
           {
             "level": "ILOILO | DUEAS",
-            "value": 191
+            "value": 183
           },
           {
             "level": "ILOILO | DUMANGAS",
@@ -3167,7 +3167,7 @@
           },
           {
             "level": "ILOILO | SAN MIGUEL",
-            "value": 133
+            "value": 132
           },
           {
             "level": "ILOILO | SAN RAFAEL",
@@ -3288,7 +3288,7 @@
           },
           {
             "level": "cabbage",
-            "value": 1425
+            "value": 1412
           },
           {
             "level": "camote",
@@ -3300,7 +3300,7 @@
           },
           {
             "level": "carrot",
-            "value": 1196
+            "value": 1193
           },
           {
             "level": "chicken",
@@ -3320,11 +3320,11 @@
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",
-            "value": 878
+            "value": 877
           },
           {
             "level": "liquor (e.g, whisky, coconut wine)",
-            "value": 1125
+            "value": 1122
           },
           {
             "level": "loaf bread",
@@ -3369,11 +3369,11 @@
           },
           {
             "level": "Price-quantity based (lower, median, higher price)",
-            "value": 1220
+            "value": 1212
           },
           {
             "level": "Size-based (small, medium, large)",
-            "value": 9765
+            "value": 9753
           }
         ]
       },
@@ -3390,11 +3390,11 @@
           },
           {
             "level": "large_size",
-            "value": 2602
+            "value": 2601
           },
           {
             "level": "medium_size",
-            "value": 3321
+            "value": 3320
           },
           {
             "level": "mp25_price",
@@ -3414,11 +3414,11 @@
           },
           {
             "level": "province_median",
-            "value": 409
+            "value": 401
           },
           {
             "level": "small_size",
-            "value": 3842
+            "value": 3832
           },
           {
             "level": "unique_mun_price6",
@@ -3439,15 +3439,15 @@
         "data": [
           {
             "level": "Public Market",
-            "value": 6321
+            "value": 6306
           },
           {
             "level": "Roadside Vendors",
-            "value": 3227
+            "value": 3224
           },
           {
             "level": "Talipapa",
-            "value": 1905
+            "value": 1903
           }
         ]
       },
@@ -3468,11 +3468,11 @@
           },
           {
             "level": "CAPIZ",
-            "value": 332
+            "value": 331
           },
           {
             "level": "ILOILO",
-            "value": 840
+            "value": 833
           },
           {
             "level": "NEGROS OCCIDENTAL",
@@ -3673,7 +3673,7 @@
           },
           {
             "level": "ILOILO | ANILAO",
-            "value": 10
+            "value": 9
           },
           {
             "level": "ILOILO | BADIANGAN",
@@ -3914,11 +3914,11 @@
         "data": [
           {
             "level": "1",
-            "value": 843
+            "value": 839
           },
           {
             "level": "2",
-            "value": 705
+            "value": 701
           },
           {
             "level": "3",
@@ -3948,23 +3948,23 @@
         "data": [
           {
             "level": "Public Market | 1",
-            "value": 805
+            "value": 800
           },
           {
             "level": "Public Market | 2",
-            "value": 622
+            "value": 620
           },
           {
             "level": "Public Market | 3+",
-            "value": 1412
+            "value": 1410
           },
           {
             "level": "Roadside Vendors | 1",
-            "value": 894
+            "value": 893
           },
           {
             "level": "Roadside Vendors | 2",
-            "value": 527
+            "value": 526
           },
           {
             "level": "Roadside Vendors | 3+",
@@ -3972,7 +3972,7 @@
           },
           {
             "level": "Talipapa | 1",
-            "value": 583
+            "value": 581
           },
           {
             "level": "Talipapa | 2",
@@ -3993,7 +3993,7 @@
         "data": [
           {
             "level": "all",
-            "value": 1.977198134392814
+            "value": 1.978185595567867
           }
         ]
       },
@@ -4010,11 +4010,11 @@
           },
           {
             "level": "Price-quantity based (lower, median, higher price)",
-            "value": 324
+            "value": 321
           },
           {
             "level": "Size-based (small, medium, large)",
-            "value": 1573
+            "value": 1568
           }
         ]
       },
@@ -4044,11 +4044,11 @@
           },
           {
             "level": "Price-quantity based (lower, median, higher price)",
-            "value": 3.764705882352941
+            "value": 3.775
           },
           {
             "level": "Size-based (small, medium, large)",
-            "value": 6.217834394904458
+            "value": 6.2300319488817895
           }
         ]
       },
@@ -4065,11 +4065,11 @@
           },
           {
             "level": "large_size",
-            "value": 813
+            "value": 812
           },
           {
             "level": "medium_size",
-            "value": 975
+            "value": 974
           },
           {
             "level": "mp25_price",
@@ -4089,11 +4089,11 @@
           },
           {
             "level": "province_median",
-            "value": 131
+            "value": 128
           },
           {
             "level": "small_size",
-            "value": 1151
+            "value": 1147
           },
           {
             "level": "unique_mun_price6",
@@ -4114,7 +4114,7 @@
         "data": [
           {
             "level": "all",
-            "value": 851
+            "value": 850
           }
         ]
       },
@@ -4131,11 +4131,11 @@
           },
           {
             "level": "large_size",
-            "value": 3.2004920049200494
+            "value": 3.2032019704433496
           },
           {
             "level": "medium_size",
-            "value": 3.4086242299794662
+            "value": 3.4110996916752314
           },
           {
             "level": "mp25_price",
@@ -4155,11 +4155,11 @@
           },
           {
             "level": "province_median",
-            "value": 3.122137404580153
+            "value": 3.1328125
           },
           {
             "level": "small_size",
-            "value": 3.342036553524804
+            "value": 3.3449781659388647
           },
           {
             "level": "unique_mun_price6",
@@ -4188,7 +4188,7 @@
           },
           {
             "level": "cabbage | g",
-            "value": 1425.0
+            "value": 1412.0
           },
           {
             "level": "camote | g",
@@ -4196,11 +4196,11 @@
           },
           {
             "level": "camote tops | g",
-            "value": 559.0
+            "value": 558.0
           },
           {
             "level": "carrot | g",
-            "value": 1196.0
+            "value": 1193.0
           },
           {
             "level": "chicken | g",
@@ -4228,11 +4228,11 @@
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
-            "value": 554.0
+            "value": 553.0
           },
           {
             "level": "liquor (e.g, whisky, coconut wine) | mL",
-            "value": 1125.0
+            "value": 1122.0
           },
           {
             "level": "loaf bread | g",
@@ -4256,7 +4256,7 @@
           },
           {
             "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | g",
-            "value": 952.0
+            "value": 948.0
           },
           {
             "level": "rice | g",
@@ -4281,27 +4281,27 @@
           },
           {
             "level": "cabbage | g",
-            "value": 643.5894736842105
+            "value": 649.8760623229462
           },
           {
             "level": "camote | g",
-            "value": 205.4906937394247
+            "value": 190.62436548223351
           },
           {
             "level": "camote tops | g",
-            "value": 319.1162790697674
+            "value": 302.5698924731183
           },
           {
             "level": "carrot | g",
-            "value": 156.04933110367892
+            "value": 152.73595976529757
           },
           {
             "level": "chicken | g",
-            "value": 1011.7571089846563
+            "value": 1013.7464454976304
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
-            "value": 145.0073732718894
+            "value": 148.9705069124424
           },
           {
             "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
@@ -4309,27 +4309,27 @@
           },
           {
             "level": "drinks at restaurant, hotel, cafe, or kiosk | mL",
-            "value": 364.5975609756098
+            "value": 386.0792682926829
           },
           {
             "level": "fresh fish | g",
-            "value": 503.6
+            "value": 475.4476821192053
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
-            "value": 158.74074074074073
+            "value": 134.96604938271605
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
-            "value": 204.2454872334961
+            "value": 190.4267631103074
           },
           {
             "level": "liquor (e.g, whisky, coconut wine) | mL",
-            "value": 570.8702224372626
+            "value": 570.0311942959001
           },
           {
             "level": "loaf bread | g",
-            "value": 501.023832221163
+            "value": 503.93231649189704
           },
           {
             "level": "mango | g",
@@ -4341,19 +4341,19 @@
           },
           {
             "level": "pork | g",
-            "value": 438.8
+            "value": 372.56
           },
           {
             "level": "prawns, lobster, shrimp | g",
-            "value": 302.1383647798742
+            "value": 296.47798742138366
           },
           {
             "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | g",
-            "value": 303.74579837919845
+            "value": 270.2257383966245
           },
           {
             "level": "rice | g",
-            "value": 2639.181818181818
+            "value": 2676.0
           }
         ]
       },
@@ -4374,11 +4374,11 @@
           },
           {
             "level": "cabbage | g",
-            "value": 630.0
+            "value": 632.5
           },
           {
             "level": "camote | g",
-            "value": 150.0
+            "value": 145.0
           },
           {
             "level": "camote tops | g",
@@ -4394,7 +4394,7 @@
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
-            "value": 55.0
+            "value": 60.0
           },
           {
             "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
@@ -4410,7 +4410,7 @@
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
-            "value": 85.0
+            "value": 75.0
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
@@ -4422,7 +4422,7 @@
           },
           {
             "level": "loaf bread | g",
-            "value": 450.0
+            "value": 460.0
           },
           {
             "level": "mango | g",
@@ -4434,7 +4434,7 @@
           },
           {
             "level": "pork | g",
-            "value": 270.0
+            "value": 260.0
           },
           {
             "level": "prawns, lobster, shrimp | g",
@@ -4446,7 +4446,7 @@
           },
           {
             "level": "rice | g",
-            "value": 2145.0
+            "value": 2205.0
           }
         ]
       },
@@ -4467,27 +4467,27 @@
           },
           {
             "level": "cabbage | g",
-            "value": 286.2991712859234
+            "value": 287.17082447829296
           },
           {
             "level": "camote | g",
-            "value": 197.94840835650547
+            "value": 183.9642218768116
           },
           {
             "level": "camote tops | g",
-            "value": 268.4718451090121
+            "value": 250.45206084820364
           },
           {
             "level": "carrot | g",
-            "value": 79.82408529820096
+            "value": 70.37328459009413
           },
           {
             "level": "chicken | g",
-            "value": 395.0697990822264
+            "value": 393.3629345366732
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
-            "value": 219.17330406542993
+            "value": 217.5579768684592
           },
           {
             "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
@@ -4495,31 +4495,31 @@
           },
           {
             "level": "drinks at restaurant, hotel, cafe, or kiosk | mL",
-            "value": 263.8422730054635
+            "value": 238.6953286841987
           },
           {
             "level": "fresh fish | g",
-            "value": 501.7408358037019
+            "value": 405.69645177891266
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
-            "value": 188.72421786659157
+            "value": 165.85902315536916
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
-            "value": 259.34833651771555
+            "value": 242.99936364466822
           },
           {
             "level": "liquor (e.g, whisky, coconut wine) | mL",
-            "value": 222.41255099158138
+            "value": 221.23451357867737
           },
           {
             "level": "loaf bread | g",
-            "value": 135.6927040325547
+            "value": 134.19253924918485
           },
           {
             "level": "mango | g",
-            "value": 83.67117697402242
+            "value": 83.6711769740224
           },
           {
             "level": "mineral or spring water, all drinking water sold in containers | mL",
@@ -4527,19 +4527,19 @@
           },
           {
             "level": "pork | g",
-            "value": 410.7343017896931
+            "value": 392.84921619708837
           },
           {
             "level": "prawns, lobster, shrimp | g",
-            "value": 200.52420157567587
+            "value": 193.2717584481639
           },
           {
             "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | g",
-            "value": 251.22371918749687
+            "value": 207.42136763307235
           },
           {
             "level": "rice | g",
-            "value": 5494.7086300633755
+            "value": 5485.008305473303
           }
         ]
       },
@@ -4560,7 +4560,7 @@
           },
           {
             "level": "cabbage | g",
-            "value": 30.0
+            "value": 65.0
           },
           {
             "level": "camote | g",
@@ -4568,7 +4568,7 @@
           },
           {
             "level": "camote tops | g",
-            "value": 65.0
+            "value": 58.0
           },
           {
             "level": "carrot | g",
@@ -4580,7 +4580,7 @@
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
-            "value": 16.0
+            "value": 10.0
           },
           {
             "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
@@ -4588,11 +4588,11 @@
           },
           {
             "level": "drinks at restaurant, hotel, cafe, or kiosk | mL",
-            "value": 2.0
+            "value": 150.0
           },
           {
             "level": "fresh fish | g",
-            "value": 25.0
+            "value": 45.0
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
@@ -4600,15 +4600,15 @@
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
-            "value": 10.0
+            "value": 20.0
           },
           {
             "level": "liquor (e.g, whisky, coconut wine) | mL",
-            "value": 75.0
+            "value": 120.0
           },
           {
             "level": "loaf bread | g",
-            "value": 41.0
+            "value": 60.0
           },
           {
             "level": "mango | g",
@@ -4632,7 +4632,7 @@
           },
           {
             "level": "rice | g",
-            "value": 225.0
+            "value": 310.0
           }
         ]
       },
@@ -4653,7 +4653,7 @@
           },
           {
             "level": "cabbage | g",
-            "value": 1760.0
+            "value": 1800.0
           },
           {
             "level": "camote | g",
@@ -4665,7 +4665,7 @@
           },
           {
             "level": "carrot | g",
-            "value": 910.0
+            "value": 630.0
           },
           {
             "level": "chicken | g",
@@ -4685,23 +4685,23 @@
           },
           {
             "level": "fresh fish | g",
-            "value": 5550.0
+            "value": 4850.0
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
-            "value": 1040.0
+            "value": 1025.0
           },
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
-            "value": 1700.0000225380063
+            "value": 1700.0
           },
           {
             "level": "liquor (e.g, whisky, coconut wine) | mL",
-            "value": 1494.9999749660492
+            "value": 1495.0
           },
           {
             "level": "loaf bread | g",
-            "value": 765.0
+            "value": 1100.0
           },
           {
             "level": "mango | g",
@@ -4721,7 +4721,7 @@
           },
           {
             "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | g",
-            "value": 1300.0
+            "value": 1220.0
           },
           {
             "level": "rice | g",
@@ -4738,11 +4738,11 @@
         "data": [
           {
             "level": "g",
-            "value": 9596
+            "value": 9580
           },
           {
             "level": "mL",
-            "value": 1850
+            "value": 1846
           },
           {
             "level": "nan",
@@ -4759,7 +4759,7 @@
         "data": [
           {
             "level": "all",
-            "value": 118
+            "value": 112
           }
         ]
       },
@@ -4772,7 +4772,7 @@
         "data": [
           {
             "level": "all",
-            "value": 64
+            "value": 58
           }
         ]
       },
@@ -4785,7 +4785,7 @@
         "data": [
           {
             "level": "all",
-            "value": 63
+            "value": 57
           }
         ]
       },
@@ -4794,7 +4794,7 @@
         "title": "Distinct raw pull_nsu_unit labels folding into each item x harmonized_nsu_unit cell",
         "description": "",
         "grouping": "item | harmonized_nsu_unit",
-        "n_levels": 92,
+        "n_levels": 86,
         "data": [
           {
             "level": "beef | half",
@@ -4813,14 +4813,6 @@
             "value": 1
           },
           {
-            "level": "cabbage | 2 kapinutos nga cabbage/20pesos",
-            "value": 1
-          },
-          {
-            "level": "cabbage | 3 for 25 pesos (putos)",
-            "value": 1
-          },
-          {
             "level": "cabbage | half",
             "value": 4
           },
@@ -4829,16 +4821,12 @@
             "value": 6
           },
           {
-            "level": "cabbage | pack 25 per pack in the market",
-            "value": 1
-          },
-          {
             "level": "cabbage | pieces or units",
             "value": 3
           },
           {
             "level": "cabbage | putos (mix vegetable)",
-            "value": 8
+            "value": 7
           },
           {
             "level": "cabbage | sliced",
@@ -4878,10 +4866,6 @@
           },
           {
             "level": "camote tops | bundle",
-            "value": 1
-          },
-          {
-            "level": "carrot | 10",
             "value": 1
           },
           {
@@ -4973,10 +4957,6 @@
             "value": 3
           },
           {
-            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | 1.3 gallon",
-            "value": 1
-          },
-          {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | bowl",
             "value": 2
           },
@@ -5019,10 +4999,6 @@
           {
             "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | tupperware",
             "value": 3
-          },
-          {
-            "level": "liquor (e.g, whisky, coconut wine) | 6 bottles of redhorse",
-            "value": 1
           },
           {
             "level": "liquor (e.g, whisky, coconut wine) | baso",
@@ -5175,7 +5151,7 @@
         "data": [
           {
             "level": "1",
-            "value": 64
+            "value": 58
           },
           {
             "level": "2",

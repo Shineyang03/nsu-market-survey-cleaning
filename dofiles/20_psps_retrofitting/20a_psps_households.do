@@ -381,9 +381,14 @@ di as res _n "stacked household x item x slot rows: `n_stacked'"
 * 87,959 rows at this point on the current vintage. If this moves, either the consumption
 * file changed or one of the two filters diverged -- and every share quoted on #30 is then
 * computed on a different denominator from this build. Reconcile before changing it.
+* IT EXITS. Printing to the log and carrying on made this tripwire unenforceable: `stata -e'
+* returns 0 either way, and the project's own way of checking a run is to grep the log for
+* an r() code -- which this never emitted. A drift would have completed the build clean and
+* left every share quoted on #30 computed on a different denominator.
 if `n_stacked' != 87959 {
 	di as err "Stacked row count is `n_stacked', not the 87,959 that issue #30's figures rest on."
 	di as err "Reconcile against 90_diagnostics/scope_psps_exposure.py before editing this."
+	exit 459
 }
 
 gen str14 source = ""

@@ -204,12 +204,12 @@ grams, so ties on a cut are common and the direction of the rule genuinely bites
 
 Ties go to the **smaller** weight — the conservative reading. What changed is how
 under-filled cases are *named*: `10_reference_set/10_size_assignment.do` §2d no longer names
-surviving groups by rank. **100 cases** fill fewer groups than the field recorded labels:
+surviving groups by rank. **97 cases** fill fewer groups than the field recorded labels:
 
 | shape | cases | published as |
 | :-- | --: | :-- |
-| one group filled, `k ≥ 2` | 36 | **medium** |
-| groups (1,2) filled — top emptied | 50 | small + medium |
+| one group filled, `k ≥ 2` | 34 | **medium** |
+| groups (1,2) filled — top emptied | 49 | small + medium |
 | groups (1,3) filled — middle emptied | 14 | small + large |
 
 The rule fires only where `n_filled < k_sizes`. **Keyed on `n_filled` alone it would also
@@ -220,8 +220,13 @@ the rule cannot read the filled-group count by itself.
 **Still untested: the direction.** An upper-inclusive robustness run would change which
 cases are under-filled at all, and has not been done.
 
-**Checked by** the under-filled claims in `verify_documented_claims.py`, which assert the
-100 and its 36 / 50 / 14 decomposition sum correctly.
+**Checked by** two independent things, which is why the numbers above are safe to quote.
+`10_size_assignment.do` §2d asserts the 97 and each of 34 / 49 / 14 as it builds them and
+halts on any move; `verify_documented_claims.py`'s `c_underfilled_shapes` re-derives the
+same four figures from the built data. Note that check names *methodology.md* as its doc
+anchor, not this entry — which is how this entry came to sit at a superseded
+100 / 36 / 50 / 14 while both checks passed on 97 / 34 / 49 / 14. The history is in the
+do-file's own §2d comment: 94 → 104 → 100 → 97.
 
 ## A5b — The field label is wrong per weighing but informative in aggregate
 
@@ -806,11 +811,35 @@ estimate went unquestioned.
 publishes, with the same number. Baking the discount into the build would put our judgement
 inside a table whose purpose is to be reusable — see #35.
 
-**A note on the rungs, which is the reason this was worth carrying.** The Outcome 2 ladder's
-coarser rungs are *more* questioned, not equally so: 12.6% of the weighings behind an L0 row
-against 20.6% at L2 and 38.7% at L3. L3 was already the weakest rung on dispersion grounds
-(A1); it is also the most uncertain on provenance grounds, so the two weaknesses compound
-rather than trading off.
+**A note on the rungs, and on how much weight it will bear.** The coarser rungs of the
+Outcome 2 ladder look more questioned — but by how much depends on the aggregation, and the
+two readings differ enough that quoting one without naming it is misleading.
+
+Over the 34,916 converted household rows in `psps_converted_capped.dta`:
+
+| rung | rows | median `n_g_used` | mean of the row's `share_uncertain` | pooled `Σ nu_used / Σ n_g_used` |
+| :-- | --: | --: | --: | --: |
+| L0 the cell's own weighings | 28,961 | 4 | 0.120 | 0.121 |
+| L1 cell pooled across sizes | 110 | 6 | 0.080 | 0.103 |
+| L2 province × item × unit | 5,484 | 60 | 0.195 | 0.148 |
+| L3 item × unit nationally | 361 | 21 | 0.384 | 0.148 |
+
+**They answer different questions and both are correct.** The fourth column gives each
+*household row* equal weight and is the household-facing number: for a typical converted row
+at that rung, this is the share of the weighings behind its own figure that was questioned.
+The fifth pools every weighing used at the rung, so a few large clean pools dominate — and
+L2/L3 draw on large pools, median 60 and 21 weighings against L0's 4.
+
+**So the gradient is real but modest, not steep.** Per household row it looks like a
+three-fold rise from L0 to L3; pooled over weighings it is 0.121 to 0.148. A claim that the
+ladder's weakest rung is also dramatically the most questioned does not survive the second
+weighting, and should not be made. What does survive: the coarser rungs are not *cleaner*
+than L0, so borrowing buys coverage without buying better provenance.
+
+**Checked by** nothing yet, which is why both columns are stated with their formulas rather
+than as bare figures — recompute them from `psps_converted_capped.dta` rather than trusting
+this table. Two reviewers reading this entry reached opposite verdicts on whether the
+figures reproduced, because the original entry quoted the fourth column without naming it.
 
 ---
 

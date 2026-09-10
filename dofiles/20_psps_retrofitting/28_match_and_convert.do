@@ -212,10 +212,26 @@ replace _rankkey = _absdiff       if d_no_price == 0
 replace _rankkey = abs(group_id - ceil(_ngrp / 2)) if d_no_price == 1
 
 * gsort, then `by hh_row:' -- which requires the data SORTED by hh_row, and gsort leaves
-* it so because hh_row is its first key and ascending. The remaining keys break every tie
-* deterministically: nearest price, then the higher v_use (fewer grams -- the conservative
-* direction), then the lowest group_id. Nothing is left for the sort seed.
-gsort hh_row _rankkey -v_use group_id
+* it so because hh_row is its first key and ascending. `by' checks only its own by-variable,
+* so the descending key later in the list is not the r(5) hazard it looks like.
+*
+* The remaining keys break every tie deterministically: nearest price, then the higher
+* v_use (fewer grams -- the conservative direction), then the lowest group_id.
+*
+* `p_g' IS THE FINAL KEY, and without it the chain does not actually terminate. An
+* UNUSABLE point carries group_id missing (25_lookup.do explains why: two refused points
+* in one sub-cell both have it) and v_use missing (there is no w_g to divide by), so for a
+* household exactly equidistant between two refused points every key up to group_id
+* compares missing against missing and the winner falls to row order. 95 cells in the
+* current lookup hold two unusable points at distinct prices, and in at least one the two
+* carry DIFFERENT reasons -- one "unique price", one "empty part" -- which resolve to a
+* permanent refusal and a fallback gram figure respectively. No household in this build
+* sits on such a midpoint, so nothing moves today; new price data could put one there, and
+* the failure would be a household's outcome flipping between runs with no error.
+*
+* p_g is distinct within a case by construction -- the PHP 20 merge collapsed equal
+* values -- so it terminates the chain.
+gsort hh_row _rankkey -v_use group_id p_g
 by hh_row: gen byte _chosen = (_n == 1)
 keep if _chosen
 drop _chosen _rankkey _absdiff _ngrp _has_dim _ncand
