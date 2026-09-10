@@ -72,6 +72,6 @@ do "10_reference_set/12_publish_reference_set.do"
 
 di as res _n "{hline 78}"
 di as res "OUTCOME 1 complete."
-di as res "  reference set : ${btemp}\nsu_reference_set.dta"
-di as res "                  ${btables}\nsu_reference_set.xlsx"
+di as res "  reference set : ${bdeliv}\nsu_reference_set.dta"
+di as res "                  ${bdeliv}\nsu_reference_set.xlsx"
 di as res "{hline 78}"

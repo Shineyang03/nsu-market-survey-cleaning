@@ -47,7 +47,7 @@ import pandas as pd
 
 DC = Path(__file__).resolve().parent.parent.parent
 SHARED = DC / "dofiles" / "00_shared"
-BUILD = DC / "outputs" / "master_rename_build" / "temp"
+BUILD = DC / "outputs" / "master_rename_build" / "intermediate"
 OUT = DC / "outputs" / "tables" / "weight_derived_folds.csv"
 
 sys.path.insert(0, str(SHARED))

@@ -56,9 +56,9 @@
 *         ${btemp}\branch_price_quantity.dta     22   (for the no-inflation variant)
 *         ${btemp}\branch_price_quantity_m.dta   24   (for the main one)
 *         ${btemp}\branch_conventional.dta       23
-* OUTPUTS ${btemp}\outcome2_lookup.dta
-*         ${btemp}\outcome2_lookup_noinflation.dta
-*         ${btables}\outcome2_lookup.csv
+* OUTPUTS ${bdeliv}\outcome2_lookup.dta
+*         ${bdeliv}\outcome2_lookup_noinflation.dta
+*         ${bdeliv}\outcome2_lookup.csv
 *
 * RUN, from the dofiles/ folder:
 *   "C:\Program Files\StataNow19\StataSE-64.exe" -e do 20_psps_retrofitting\25_lookup.do
@@ -198,8 +198,8 @@ label values branch branchlbl
 
 compress
 sort `keyvars' branch group_id psps_month
-save "${btemp}\outcome2_lookup", replace
-export delimited using "${btables}\outcome2_lookup.csv", replace
+save "${bdeliv}\outcome2_lookup", replace
+export delimited using "${bdeliv}\outcome2_lookup.csv", replace
 
 di as res _n "rows by branch:"
 tab branch, m
@@ -251,13 +251,13 @@ label var share_uncertain "n_uncertain / n_g; 1 = nothing behind this weight wen
 label values branch branchlbl
 compress
 sort `keyvars' branch group_id
-save "${btemp}\outcome2_lookup_noinflation", replace
+save "${bdeliv}\outcome2_lookup_noinflation", replace
 
 qui count
 di as res _n "{hline 78}"
 di as res "25_lookup.do done"
-di as res "  ${btemp}\outcome2_lookup.dta              (with inflation, month dimension)"
-di as res "  ${btemp}\outcome2_lookup_noinflation.dta  " r(N) " row(s), case-level (#11)"
+di as res "  ${bdeliv}\outcome2_lookup.dta              (with inflation, month dimension)"
+di as res "  ${bdeliv}\outcome2_lookup_noinflation.dta  " r(N) " row(s), case-level (#11)"
 di as res ""
 di as res "  The two differ ONLY on Branch P. Comparing the household grams they"
 di as res "  produce is what #11 asks for, and it is a diagnostic, not a build step."

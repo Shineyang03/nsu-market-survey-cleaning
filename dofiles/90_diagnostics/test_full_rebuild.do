@@ -89,10 +89,10 @@ clear all
 set more off
 
 * ---- the override, set BEFORE the globals load -------------------------------
-* 00_globals.do reads ${build_name} and points ${btemp} / ${btables} / ${bgraphs} at
-* outputs/<build_name>/. Setting it after the globals load would be a no-op and the run
-* would quietly overwrite the published build, which is the one failure this file must not
-* have. So it is set here, first, and asserted below.
+* 00_globals.do reads ${build_name} and points ${btemp} / ${btables} / ${bgraphs} /
+* ${bdeliv} / ${bsummary} at outputs/<build_name>/. Setting it after the globals load
+* would be a no-op and the run would quietly overwrite the published build, which is
+* the one failure this file must not have. So it is set here, first, and asserted below.
 global build_name "test_full_rebuild"
 
 do "00_shared/00_globals.do"
@@ -111,10 +111,10 @@ di as res "isolated build tree: ${build}"
 **# 1. Clear the tree
 ********************************************************************************
 * Windows `rmdir /s /q' via shell, then let 00_globals.do's mkdir_missing recreate the
-* four folders on the next `do'. Guarded on the path containing the build name, so a
+* five subtrees on the next `do'. Guarded on the path containing the build name, so a
 * mistyped global cannot delete anything else.
 
-foreach d in "${btemp}" "${btables}" "${bgraphs}" {
+foreach d in "${btemp}" "${btables}" "${bgraphs}" "${bdeliv}" "${bsummary}" {
 	if strpos("`d'", "test_full_rebuild") == 0 {
 		di as err "ERROR: refusing to clear `d' -- it is not inside the test tree"
 		exit 459
@@ -123,7 +123,7 @@ foreach d in "${btemp}" "${btables}" "${bgraphs}" {
 }
 * Recreate them; the masters' own `do 00_globals.do' would too, but this makes the state
 * explicit rather than incidental.
-foreach d in "${build}" "${btemp}" "${btables}" "${bgraphs}" {
+foreach d in "${build}" "${btemp}" "${btables}" "${bgraphs}" "${bdeliv}" "${bsummary}" {
 	mkdir_missing "`d'"
 }
 di as res "tree cleared and recreated"
@@ -201,122 +201,148 @@ do "90_diagnostics/attrition_ledger.do"
 * and a mystery. Row counts catch a step that dropped rows; column sums catch a step that
 * changed values without changing the shape.
 
+* THE 23 DATASETS SPLIT ACROSS TWO SUBTREES, not one, since the restructure that gave
+* the published objects their own `deliverables/' folder. Five of the 23 moved there --
+* the reference set, both lookups, and the two household files this file's own list
+* predates (psps_grams.dta is not compared here at all: 31_psps_grams.do is not yet
+* wired into this file's own step list either -- see the header's note on keeping that
+* list in sync with the masters). Everything else still lives under `intermediate/'
+* (the renamed `temp/'). Two root pairs, one per subtree, rather than one dataset list
+* searched in two places -- so a dataset that moved and one that stayed can never be
+* confused about which folder it is compared in.
 clear all
 do "00_shared/00_globals.do"
-local pub "${output}/master_rename_build/temp"
+local pub_temp  "${output}/master_rename_build/intermediate"
+local pub_deliv "${output}/master_rename_build/deliverables"
 global build_name "test_full_rebuild"
 do "00_shared/00_globals.do"
-local tst "${btemp}"
+local tst_temp  "${btemp}"
+local tst_deliv "${bdeliv}"
 
 tempfile report
 postfile CMP str48 dataset double n_pub double n_tst str8 rows ///
 	double n_vars_pub double n_vars_tst double n_diff_cols str1200 diff_detail ///
 	using "`report'", replace
 
-local files nsu_data_master nsu_weighings_cpi ref_10_sized ref_11_checked ///
-	nsu_reference_set psps_households case_price_points case_spelling_gap ///
+local files_temp nsu_data_master nsu_weighings_cpi ref_10_sized ref_11_checked ///
+	psps_households case_price_points case_spelling_gap ///
 	branch_size_based branch_price_quantity branch_price_quantity_m ///
-	branch_conventional outcome2_lookup outcome2_lookup_noinflation ///
-	outcome2_weight_ladder outcome2_cell_fallback outcome2_fallback_province ///
-	outcome2_fallback_national psps_standard_units psps_converted ///
-	psps_converted_capped standard_unit_factors psps_months
+	branch_conventional outcome2_weight_ladder outcome2_cell_fallback ///
+	outcome2_fallback_province outcome2_fallback_national psps_converted ///
+	standard_unit_factors psps_months
 
-foreach f of local files {
-	local okp = 0
-	local okt = 0
-	cap confirm file "`pub'/`f'.dta"
-	if !_rc local okp = 1
-	cap confirm file "`tst'/`f'.dta"
-	if !_rc local okt = 1
+local files_deliv nsu_reference_set outcome2_lookup outcome2_lookup_noinflation ///
+	psps_standard_units psps_converted_capped
 
-	if `okp' == 0 | `okt' == 0 {
-		local miss = cond(`okp' == 0, "missing in published", "missing in test")
-		post CMP ("`f'") (.) (.) ("MISSING") (.) (.) (.) ("`miss'")
-		di as err "  `f': `miss'"
-		continue
-	}
-
-	* ---- the published side, once ------------------------------------------------
-	* TWO LOADS PER DATASET, not one per variable. The obvious way to write this is a
-	* preserve/restore inside the variable loop that re-reads the published file each
-	* time; on 23 datasets and a few hundred columns, across a synced drive, that is
-	* hundreds of reads of files up to 70 MB.
-	use "`pub'/`f'.dta", clear
-	local np = _N
-	qui ds
-	local varsp `r(varlist)'
-	local nvp : word count `varsp'
-
-	* SUMS ARE STORED AS HEX FLOATS. `local s = r(sum)' writes the macro through Stata's
-	* number-to-text conversion, which keeps about 13 significant digits of a double --
-	* a trap this project has already been bitten by in 07_cpi_factor.do and in the snap
-	* verdict join. At 13 digits a genuinely identical sum can differ in the macro, so a
-	* tight tolerance would report false differences on the largest columns.
-	* `%21x' is Stata's hex-float format: exact, round-trips, and usable directly as a
-	* numeric literal in the comparison below.
-	local pnum ""
-	local psums ""
-	foreach v of local varsp {
-		cap confirm numeric variable `v'
-		if _rc continue
-		qui su `v', meanonly
-		local hx : display %21x r(sum)
-		local pnum  "`pnum' `v'"
-		local psums "`psums' `hx'"
-	}
-
-	* ---- the test side, once -----------------------------------------------------
-	use "`tst'/`f'.dta", clear
-	local nt = _N
-	qui ds
-	local varst `r(varlist)'
-	local nvt : word count `varst'
-
-	* Compare the sum of every numeric variable present in BOTH files. A variable in one
-	* and not the other is reported as a column difference rather than compared.
-	local ndiff = 0
-	local detail ""
-	local i = 0
-	foreach v of local pnum {
-		local ++i
-		local sp : word `i' of `psums'
-		local inboth : list posof "`v'" in varst
-		if `inboth' == 0 {
-			local ++ndiff
-			local detail "`detail'`v': absent in test; "
-			continue
-		}
-		qui su `v', meanonly
-		local hx : display %21x r(sum)
-		* reldif handles both-zero, which a plain ratio does not. Exact equality is the
-		* right test here BECAUSE the values are hex floats -- there is no formatting
-		* noise left to tolerate -- but reldif is kept so a rebuild that differs only in
-		* the last bit of a float reports the size of the difference rather than just its
-		* existence.
-		if reldif(`sp', `hx') > 0 {
-			local ++ndiff
-			* Shown in decimal, not hex: the hex form is what makes the COMPARISON exact,
-			* but it is unreadable in a report a person has to act on.
-			local dp : display %14.0g `sp'
-			local dt : display %14.0g `hx'
-			local detail "`detail'`v': `=trim("`dp'")' vs `=trim("`dt'")'; "
-		}
-	}
-	* postfile truncates a string that overflows its width, so the detail is cut here,
-	* visibly, rather than silently losing its tail.
-	if length("`detail'") > 1150 {
-		local detail = substr("`detail'", 1, 1140) + " [...]"
-	}
-
-	local rowtag = cond(`np' == `nt', "SAME", "DIFFER")
-	post CMP ("`f'") (`np') (`nt') ("`rowtag'") (`nvp') (`nvt') (`ndiff') ("`detail'")
-
-	if "`rowtag'" == "SAME" & `ndiff' == 0 & `nvp' == `nvt' {
-		di as res "  `f': identical (" `np' " rows, " `nvp' " vars)"
+foreach grp in temp deliv {
+	if "`grp'" == "temp" {
+		local pub "`pub_temp'"
+		local tst "`tst_temp'"
+		local flist "`files_temp'"
 	}
 	else {
-		di as err "  `f': rows `np' vs `nt', vars `nvp' vs `nvt', `ndiff' differing column(s)"
-		if "`detail'" != "" di as err "     `detail'"
+		local pub "`pub_deliv'"
+		local tst "`tst_deliv'"
+		local flist "`files_deliv'"
+	}
+
+	foreach f of local flist {
+		local okp = 0
+		local okt = 0
+		cap confirm file "`pub'/`f'.dta"
+		if !_rc local okp = 1
+		cap confirm file "`tst'/`f'.dta"
+		if !_rc local okt = 1
+
+		if `okp' == 0 | `okt' == 0 {
+			local miss = cond(`okp' == 0, "missing in published", "missing in test")
+			post CMP ("`f'") (.) (.) ("MISSING") (.) (.) (.) ("`miss'")
+			di as err "  `f': `miss'"
+			continue
+		}
+
+		* ---- the published side, once ------------------------------------------------
+		* TWO LOADS PER DATASET, not one per variable. The obvious way to write this is a
+		* preserve/restore inside the variable loop that re-reads the published file each
+		* time; on 23 datasets and a few hundred columns, across a synced drive, that is
+		* hundreds of reads of files up to 70 MB.
+		use "`pub'/`f'.dta", clear
+		local np = _N
+		qui ds
+		local varsp `r(varlist)'
+		local nvp : word count `varsp'
+
+		* SUMS ARE STORED AS HEX FLOATS. `local s = r(sum)' writes the macro through Stata's
+		* number-to-text conversion, which keeps about 13 significant digits of a double --
+		* a trap this project has already been bitten by in 07_cpi_factor.do and in the snap
+		* verdict join. At 13 digits a genuinely identical sum can differ in the macro, so a
+		* tight tolerance would report false differences on the largest columns.
+		* `%21x' is Stata's hex-float format: exact, round-trips, and usable directly as a
+		* numeric literal in the comparison below.
+		local pnum ""
+		local psums ""
+		foreach v of local varsp {
+			cap confirm numeric variable `v'
+			if _rc continue
+			qui su `v', meanonly
+			local hx : display %21x r(sum)
+			local pnum  "`pnum' `v'"
+			local psums "`psums' `hx'"
+		}
+
+		* ---- the test side, once -----------------------------------------------------
+		use "`tst'/`f'.dta", clear
+		local nt = _N
+		qui ds
+		local varst `r(varlist)'
+		local nvt : word count `varst'
+
+		* Compare the sum of every numeric variable present in BOTH files. A variable in one
+		* and not the other is reported as a column difference rather than compared.
+		local ndiff = 0
+		local detail ""
+		local i = 0
+		foreach v of local pnum {
+			local ++i
+			local sp : word `i' of `psums'
+			local inboth : list posof "`v'" in varst
+			if `inboth' == 0 {
+				local ++ndiff
+				local detail "`detail'`v': absent in test; "
+				continue
+			}
+			qui su `v', meanonly
+			local hx : display %21x r(sum)
+			* reldif handles both-zero, which a plain ratio does not. Exact equality is the
+			* right test here BECAUSE the values are hex floats -- there is no formatting
+			* noise left to tolerate -- but reldif is kept so a rebuild that differs only in
+			* the last bit of a float reports the size of the difference rather than just its
+			* existence.
+			if reldif(`sp', `hx') > 0 {
+				local ++ndiff
+				* Shown in decimal, not hex: the hex form is what makes the COMPARISON exact,
+				* but it is unreadable in a report a person has to act on.
+				local dp : display %14.0g `sp'
+				local dt : display %14.0g `hx'
+				local detail "`detail'`v': `=trim("`dp'")' vs `=trim("`dt'")'; "
+			}
+		}
+		* postfile truncates a string that overflows its width, so the detail is cut here,
+		* visibly, rather than silently losing its tail.
+		if length("`detail'") > 1150 {
+			local detail = substr("`detail'", 1, 1140) + " [...]"
+		}
+
+		local rowtag = cond(`np' == `nt', "SAME", "DIFFER")
+		post CMP ("`f'") (`np') (`nt') ("`rowtag'") (`nvp') (`nvt') (`ndiff') ("`detail'")
+
+		if "`rowtag'" == "SAME" & `ndiff' == 0 & `nvp' == `nvt' {
+			di as res "  `f': identical (" `np' " rows, " `nvp' " vars)"
+		}
+		else {
+			di as err "  `f': rows `np' vs `nt', vars `nvp' vs `nvt', `ndiff' differing column(s)"
+			if "`detail'" != "" di as err "     `detail'"
+		}
 	}
 }
 postclose CMP

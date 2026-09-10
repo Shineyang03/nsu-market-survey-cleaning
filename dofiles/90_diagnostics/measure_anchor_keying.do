@@ -31,9 +31,9 @@
 * pull_nsu_unit (raw), cleaned_nsu_unit (what the pre-Aug11 build used), and
 * harmonized_nsu_unit (current).
 *
-* OUTPUT  ${output}\anchor_<keying>\temp\nsu_reference_set.dta   and the rest of the
-*         variant build. The published build under master_rename_build is untouched, so
-*         the two can be diffed afterwards with no restore step.
+* OUTPUT  ${output}\anchor_<keying>\deliverables\nsu_reference_set.dta   and the rest of
+*         the variant build. The published build under master_rename_build is untouched,
+*         so the two can be diffed afterwards with no restore step.
 ********************************************************************************
 
 clear all

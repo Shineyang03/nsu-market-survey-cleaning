@@ -83,9 +83,9 @@ INPUTS = {
 }
 OUTPUTS = {
     "crosswalk": DC / "outputs" / "tables" / "master_nsu_rename.csv",
-    "weighings + cpi_factor": DC / "outputs" / "master_rename_build" / "temp"
+    "weighings + cpi_factor": DC / "outputs" / "master_rename_build" / "intermediate"
                                  / "nsu_weighings_cpi.dta",
-    "reference set (Outcome 1)": DC / "outputs" / "master_rename_build" / "temp"
+    "reference set (Outcome 1)": DC / "outputs" / "master_rename_build" / "deliverables"
                                     / "nsu_reference_set.dta",
 }
 

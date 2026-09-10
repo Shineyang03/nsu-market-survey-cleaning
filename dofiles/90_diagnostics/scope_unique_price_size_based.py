@@ -74,7 +74,7 @@ BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
 PRICE = BOX + r"\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
-MS = DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dta"
+MS = DC + r"\outputs\master_rename_build\intermediate\nsu_weighings_cpi.dta"
 OUT = DC + r"\outputs\tables"
 
 QUART = ["mp25_price", "mp50_price", "mp75_price"]

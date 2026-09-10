@@ -35,8 +35,9 @@ import io, re, shutil, sys
 import numpy as np, pandas as pd
 from pathlib import Path
 
-T = Path("outputs/master_rename_build/temp")
-OUT = Path("outputs/master_rename_build/tables/snap_sense_check.xlsx")
+T = Path("outputs/master_rename_build/intermediate")
+DELIV = Path("outputs/master_rename_build/deliverables")
+OUT = Path("outputs/master_rename_build/diagnostics/snap_sense_check.xlsx")
 SNAP_DO = Path("dofiles/00_shared/04_unit_snap.do")
 
 # ---------------------------------------------------------------- constant tripwire
@@ -664,7 +665,7 @@ dis = d[(d.anchor_says != d.block_says) & d.published.notna()]
 dis = dis.sort_values("x_from_median", ascending=False)
 gate = d[d.anchor_implausible]
 
-ref_new = pd.read_stata(T/"nsu_reference_set.dta", convert_categoricals=False)
+ref_new = pd.read_stata(DELIV/"nsu_reference_set.dta", convert_categoricals=False)
 
 # ---- EVERY weighing, at its FINAL value ---------------------------------------
 # This sheet used to be `cell_context' and held only the cells a disagreement had

@@ -35,8 +35,8 @@ import numpy as np
 import pandas as pd
 
 DC = Path(__file__).resolve().parent.parent.parent
-LIVE = DC / "outputs" / "master_rename_build" / "temp"
-VAR = DC / "outputs" / "anchor_pull_nsu_unit" / "temp"
+LIVE = DC / "outputs" / "master_rename_build" / "intermediate"
+VAR = DC / "outputs" / "anchor_pull_nsu_unit" / "intermediate"
 OUT = DC / "outputs" / "tables" / "anchor_keying_diff.csv"
 
 # THE BLOCK READING IS READ FROM THE BUILD, not recomputed here. 04_unit_snap.do keeps

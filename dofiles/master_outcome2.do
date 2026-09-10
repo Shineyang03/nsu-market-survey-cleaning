@@ -101,12 +101,22 @@ do "20_psps_retrofitting/28_match_and_convert.do"
 di as res _n ">>> 29_cap.do"
 do "20_psps_retrofitting/29_cap.do"
 
+* ---- the single household-level deliverable -------------------------------------
+* Appends psps_converted_capped.dta and psps_standard_units.dta -- the two files
+* above, which share 23 columns and do not overlap -- and adds the 22 conv_path==3
+* rows (not an NSU at all) that ship in neither, so the row count reconciles to
+* 20a's own 87,959, not to 87,937. See the do-file's header for the full account.
+di as res _n ">>> 31_psps_grams.do"
+do "20_psps_retrofitting/31_psps_grams.do"
+
 di as res _n "{hline 78}"
 di as res "OUTCOME 2 complete."
-di as res "  the lookup     : ${btemp}\outcome2_lookup.dta"
-di as res "                   ${btemp}\outcome2_lookup_noinflation.dta   (#11's variant)"
-di as res "  the households : ${btemp}\psps_converted_capped.dta   (non-standard units)"
-di as res "                   ${btemp}\psps_standard_units.dta      (kg / L / stated, #14)"
+di as res "  the lookup     : ${bdeliv}\outcome2_lookup.dta"
+di as res "                   ${bdeliv}\outcome2_lookup_noinflation.dta   (#11's variant)"
+di as res "  the households : ${bdeliv}\psps_converted_capped.dta   (non-standard units)"
+di as res "                   ${bdeliv}\psps_standard_units.dta      (kg / L / stated, #14)"
+di as res "  THE SINGLE DELIVERABLE : ${bdeliv}\psps_grams.dta"
+di as res "                           ${bdeliv}\psps_grams.csv"
 di as res "  refused        : ${btables}\psps_unconvertible.csv"
 di as res ""
 di as res "  26 IS DELIBERATELY ABSENT. 26_psps_extract.do is archived: it did vocabulary"

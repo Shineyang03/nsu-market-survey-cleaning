@@ -42,7 +42,7 @@
 *
 * ------------------------------------------------------------------------------
 * INPUTS   every .dta and .csv the two masters write, plus the raw launch file
-* OUTPUTS  ${btables}\attrition_ledger.csv
+* OUTPUTS  ${bsummary}\attrition_ledger.csv
 *
 * RUN, from the dofiles/ folder, AFTER both masters:
 *   "C:\Program Files\StataNow19\StataSE-64.exe" -e do 90_diagnostics\attrition_ledger.do
@@ -185,7 +185,7 @@ lgpost LG, type(stage) outcome(outcome 1) stage(3 eligible) step(3c) ///
 	notes(Outcome 1 takes the size-based rows of that cell and Outcome 2 takes the price-quantity ones, so neither outcome mixes branches inside a case)
 
 * ---- the collapse, in its own record type -----------------------------------
-use "${btemp}\nsu_reference_set", clear
+use "${bdeliv}\nsu_reference_set", clear
 local n_o1_out = _N
 qui su n_g
 local n_g_sum = r(sum)
@@ -272,9 +272,9 @@ lgpost LG, type(aggregation) outcome(outcome 2) stage(5 month frame) step(5) ///
 	in(`ng_price_quantity') out(`n_pm') grain(case x price point x month) ///
 	notes(Branch P only. Its grams are what a fixed peso amount bought, so they move with the price level; a size-based or conventional weight is a property of an object and is the same in every month)
 
-use "${btemp}\outcome2_lookup", clear
+use "${bdeliv}\outcome2_lookup", clear
 local n_lookup = _N
-use "${btemp}\outcome2_lookup_noinflation", clear
+use "${bdeliv}\outcome2_lookup_noinflation", clear
 local n_lookup_ni = _N
 lgpost LG, type(aggregation) outcome(outcome 2) stage(6 lookup) step(6) ///
 	dofile(20_psps_retrofitting/25_lookup.do) ///
@@ -328,7 +328,7 @@ forvalues c = 1/5 {
 		notes(conv_path == `c'. The five paths are asserted exhaustive and mutually exclusive, so no row is unaccounted for)
 }
 
-use "${btemp}\psps_standard_units", clear
+use "${bdeliv}\psps_standard_units", clear
 local n_std_out = _N
 lgpost LG, type(stage) outcome(outcome 2) stage(H4 standard) step(H4) ///
 	dofile(20_psps_retrofitting/27_standard_units.do) ///
@@ -336,7 +336,7 @@ lgpost LG, type(stage) outcome(outcome 2) stage(H4 standard) step(H4) ///
 	grain(household x item x slot) ///
 	notes(no market-survey input, no fallback and no cap -- the unit states its own size. Issue #14, and A17 for rice gantang)
 
-use "${btemp}\psps_converted_capped", clear
+use "${bdeliv}\psps_converted_capped", clear
 local n_nsu_in = _N
 qui count if d_converted == 1
 local n_conv = r(N)
@@ -487,8 +487,8 @@ label var grain        "what one row is counted at -- differencing across grains
 label var rows_dropped "MISSING on an aggregation row, deliberately: nothing was discarded"
 
 order record_type outcome stage step dofile description rows_in rows_dropped rows_out grain reason notes
-export delimited using "${btables}\attrition_ledger.csv", replace
-di as txt "wrote ${btables}\attrition_ledger.csv (" _N " row(s))"
+export delimited using "${bsummary}\attrition_ledger.csv", replace
+di as txt "wrote ${bsummary}\attrition_ledger.csv (" _N " row(s))"
 
 * ---- the reconciliation, printed -------------------------------------------
 di as res _n "{hline 78}"

@@ -25,10 +25,10 @@ WHY BOTH NUMBERS MATTER TOGETHER. The corrected count on its own reads as a defe
 It is not: most corrections are decimal slips the pipeline is meant to repair. The
 uncertain count is the part a reader should discount, and it is much smaller.
 
-OUTPUT  outputs/master_rename_build/tables/weight_correction_report.csv
+OUTPUT  outputs/master_rename_build/summary/weight_correction_report.csv
         one row per weighing, with the flags below -- built long so the pipeline
         explorer can filter and group it rather than re-deriving any of it
-        outputs/master_rename_build/tables/weight_correction_summary.csv
+        outputs/master_rename_build/summary/weight_correction_summary.csv
         the counts, for citation
 
 Run from the project root:  python dofiles/90_diagnostics/report_weight_corrections.py
@@ -36,8 +36,8 @@ Run from the project root:  python dofiles/90_diagnostics/report_weight_correcti
 import numpy as np, pandas as pd
 from pathlib import Path
 
-T = Path("outputs/master_rename_build/temp")
-OUT = Path("outputs/master_rename_build/tables")
+T = Path("outputs/master_rename_build/intermediate")
+OUT = Path("outputs/master_rename_build/summary")
 
 pre = pd.read_stata(T / "prelim_nsu_data.dta", convert_categoricals=False)
 mas = pd.read_stata(T / "nsu_data_master.dta", convert_categoricals=True)

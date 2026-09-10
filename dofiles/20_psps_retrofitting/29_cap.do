@@ -51,7 +51,7 @@
 *
 * ==============================================================================
 * INPUT   ${btemp}\psps_converted.dta   28
-* OUTPUT  ${btemp}\psps_converted_capped.dta
+* OUTPUT  ${bdeliv}\psps_converted_capped.dta
 *         ${btables}\cap_ratio_distribution.csv
 *
 * RUN, from the dofiles/ folder:
@@ -104,7 +104,7 @@ di as res _n "why a row carries no ratio:"
 gen str28 _noratio = ""
 replace _noratio = "refused, no grams"        if d_converted == 0
 replace _noratio = "fallback rung, no price"  if _noratio == "" & fallback_level > 0
-replace _noratio = "no faced price (A10)"     if _noratio == "" & d_no_price == 1
+replace _noratio = "no computable unit value" if _noratio == "" & d_no_price == 1
 replace _noratio = "conventional, no p_g"     if _noratio == "" & missing(p_g)
 replace _noratio = "has a ratio"              if _noratio == ""
 tab _noratio, m
@@ -254,7 +254,7 @@ drop _g_uncapped
 
 compress
 sort hh_row
-save "${btemp}\psps_converted_capped", replace
+save "${bdeliv}\psps_converted_capped", replace
 
 preserve
 	keep if !missing(r_h_raw)

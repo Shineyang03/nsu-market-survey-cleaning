@@ -24,8 +24,9 @@ HOW TO USE IT. Three commands, in this order:
         Snapshot the current build outputs to a side folder.
 
     (clear the build outputs, then rebuild:
-     rm outputs/master_rename_build/temp/*.dta
-     rm outputs/master_rename_build/tables/*.xlsx
+     rm outputs/master_rename_build/intermediate/*.dta
+     rm outputs/master_rename_build/deliverables/*.dta
+     rm outputs/master_rename_build/diagnostics/*.xlsx
      cd dofiles && StataSE-64 -e do master_outcome1.do)
 
     python dofiles/90_diagnostics/verify_reproducibility.py
@@ -35,9 +36,10 @@ CLEAR THE TABLES, NOT JUST THE TEMP FOLDER. A stale output that no live step wri
 more is not detectable if it is left sitting on disk -- nothing overwrites it, so it
 compares SAME and reads as reproduced. Deleting the tables first is what turns such a
 file into a MISSING line. This is how three orphaned stepA_*.xlsx were found; they are
-written only by the archived nsu_step_a_rungs.do. The build tables are all git-tracked,
-so `git checkout -- outputs/master_rename_build/tables` restores anything the rebuild
-turns out not to produce.
+written only by the archived nsu_step_a_rungs.do. The build's .xlsx/.csv exports are all
+git-tracked, so `git checkout -- outputs/master_rename_build/diagnostics
+outputs/master_rename_build/deliverables outputs/master_rename_build/summary` restores
+anything the rebuild turns out not to produce.
 
 HOW TO READ THE OUTPUT.
 
@@ -130,10 +132,20 @@ BUILD = DC / "outputs" / "master_rename_build"
 # What a rebuild is expected to reproduce. Only the build subtree: outputs/temp/ and
 # outputs/tables/ hold hand-made inputs and pre-Aug11 artefacts that no live step
 # writes, and snapshotting those would report them as MISSING on every run.
+#
+# FIVE SUBTREES, not two, since the restructure that split `temp/' into
+# `intermediate/' + `deliverables/' and `tables/' into `diagnostics/' + `summary/'.
+# Each pattern below covers exactly what its predecessor covered before the files
+# moved -- deliverables/*.dta is new only because six .dta files used to sit in
+# temp/ and now sit beside their own .xlsx/.csv export instead.
 WATCHED = [
-    (BUILD / "temp", "*.dta"),
-    (BUILD / "tables", "*.xlsx"),
-    (BUILD / "tables", "*.csv"),
+    (BUILD / "intermediate", "*.dta"),
+    (BUILD / "deliverables", "*.dta"),
+    (BUILD / "deliverables", "*.xlsx"),
+    (BUILD / "deliverables", "*.csv"),
+    (BUILD / "diagnostics", "*.xlsx"),
+    (BUILD / "diagnostics", "*.csv"),
+    (BUILD / "summary", "*.csv"),
 ]
 
 # Local temp, deliberately: a snapshot under outputs/ would land inside the next

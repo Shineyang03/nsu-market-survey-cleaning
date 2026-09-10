@@ -539,7 +539,7 @@ The fold introduces exactly one exception, so the table above assigns each case 
 modal approach: ILOILO / TIGBAUAN / carrot, where `bilog` (9 size-based weighings)
 and `pieces or units` (7 price-quantity weighings) both fold to harmonized
 `pieces or units`. It is exported to
-`outputs/master_rename_build/tables/fold_multi_weighing_approach.xlsx` and needs a
+`outputs/master_rename_build/diagnostics/fold_multi_weighing_approach.xlsx` and needs a
 manual branch assignment — either pick a branch for the pooled case, or keep the two
 raw labels apart for this cell.
 

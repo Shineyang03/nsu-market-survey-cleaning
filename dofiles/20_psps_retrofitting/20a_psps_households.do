@@ -418,24 +418,45 @@ nsu_normalize, item(pull_item) unit(pull_nsu_unit) ///
 ********************************************************************************
 **# 9. The household unit price
 ********************************************************************************
-* p_h = e_h / q_h, PURCHASED SLOT ONLY. See the header and A10: the own-production and
-* gift slots carry an imputed value, so a ratio built from them is not a price anyone
-* faced. Leaving it missing is what stops it being used as one.
+* p_h = e_h / q_h, ON EVERY ACQUISITION MODE. See A10, which was reversed on measurement.
+*
+* This file used to compute p_h on the purchased slot only and assert it missing elsewhere,
+* on the reasoning that an own-production or gift value "is not a price anyone faced". That
+* conflates two objects. The price POINTS that build the conversion factors come from the
+* price file and are market transactions; nothing here changes that. A household's own p_h
+* is not an observation feeding an estimate -- it is the INDEX saying which rung of an
+* already-built ladder this consumption sits on, and then the scale factor in
+* CF_h = p_h / v_g. That role does not require a transaction price.
+*
+* AND THE OLD RULE WAS NOT NEUTRAL. With p_h missing, 28 gave those rows the case's middle
+* price point and converted at that group's own weight -- the degenerate p_h = p_g, so
+* CF_h = w_g. That asserts every own-producing household consumed the TYPICAL-sized unit,
+* which is a stronger claim than reading the value they reported. Refusing the data was
+* not the cautious option.
+*
+* Measured before changing: implied prices from the non-purchased slots track purchase
+* prices in the same province x municipality x item x unit at a median ratio of 1.000
+* (IQR 1.000-1.062, n = 11,392). Of the 82 households reporting the same item x unit
+* through both a purchased and a non-purchased slot, 66 report an IDENTICAL unit value, so
+* both rows receive the identical conversion factor. A10 names the 16 that do not, and
+* chicken `bilog' is the worked example of what the rule costs.
 
 gen double p_h = .
-replace  p_h = e_h / q_h if source == "purchased" & q_h > 0 & !missing(e_h)
-label var p_h "implied unit price, PHP per NSU -- purchased slot only (A10)"
+replace  p_h = e_h / q_h if q_h > 0 & !missing(e_h)
+label var p_h "implied unit value, PHP per NSU -- all acquisition modes (A10)"
 label var q_h "quantity reported, in the unit named by pull_nsu_unit"
 label var e_h "amount paid (purchased) or imputed value (own production, gift), PHP"
 
-qui count if source == "purchased"
-local n_purch = r(N)
-qui count if source == "purchased" & !missing(p_h)
-di as res _n "p_h coverage on the purchased slot: " r(N) " of `n_purch'"
+* Reported by SOURCE, because the whole point of the change is that the non-purchased
+* slots now carry a value, and a reader should see the coverage they carry rather than
+* take it on trust.
+di as res _n "p_h coverage by acquisition mode:"
+table source, statistic(frequency) statistic(count p_h) nformat(%9.0fc)
 
-* p_h must be missing wherever it is not a faced price. The whole point of the rule is
-* that nothing downstream can reach an imputed value through this column.
-assert missing(p_h) if source != "purchased"
+* p_h is a pure function of e_h and q_h and of nothing else -- in particular NOT of the
+* slot. Stated as an invariant because the old rule lived in exactly this spot and a
+* future edit that reinstates a slot condition would otherwise pass silently.
+assert missing(p_h) == (missing(e_h) | missing(q_h) | q_h <= 0)
 
 
 ********************************************************************************

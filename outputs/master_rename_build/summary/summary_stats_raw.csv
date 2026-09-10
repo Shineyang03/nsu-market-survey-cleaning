@@ -1,0 +1,572 @@
+statistic,grouping,level,value
+weighing_grain_check,overall,n_rows,11495.0
+weighing_grain_check,overall,n_distinct_groups,11495.0
+n_weighings,overall,all,11495.0
+n_unique_items,overall,all,19.0
+n_provinces,overall,all,5.0
+n_prov_mun_pairs,overall,all,104.0
+n_vendors,overall,all,7857.0
+n_markets,overall,all,709.0
+n_unique_nsu_raw_label,overall,all,129.0
+n_unique_item_x_nsu_raw_label,overall,all,173.0
+n_unique_cases,overall,all,2001.0
+n_weighings_by_province,pull_province,AKLAN,1566.0
+n_weighings_by_province,pull_province,ANTIQUE,1949.0
+n_weighings_by_province,pull_province,CAPIZ,1554.0
+n_weighings_by_province,pull_province,ILOILO,5272.0
+n_weighings_by_province,pull_province,NEGROS OCCIDENTAL,1154.0
+n_weighings_by_municipality,prov_mun,AKLAN | ALTAVAS,68.0
+n_weighings_by_municipality,prov_mun,AKLAN | BANGA,102.0
+n_weighings_by_municipality,prov_mun,AKLAN | BATAN,136.0
+n_weighings_by_municipality,prov_mun,AKLAN | BURUANGA,124.0
+n_weighings_by_municipality,prov_mun,AKLAN | IBAJAY,146.0
+n_weighings_by_municipality,prov_mun,AKLAN | LIBACAO,110.0
+n_weighings_by_municipality,prov_mun,AKLAN | MADALAG,107.0
+n_weighings_by_municipality,prov_mun,AKLAN | MAKATO,143.0
+n_weighings_by_municipality,prov_mun,AKLAN | MALAY,170.0
+n_weighings_by_municipality,prov_mun,AKLAN | MALINAO,105.0
+n_weighings_by_municipality,prov_mun,AKLAN | NABAS,105.0
+n_weighings_by_municipality,prov_mun,AKLAN | NEW WASHINGTON,112.0
+n_weighings_by_municipality,prov_mun,AKLAN | TANGALAN,138.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | BARBAZA,128.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | BELISON,140.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | BUGASONG,144.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | CULASI,169.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | HAMTIC,200.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | LAUA-AN,80.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | LIBERTAD,93.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | PANDAN,77.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | PATNONGON,136.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | SAN REMIGIO,120.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | SEBASTE,120.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | SIBALOM,166.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | TIBIAO,88.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | TOBIAS FORNIER,160.0
+n_weighings_by_municipality,prov_mun,ANTIQUE | VALDERRAMA,128.0
+n_weighings_by_municipality,prov_mun,CAPIZ | CUARTERO,114.0
+n_weighings_by_municipality,prov_mun,CAPIZ | DAO,69.0
+n_weighings_by_municipality,prov_mun,CAPIZ | DUMALAG,96.0
+n_weighings_by_municipality,prov_mun,CAPIZ | DUMARAO,51.0
+n_weighings_by_municipality,prov_mun,CAPIZ | IVISAN,125.0
+n_weighings_by_municipality,prov_mun,CAPIZ | JAMINDAN,49.0
+n_weighings_by_municipality,prov_mun,CAPIZ | MA-AYON,95.0
+n_weighings_by_municipality,prov_mun,CAPIZ | MAMBUSAO,118.0
+n_weighings_by_municipality,prov_mun,CAPIZ | PANAY,139.0
+n_weighings_by_municipality,prov_mun,CAPIZ | PANITAN,156.0
+n_weighings_by_municipality,prov_mun,CAPIZ | PILAR,122.0
+n_weighings_by_municipality,prov_mun,CAPIZ | PONTEVEDRA,100.0
+n_weighings_by_municipality,prov_mun,CAPIZ | PRESIDENT ROXAS,53.0
+n_weighings_by_municipality,prov_mun,CAPIZ | SAPI-AN,92.0
+n_weighings_by_municipality,prov_mun,CAPIZ | SIGMA,81.0
+n_weighings_by_municipality,prov_mun,CAPIZ | TAPAZ,94.0
+n_weighings_by_municipality,prov_mun,ILOILO | AJUY,62.0
+n_weighings_by_municipality,prov_mun,ILOILO | ALIMODIAN,185.0
+n_weighings_by_municipality,prov_mun,ILOILO | ANILAO,91.0
+n_weighings_by_municipality,prov_mun,ILOILO | BADIANGAN,83.0
+n_weighings_by_municipality,prov_mun,ILOILO | BALASAN,73.0
+n_weighings_by_municipality,prov_mun,ILOILO | BANATE,106.0
+n_weighings_by_municipality,prov_mun,ILOILO | BAROTAC NUEVO,81.0
+n_weighings_by_municipality,prov_mun,ILOILO | BAROTAC VIEJO,93.0
+n_weighings_by_municipality,prov_mun,ILOILO | BATAD,129.0
+n_weighings_by_municipality,prov_mun,ILOILO | BINGAWAN,123.0
+n_weighings_by_municipality,prov_mun,ILOILO | CABATUAN,156.0
+n_weighings_by_municipality,prov_mun,ILOILO | CALINOG,158.0
+n_weighings_by_municipality,prov_mun,ILOILO | CARLES,112.0
+n_weighings_by_municipality,prov_mun,ILOILO | CONCEPCION,142.0
+n_weighings_by_municipality,prov_mun,ILOILO | DINGLE,91.0
+n_weighings_by_municipality,prov_mun,ILOILO | DUEĂ‘AS,191.0
+n_weighings_by_municipality,prov_mun,ILOILO | DUMANGAS,41.0
+n_weighings_by_municipality,prov_mun,ILOILO | ESTANCIA,110.0
+n_weighings_by_municipality,prov_mun,ILOILO | GUIMBAL,129.0
+n_weighings_by_municipality,prov_mun,ILOILO | IGBARAS,136.0
+n_weighings_by_municipality,prov_mun,ILOILO | JANIUAY,200.0
+n_weighings_by_municipality,prov_mun,ILOILO | LAMBUNAO,135.0
+n_weighings_by_municipality,prov_mun,ILOILO | LEGANES,107.0
+n_weighings_by_municipality,prov_mun,ILOILO | LEMERY,69.0
+n_weighings_by_municipality,prov_mun,ILOILO | LEON,163.0
+n_weighings_by_municipality,prov_mun,ILOILO | MAASIN,106.0
+n_weighings_by_municipality,prov_mun,ILOILO | MIAGAO,138.0
+n_weighings_by_municipality,prov_mun,ILOILO | MINA,137.0
+n_weighings_by_municipality,prov_mun,ILOILO | NEW LUCENA,122.0
+n_weighings_by_municipality,prov_mun,ILOILO | OTON,192.0
+n_weighings_by_municipality,prov_mun,ILOILO | POTOTAN,200.0
+n_weighings_by_municipality,prov_mun,ILOILO | SAN DIONISIO,79.0
+n_weighings_by_municipality,prov_mun,ILOILO | SAN ENRIQUE,95.0
+n_weighings_by_municipality,prov_mun,ILOILO | SAN JOAQUIN,177.0
+n_weighings_by_municipality,prov_mun,ILOILO | SAN MIGUEL,133.0
+n_weighings_by_municipality,prov_mun,ILOILO | SAN RAFAEL,99.0
+n_weighings_by_municipality,prov_mun,ILOILO | SANTA BARBARA,219.0
+n_weighings_by_municipality,prov_mun,ILOILO | SARA,146.0
+n_weighings_by_municipality,prov_mun,ILOILO | TIGBAUAN,232.0
+n_weighings_by_municipality,prov_mun,ILOILO | TUBUNGAN,120.0
+n_weighings_by_municipality,prov_mun,ILOILO | ZARRAGA,111.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | BINALBAGAN,57.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | CALATRAVA,46.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | CANDONI,44.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | CAUAYAN,60.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | ENRIQUE B. MAGALONA (SARAVIA),68.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | HINIGARAN,67.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | HINOBA-AN (ASIA),66.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | ILOG,65.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | ISABELA,73.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | LA CASTELLANA,47.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | MANAPLA,83.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | MOISES PADILLA (MAGALLON),63.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | MURCIA,30.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | PONTEVEDRA,93.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | PULUPANDAN,47.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | SALVADOR BENEDICTO,38.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | SAN ENRIQUE,113.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | TOBOSO,46.0
+n_weighings_by_municipality,prov_mun,NEGROS OCCIDENTAL | VALLADOLID,48.0
+n_weighings_by_item,pull_item,Beef,8.0
+n_weighings_by_item,pull_item,Beer,6.0
+n_weighings_by_item,pull_item,Cabbage,1425.0
+n_weighings_by_item,pull_item,Camote,591.0
+n_weighings_by_item,pull_item,Camote tops,559.0
+n_weighings_by_item,pull_item,Carrot,1200.0
+n_weighings_by_item,pull_item,Chicken,849.0
+n_weighings_by_item,pull_item,"Crackers, Cookies, Buiscuits, Chips/Curls",1086.0
+n_weighings_by_item,pull_item,"Drinks at restaurant, hotel, cafÃ©, or kiosk",189.0
+n_weighings_by_item,pull_item,Fresh Fish,759.0
+n_weighings_by_item,pull_item,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",878.0
+n_weighings_by_item,pull_item,"Liquor (e.g, whisky, coconut wine)",1129.0
+n_weighings_by_item,pull_item,Loaf Bread,1049.0
+n_weighings_by_item,pull_item,Mango,550.0
+n_weighings_by_item,pull_item,"Mineral or spring water, all drinking water sold in containers",23.0
+n_weighings_by_item,pull_item,Pork,25.0
+n_weighings_by_item,pull_item,"Prawns, Lobster, shrimp",160.0
+n_weighings_by_item,pull_item,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc)",952.0
+n_weighings_by_item,pull_item,Rice,57.0
+n_weighings_by_weighing_approach,weighing_approach,"Conventional NSU (eg. ganta, salmon, salop)",470.0
+n_weighings_by_weighing_approach,weighing_approach,"Price-quantity based (lower, median, higher price)",1229.0
+n_weighings_by_weighing_approach,weighing_approach,"Size-based (small, medium, large)",9796.0
+n_weighings_by_hetero_type,obs_type,conventional_nsu,470.0
+n_weighings_by_hetero_type,obs_type,large_size,2609.0
+n_weighings_by_hetero_type,obs_type,medium_size,3338.0
+n_weighings_by_hetero_type,obs_type,mp25_price,74.0
+n_weighings_by_hetero_type,obs_type,mp50_price,104.0
+n_weighings_by_hetero_type,obs_type,mp75_price,70.0
+n_weighings_by_hetero_type,obs_type,municipality_median,531.0
+n_weighings_by_hetero_type,obs_type,province_median,414.0
+n_weighings_by_hetero_type,obs_type,small_size,3849.0
+n_weighings_by_hetero_type,obs_type,unique_mun_price6,31.0
+n_weighings_by_hetero_type,obs_type,unique_mun_price7,5.0
+n_weighings_by_market_type,market_type_lbl,Public Market,6343.0
+n_weighings_by_market_type,market_type_lbl,Roadside Vendors,3239.0
+n_weighings_by_market_type,market_type_lbl,Talipapa,1913.0
+n_cases_by_province,pull_province,AKLAN,231.0
+n_cases_by_province,pull_province,ANTIQUE,294.0
+n_cases_by_province,pull_province,CAPIZ,326.0
+n_cases_by_province,pull_province,ILOILO,842.0
+n_cases_by_province,pull_province,NEGROS OCCIDENTAL,308.0
+n_items_by_municipality,prov_mun,AKLAN | ALTAVAS,12.0
+n_items_by_municipality,prov_mun,AKLAN | BANGA,10.0
+n_items_by_municipality,prov_mun,AKLAN | BATAN,12.0
+n_items_by_municipality,prov_mun,AKLAN | BURUANGA,11.0
+n_items_by_municipality,prov_mun,AKLAN | IBAJAY,13.0
+n_items_by_municipality,prov_mun,AKLAN | LIBACAO,10.0
+n_items_by_municipality,prov_mun,AKLAN | MADALAG,12.0
+n_items_by_municipality,prov_mun,AKLAN | MAKATO,12.0
+n_items_by_municipality,prov_mun,AKLAN | MALAY,12.0
+n_items_by_municipality,prov_mun,AKLAN | MALINAO,10.0
+n_items_by_municipality,prov_mun,AKLAN | NABAS,8.0
+n_items_by_municipality,prov_mun,AKLAN | NEW WASHINGTON,10.0
+n_items_by_municipality,prov_mun,AKLAN | TANGALAN,9.0
+n_items_by_municipality,prov_mun,ANTIQUE | BARBAZA,12.0
+n_items_by_municipality,prov_mun,ANTIQUE | BELISON,11.0
+n_items_by_municipality,prov_mun,ANTIQUE | BUGASONG,13.0
+n_items_by_municipality,prov_mun,ANTIQUE | CULASI,13.0
+n_items_by_municipality,prov_mun,ANTIQUE | HAMTIC,15.0
+n_items_by_municipality,prov_mun,ANTIQUE | LAUA-AN,11.0
+n_items_by_municipality,prov_mun,ANTIQUE | LIBERTAD,11.0
+n_items_by_municipality,prov_mun,ANTIQUE | PANDAN,9.0
+n_items_by_municipality,prov_mun,ANTIQUE | PATNONGON,11.0
+n_items_by_municipality,prov_mun,ANTIQUE | SAN REMIGIO,13.0
+n_items_by_municipality,prov_mun,ANTIQUE | SEBASTE,11.0
+n_items_by_municipality,prov_mun,ANTIQUE | SIBALOM,14.0
+n_items_by_municipality,prov_mun,ANTIQUE | TIBIAO,10.0
+n_items_by_municipality,prov_mun,ANTIQUE | TOBIAS FORNIER,14.0
+n_items_by_municipality,prov_mun,ANTIQUE | VALDERRAMA,10.0
+n_items_by_municipality,prov_mun,CAPIZ | CUARTERO,12.0
+n_items_by_municipality,prov_mun,CAPIZ | DAO,13.0
+n_items_by_municipality,prov_mun,CAPIZ | DUMALAG,15.0
+n_items_by_municipality,prov_mun,CAPIZ | DUMARAO,11.0
+n_items_by_municipality,prov_mun,CAPIZ | IVISAN,13.0
+n_items_by_municipality,prov_mun,CAPIZ | JAMINDAN,14.0
+n_items_by_municipality,prov_mun,CAPIZ | MA-AYON,14.0
+n_items_by_municipality,prov_mun,CAPIZ | MAMBUSAO,10.0
+n_items_by_municipality,prov_mun,CAPIZ | PANAY,16.0
+n_items_by_municipality,prov_mun,CAPIZ | PANITAN,13.0
+n_items_by_municipality,prov_mun,CAPIZ | PILAR,13.0
+n_items_by_municipality,prov_mun,CAPIZ | PONTEVEDRA,11.0
+n_items_by_municipality,prov_mun,CAPIZ | PRESIDENT ROXAS,13.0
+n_items_by_municipality,prov_mun,CAPIZ | SAPI-AN,15.0
+n_items_by_municipality,prov_mun,CAPIZ | SIGMA,12.0
+n_items_by_municipality,prov_mun,CAPIZ | TAPAZ,12.0
+n_items_by_municipality,prov_mun,ILOILO | AJUY,13.0
+n_items_by_municipality,prov_mun,ILOILO | ALIMODIAN,14.0
+n_items_by_municipality,prov_mun,ILOILO | ANILAO,10.0
+n_items_by_municipality,prov_mun,ILOILO | BADIANGAN,11.0
+n_items_by_municipality,prov_mun,ILOILO | BALASAN,14.0
+n_items_by_municipality,prov_mun,ILOILO | BANATE,12.0
+n_items_by_municipality,prov_mun,ILOILO | BAROTAC NUEVO,14.0
+n_items_by_municipality,prov_mun,ILOILO | BAROTAC VIEJO,14.0
+n_items_by_municipality,prov_mun,ILOILO | BATAD,15.0
+n_items_by_municipality,prov_mun,ILOILO | BINGAWAN,12.0
+n_items_by_municipality,prov_mun,ILOILO | CABATUAN,13.0
+n_items_by_municipality,prov_mun,ILOILO | CALINOG,11.0
+n_items_by_municipality,prov_mun,ILOILO | CARLES,12.0
+n_items_by_municipality,prov_mun,ILOILO | CONCEPCION,12.0
+n_items_by_municipality,prov_mun,ILOILO | DINGLE,11.0
+n_items_by_municipality,prov_mun,ILOILO | DUEĂ‘AS,14.0
+n_items_by_municipality,prov_mun,ILOILO | DUMANGAS,8.0
+n_items_by_municipality,prov_mun,ILOILO | ESTANCIA,11.0
+n_items_by_municipality,prov_mun,ILOILO | GUIMBAL,9.0
+n_items_by_municipality,prov_mun,ILOILO | IGBARAS,15.0
+n_items_by_municipality,prov_mun,ILOILO | JANIUAY,14.0
+n_items_by_municipality,prov_mun,ILOILO | LAMBUNAO,12.0
+n_items_by_municipality,prov_mun,ILOILO | LEGANES,13.0
+n_items_by_municipality,prov_mun,ILOILO | LEMERY,13.0
+n_items_by_municipality,prov_mun,ILOILO | LEON,10.0
+n_items_by_municipality,prov_mun,ILOILO | MAASIN,13.0
+n_items_by_municipality,prov_mun,ILOILO | MIAGAO,12.0
+n_items_by_municipality,prov_mun,ILOILO | MINA,14.0
+n_items_by_municipality,prov_mun,ILOILO | NEW LUCENA,14.0
+n_items_by_municipality,prov_mun,ILOILO | OTON,17.0
+n_items_by_municipality,prov_mun,ILOILO | POTOTAN,13.0
+n_items_by_municipality,prov_mun,ILOILO | SAN DIONISIO,13.0
+n_items_by_municipality,prov_mun,ILOILO | SAN ENRIQUE,13.0
+n_items_by_municipality,prov_mun,ILOILO | SAN JOAQUIN,14.0
+n_items_by_municipality,prov_mun,ILOILO | SAN MIGUEL,10.0
+n_items_by_municipality,prov_mun,ILOILO | SAN RAFAEL,11.0
+n_items_by_municipality,prov_mun,ILOILO | SANTA BARBARA,11.0
+n_items_by_municipality,prov_mun,ILOILO | SARA,14.0
+n_items_by_municipality,prov_mun,ILOILO | TIGBAUAN,14.0
+n_items_by_municipality,prov_mun,ILOILO | TUBUNGAN,13.0
+n_items_by_municipality,prov_mun,ILOILO | ZARRAGA,11.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | BINALBAGAN,7.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | CALATRAVA,10.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | CANDONI,11.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | CAUAYAN,12.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | ENRIQUE B. MAGALONA (SARAVIA),10.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | HINIGARAN,13.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | HINOBA-AN (ASIA),9.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | ILOG,8.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | ISABELA,11.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | LA CASTELLANA,10.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | MANAPLA,11.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | MOISES PADILLA (MAGALLON),10.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | MURCIA,9.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | PONTEVEDRA,11.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | PULUPANDAN,12.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | SALVADOR BENEDICTO,8.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | SAN ENRIQUE,11.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | TOBOSO,8.0
+n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | VALLADOLID,11.0
+n_cases_by_market_slots_filled,n_market_types_present,1,814.0
+n_cases_by_market_slots_filled,n_market_types_present,2,713.0
+n_cases_by_market_slots_filled,n_market_types_present,3,474.0
+max_vendors_observed_in_one_cell,overall,all,5.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Public Market | 1,779.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Public Market | 2,634.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Public Market | 3+,1427.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Roadside Vendors | 1,889.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Roadside Vendors | 2,526.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Roadside Vendors | 3+,422.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Talipapa | 1,592.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Talipapa | 2,278.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Talipapa | 3+,253.0
+avg_vendors_per_cell,overall,all,1.981896551724138
+n_cases_with_ge1_obs_by_weighing_approach,weighing_approach,"Conventional NSU (eg. ganta, salmon, salop)",124.0
+n_cases_with_ge1_obs_by_weighing_approach,weighing_approach,"Price-quantity based (lower, median, higher price)",319.0
+n_cases_with_ge1_obs_by_weighing_approach,weighing_approach,"Size-based (small, medium, large)",1558.0
+n_cases_multi_weighing_approach,overall,all,0.0
+avg_weighings_per_case_by_weighing_approach,weighing_approach,"Conventional NSU (eg. ganta, salmon, salop)",3.7903225806451615
+avg_weighings_per_case_by_weighing_approach,weighing_approach,"Price-quantity based (lower, median, higher price)",3.852664576802508
+avg_weighings_per_case_by_weighing_approach,weighing_approach,"Size-based (small, medium, large)",6.2875481386392815
+n_cases_with_ge1_obs_by_hetero_type,obs_type,conventional_nsu,124.0
+n_cases_with_ge1_obs_by_hetero_type,obs_type,large_size,830.0
+n_cases_with_ge1_obs_by_hetero_type,obs_type,medium_size,978.0
+n_cases_with_ge1_obs_by_hetero_type,obs_type,mp25_price,24.0
+n_cases_with_ge1_obs_by_hetero_type,obs_type,mp50_price,34.0
+n_cases_with_ge1_obs_by_hetero_type,obs_type,mp75_price,22.0
+n_cases_with_ge1_obs_by_hetero_type,obs_type,municipality_median,146.0
+n_cases_with_ge1_obs_by_hetero_type,obs_type,province_median,127.0
+n_cases_with_ge1_obs_by_hetero_type,obs_type,small_size,1123.0
+n_cases_with_ge1_obs_by_hetero_type,obs_type,unique_mun_price6,12.0
+n_cases_with_ge1_obs_by_hetero_type,obs_type,unique_mun_price7,2.0
+n_cases_multi_hetero_type,overall,all,851.0
+avg_weighings_per_case_by_hetero_type,obs_type,conventional_nsu,3.7903225806451615
+avg_weighings_per_case_by_hetero_type,obs_type,large_size,3.1433734939759037
+avg_weighings_per_case_by_hetero_type,obs_type,medium_size,3.4130879345603273
+avg_weighings_per_case_by_hetero_type,obs_type,mp25_price,3.0833333333333335
+avg_weighings_per_case_by_hetero_type,obs_type,mp50_price,3.0588235294117645
+avg_weighings_per_case_by_hetero_type,obs_type,mp75_price,3.1818181818181817
+avg_weighings_per_case_by_hetero_type,obs_type,municipality_median,3.636986301369863
+avg_weighings_per_case_by_hetero_type,obs_type,province_median,3.2598425196850394
+avg_weighings_per_case_by_hetero_type,obs_type,small_size,3.427426536064114
+avg_weighings_per_case_by_hetero_type,obs_type,unique_mun_price6,2.5833333333333335
+avg_weighings_per_case_by_hetero_type,obs_type,unique_mun_price7,2.5
+weight_raw_n,item | unit,Beef | Kilograms (Kgs),4.0
+weight_raw_mean,item | unit,Beef | Kilograms (Kgs),823.1037499904633
+weight_raw_median,item | unit,Beef | Kilograms (Kgs),615.6299999952316
+weight_raw_sd,item | unit,Beef | Kilograms (Kgs),1007.7208258625762
+weight_raw_min,item | unit,Beef | Kilograms (Kgs),1.1549999713897705
+weight_raw_max,item | unit,Beef | Kilograms (Kgs),2060.0
+weight_raw_n,item | unit,Beef | grams (g),4.0
+weight_raw_mean,item | unit,Beef | grams (g),775.0
+weight_raw_median,item | unit,Beef | grams (g),592.5
+weight_raw_sd,item | unit,Beef | grams (g),425.38218110306406
+weight_raw_min,item | unit,Beef | grams (g),510.0
+weight_raw_max,item | unit,Beef | grams (g),1405.0
+weight_raw_n,item | unit,Beer | Litres (L),2.0
+weight_raw_mean,item | unit,Beer | Litres (L),4440.0
+weight_raw_median,item | unit,Beer | Litres (L),4440.0
+weight_raw_sd,item | unit,Beer | Litres (L),4582.051942088828
+weight_raw_min,item | unit,Beer | Litres (L),1200.0
+weight_raw_max,item | unit,Beer | Litres (L),7680.0
+weight_raw_n,item | unit,Beer | grams (g),4.0
+weight_raw_mean,item | unit,Beer | grams (g),500.0
+weight_raw_median,item | unit,Beer | grams (g),500.0
+weight_raw_sd,item | unit,Beer | grams (g),0.0
+weight_raw_min,item | unit,Beer | grams (g),500.0
+weight_raw_max,item | unit,Beer | grams (g),500.0
+weight_raw_n,item | unit,Cabbage | Kilograms (Kgs),108.0
+weight_raw_mean,item | unit,Cabbage | Kilograms (Kgs),229.12805555112385
+weight_raw_median,item | unit,Cabbage | Kilograms (Kgs),1.20250004529953
+weight_raw_sd,item | unit,Cabbage | Kilograms (Kgs),477.75842764135126
+weight_raw_min,item | unit,Cabbage | Kilograms (Kgs),0.1550000011920929
+weight_raw_max,item | unit,Cabbage | Kilograms (Kgs),1555.0
+weight_raw_n,item | unit,Cabbage | grams (g),1317.0
+weight_raw_mean,item | unit,Cabbage | grams (g),457.4027562639029
+weight_raw_median,item | unit,Cabbage | grams (g),510.0
+weight_raw_sd,item | unit,Cabbage | grams (g),336.6697491179181
+weight_raw_min,item | unit,Cabbage | grams (g),0.06499999761581421
+weight_raw_max,item | unit,Cabbage | grams (g),1595.0
+weight_raw_n,item | unit,Camote | Kilograms (Kgs),13.0
+weight_raw_mean,item | unit,Camote | Kilograms (Kgs),485.2580769245441
+weight_raw_median,item | unit,Camote | Kilograms (Kgs),1.5399999618530273
+weight_raw_sd,item | unit,Camote | Kilograms (Kgs),544.5013012731938
+weight_raw_min,item | unit,Camote | Kilograms (Kgs),1.0
+weight_raw_max,item | unit,Camote | Kilograms (Kgs),1095.0
+weight_raw_n,item | unit,Camote | grams (g),578.0
+weight_raw_mean,item | unit,Camote | grams (g),105.32173010405914
+weight_raw_median,item | unit,Camote | grams (g),85.0
+weight_raw_sd,item | unit,Camote | grams (g),121.73218924481307
+weight_raw_min,item | unit,Camote | grams (g),0.03500000014901161
+weight_raw_max,item | unit,Camote | grams (g),1085.0
+weight_raw_n,item | unit,Camote tops | Kilograms (Kgs),26.0
+weight_raw_mean,item | unit,Camote tops | Kilograms (Kgs),86.76192307013731
+weight_raw_median,item | unit,Camote tops | Kilograms (Kgs),1.125
+weight_raw_sd,item | unit,Camote tops | Kilograms (Kgs),303.1048083936654
+weight_raw_min,item | unit,Camote tops | Kilograms (Kgs),0.13500000536441803
+weight_raw_max,item | unit,Camote tops | Kilograms (Kgs),1170.0
+weight_raw_n,item | unit,Camote tops | grams (g),533.0
+weight_raw_mean,item | unit,Camote tops | grams (g),194.35797373353597
+weight_raw_median,item | unit,Camote tops | grams (g),160.0
+weight_raw_sd,item | unit,Camote tops | grams (g),210.19257540234304
+weight_raw_min,item | unit,Camote tops | grams (g),0.10499999672174454
+weight_raw_max,item | unit,Camote tops | grams (g),1280.0
+weight_raw_n,item | unit,Carrot | Kilograms (Kgs),2.0
+weight_raw_mean,item | unit,Carrot | Kilograms (Kgs),0.13750000298023224
+weight_raw_median,item | unit,Carrot | Kilograms (Kgs),0.13750000298023224
+weight_raw_sd,item | unit,Carrot | Kilograms (Kgs),0.0035355305341848568
+weight_raw_min,item | unit,Carrot | Kilograms (Kgs),0.13500000536441803
+weight_raw_max,item | unit,Carrot | Kilograms (Kgs),0.14000000059604645
+weight_raw_n,item | unit,Carrot | grams (g),1198.0
+weight_raw_mean,item | unit,Carrot | grams (g),103.28672036731022
+weight_raw_median,item | unit,Carrot | grams (g),105.0
+weight_raw_sd,item | unit,Carrot | grams (g),94.08137334815888
+weight_raw_min,item | unit,Carrot | grams (g),0.03999999910593033
+weight_raw_max,item | unit,Carrot | grams (g),700.0
+weight_raw_n,item | unit,Chicken | Kilograms (Kgs),368.0
+weight_raw_mean,item | unit,Chicken | Kilograms (Kgs),124.9926576074719
+weight_raw_median,item | unit,Chicken | Kilograms (Kgs),1.2300000190734863
+weight_raw_sd,item | unit,Chicken | Kilograms (Kgs),380.693054747935
+weight_raw_min,item | unit,Chicken | Kilograms (Kgs),0.0
+weight_raw_max,item | unit,Chicken | Kilograms (Kgs),1805.0
+weight_raw_n,item | unit,Chicken | Litres (L),2.0
+weight_raw_mean,item | unit,Chicken | Litres (L),0.4755874940310605
+weight_raw_median,item | unit,Chicken | Litres (L),0.4755874940310605
+weight_raw_sd,item | unit,Chicken | Litres (L),0.6709205832419417
+weight_raw_min,item | unit,Chicken | Litres (L),0.0011749999830499291
+weight_raw_max,item | unit,Chicken | Litres (L),0.949999988079071
+weight_raw_n,item | unit,Chicken | grams (g),479.0
+weight_raw_mean,item | unit,Chicken | grams (g),644.7205845519107
+weight_raw_median,item | unit,Chicken | grams (g),785.0
+weight_raw_sd,item | unit,Chicken | grams (g),505.538152272267
+weight_raw_min,item | unit,Chicken | grams (g),0.0
+weight_raw_max,item | unit,Chicken | grams (g),2120.0
+weight_raw_n,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",16.0
+weight_raw_mean,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",1.5565625075250864
+weight_raw_median,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",1.5
+weight_raw_sd,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",0.5045021457600013
+weight_raw_min,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",0.2800000011920929
+weight_raw_max,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",2.4000000953674316
+weight_raw_n,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",4.0
+weight_raw_mean,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",95.1575030554086
+weight_raw_median,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",42.66500000655651
+weight_raw_sd,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",139.22208224760894
+weight_raw_min,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",0.10000000149011612
+weight_raw_max,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",295.20001220703125
+weight_raw_n,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",1066.0
+weight_raw_mean,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",113.22551783556766
+weight_raw_median,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",48.0
+weight_raw_sd,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",124.32473259784048
+weight_raw_min,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",0.019999999552965164
+weight_raw_max,item | unit,"Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",640.0
+weight_raw_n,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | Litres (L)",164.0
+weight_raw_mean,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | Litres (L)",0.3645467352648777
+weight_raw_median,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | Litres (L)",0.35499998927116394
+weight_raw_sd,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | Litres (L)",0.2639125788769594
+weight_raw_min,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | Litres (L)",0.001500000013038516
+weight_raw_max,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | Litres (L)",1.0
+weight_raw_n,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | grams (g)",25.0
+weight_raw_mean,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | grams (g)",417.26219999969004
+weight_raw_median,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | grams (g)",450.0
+weight_raw_sd,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | grams (g)",234.56138565864282
+weight_raw_min,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | grams (g)",0.23999999463558197
+weight_raw_max,item | unit,"Drinks at restaurant, hotel, cafÃ©, or kiosk | grams (g)",810.0
+weight_raw_n,item | unit,Fresh Fish | Kilograms (Kgs),42.0
+weight_raw_mean,item | unit,Fresh Fish | Kilograms (Kgs),508.5624999971617
+weight_raw_median,item | unit,Fresh Fish | Kilograms (Kgs),1.6800000071525574
+weight_raw_sd,item | unit,Fresh Fish | Kilograms (Kgs),851.8624226190105
+weight_raw_min,item | unit,Fresh Fish | Kilograms (Kgs),1.0
+weight_raw_max,item | unit,Fresh Fish | Kilograms (Kgs),3670.0
+weight_raw_n,item | unit,Fresh Fish | grams (g),717.0
+weight_raw_mean,item | unit,Fresh Fish | grams (g),336.4674072524421
+weight_raw_median,item | unit,Fresh Fish | grams (g),265.0
+weight_raw_sd,item | unit,Fresh Fish | grams (g),439.8777720557174
+weight_raw_min,item | unit,Fresh Fish | grams (g),0.0
+weight_raw_max,item | unit,Fresh Fish | grams (g),5550.0
+weight_raw_n,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",2.0
+weight_raw_mean,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",1.0324999690055847
+weight_raw_median,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",1.0324999690055847
+weight_raw_sd,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",0.01060659160255457
+weight_raw_min,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",1.024999976158142
+weight_raw_max,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",1.0399999618530273
+weight_raw_n,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",554.0
+weight_raw_mean,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",3.2219828528773196
+weight_raw_median,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",0.10000000149011612
+weight_raw_sd,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",15.93527313293911
+weight_raw_min,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",0.0012499999720603228
+weight_raw_max,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",140.0
+weight_raw_n,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",322.0
+weight_raw_mean,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",86.8119099379766
+weight_raw_median,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",60.0
+weight_raw_sd,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",118.90805748574282
+weight_raw_min,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",0.02500000037252903
+weight_raw_max,item | unit,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",700.0
+weight_raw_n,item | unit,"Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",8.0
+weight_raw_mean,item | unit,"Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",1.1400000154972076
+weight_raw_median,item | unit,"Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",1.2075000405311584
+weight_raw_sd,item | unit,"Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",0.11677207237984226
+weight_raw_min,item | unit,"Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",1.0
+weight_raw_max,item | unit,"Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",1.2450000047683716
+weight_raw_n,item | unit,"Liquor (e.g, whisky, coconut wine) | Litres (L)",875.0
+weight_raw_mean,item | unit,"Liquor (e.g, whisky, coconut wine) | Litres (L)",26.7456072970509
+weight_raw_median,item | unit,"Liquor (e.g, whisky, coconut wine) | Litres (L)",0.5
+weight_raw_sd,item | unit,"Liquor (e.g, whisky, coconut wine) | Litres (L)",124.68090549588052
+weight_raw_min,item | unit,"Liquor (e.g, whisky, coconut wine) | Litres (L)",0.0011599999852478504
+weight_raw_max,item | unit,"Liquor (e.g, whisky, coconut wine) | Litres (L)",750.0
+weight_raw_n,item | unit,"Liquor (e.g, whisky, coconut wine) | grams (g)",246.0
+weight_raw_mean,item | unit,"Liquor (e.g, whisky, coconut wine) | grams (g)",502.53386178903463
+weight_raw_median,item | unit,"Liquor (e.g, whisky, coconut wine) | grams (g)",375.0
+weight_raw_sd,item | unit,"Liquor (e.g, whisky, coconut wine) | grams (g)",225.69005546236576
+weight_raw_min,item | unit,"Liquor (e.g, whisky, coconut wine) | grams (g)",0.375
+weight_raw_max,item | unit,"Liquor (e.g, whisky, coconut wine) | grams (g)",750.0
+weight_raw_n,item | unit,Loaf Bread | Litres (L),4.0
+weight_raw_mean,item | unit,Loaf Bread | Litres (L),0.588749997317791
+weight_raw_median,item | unit,Loaf Bread | Litres (L),0.6399999856948853
+weight_raw_sd,item | unit,Loaf Bread | Litres (L),0.12691039735936654
+weight_raw_min,item | unit,Loaf Bread | Litres (L),0.4000000059604645
+weight_raw_max,item | unit,Loaf Bread | Litres (L),0.675000011920929
+weight_raw_n,item | unit,Loaf Bread | grams (g),1045.0
+weight_raw_mean,item | unit,Loaf Bread | grams (g),464.198248803915
+weight_raw_median,item | unit,Loaf Bread | grams (g),450.0
+weight_raw_sd,item | unit,Loaf Bread | grams (g),184.82527866963264
+weight_raw_min,item | unit,Loaf Bread | grams (g),0.2150000035762787
+weight_raw_max,item | unit,Loaf Bread | grams (g),765.0
+weight_raw_n,item | unit,Mango | Kilograms (Kgs),1.0
+weight_raw_mean,item | unit,Mango | Kilograms (Kgs),0.25
+weight_raw_median,item | unit,Mango | Kilograms (Kgs),0.25
+weight_raw_sd,item | unit,Mango | Kilograms (Kgs),0.0
+weight_raw_min,item | unit,Mango | Kilograms (Kgs),0.25
+weight_raw_max,item | unit,Mango | Kilograms (Kgs),0.25
+weight_raw_n,item | unit,Mango | grams (g),549.0
+weight_raw_mean,item | unit,Mango | grams (g),192.50965391604302
+weight_raw_median,item | unit,Mango | grams (g),210.0
+weight_raw_sd,item | unit,Mango | grams (g),124.9086424653477
+weight_raw_min,item | unit,Mango | grams (g),0.10499999672174454
+weight_raw_max,item | unit,Mango | grams (g),1290.0
+weight_raw_n,item | unit,"Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",3.0
+weight_raw_mean,item | unit,"Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",21.384999593098957
+weight_raw_median,item | unit,"Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",21.479999542236328
+weight_raw_sd,item | unit,"Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",0.342527804951844
+weight_raw_min,item | unit,"Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",21.0049991607666
+weight_raw_max,item | unit,"Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",21.670000076293945
+weight_raw_n,item | unit,"Mineral or spring water, all drinking water sold in containers | Litres (L)",20.0
+weight_raw_mean,item | unit,"Mineral or spring water, all drinking water sold in containers | Litres (L)",0.43107999991625545
+weight_raw_median,item | unit,"Mineral or spring water, all drinking water sold in containers | Litres (L)",0.009999999776482582
+weight_raw_sd,item | unit,"Mineral or spring water, all drinking water sold in containers | Litres (L)",1.3285231458754299
+weight_raw_min,item | unit,"Mineral or spring water, all drinking water sold in containers | Litres (L)",0.006000000052154064
+weight_raw_max,item | unit,"Mineral or spring water, all drinking water sold in containers | Litres (L)",6.0
+weight_raw_n,item | unit,Pork | Kilograms (Kgs),2.0
+weight_raw_mean,item | unit,Pork | Kilograms (Kgs),1.2524999976158142
+weight_raw_median,item | unit,Pork | Kilograms (Kgs),1.2524999976158142
+weight_raw_sd,item | unit,Pork | Kilograms (Kgs),0.3570889211274586
+weight_raw_min,item | unit,Pork | Kilograms (Kgs),1.0
+weight_raw_max,item | unit,Pork | Kilograms (Kgs),1.5049999952316284
+weight_raw_n,item | unit,Pork | grams (g),23.0
+weight_raw_mean,item | unit,Pork | grams (g),197.12760869705158
+weight_raw_median,item | unit,Pork | grams (g),0.6600000262260437
+weight_raw_sd,item | unit,Pork | grams (g),375.4928783540159
+weight_raw_min,item | unit,Pork | grams (g),0.09000000357627869
+weight_raw_max,item | unit,Pork | grams (g),1620.0
+weight_raw_n,item | unit,"Prawns, Lobster, shrimp | Kilograms (Kgs)",2.0
+weight_raw_mean,item | unit,"Prawns, Lobster, shrimp | Kilograms (Kgs)",1.0450000166893005
+weight_raw_median,item | unit,"Prawns, Lobster, shrimp | Kilograms (Kgs)",1.0450000166893005
+weight_raw_sd,item | unit,"Prawns, Lobster, shrimp | Kilograms (Kgs)",0.06363963390902444
+weight_raw_min,item | unit,"Prawns, Lobster, shrimp | Kilograms (Kgs)",1.0
+weight_raw_max,item | unit,"Prawns, Lobster, shrimp | Kilograms (Kgs)",1.090000033378601
+weight_raw_n,item | unit,"Prawns, Lobster, shrimp | grams (g)",158.0
+weight_raw_mean,item | unit,"Prawns, Lobster, shrimp | grams (g)",212.3886708855346
+weight_raw_median,item | unit,"Prawns, Lobster, shrimp | grams (g)",205.0
+weight_raw_sd,item | unit,"Prawns, Lobster, shrimp | grams (g)",202.8195581288937
+weight_raw_min,item | unit,"Prawns, Lobster, shrimp | grams (g)",0.11500000208616257
+weight_raw_max,item | unit,"Prawns, Lobster, shrimp | grams (g)",1040.0
+weight_raw_n,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",77.0
+weight_raw_mean,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",25.51857143098658
+weight_raw_median,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",1.0
+weight_raw_sd,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",124.01651860919706
+weight_raw_min,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",1.0
+weight_raw_max,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",1020.0
+weight_raw_n,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",5.0
+weight_raw_mean,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",30.19224000466056
+weight_raw_median,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",0.06499999761581421
+weight_raw_sd,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",66.97550292641567
+weight_raw_min,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",0.0012000000569969416
+weight_raw_max,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",150.0
+weight_raw_n,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",870.0
+weight_raw_mean,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",205.9332241378232
+weight_raw_median,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",250.0
+weight_raw_sd,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",141.4724346491499
+weight_raw_min,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",0.02500000037252903
+weight_raw_max,item | unit,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",1165.0
+weight_raw_n,item | unit,Rice | Kilograms (Kgs),16.0
+weight_raw_mean,item | unit,Rice | Kilograms (Kgs),9.340937495231628
+weight_raw_median,item | unit,Rice | Kilograms (Kgs),2.252500057220459
+weight_raw_sd,item | unit,Rice | Kilograms (Kgs),10.903717598403514
+weight_raw_min,item | unit,Rice | Kilograms (Kgs),2.0250000953674316
+weight_raw_max,item | unit,Rice | Kilograms (Kgs),25.0
+weight_raw_n,item | unit,Rice | grams (g),41.0
+weight_raw_mean,item | unit,Rice | grams (g),815.2996341440736
+weight_raw_median,item | unit,Rice | grams (g),420.0
+weight_raw_sd,item | unit,Rice | grams (g),882.1216954532214
+weight_raw_min,item | unit,Rice | grams (g),0.3100000023841858
+weight_raw_max,item | unit,Rice | grams (g),2280.0
+n_weighings_by_unit,unit_lbl,Kilograms (Kgs),690.0
+n_weighings_by_unit,unit_lbl,Litres (L),1630.0
+n_weighings_by_unit,unit_lbl,grams (g),9175.0
+n_distinct_pull_nsu_unit,overall,all,129.0

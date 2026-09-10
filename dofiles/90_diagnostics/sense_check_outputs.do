@@ -17,15 +17,15 @@
 * READS ONLY PUBLISHED OUTPUTS, plus household size from the raw PSPS file, which the
 * pipeline does not compute and therefore cannot be read from a build output.
 *
-* INPUTS   ${btemp}\nsu_reference_set.dta        Outcome 1
-*          ${btemp}\psps_converted_capped.dta    Outcome 2, non-standard units
-*          ${btemp}\psps_standard_units.dta      Outcome 2, standard units
+* INPUTS   ${bdeliv}\nsu_reference_set.dta       Outcome 1
+*          ${bdeliv}\psps_converted_capped.dta   Outcome 2, non-standard units
+*          ${bdeliv}\psps_standard_units.dta     Outcome 2, standard units
 *          ${psps_cons}                          household size only
-* OUTPUTS  ${btables}\sense_check_outcome1.csv
-*          ${btables}\sense_check_outcome2.csv
-*          ${btables}\sense_check_o1_vs_o2.csv
-*          ${btables}\sense_check_percapita.csv
-*          ${bgraphs}\sense_*.png                four panels
+* OUTPUTS  ${bsummary}\sense_check_outcome1.csv
+*          ${bsummary}\sense_check_outcome2.csv
+*          ${bsummary}\sense_check_o1_vs_o2.csv
+*          ${bsummary}\sense_check_percapita.csv
+*          ${bsummary}\sense_*.png                four panels
 *
 * RUN, from the dofiles/ folder, after both masters:
 *   "C:\Program Files\StataNow19\StataSE-64.exe" -e do 90_diagnostics\sense_check_outputs.do
@@ -45,7 +45,7 @@ set linesize 110
 **# 1. Outcome 1 -- do the reference weights look like the things they describe?
 ********************************************************************************
 
-use "${btemp}\nsu_reference_set", clear
+use "${bdeliv}\nsu_reference_set", clear
 qui count
 di as res _n "{hline 78}"
 di as res "OUTCOME 1 -- the reference set, " r(N) " row(s)"
@@ -66,7 +66,7 @@ preserve
 	         by(pull_item)
 	gsort -n_rows
 	list pull_item n_rows g_min g_p25 g_med g_p75 g_max, noobs abbrev(32) sep(0)
-	export delimited using "${btables}\sense_check_outcome1.csv", replace
+	export delimited using "${bsummary}\sense_check_outcome1.csv", replace
 
 	* THE PANEL. Drawn from the same collapse the table above prints, so the figure and
 	* the table cannot disagree.
@@ -106,7 +106,7 @@ preserve
 	              "Log scale, decade ticks: a wrong order of magnitude is a visible jump," ///
 	              "which is what this panel is for.", size(vsmall)) ///
 	         ysize(6) xsize(9)
-	graph export "${bgraphs}\sense_o1_grams_by_item.png", replace width(1600)
+	graph export "${bsummary}\sense_o1_grams_by_item.png", replace width(1600)
 restore
 
 * IMPLAUSIBLE MAGNITUDES, on bounds chosen from what the units are rather than from the
@@ -145,7 +145,7 @@ di as res "  min " r(min) "  p25 " r(p25) "  median " r(p50) "  p75 " r(p75) "  
 **# 2. Outcome 2 -- do the conversion factors look like the units they convert?
 ********************************************************************************
 
-use "${btemp}\psps_converted_capped", clear
+use "${bdeliv}\psps_converted_capped", clear
 qui count
 local n_nsu = r(N)
 qui count if d_converted == 1
@@ -162,7 +162,7 @@ preserve
 	         by(pull_item)
 	gsort -n_rows
 	list pull_item n_rows cf_min cf_p25 cf_med cf_p75 cf_max, noobs abbrev(32) sep(0)
-	export delimited using "${btables}\sense_check_outcome2.csv", replace
+	export delimited using "${bsummary}\sense_check_outcome2.csv", replace
 restore
 
 * cf_h IS NOT BOUNDED BY THE REFERENCE WEIGHT, and that is the design: CF_h = p_h * w_g/p_g
@@ -277,7 +277,7 @@ preserve
 	              "different -- if it does, the borrowing is doing more than filling a gap.", ///
 	              size(vsmall)) ///
 	         ysize(4.5) xsize(9)
-	graph export "${bgraphs}\sense_o2_cf_by_rung.png", replace width(1600)
+	graph export "${bsummary}\sense_o2_cf_by_rung.png", replace width(1600)
 restore
 
 
@@ -293,13 +293,13 @@ restore
 * Compared at CASE grain: the median published gram figure against the median conversion
 * factor of the households in that case.
 
-use "${btemp}\nsu_reference_set", clear
+use "${bdeliv}\nsu_reference_set", clear
 collapse (median) o1_grams = grams (sum) o1_n = n_g, ///
 	by(pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit)
 tempfile o1
 save "`o1'"
 
-use "${btemp}\psps_converted_capped", clear
+use "${bdeliv}\psps_converted_capped", clear
 keep if d_converted == 1
 collapse (median) o2_cf = cf_h (count) o2_rows = cf_h (max) o2_maxrung = fallback_level, ///
 	by(pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit)
@@ -331,7 +331,7 @@ di as res "  on the OBJECT and differ only through the household's own price, wh
 di as res "  the intended difference. A median far from 1 would mean the price match or"
 di as res "  the inflation step is shifting the level, not just spreading it."
 
-export delimited using "${btables}\sense_check_o1_vs_o2.csv", replace
+export delimited using "${bsummary}\sense_check_o1_vs_o2.csv", replace
 
 * EXPLICIT TICKS ON BOTH LOG AXES. Left to Stata, a log scale places ticks at values it
 * chooses from the data range and the labels collide into an unreadable smear -- the first
@@ -349,7 +349,7 @@ twoway (scatter o2_cf o1_grams, msize(vsmall) mcolor(%25)) ///
 	note("They are not supposed to be identical -- Outcome 1 slices by size and Outcome 2" ///
 	     "by price point -- but they describe the same objects, so the cloud should sit on" ///
 	     "the line rather than beside it.", size(vsmall))
-graph export "${bgraphs}\sense_o1_vs_o2.png", replace width(1400)
+graph export "${bsummary}\sense_o1_vs_o2.png", replace width(1400)
 
 
 ********************************************************************************
@@ -391,14 +391,14 @@ preserve
 	save "`hhsize'"
 restore
 
-use "${btemp}\psps_converted_capped", clear
+use "${bdeliv}\psps_converted_capped", clear
 keep if d_converted == 1
 keep hhid pull_item grams_h
 gen str16 route = "non-standard"
 tempfile part1
 save "`part1'"
 
-use "${btemp}\psps_standard_units", clear
+use "${bdeliv}\psps_standard_units", clear
 keep hhid pull_item grams_h
 gen str16 route = "standard unit"
 append using "`part1'"
@@ -427,7 +427,7 @@ preserve
 	* which is unreadable for a table meant to be scanned. Truncate to a width that
 	* keeps every row on one line; the full name is in the CSV.
 	* Exported before the truncation so the CSV carries the full item name.
-	export delimited using "${btables}\sense_check_percapita.csv", replace
+	export delimited using "${bsummary}\sense_check_percapita.csv", replace
 	gen str32 item = substr(pull_item, 1, 32)
 	list item n_hh gppd_med gppd_p90, noobs sep(0)
 restore
@@ -460,7 +460,7 @@ preserve
 		note("Truncated at 6 kg for display. Covers only surveyed items, includes drinking" ///
 		     "water, and uses a raw headcount with no adult-equivalent scaling -- so read the" ///
 		     "shape and the order of magnitude, not the level.", size(vsmall))
-	graph export "${bgraphs}\sense_percapita.png", replace width(1400)
+	graph export "${bsummary}\sense_percapita.png", replace width(1400)
 restore
 
 
@@ -553,5 +553,5 @@ restore
 drop _iswater
 
 di as res _n "{hline 78}"
-di as res "sense_check_outputs.do done -- four tables in ${btables}, four graphs in ${bgraphs}"
+di as res "sense_check_outputs.do done -- four tables and four graphs in ${bsummary}"
 di as res "{hline 78}"

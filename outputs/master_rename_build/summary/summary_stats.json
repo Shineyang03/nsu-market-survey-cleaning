@@ -1,0 +1,5168 @@
+{
+  "$schema_note": "Each entry in raw.statistics / cleaned.statistics has: id (short name), title (human label), description (notes/caveats), grouping (the dimension the 'level' values run over -- 'overall' means a single scalar), n_levels, and data: a list of {level, value} pairs. The same statistic id means the same definition on both sides EXCEPT where the description says otherwise (e.g. raw has no harmonized_nsu_unit, so its 'case' key uses pull_nsu_unit).",
+  "generated_from": {
+    "raw_source": "C:\\Users\\uzj5150\\Box\\Philippines Panel\\01 Panel\\14 NSU Market Survey\\NSU Market Survey Launch\\data\\PSPS NSU Market Survey Launch.dta",
+    "cleaned_source": "C:\\Users\\uzj5150\\Box\\Philippines Panel\\01 Panel\\14 NSU Market Survey\\Data Cleaning\\outputs\\master_rename_build\\intermediate\\nsu_data_master.dta",
+    "raw_n_rows": 11495,
+    "cleaned_n_rows": 11433
+  },
+  "grain_definitions": {
+    "weighing": {
+      "raw": "pull_province x pull_municipal_city x pull_item x pull_nsu_unit x market_type x vendor_id x obs_type",
+      "cleaned": "pull_province x pull_municipal_city x pull_item x harmonized_nsu_unit x market_type x vendor_id x item_nsu_hetero_type"
+    },
+    "case": {
+      "raw": "pull_province x pull_municipal_city x pull_item x pull_nsu_unit",
+      "cleaned": "pull_province x pull_municipal_city x pull_item x harmonized_nsu_unit x corrected_unit_lbl"
+    },
+    "note": "Never grouped or joined on the raw `uuid` column -- it is item_unit_MUNICIPALITY with no province, and PONTEVEDRA (Capiz and Negros Occidental) and SAN ENRIQUE (Iloilo and Negros Occidental) each occur in two provinces. Every municipality-level 'level' string in this file is written 'PROVINCE | MUNICIPALITY'."
+  },
+  "raw": {
+    "statistics": [
+      {
+        "id": "weighing_grain_check",
+        "title": "Rows at the weighing grain",
+        "description": "province x municipality x item x NSU x market_type x vendor_id x obs_type/hetero_type",
+        "grouping": "overall",
+        "n_levels": 2,
+        "data": [
+          {
+            "level": "n_rows",
+            "value": 11495
+          },
+          {
+            "level": "n_distinct_groups",
+            "value": 11495
+          }
+        ]
+      },
+      {
+        "id": "n_weighings",
+        "title": "Total weighings (rows)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 11495
+          }
+        ]
+      },
+      {
+        "id": "n_unique_items",
+        "title": "Distinct items (pull_item)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 19
+          }
+        ]
+      },
+      {
+        "id": "n_provinces",
+        "title": "Distinct provinces",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "id": "n_prov_mun_pairs",
+        "title": "Distinct province x municipality pairs",
+        "description": "Municipality alone is not a safe key; PONTEVEDRA and SAN ENRIQUE each occur in two provinces.",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 104
+          }
+        ]
+      },
+      {
+        "id": "n_vendors",
+        "title": "Distinct vendor_id",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 7857
+          }
+        ]
+      },
+      {
+        "id": "n_markets",
+        "title": "Distinct market_name",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 709
+          }
+        ]
+      },
+      {
+        "id": "n_unique_nsu_raw_label",
+        "title": "Distinct NSU unit labels (pull_nsu_unit)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 129
+          }
+        ]
+      },
+      {
+        "id": "n_unique_item_x_nsu_raw_label",
+        "title": "Distinct item x NSU pairs (pull_nsu_unit)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 173
+          }
+        ]
+      },
+      {
+        "id": "n_unique_cases",
+        "title": "Distinct cases (province x municipality x item x NSU)",
+        "description": "Case key columns: pull_province x pull_municipal_city x pull_item x pull_nsu_unit",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 2001
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_province",
+        "title": "Weighings by province",
+        "description": "",
+        "grouping": "pull_province",
+        "n_levels": 5,
+        "data": [
+          {
+            "level": "AKLAN",
+            "value": 1566
+          },
+          {
+            "level": "ANTIQUE",
+            "value": 1949
+          },
+          {
+            "level": "CAPIZ",
+            "value": 1554
+          },
+          {
+            "level": "ILOILO",
+            "value": 5272
+          },
+          {
+            "level": "NEGROS OCCIDENTAL",
+            "value": 1154
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_municipality",
+        "title": "Weighings by province | municipality",
+        "description": "",
+        "grouping": "prov_mun",
+        "n_levels": 104,
+        "data": [
+          {
+            "level": "AKLAN | ALTAVAS",
+            "value": 68
+          },
+          {
+            "level": "AKLAN | BANGA",
+            "value": 102
+          },
+          {
+            "level": "AKLAN | BATAN",
+            "value": 136
+          },
+          {
+            "level": "AKLAN | BURUANGA",
+            "value": 124
+          },
+          {
+            "level": "AKLAN | IBAJAY",
+            "value": 146
+          },
+          {
+            "level": "AKLAN | LIBACAO",
+            "value": 110
+          },
+          {
+            "level": "AKLAN | MADALAG",
+            "value": 107
+          },
+          {
+            "level": "AKLAN | MAKATO",
+            "value": 143
+          },
+          {
+            "level": "AKLAN | MALAY",
+            "value": 170
+          },
+          {
+            "level": "AKLAN | MALINAO",
+            "value": 105
+          },
+          {
+            "level": "AKLAN | NABAS",
+            "value": 105
+          },
+          {
+            "level": "AKLAN | NEW WASHINGTON",
+            "value": 112
+          },
+          {
+            "level": "AKLAN | TANGALAN",
+            "value": 138
+          },
+          {
+            "level": "ANTIQUE | BARBAZA",
+            "value": 128
+          },
+          {
+            "level": "ANTIQUE | BELISON",
+            "value": 140
+          },
+          {
+            "level": "ANTIQUE | BUGASONG",
+            "value": 144
+          },
+          {
+            "level": "ANTIQUE | CULASI",
+            "value": 169
+          },
+          {
+            "level": "ANTIQUE | HAMTIC",
+            "value": 200
+          },
+          {
+            "level": "ANTIQUE | LAUA-AN",
+            "value": 80
+          },
+          {
+            "level": "ANTIQUE | LIBERTAD",
+            "value": 93
+          },
+          {
+            "level": "ANTIQUE | PANDAN",
+            "value": 77
+          },
+          {
+            "level": "ANTIQUE | PATNONGON",
+            "value": 136
+          },
+          {
+            "level": "ANTIQUE | SAN REMIGIO",
+            "value": 120
+          },
+          {
+            "level": "ANTIQUE | SEBASTE",
+            "value": 120
+          },
+          {
+            "level": "ANTIQUE | SIBALOM",
+            "value": 166
+          },
+          {
+            "level": "ANTIQUE | TIBIAO",
+            "value": 88
+          },
+          {
+            "level": "ANTIQUE | TOBIAS FORNIER",
+            "value": 160
+          },
+          {
+            "level": "ANTIQUE | VALDERRAMA",
+            "value": 128
+          },
+          {
+            "level": "CAPIZ | CUARTERO",
+            "value": 114
+          },
+          {
+            "level": "CAPIZ | DAO",
+            "value": 69
+          },
+          {
+            "level": "CAPIZ | DUMALAG",
+            "value": 96
+          },
+          {
+            "level": "CAPIZ | DUMARAO",
+            "value": 51
+          },
+          {
+            "level": "CAPIZ | IVISAN",
+            "value": 125
+          },
+          {
+            "level": "CAPIZ | JAMINDAN",
+            "value": 49
+          },
+          {
+            "level": "CAPIZ | MA-AYON",
+            "value": 95
+          },
+          {
+            "level": "CAPIZ | MAMBUSAO",
+            "value": 118
+          },
+          {
+            "level": "CAPIZ | PANAY",
+            "value": 139
+          },
+          {
+            "level": "CAPIZ | PANITAN",
+            "value": 156
+          },
+          {
+            "level": "CAPIZ | PILAR",
+            "value": 122
+          },
+          {
+            "level": "CAPIZ | PONTEVEDRA",
+            "value": 100
+          },
+          {
+            "level": "CAPIZ | PRESIDENT ROXAS",
+            "value": 53
+          },
+          {
+            "level": "CAPIZ | SAPI-AN",
+            "value": 92
+          },
+          {
+            "level": "CAPIZ | SIGMA",
+            "value": 81
+          },
+          {
+            "level": "CAPIZ | TAPAZ",
+            "value": 94
+          },
+          {
+            "level": "ILOILO | AJUY",
+            "value": 62
+          },
+          {
+            "level": "ILOILO | ALIMODIAN",
+            "value": 185
+          },
+          {
+            "level": "ILOILO | ANILAO",
+            "value": 91
+          },
+          {
+            "level": "ILOILO | BADIANGAN",
+            "value": 83
+          },
+          {
+            "level": "ILOILO | BALASAN",
+            "value": 73
+          },
+          {
+            "level": "ILOILO | BANATE",
+            "value": 106
+          },
+          {
+            "level": "ILOILO | BAROTAC NUEVO",
+            "value": 81
+          },
+          {
+            "level": "ILOILO | BAROTAC VIEJO",
+            "value": 93
+          },
+          {
+            "level": "ILOILO | BATAD",
+            "value": 129
+          },
+          {
+            "level": "ILOILO | BINGAWAN",
+            "value": 123
+          },
+          {
+            "level": "ILOILO | CABATUAN",
+            "value": 156
+          },
+          {
+            "level": "ILOILO | CALINOG",
+            "value": 158
+          },
+          {
+            "level": "ILOILO | CARLES",
+            "value": 112
+          },
+          {
+            "level": "ILOILO | CONCEPCION",
+            "value": 142
+          },
+          {
+            "level": "ILOILO | DINGLE",
+            "value": 91
+          },
+          {
+            "level": "ILOILO | DUE\u0102\u2018AS",
+            "value": 191
+          },
+          {
+            "level": "ILOILO | DUMANGAS",
+            "value": 41
+          },
+          {
+            "level": "ILOILO | ESTANCIA",
+            "value": 110
+          },
+          {
+            "level": "ILOILO | GUIMBAL",
+            "value": 129
+          },
+          {
+            "level": "ILOILO | IGBARAS",
+            "value": 136
+          },
+          {
+            "level": "ILOILO | JANIUAY",
+            "value": 200
+          },
+          {
+            "level": "ILOILO | LAMBUNAO",
+            "value": 135
+          },
+          {
+            "level": "ILOILO | LEGANES",
+            "value": 107
+          },
+          {
+            "level": "ILOILO | LEMERY",
+            "value": 69
+          },
+          {
+            "level": "ILOILO | LEON",
+            "value": 163
+          },
+          {
+            "level": "ILOILO | MAASIN",
+            "value": 106
+          },
+          {
+            "level": "ILOILO | MIAGAO",
+            "value": 138
+          },
+          {
+            "level": "ILOILO | MINA",
+            "value": 137
+          },
+          {
+            "level": "ILOILO | NEW LUCENA",
+            "value": 122
+          },
+          {
+            "level": "ILOILO | OTON",
+            "value": 192
+          },
+          {
+            "level": "ILOILO | POTOTAN",
+            "value": 200
+          },
+          {
+            "level": "ILOILO | SAN DIONISIO",
+            "value": 79
+          },
+          {
+            "level": "ILOILO | SAN ENRIQUE",
+            "value": 95
+          },
+          {
+            "level": "ILOILO | SAN JOAQUIN",
+            "value": 177
+          },
+          {
+            "level": "ILOILO | SAN MIGUEL",
+            "value": 133
+          },
+          {
+            "level": "ILOILO | SAN RAFAEL",
+            "value": 99
+          },
+          {
+            "level": "ILOILO | SANTA BARBARA",
+            "value": 219
+          },
+          {
+            "level": "ILOILO | SARA",
+            "value": 146
+          },
+          {
+            "level": "ILOILO | TIGBAUAN",
+            "value": 232
+          },
+          {
+            "level": "ILOILO | TUBUNGAN",
+            "value": 120
+          },
+          {
+            "level": "ILOILO | ZARRAGA",
+            "value": 111
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | BINALBAGAN",
+            "value": 57
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CALATRAVA",
+            "value": 46
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CANDONI",
+            "value": 44
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CAUAYAN",
+            "value": 60
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ENRIQUE B. MAGALONA (SARAVIA)",
+            "value": 68
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | HINIGARAN",
+            "value": 67
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | HINOBA-AN (ASIA)",
+            "value": 66
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ILOG",
+            "value": 65
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ISABELA",
+            "value": 73
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | LA CASTELLANA",
+            "value": 47
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MANAPLA",
+            "value": 83
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MOISES PADILLA (MAGALLON)",
+            "value": 63
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MURCIA",
+            "value": 30
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | PONTEVEDRA",
+            "value": 93
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | PULUPANDAN",
+            "value": 47
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | SALVADOR BENEDICTO",
+            "value": 38
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | SAN ENRIQUE",
+            "value": 113
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | TOBOSO",
+            "value": 46
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | VALLADOLID",
+            "value": 48
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_item",
+        "title": "Weighings by item",
+        "description": "",
+        "grouping": "pull_item",
+        "n_levels": 19,
+        "data": [
+          {
+            "level": "Beef",
+            "value": 8
+          },
+          {
+            "level": "Beer",
+            "value": 6
+          },
+          {
+            "level": "Cabbage",
+            "value": 1425
+          },
+          {
+            "level": "Camote",
+            "value": 591
+          },
+          {
+            "level": "Camote tops",
+            "value": 559
+          },
+          {
+            "level": "Carrot",
+            "value": 1200
+          },
+          {
+            "level": "Chicken",
+            "value": 849
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls",
+            "value": 1086
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk",
+            "value": 189
+          },
+          {
+            "level": "Fresh Fish",
+            "value": 759
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",
+            "value": 878
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine)",
+            "value": 1129
+          },
+          {
+            "level": "Loaf Bread",
+            "value": 1049
+          },
+          {
+            "level": "Mango",
+            "value": 550
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers",
+            "value": 23
+          },
+          {
+            "level": "Pork",
+            "value": 25
+          },
+          {
+            "level": "Prawns, Lobster, shrimp",
+            "value": 160
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc)",
+            "value": 952
+          },
+          {
+            "level": "Rice",
+            "value": 57
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_weighing_approach",
+        "title": "Weighings by weighing approach",
+        "description": "",
+        "grouping": "weighing_approach",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "Conventional NSU (eg. ganta, salmon, salop)",
+            "value": 470
+          },
+          {
+            "level": "Price-quantity based (lower, median, higher price)",
+            "value": 1229
+          },
+          {
+            "level": "Size-based (small, medium, large)",
+            "value": 9796
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_hetero_type",
+        "title": "Weighings by obs_type / hetero-group type",
+        "description": "",
+        "grouping": "obs_type",
+        "n_levels": 11,
+        "data": [
+          {
+            "level": "conventional_nsu",
+            "value": 470
+          },
+          {
+            "level": "large_size",
+            "value": 2609
+          },
+          {
+            "level": "medium_size",
+            "value": 3338
+          },
+          {
+            "level": "mp25_price",
+            "value": 74
+          },
+          {
+            "level": "mp50_price",
+            "value": 104
+          },
+          {
+            "level": "mp75_price",
+            "value": 70
+          },
+          {
+            "level": "municipality_median",
+            "value": 531
+          },
+          {
+            "level": "province_median",
+            "value": 414
+          },
+          {
+            "level": "small_size",
+            "value": 3849
+          },
+          {
+            "level": "unique_mun_price6",
+            "value": 31
+          },
+          {
+            "level": "unique_mun_price7",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_market_type",
+        "title": "Weighings by market type",
+        "description": "",
+        "grouping": "market_type_lbl",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "Public Market",
+            "value": 6343
+          },
+          {
+            "level": "Roadside Vendors",
+            "value": 3239
+          },
+          {
+            "level": "Talipapa",
+            "value": 1913
+          }
+        ]
+      },
+      {
+        "id": "n_cases_by_province",
+        "title": "Distinct cases by province",
+        "description": "",
+        "grouping": "pull_province",
+        "n_levels": 5,
+        "data": [
+          {
+            "level": "AKLAN",
+            "value": 231
+          },
+          {
+            "level": "ANTIQUE",
+            "value": 294
+          },
+          {
+            "level": "CAPIZ",
+            "value": 326
+          },
+          {
+            "level": "ILOILO",
+            "value": 842
+          },
+          {
+            "level": "NEGROS OCCIDENTAL",
+            "value": 308
+          }
+        ]
+      },
+      {
+        "id": "n_items_by_municipality",
+        "title": "Distinct items by province | municipality",
+        "description": "",
+        "grouping": "prov_mun",
+        "n_levels": 104,
+        "data": [
+          {
+            "level": "AKLAN | ALTAVAS",
+            "value": 12
+          },
+          {
+            "level": "AKLAN | BANGA",
+            "value": 10
+          },
+          {
+            "level": "AKLAN | BATAN",
+            "value": 12
+          },
+          {
+            "level": "AKLAN | BURUANGA",
+            "value": 11
+          },
+          {
+            "level": "AKLAN | IBAJAY",
+            "value": 13
+          },
+          {
+            "level": "AKLAN | LIBACAO",
+            "value": 10
+          },
+          {
+            "level": "AKLAN | MADALAG",
+            "value": 12
+          },
+          {
+            "level": "AKLAN | MAKATO",
+            "value": 12
+          },
+          {
+            "level": "AKLAN | MALAY",
+            "value": 12
+          },
+          {
+            "level": "AKLAN | MALINAO",
+            "value": 10
+          },
+          {
+            "level": "AKLAN | NABAS",
+            "value": 8
+          },
+          {
+            "level": "AKLAN | NEW WASHINGTON",
+            "value": 10
+          },
+          {
+            "level": "AKLAN | TANGALAN",
+            "value": 9
+          },
+          {
+            "level": "ANTIQUE | BARBAZA",
+            "value": 12
+          },
+          {
+            "level": "ANTIQUE | BELISON",
+            "value": 11
+          },
+          {
+            "level": "ANTIQUE | BUGASONG",
+            "value": 13
+          },
+          {
+            "level": "ANTIQUE | CULASI",
+            "value": 13
+          },
+          {
+            "level": "ANTIQUE | HAMTIC",
+            "value": 15
+          },
+          {
+            "level": "ANTIQUE | LAUA-AN",
+            "value": 11
+          },
+          {
+            "level": "ANTIQUE | LIBERTAD",
+            "value": 11
+          },
+          {
+            "level": "ANTIQUE | PANDAN",
+            "value": 9
+          },
+          {
+            "level": "ANTIQUE | PATNONGON",
+            "value": 11
+          },
+          {
+            "level": "ANTIQUE | SAN REMIGIO",
+            "value": 13
+          },
+          {
+            "level": "ANTIQUE | SEBASTE",
+            "value": 11
+          },
+          {
+            "level": "ANTIQUE | SIBALOM",
+            "value": 14
+          },
+          {
+            "level": "ANTIQUE | TIBIAO",
+            "value": 10
+          },
+          {
+            "level": "ANTIQUE | TOBIAS FORNIER",
+            "value": 14
+          },
+          {
+            "level": "ANTIQUE | VALDERRAMA",
+            "value": 10
+          },
+          {
+            "level": "CAPIZ | CUARTERO",
+            "value": 12
+          },
+          {
+            "level": "CAPIZ | DAO",
+            "value": 13
+          },
+          {
+            "level": "CAPIZ | DUMALAG",
+            "value": 15
+          },
+          {
+            "level": "CAPIZ | DUMARAO",
+            "value": 11
+          },
+          {
+            "level": "CAPIZ | IVISAN",
+            "value": 13
+          },
+          {
+            "level": "CAPIZ | JAMINDAN",
+            "value": 14
+          },
+          {
+            "level": "CAPIZ | MA-AYON",
+            "value": 14
+          },
+          {
+            "level": "CAPIZ | MAMBUSAO",
+            "value": 10
+          },
+          {
+            "level": "CAPIZ | PANAY",
+            "value": 16
+          },
+          {
+            "level": "CAPIZ | PANITAN",
+            "value": 13
+          },
+          {
+            "level": "CAPIZ | PILAR",
+            "value": 13
+          },
+          {
+            "level": "CAPIZ | PONTEVEDRA",
+            "value": 11
+          },
+          {
+            "level": "CAPIZ | PRESIDENT ROXAS",
+            "value": 13
+          },
+          {
+            "level": "CAPIZ | SAPI-AN",
+            "value": 15
+          },
+          {
+            "level": "CAPIZ | SIGMA",
+            "value": 12
+          },
+          {
+            "level": "CAPIZ | TAPAZ",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | AJUY",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | ALIMODIAN",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | ANILAO",
+            "value": 10
+          },
+          {
+            "level": "ILOILO | BADIANGAN",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | BALASAN",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | BANATE",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | BAROTAC NUEVO",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | BAROTAC VIEJO",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | BATAD",
+            "value": 15
+          },
+          {
+            "level": "ILOILO | BINGAWAN",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | CABATUAN",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | CALINOG",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | CARLES",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | CONCEPCION",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | DINGLE",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | DUE\u0102\u2018AS",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | DUMANGAS",
+            "value": 8
+          },
+          {
+            "level": "ILOILO | ESTANCIA",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | GUIMBAL",
+            "value": 9
+          },
+          {
+            "level": "ILOILO | IGBARAS",
+            "value": 15
+          },
+          {
+            "level": "ILOILO | JANIUAY",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | LAMBUNAO",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | LEGANES",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | LEMERY",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | LEON",
+            "value": 10
+          },
+          {
+            "level": "ILOILO | MAASIN",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | MIAGAO",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | MINA",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | NEW LUCENA",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | OTON",
+            "value": 17
+          },
+          {
+            "level": "ILOILO | POTOTAN",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | SAN DIONISIO",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | SAN ENRIQUE",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | SAN JOAQUIN",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | SAN MIGUEL",
+            "value": 10
+          },
+          {
+            "level": "ILOILO | SAN RAFAEL",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | SANTA BARBARA",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | SARA",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | TIGBAUAN",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | TUBUNGAN",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | ZARRAGA",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | BINALBAGAN",
+            "value": 7
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CALATRAVA",
+            "value": 10
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CANDONI",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CAUAYAN",
+            "value": 12
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ENRIQUE B. MAGALONA (SARAVIA)",
+            "value": 10
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | HINIGARAN",
+            "value": 13
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | HINOBA-AN (ASIA)",
+            "value": 9
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ILOG",
+            "value": 8
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ISABELA",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | LA CASTELLANA",
+            "value": 10
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MANAPLA",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MOISES PADILLA (MAGALLON)",
+            "value": 10
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MURCIA",
+            "value": 9
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | PONTEVEDRA",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | PULUPANDAN",
+            "value": 12
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | SALVADOR BENEDICTO",
+            "value": 8
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | SAN ENRIQUE",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | TOBOSO",
+            "value": 8
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | VALLADOLID",
+            "value": 11
+          }
+        ]
+      },
+      {
+        "id": "n_cases_by_market_slots_filled",
+        "title": "Cases by number of distinct market types present (of 3 possible)",
+        "description": "",
+        "grouping": "n_market_types_present",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "1",
+            "value": 814
+          },
+          {
+            "level": "2",
+            "value": 713
+          },
+          {
+            "level": "3",
+            "value": 474
+          }
+        ]
+      },
+      {
+        "id": "max_vendors_observed_in_one_cell",
+        "title": "Max distinct vendor_id observed in any (case x hetero-type x market_type) cell",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "id": "n_vendors_per_cell_by_market_type",
+        "title": "Cells (case x hetero-type x market_type), by number of distinct vendors, split by market type",
+        "description": "",
+        "grouping": "market_type | n_vendor_bucket",
+        "n_levels": 9,
+        "data": [
+          {
+            "level": "Public Market | 1",
+            "value": 779
+          },
+          {
+            "level": "Public Market | 2",
+            "value": 634
+          },
+          {
+            "level": "Public Market | 3+",
+            "value": 1427
+          },
+          {
+            "level": "Roadside Vendors | 1",
+            "value": 889
+          },
+          {
+            "level": "Roadside Vendors | 2",
+            "value": 526
+          },
+          {
+            "level": "Roadside Vendors | 3+",
+            "value": 422
+          },
+          {
+            "level": "Talipapa | 1",
+            "value": 592
+          },
+          {
+            "level": "Talipapa | 2",
+            "value": 278
+          },
+          {
+            "level": "Talipapa | 3+",
+            "value": 253
+          }
+        ]
+      },
+      {
+        "id": "avg_vendors_per_cell",
+        "title": "Average distinct vendors per (case x hetero-type x market_type) cell",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 1.981896551724138
+          }
+        ]
+      },
+      {
+        "id": "n_cases_with_ge1_obs_by_weighing_approach",
+        "title": "Cases with >=1 weighing under each weighing approach (a case can appear in more than one)",
+        "description": "",
+        "grouping": "weighing_approach",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "Conventional NSU (eg. ganta, salmon, salop)",
+            "value": 124
+          },
+          {
+            "level": "Price-quantity based (lower, median, higher price)",
+            "value": 319
+          },
+          {
+            "level": "Size-based (small, medium, large)",
+            "value": 1558
+          }
+        ]
+      },
+      {
+        "id": "n_cases_multi_weighing_approach",
+        "title": "Cases with weighings spanning more than one weighing approach",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "id": "avg_weighings_per_case_by_weighing_approach",
+        "title": "Average weighings per case, by weighing approach (excl. 0-obs cases)",
+        "description": "",
+        "grouping": "weighing_approach",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "Conventional NSU (eg. ganta, salmon, salop)",
+            "value": 3.7903225806451615
+          },
+          {
+            "level": "Price-quantity based (lower, median, higher price)",
+            "value": 3.852664576802508
+          },
+          {
+            "level": "Size-based (small, medium, large)",
+            "value": 6.2875481386392815
+          }
+        ]
+      },
+      {
+        "id": "n_cases_with_ge1_obs_by_hetero_type",
+        "title": "Cases with >=1 weighing under each obs_type / hetero-group type (a case can appear in more than one)",
+        "description": "",
+        "grouping": "obs_type",
+        "n_levels": 11,
+        "data": [
+          {
+            "level": "conventional_nsu",
+            "value": 124
+          },
+          {
+            "level": "large_size",
+            "value": 830
+          },
+          {
+            "level": "medium_size",
+            "value": 978
+          },
+          {
+            "level": "mp25_price",
+            "value": 24
+          },
+          {
+            "level": "mp50_price",
+            "value": 34
+          },
+          {
+            "level": "mp75_price",
+            "value": 22
+          },
+          {
+            "level": "municipality_median",
+            "value": 146
+          },
+          {
+            "level": "province_median",
+            "value": 127
+          },
+          {
+            "level": "small_size",
+            "value": 1123
+          },
+          {
+            "level": "unique_mun_price6",
+            "value": 12
+          },
+          {
+            "level": "unique_mun_price7",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "id": "n_cases_multi_hetero_type",
+        "title": "Cases with weighings spanning more than one obs_type / hetero-group type",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 851
+          }
+        ]
+      },
+      {
+        "id": "avg_weighings_per_case_by_hetero_type",
+        "title": "Average weighings per case, by obs_type / hetero-group type (excl. 0-obs cases)",
+        "description": "",
+        "grouping": "obs_type",
+        "n_levels": 11,
+        "data": [
+          {
+            "level": "conventional_nsu",
+            "value": 3.7903225806451615
+          },
+          {
+            "level": "large_size",
+            "value": 3.1433734939759037
+          },
+          {
+            "level": "medium_size",
+            "value": 3.4130879345603273
+          },
+          {
+            "level": "mp25_price",
+            "value": 3.0833333333333335
+          },
+          {
+            "level": "mp50_price",
+            "value": 3.0588235294117645
+          },
+          {
+            "level": "mp75_price",
+            "value": 3.1818181818181817
+          },
+          {
+            "level": "municipality_median",
+            "value": 3.636986301369863
+          },
+          {
+            "level": "province_median",
+            "value": 3.2598425196850394
+          },
+          {
+            "level": "small_size",
+            "value": 3.427426536064114
+          },
+          {
+            "level": "unique_mun_price6",
+            "value": 2.5833333333333335
+          },
+          {
+            "level": "unique_mun_price7",
+            "value": 2.5
+          }
+        ]
+      },
+      {
+        "id": "weight_raw_n",
+        "title": "Raw weight (before order-of-magnitude correction): n weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 43,
+        "data": [
+          {
+            "level": "Beef | Kilograms (Kgs)",
+            "value": 4.0
+          },
+          {
+            "level": "Beef | grams (g)",
+            "value": 4.0
+          },
+          {
+            "level": "Beer | Litres (L)",
+            "value": 2.0
+          },
+          {
+            "level": "Beer | grams (g)",
+            "value": 4.0
+          },
+          {
+            "level": "Cabbage | Kilograms (Kgs)",
+            "value": 108.0
+          },
+          {
+            "level": "Cabbage | grams (g)",
+            "value": 1317.0
+          },
+          {
+            "level": "Camote | Kilograms (Kgs)",
+            "value": 13.0
+          },
+          {
+            "level": "Camote | grams (g)",
+            "value": 578.0
+          },
+          {
+            "level": "Camote tops | Kilograms (Kgs)",
+            "value": 26.0
+          },
+          {
+            "level": "Camote tops | grams (g)",
+            "value": 533.0
+          },
+          {
+            "level": "Carrot | Kilograms (Kgs)",
+            "value": 2.0
+          },
+          {
+            "level": "Carrot | grams (g)",
+            "value": 1198.0
+          },
+          {
+            "level": "Chicken | Kilograms (Kgs)",
+            "value": 368.0
+          },
+          {
+            "level": "Chicken | Litres (L)",
+            "value": 2.0
+          },
+          {
+            "level": "Chicken | grams (g)",
+            "value": 479.0
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",
+            "value": 16.0
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",
+            "value": 4.0
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",
+            "value": 1066.0
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | Litres (L)",
+            "value": 164.0
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | grams (g)",
+            "value": 25.0
+          },
+          {
+            "level": "Fresh Fish | Kilograms (Kgs)",
+            "value": 42.0
+          },
+          {
+            "level": "Fresh Fish | grams (g)",
+            "value": 717.0
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",
+            "value": 2.0
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",
+            "value": 554.0
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",
+            "value": 322.0
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",
+            "value": 8.0
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Litres (L)",
+            "value": 875.0
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | grams (g)",
+            "value": 246.0
+          },
+          {
+            "level": "Loaf Bread | Litres (L)",
+            "value": 4.0
+          },
+          {
+            "level": "Loaf Bread | grams (g)",
+            "value": 1045.0
+          },
+          {
+            "level": "Mango | Kilograms (Kgs)",
+            "value": 1.0
+          },
+          {
+            "level": "Mango | grams (g)",
+            "value": 549.0
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",
+            "value": 3.0
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Litres (L)",
+            "value": 20.0
+          },
+          {
+            "level": "Pork | Kilograms (Kgs)",
+            "value": 2.0
+          },
+          {
+            "level": "Pork | grams (g)",
+            "value": 23.0
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | Kilograms (Kgs)",
+            "value": 2.0
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | grams (g)",
+            "value": 158.0
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",
+            "value": 77.0
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",
+            "value": 5.0
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",
+            "value": 870.0
+          },
+          {
+            "level": "Rice | Kilograms (Kgs)",
+            "value": 16.0
+          },
+          {
+            "level": "Rice | grams (g)",
+            "value": 41.0
+          }
+        ]
+      },
+      {
+        "id": "weight_raw_mean",
+        "title": "Raw weight (before order-of-magnitude correction): mean weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 43,
+        "data": [
+          {
+            "level": "Beef | Kilograms (Kgs)",
+            "value": 823.1037499904633
+          },
+          {
+            "level": "Beef | grams (g)",
+            "value": 775.0
+          },
+          {
+            "level": "Beer | Litres (L)",
+            "value": 4440.0
+          },
+          {
+            "level": "Beer | grams (g)",
+            "value": 500.0
+          },
+          {
+            "level": "Cabbage | Kilograms (Kgs)",
+            "value": 229.12805555112385
+          },
+          {
+            "level": "Cabbage | grams (g)",
+            "value": 457.4027562639029
+          },
+          {
+            "level": "Camote | Kilograms (Kgs)",
+            "value": 485.2580769245441
+          },
+          {
+            "level": "Camote | grams (g)",
+            "value": 105.32173010405914
+          },
+          {
+            "level": "Camote tops | Kilograms (Kgs)",
+            "value": 86.76192307013731
+          },
+          {
+            "level": "Camote tops | grams (g)",
+            "value": 194.35797373353597
+          },
+          {
+            "level": "Carrot | Kilograms (Kgs)",
+            "value": 0.13750000298023224
+          },
+          {
+            "level": "Carrot | grams (g)",
+            "value": 103.28672036731022
+          },
+          {
+            "level": "Chicken | Kilograms (Kgs)",
+            "value": 124.9926576074719
+          },
+          {
+            "level": "Chicken | Litres (L)",
+            "value": 0.4755874940310605
+          },
+          {
+            "level": "Chicken | grams (g)",
+            "value": 644.7205845519107
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",
+            "value": 1.5565625075250864
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",
+            "value": 95.1575030554086
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",
+            "value": 113.22551783556766
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | Litres (L)",
+            "value": 0.3645467352648777
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | grams (g)",
+            "value": 417.26219999969004
+          },
+          {
+            "level": "Fresh Fish | Kilograms (Kgs)",
+            "value": 508.5624999971617
+          },
+          {
+            "level": "Fresh Fish | grams (g)",
+            "value": 336.4674072524421
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",
+            "value": 1.0324999690055847
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",
+            "value": 3.2219828528773196
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",
+            "value": 86.8119099379766
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",
+            "value": 1.1400000154972076
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Litres (L)",
+            "value": 26.7456072970509
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | grams (g)",
+            "value": 502.53386178903463
+          },
+          {
+            "level": "Loaf Bread | Litres (L)",
+            "value": 0.588749997317791
+          },
+          {
+            "level": "Loaf Bread | grams (g)",
+            "value": 464.198248803915
+          },
+          {
+            "level": "Mango | Kilograms (Kgs)",
+            "value": 0.25
+          },
+          {
+            "level": "Mango | grams (g)",
+            "value": 192.50965391604302
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",
+            "value": 21.384999593098957
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Litres (L)",
+            "value": 0.43107999991625545
+          },
+          {
+            "level": "Pork | Kilograms (Kgs)",
+            "value": 1.2524999976158142
+          },
+          {
+            "level": "Pork | grams (g)",
+            "value": 197.12760869705158
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | Kilograms (Kgs)",
+            "value": 1.0450000166893005
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | grams (g)",
+            "value": 212.3886708855346
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",
+            "value": 25.51857143098658
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",
+            "value": 30.19224000466056
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",
+            "value": 205.9332241378232
+          },
+          {
+            "level": "Rice | Kilograms (Kgs)",
+            "value": 9.340937495231628
+          },
+          {
+            "level": "Rice | grams (g)",
+            "value": 815.2996341440736
+          }
+        ]
+      },
+      {
+        "id": "weight_raw_median",
+        "title": "Raw weight (before order-of-magnitude correction): median weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 43,
+        "data": [
+          {
+            "level": "Beef | Kilograms (Kgs)",
+            "value": 615.6299999952316
+          },
+          {
+            "level": "Beef | grams (g)",
+            "value": 592.5
+          },
+          {
+            "level": "Beer | Litres (L)",
+            "value": 4440.0
+          },
+          {
+            "level": "Beer | grams (g)",
+            "value": 500.0
+          },
+          {
+            "level": "Cabbage | Kilograms (Kgs)",
+            "value": 1.20250004529953
+          },
+          {
+            "level": "Cabbage | grams (g)",
+            "value": 510.0
+          },
+          {
+            "level": "Camote | Kilograms (Kgs)",
+            "value": 1.5399999618530273
+          },
+          {
+            "level": "Camote | grams (g)",
+            "value": 85.0
+          },
+          {
+            "level": "Camote tops | Kilograms (Kgs)",
+            "value": 1.125
+          },
+          {
+            "level": "Camote tops | grams (g)",
+            "value": 160.0
+          },
+          {
+            "level": "Carrot | Kilograms (Kgs)",
+            "value": 0.13750000298023224
+          },
+          {
+            "level": "Carrot | grams (g)",
+            "value": 105.0
+          },
+          {
+            "level": "Chicken | Kilograms (Kgs)",
+            "value": 1.2300000190734863
+          },
+          {
+            "level": "Chicken | Litres (L)",
+            "value": 0.4755874940310605
+          },
+          {
+            "level": "Chicken | grams (g)",
+            "value": 785.0
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",
+            "value": 1.5
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",
+            "value": 42.66500000655651
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",
+            "value": 48.0
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | Litres (L)",
+            "value": 0.35499998927116394
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | grams (g)",
+            "value": 450.0
+          },
+          {
+            "level": "Fresh Fish | Kilograms (Kgs)",
+            "value": 1.6800000071525574
+          },
+          {
+            "level": "Fresh Fish | grams (g)",
+            "value": 265.0
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",
+            "value": 1.0324999690055847
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",
+            "value": 0.10000000149011612
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",
+            "value": 60.0
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",
+            "value": 1.2075000405311584
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Litres (L)",
+            "value": 0.5
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | grams (g)",
+            "value": 375.0
+          },
+          {
+            "level": "Loaf Bread | Litres (L)",
+            "value": 0.6399999856948853
+          },
+          {
+            "level": "Loaf Bread | grams (g)",
+            "value": 450.0
+          },
+          {
+            "level": "Mango | Kilograms (Kgs)",
+            "value": 0.25
+          },
+          {
+            "level": "Mango | grams (g)",
+            "value": 210.0
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",
+            "value": 21.479999542236328
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Litres (L)",
+            "value": 0.009999999776482582
+          },
+          {
+            "level": "Pork | Kilograms (Kgs)",
+            "value": 1.2524999976158142
+          },
+          {
+            "level": "Pork | grams (g)",
+            "value": 0.6600000262260437
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | Kilograms (Kgs)",
+            "value": 1.0450000166893005
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | grams (g)",
+            "value": 205.0
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",
+            "value": 1.0
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",
+            "value": 0.06499999761581421
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",
+            "value": 250.0
+          },
+          {
+            "level": "Rice | Kilograms (Kgs)",
+            "value": 2.252500057220459
+          },
+          {
+            "level": "Rice | grams (g)",
+            "value": 420.0
+          }
+        ]
+      },
+      {
+        "id": "weight_raw_sd",
+        "title": "Raw weight (before order-of-magnitude correction): sd weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 43,
+        "data": [
+          {
+            "level": "Beef | Kilograms (Kgs)",
+            "value": 1007.7208258625762
+          },
+          {
+            "level": "Beef | grams (g)",
+            "value": 425.38218110306406
+          },
+          {
+            "level": "Beer | Litres (L)",
+            "value": 4582.051942088828
+          },
+          {
+            "level": "Beer | grams (g)",
+            "value": 0.0
+          },
+          {
+            "level": "Cabbage | Kilograms (Kgs)",
+            "value": 477.75842764135126
+          },
+          {
+            "level": "Cabbage | grams (g)",
+            "value": 336.6697491179181
+          },
+          {
+            "level": "Camote | Kilograms (Kgs)",
+            "value": 544.5013012731938
+          },
+          {
+            "level": "Camote | grams (g)",
+            "value": 121.73218924481307
+          },
+          {
+            "level": "Camote tops | Kilograms (Kgs)",
+            "value": 303.1048083936654
+          },
+          {
+            "level": "Camote tops | grams (g)",
+            "value": 210.19257540234304
+          },
+          {
+            "level": "Carrot | Kilograms (Kgs)",
+            "value": 0.0035355305341848568
+          },
+          {
+            "level": "Carrot | grams (g)",
+            "value": 94.08137334815888
+          },
+          {
+            "level": "Chicken | Kilograms (Kgs)",
+            "value": 380.693054747935
+          },
+          {
+            "level": "Chicken | Litres (L)",
+            "value": 0.6709205832419417
+          },
+          {
+            "level": "Chicken | grams (g)",
+            "value": 505.538152272267
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",
+            "value": 0.5045021457600013
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",
+            "value": 139.22208224760894
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",
+            "value": 124.32473259784048
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | Litres (L)",
+            "value": 0.2639125788769594
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | grams (g)",
+            "value": 234.56138565864282
+          },
+          {
+            "level": "Fresh Fish | Kilograms (Kgs)",
+            "value": 851.8624226190105
+          },
+          {
+            "level": "Fresh Fish | grams (g)",
+            "value": 439.8777720557174
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",
+            "value": 0.01060659160255457
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",
+            "value": 15.93527313293911
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",
+            "value": 118.90805748574282
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",
+            "value": 0.11677207237984226
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Litres (L)",
+            "value": 124.68090549588052
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | grams (g)",
+            "value": 225.69005546236576
+          },
+          {
+            "level": "Loaf Bread | Litres (L)",
+            "value": 0.12691039735936654
+          },
+          {
+            "level": "Loaf Bread | grams (g)",
+            "value": 184.82527866963264
+          },
+          {
+            "level": "Mango | Kilograms (Kgs)",
+            "value": 0.0
+          },
+          {
+            "level": "Mango | grams (g)",
+            "value": 124.9086424653477
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",
+            "value": 0.342527804951844
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Litres (L)",
+            "value": 1.3285231458754299
+          },
+          {
+            "level": "Pork | Kilograms (Kgs)",
+            "value": 0.3570889211274586
+          },
+          {
+            "level": "Pork | grams (g)",
+            "value": 375.4928783540159
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | Kilograms (Kgs)",
+            "value": 0.06363963390902444
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | grams (g)",
+            "value": 202.8195581288937
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",
+            "value": 124.01651860919706
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",
+            "value": 66.97550292641567
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",
+            "value": 141.4724346491499
+          },
+          {
+            "level": "Rice | Kilograms (Kgs)",
+            "value": 10.903717598403514
+          },
+          {
+            "level": "Rice | grams (g)",
+            "value": 882.1216954532214
+          }
+        ]
+      },
+      {
+        "id": "weight_raw_min",
+        "title": "Raw weight (before order-of-magnitude correction): min weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 43,
+        "data": [
+          {
+            "level": "Beef | Kilograms (Kgs)",
+            "value": 1.1549999713897705
+          },
+          {
+            "level": "Beef | grams (g)",
+            "value": 510.0
+          },
+          {
+            "level": "Beer | Litres (L)",
+            "value": 1200.0
+          },
+          {
+            "level": "Beer | grams (g)",
+            "value": 500.0
+          },
+          {
+            "level": "Cabbage | Kilograms (Kgs)",
+            "value": 0.1550000011920929
+          },
+          {
+            "level": "Cabbage | grams (g)",
+            "value": 0.06499999761581421
+          },
+          {
+            "level": "Camote | Kilograms (Kgs)",
+            "value": 1.0
+          },
+          {
+            "level": "Camote | grams (g)",
+            "value": 0.03500000014901161
+          },
+          {
+            "level": "Camote tops | Kilograms (Kgs)",
+            "value": 0.13500000536441803
+          },
+          {
+            "level": "Camote tops | grams (g)",
+            "value": 0.10499999672174454
+          },
+          {
+            "level": "Carrot | Kilograms (Kgs)",
+            "value": 0.13500000536441803
+          },
+          {
+            "level": "Carrot | grams (g)",
+            "value": 0.03999999910593033
+          },
+          {
+            "level": "Chicken | Kilograms (Kgs)",
+            "value": 0.0
+          },
+          {
+            "level": "Chicken | Litres (L)",
+            "value": 0.0011749999830499291
+          },
+          {
+            "level": "Chicken | grams (g)",
+            "value": 0.0
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",
+            "value": 0.2800000011920929
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",
+            "value": 0.10000000149011612
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",
+            "value": 0.019999999552965164
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | Litres (L)",
+            "value": 0.001500000013038516
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | grams (g)",
+            "value": 0.23999999463558197
+          },
+          {
+            "level": "Fresh Fish | Kilograms (Kgs)",
+            "value": 1.0
+          },
+          {
+            "level": "Fresh Fish | grams (g)",
+            "value": 0.0
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",
+            "value": 1.024999976158142
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",
+            "value": 0.0012499999720603228
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",
+            "value": 0.02500000037252903
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",
+            "value": 1.0
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Litres (L)",
+            "value": 0.0011599999852478504
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | grams (g)",
+            "value": 0.375
+          },
+          {
+            "level": "Loaf Bread | Litres (L)",
+            "value": 0.4000000059604645
+          },
+          {
+            "level": "Loaf Bread | grams (g)",
+            "value": 0.2150000035762787
+          },
+          {
+            "level": "Mango | Kilograms (Kgs)",
+            "value": 0.25
+          },
+          {
+            "level": "Mango | grams (g)",
+            "value": 0.10499999672174454
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",
+            "value": 21.0049991607666
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Litres (L)",
+            "value": 0.006000000052154064
+          },
+          {
+            "level": "Pork | Kilograms (Kgs)",
+            "value": 1.0
+          },
+          {
+            "level": "Pork | grams (g)",
+            "value": 0.09000000357627869
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | Kilograms (Kgs)",
+            "value": 1.0
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | grams (g)",
+            "value": 0.11500000208616257
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",
+            "value": 1.0
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",
+            "value": 0.0012000000569969416
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",
+            "value": 0.02500000037252903
+          },
+          {
+            "level": "Rice | Kilograms (Kgs)",
+            "value": 2.0250000953674316
+          },
+          {
+            "level": "Rice | grams (g)",
+            "value": 0.3100000023841858
+          }
+        ]
+      },
+      {
+        "id": "weight_raw_max",
+        "title": "Raw weight (before order-of-magnitude correction): max weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 43,
+        "data": [
+          {
+            "level": "Beef | Kilograms (Kgs)",
+            "value": 2060.0
+          },
+          {
+            "level": "Beef | grams (g)",
+            "value": 1405.0
+          },
+          {
+            "level": "Beer | Litres (L)",
+            "value": 7680.0
+          },
+          {
+            "level": "Beer | grams (g)",
+            "value": 500.0
+          },
+          {
+            "level": "Cabbage | Kilograms (Kgs)",
+            "value": 1555.0
+          },
+          {
+            "level": "Cabbage | grams (g)",
+            "value": 1595.0
+          },
+          {
+            "level": "Camote | Kilograms (Kgs)",
+            "value": 1095.0
+          },
+          {
+            "level": "Camote | grams (g)",
+            "value": 1085.0
+          },
+          {
+            "level": "Camote tops | Kilograms (Kgs)",
+            "value": 1170.0
+          },
+          {
+            "level": "Camote tops | grams (g)",
+            "value": 1280.0
+          },
+          {
+            "level": "Carrot | Kilograms (Kgs)",
+            "value": 0.14000000059604645
+          },
+          {
+            "level": "Carrot | grams (g)",
+            "value": 700.0
+          },
+          {
+            "level": "Chicken | Kilograms (Kgs)",
+            "value": 1805.0
+          },
+          {
+            "level": "Chicken | Litres (L)",
+            "value": 0.949999988079071
+          },
+          {
+            "level": "Chicken | grams (g)",
+            "value": 2120.0
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Kilograms (Kgs)",
+            "value": 2.4000000953674316
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | Litres (L)",
+            "value": 295.20001220703125
+          },
+          {
+            "level": "Crackers, Cookies, Buiscuits, Chips/Curls | grams (g)",
+            "value": 640.0
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | Litres (L)",
+            "value": 1.0
+          },
+          {
+            "level": "Drinks at restaurant, hotel, caf\u00c3\u00a9, or kiosk | grams (g)",
+            "value": 810.0
+          },
+          {
+            "level": "Fresh Fish | Kilograms (Kgs)",
+            "value": 3670.0
+          },
+          {
+            "level": "Fresh Fish | grams (g)",
+            "value": 5550.0
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Kilograms (Kgs)",
+            "value": 1.0399999618530273
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | Litres (L)",
+            "value": 140.0
+          },
+          {
+            "level": "Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | grams (g)",
+            "value": 700.0
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Kilograms (Kgs)",
+            "value": 1.2450000047683716
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | Litres (L)",
+            "value": 750.0
+          },
+          {
+            "level": "Liquor (e.g, whisky, coconut wine) | grams (g)",
+            "value": 750.0
+          },
+          {
+            "level": "Loaf Bread | Litres (L)",
+            "value": 0.675000011920929
+          },
+          {
+            "level": "Loaf Bread | grams (g)",
+            "value": 765.0
+          },
+          {
+            "level": "Mango | Kilograms (Kgs)",
+            "value": 0.25
+          },
+          {
+            "level": "Mango | grams (g)",
+            "value": 1290.0
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Kilograms (Kgs)",
+            "value": 21.670000076293945
+          },
+          {
+            "level": "Mineral or spring water, all drinking water sold in containers | Litres (L)",
+            "value": 6.0
+          },
+          {
+            "level": "Pork | Kilograms (Kgs)",
+            "value": 1.5049999952316284
+          },
+          {
+            "level": "Pork | grams (g)",
+            "value": 1620.0
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | Kilograms (Kgs)",
+            "value": 1.090000033378601
+          },
+          {
+            "level": "Prawns, Lobster, shrimp | grams (g)",
+            "value": 1040.0
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Kilograms (Kgs)",
+            "value": 1020.0
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | Litres (L)",
+            "value": 150.0
+          },
+          {
+            "level": "Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc) | grams (g)",
+            "value": 1165.0
+          },
+          {
+            "level": "Rice | Kilograms (Kgs)",
+            "value": 25.0
+          },
+          {
+            "level": "Rice | grams (g)",
+            "value": 2280.0
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_unit",
+        "title": "Weighings by raw unit (kg/g/L)",
+        "description": "",
+        "grouping": "unit_lbl",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "Kilograms (Kgs)",
+            "value": 690
+          },
+          {
+            "level": "Litres (L)",
+            "value": 1630
+          },
+          {
+            "level": "grams (g)",
+            "value": 9175
+          }
+        ]
+      },
+      {
+        "id": "n_distinct_pull_nsu_unit",
+        "title": "Distinct raw NSU strings (pull_nsu_unit)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 129
+          }
+        ]
+      }
+    ]
+  },
+  "cleaned": {
+    "statistics": [
+      {
+        "id": "weighing_grain_check",
+        "title": "Rows at the weighing grain",
+        "description": "province x municipality x item x NSU x market_type x vendor_id x obs_type/hetero_type",
+        "grouping": "overall",
+        "n_levels": 2,
+        "data": [
+          {
+            "level": "n_rows",
+            "value": 11433
+          },
+          {
+            "level": "n_distinct_groups",
+            "value": 11433
+          }
+        ]
+      },
+      {
+        "id": "n_weighings",
+        "title": "Total weighings (rows)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 11433
+          }
+        ]
+      },
+      {
+        "id": "n_unique_items",
+        "title": "Distinct items (pull_item)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 19
+          }
+        ]
+      },
+      {
+        "id": "n_provinces",
+        "title": "Distinct provinces",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 5
+          }
+        ]
+      },
+      {
+        "id": "n_prov_mun_pairs",
+        "title": "Distinct province x municipality pairs",
+        "description": "Municipality alone is not a safe key; PONTEVEDRA and SAN ENRIQUE each occur in two provinces.",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 104
+          }
+        ]
+      },
+      {
+        "id": "n_vendors",
+        "title": "Distinct vendor_id",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 7803
+          }
+        ]
+      },
+      {
+        "id": "n_markets",
+        "title": "Distinct market_name",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 709
+          }
+        ]
+      },
+      {
+        "id": "n_unique_nsu_raw_label",
+        "title": "Distinct NSU unit labels (pull_nsu_unit)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 112
+          }
+        ]
+      },
+      {
+        "id": "n_unique_item_x_nsu_raw_label",
+        "title": "Distinct item x NSU pairs (pull_nsu_unit)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 155
+          }
+        ]
+      },
+      {
+        "id": "n_unique_nsu_cleaned_label",
+        "title": "Distinct NSU unit labels (cleaned_nsu_unit)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 58
+          }
+        ]
+      },
+      {
+        "id": "n_unique_item_x_nsu_cleaned_label",
+        "title": "Distinct item x NSU pairs (cleaned_nsu_unit)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 99
+          }
+        ]
+      },
+      {
+        "id": "n_unique_nsu_harmonized",
+        "title": "Distinct NSU unit labels (harmonized_nsu_unit)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 57
+          }
+        ]
+      },
+      {
+        "id": "n_unique_item_x_nsu_harmonized",
+        "title": "Distinct item x NSU pairs (harmonized_nsu_unit)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 86
+          }
+        ]
+      },
+      {
+        "id": "n_unique_cases",
+        "title": "Distinct cases (province x municipality x item x NSU x corrected_unit)",
+        "description": "Case key columns: pull_province x pull_municipal_city x pull_item x harmonized_nsu_unit x corrected_unit_lbl",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 2011
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_province",
+        "title": "Weighings by province",
+        "description": "",
+        "grouping": "pull_province",
+        "n_levels": 5,
+        "data": [
+          {
+            "level": "AKLAN",
+            "value": 1562
+          },
+          {
+            "level": "ANTIQUE",
+            "value": 1940
+          },
+          {
+            "level": "CAPIZ",
+            "value": 1540
+          },
+          {
+            "level": "ILOILO",
+            "value": 5238
+          },
+          {
+            "level": "NEGROS OCCIDENTAL",
+            "value": 1153
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_municipality",
+        "title": "Weighings by province | municipality",
+        "description": "",
+        "grouping": "prov_mun",
+        "n_levels": 104,
+        "data": [
+          {
+            "level": "AKLAN | ALTAVAS",
+            "value": 68
+          },
+          {
+            "level": "AKLAN | BANGA",
+            "value": 102
+          },
+          {
+            "level": "AKLAN | BATAN",
+            "value": 136
+          },
+          {
+            "level": "AKLAN | BURUANGA",
+            "value": 120
+          },
+          {
+            "level": "AKLAN | IBAJAY",
+            "value": 146
+          },
+          {
+            "level": "AKLAN | LIBACAO",
+            "value": 110
+          },
+          {
+            "level": "AKLAN | MADALAG",
+            "value": 107
+          },
+          {
+            "level": "AKLAN | MAKATO",
+            "value": 143
+          },
+          {
+            "level": "AKLAN | MALAY",
+            "value": 170
+          },
+          {
+            "level": "AKLAN | MALINAO",
+            "value": 105
+          },
+          {
+            "level": "AKLAN | NABAS",
+            "value": 105
+          },
+          {
+            "level": "AKLAN | NEW WASHINGTON",
+            "value": 112
+          },
+          {
+            "level": "AKLAN | TANGALAN",
+            "value": 138
+          },
+          {
+            "level": "ANTIQUE | BARBAZA",
+            "value": 128
+          },
+          {
+            "level": "ANTIQUE | BELISON",
+            "value": 140
+          },
+          {
+            "level": "ANTIQUE | BUGASONG",
+            "value": 144
+          },
+          {
+            "level": "ANTIQUE | CULASI",
+            "value": 169
+          },
+          {
+            "level": "ANTIQUE | HAMTIC",
+            "value": 195
+          },
+          {
+            "level": "ANTIQUE | LAUA-AN",
+            "value": 80
+          },
+          {
+            "level": "ANTIQUE | LIBERTAD",
+            "value": 93
+          },
+          {
+            "level": "ANTIQUE | PANDAN",
+            "value": 77
+          },
+          {
+            "level": "ANTIQUE | PATNONGON",
+            "value": 132
+          },
+          {
+            "level": "ANTIQUE | SAN REMIGIO",
+            "value": 120
+          },
+          {
+            "level": "ANTIQUE | SEBASTE",
+            "value": 120
+          },
+          {
+            "level": "ANTIQUE | SIBALOM",
+            "value": 166
+          },
+          {
+            "level": "ANTIQUE | TIBIAO",
+            "value": 88
+          },
+          {
+            "level": "ANTIQUE | TOBIAS FORNIER",
+            "value": 160
+          },
+          {
+            "level": "ANTIQUE | VALDERRAMA",
+            "value": 128
+          },
+          {
+            "level": "CAPIZ | CUARTERO",
+            "value": 114
+          },
+          {
+            "level": "CAPIZ | DAO",
+            "value": 69
+          },
+          {
+            "level": "CAPIZ | DUMALAG",
+            "value": 96
+          },
+          {
+            "level": "CAPIZ | DUMARAO",
+            "value": 51
+          },
+          {
+            "level": "CAPIZ | IVISAN",
+            "value": 121
+          },
+          {
+            "level": "CAPIZ | JAMINDAN",
+            "value": 49
+          },
+          {
+            "level": "CAPIZ | MA-AYON",
+            "value": 92
+          },
+          {
+            "level": "CAPIZ | MAMBUSAO",
+            "value": 118
+          },
+          {
+            "level": "CAPIZ | PANAY",
+            "value": 139
+          },
+          {
+            "level": "CAPIZ | PANITAN",
+            "value": 156
+          },
+          {
+            "level": "CAPIZ | PILAR",
+            "value": 116
+          },
+          {
+            "level": "CAPIZ | PONTEVEDRA",
+            "value": 100
+          },
+          {
+            "level": "CAPIZ | PRESIDENT ROXAS",
+            "value": 53
+          },
+          {
+            "level": "CAPIZ | SAPI-AN",
+            "value": 92
+          },
+          {
+            "level": "CAPIZ | SIGMA",
+            "value": 80
+          },
+          {
+            "level": "CAPIZ | TAPAZ",
+            "value": 94
+          },
+          {
+            "level": "ILOILO | AJUY",
+            "value": 62
+          },
+          {
+            "level": "ILOILO | ALIMODIAN",
+            "value": 185
+          },
+          {
+            "level": "ILOILO | ANILAO",
+            "value": 86
+          },
+          {
+            "level": "ILOILO | BADIANGAN",
+            "value": 80
+          },
+          {
+            "level": "ILOILO | BALASAN",
+            "value": 73
+          },
+          {
+            "level": "ILOILO | BANATE",
+            "value": 106
+          },
+          {
+            "level": "ILOILO | BAROTAC NUEVO",
+            "value": 81
+          },
+          {
+            "level": "ILOILO | BAROTAC VIEJO",
+            "value": 93
+          },
+          {
+            "level": "ILOILO | BATAD",
+            "value": 129
+          },
+          {
+            "level": "ILOILO | BINGAWAN",
+            "value": 123
+          },
+          {
+            "level": "ILOILO | CABATUAN",
+            "value": 156
+          },
+          {
+            "level": "ILOILO | CALINOG",
+            "value": 158
+          },
+          {
+            "level": "ILOILO | CARLES",
+            "value": 112
+          },
+          {
+            "level": "ILOILO | CONCEPCION",
+            "value": 142
+          },
+          {
+            "level": "ILOILO | DINGLE",
+            "value": 91
+          },
+          {
+            "level": "ILOILO | DUEAS",
+            "value": 183
+          },
+          {
+            "level": "ILOILO | DUMANGAS",
+            "value": 41
+          },
+          {
+            "level": "ILOILO | ESTANCIA",
+            "value": 110
+          },
+          {
+            "level": "ILOILO | GUIMBAL",
+            "value": 129
+          },
+          {
+            "level": "ILOILO | IGBARAS",
+            "value": 136
+          },
+          {
+            "level": "ILOILO | JANIUAY",
+            "value": 200
+          },
+          {
+            "level": "ILOILO | LAMBUNAO",
+            "value": 135
+          },
+          {
+            "level": "ILOILO | LEGANES",
+            "value": 107
+          },
+          {
+            "level": "ILOILO | LEMERY",
+            "value": 69
+          },
+          {
+            "level": "ILOILO | LEON",
+            "value": 163
+          },
+          {
+            "level": "ILOILO | MAASIN",
+            "value": 106
+          },
+          {
+            "level": "ILOILO | MIAGAO",
+            "value": 138
+          },
+          {
+            "level": "ILOILO | MINA",
+            "value": 135
+          },
+          {
+            "level": "ILOILO | NEW LUCENA",
+            "value": 122
+          },
+          {
+            "level": "ILOILO | OTON",
+            "value": 192
+          },
+          {
+            "level": "ILOILO | POTOTAN",
+            "value": 200
+          },
+          {
+            "level": "ILOILO | SAN DIONISIO",
+            "value": 79
+          },
+          {
+            "level": "ILOILO | SAN ENRIQUE",
+            "value": 95
+          },
+          {
+            "level": "ILOILO | SAN JOAQUIN",
+            "value": 177
+          },
+          {
+            "level": "ILOILO | SAN MIGUEL",
+            "value": 132
+          },
+          {
+            "level": "ILOILO | SAN RAFAEL",
+            "value": 99
+          },
+          {
+            "level": "ILOILO | SANTA BARBARA",
+            "value": 219
+          },
+          {
+            "level": "ILOILO | SARA",
+            "value": 146
+          },
+          {
+            "level": "ILOILO | TIGBAUAN",
+            "value": 229
+          },
+          {
+            "level": "ILOILO | TUBUNGAN",
+            "value": 108
+          },
+          {
+            "level": "ILOILO | ZARRAGA",
+            "value": 111
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | BINALBAGAN",
+            "value": 57
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CALATRAVA",
+            "value": 46
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CANDONI",
+            "value": 44
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CAUAYAN",
+            "value": 60
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ENRIQUE B. MAGALONA (SARAVIA)",
+            "value": 68
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | HINIGARAN",
+            "value": 67
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | HINOBA-AN (ASIA)",
+            "value": 65
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ILOG",
+            "value": 65
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ISABELA",
+            "value": 73
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | LA CASTELLANA",
+            "value": 47
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MANAPLA",
+            "value": 83
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MOISES PADILLA (MAGALLON)",
+            "value": 63
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MURCIA",
+            "value": 30
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | PONTEVEDRA",
+            "value": 93
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | PULUPANDAN",
+            "value": 47
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | SALVADOR BENEDICTO",
+            "value": 38
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | SAN ENRIQUE",
+            "value": 113
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | TOBOSO",
+            "value": 46
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | VALLADOLID",
+            "value": 48
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_item",
+        "title": "Weighings by item",
+        "description": "",
+        "grouping": "pull_item",
+        "n_levels": 19,
+        "data": [
+          {
+            "level": "beef",
+            "value": 8
+          },
+          {
+            "level": "beer",
+            "value": 2
+          },
+          {
+            "level": "cabbage",
+            "value": 1412
+          },
+          {
+            "level": "camote",
+            "value": 591
+          },
+          {
+            "level": "camote tops",
+            "value": 559
+          },
+          {
+            "level": "carrot",
+            "value": 1193
+          },
+          {
+            "level": "chicken",
+            "value": 848
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls",
+            "value": 1085
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk",
+            "value": 189
+          },
+          {
+            "level": "fresh fish",
+            "value": 756
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",
+            "value": 877
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine)",
+            "value": 1122
+          },
+          {
+            "level": "loaf bread",
+            "value": 1049
+          },
+          {
+            "level": "mango",
+            "value": 544
+          },
+          {
+            "level": "mineral or spring water, all drinking water sold in containers",
+            "value": 6
+          },
+          {
+            "level": "pork",
+            "value": 25
+          },
+          {
+            "level": "prawns, lobster, shrimp",
+            "value": 160
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc)",
+            "value": 952
+          },
+          {
+            "level": "rice",
+            "value": 55
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_weighing_approach",
+        "title": "Weighings by weighing approach",
+        "description": "",
+        "grouping": "weighing_approach_lbl",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "Conventional NSU (eg. ganta, salmon, salop)",
+            "value": 468
+          },
+          {
+            "level": "Price-quantity based (lower, median, higher price)",
+            "value": 1212
+          },
+          {
+            "level": "Size-based (small, medium, large)",
+            "value": 9753
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_hetero_type",
+        "title": "Weighings by obs_type / hetero-group type",
+        "description": "",
+        "grouping": "hetero_lbl",
+        "n_levels": 11,
+        "data": [
+          {
+            "level": "conventional_nsu",
+            "value": 468
+          },
+          {
+            "level": "large_size",
+            "value": 2601
+          },
+          {
+            "level": "medium_size",
+            "value": 3320
+          },
+          {
+            "level": "mp25_price",
+            "value": 73
+          },
+          {
+            "level": "mp50_price",
+            "value": 104
+          },
+          {
+            "level": "mp75_price",
+            "value": 70
+          },
+          {
+            "level": "municipality_median",
+            "value": 531
+          },
+          {
+            "level": "province_median",
+            "value": 401
+          },
+          {
+            "level": "small_size",
+            "value": 3832
+          },
+          {
+            "level": "unique_mun_price6",
+            "value": 31
+          },
+          {
+            "level": "unique_mun_price7",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_market_type",
+        "title": "Weighings by market type (cleaned data has no stored market_type label; the 1/2/3 coding is assumed unchanged from raw -- see docs/conversion_factor_methodology.md)",
+        "description": "",
+        "grouping": "market_type_lbl",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "Public Market",
+            "value": 6306
+          },
+          {
+            "level": "Roadside Vendors",
+            "value": 3224
+          },
+          {
+            "level": "Talipapa",
+            "value": 1903
+          }
+        ]
+      },
+      {
+        "id": "n_cases_by_province",
+        "title": "Distinct cases by province",
+        "description": "",
+        "grouping": "pull_province",
+        "n_levels": 5,
+        "data": [
+          {
+            "level": "AKLAN",
+            "value": 231
+          },
+          {
+            "level": "ANTIQUE",
+            "value": 296
+          },
+          {
+            "level": "CAPIZ",
+            "value": 331
+          },
+          {
+            "level": "ILOILO",
+            "value": 833
+          },
+          {
+            "level": "NEGROS OCCIDENTAL",
+            "value": 320
+          }
+        ]
+      },
+      {
+        "id": "n_items_by_municipality",
+        "title": "Distinct items by province | municipality",
+        "description": "",
+        "grouping": "prov_mun",
+        "n_levels": 104,
+        "data": [
+          {
+            "level": "AKLAN | ALTAVAS",
+            "value": 12
+          },
+          {
+            "level": "AKLAN | BANGA",
+            "value": 10
+          },
+          {
+            "level": "AKLAN | BATAN",
+            "value": 12
+          },
+          {
+            "level": "AKLAN | BURUANGA",
+            "value": 10
+          },
+          {
+            "level": "AKLAN | IBAJAY",
+            "value": 13
+          },
+          {
+            "level": "AKLAN | LIBACAO",
+            "value": 10
+          },
+          {
+            "level": "AKLAN | MADALAG",
+            "value": 12
+          },
+          {
+            "level": "AKLAN | MAKATO",
+            "value": 12
+          },
+          {
+            "level": "AKLAN | MALAY",
+            "value": 12
+          },
+          {
+            "level": "AKLAN | MALINAO",
+            "value": 10
+          },
+          {
+            "level": "AKLAN | NABAS",
+            "value": 8
+          },
+          {
+            "level": "AKLAN | NEW WASHINGTON",
+            "value": 10
+          },
+          {
+            "level": "AKLAN | TANGALAN",
+            "value": 9
+          },
+          {
+            "level": "ANTIQUE | BARBAZA",
+            "value": 12
+          },
+          {
+            "level": "ANTIQUE | BELISON",
+            "value": 11
+          },
+          {
+            "level": "ANTIQUE | BUGASONG",
+            "value": 13
+          },
+          {
+            "level": "ANTIQUE | CULASI",
+            "value": 13
+          },
+          {
+            "level": "ANTIQUE | HAMTIC",
+            "value": 14
+          },
+          {
+            "level": "ANTIQUE | LAUA-AN",
+            "value": 11
+          },
+          {
+            "level": "ANTIQUE | LIBERTAD",
+            "value": 11
+          },
+          {
+            "level": "ANTIQUE | PANDAN",
+            "value": 9
+          },
+          {
+            "level": "ANTIQUE | PATNONGON",
+            "value": 11
+          },
+          {
+            "level": "ANTIQUE | SAN REMIGIO",
+            "value": 13
+          },
+          {
+            "level": "ANTIQUE | SEBASTE",
+            "value": 11
+          },
+          {
+            "level": "ANTIQUE | SIBALOM",
+            "value": 14
+          },
+          {
+            "level": "ANTIQUE | TIBIAO",
+            "value": 10
+          },
+          {
+            "level": "ANTIQUE | TOBIAS FORNIER",
+            "value": 14
+          },
+          {
+            "level": "ANTIQUE | VALDERRAMA",
+            "value": 10
+          },
+          {
+            "level": "CAPIZ | CUARTERO",
+            "value": 12
+          },
+          {
+            "level": "CAPIZ | DAO",
+            "value": 13
+          },
+          {
+            "level": "CAPIZ | DUMALAG",
+            "value": 15
+          },
+          {
+            "level": "CAPIZ | DUMARAO",
+            "value": 11
+          },
+          {
+            "level": "CAPIZ | IVISAN",
+            "value": 13
+          },
+          {
+            "level": "CAPIZ | JAMINDAN",
+            "value": 14
+          },
+          {
+            "level": "CAPIZ | MA-AYON",
+            "value": 14
+          },
+          {
+            "level": "CAPIZ | MAMBUSAO",
+            "value": 10
+          },
+          {
+            "level": "CAPIZ | PANAY",
+            "value": 16
+          },
+          {
+            "level": "CAPIZ | PANITAN",
+            "value": 13
+          },
+          {
+            "level": "CAPIZ | PILAR",
+            "value": 13
+          },
+          {
+            "level": "CAPIZ | PONTEVEDRA",
+            "value": 11
+          },
+          {
+            "level": "CAPIZ | PRESIDENT ROXAS",
+            "value": 13
+          },
+          {
+            "level": "CAPIZ | SAPI-AN",
+            "value": 15
+          },
+          {
+            "level": "CAPIZ | SIGMA",
+            "value": 12
+          },
+          {
+            "level": "CAPIZ | TAPAZ",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | AJUY",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | ALIMODIAN",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | ANILAO",
+            "value": 9
+          },
+          {
+            "level": "ILOILO | BADIANGAN",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | BALASAN",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | BANATE",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | BAROTAC NUEVO",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | BAROTAC VIEJO",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | BATAD",
+            "value": 15
+          },
+          {
+            "level": "ILOILO | BINGAWAN",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | CABATUAN",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | CALINOG",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | CARLES",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | CONCEPCION",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | DINGLE",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | DUEAS",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | DUMANGAS",
+            "value": 8
+          },
+          {
+            "level": "ILOILO | ESTANCIA",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | GUIMBAL",
+            "value": 9
+          },
+          {
+            "level": "ILOILO | IGBARAS",
+            "value": 15
+          },
+          {
+            "level": "ILOILO | JANIUAY",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | LAMBUNAO",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | LEGANES",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | LEMERY",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | LEON",
+            "value": 10
+          },
+          {
+            "level": "ILOILO | MAASIN",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | MIAGAO",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | MINA",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | NEW LUCENA",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | OTON",
+            "value": 17
+          },
+          {
+            "level": "ILOILO | POTOTAN",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | SAN DIONISIO",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | SAN ENRIQUE",
+            "value": 13
+          },
+          {
+            "level": "ILOILO | SAN JOAQUIN",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | SAN MIGUEL",
+            "value": 10
+          },
+          {
+            "level": "ILOILO | SAN RAFAEL",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | SANTA BARBARA",
+            "value": 11
+          },
+          {
+            "level": "ILOILO | SARA",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | TIGBAUAN",
+            "value": 14
+          },
+          {
+            "level": "ILOILO | TUBUNGAN",
+            "value": 12
+          },
+          {
+            "level": "ILOILO | ZARRAGA",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | BINALBAGAN",
+            "value": 7
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CALATRAVA",
+            "value": 10
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CANDONI",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | CAUAYAN",
+            "value": 12
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ENRIQUE B. MAGALONA (SARAVIA)",
+            "value": 10
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | HINIGARAN",
+            "value": 13
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | HINOBA-AN (ASIA)",
+            "value": 9
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ILOG",
+            "value": 8
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | ISABELA",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | LA CASTELLANA",
+            "value": 10
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MANAPLA",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MOISES PADILLA (MAGALLON)",
+            "value": 10
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | MURCIA",
+            "value": 9
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | PONTEVEDRA",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | PULUPANDAN",
+            "value": 12
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | SALVADOR BENEDICTO",
+            "value": 8
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | SAN ENRIQUE",
+            "value": 11
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | TOBOSO",
+            "value": 8
+          },
+          {
+            "level": "NEGROS OCCIDENTAL | VALLADOLID",
+            "value": 11
+          }
+        ]
+      },
+      {
+        "id": "n_cases_by_market_slots_filled",
+        "title": "Cases by number of distinct market types present (of 3 possible)",
+        "description": "",
+        "grouping": "n_market_types_present",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "1",
+            "value": 839
+          },
+          {
+            "level": "2",
+            "value": 701
+          },
+          {
+            "level": "3",
+            "value": 467
+          }
+        ]
+      },
+      {
+        "id": "max_vendors_observed_in_one_cell",
+        "title": "Max distinct vendor_id observed in any (case x hetero-type x market_type) cell",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 6
+          }
+        ]
+      },
+      {
+        "id": "n_vendors_per_cell_by_market_type",
+        "title": "Cells (case x hetero-type x market_type), by number of distinct vendors, split by market type",
+        "description": "",
+        "grouping": "market_type | n_vendor_bucket",
+        "n_levels": 9,
+        "data": [
+          {
+            "level": "Public Market | 1",
+            "value": 800
+          },
+          {
+            "level": "Public Market | 2",
+            "value": 620
+          },
+          {
+            "level": "Public Market | 3+",
+            "value": 1410
+          },
+          {
+            "level": "Roadside Vendors | 1",
+            "value": 893
+          },
+          {
+            "level": "Roadside Vendors | 2",
+            "value": 526
+          },
+          {
+            "level": "Roadside Vendors | 3+",
+            "value": 415
+          },
+          {
+            "level": "Talipapa | 1",
+            "value": 581
+          },
+          {
+            "level": "Talipapa | 2",
+            "value": 278
+          },
+          {
+            "level": "Talipapa | 3+",
+            "value": 253
+          }
+        ]
+      },
+      {
+        "id": "avg_vendors_per_cell",
+        "title": "Average distinct vendors per (case x hetero-type x market_type) cell",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 1.978185595567867
+          }
+        ]
+      },
+      {
+        "id": "n_cases_with_ge1_obs_by_weighing_approach",
+        "title": "Cases with >=1 weighing under each weighing approach (a case can appear in more than one)",
+        "description": "",
+        "grouping": "weighing_approach_lbl",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "Conventional NSU (eg. ganta, salmon, salop)",
+            "value": 123
+          },
+          {
+            "level": "Price-quantity based (lower, median, higher price)",
+            "value": 321
+          },
+          {
+            "level": "Size-based (small, medium, large)",
+            "value": 1568
+          }
+        ]
+      },
+      {
+        "id": "n_cases_multi_weighing_approach",
+        "title": "Cases with weighings spanning more than one weighing approach",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "id": "avg_weighings_per_case_by_weighing_approach",
+        "title": "Average weighings per case, by weighing approach (excl. 0-obs cases)",
+        "description": "",
+        "grouping": "weighing_approach_lbl",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "Conventional NSU (eg. ganta, salmon, salop)",
+            "value": 3.8048780487804876
+          },
+          {
+            "level": "Price-quantity based (lower, median, higher price)",
+            "value": 3.775
+          },
+          {
+            "level": "Size-based (small, medium, large)",
+            "value": 6.2300319488817895
+          }
+        ]
+      },
+      {
+        "id": "n_cases_with_ge1_obs_by_hetero_type",
+        "title": "Cases with >=1 weighing under each obs_type / hetero-group type (a case can appear in more than one)",
+        "description": "",
+        "grouping": "hetero_lbl",
+        "n_levels": 11,
+        "data": [
+          {
+            "level": "conventional_nsu",
+            "value": 123
+          },
+          {
+            "level": "large_size",
+            "value": 812
+          },
+          {
+            "level": "medium_size",
+            "value": 974
+          },
+          {
+            "level": "mp25_price",
+            "value": 24
+          },
+          {
+            "level": "mp50_price",
+            "value": 35
+          },
+          {
+            "level": "mp75_price",
+            "value": 23
+          },
+          {
+            "level": "municipality_median",
+            "value": 149
+          },
+          {
+            "level": "province_median",
+            "value": 128
+          },
+          {
+            "level": "small_size",
+            "value": 1147
+          },
+          {
+            "level": "unique_mun_price6",
+            "value": 12
+          },
+          {
+            "level": "unique_mun_price7",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "id": "n_cases_multi_hetero_type",
+        "title": "Cases with weighings spanning more than one obs_type / hetero-group type",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 850
+          }
+        ]
+      },
+      {
+        "id": "avg_weighings_per_case_by_hetero_type",
+        "title": "Average weighings per case, by obs_type / hetero-group type (excl. 0-obs cases)",
+        "description": "",
+        "grouping": "hetero_lbl",
+        "n_levels": 11,
+        "data": [
+          {
+            "level": "conventional_nsu",
+            "value": 3.8048780487804876
+          },
+          {
+            "level": "large_size",
+            "value": 3.2032019704433496
+          },
+          {
+            "level": "medium_size",
+            "value": 3.4110996916752314
+          },
+          {
+            "level": "mp25_price",
+            "value": 3.0416666666666665
+          },
+          {
+            "level": "mp50_price",
+            "value": 3.0
+          },
+          {
+            "level": "mp75_price",
+            "value": 3.090909090909091
+          },
+          {
+            "level": "municipality_median",
+            "value": 3.563758389261745
+          },
+          {
+            "level": "province_median",
+            "value": 3.1328125
+          },
+          {
+            "level": "small_size",
+            "value": 3.3449781659388647
+          },
+          {
+            "level": "unique_mun_price6",
+            "value": 2.5833333333333335
+          },
+          {
+            "level": "unique_mun_price7",
+            "value": 2.0
+          }
+        ]
+      },
+      {
+        "id": "weight_corrected_n",
+        "title": "Corrected weight (after order-of-magnitude correction): n weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 21,
+        "data": [
+          {
+            "level": "beef | g",
+            "value": 8.0
+          },
+          {
+            "level": "beer | mL",
+            "value": 2.0
+          },
+          {
+            "level": "cabbage | g",
+            "value": 1412.0
+          },
+          {
+            "level": "camote | g",
+            "value": 591.0
+          },
+          {
+            "level": "camote tops | g",
+            "value": 558.0
+          },
+          {
+            "level": "carrot | g",
+            "value": 1193.0
+          },
+          {
+            "level": "chicken | g",
+            "value": 844.0
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | g",
+            "value": 1085.0
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
+            "value": 25.0
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | mL",
+            "value": 164.0
+          },
+          {
+            "level": "fresh fish | g",
+            "value": 755.0
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
+            "value": 324.0
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
+            "value": 553.0
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | mL",
+            "value": 1122.0
+          },
+          {
+            "level": "loaf bread | g",
+            "value": 1049.0
+          },
+          {
+            "level": "mango | g",
+            "value": 544.0
+          },
+          {
+            "level": "mineral or spring water, all drinking water sold in containers | mL",
+            "value": 5.0
+          },
+          {
+            "level": "pork | g",
+            "value": 25.0
+          },
+          {
+            "level": "prawns, lobster, shrimp | g",
+            "value": 159.0
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | g",
+            "value": 948.0
+          },
+          {
+            "level": "rice | g",
+            "value": 55.0
+          }
+        ]
+      },
+      {
+        "id": "weight_corrected_mean",
+        "title": "Corrected weight (after order-of-magnitude correction): mean weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 21,
+        "data": [
+          {
+            "level": "beef | g",
+            "value": 1100.625
+          },
+          {
+            "level": "beer | mL",
+            "value": 4440.0
+          },
+          {
+            "level": "cabbage | g",
+            "value": 649.8760623229462
+          },
+          {
+            "level": "camote | g",
+            "value": 190.62436548223351
+          },
+          {
+            "level": "camote tops | g",
+            "value": 302.5698924731183
+          },
+          {
+            "level": "carrot | g",
+            "value": 152.73595976529757
+          },
+          {
+            "level": "chicken | g",
+            "value": 1013.7464454976304
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | g",
+            "value": 148.9705069124424
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
+            "value": 479.4
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | mL",
+            "value": 386.0792682926829
+          },
+          {
+            "level": "fresh fish | g",
+            "value": 475.4476821192053
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
+            "value": 134.96604938271605
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
+            "value": 190.4267631103074
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | mL",
+            "value": 570.0311942959001
+          },
+          {
+            "level": "loaf bread | g",
+            "value": 503.93231649189704
+          },
+          {
+            "level": "mango | g",
+            "value": 239.7003676470588
+          },
+          {
+            "level": "mineral or spring water, all drinking water sold in containers | mL",
+            "value": 1000.0
+          },
+          {
+            "level": "pork | g",
+            "value": 372.56
+          },
+          {
+            "level": "prawns, lobster, shrimp | g",
+            "value": 296.47798742138366
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | g",
+            "value": 270.2257383966245
+          },
+          {
+            "level": "rice | g",
+            "value": 2676.0
+          }
+        ]
+      },
+      {
+        "id": "weight_corrected_median",
+        "title": "Corrected weight (after order-of-magnitude correction): median weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 21,
+        "data": [
+          {
+            "level": "beef | g",
+            "value": 1192.5
+          },
+          {
+            "level": "beer | mL",
+            "value": 4440.0
+          },
+          {
+            "level": "cabbage | g",
+            "value": 632.5
+          },
+          {
+            "level": "camote | g",
+            "value": 145.0
+          },
+          {
+            "level": "camote tops | g",
+            "value": 220.0
+          },
+          {
+            "level": "carrot | g",
+            "value": 140.0
+          },
+          {
+            "level": "chicken | g",
+            "value": 1065.0
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | g",
+            "value": 60.0
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
+            "value": 450.0
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | mL",
+            "value": 355.0
+          },
+          {
+            "level": "fresh fish | g",
+            "value": 410.0
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
+            "value": 75.0
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
+            "value": 100.0
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | mL",
+            "value": 375.0
+          },
+          {
+            "level": "loaf bread | g",
+            "value": 460.0
+          },
+          {
+            "level": "mango | g",
+            "value": 230.0
+          },
+          {
+            "level": "mineral or spring water, all drinking water sold in containers | mL",
+            "value": 1000.0
+          },
+          {
+            "level": "pork | g",
+            "value": 260.0
+          },
+          {
+            "level": "prawns, lobster, shrimp | g",
+            "value": 255.0
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | g",
+            "value": 250.0
+          },
+          {
+            "level": "rice | g",
+            "value": 2205.0
+          }
+        ]
+      },
+      {
+        "id": "weight_corrected_sd",
+        "title": "Corrected weight (after order-of-magnitude correction): sd weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 21,
+        "data": [
+          {
+            "level": "beef | g",
+            "value": 525.4211745964238
+          },
+          {
+            "level": "beer | mL",
+            "value": 4582.051942088828
+          },
+          {
+            "level": "cabbage | g",
+            "value": 287.17082447829296
+          },
+          {
+            "level": "camote | g",
+            "value": 183.9642218768116
+          },
+          {
+            "level": "camote tops | g",
+            "value": 250.45206084820364
+          },
+          {
+            "level": "carrot | g",
+            "value": 70.37328459009413
+          },
+          {
+            "level": "chicken | g",
+            "value": 393.3629345366732
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | g",
+            "value": 217.5579768684592
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
+            "value": 153.25169928367296
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | mL",
+            "value": 238.6953286841987
+          },
+          {
+            "level": "fresh fish | g",
+            "value": 405.69645177891266
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
+            "value": 165.85902315536916
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
+            "value": 242.99936364466822
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | mL",
+            "value": 221.23451357867737
+          },
+          {
+            "level": "loaf bread | g",
+            "value": 134.19253924918485
+          },
+          {
+            "level": "mango | g",
+            "value": 83.6711769740224
+          },
+          {
+            "level": "mineral or spring water, all drinking water sold in containers | mL",
+            "value": 0.0
+          },
+          {
+            "level": "pork | g",
+            "value": 392.84921619708837
+          },
+          {
+            "level": "prawns, lobster, shrimp | g",
+            "value": 193.2717584481639
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | g",
+            "value": 207.42136763307235
+          },
+          {
+            "level": "rice | g",
+            "value": 5485.008305473303
+          }
+        ]
+      },
+      {
+        "id": "weight_corrected_min",
+        "title": "Corrected weight (after order-of-magnitude correction): min weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 21,
+        "data": [
+          {
+            "level": "beef | g",
+            "value": 510.0
+          },
+          {
+            "level": "beer | mL",
+            "value": 1200.0
+          },
+          {
+            "level": "cabbage | g",
+            "value": 65.0
+          },
+          {
+            "level": "camote | g",
+            "value": 30.0
+          },
+          {
+            "level": "camote tops | g",
+            "value": 58.0
+          },
+          {
+            "level": "carrot | g",
+            "value": 25.0
+          },
+          {
+            "level": "chicken | g",
+            "value": 15.0
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | g",
+            "value": 10.0
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
+            "value": 240.0
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | mL",
+            "value": 150.0
+          },
+          {
+            "level": "fresh fish | g",
+            "value": 45.0
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
+            "value": 25.0
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
+            "value": 20.0
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | mL",
+            "value": 120.0
+          },
+          {
+            "level": "loaf bread | g",
+            "value": 60.0
+          },
+          {
+            "level": "mango | g",
+            "value": 105.0
+          },
+          {
+            "level": "mineral or spring water, all drinking water sold in containers | mL",
+            "value": 1000.0
+          },
+          {
+            "level": "pork | g",
+            "value": 25.0
+          },
+          {
+            "level": "prawns, lobster, shrimp | g",
+            "value": 10.0
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | g",
+            "value": 20.0
+          },
+          {
+            "level": "rice | g",
+            "value": 310.0
+          }
+        ]
+      },
+      {
+        "id": "weight_corrected_max",
+        "title": "Corrected weight (after order-of-magnitude correction): max weight, by item x unit",
+        "description": "",
+        "grouping": "item | unit",
+        "n_levels": 21,
+        "data": [
+          {
+            "level": "beef | g",
+            "value": 2060.0
+          },
+          {
+            "level": "beer | mL",
+            "value": 7680.0
+          },
+          {
+            "level": "cabbage | g",
+            "value": 1800.0
+          },
+          {
+            "level": "camote | g",
+            "value": 1540.0
+          },
+          {
+            "level": "camote tops | g",
+            "value": 1885.0
+          },
+          {
+            "level": "carrot | g",
+            "value": 630.0
+          },
+          {
+            "level": "chicken | g",
+            "value": 2635.0
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | g",
+            "value": 2400.0
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
+            "value": 810.0
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | mL",
+            "value": 1000.0
+          },
+          {
+            "level": "fresh fish | g",
+            "value": 4850.0
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | g",
+            "value": 1025.0
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | mL",
+            "value": 1700.0
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | mL",
+            "value": 1495.0
+          },
+          {
+            "level": "loaf bread | g",
+            "value": 1100.0
+          },
+          {
+            "level": "mango | g",
+            "value": 1290.0
+          },
+          {
+            "level": "mineral or spring water, all drinking water sold in containers | mL",
+            "value": 1000.0
+          },
+          {
+            "level": "pork | g",
+            "value": 1620.0
+          },
+          {
+            "level": "prawns, lobster, shrimp | g",
+            "value": 1090.0
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | g",
+            "value": 1220.0
+          },
+          {
+            "level": "rice | g",
+            "value": 25000.0
+          }
+        ]
+      },
+      {
+        "id": "n_weighings_by_unit",
+        "title": "Weighings by corrected unit (g/mL)",
+        "description": "",
+        "grouping": "corrected_unit_lbl",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "g",
+            "value": 9580
+          },
+          {
+            "level": "mL",
+            "value": 1846
+          },
+          {
+            "level": "nan",
+            "value": 7
+          }
+        ]
+      },
+      {
+        "id": "n_distinct_pull_nsu_unit",
+        "title": "Distinct raw NSU strings (pull_nsu_unit) surviving into the cleaned data",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 112
+          }
+        ]
+      },
+      {
+        "id": "n_distinct_cleaned_nsu_unit",
+        "title": "Distinct spelling-corrected NSU strings (cleaned_nsu_unit, reference only)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 58
+          }
+        ]
+      },
+      {
+        "id": "n_distinct_harmonized_nsu_unit",
+        "title": "Distinct pooling-key NSU strings (harmonized_nsu_unit)",
+        "description": "",
+        "grouping": "overall",
+        "n_levels": 1,
+        "data": [
+          {
+            "level": "all",
+            "value": 57
+          }
+        ]
+      },
+      {
+        "id": "n_raw_labels_by_item_harmonized_unit",
+        "title": "Distinct raw pull_nsu_unit labels folding into each item x harmonized_nsu_unit cell",
+        "description": "",
+        "grouping": "item | harmonized_nsu_unit",
+        "n_levels": 86,
+        "data": [
+          {
+            "level": "beef | half",
+            "value": 1
+          },
+          {
+            "level": "beef | intestine",
+            "value": 1
+          },
+          {
+            "level": "beef | pieces or units",
+            "value": 1
+          },
+          {
+            "level": "beer | case",
+            "value": 1
+          },
+          {
+            "level": "cabbage | half",
+            "value": 4
+          },
+          {
+            "level": "cabbage | pack",
+            "value": 6
+          },
+          {
+            "level": "cabbage | pieces or units",
+            "value": 3
+          },
+          {
+            "level": "cabbage | putos (mix vegetable)",
+            "value": 7
+          },
+          {
+            "level": "cabbage | sliced",
+            "value": 1
+          },
+          {
+            "level": "cabbage | small packs",
+            "value": 2
+          },
+          {
+            "level": "camote | bilog",
+            "value": 1
+          },
+          {
+            "level": "camote | binilog",
+            "value": 1
+          },
+          {
+            "level": "camote | small packs",
+            "value": 1
+          },
+          {
+            "level": "camote | tumpok",
+            "value": 1
+          },
+          {
+            "level": "camote tops | 2bond",
+            "value": 1
+          },
+          {
+            "level": "camote tops | 3bugkos",
+            "value": 1
+          },
+          {
+            "level": "camote tops | bugkos",
+            "value": 2
+          },
+          {
+            "level": "camote tops | bundle",
+            "value": 1
+          },
+          {
+            "level": "carrot | pack",
+            "value": 1
+          },
+          {
+            "level": "carrot | pieces or units",
+            "value": 3
+          },
+          {
+            "level": "carrot | putos (mix vegetable)",
+            "value": 4
+          },
+          {
+            "level": "chicken | bilog",
+            "value": 1
+          },
+          {
+            "level": "chicken | chicken wings",
+            "value": 1
+          },
+          {
+            "level": "chicken | pack",
+            "value": 1
+          },
+          {
+            "level": "chicken | patupa",
+            "value": 1
+          },
+          {
+            "level": "chicken | pieces of fried chicken",
+            "value": 1
+          },
+          {
+            "level": "chicken | pieces or units",
+            "value": 3
+          },
+          {
+            "level": "chicken | slice",
+            "value": 2
+          },
+          {
+            "level": "chicken | whole (chicken)",
+            "value": 4
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | balde",
+            "value": 1
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | big can",
+            "value": 1
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | bucket",
+            "value": 1
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | pack",
+            "value": 1
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | pieces or units",
+            "value": 3
+          },
+          {
+            "level": "crackers, cookies, buiscuits, chips/curls | putos",
+            "value": 1
+          },
+          {
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | pieces",
+            "value": 1
+          },
+          {
+            "level": "fresh fish | pack",
+            "value": 6
+          },
+          {
+            "level": "fresh fish | pieces or units",
+            "value": 2
+          },
+          {
+            "level": "fresh fish | pinutos / plastic",
+            "value": 1
+          },
+          {
+            "level": "fresh fish | tumpok",
+            "value": 3
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | bowl",
+            "value": 2
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | cone",
+            "value": 4
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | container",
+            "value": 1
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | gallons",
+            "value": 1
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | pack",
+            "value": 1
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | pieces or units",
+            "value": 4
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | plastic cup",
+            "value": 1
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | putos",
+            "value": 1
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | small cup",
+            "value": 7
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | tub",
+            "value": 1
+          },
+          {
+            "level": "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo) | tupperware",
+            "value": 3
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | baso",
+            "value": 1
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | gin",
+            "value": 1
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | junior lapad",
+            "value": 2
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | lipid/lapad",
+            "value": 2
+          },
+          {
+            "level": "liquor (e.g, whisky, coconut wine) | long-neck",
+            "value": 1
+          },
+          {
+            "level": "loaf bread | individual",
+            "value": 1
+          },
+          {
+            "level": "loaf bread | large packs",
+            "value": 6
+          },
+          {
+            "level": "loaf bread | medium packs",
+            "value": 5
+          },
+          {
+            "level": "loaf bread | small packs",
+            "value": 3
+          },
+          {
+            "level": "loaf bread | tama-tama nga putos",
+            "value": 1
+          },
+          {
+            "level": "mango | papaya, mango, banana",
+            "value": 1
+          },
+          {
+            "level": "mango | pieces or units",
+            "value": 2
+          },
+          {
+            "level": "mineral or spring water, all drinking water sold in containers | container",
+            "value": 1
+          },
+          {
+            "level": "mineral or spring water, all drinking water sold in containers | distilled water",
+            "value": 1
+          },
+          {
+            "level": "mineral or spring water, all drinking water sold in containers | refilled",
+            "value": 1
+          },
+          {
+            "level": "pork | 1 order",
+            "value": 1
+          },
+          {
+            "level": "pork | 1 serve",
+            "value": 1
+          },
+          {
+            "level": "pork | 2 slice",
+            "value": 1
+          },
+          {
+            "level": "pork | pieces or units",
+            "value": 2
+          },
+          {
+            "level": "pork | slice",
+            "value": 1
+          },
+          {
+            "level": "pork | stick",
+            "value": 1
+          },
+          {
+            "level": "prawns, lobster, shrimp | cup",
+            "value": 1
+          },
+          {
+            "level": "prawns, lobster, shrimp | pack",
+            "value": 1
+          },
+          {
+            "level": "prawns, lobster, shrimp | pieces or units",
+            "value": 1
+          },
+          {
+            "level": "prawns, lobster, shrimp | tumpok",
+            "value": 1
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | bilog",
+            "value": 1
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | cans",
+            "value": 1
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | pack",
+            "value": 2
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | pieces or units",
+            "value": 1
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | putos",
+            "value": 1
+          },
+          {
+            "level": "preserved or processed meat (tocino, tapa, longaniza, etc) | role",
+            "value": 1
+          },
+          {
+            "level": "rice | gantang",
+            "value": 1
+          },
+          {
+            "level": "rice | letse",
+            "value": 1
+          },
+          {
+            "level": "rice | sack of rice",
+            "value": 1
+          },
+          {
+            "level": "rice | salmon",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "id": "n_item_harmonized_cells_by_collapse_count",
+        "title": "Item x harmonized_nsu_unit cells, by how many distinct raw labels fold into them",
+        "description": "",
+        "grouping": "n_raw_labels_collapsed",
+        "n_levels": 3,
+        "data": [
+          {
+            "level": "1",
+            "value": 58
+          },
+          {
+            "level": "2",
+            "value": 10
+          },
+          {
+            "level": "3+",
+            "value": 18
+          }
+        ]
+      }
+    ]
+  }
+}

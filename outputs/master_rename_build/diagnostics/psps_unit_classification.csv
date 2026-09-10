@@ -1,0 +1,229 @@
+pull_nsu_unit,std_grams,std_basis,drop_reason,conv_path,n_obs
+kilograms (kg),1000,metric,,standard unit -- convert directly,27969
+gantang,2250,measured,,standard unit -- convert directly,11647
+grams (g),1,metric,,standard unit -- convert directly,5084
+5-gallon blue container,18927.1,metric,,standard unit -- convert directly,4939
+gallons,3785.41,metric,,standard unit -- convert directly,1718
+litro (l),1000,metric,,standard unit -- convert directly,563
+millileters (ml),1,metric,,standard unit -- convert directly,160
+botelya (330ml),330,stated,,standard unit -- convert directly,155
+botelya (500ml),500,stated,,standard unit -- convert directly,127
+bote (500ml),500,stated,,standard unit -- convert directly,53
+bote (330ml),330,stated,,standard unit -- convert directly,20
+ganta,2250,measured,,standard unit -- convert directly,18
+lata (500 ml),500,stated,,standard unit -- convert directly,14
+lata (330 ml),330,stated,,standard unit -- convert directly,7
+grams,1,metric,,standard unit -- convert directly,5
+liters,1000,metric,,standard unit -- convert directly,3
+liters (l),1000,metric,,standard unit -- convert directly,2
+kilo,1000,metric,,standard unit -- convert directly,2
+bottle (500 ml),500,stated,standard quantity,standard unit -- convert directly,1
+kilograms,1000,metric,,standard unit -- convert directly,1
+kilos,1000,metric,,standard unit -- convert directly,1
+bugkos,,,,"NSU, resolvable via the crosswalk",8546
+bilog,,,,"NSU, resolvable via the crosswalk",6223
+putos,,,,"NSU, resolvable via the crosswalk",5813
+lipid / lapad,,,,"NSU, resolvable via the crosswalk",3473
+bundle,,,,"NSU, resolvable via the crosswalk",1987
+binilog,,,,"NSU, resolvable via the crosswalk",1384
+whole (chicken),,,,"NSU, resolvable via the crosswalk",1260
+gagmay nga putos,,,,"NSU, resolvable via the crosswalk",822
+medium,,,,"NSU, resolvable via the crosswalk",695
+gamay nga cup,,,,"NSU, resolvable via the crosswalk",666
+large,,,,"NSU, resolvable via the crosswalk",581
+tama-tama nga putos,,,,"NSU, resolvable via the crosswalk",424
+small,,,,"NSU, resolvable via the crosswalk",389
+salmon,,,,"NSU, resolvable via the crosswalk",381
+long-neck,,,,"NSU, resolvable via the crosswalk",316
+dalagku nga putos,,,,"NSU, resolvable via the crosswalk",312
+tumpok,,,,"NSU, resolvable via the crosswalk",306
+lapad,,,,"NSU, resolvable via the crosswalk",180
+kasarangan nga putos,,,,"NSU, resolvable via the crosswalk",161
+mabahoe nga putos,,,,"NSU, resolvable via the crosswalk",161
+bilog nga manok,,,,"NSU, resolvable via the crosswalk",144
+maisot nga putos,,,,"NSU, resolvable via the crosswalk",135
+letse,,,,"NSU, resolvable via the crosswalk",134
+medium nga putos,,,,"NSU, resolvable via the crosswalk",101
+daragkul nga putos,,,,"NSU, resolvable via the crosswalk",97
+maisot nga tasa,,,,"NSU, resolvable via the crosswalk",85
+small cup (translate),,,,"NSU, resolvable via the crosswalk",75
+packs,,,,"NSU, resolvable via the crosswalk",68
+pieces or units,,,,"NSU, resolvable via the crosswalk",63
+pack,,,,"NSU, resolvable via the crosswalk",56
+gamay nga tasa,,,,"NSU, resolvable via the crosswalk",55
+lata,,,,"NSU, resolvable via the crosswalk",35
+gmay nga cup,,,,"NSU, resolvable via the crosswalk",22
+piraso,,,,"NSU, resolvable via the crosswalk",20
+small packs,,,,"NSU, resolvable via the crosswalk",18
+cone,,,,"NSU, resolvable via the crosswalk",12
+pakete,,,,"NSU, resolvable via the crosswalk",12
+mixmix,,,,"NSU, resolvable via the crosswalk",12
+pieces,,,,"NSU, resolvable via the crosswalk",9
+medium packs,,,,"NSU, resolvable via the crosswalk",9
+large packs,,,,"NSU, resolvable via the crosswalk",7
+slice,,,,"NSU, resolvable via the crosswalk",7
+medium nga pakete,,,,"NSU, resolvable via the crosswalk",6
+cup,,,,"NSU, resolvable via the crosswalk",5
+per pack,,,,"NSU, resolvable via the crosswalk",4
+cone of an ice cream,,,,"NSU, resolvable via the crosswalk",4
+malaking packs,,,,"NSU, resolvable via the crosswalk",4
+balde,,,,"NSU, resolvable via the crosswalk",3
+patupa,,,,"NSU, resolvable via the crosswalk",3
+piece,,,,"NSU, resolvable via the crosswalk",3
+small cup,,,,"NSU, resolvable via the crosswalk",3
+maliit na tasa,,,,"NSU, resolvable via the crosswalk",3
+sliced,,,,"NSU, resolvable via the crosswalk",3
+1/2,,,,"NSU, resolvable via the crosswalk",2
+tupperware,,,,"NSU, resolvable via the crosswalk",2
+plastic cup,,,,"NSU, resolvable via the crosswalk",2
+whole chicken,,,,"NSU, resolvable via the crosswalk",2
+per packs,,,,"NSU, resolvable via the crosswalk",2
+container,,,,"NSU, resolvable via the crosswalk",2
+1 case,,,,"NSU, resolvable via the crosswalk",2
+pack of mixed vegetables,,,,"NSU, resolvable via the crosswalk",2
+ice cream in cone,,,,"NSU, resolvable via the crosswalk",2
+tub,,,,"NSU, resolvable via the crosswalk",2
+bowl,,,,"NSU, resolvable via the crosswalk",2
+pack of ice wrapper,,,,"NSU, resolvable via the crosswalk",2
+putos /mix mix,,,,"NSU, resolvable via the crosswalk",2
+baso,,,,"NSU, resolvable via the crosswalk",2
+2bond,,,,"NSU, resolvable via the crosswalk",2
+can,,,,"NSU, resolvable via the crosswalk",2
+gallon,,,,"NSU, resolvable via the crosswalk",2
+putos (pack),,,,"NSU, resolvable via the crosswalk",2
+tupok,,,,"NSU, resolvable via the crosswalk",2
+whole,,,,"NSU, resolvable via the crosswalk",1
+14 tasa,,,,"NSU, resolvable via the crosswalk",1
+5 gallon black container,,,,"NSU, resolvable via the crosswalk",1
+100pcs of pandesal,,,,"NSU, resolvable via the crosswalk",1
+1bugkus,,,,"NSU, resolvable via the crosswalk",1
+intestine,,,,"NSU, resolvable via the crosswalk",1
+3bugkos,,,,"NSU, resolvable via the crosswalk",1
+pieces of fried chicken,,,,"NSU, resolvable via the crosswalk",1
+jr,,,,"NSU, resolvable via the crosswalk",1
+mix vegetables (per tumpok),,,,"NSU, resolvable via the crosswalk",1
+1/2 of whole,,,,"NSU, resolvable via the crosswalk",1
+small box,,,,"NSU, resolvable via the crosswalk",1
+individual,,,,"NSU, resolvable via the crosswalk",1
+1 cone,,,,"NSU, resolvable via the crosswalk",1
+small pack for pancit (noodles),,,,"NSU, resolvable via the crosswalk",1
+"rice cooker cup, small",,,,"NSU, resolvable via the crosswalk",1
+putos or pack,,,,"NSU, resolvable via the crosswalk",1
+refilled,,,,"NSU, resolvable via the crosswalk",1
+chicken wings,,,,"NSU, resolvable via the crosswalk",1
+mix vegetables (per tumbok),,,,"NSU, resolvable via the crosswalk",1
+packs of mix vegies,,,,"NSU, resolvable via the crosswalk",1
+apa,,,,"NSU, resolvable via the crosswalk",1
+ball (tuba),,,,"NSU, resolvable via the crosswalk",1
+stick,,,,"NSU, resolvable via the crosswalk",1
+putos /supot,,,,"NSU, resolvable via the crosswalk",1
+1 chop,,,,"NSU, resolvable via the crosswalk",1
+dagko nga pakete,,,,"NSU, resolvable via the crosswalk",1
+patopung,,,,"NSU, resolvable via the crosswalk",1
+black gallon,,,,"NSU, resolvable via the crosswalk",1
+gagmay nga pakete,,,,"NSU, resolvable via the crosswalk",1
+1 pc. prawn,,,,"NSU, resolvable via the crosswalk",1
+caltex,,,,"NSU, resolvable via the crosswalk",1
+maliit na packs,,,,"NSU, resolvable via the crosswalk",1
+pieces barbeque,,,,"NSU, resolvable via the crosswalk",1
+mix slice of carrot,,,,"NSU, resolvable via the crosswalk",1
+in a pack,,,,"NSU, resolvable via the crosswalk",1
+takal ng tuba,,,,"NSU, resolvable via the crosswalk",1
+putos (halo - halo),,,,"NSU, resolvable via the crosswalk",1
+"cassava & malunggay leaves, paco or fern, squash leaves",,,,"NSU, resolvable via the crosswalk",1
+per putos ung binibili na isda,,,,"NSU, resolvable via the crosswalk",1
+1 bowl cooked,,,,"NSU, resolvable via the crosswalk",1
+tab,,,,"NSU, resolvable via the crosswalk",1
+7 ball,,,,"NSU, resolvable via the crosswalk",1
+gin,,,,"NSU, resolvable via the crosswalk",1
+junior lapad,,,,"NSU, resolvable via the crosswalk",1
+tupperware medium size,,,,"NSU, resolvable via the crosswalk",1
+ice cream stick,,,,"NSU, resolvable via the crosswalk",1
+case,,,,"NSU, resolvable via the crosswalk",1
+mix-mix cabbage and carrots,,,,"NSU, resolvable via the crosswalk",1
+sack of rice,,,,"NSU, resolvable via the crosswalk",1
+glass,,,,"NSU, resolvable via the crosswalk",1
+tumpok(pile),,,,"NSU, resolvable via the crosswalk",1
+role,,,,"NSU, resolvable via the crosswalk",1
+putos (mix vegetable),,,,"NSU, resolvable via the crosswalk",1
+half,,,,"NSU, resolvable via the crosswalk",1
+half of 1 unit/pieces,,,,"NSU, resolvable via the crosswalk",1
+pack shredded cabbbage,,,,"NSU, resolvable via the crosswalk",1
+pack of slices,,,,"NSU, resolvable via the crosswalk",1
+1 serve,,,,"NSU, resolvable via the crosswalk",1
+1/2 sack of rice,,,,"NSU, resolvable via the crosswalk",1
+buskos,,,,"NSU, resolvable via the crosswalk",1
+buong (manok),,,,"NSU, resolvable via the crosswalk",1
+1 order,,,,"NSU, resolvable via the crosswalk",1
+isang tumpok,,,,"NSU, resolvable via the crosswalk",1
+supper ware,,,,"NSU, resolvable via the crosswalk",1
+packs in cellophane,,,,"NSU, resolvable via the crosswalk",1
+bucket,,,,"NSU, resolvable via the crosswalk",1
+1 plastic cup,,,,"NSU, resolvable via the crosswalk",1
+rice cooker cup (small),,,,"NSU, resolvable via the crosswalk",1
+patupong,,,,"NSU, resolvable via the crosswalk",1
+small size plastic,,,,"NSU, resolvable via the crosswalk",1
+pack/ putos,,,,"NSU, resolvable via the crosswalk",1
+tingi tingi,,,,"NSU, resolvable via the crosswalk",1
+tumpok / plastic,,,,"NSU, resolvable via the crosswalk",1
+distilled water,,,,"NSU, resolvable via the crosswalk",1
+mix slice of cabbage,,,,"NSU, resolvable via the crosswalk",1
+junior,,,,"NSU, resolvable via the crosswalk",1
+big can,,,,"NSU, resolvable via the crosswalk",1
+boll,,,,"NSU, resolvable via the crosswalk",1
+puts or plastic,,,,"NSU, resolvable via the crosswalk",1
+half slice,,,,"NSU, resolvable via the crosswalk",1
+bul,,,,"NSU, resolvable via the crosswalk",1
+tupper ware,,,,"NSU, resolvable via the crosswalk",1
+glass/shots,,,,"NSU, resolvable via the crosswalk",1
+repack,,,,"NSU, resolvable via the crosswalk",1
+putos (halo -halo ),,,,"NSU, resolvable via the crosswalk",1
+tibuok na manok,,,,"NSU, resolvable via the crosswalk",1
+1order,,,,"NSU, resolvable via the crosswalk",1
+gamay na tasa,,,,"NSU, resolvable via the crosswalk",1
+per piece,,,,"NSU, resolvable via the crosswalk",1
+2 slice,,,,"NSU, resolvable via the crosswalk",1
+pcs,,,,"NSU, resolvable via the crosswalk",1
+packs of mix veges,,,,"NSU, resolvable via the crosswalk",1
+shredded cabbage,,,,"NSU, resolvable via the crosswalk",1
+1 k caltex(kabo),,,,"NSU, resolvable via the crosswalk",1
+"papaya, mango, banana",,,,"NSU, resolvable via the crosswalk",1
+small rice cooker cup,,,,"NSU, resolvable via the crosswalk",1
+plastic,,,,"NSU, resolvable via the crosswalk",1
+pitcher,,,,"NSU, resolvable via the crosswalk",1
+fish sold per pack 90 each pack,,,,"NSU, resolvable via the crosswalk",1
+putos(per pack),,,,"NSU, resolvable via the crosswalk",1
+4 later galon,,,,"NSU, resolvable via the crosswalk",1
+50 pesos per pinutos or plastic,,,,"NSU, resolvable via the crosswalk",1
+cassava leaves,,,,"NSU, resolvable via the crosswalk",1
+yahong,,,,"NSU, resolvable via the crosswalk",1
+shredded cabbage(pack),,,,"NSU, resolvable via the crosswalk",1
+cone ( dirty ice cream ) 10 pesos per cone,,,,"NSU, resolvable via the crosswalk",1
+"pack,shredded",,,,"NSU, resolvable via the crosswalk",1
+tumpok/ atado,,,,"NSU, resolvable via the crosswalk",1
+coconut wine,,,,"NSU, resolvable via the crosswalk",1
+plastic bag,,,,"NSU, resolvable via the crosswalk",1
+portion,,,,"NSU, resolvable via the crosswalk",1
+can o lata,,,,"NSU, resolvable via the crosswalk",1
+2 kapinutos nga cabbage/20pesos,,,ambiguous quantity,not an NSU (dropped label),1
+7 liters of gallons,,,standard quantity,not an NSU (dropped label),1
+1/4 kilo,,,standard quantity,not an NSU (dropped label),1
+pieces/ kilo,,,ambiguous quantity,not an NSU (dropped label),1
+3 for 25 pesos (putos),,,ambiguous quantity,not an NSU (dropped label),1
+each 10 litres of gallon,,,standard quantity,not an NSU (dropped label),1
+1.5kg per balde,,,standard quantity,not an NSU (dropped label),1
+6 bottles of redhorse,,,standard quantity,not an NSU (dropped label),1
+bottle of ginebra s. miguel 350ml,,,standard quantity,not an NSU (dropped label),1
+1.3 galon,,,standard quantity,not an NSU (dropped label),1
+10,,,ambiguous quantity,not an NSU (dropped label),1
+1/2 sack of rice (25kls.),,,standard quantity,not an NSU (dropped label),1
+1 whole pigs for her grandson's birthday,,,not a unit,not an NSU (dropped label),1
+1 sack is 2900/for salary/inkind,,,not a unit,not an NSU (dropped label),1
+he buy cooked food for his meals,,,not a unit,not an NSU (dropped label),1
+500,,,ambiguous quantity,not an NSU (dropped label),1
+6 liters of water (2 blue container),,,standard quantity,not an NSU (dropped label),1
+pack 25 per pack in the market,,,not a unit,not an NSU (dropped label),1
+2 bowls halohalo and 10 popcicle sticks,,,not a unit,not an NSU (dropped label),1
+3 serving of halo-halo in a bowl,,,not a unit,not an NSU (dropped label),1
+per bowl serving of halo halo,,,not a unit,not an NSU (dropped label),1
+500ml 1 redhorse.,,,standard quantity,not an NSU (dropped label),1

@@ -33,7 +33,8 @@ import pandas as pd
 
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
-TEMP = DC + r"\outputs\master_rename_build\temp"
+TEMP = DC + r"\outputs\master_rename_build\intermediate"
+DELIV = DC + r"\outputs\master_rename_build\deliverables"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
 
 
@@ -50,7 +51,7 @@ def main():
     xw = pd.read_csv(XW, encoding="utf-8-sig", dtype=str)
     rest = pd.read_stata(TEMP + r"\nsu_weighings_cpi.dta", convert_categoricals=False)
     prelim = pd.read_stata(TEMP + r"\prelim_nsu_data.dta", convert_categoricals=False)
-    ref = pd.read_stata(TEMP + r"\nsu_reference_set.dta", convert_categoricals=False)
+    ref = pd.read_stata(DELIV + r"\nsu_reference_set.dta", convert_categoricals=False)
     print(f"crosswalk {len(xw):,}   restated {len(rest):,}   prelim {len(prelim):,}"
           f"   reference set {len(ref):,}")
 

@@ -32,7 +32,7 @@
 *
 * ------------------------------------------------------------------------------
 * INPUT   ${btemp}\psps_households.dta   20a, carrying conv_path and std_grams
-* OUTPUT  ${btemp}\psps_standard_units.dta   one row per converted household row
+* OUTPUT  ${bdeliv}\psps_standard_units.dta   one row per converted household row
 *
 * RUN, from the dofiles/ folder:
 *   "C:\Program Files\StataNow19\StataSE-64.exe" -e do 20_psps_retrofitting\27_standard_units.do
@@ -108,7 +108,7 @@ keep hhid psps_item_code pull_province pull_municipal_city pull_item pull_nsu_un
 
 compress
 sort hh_row
-save "${btemp}\psps_standard_units", replace
+save "${bdeliv}\psps_standard_units", replace
 
 qui count
 di as res _n "{hline 78}"

@@ -39,7 +39,8 @@ import pandas as pd
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
 LAUNCH = BOX + r"\NSU Market Survey Launch"
-TEMP = DC + r"\outputs\master_rename_build\temp"
+TEMP = DC + r"\outputs\master_rename_build\intermediate"
+DELIV = DC + r"\outputs\master_rename_build\deliverables"
 
 RAW = LAUNCH + r"\data\PSPS NSU Market Survey Launch.dta"
 PRICE = LAUNCH + r"\data\NSU_prices_from_Makayla.csv"
@@ -739,7 +740,7 @@ def c_thin_sensitivity():
 
     docs/implicit_assumptions.md / A3
     """
-    ref = pd.read_stata(TEMP + r"\nsu_reference_set.dta", convert_categoricals=False)
+    ref = pd.read_stata(DELIV + r"\nsu_reference_set.dta", convert_categoricals=False)
     n = len(ref)
     got = {t: int((ref.n_g < t).sum()) for t in (2, 3, 4, 5)}
     check("A3 rows flagged at THIN = 2 / 3 / 4 / 5",
@@ -765,7 +766,7 @@ def c_reclassification_counts():
 
     issue #28 / branch, and docs/implicit_assumptions.md A12
     """
-    ref = pd.read_stata(TEMP + r"\nsu_reference_set.dta", convert_categoricals=False)
+    ref = pd.read_stata(DELIV + r"\nsu_reference_set.dta", convert_categoricals=False)
     if "d_reclassified" not in ref.columns:
         skip("#28 reclassification reaches the published set", "issue #28",
              "nsu_reference_set.dta has no d_reclassified -- run 00_shared/08_branch.do")
@@ -874,7 +875,7 @@ def c_reference_docs_row_totals():
     These are the cheapest possible checks -- a row count of a file the doc names -- and
     they are the ones that would have caught both.
     """
-    cleaned = pd.read_stata(DC + r"\outputs\master_rename_build\temp\nsu_data_master.dta",
+    cleaned = pd.read_stata(TEMP + r"\nsu_data_master.dta",
                             convert_categoricals=False)
     check("summary_statistics.md: cleaned row count",
           "summary_statistics.md / Sources, Grain, Counts",
@@ -899,8 +900,7 @@ def c_reference_docs_row_totals():
 def main():
     head("INPUTS")
     prelim = pd.read_stata(PRELIM, convert_categoricals=False)
-    corrected = pd.read_stata(DC + r"\outputs\master_rename_build\temp"
-                                   r"\standard_weight_unit_correction.dta",
+    corrected = pd.read_stata(TEMP + r"\standard_weight_unit_correction.dta",
                               convert_categoricals=False)
     rest = pd.read_stata(RESTATED, convert_categoricals=False)
     sized = pd.read_stata(SIZED, convert_categoricals=False)

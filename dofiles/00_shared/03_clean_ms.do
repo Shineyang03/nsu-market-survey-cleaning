@@ -398,6 +398,21 @@ if `n_nonnsu' > 0 {
 		sort drop_reason pull_item pull_nsu_unit pull_province pull_municipal_city
 		list pull_item pull_nsu_unit drop_reason weight unit, ///
 			noobs abbrev(30) sepby(drop_reason)
+		* ERASED FIRST, and the reason is a real failure rather than caution.
+		* `sheet(, replace)' rewrites an EXISTING workbook in place: Stata reads it,
+		* swaps the sheet, and writes it back through scratch files it drops in the
+		* same folder (STU<hex>_<hex>.tmp). On a sync drive that round trip is where
+		* it breaks -- this export failed r(603) "could not be saved" on two
+		* consecutive runs against a workbook that was perfectly readable, and
+		* succeeded immediately once the file was deleted and rebuilt from nothing.
+		* Four orphaned STU*.tmp files had been sitting beside it, which is what a
+		* half-finished rewrite leaves behind.
+		*
+		* This workbook holds ONE sheet, so there is nothing in it worth preserving
+		* across a run. Erasing makes the export a plain write, which cannot fail
+		* that way. `capture' because the first run of a fresh clone has no file to
+		* erase, and that is not an error.
+		capture erase "${btables}\excluded_standard_unit_obs.xlsx"
 		export excel using "${btables}\excluded_standard_unit_obs.xlsx", ///
 			sheet("excluded_from_MS", replace) firstrow(variables)
 		di as txt "excluded non-NSU weighings exported: " _N

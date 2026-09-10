@@ -4,6 +4,12 @@
 *.log
 *.smcl
 
+# Stata's own scratch files, named STU<hex>_<hex>.tmp. It writes these beside an output
+# during `export excel' and normally removes them; when a do-file errors mid-export it
+# does not, and four of them had been committed into outputs/.../tables/ (118 KB) where
+# they read as though they were build artifacts.
+STU*.tmp
+
 # OS
 Thumbs.db
 Desktop.ini

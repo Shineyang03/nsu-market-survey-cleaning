@@ -19,21 +19,25 @@ through stages, which is what a Sankey diagram plus a per-row drill-down are for
 WHAT THIS READS (build outputs only -- nothing here is written by this script)
   raw MS            NSU Market Survey Launch/data/PSPS NSU Market Survey Launch.dta
   price file        NSU Market Survey Launch/data/NSU_prices_from_Makayla.csv
-  arrival stage      outputs/master_rename_build/temp/prelim_nsu_data.dta
-  weight/unit stage   outputs/master_rename_build/temp/standard_weight_unit_correction.dta
-  restated stage     outputs/master_rename_build/temp/nsu_weighings_cpi.dta
-  Outcome 1 output   outputs/master_rename_build/temp/nsu_reference_set.dta
+  arrival stage      outputs/master_rename_build/intermediate/prelim_nsu_data.dta
+  weight/unit stage   outputs/master_rename_build/intermediate/standard_weight_unit_correction.dta
+  restated stage     outputs/master_rename_build/intermediate/nsu_weighings_cpi.dta
+  Outcome 1 output   outputs/master_rename_build/deliverables/nsu_reference_set.dta
   harmonization map  outputs/tables/master_nsu_rename.csv
   comment crosswalk  outputs/tables/add_comments_crosswalk.xlsx
-  non-NSU drops  outputs/master_rename_build/tables/excluded_standard_unit_obs.xlsx
-  attrition ledger   outputs/master_rename_build/tables/attrition_ledger.csv (context only,
+  non-NSU drops  outputs/master_rename_build/diagnostics/excluded_standard_unit_obs.xlsx
+  attrition ledger   outputs/master_rename_build/summary/attrition_ledger.csv (context only,
                       see "KNOWN DISCREPANCY" below -- this script does not trust its
                       row counts, only its prose reasons)
 
 WHAT THIS WRITES
-  outputs/explorer/nsu_pipeline_explorer.html   -- the only output. Self-contained:
-      inline CSS/JS, data embedded as JSON, no CDN, no build step. Opens from disk
-      with file://. Nothing anywhere else is touched -- no .do file, no .dta.
+  outputs/master_rename_build/summary/nsu_pipeline_explorer.html   -- the only output.
+      Self-contained: inline CSS/JS, data embedded as JSON, no CDN, no build step. Opens
+      from disk with file://. Nothing anywhere else is touched -- no .do file, no .dta.
+      Lives under the build's own subtree, not a top-level outputs/explorer/, because it
+      is built from one specific build: a variant build set via ${build_name} gets its
+      own explorer rather than overwriting the published one -- the same argument
+      00_globals.do makes for every other build output.
 
 HOW A RAW ROW IS JOINED TO ITS ARRIVAL ROW. `prelim_nsu_data.dta` carries an `id`
 that raw rows do not have (raw predates `id`; `id` is assigned by 03_clean_ms.do
@@ -62,7 +66,7 @@ Every one of the 37 raw rows that fails to join is independently explained:
     (enumerator re-entered 225 weight for the 187.5 price mark)" -- matched back
     to its raw row by the same 7-field key with obs_type read off the crosswalk's
     own hetero label.
-  - 38 rows: present in outputs/master_rename_build/tables/excluded_standard_unit_obs.xlsx
+  - 38 rows: present in outputs/master_rename_build/diagnostics/excluded_standard_unit_obs.xlsx
     (the non-NSU label drop -- standard quantity, ambiguous quantity, or not a unit;
     the file's drop_reason column says which), matched back the same way.
   - 3 rows: pull_price missing & item=="fresh fish" & pull_nsu_unit=="bilog" &
@@ -273,13 +277,13 @@ LAUNCH = BOX / "NSU Market Survey Launch"
 
 RAW_PATH = LAUNCH / "data" / "PSPS NSU Market Survey Launch.dta"
 PRICE_PATH = LAUNCH / "data" / "NSU_prices_from_Makayla.csv"
-PRELIM_PATH = DC / "outputs" / "master_rename_build" / "temp" / "prelim_nsu_data.dta"
-WTUNIT_PATH = DC / "outputs" / "master_rename_build" / "temp" / "standard_weight_unit_correction.dta"
-RESTATED_PATH = DC / "outputs" / "master_rename_build" / "temp" / "nsu_weighings_cpi.dta"
-REFSET_PATH = DC / "outputs" / "master_rename_build" / "temp" / "nsu_reference_set.dta"
+PRELIM_PATH = DC / "outputs" / "master_rename_build" / "intermediate" / "prelim_nsu_data.dta"
+WTUNIT_PATH = DC / "outputs" / "master_rename_build" / "intermediate" / "standard_weight_unit_correction.dta"
+RESTATED_PATH = DC / "outputs" / "master_rename_build" / "intermediate" / "nsu_weighings_cpi.dta"
+REFSET_PATH = DC / "outputs" / "master_rename_build" / "deliverables" / "nsu_reference_set.dta"
 MASTER_RENAME_PATH = DC / "outputs" / "tables" / "master_nsu_rename.csv"
 COMMENTS_XW_PATH = DC / "outputs" / "tables" / "add_comments_crosswalk.xlsx"
-STDQTY_PATH = DC / "outputs" / "master_rename_build" / "tables" / "excluded_standard_unit_obs.xlsx"
+STDQTY_PATH = DC / "outputs" / "master_rename_build" / "diagnostics" / "excluded_standard_unit_obs.xlsx"
 
 # ---- price-side analysis tables (all read-only; see "THE PRICE-FILE SIDE" above) ----
 T = DC / "outputs" / "tables"
@@ -287,7 +291,7 @@ PRICE_ONLY_PATH = T / "price_only_no_weight_anywhere.csv"
 POOLED_SPELLING_PATH = T / "issue21_pooled_spelling_conflicts.csv"
 MERGE_RULE_PATH = T / "issue21_merge_rule_candidates.csv"
 DROPPED_LABELS_PATH = T / "master_rename_dropped_labels.csv"
-WEIGHT_CORRECTION_PATH = (DC / "outputs" / "master_rename_build" / "tables"
+WEIGHT_CORRECTION_PATH = (DC / "outputs" / "master_rename_build" / "summary"
                           / "weight_correction_report.csv")
 CONV_OVERLAP_PATH = T / "conventional_unit_overlap.csv"
 CONV_COVERAGE_PATH = T / "conventional_price_coverage.csv"
@@ -303,15 +307,23 @@ SINGLETON_PATH = T / "singleton_hetero_groups.csv"
 # All written by master_outcome2.do and 90_diagnostics/attrition_ledger.do. Read, never
 # recomputed: the whole point of section 7 is to show what the build decided, and a second
 # implementation of any of it here would be free to disagree.
-BT = DC / "outputs" / "master_rename_build" / "temp"
-BTB = DC / "outputs" / "master_rename_build" / "tables"
-O2_LOOKUP_PATH = BT / "outcome2_lookup.dta"
-O2_CONVERTED_PATH = BT / "psps_converted_capped.dta"
-O2_STANDARD_PATH = BT / "psps_standard_units.dta"
+#
+# BT is intermediate/, for the one file here that stayed there (psps_households.dta).
+# BDELIV is deliverables/: the lookup and the two household-level files all moved there
+# in the restructure that split temp/ into intermediate/ + deliverables/.
+BT = DC / "outputs" / "master_rename_build" / "intermediate"
+BDELIV = DC / "outputs" / "master_rename_build" / "deliverables"
+O2_LOOKUP_PATH = BDELIV / "outcome2_lookup.dta"
+O2_CONVERTED_PATH = BDELIV / "psps_converted_capped.dta"
+O2_STANDARD_PATH = BDELIV / "psps_standard_units.dta"
 O2_HOUSEHOLDS_PATH = BT / "psps_households.dta"
-LEDGER_PATH = BTB / "attrition_ledger.csv"
+LEDGER_PATH = DC / "outputs" / "master_rename_build" / "summary" / "attrition_ledger.csv"
 
-OUT_DIR = DC / "outputs" / "explorer"
+# Lives under the build's own subtree rather than a top-level outputs/explorer/: the
+# explorer is built from one specific build, so a variant build set via ${build_name}
+# should get its own explorer rather than overwriting the published one -- the same
+# argument 00_globals.do makes for every other build output.
+OUT_DIR = DC / "outputs" / "master_rename_build" / "summary"
 OUT_HTML = OUT_DIR / "nsu_pipeline_explorer.html"
 
 
@@ -658,7 +670,12 @@ def classify_stage3(restated, refset):
             .groupby(CASE_COLS + ['size_ord'])['corrected_weight']
             .agg(n_mine='size', grams_mine='median').reset_index())
     refset_key = refset.rename(columns={'pull_item': 'pull_item'})
-    pub = refset_key[CASE_COLS + ['size_ord', 'n_g', 'grams']]
+    # The uncertainty columns (#35) and the size-monotonicity flag ride along so a
+    # weighing's panel can show what the row it landed in actually says about itself.
+    # Read from the published file, never recomputed here -- this tool's rule is that a
+    # diagnostic reads the quantity the pipeline computed.
+    pub = refset_key[CASE_COLS + ['size_ord', 'n_g', 'grams',
+                                  'n_uncertain', 'share_uncertain', 'd_size_nonmono']]
     check = mine.merge(pub, on=CASE_COLS + ['size_ord'], how='left',
                         indicator=True)
     matched = check._merge == 'both'
@@ -668,7 +685,8 @@ def classify_stage3(restated, refset):
         f"{n_match} of {len(check)} exact n & median match "
         f"({n_match / max(len(check), 1):.1%})")
 
-    pub_lookup = pub.set_index(CASE_COLS + ['size_ord'])[['grams', 'n_g']]
+    pub_lookup = pub.set_index(CASE_COLS + ['size_ord'])[
+        ['grams', 'n_g', 'n_uncertain', 'share_uncertain', 'd_size_nonmono']]
     return r, eligible, pub_lookup
 
 
@@ -1225,10 +1243,17 @@ def load_price_analyses(pr):
     # rely on `id' alone to compare two builds: it is `_n' after a sort, so it is
     # stable against REORDERING but renumbers when rows are added or removed. Within
     # one build it identifies a row; across builds only the content does.
+    #
+    # TRIMMED TO WHAT ONLY THIS FILE KNOWS. It used to embed all 22 columns of all 11,433
+    # rows and NOTHING rendered any of them -- roughly a tenth of the page's bytes, dead.
+    # Two things changed: the three uncertainty flags now come from the build itself
+    # (08_branch.do owns them, #35) and are shown per weighing from there, so the copies
+    # here were also a second source for the same fact; and `magnitude_corrected' /
+    # `decades_moved' are genuinely unavailable anywhere else, so those are kept and are
+    # now displayed. Keyed on `id', which is what the weighing records carry.
     if WEIGHT_CORRECTION_PATH.exists():
         wc = pd.read_csv(WEIGHT_CORRECTION_PATH, encoding='utf-8-sig')
-        wc = _addkey4(wc, 'pull_province', 'pull_municipal_city', 'pull_item',
-                      'harmonized_nsu_unit')
+        wc = wc[['id', 'magnitude_corrected', 'decades_moved']]
         tables['weight_corrections'] = _records(wc)
     else:
         # Absent rather than empty: the report is a separate step, so a build that has
@@ -1385,6 +1410,16 @@ def load_outcome2():
                              else int(g.fallback_level.max())),
             "grams_total": (None if g.grams_h.isna().all() else float(g.grams_h.sum())),
             "routes": {str(a): int(b) for a, b in routes.items()},
+            # How questioned the weights this case's households were given are (#35).
+            # POOLED, not the mean of the per-row shares: at this grain the question is
+            # "of all the weighings behind this case's converted rows, how many were
+            # questioned", and A20 records that the two weightings differ enough that
+            # the choice has to be stated. nu_used is already taken at the rung each row
+            # actually used, so no rung mixing happens here.
+            "n_g_used_total": (None if g.n_g_used.isna().all()
+                               else int(g.n_g_used.sum())),
+            "nu_used_total": (None if g.nu_used.isna().all()
+                              else int(g.nu_used.sum())),
         })
     log(f"  cases with at least one PSPS NSU row: {len(cases):,}")
 
@@ -1545,12 +1580,33 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
                     rec["terminal"] = "outcome1_reference_row"
                     rec["outcome1_grams"] = nn(pub_row.grams)
                     rec["outcome1_n"] = nn(pub_row.n_g)
+                    rec["outcome1_n_unc"] = nn(pub_row.n_uncertain)
+                    rec["outcome1_share_unc"] = nn(pub_row.share_uncertain)
+                    rec["outcome1_nonmono"] = int(pub_row.d_size_nonmono)
                 else:
                     rec["terminal"] = "outcome1_reference_row_unverified"
                     rec["terminal_reason"] = ("Assigned a size by this tool's replication of "
                                                "10_reference_set/10_size_assignment.do, but no matching case x size "
                                                "row was found in the published output -- treat "
                                                "the size label as unverified")
+
+        # ---- was THIS weighing's own weight questioned (#35) -------------------------
+        # The four flags come from 08_branch.do, which owns their definition. Shown per
+        # weighing as well as per published row, because the published row's count says
+        # how many of its weighings were questioned and this says whether the one in front
+        # of you is one of them.
+        unc = []
+        if int(getattr(row, 'd_unusable', 0) or 0) == 1:
+            unc.append("unusable (no defensible reading, weight is .c)")
+        if int(getattr(row, 'd_disputed', 0) or 0) == 1:
+            unc.append("disputed (the two snap rules gave different readings)")
+        if int(getattr(row, 'd_step1_flagged', 0) or 0) == 1:
+            unc.append("anchor-flagged (the snap distrusted its own answer)")
+        rec["d_any_uncertain"] = int(getattr(row, 'd_any_uncertain', 0) or 0)
+        if unc:
+            notes.append("Weight questioned: " + "; ".join(unc)
+                         + ". It still ships -- see A20; nothing is dropped or "
+                           "down-weighted on account of this.")
 
         if row.weighing_approach == 1:
             notes.append("Conventional NSU: no size to resolve, published as the case median.")
@@ -1896,7 +1952,7 @@ a { color: var(--accent); }
   <p style="color:var(--muted);font-size:12.5px;margin:0 0 10px 0">
     Sections 1&ndash;6 follow a market-survey weighing. This one follows the other side: a
     household that reported a quantity in a non-standard unit, and what it received. Every
-    figure below is read from <code>outputs/master_rename_build/tables/attrition_ledger.csv</code>
+    figure below is read from <code>outputs/master_rename_build/summary/attrition_ledger.csv</code>
     and the build's own <code>.dta</code> files &mdash; nothing on this page recomputes an
     Outcome 2 decision, which is the same rule the rest of the tool follows.
   </p>
@@ -2157,13 +2213,51 @@ function terminalTag(w) {
   }
   if (w.terminal === 'dropped') return '<span class="tag dropped">dropped</span>';
   if (w.terminal === 'dropped_outcome1_only') return '<span class="tag pending">excluded (Outcome 1 only)</span>';
-  if (w.terminal === 'outcome1_reference_row') return `<span class="tag ok">Outcome 1: ${w.size_label||''}, ${w.outcome1_grams} g/mL</span>`;
+  if (w.terminal === 'outcome1_reference_row') {
+    // The uncertainty rides on the tag rather than only in the detail panel: the point
+    // of publishing it is that someone scanning a list sees it without opening a row.
+    let extra = '';
+    if (w.outcome1_share_unc != null && w.outcome1_share_unc > 0) {
+      const pct = Math.round(w.outcome1_share_unc * 100);
+      // 'pending' is this page's amber tag; there is no .tag.warn.
+      const cls = w.outcome1_share_unc >= 1 ? 'dropped' : 'pending';
+      extra += ` <span class="tag ${cls}" title="${w.outcome1_n_unc} of ${w.outcome1_n} weighings behind this published row were disputed or anchor-flagged (#35). Nothing is dropped on account of it.">${pct}% questioned</span>`;
+    }
+    if (w.outcome1_nonmono) {
+      extra += ` <span class="tag dropped" title="grams do not rise with size in this cell -- on the price-quantity branch size_ord is a PRICE rank and carries no claim about weight, so an inverted ladder can be the data rather than a bug">size label is a price rank</span>`;
+    }
+    return `<span class="tag ok">Outcome 1: ${w.size_label||''}, ${w.outcome1_grams} g/mL</span>${extra}`;
+  }
   if (w.terminal === 'outcome1_reference_row_unverified') return `<span class="tag pending">Outcome 1 (unverified size)</span>`;
   return '<span class="tag pending">survived, size unresolved</span>';
 }
 
 // ---------------------------------------------------------------- price analysis tables (joined in, not recomputed)
 const PA = DATA.price_analyses;
+// "was the magnitude changed, and by how far", read from the correction report rather
+// than recomputed. A dropped row has no entry, which is not the same as "not corrected",
+// so it says so.
+function magnitudeCell(w) {
+  const hit = (IDX_wcorr[w.id] || [])[0];
+  if (!hit) return '<span style="color:var(--muted)">not in the correction report</span>';
+  if (!(hit.magnitude_corrected === true || hit.magnitude_corrected === 'True'
+        || hit.magnitude_corrected === 1)) {
+    return '<span style="color:var(--ok)">no &mdash; published at the typed magnitude</span>';
+  }
+  const d = hit.decades_moved;
+  let how = '';
+  if (d != null) {
+    const ad = Math.abs(d);
+    if (ad >= 2.5 && ad <= 3.5) how = d > 0
+      ? ' &mdash; a kilogram number ticked as grams (x1000)'
+      : ' &mdash; a gram number ticked as kilograms (/1000)';
+    else if (ad >= 0.5 && ad <= 1.5) how = ' &mdash; a one-decade decimal slip';
+    else how = ` &mdash; ${d} decades, neither a decimal slip nor a unit tick`;
+  }
+  return `<span style="color:var(--warn)">yes</span>`
+    + `<span style="color:var(--muted)">${how}</span>`;
+}
+
 function buildIndex(rows, keyField) {
   const idx = {};
   (rows || []).forEach(r => { const k = r[keyField]; if (k == null) return; (idx[k] = idx[k] || []).push(r); });
@@ -2176,6 +2270,8 @@ const IDX_fold = buildIndex(PA.outcome1_fold_check, '_key');
 const IDX_dropped = buildIndex(PA.dropped_labels, '_key');
 const IDX_convcov = buildIndex(PA.conventional_price_coverage, '_key');
 const IDX_mergerule = buildIndex(PA.merge_rule_candidates, 'case');
+// Keyed on `id', not on the cell key: this is a per-weighing fact.
+const IDX_wcorr = buildIndex(PA.weight_corrections || [], 'id');
 const IDX_mediandis = buildIndex(PA.median_disagreement, 'case');
 const IDX_convoverlap = buildIndex(PA.conventional_unit_overlap, '_unit');
 const CELL_BY_KEY = {}; DATA.price_cells.forEach(c => { CELL_BY_KEY[c.cell_key] = c; });
@@ -2512,6 +2608,12 @@ function selectRow(w) {
       ['Weighing approach', `${w.weighing_approach} (${w.size_price_label})`],
       ['Weight, as recorded', w.weight_raw != null ? w.weight_raw : '(missing)'],
       ['Weight/unit correction', w.corrected_weight != null ? `${w.corrected_weight} ${w.corrected_unit}` : '(missing)'],
+      // From weight_correction_report.csv, the only place that distinguishes a CORRECTION
+      // from a CONVERSION: kg -> g is a conversion and every mass row gets one, so it is
+      // excluded here, while a kilogram number ticked as grams IS a correction and is
+      // most of them. Not a defect rate -- read report_weight_corrections.py before
+      // drawing a conclusion from it.
+      ['Magnitude changed from the typed reading', magnitudeCell(w)],
       ['Price', w.pull_price != null ? w.pull_price : (w.actual_price != null ? w.actual_price + ' (vendor actual)' : 'n/a (size-based)')],
       ['Restated (corrected_weight)', w.corrected_weight != null ? `${w.corrected_weight} (cpi_factor ${w.cpi_factor})` : '(missing)'],
       ['Case', w.case_key],
@@ -2842,6 +2944,19 @@ function renderSingletonFlag(caseKey, caseWeighings) {
 // The lookup is keyed on the 5-key case (it carries corrected_unit) while a case here is
 // the 4-key one, so a case spanning grams and millilitres shows both sub-cells' rows. The
 // dimension column is displayed rather than collapsed, because that IS the distinction.
+// The "questioned" cell for one lookup row. MISSING and ZERO are drawn differently on
+// purpose: a refused point has no weighings behind it at all, so a 0 there would claim
+// none of them was questioned about a set that does not exist -- which is exactly the
+// distinction 25_lookup.do asserts (missing where n_g is missing, never zero).
+function qcell(r) {
+  if (r.n_uncertain == null || r.n_g == null) return '<span style="color:var(--muted)">n/a</span>';
+  if (r.n_uncertain === 0) return '<span style="color:var(--ok)">0</span>';
+  const pct = Math.round(100 * r.n_uncertain / r.n_g);
+  const col = r.n_uncertain >= r.n_g ? 'var(--drop)' : 'var(--warn)';
+  return `<span style="color:${col}" title="${r.n_uncertain} of ${r.n_g} weighings">`
+    + `${r.n_uncertain} <span style="color:var(--muted)">(${pct}%)</span></span>`;
+}
+
 function renderOutcome2Built(caseKey) {
   const rows = O2_LOOKUP_BY_CASE[caseKey] || [];
   const hh = O2_BY_CASE[caseKey];
@@ -2855,7 +2970,9 @@ function renderOutcome2Built(caseKey) {
     const BR = { 1: 'conventional', 2: 'price-quantity', 3: 'size-based' };
     out += '<div class="subtable"><table><thead><tr>'
       + '<th>branch</th><th>grp</th><th>dim</th><th>month</th><th>p_g</th>'
-      + '<th>w_use</th><th>v_use</th><th>n_g</th><th>usable</th></tr></thead><tbody>'
+      + '<th>w_use</th><th>v_use</th><th>n_g</th><th title="of n_g, how many weighings '
+      + 'behind this weight were disputed or anchor-flagged (#35)">questioned</th>'
+      + '<th>usable</th></tr></thead><tbody>'
       + rows.slice().sort((a, b) => (a.group_id || 0) - (b.group_id || 0)).map(r => {
         const usable = r.d_point_usable === 1
           ? '<span style="color:var(--ok)">yes</span>'
@@ -2869,6 +2986,7 @@ function renderOutcome2Built(caseKey) {
           <td>${r.w_use == null ? '&mdash;' : Number(r.w_use).toFixed(1)}</td>
           <td>${r.v_use == null ? '&mdash;' : Number(r.v_use).toFixed(4)}</td>
           <td>${r.n_g ?? '&mdash;'}</td>
+          <td>${qcell(r)}</td>
           <td>${usable}</td></tr>`;
       }).join('') + '</tbody></table></div>'
       + '<div class="note">A row with <code>usable = no</code> is a price point a household '
@@ -2891,6 +3009,15 @@ function renderOutcome2Built(caseKey) {
       ['price ratio clamped', hh.n_capped.toLocaleString()],
       ['deepest fallback rung used', hh.max_fallback == null ? '&mdash;' : 'L' + hh.max_fallback],
       ['total grams', hh.grams_total == null ? '&mdash;' : Math.round(hh.grams_total).toLocaleString()],
+      // Pooled over the weighings behind this case's converted rows, at whichever rung
+      // each row used. A20 says why the aggregation has to be named: the per-row mean
+      // and the pooled figure differ, and quoting one unlabelled is how two readers
+      // reach opposite conclusions from the same column.
+      ['weighings behind those grams, questioned',
+       (hh.nu_used_total == null || !hh.n_g_used_total) ? '&mdash;'
+         : `${hh.nu_used_total.toLocaleString()} of ${hh.n_g_used_total.toLocaleString()}`
+           + ` <span style="color:var(--muted)">(${Math.round(100 * hh.nu_used_total / hh.n_g_used_total)}%,`
+           + ` pooled at the rung used)</span>`],
       ['routes', routes],
     ].map(([k, v]) => `<div class="pathstep"><div class="stage">${k}</div><div class="val">${v}</div></div>`).join('');
   } else {

@@ -11,7 +11,7 @@ pipeline and does not modify any existing file.
 Sources
 -------
 raw     : "../NSU Market Survey Launch/data/PSPS NSU Market Survey Launch.dta"
-cleaned : outputs/master_rename_build/temp/nsu_data_master.dta
+cleaned : outputs/master_rename_build/intermediate/nsu_data_master.dta
 
 Grain (see docs/conversion_factor_methodology.md, "What identifies a row"):
   - a WEIGHING is province x municipality x item x NSU x market_type x vendor_id
@@ -37,10 +37,10 @@ reconcile the difference -- that is the job of the separate attrition-ledger wor
 
 Outputs
 -------
-outputs/master_rename_build/tables/summary_stats_raw.csv
-outputs/master_rename_build/tables/summary_stats_cleaned.csv
+outputs/master_rename_build/summary/summary_stats_raw.csv
+outputs/master_rename_build/summary/summary_stats_cleaned.csv
     Tidy long format: statistic, grouping, level, value
-outputs/master_rename_build/tables/summary_stats.json
+outputs/master_rename_build/summary/summary_stats.json
     Everything above, self-describing, keyed by statistic id
 """
 
@@ -60,9 +60,9 @@ pd.set_option("display.max_columns", None)
 HERE = Path(__file__).resolve().parent          # dofiles/90_diagnostics
 ROOT = HERE.parent.parent                       # "Data Cleaning"
 RAW_PATH = ROOT.parent / "NSU Market Survey Launch" / "data" / "PSPS NSU Market Survey Launch.dta"
-CLEAN_PATH = ROOT / "outputs" / "master_rename_build" / "temp" / "nsu_data_master.dta"
+CLEAN_PATH = ROOT / "outputs" / "master_rename_build" / "intermediate" / "nsu_data_master.dta"
 
-OUT_DIR = ROOT / "outputs" / "master_rename_build" / "tables"
+OUT_DIR = ROOT / "outputs" / "master_rename_build" / "summary"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 DOCS_DIR = ROOT / "docs"
 

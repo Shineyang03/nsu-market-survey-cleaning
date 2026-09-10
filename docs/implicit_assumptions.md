@@ -336,57 +336,149 @@ knows which are worth the effort.
 | rank alignment of the weight and price ladders | methodology assumption 4 | nothing in the data establishes it — the two distributions come from different rounds and different respondents |
 | terciles are the right cut | methodology assumption 5 | no robustness check against alternative cuts or a modal-size rule |
 
-## A10 — One peso-per-gram exchange rate across acquisition modes
+## A10 — A household's reported unit value places it on the price ladder, whatever the acquisition mode
 
-**Claims.** A unit of an item is the same physical size whether the household bought it,
-grew it, or was given it — so a conversion factor derived entirely from *purchase* prices
-can be applied to all three.
+**Claims.** `p_h = e_h / q_h` is computed for **every** acquisition mode — purchased, own
+production and gift — and used to select the rung and scale the conversion factor:
+`CF_h = p_h / v_g`. The claim this rests on is **not** that a reported value is a market
+price. It is narrower and more specific:
 
-**Where.** Not in any one line yet. It will bind at `28_match_and_convert.do`, which applies
-`CF_h` to the household's quantity `q_h` regardless of how the item was acquired.
+> **Within one household, item and harmonized unit, the value a household puts on one unit
+> is proportional to the physical size of the unit it consumed — to the same degree
+> whether it bought, grew or was given it.**
 
-**Status: NEW, and unmeasured.** Raised on **#27**.
+That is what licenses reading a reported value as a position on a ladder built from
+purchase prices.
 
-**The convention was carried forward.** The archived `26_psps_extract.do` refused to treat
-gifts and own production as prices: only the **purchased** slot fed `p_h`, because the other
-two carry an imputed value rather than a price the household faced. This entry used to warn
-that the rule was at risk of being lost with that file. It was not:
-`20a_psps_households.do` re-states it, computes `p_h` on the purchased slot only (99.96%
-coverage), and **asserts `p_h` is missing on every other slot** — so nothing downstream can
-reach an imputed value through that column.
+### Why the earlier version of this entry was wrong
 
-**Where it does bite, and it is now measured.** It bites at conversion. A household that
-received camote tops as a gift still reports a quantity in a non-standard unit, and that
-quantity gets grams from a factor estimated on purchase transactions. The claim is that a
-gifted `bugkos` is the same size as a bought one. That is plausible and completely untested.
+This entry used to claim the opposite rule: `p_h` on the purchased slot only, because "the
+own-production and gift slots carry an imputed value, so a ratio built from them is not a
+price anyone faced." That reasoning conflates two different objects.
 
-**11,809 of the 35,448 non-standard-unit household rows — 33.3% — have no faced price**
-(own production 10,187, gift 1,606, and 16 purchased rows with no usable price).
-`28_match_and_convert.do` gives them the case's middle price point and converts at that
-group's own weight, which is the degenerate `p_h = p_g` case, `CF_h = w_g`. They carry
-`d_no_price = 1`. So the assumption reaches a third of the household population, not a
-sixth as the food-row figure below suggests — and the flag is the only way a reader can
-separate them.
+* **The price points** that build the conversion factors come from the price file and are
+  fixed. They are, and should be, market transactions. Nothing here changes that.
+* **A household's own `p_h`** is not an observation feeding an estimate. It is the *index*
+  that says which rung of an already-built ladder this consumption sits on. Nothing about
+  that role requires `p_h` to be a transaction price.
 
-**Exposure.** Of 129,094 PSPS food rows, 102,444 record a purchase, 21,597 own production
-and 5,627 a gift — the slots are separate, so a row can hold more than one. Roughly **one
-food observation in five is acquired without a purchase price.** Reproduce with:
+Once the factors exist, the three acquisition modes are simply rows in a long format: a
+gifted `bugkos` is converted alongside a purchased one.
+
+**And the rule it replaced was not neutral.** With `p_h` missing, those rows took the
+case's *middle* price point and converted at that group's own weight — the degenerate
+`p_h = p_g`, so `CF_h = w_g`. That does not abstain from an assumption; it asserts that
+every own-producing household consumed the **typical-sized** unit. Refusing the data was a
+stronger claim than using it.
+
+**Where.** `20a_psps_households.do` §9 computes `p_h` on all slots.
+`28_match_and_convert.do` matches on it and scales `CF_h` by it. `d_no_price` now means
+"no computable price" — `e_h` or `q_h` absent — and not "not purchased".
+
+**Rests on it.** 11,783 of the 35,448 non-standard-unit household rows — **one in three** —
+now receive a price-scaled conversion factor where they previously received the group's own
+weight. `d_no_price` falls from 11,809 rows to **26**, which are the rows where `e_h` or
+`q_h` is genuinely absent.
+
+### What it actually changed, measured on the build
+
+| | before | after |
+| :-- | --: | --: |
+| total grams, all household rows | 541,046,055 | **538,656,825** (−0.44%) |
+| NSU rows with no computable value | 11,809 | **26** |
+| rows clamped by the A18 cap | 1,283 | **1,418** |
+| converted rows | 87,405 | **87,374** |
+
+**−0.44% in aggregate**, so the change is not a level shift — it redistributes grams within
+the population rather than moving the total. The cap catches 135 more rows, which is the
+expected consequence of a third more rows carrying a `p_h / p_g` ratio at all.
+
+**The 31 fewer converted rows are A16 working, not a regression.** Unique-price refusals
+rise from 117 to 148 — exactly the 31. A household with no `p_h` used to be sent to the
+case's *middle usable* group by construction, which meant it could never land on a refused
+unique-price point. Now that it has a value it is matched on distance like every other row,
+and 31 of them turn out to sit nearest a unique price with no weighing behind it. A16 says
+such a row must be refused rather than quietly converted at a different rung; those 31 were
+exempt from that rule only by accident.
+
+### Status: ADOPTED, on evidence, with a named cost
+
+**The evidence for it.** Implied prices from the non-purchased slots track purchase prices
+in the same province × municipality × item × unit at a **median ratio of 1.000**
+(IQR 1.000–1.062, n = 11,392). The objection that an imputed value is systematically unlike
+a market price is not supported by the data.
+
+**The test on the exact case that matters.** 82 households report the same item × harmonized
+unit through both a purchased and a non-purchased slot — the case where the assumption is
+directly checkable:
+
+| pair | n | reports an identical unit value (±1%) | median ratio |
+| :-- | --: | --: | --: |
+| own production vs purchased | 46 | 33 (**72%**) | 1.000 |
+| gift vs purchased | 36 | 33 (**92%**) | 1.000 |
+
+So in 66 of 82 cases the two rows receive the **identical** conversion factor, which is what
+the assumption predicts.
+
+**The cost, and it is real.** The other 16 pairs report different unit values for the same
+item and unit, with ratios from 0.43 to 2.00. Those rows now receive different conversion
+factors, and therefore different grams, for what may well be the same physical object.
+**Chicken `bilog` is the worked example — read this table before relying on the rule:**
+
+| purchased | other slot | ratio |
+| --: | --: | --: |
+| ₱180 | ₱350 | **1.94** |
+| ₱230 | ₱280 | 1.22 |
+| ₱277 | ₱300 | 1.08 |
+| ₱200 | ₱200 | 1.00 |
+| ₱650 | ₱500 | 0.77 |
+| ₱220 | ₱250 | 1.14 |
+
+The household that bought a bilog at ₱180 and valued a gifted one at ₱350 now gets 1.94×
+the grams for the gifted bird. If the two birds were the same size, that is an error the old
+rule would not have made — it would have given both `w_g`.
+
+**So this is a trade, not a free improvement.** The old rule was right on these 16 by
+construction and wrong on the other 11,767 by flattening every size difference. The new rule
+is right on the 66, scales correctly across the bulk, and misprices these 16. Two things
+bound the damage: the A18 cap clamps `p_h / p_g` to [1/5, 5], so no single row can run away;
+and `source` ships on every row, so this subset can be excluded or sensitivity-tested by
+anyone who disagrees.
+
+**What the evidence does NOT establish.** That the *units are the same size*. Every figure
+above compares reported **values**. A ratio of 1.000 is consistent with "same bundle, same
+value" and equally with "a bigger self-tied bundle, valued proportionally higher" — the two
+cannot be separated from prices alone. Only a weighing could separate them, and the market
+survey never weighed a household's own bundle. The rule rests on the value agreement, and on
+nothing stronger.
+
+**The original worry, still unresolved and still worth naming.** A household harvesting its
+own camote tops is not buying a vendor's bundle, and "one bundle" may mean whatever they
+chose to tie together. If own-production units are systematically larger or smaller *and*
+households value them proportionally, the value agreement above would look exactly as it
+does and the grams would still be wrong. Camote tops account for 41 of the 82 checkable
+pairs, so this is the item to look at first if the question is ever settled properly.
+
+**Checked by** nothing automated yet. Every figure in this entry is recomputable from
+`psps_households.dta` (`e_h`, `q_h`, `source`, `conv_path`) — recompute rather than trust
+the numbers written here.
+
+### Exposure in the raw file, for scale
+
+Of 129,094 PSPS food rows, 102,444 record a purchase, 21,597 own production and 5,627 a
+gift — the slots are separate, so a row can hold more than one. Roughly **one food
+observation in five is acquired without a purchase.** Reproduce with:
 
 ```
 python -c "import pandas as pd; d=pd.read_stata(r'<psps_cons>', convert_categoricals=False, columns=['item_type','cons_purchased','cons_own_production','cons_gift']); f=d[d.item_type==1]; print(len(f), [(c,int((f[c]==1).sum())) for c in f.columns[1:]])"
 ```
 
-where `<psps_cons>` is the path in `00_shared/00_globals.do`.
+where `<psps_cons>` is the path in `00_shared/00_globals.do`. Those counts include the
+~52,000 rows already answered in kilograms or litres, which need no conversion factor at
+all; the figure that matters for this entry is the one in three of the **non-standard-unit**
+population given above.
 
-**Not yet cut to the population that matters** — these are all food rows, including the
-~52,000 already answered in kilograms or litres, which need no conversion factor at all.
-The share among *non-standard-unit* observations is the number this entry needs, and it has
-not been measured.
-
-**Why it is worth measuring rather than asserting.** Own production is the mode most likely
-to break it: a household harvesting its own camote tops is not buying a vendor's bundle, and
-"one bundle" may mean whatever they chose to tie together. If own-production units are
-systematically larger or smaller, the error is one-directional across a sixth of the data.
+Raised on **#27**; the rule was reversed after the measurement above.
 
 ## A11 — `GAP_FLAG = 2.0`: when two pooled spellings are "the same object"
 

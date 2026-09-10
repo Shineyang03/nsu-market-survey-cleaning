@@ -90,7 +90,7 @@ def cluster(points, abs_tol=None, rel_tol=None):
 
 
 def main():
-    ms = pd.read_stata(DC + r"\outputs\master_rename_build\temp\nsu_weighings_cpi.dta",
+    ms = pd.read_stata(DC + r"\outputs\master_rename_build\intermediate\nsu_weighings_cpi.dta",
                        convert_categoricals=False)
     ms["prov"] = ms.pull_province.map(ng); ms["mun"] = ms.pull_municipal_city.map(ng)
     ms["item"] = ms.pull_item.map(ni); ms["raw"] = ms.pull_nsu_unit.map(nz)

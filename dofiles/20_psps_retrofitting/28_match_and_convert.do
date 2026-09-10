@@ -63,7 +63,7 @@
 *
 * ==============================================================================
 * INPUTS  ${btemp}\psps_households.dta          20a -- conv_path == 2 rows
-*         ${btemp}\outcome2_lookup.dta          25
+*         ${bdeliv}\outcome2_lookup.dta         25
 *         ${btemp}\case_spelling_gap.dta        20 -- A11's flag, per spelling
 *         ${btemp}\outcome2_cell_fallback.dta   30 -- the ladder at cell grain
 * OUTPUT  ${btemp}\psps_converted.dta
@@ -91,7 +91,7 @@ local coarse pull_province pull_municipal_city pull_item harmonized_nsu_unit
 * the same number here. What matters is that the rule is deterministic: picking by row
 * order would make the answer depend on the sort seed.
 
-use "${btemp}\outcome2_lookup", clear
+use "${bdeliv}\outcome2_lookup", clear
 keep if d_point_usable == 1
 collapse (sum) _wsum = n_g, by(`coarse' corrected_unit)
 bysort `coarse': egen double _best = max(_wsum)
@@ -117,7 +117,7 @@ di as res _n "cases with at least one usable group: " r(N)
 * the lookup's month would vanish and the month filter would compare the household's month
 * with itself: always true, and every household would be matched against Branch P rows
 * from every month at once. Silent, and it would have inflated the table twelvefold.
-use "${btemp}\outcome2_lookup", clear
+use "${bdeliv}\outcome2_lookup", clear
 rename psps_month lk_month
 label var lk_month "the month THIS LOOKUP ROW was restated to (Branch P only)"
 
@@ -311,6 +311,22 @@ assert conv_route != ""
 append using "`nocase'"
 replace conv_route = "" if missing(conv_route)
 
+* `d_no_price' IS FILLED HERE, and it is a fix rather than a tidy-up. It is generated in
+* section 4, which runs on the `_has_dim == 1' stream only -- the rows set aside at
+* section 3 were already out of memory by then, so all 5,882 of them came back with it
+* MISSING. 2,135 of those genuinely have no faced price, so `tab d_no_price if
+* d_converted' understated A10's population by 18% and the label read as though those
+* households had paid something.
+*
+* Recomputed rather than carried, because it is a pure function of p_h -- `missing(p_h)'
+* and nothing else -- so this restates the same rule on the rows that missed it rather
+* than making a second decision about them.
+replace d_no_price = missing(p_h) if missing(d_no_price)
+
+* And the invariant, so the column cannot drift from its own definition again. It says
+* what the label claims: 1 exactly where the household faced no price.
+assert d_no_price == missing(p_h)
+
 * THESE ARE #30's POPULATION and they are one row in six. Most of them are not "a case
 * whose groups all failed" -- they are a case THE MARKET SURVEY NEVER VISITED, so no
 * per-cell table can reach them. #30 counts 419 cells needing a province fallback and 75
@@ -456,7 +472,7 @@ label var n_g_used    "weighings behind cf_h, at the level actually used"
 label var nu_used     "of n_g_used, how many were disputed or anchor-flagged (#35)"
 label var share_uncertain ///
 	"nu_used / n_g_used; 1 = nothing behind this row's weight went unquestioned"
-label var d_no_price  "1 = no faced price (own production or gift); converted at the group's own weight"
+label var d_no_price  "1 = no computable unit value (e_h or q_h absent); converted at the group's own weight"
 label var d_converted "1 = this row has a gram figure"
 label var fallback_level "0 = the matched group; 1-3 = a borrowed rung (see fallback_lbl)"
 def_fallback_level

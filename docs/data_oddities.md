@@ -22,7 +22,7 @@ under different approaches:
 This is the **only** such case in 1,943, and the fold creates it — not the
 fieldwork. At the raw and cleaned NSU grains every case is single-branch with zero
 exceptions, and that holds when the grain is split further by `corrected_unit`.
-Exported to `outputs/master_rename_build/tables/fold_multi_weighing_approach.xlsx`.
+Exported to `outputs/master_rename_build/diagnostics/fold_multi_weighing_approach.xlsx`.
 
 **Decision — split by deliverable rather than assigning the case a branch:**
 
@@ -190,7 +190,7 @@ are excluded under §5.
 non-standard units at all — `bottle (500 ml)`, `1.5kg per balde`,
 `1/2 sack of rice (25kls.)`, `bottle of ginebra s. miguel 350ml`, `pieces/ kilo`,
 `1/4 kilo`, `6 liters of water (2 blue containers)`, `each 10 litres of gallon`.
-Listed in `outputs/master_rename_build/tables/excluded_standard_unit_obs.xlsx`.
+Listed in `outputs/master_rename_build/diagnostics/excluded_standard_unit_obs.xlsx`.
 
 They are dropped **before** the order-of-magnitude snap, so they can never become an
 anchor for it. They are reconciled by hand on the PSPS side at merge time.
@@ -326,7 +326,7 @@ The kg readings above 20 separate cleanly, which is what makes a threshold safe:
 ### The review queue
 
 Rows the rules cannot resolve carry `flag_review` and are exported to
-`outputs/master_rename_build/tables/unit_correction_review_queue.xlsx`.
+`outputs/master_rename_build/diagnostics/unit_correction_review_queue.xlsx`.
 
 This existed in the pre-Aug11 build, was lost during parameterization, and is
 restored. In between, the file called `br` — interactive-only, and silently a no-op

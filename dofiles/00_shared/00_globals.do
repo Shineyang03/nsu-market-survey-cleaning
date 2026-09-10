@@ -95,10 +95,31 @@ foreach d in "${output}" "${temp}" "${graphs}" "${tables}" {
 * forward slash on Windows, and it cannot be eaten.
 if "${build_name}" == "" global build_name "master_rename_build"
 global build   "${output}/${build_name}"
-global btemp   "${build}\temp"
-global btables "${build}\tables"
-global bgraphs "${build}\graphs"
-foreach d in "${build}" "${btemp}" "${btables}" "${bgraphs}" {
+
+* Five subtrees, split by what a reader would need to know before opening one:
+*   deliverables  the published objects a reader outside this pipeline consumes --
+*                 the reference set, the two lookups, and the household-level PSPS
+*                 files -- plus the .xlsx / .csv export that goes with each.
+*   intermediate  every other .dta the build writes and a later step reads. Nothing
+*                 here is meant to be opened by anyone who is not debugging the
+*                 pipeline itself.
+*   summary       sense checks, summary statistics, the attrition ledger and the
+*                 pipeline explorer -- material that describes the build rather than
+*                 being part of it.
+*   diagnostics   everything else: issue-specific scoping tables, review workbooks,
+*                 one-off exports. Never a dependency of another step.
+*   graphs        analytic figures meant to be read on their own.
+*
+* Kept as ${btemp} / ${btables} / ${bgraphs} even though the folders they point to are
+* no longer called temp/ and tables/. Renaming the macros would be 49 edits across the
+* do-files that use them for nothing gained; repointing the macro is the one-line change
+* that matters, and this comment is what makes the mapping legible.
+global btemp    "${build}\intermediate"
+global btables  "${build}\diagnostics"
+global bgraphs  "${build}\graphs"
+global bdeliv   "${build}\deliverables"
+global bsummary "${build}\summary"
+foreach d in "${build}" "${btemp}" "${btables}" "${bgraphs}" "${bdeliv}" "${bsummary}" {
 	mkdir_missing "`d'"
 }
 

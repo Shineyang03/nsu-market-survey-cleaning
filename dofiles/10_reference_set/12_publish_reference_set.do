@@ -17,8 +17,8 @@
 *   12_publish_reference_set.do  -> nsu_reference_set.dta / .xlsx
 *
 * INPUT   ${btemp}\ref_11_checked.dta
-* OUTPUT  ${btemp}\nsu_reference_set.dta
-*         ${btables}\nsu_reference_set.xlsx
+* OUTPUT  ${bdeliv}\nsu_reference_set.dta
+*         ${bdeliv}\nsu_reference_set.xlsx
 ********************************************************************************
 
 clear all
@@ -396,10 +396,13 @@ if r(N) > 0 {
 * between two rows, so a reader filtering on the lower one alone would still take the
 * other at face value, and the size ordering is a property of the ladder rather than of
 * one rung.
-tempvar cellmono
+* NOT a `tempvar'. Stata drops a tempvar when the DO-FILE ends, and the save is before
+* that -- so a tempvar still in memory here ships as a junk `__000004' column in both
+* nsu_reference_set.dta and the .xlsx a field team opens. Named and dropped explicitly.
 bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit: ///
-	egen byte `cellmono' = max(nonmono == 1)
-gen byte d_size_nonmono = (`cellmono' == 1)
+	egen byte _cellmono = max(nonmono == 1)
+gen byte d_size_nonmono = (_cellmono == 1)
+drop _cellmono
 label var d_size_nonmono ///
 	"1 = grams do not rise with size_ord in this cell; the size label is a price rank"
 
@@ -420,10 +423,25 @@ bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected
 
 drop nonmono
 
+* NOTHING TEMPORARY MAY SHIP. A `tempvar' is dropped when the do-file ENDS, which is
+* after this save, so any tempvar still in memory here lands in the deliverable and in
+* the .xlsx a field team opens -- once as a column literally headed `__000004'. Every
+* label in this file is asserted true of its row; a column with no name at all deserves
+* the same treatment, and it is one line.
+* `ds' EXITS 111 WHEN NOTHING MATCHES, which is the clean case -- so the test is on the
+* return code and success is the failure. Written the other way round it halted every
+* build that had nothing wrong with it.
+capture ds __*
+if _rc == 0 {
+	di as err "temporary variable(s) still in memory at save: `r(varlist)'"
+	di as err "Name and drop them -- a tempvar survives to here and ships."
+	exit 459
+}
+
 compress
 sort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit size_ord
-save "${btemp}\nsu_reference_set.dta", replace
-export excel using "${btables}\nsu_reference_set.xlsx", replace firstrow(varlabels)
+save "${bdeliv}\nsu_reference_set.dta", replace
+export excel using "${bdeliv}\nsu_reference_set.xlsx", replace firstrow(varlabels)
 
 
 ********************************************************************************

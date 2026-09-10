@@ -177,6 +177,34 @@ checking. Check 5 is what tells you those outputs still match their inputs.
 | `90_diagnostics/` | scoping, auditing and reporting. Never on a critical path. |
 | `archive/` | superseded. Nothing calls it. `archive/README.md` says why each file is there. |
 
+## Where a build's output lands
+
+Every do-file writes under `outputs/<build_name>/` — `outputs/master_rename_build/` for
+the published build, some other subtree for a variant (see *Running a variant build*
+below). Five folders, split by what a reader needs to know before opening a file:
+
+| folder | macro | what it holds |
+|---|---|---|
+| `deliverables/` | `${bdeliv}` | the published objects — the reference set, the two Outcome 2 lookups, and the household-level PSPS files — each with the `.xlsx` or `.csv` export that ships beside it |
+| `intermediate/` | `${btemp}` | every other `.dta` a step writes and a later step reads. Not meant to be opened by anyone who is not debugging the pipeline itself |
+| `summary/` | `${bsummary}` | sense checks, summary statistics, the attrition ledger and the pipeline explorer — material that describes the build rather than being part of it |
+| `diagnostics/` | `${btables}` | issue-specific scoping tables and review workbooks. Never a dependency of another step |
+| `graphs/` | `${bgraphs}` | analytic figures meant to be read on their own |
+
+A reader looking for a specific file: the deliverables are the six objects the two
+masters exist to produce (`nsu_reference_set.dta`/`.xlsx`, `outcome2_lookup.dta`/`.csv`,
+`outcome2_lookup_noinflation.dta`, `psps_converted_capped.dta`, `psps_standard_units.dta`,
+`psps_grams.dta`/`.csv`) and live in `deliverables/`; anything else that ends in `.dta`
+lives in `intermediate/`; a sense-check CSV, a summary-statistics table, the attrition
+ledger or `nsu_pipeline_explorer.html` lives in `summary/`; everything else that used to
+be in a folder called `tables/` — one-off scoping exports, review queues — is in
+`diagnostics/`.
+
+The macro names keep their old spelling (`${btemp}`, `${btables}`) even though the
+folders they point at are no longer called `temp/` and `tables/`: repointing a macro to a
+renamed folder is a one-line change in `00_shared/00_globals.do`, and every do-file that
+already reads `${btemp}` or `${btables}` needed no edit at all.
+
 ## The steps
 
 ### `00_shared/` — both outcomes
@@ -347,6 +375,7 @@ resolve.
 | `27_standard_units.do` | kg / L / stated-quantity answers convert from the unit's own name, with no market-survey input (#14) |
 | `28_match_and_convert.do` | the household join: nearest point, tie on `v`, `CF_h`, `grams_h`. Climbs cell → province → national for the households the price match cannot serve |
 | `29_cap.do` | clamps `p_h/p_g` to `[1/t, t]` and flags, `t = 5` (A18) |
+| `31_psps_grams.do` | **the single household-level deliverable.** Appends `psps_converted_capped.dta` (35,448 NSU rows) and `psps_standard_units.dta` (52,489 standard-unit rows) — they share 23 columns and do not overlap — and adds the 22 `conv_path == 3` rows (reach the crosswalk join, judged not an NSU at all) that ship in neither, so the row count reconciles to 20a's own 87,959, not to 87,937. Publishes `psps_grams.dta` and a labeled `psps_grams.csv` |
 | `30_fallback.do` | the **weight ladder**, three ways. Per (cell × size): **L0** the cell's own rung → **L1** the cell pooled across sizes → **L2** province × item × unit → **L3** item × unit nationally → unconvertible. Per cell, for when the price match fails. And **L2 and L3 on their own keys**, which is the only reading that can serve a cell the market survey never visited — #30's actual population, one PSPS observation in six |
 
 **#30 was the gate and it is now built.** Note that its cost argument was written against a 14×
@@ -357,6 +386,18 @@ cross-municipality spread; the corrected figure is **6.7×**, so read it against
 
 ### Checking the two deliverables
 
+**`31_psps_grams.do` is now the single household-level artefact for Outcome 2.**
+Before it, "grams for a PSPS household consumption row" had no single file and no
+non-Stata export: it was split across `psps_converted_capped.dta` (the NSU rows)
+and `psps_standard_units.dta` (the standard-unit rows), which share 23 columns and
+never overlap. `psps_grams.dta` / `psps_grams.csv` append the two and add the 22
+`conv_path == 3` rows — reaching the crosswalk join but judged not an NSU at all —
+that shipped in neither, carrying missing grams and a route that says why rather
+than disappearing from the count. A reader wanting one household x item x slot row
+per PSPS food observation, with its grams or the reason it has none, reads this
+file; the two inputs above remain the place to read a route's own diagnostic
+columns (price points, fallback rungs, the cap ratio) that this file does not carry.
+
 Two diagnostics exist for the questions "does it rebuild?" and "is the answer sensible?".
 They are separate because a build can reproduce byte for byte and still be wrong by a
 factor of ten, and nothing in the reproduction check would notice.
@@ -364,7 +405,7 @@ factor of ten, and nothing in the reproduction check would notice.
 | file | asks |
 |---|---|
 | `90_diagnostics/test_full_rebuild.do` | **does the pipeline reproduce from the raw files?** Sets `${build_name}` to its own subtree, clears it, runs both masters from the raw market survey, price file and PSPS file, then compares every published dataset against the live build on row count, variable count and a hex-float sum of every numeric column. Hex float rather than a decimal sum because `local x = r(sum)` truncates a double to about 13 significant digits, which hides a difference in the last bits. Writes `outputs/tables/test_full_rebuild_diff.csv`; its build tree is gitignored |
-| `90_diagnostics/sense_check_outputs.do` | **is the answer plausible?** Reads only published outputs, plus household size from the raw PSPS file, which the pipeline does not compute. Four sections: Outcome 1's reference grams by item, Outcome 2's conversion factors by fallback rung, the two deliverables on the same cells (#16), and implied grams per person per day — the one check with a referent outside the pipeline. Writes four CSVs to `tables/` and four panels to `graphs/` |
+| `90_diagnostics/sense_check_outputs.do` | **is the answer plausible?** Reads only published outputs, plus household size from the raw PSPS file, which the pipeline does not compute. Four sections: Outcome 1's reference grams by item, Outcome 2's conversion factors by fallback rung, the two deliverables on the same cells (#16), and implied grams per person per day — the one check with a referent outside the pipeline. Writes four CSVs and four panels, all to `summary/` |
 
 **Read `sense_check_outputs.do`'s section 4 first if something looks wrong.** Sections 1–3
 judge the outputs against other outputs from the same build, which cannot catch an error
@@ -434,7 +475,7 @@ a raw `0.00125` might be 1 mL or 1,250 mL, and only the surrounding cell says wh
 go to a human, and the loop that does it is:
 
 1. **`python dofiles/90_diagnostics/snap_sense_check.py`** writes
-   `outputs/master_rename_build/tables/snap_sense_check.xlsx`. Open the **`to_review`**
+   `outputs/master_rename_build/diagnostics/snap_sense_check.xlsx`. Open the **`to_review`**
    sheet first — it holds only the rows still needing a decision, each with a
    `proposed_value` and the rule behind it. `all_weighings` holds the whole file for an
    overall pass.
@@ -485,7 +526,7 @@ weeks pointed at `outputs/temp/nsu_data.dta` — the pre-Aug11 build — so it r
 own past answers no matter what changed upstream, which is worse than not running: it
 looked like confirmation. Three files were archived for hardcoding that same path
 (`archive/README.md`). **The live weighings are
-`outputs/master_rename_build/temp/nsu_weighings_cpi.dta`**; anything reading
+`outputs/master_rename_build/intermediate/nsu_weighings_cpi.dta`**; anything reading
 `outputs/temp/` is reading a build from July. `verify_documented_claims.py` now refuses to
 score a fold check whose input CSV is older than the weighings it describes.
 
