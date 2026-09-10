@@ -744,7 +744,11 @@ def c_thin_sensitivity():
     got = {t: int((ref.n_g < t).sum()) for t in (2, 3, 4, 5)}
     check("A3 rows flagged at THIN = 2 / 3 / 4 / 5",
           "implicit_assumptions.md / A3",
-          "270 / 518 / 1038 / 1470 of 2557",
+          # Moved at 4 and 5 only, when #21 §5.1 dropped the province-median rows from
+          # the two VALLADOLID cases: those published rows went from n_g = 6 to n_g = 3,
+          # so they fall under 4 and 5 but not under 3. The check caught it on the first
+          # run after the change, which is what it was added for.
+          "270 / 518 / 1040 / 1472 of 2557",
           f"{got[2]} / {got[3]} / {got[4]} / {got[5]} of {n}",
           note="A3's table is a claim about sensitivity; if these move, the argument for "
                "calling THIN = 3 badly placed has to be re-made on the new numbers.")

@@ -67,6 +67,32 @@ di as res "price-quantity rows dropped from mixed-branch cells: " r(N)
 drop if has_size & has_price & weighing_approach == 2
 drop has_size has_price
 
+* --- a municipality median and a province median in one case: keep the LOCAL one ------
+* Both hetero types map to size_ord = 2 in 2b, so a case holding both publishes ONE row
+* that averages two geographies' medians. At NEGROS OCCIDENTAL / VALLADOLID that pooled
+* a 325 g municipality median with a 780 g province median into a published 425 g, with
+* `d_thin = 0' and nothing on the row to say so -- a 2.4x spread invisible to a reader.
+* Issue #21 §5.1.
+*
+* THE TWO ARE NOT TWO SIZES. A `municipality_median' means this municipality's own price
+* distribution had a median. A `province_median' means it did not, and the province stood
+* in. So the province row is ALREADY a fallback, and pooling it with a local measurement
+* produces a number describing neither geography.
+*
+* Keeping the more local one is the same principle the fallback ladder runs on: prefer the
+* narrowest rung that has data, and fall back only when it does not. Here the narrow rung
+* HAS data, so nothing needs to be borrowed. This is also why the fix needs no new flag --
+* the published row becomes a plain municipality median and `n_g' describes it honestly.
+*
+* Written as a general rule rather than hard-coding VALLADOLID, so a future wave that
+* creates another is handled the same way. Currently 2 cases, 6 weighings dropped.
+bysort cell: egen byte has_mun_med  = max(item_nsu_hetero_type == 8)
+bysort cell: egen byte has_prov_med = max(item_nsu_hetero_type == 9)
+count if has_mun_med & has_prov_med & item_nsu_hetero_type == 9
+di as res "province-median rows dropped where the municipality has its own: " r(N)
+drop if has_mun_med & has_prov_med & item_nsu_hetero_type == 9
+drop has_mun_med has_prov_med
+
 * cell ids may now be stale (cases can have emptied); rebuild
 * NOTE: egen ..., label creates a value label named after the variable, so the
 * old one has to go before the second call or egen errors with r(110)
