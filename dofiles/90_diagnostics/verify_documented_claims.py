@@ -744,7 +744,7 @@ def c_thin_sensitivity():
     got = {t: int((ref.n_g < t).sum()) for t in (2, 3, 4, 5)}
     check("A3 rows flagged at THIN = 2 / 3 / 4 / 5",
           "implicit_assumptions.md / A3",
-          "270 / 518 / 1038 / 1470 of 2557",
+          "270 / 518 / 1042 / 1474 of 2559",
           f"{got[2]} / {got[3]} / {got[4]} / {got[5]} of {n}",
           note="A3's table is a claim about sensitivity; if these move, the argument for "
                "calling THIN = 3 badly placed has to be re-made on the new numbers.")

@@ -103,6 +103,28 @@ foreach d in "${build}" "${btemp}" "${btables}" "${bgraphs}" {
 }
 
 
+* ---- THIN ---------------------------------------------------------------------
+* Fewer than this many weighings behind an estimate makes it thin. ONE DEFINITION,
+* because it is now read in three places and they must agree:
+*
+*   12_publish_reference_set.do   sets d_thin, AND decides which cells collapse across
+*                                 their size rungs (Outcome 1's fallback level 1)
+*   10_size_assignment.do         carries it through for that collapse
+*   30_fallback.do                the rung the Outcome 2 ladder must clear before it
+*                                 stops climbing
+*
+* It was a `local THIN = 3' in each of the three, with the third carrying the comment
+* "must match 12_publish_reference_set.do" -- a comment is not a mechanism. Three copies
+* of one threshold is the same defect that gave the block reading three implementations,
+* and the fix is the same: one home, everyone reads it.
+*
+* THE VALUE IS NOT NEUTRAL and moving it does two things at once. It flags a row as thin,
+* and it decides which cells stop publishing a size ladder. docs/implicit_assumptions.md
+* A3 has the sensitivity table and the warning against reading the flagged share as a
+* coverage measure; verify_documented_claims.py fails if that table goes stale.
+global THIN 3
+
+
 ********************************************************************************
 * Shared programs
 ********************************************************************************

@@ -23,7 +23,7 @@
 clear all
 do "00_shared/00_globals.do"
 
-local THIN = 3      // carried through for 12_publish; see there
+local THIN = ${THIN}      // ONE definition, in 00_globals.do -- do not retype the value
 
 ************************************************************
 **# 1. Load, scope, and drop what Outcome 1 does not use
@@ -136,6 +136,63 @@ replace size_ord = 1 if weighing_approach == 2 & item_nsu_hetero_type == 5   // 
 replace size_ord = 2 if weighing_approach == 2 & item_nsu_hetero_type == 6   // mp50
 replace size_ord = 3 if weighing_approach == 2 & item_nsu_hetero_type == 7   // mp75
 replace size_ord = 2 if weighing_approach == 2 & inlist(item_nsu_hetero_type, 8, 9)
+
+* --- TWO MEDIANS IN ONE CASE ARE TWO PRICE POINTS, so they are two rungs -------------
+* A municipality median and a province median are separate hetero groups: each records a
+* price point a vendor was actually quoted, and what that vendor handed over at it. The
+* label mapping above sends both to `medium', so a case holding both published ONE row
+* averaging them -- at NEGROS OCCIDENTAL / VALLADOLID a 325 g group and a 780 g group
+* became a single 425 g "medium", with nothing on the row to say so. Issue #21 §5.1.
+*
+* THE COLLISION IS CREATED BY THE FOLD, not by the field. No raw `pull_nsu_unit' ever
+* carries both price types -- measured, 0 of them. It appears only after harmonization
+* pools two spellings whose prices were derived differently, which is this issue's whole
+* subject.
+*
+* ORDERED BY PRICE, because the price ladder is what orders sizes on this branch --
+* mp25 < mp50 < mp75 is a price ordering, not a size measurement. Nothing is invented:
+* the ordering comes from `pull_price', and in both live cases it agrees with the weights.
+*
+*     cabbage   mun median  P25.00 -> 325 g      prov median  P60.00 -> 780 g
+*     carrot    prov median  P8.00 ->  95 g      mun median   P17.50 -> 150 g
+*
+* Note the two run in OPPOSITE directions by geography -- the province median is the
+* dearer point for cabbage and the cheaper one for carrot -- so no rule keyed on
+* "municipality beats province" could have got both right. Only the price can.
+*
+* SMALL AND LARGE rather than small and medium, following the same convention 2d uses for
+* a size-based case with two filled groups (#27 A5, the (1,3) shape): two observed points
+* with nothing identifying a middle are the ladder's ends. A reader sees two rungs whose
+* order is real and whose spacing is not claimed.
+egen byte _n_med = nvals(item_nsu_hetero_type) if weighing_approach == 2 & ///
+	inlist(item_nsu_hetero_type, 8, 9), by(cell)
+egen double _med_price_min = min(pull_price) if weighing_approach == 2 & ///
+	inlist(item_nsu_hetero_type, 8, 9), by(cell)
+
+count if _n_med > 1 & !missing(_n_med)
+di as res "2b two-median cases split by price rank: " r(N) " weighing(s)"
+
+replace size_ord = 1 if _n_med > 1 & !missing(_n_med) & pull_price == _med_price_min
+replace size_ord = 3 if _n_med > 1 & !missing(_n_med) & pull_price >  _med_price_min
+
+* Both points must differ in price, or the rank is arbitrary and the two rows would
+* collide again at size_ord = 1. If this fires, the case needs a decision rather than a
+* rule -- two different price POINTS quoted at the same price is not something the
+* ordering can resolve.
+count if _n_med > 1 & !missing(_n_med) & missing(pull_price)
+assert r(N) == 0
+* Counts DISTINCT HETERO GROUPS per rung, not weighings. Several weighings sharing a rung
+* is the normal case -- three vendors quoted the same price point -- and an earlier version
+* of this guard tested `_N > 1' and so fired on every split case it was meant to pass.
+egen byte _dup_med = nvals(item_nsu_hetero_type) if _n_med > 1 & !missing(_n_med), ///
+	by(cell size_ord)
+count if _dup_med > 1 & !missing(_dup_med)
+if r(N) > 0 {
+	di as err "10_size_assignment.do: " r(N) " weighing(s) in two-median cases still"
+	di as err "share a size_ord -- the two price points are quoted at the same price."
+	exit 459
+}
+drop _n_med _med_price_min _dup_med
 
 
 *-------------------------------------------------------------------------------

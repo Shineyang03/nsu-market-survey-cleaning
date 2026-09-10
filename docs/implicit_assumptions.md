@@ -118,12 +118,12 @@ about; three or more is not.
 
 **Status: ACCEPTED, with the sensitivity stated.**
 
-| threshold | rows flagged | share of 2,557 |
+| threshold | rows flagged | share of 2,559 |
 | --: | --: | --: |
 | 2 | 270 | 10.6% |
 | **3 (current)** | **518** | **20.3%** |
-| 4 | 1,038 | 40.6% |
-| 5 | 1,470 | 57.5% |
+| 4 | 1,042 | 40.7% |
+| 5 | 1,474 | 57.6% |
 
 Moving the cut by one still roughly doubles or halves the flagged share, so the threshold
 sits on a steep part of the distribution and no substantive argument selects 3 over 2 or 4.

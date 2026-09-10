@@ -24,7 +24,7 @@
 clear all
 do "00_shared/00_globals.do"
 
-local THIN = 3      // fewer than this many weighings behind an estimate -> d_thin
+local THIN = ${THIN}      // ONE definition, in 00_globals.do -- do not retype the value
 
 use "${btemp}\ref_11_checked.dta", clear
 count

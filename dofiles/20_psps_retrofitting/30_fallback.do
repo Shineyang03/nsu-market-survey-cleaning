@@ -57,7 +57,7 @@ clear all
 set more off
 do "00_shared/00_globals.do"
 
-local THIN = 3    // must match 12_publish_reference_set.do; see docs A3
+local THIN = ${THIN}    // ONE definition, in 00_globals.do -- do not retype the value
 
 ********************************************************************************
 **# 1. the weighing-level base

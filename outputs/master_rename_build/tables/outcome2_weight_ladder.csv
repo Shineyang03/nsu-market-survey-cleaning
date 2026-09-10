@@ -2,7 +2,7 @@ pull_item,pull_province,pull_municipal_city,harmonized_nsu_unit,corrected_unit,s
 cabbage,AKLAN,ALTAVAS,pieces or units,g,small,527.5,2,3,695,5,722.5,226,655,1306,695,5,cell pooled across sizes,0
 cabbage,AKLAN,ALTAVAS,pieces or units,g,medium,725,2,3,695,5,722.5,226,655,1306,695,5,cell pooled across sizes,0
 cabbage,AKLAN,ALTAVAS,pieces or units,g,large,1200,1,3,695,5,722.5,226,655,1306,695,5,cell pooled across sizes,0
-camote tops,AKLAN,ALTAVAS,bugkos,g,conventional_nsu,130,3,1,130,3,150,37,195,449,130,3,own cell x size,0
+camote tops,AKLAN,ALTAVAS,bugkos,g,medium,130,3,1,130,3,150,37,195,449,130,3,own cell x size,0
 camote tops,AKLAN,ALTAVAS,bundle,g,medium,700,2,3,810,3,790,35,500,101,810,3,cell pooled across sizes,0
 camote tops,AKLAN,ALTAVAS,bundle,g,large,1130,1,3,810,3,790,35,500,101,810,3,cell pooled across sizes,0
 carrot,AKLAN,ALTAVAS,pieces or units,g,small,90,2,3,152.5,6,145,195,140,1169,152.5,6,cell pooled across sizes,0
@@ -23,14 +23,14 @@ loaf bread,AKLAN,ALTAVAS,large packs,g,large,640,4,3,640,4,640,43,640,411,640,4,
 loaf bread,AKLAN,ALTAVAS,medium packs,g,medium,450,4,3,450,4,450,51,450,352,450,4,own cell x size,0
 loaf bread,AKLAN,ALTAVAS,small packs,g,small,360,3,3,360,3,360,33,370,259,360,3,own cell x size,0
 pork,AKLAN,ALTAVAS,slice,g,small,160,1,3,160,1,160,1,425,4,425,4,item x unit (national),0
-"prawns, lobster, shrimp",AKLAN,ALTAVAS,tumpok,g,conventional_nsu,135,3,1,135,3,290,23,260,147,135,3,own cell x size,0
+"prawns, lobster, shrimp",AKLAN,ALTAVAS,tumpok,g,medium,135,3,1,135,3,290,23,260,147,135,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,ALTAVAS,pieces or units,g,medium,70,3,2,70,3,65,28,65,33,70,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,ALTAVAS,putos,g,small,240,2,3,305,4,300,81,250,473,305,4,cell pooled across sizes,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,ALTAVAS,putos,g,large,680,2,3,305,4,300,81,250,473,305,4,cell pooled across sizes,0
 cabbage,AKLAN,BANGA,pieces or units,g,small,345,6,3,717.5,18,722.5,226,655,1306,345,6,own cell x size,0
 cabbage,AKLAN,BANGA,pieces or units,g,medium,725,7,3,717.5,18,722.5,226,655,1306,725,7,own cell x size,0
 cabbage,AKLAN,BANGA,pieces or units,g,large,1140,5,3,717.5,18,722.5,226,655,1306,1140,5,own cell x size,0
-camote tops,AKLAN,BANGA,bundle,g,conventional_nsu,1080,9,1,1080,9,790,35,500,101,1080,9,own cell x size,0
+camote tops,AKLAN,BANGA,bundle,g,medium,1080,9,1,1080,9,790,35,500,101,1080,9,own cell x size,0
 carrot,AKLAN,BANGA,pieces or units,g,small,98,6,3,140,16,145,195,140,1169,98,6,own cell x size,0
 carrot,AKLAN,BANGA,pieces or units,g,medium,145,5,3,140,16,145,195,140,1169,145,5,own cell x size,0
 carrot,AKLAN,BANGA,pieces or units,g,large,205,5,3,140,16,145,195,140,1169,205,5,own cell x size,0
@@ -54,7 +54,7 @@ mango,AKLAN,BANGA,pieces or units,g,large,350,1,3,260,5,230,77,230,539,260,5,cel
 cabbage,AKLAN,BATAN,pieces or units,g,small,550,8,3,755,23,722.5,226,655,1306,550,8,own cell x size,0
 cabbage,AKLAN,BATAN,pieces or units,g,medium,762.5,8,3,755,23,722.5,226,655,1306,762.5,8,own cell x size,0
 cabbage,AKLAN,BATAN,pieces or units,g,large,1060,7,3,755,23,722.5,226,655,1306,1060,7,own cell x size,0
-camote tops,AKLAN,BATAN,bugkos,g,conventional_nsu,160,3,1,160,3,150,37,195,449,160,3,own cell x size,0
+camote tops,AKLAN,BATAN,bugkos,g,medium,160,3,1,160,3,150,37,195,449,160,3,own cell x size,0
 carrot,AKLAN,BATAN,pieces or units,g,small,125,5,3,175,15,145,195,140,1169,125,5,own cell x size,0
 carrot,AKLAN,BATAN,pieces or units,g,medium,180,6,3,175,15,145,195,140,1169,180,6,own cell x size,0
 carrot,AKLAN,BATAN,pieces or units,g,large,240,4,3,175,15,145,195,140,1169,240,4,own cell x size,0
@@ -83,7 +83,7 @@ loaf bread,AKLAN,BATAN,small packs,g,small,330,2,3,330,2,360,33,370,259,360,33,p
 mango,AKLAN,BATAN,pieces or units,g,small,230,5,3,245,15,230,77,230,539,230,5,own cell x size,0
 mango,AKLAN,BATAN,pieces or units,g,medium,250,7,3,245,15,230,77,230,539,250,7,own cell x size,0
 mango,AKLAN,BATAN,pieces or units,g,large,310,3,3,245,15,230,77,230,539,310,3,own cell x size,0
-"prawns, lobster, shrimp",AKLAN,BATAN,tumpok,g,conventional_nsu,190,2,1,190,2,290,23,260,147,290,23,province x item x unit,0
+"prawns, lobster, shrimp",AKLAN,BATAN,tumpok,g,medium,190,2,1,190,2,290,23,260,147,290,23,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,BATAN,cans,g,small,108,9,3,152.5,18,152.5,18,155,95,108,9,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,BATAN,cans,g,medium,155,5,3,152.5,18,152.5,18,155,95,155,5,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,BATAN,cans,g,large,255,4,3,152.5,18,152.5,18,155,95,255,4,own cell x size,0
@@ -96,7 +96,7 @@ cabbage,AKLAN,BURUANGA,pieces or units,g,large,1025,4,3,625,13,722.5,226,655,130
 cabbage,AKLAN,BURUANGA,small packs,g,small,235,3,3,235,3,235,3,190,5,235,3,own cell x size,0
 camote,AKLAN,BURUANGA,binilog,g,small,85,5,3,100,8,150,39,130,56,85,5,own cell x size,0
 camote,AKLAN,BURUANGA,binilog,g,medium,130,3,3,100,8,150,39,130,56,130,3,own cell x size,0
-camote tops,AKLAN,BURUANGA,bundle,g,conventional_nsu,897.5,2,1,897.5,2,790,35,500,101,790,35,province x item x unit,0
+camote tops,AKLAN,BURUANGA,bundle,g,medium,897.5,2,1,897.5,2,790,35,500,101,790,35,province x item x unit,0
 carrot,AKLAN,BURUANGA,pieces or units,g,small,85,5,3,130,13,145,195,140,1169,85,5,own cell x size,0
 carrot,AKLAN,BURUANGA,pieces or units,g,medium,137.5,4,3,130,13,145,195,140,1169,137.5,4,own cell x size,0
 carrot,AKLAN,BURUANGA,pieces or units,g,large,237.5,4,3,130,13,145,195,140,1169,237.5,4,own cell x size,0
@@ -123,7 +123,7 @@ cabbage,AKLAN,IBAJAY,pieces or units,g,large,825,4,3,627.5,14,722.5,226,655,1306
 camote,AKLAN,IBAJAY,binilog,g,small,80,3,3,150,9,150,39,130,56,150,9,cell pooled across sizes,0
 camote,AKLAN,IBAJAY,binilog,g,medium,172.5,4,3,150,9,150,39,130,56,150,9,cell pooled across sizes,0
 camote,AKLAN,IBAJAY,binilog,g,large,300,2,3,150,9,150,39,130,56,150,9,cell pooled across sizes,0
-camote tops,AKLAN,IBAJAY,bugkos,g,conventional_nsu,162.5,4,1,162.5,4,150,37,195,449,162.5,4,own cell x size,0
+camote tops,AKLAN,IBAJAY,bugkos,g,medium,162.5,4,1,162.5,4,150,37,195,449,162.5,4,own cell x size,0
 carrot,AKLAN,IBAJAY,pieces or units,g,small,75,5,3,145,15,145,195,140,1169,75,5,own cell x size,0
 carrot,AKLAN,IBAJAY,pieces or units,g,medium,145,6,3,145,15,145,195,140,1169,145,6,own cell x size,0
 carrot,AKLAN,IBAJAY,pieces or units,g,large,227.5,4,3,145,15,145,195,140,1169,227.5,4,own cell x size,0
@@ -151,7 +151,7 @@ loaf bread,AKLAN,IBAJAY,small packs,g,small,372.5,2,3,372.5,2,360,33,370,259,360
 mango,AKLAN,IBAJAY,pieces or units,g,small,155,5,3,225,15,230,77,230,539,155,5,own cell x size,0
 mango,AKLAN,IBAJAY,pieces or units,g,medium,227.5,6,3,225,15,230,77,230,539,227.5,6,own cell x size,0
 mango,AKLAN,IBAJAY,pieces or units,g,large,312.5,4,3,225,15,230,77,230,539,312.5,4,own cell x size,0
-"prawns, lobster, shrimp",AKLAN,IBAJAY,tumpok,g,conventional_nsu,455,3,1,455,3,290,23,260,147,455,3,own cell x size,0
+"prawns, lobster, shrimp",AKLAN,IBAJAY,tumpok,g,medium,455,3,1,455,3,290,23,260,147,455,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,IBAJAY,pieces or units,g,small,57.5,2,3,57.5,2,65,28,65,33,65,28,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,IBAJAY,putos,g,small,240,4,3,500,11,300,81,250,473,240,4,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,IBAJAY,putos,g,medium,500,4,3,500,11,300,81,250,473,500,4,own cell x size,0
@@ -159,8 +159,8 @@ mango,AKLAN,IBAJAY,pieces or units,g,large,312.5,4,3,225,15,230,77,230,539,312.5
 cabbage,AKLAN,LIBACAO,pieces or units,g,small,385,8,3,725,22,722.5,226,655,1306,385,8,own cell x size,0
 cabbage,AKLAN,LIBACAO,pieces or units,g,medium,755,7,3,725,22,722.5,226,655,1306,755,7,own cell x size,0
 cabbage,AKLAN,LIBACAO,pieces or units,g,large,1080,7,3,725,22,722.5,226,655,1306,1080,7,own cell x size,0
-camote tops,AKLAN,LIBACAO,bugkos,g,conventional_nsu,170,3,1,170,3,150,37,195,449,170,3,own cell x size,0
-camote tops,AKLAN,LIBACAO,bundle,g,conventional_nsu,665,3,1,665,3,790,35,500,101,665,3,own cell x size,0
+camote tops,AKLAN,LIBACAO,bugkos,g,medium,170,3,1,170,3,150,37,195,449,170,3,own cell x size,0
+camote tops,AKLAN,LIBACAO,bundle,g,medium,665,3,1,665,3,790,35,500,101,665,3,own cell x size,0
 carrot,AKLAN,LIBACAO,pieces or units,g,small,72.5,4,3,105,11,145,195,140,1169,72.5,4,own cell x size,0
 carrot,AKLAN,LIBACAO,pieces or units,g,medium,112.5,4,3,105,11,145,195,140,1169,112.5,4,own cell x size,0
 carrot,AKLAN,LIBACAO,pieces or units,g,large,165,3,3,105,11,145,195,140,1169,165,3,own cell x size,0
@@ -188,7 +188,7 @@ cabbage,AKLAN,MADALAG,pieces or units,g,medium,700,7,3,657.5,18,722.5,226,655,13
 cabbage,AKLAN,MADALAG,pieces or units,g,large,960,5,3,657.5,18,722.5,226,655,1306,960,5,own cell x size,0
 camote,AKLAN,MADALAG,binilog,g,small,65,1,3,160,3,150,39,130,56,160,3,cell pooled across sizes,0
 camote,AKLAN,MADALAG,binilog,g,medium,170,2,3,160,3,150,39,130,56,160,3,cell pooled across sizes,0
-camote tops,AKLAN,MADALAG,bugkos,g,conventional_nsu,150,4,1,150,4,150,37,195,449,150,4,own cell x size,0
+camote tops,AKLAN,MADALAG,bugkos,g,medium,150,4,1,150,4,150,37,195,449,150,4,own cell x size,0
 carrot,AKLAN,MADALAG,pieces or units,g,small,107.5,4,3,162.5,12,145,195,140,1169,107.5,4,own cell x size,0
 carrot,AKLAN,MADALAG,pieces or units,g,medium,180,5,3,162.5,12,145,195,140,1169,180,5,own cell x size,0
 carrot,AKLAN,MADALAG,pieces or units,g,large,265,3,3,162.5,12,145,195,140,1169,265,3,own cell x size,0
@@ -219,7 +219,7 @@ mango,AKLAN,MADALAG,pieces or units,g,large,280,1,3,217.5,4,230,77,230,539,217.5
 cabbage,AKLAN,MAKATO,pieces or units,g,small,460,4,3,787.5,12,722.5,226,655,1306,460,4,own cell x size,0
 cabbage,AKLAN,MAKATO,pieces or units,g,medium,795,5,3,787.5,12,722.5,226,655,1306,795,5,own cell x size,0
 cabbage,AKLAN,MAKATO,pieces or units,g,large,1260,3,3,787.5,12,722.5,226,655,1306,1260,3,own cell x size,0
-camote tops,AKLAN,MAKATO,bundle,g,conventional_nsu,775,6,1,775,6,790,35,500,101,775,6,own cell x size,0
+camote tops,AKLAN,MAKATO,bundle,g,medium,775,6,1,775,6,790,35,500,101,775,6,own cell x size,0
 carrot,AKLAN,MAKATO,pieces or units,g,small,85,7,3,117.5,16,145,195,140,1169,85,7,own cell x size,0
 carrot,AKLAN,MAKATO,pieces or units,g,medium,132.5,4,3,117.5,16,145,195,140,1169,132.5,4,own cell x size,0
 carrot,AKLAN,MAKATO,pieces or units,g,large,170,5,3,117.5,16,145,195,140,1169,170,5,own cell x size,0
@@ -249,7 +249,7 @@ cabbage,AKLAN,MALAY,pieces or units,g,large,1177.5,8,3,770,26,722.5,226,655,1306
 camote,AKLAN,MALAY,binilog,g,small,90,7,3,180,19,150,39,130,56,90,7,own cell x size,0
 camote,AKLAN,MALAY,binilog,g,medium,182.5,6,3,180,19,150,39,130,56,182.5,6,own cell x size,0
 camote,AKLAN,MALAY,binilog,g,large,305,6,3,180,19,150,39,130,56,305,6,own cell x size,0
-camote tops,AKLAN,MALAY,bugkos,g,conventional_nsu,252.5,6,1,252.5,6,150,37,195,449,252.5,6,own cell x size,0
+camote tops,AKLAN,MALAY,bugkos,g,medium,252.5,6,1,252.5,6,150,37,195,449,252.5,6,own cell x size,0
 carrot,AKLAN,MALAY,pieces or units,g,small,112.5,8,3,167.5,22,145,195,140,1169,112.5,8,own cell x size,0
 carrot,AKLAN,MALAY,pieces or units,g,medium,170,7,3,167.5,22,145,195,140,1169,170,7,own cell x size,0
 carrot,AKLAN,MALAY,pieces or units,g,large,270,7,3,167.5,22,145,195,140,1169,270,7,own cell x size,0
@@ -278,7 +278,7 @@ cabbage,AKLAN,MALINAO,pieces or units,g,medium,735,4,3,655,9,722.5,226,655,1306,
 cabbage,AKLAN,MALINAO,pieces or units,g,large,945,2,3,655,9,722.5,226,655,1306,655,9,cell pooled across sizes,0
 camote tops,AKLAN,MALINAO,2bond,g,conventional_nsu,375,4,1,375,4,375,4,375,4,375,4,own cell x size,0
 camote tops,AKLAN,MALINAO,3bugkos,g,conventional_nsu,570,4,1,570,4,570,4,570,4,570,4,own cell x size,0
-camote tops,AKLAN,MALINAO,bugkos,g,conventional_nsu,182.5,4,1,182.5,4,150,37,195,449,182.5,4,own cell x size,0
+camote tops,AKLAN,MALINAO,bugkos,g,medium,182.5,4,1,182.5,4,150,37,195,449,182.5,4,own cell x size,0
 camote tops,AKLAN,MALINAO,bundle,g,medium,712.5,2,3,835,4,790,35,500,101,835,4,cell pooled across sizes,0
 camote tops,AKLAN,MALINAO,bundle,g,large,1032.5,2,3,835,4,790,35,500,101,835,4,cell pooled across sizes,0
 carrot,AKLAN,MALINAO,pieces or units,g,small,100,3,3,180,9,145,195,140,1169,180,9,cell pooled across sizes,0
@@ -307,7 +307,7 @@ loaf bread,AKLAN,MALINAO,small packs,g,small,310,2,3,310,2,360,33,370,259,360,33
 cabbage,AKLAN,NABAS,pieces or units,g,small,595,7,3,832.5,20,722.5,226,655,1306,595,7,own cell x size,0
 cabbage,AKLAN,NABAS,pieces or units,g,medium,835,7,3,832.5,20,722.5,226,655,1306,835,7,own cell x size,0
 cabbage,AKLAN,NABAS,pieces or units,g,large,1062.5,6,3,832.5,20,722.5,226,655,1306,1062.5,6,own cell x size,0
-camote tops,AKLAN,NABAS,bugkos,g,conventional_nsu,135,5,1,135,5,150,37,195,449,135,5,own cell x size,0
+camote tops,AKLAN,NABAS,bugkos,g,medium,135,5,1,135,5,150,37,195,449,135,5,own cell x size,0
 carrot,AKLAN,NABAS,pieces or units,g,small,100,9,3,150,23,145,195,140,1169,100,9,own cell x size,0
 carrot,AKLAN,NABAS,pieces or units,g,medium,155,7,3,150,23,145,195,140,1169,155,7,own cell x size,0
 carrot,AKLAN,NABAS,pieces or units,g,large,220,7,3,150,23,145,195,140,1169,220,7,own cell x size,0
@@ -327,8 +327,8 @@ loaf bread,AKLAN,NABAS,medium packs,g,small,345,3,3,345,3,450,51,450,352,345,3,o
 cabbage,AKLAN,NEW WASHINGTON,pieces or units,g,small,500,9,3,647.5,26,722.5,226,655,1306,500,9,own cell x size,0
 cabbage,AKLAN,NEW WASHINGTON,pieces or units,g,medium,665,9,3,647.5,26,722.5,226,655,1306,665,9,own cell x size,0
 cabbage,AKLAN,NEW WASHINGTON,pieces or units,g,large,915,8,3,647.5,26,722.5,226,655,1306,915,8,own cell x size,0
-camote tops,AKLAN,NEW WASHINGTON,bugkos,g,conventional_nsu,115,5,1,115,5,150,37,195,449,115,5,own cell x size,0
-camote tops,AKLAN,NEW WASHINGTON,bundle,g,conventional_nsu,560,5,1,560,5,790,35,500,101,560,5,own cell x size,0
+camote tops,AKLAN,NEW WASHINGTON,bugkos,g,medium,115,5,1,115,5,150,37,195,449,115,5,own cell x size,0
+camote tops,AKLAN,NEW WASHINGTON,bundle,g,medium,560,5,1,560,5,790,35,500,101,560,5,own cell x size,0
 carrot,AKLAN,NEW WASHINGTON,pieces or units,g,small,95,7,3,150,21,145,195,140,1169,95,7,own cell x size,0
 carrot,AKLAN,NEW WASHINGTON,pieces or units,g,medium,155,8,3,150,21,145,195,140,1169,155,8,own cell x size,0
 carrot,AKLAN,NEW WASHINGTON,pieces or units,g,large,280,6,3,150,21,145,195,140,1169,280,6,own cell x size,0
@@ -344,14 +344,14 @@ chicken,AKLAN,NEW WASHINGTON,whole (chicken),g,large,1540,6,3,1540,6,1265,83,112
 loaf bread,AKLAN,NEW WASHINGTON,large packs,g,large,640,4,3,640,4,640,43,640,411,640,4,own cell x size,0
 loaf bread,AKLAN,NEW WASHINGTON,medium packs,g,medium,465,4,3,465,4,450,51,450,352,465,4,own cell x size,0
 loaf bread,AKLAN,NEW WASHINGTON,small packs,g,small,392.5,2,3,392.5,2,360,33,370,259,360,33,province x item x unit,0
-"prawns, lobster, shrimp",AKLAN,NEW WASHINGTON,tumpok,g,conventional_nsu,342.5,4,1,342.5,4,290,23,260,147,342.5,4,own cell x size,0
+"prawns, lobster, shrimp",AKLAN,NEW WASHINGTON,tumpok,g,medium,342.5,4,1,342.5,4,290,23,260,147,342.5,4,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,NEW WASHINGTON,pieces or units,g,small,70,1,3,70,1,65,28,65,33,65,28,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,NEW WASHINGTON,putos,g,small,370,1,3,500,3,300,81,250,473,500,3,cell pooled across sizes,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,NEW WASHINGTON,putos,g,medium,850,2,3,500,3,300,81,250,473,500,3,cell pooled across sizes,0
 cabbage,AKLAN,TANGALAN,pieces or units,g,small,570,7,3,732.5,20,722.5,226,655,1306,570,7,own cell x size,0
 cabbage,AKLAN,TANGALAN,pieces or units,g,medium,755,7,3,732.5,20,722.5,226,655,1306,755,7,own cell x size,0
 cabbage,AKLAN,TANGALAN,pieces or units,g,large,1082.5,6,3,732.5,20,722.5,226,655,1306,1082.5,6,own cell x size,0
-camote tops,AKLAN,TANGALAN,bundle,g,conventional_nsu,180,3,1,180,3,790,35,500,101,180,3,own cell x size,0
+camote tops,AKLAN,TANGALAN,bundle,g,medium,180,3,1,180,3,790,35,500,101,180,3,own cell x size,0
 carrot,AKLAN,TANGALAN,pieces or units,g,small,107.5,6,3,132.5,16,145,195,140,1169,107.5,6,own cell x size,0
 carrot,AKLAN,TANGALAN,pieces or units,g,medium,135,5,3,132.5,16,145,195,140,1169,135,5,own cell x size,0
 carrot,AKLAN,TANGALAN,pieces or units,g,large,200,5,3,132.5,16,145,195,140,1169,200,5,own cell x size,0
@@ -457,8 +457,8 @@ chicken,ANTIQUE,BUGASONG,pieces or units,g,small,250,2,3,395,5,410,40,380,108,39
 chicken,ANTIQUE,BUGASONG,pieces or units,g,medium,410,2,3,395,5,410,40,380,108,395,5,cell pooled across sizes,0
 chicken,ANTIQUE,BUGASONG,pieces or units,g,large,575,1,3,395,5,410,40,380,108,395,5,cell pooled across sizes,0
 chicken,ANTIQUE,BUGASONG,whole (chicken),g,large,1645,4,3,1645,4,1105,65,1120,468,1645,4,own cell x size,0
-"crackers, cookies, buiscuits, chips/curls",ANTIQUE,BUGASONG,pieces or units,g,conventional_nsu,32,7,1,32,7,31,94,32,505,32,7,own cell x size,0
-"crackers, cookies, buiscuits, chips/curls",ANTIQUE,BUGASONG,putos,g,conventional_nsu,280,7,1,280,7,125,105,210,482,280,7,own cell x size,0
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,BUGASONG,pieces or units,g,medium,32,7,1,32,7,31,94,32,505,32,7,own cell x size,0
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,BUGASONG,putos,g,medium,280,7,1,280,7,125,105,210,482,280,7,own cell x size,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,BUGASONG,pieces,mL,small,175,5,3,350,15,310,80,355,164,175,5,own cell x size,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,BUGASONG,pieces,mL,medium,352.5,6,3,350,15,310,80,355,164,352.5,6,own cell x size,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,BUGASONG,pieces,mL,large,900,4,3,350,15,310,80,355,164,900,4,own cell x size,0
@@ -481,7 +481,7 @@ mango,ANTIQUE,BUGASONG,pieces or units,g,large,287.5,4,3,217.5,14,230,82,230,539
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BUGASONG,cans,g,small,150,7,3,170,15,155,57,155,95,150,7,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BUGASONG,cans,g,medium,172.5,4,3,170,15,155,57,155,95,172.5,4,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BUGASONG,cans,g,large,250,4,3,170,15,155,57,155,95,250,4,own cell x size,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BUGASONG,putos,g,conventional_nsu,225,4,1,225,4,250,79,250,473,225,4,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,BUGASONG,putos,g,medium,225,4,1,225,4,250,79,250,473,225,4,own cell x size,0
 cabbage,ANTIQUE,CULASI,pieces or units,g,small,430,7,3,570,21,655,219,655,1306,430,7,own cell x size,0
 cabbage,ANTIQUE,CULASI,pieces or units,g,medium,572.5,8,3,570,21,655,219,655,1306,572.5,8,own cell x size,0
 cabbage,ANTIQUE,CULASI,pieces or units,g,large,887.5,6,3,570,21,655,219,655,1306,887.5,6,own cell x size,0
@@ -495,7 +495,7 @@ carrot,ANTIQUE,CULASI,pieces or units,g,large,240,5,3,165,17,145,201,140,1169,24
 chicken,ANTIQUE,CULASI,whole (chicken),g,small,880,3,3,1005,6,1105,65,1120,468,880,3,own cell x size,0
 chicken,ANTIQUE,CULASI,whole (chicken),g,medium,1105,3,3,1005,6,1105,65,1120,468,1105,3,own cell x size,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,CULASI,pieces or units,g,small,30,9,3,30,9,31,94,32,505,30,9,own cell x size,0
-"crackers, cookies, buiscuits, chips/curls",ANTIQUE,CULASI,putos,g,conventional_nsu,85,9,1,85,9,125,105,210,482,85,9,own cell x size,0
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,CULASI,putos,g,medium,85,9,1,85,9,125,105,210,482,85,9,own cell x size,0
 fresh fish,ANTIQUE,CULASI,pieces or units,g,small,159,6,3,247.5,16,490,87,390,685,159,6,own cell x size,0
 fresh fish,ANTIQUE,CULASI,pieces or units,g,medium,300,5,3,247.5,16,490,87,390,685,300,5,own cell x size,0
 fresh fish,ANTIQUE,CULASI,pieces or units,g,large,735,5,3,247.5,16,490,87,390,685,735,5,own cell x size,0
@@ -512,7 +512,7 @@ mango,ANTIQUE,CULASI,pieces or units,g,large,290,5,3,230,17,230,82,230,539,290,5
 "prawns, lobster, shrimp",ANTIQUE,CULASI,tumpok,g,medium,260,2,3,260,2,240,9,260,147,240,9,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,CULASI,bilog,g,small,250,4,3,250,6,250,25,229,222,250,6,cell pooled across sizes,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,CULASI,bilog,g,medium,450,2,3,250,6,250,25,229,222,250,6,cell pooled across sizes,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,CULASI,putos,g,conventional_nsu,250,7,1,250,7,250,79,250,473,250,7,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,CULASI,putos,g,medium,250,7,1,250,7,250,79,250,473,250,7,own cell x size,0
 cabbage,ANTIQUE,HAMTIC,pieces or units,g,small,405,9,3,670,26,655,219,655,1306,405,9,own cell x size,0
 cabbage,ANTIQUE,HAMTIC,pieces or units,g,medium,685,9,3,670,26,655,219,655,1306,685,9,own cell x size,0
 cabbage,ANTIQUE,HAMTIC,pieces or units,g,large,860,8,3,670,26,655,219,655,1306,860,8,own cell x size,0
@@ -540,22 +540,22 @@ fresh fish,ANTIQUE,HAMTIC,pieces or units,g,large,850,3,3,685,12,490,87,390,685,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,cone,mL,medium,105,2,2,105,2,105,2,110,25,110,25,item x unit (national),0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,pieces or units,g,small,80,1,3,80,1,90,9,60,94,90,9,province x item x unit,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,pieces or units,mL,small,115,1,3,115,1,110,33,100,166,110,33,province x item x unit,0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,putos,mL,conventional_nsu,500,5,1,500,5,450,22,65,148,500,5,own cell x size,0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,putos,mL,medium,500,5,1,500,5,450,22,65,148,500,5,own cell x size,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,small cup,mL,small,100,3,3,100,3,100,38,100,185,100,3,own cell x size,0
-"liquor (e.g, whisky, coconut wine)",ANTIQUE,HAMTIC,lipid/lapad,mL,conventional_nsu,375,8,1,375,8,375,100,375,618,375,8,own cell x size,0
+"liquor (e.g, whisky, coconut wine)",ANTIQUE,HAMTIC,lipid/lapad,mL,medium,375,8,1,375,8,375,100,375,618,375,8,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,HAMTIC,long-neck,mL,small,750,9,3,750,11,750,118,750,478,750,11,cell pooled across sizes,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,HAMTIC,long-neck,mL,large,1000,2,3,750,11,750,118,750,478,750,11,cell pooled across sizes,0
 loaf bread,ANTIQUE,HAMTIC,large packs,g,large,640,6,3,640,6,640,47,640,411,640,6,own cell x size,0
 loaf bread,ANTIQUE,HAMTIC,medium packs,g,medium,465,6,3,465,6,450,50,450,352,465,6,own cell x size,0
 loaf bread,ANTIQUE,HAMTIC,small packs,g,small,325,2,3,325,2,375,32,370,259,375,32,province x item x unit,0
-"prawns, lobster, shrimp",ANTIQUE,HAMTIC,tumpok,g,conventional_nsu,632.5,2,1,632.5,2,240,9,260,147,240,9,province x item x unit,0
+"prawns, lobster, shrimp",ANTIQUE,HAMTIC,tumpok,g,medium,632.5,2,1,632.5,2,240,9,260,147,240,9,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,HAMTIC,bilog,g,small,250,4,3,250,4,250,25,229,222,250,4,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,HAMTIC,pack,g,medium,250,4,2,250,4,250,6,250,85,250,4,own cell x size,0
 rice,ANTIQUE,HAMTIC,gantang,g,conventional_nsu,2275,3,1,2275,3,2257.5,6,2247.5,28,2275,3,own cell x size,0
 cabbage,ANTIQUE,LAUA-AN,pieces or units,g,small,442.5,4,3,720,11,655,219,655,1306,442.5,4,own cell x size,0
 cabbage,ANTIQUE,LAUA-AN,pieces or units,g,medium,737.5,4,3,720,11,655,219,655,1306,737.5,4,own cell x size,0
 cabbage,ANTIQUE,LAUA-AN,pieces or units,g,large,950,3,3,720,11,655,219,655,1306,950,3,own cell x size,0
-camote tops,ANTIQUE,LAUA-AN,bugkos,g,conventional_nsu,287.5,8,1,287.5,8,225,69,195,449,287.5,8,own cell x size,0
+camote tops,ANTIQUE,LAUA-AN,bugkos,g,medium,287.5,8,1,287.5,8,225,69,195,449,287.5,8,own cell x size,0
 camote tops,ANTIQUE,LAUA-AN,bundle,g,medium,630,1,3,630,1,610,9,500,101,610,9,province x item x unit,0
 carrot,ANTIQUE,LAUA-AN,pieces or units,g,small,110,3,3,180,5,145,201,140,1169,180,5,cell pooled across sizes,0
 carrot,ANTIQUE,LAUA-AN,pieces or units,g,medium,217.5,2,3,180,5,145,201,140,1169,180,5,cell pooled across sizes,0
@@ -567,7 +567,7 @@ chicken,ANTIQUE,LAUA-AN,whole (chicken),g,large,1075,2,3,1055,5,1105,65,1120,468
 fresh fish,ANTIQUE,LAUA-AN,pieces or units,g,small,507.5,2,3,1047.5,6,490,87,390,685,1047.5,6,cell pooled across sizes,0
 fresh fish,ANTIQUE,LAUA-AN,pieces or units,g,medium,1240,3,3,1047.5,6,490,87,390,685,1047.5,6,cell pooled across sizes,0
 fresh fish,ANTIQUE,LAUA-AN,pieces or units,g,large,2885,1,3,1047.5,6,490,87,390,685,1047.5,6,cell pooled across sizes,0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,LAUA-AN,putos,g,conventional_nsu,51.5,2,1,51.5,2,55.5,12,58,82,55.5,12,province x item x unit,0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,LAUA-AN,putos,g,medium,51.5,2,1,51.5,2,55.5,12,58,82,55.5,12,province x item x unit,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,LAUA-AN,small cup,g,medium,100,3,2,100,3,100,14,100,120,100,3,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,LAUA-AN,lipid/lapad,mL,medium,375,7,3,375,7,375,100,375,618,375,7,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,LAUA-AN,long-neck,mL,large,750,7,3,750,7,750,118,750,478,750,7,own cell x size,0
@@ -575,7 +575,7 @@ loaf bread,ANTIQUE,LAUA-AN,large packs,g,large,640,3,3,640,3,640,47,640,411,640,
 loaf bread,ANTIQUE,LAUA-AN,medium packs,g,medium,450,3,3,450,3,450,50,450,352,450,3,own cell x size,0
 loaf bread,ANTIQUE,LAUA-AN,small packs,g,small,360,1,3,360,1,375,32,370,259,375,32,province x item x unit,0
 mango,ANTIQUE,LAUA-AN,pieces or units,g,medium,205,1,3,205,1,230,82,230,539,230,82,province x item x unit,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,LAUA-AN,putos,g,conventional_nsu,200,3,1,200,3,250,79,250,473,200,3,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,LAUA-AN,putos,g,medium,200,3,1,200,3,250,79,250,473,200,3,own cell x size,0
 cabbage,ANTIQUE,LIBERTAD,pieces or units,g,small,515,5,3,765,13,655,219,655,1306,515,5,own cell x size,0
 cabbage,ANTIQUE,LIBERTAD,pieces or units,g,medium,767.5,4,3,765,13,655,219,655,1306,767.5,4,own cell x size,0
 cabbage,ANTIQUE,LIBERTAD,pieces or units,g,large,917.5,4,3,765,13,655,219,655,1306,917.5,4,own cell x size,0
@@ -599,9 +599,9 @@ fresh fish,ANTIQUE,LIBERTAD,pieces or units,g,large,1327.5,2,3,615,7,490,87,390,
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,LIBERTAD,long-neck,mL,large,750,4,3,750,4,750,118,750,478,750,4,own cell x size,0
 loaf bread,ANTIQUE,LIBERTAD,large packs,g,large,680,1,3,680,1,640,47,640,411,640,47,province x item x unit,0
 loaf bread,ANTIQUE,LIBERTAD,medium packs,g,medium,560,2,3,560,2,450,50,450,352,450,50,province x item x unit,0
-loaf bread,ANTIQUE,LIBERTAD,small packs,g,conventional_nsu,400,3,1,400,3,375,32,370,259,400,3,own cell x size,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,LIBERTAD,putos,g,conventional_nsu,200,5,1,200,5,250,79,250,473,200,5,own cell x size,0
-cabbage,ANTIQUE,PANDAN,pack,g,conventional_nsu,270,3,1,270,3,270,3,150,43,270,3,own cell x size,0
+loaf bread,ANTIQUE,LIBERTAD,small packs,g,medium,400,3,1,400,3,375,32,370,259,400,3,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,LIBERTAD,putos,g,medium,200,5,1,200,5,250,79,250,473,200,5,own cell x size,0
+cabbage,ANTIQUE,PANDAN,pack,g,medium,270,3,1,270,3,270,3,150,43,270,3,own cell x size,0
 cabbage,ANTIQUE,PANDAN,pieces or units,g,small,425,5,3,795,13,655,219,655,1306,425,5,own cell x size,0
 cabbage,ANTIQUE,PANDAN,pieces or units,g,medium,845,4,3,795,13,655,219,655,1306,845,4,own cell x size,0
 cabbage,ANTIQUE,PANDAN,pieces or units,g,large,1085,4,3,795,13,655,219,655,1306,1085,4,own cell x size,0
@@ -616,43 +616,43 @@ chicken,ANTIQUE,PANDAN,whole (chicken),g,large,1552.5,2,3,1297.5,4,1105,65,1120,
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,PANDAN,putos,g,small,287.5,6,3,300,9,125,105,210,482,287.5,6,own cell x size,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,PANDAN,putos,g,medium,320,3,3,300,9,125,105,210,482,320,3,own cell x size,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,PANDAN,pieces or units,g,medium,645,1,3,645,1,90,9,60,94,90,9,province x item x unit,0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,PANDAN,putos,g,conventional_nsu,52.5,2,1,52.5,2,55.5,12,58,82,55.5,12,province x item x unit,0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,PANDAN,putos,g,medium,52.5,2,1,52.5,2,55.5,12,58,82,55.5,12,province x item x unit,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,PANDAN,small cup,g,small,120,1,3,165,2,100,14,100,120,100,14,province x item x unit,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,PANDAN,small cup,g,medium,210,1,3,165,2,100,14,100,120,100,14,province x item x unit,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,PANDAN,baso,mL,large,750,1,3,750,1,750,1,750,1,,,,1
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,PANDAN,lipid/lapad,mL,medium,375,6,3,375,6,375,100,375,618,375,6,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,PANDAN,long-neck,mL,large,750,6,3,750,6,750,118,750,478,750,6,own cell x size,0
 loaf bread,ANTIQUE,PANDAN,small packs,g,small,400,1,3,400,1,375,32,370,259,375,32,province x item x unit,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,PANDAN,putos,g,conventional_nsu,200,5,1,200,5,250,79,250,473,200,5,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,PANDAN,putos,g,medium,200,5,1,200,5,250,79,250,473,200,5,own cell x size,0
 cabbage,ANTIQUE,PATNONGON,pieces or units,g,small,530,5,3,750,13,655,219,655,1306,530,5,own cell x size,0
 cabbage,ANTIQUE,PATNONGON,pieces or units,g,medium,765,4,3,750,13,655,219,655,1306,765,4,own cell x size,0
 cabbage,ANTIQUE,PATNONGON,pieces or units,g,large,985,4,3,750,13,655,219,655,1306,985,4,own cell x size,0
-cabbage,ANTIQUE,PATNONGON,putos (mix vegetable),g,conventional_nsu,225,3,1,225,3,225,3,160,37,225,3,own cell x size,0
+cabbage,ANTIQUE,PATNONGON,putos (mix vegetable),g,medium,225,3,1,225,3,225,3,160,37,225,3,own cell x size,0
 camote,ANTIQUE,PATNONGON,bilog,g,small,120,5,3,200,14,145,117,140,509,120,5,own cell x size,0
 camote,ANTIQUE,PATNONGON,bilog,g,medium,200,5,3,200,14,145,117,140,509,200,5,own cell x size,0
 camote,ANTIQUE,PATNONGON,bilog,g,large,342.5,4,3,200,14,145,117,140,509,342.5,4,own cell x size,0
 camote,ANTIQUE,PATNONGON,tumpok,g,conventional_nsu,1065,9,1,1065,9,1065,17,1065,17,1065,9,own cell x size,0
-camote tops,ANTIQUE,PATNONGON,bugkos,g,conventional_nsu,290,9,1,290,9,225,69,195,449,290,9,own cell x size,0
+camote tops,ANTIQUE,PATNONGON,bugkos,g,medium,290,9,1,290,9,225,69,195,449,290,9,own cell x size,0
 carrot,ANTIQUE,PATNONGON,pieces or units,g,small,70,5,3,110,15,145,201,140,1169,70,5,own cell x size,0
 carrot,ANTIQUE,PATNONGON,pieces or units,g,medium,117.5,6,3,110,15,145,201,140,1169,117.5,6,own cell x size,0
 carrot,ANTIQUE,PATNONGON,pieces or units,g,large,212.5,4,3,110,15,145,201,140,1169,212.5,4,own cell x size,0
-carrot,ANTIQUE,PATNONGON,putos (mix vegetable),g,conventional_nsu,185,4,1,185,4,185,4,152.5,16,185,4,own cell x size,0
+carrot,ANTIQUE,PATNONGON,putos (mix vegetable),g,medium,185,4,1,185,4,185,4,152.5,16,185,4,own cell x size,0
 chicken,ANTIQUE,PATNONGON,pieces or units,g,medium,570,4,3,570,4,410,40,380,108,570,4,own cell x size,0
 chicken,ANTIQUE,PATNONGON,whole (chicken),g,large,1177.5,4,3,1177.5,4,1105,65,1120,468,1177.5,4,own cell x size,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,PATNONGON,pieces or units,g,small,31,7,3,31,7,31,94,32,505,31,7,own cell x size,0
-"crackers, cookies, buiscuits, chips/curls",ANTIQUE,PATNONGON,putos,g,conventional_nsu,300,6,1,300,6,125,105,210,482,300,6,own cell x size,0
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,PATNONGON,putos,g,medium,300,6,1,300,6,125,105,210,482,300,6,own cell x size,0
 fresh fish,ANTIQUE,PATNONGON,pieces or units,g,small,245,3,3,610,7,490,87,390,685,610,7,cell pooled across sizes,0
 fresh fish,ANTIQUE,PATNONGON,pieces or units,g,medium,717.5,2,3,610,7,490,87,390,685,610,7,cell pooled across sizes,0
 fresh fish,ANTIQUE,PATNONGON,pieces or units,g,large,2392.5,2,3,610,7,490,87,390,685,610,7,cell pooled across sizes,0
-fresh fish,ANTIQUE,PATNONGON,tumpok,g,conventional_nsu,525,1,1,525,1,525,1,750,25,750,25,item x unit (national),0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,PATNONGON,putos,g,conventional_nsu,60,5,1,60,5,55.5,12,58,82,60,5,own cell x size,0
+fresh fish,ANTIQUE,PATNONGON,tumpok,g,medium,525,1,1,525,1,525,1,750,25,750,25,item x unit (national),0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,PATNONGON,putos,g,medium,60,5,1,60,5,55.5,12,58,82,60,5,own cell x size,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,PATNONGON,small cup,g,small,100,3,3,100,3,100,14,100,120,100,3,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,PATNONGON,lipid/lapad,mL,medium,375,7,3,375,7,375,100,375,618,375,7,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,PATNONGON,long-neck,mL,large,750,7,3,750,7,750,118,750,478,750,7,own cell x size,0
 loaf bread,ANTIQUE,PATNONGON,large packs,g,large,640,3,3,640,3,640,47,640,411,640,3,own cell x size,0
 loaf bread,ANTIQUE,PATNONGON,medium packs,g,medium,450,3,3,450,3,450,50,450,352,450,3,own cell x size,0
 loaf bread,ANTIQUE,PATNONGON,small packs,g,small,375,3,3,375,3,375,32,370,259,375,3,own cell x size,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,PATNONGON,putos,g,conventional_nsu,225,5,1,225,5,250,79,250,473,225,5,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,PATNONGON,putos,g,medium,225,5,1,225,5,250,79,250,473,225,5,own cell x size,0
 cabbage,ANTIQUE,SAN REMIGIO,pieces or units,g,small,375,3,3,655,9,655,219,655,1306,655,9,cell pooled across sizes,0
 cabbage,ANTIQUE,SAN REMIGIO,pieces or units,g,medium,660,4,3,655,9,655,219,655,1306,655,9,cell pooled across sizes,0
 cabbage,ANTIQUE,SAN REMIGIO,pieces or units,g,large,1082.5,2,3,655,9,655,219,655,1306,655,9,cell pooled across sizes,0
@@ -660,7 +660,7 @@ camote,ANTIQUE,SAN REMIGIO,bilog,g,small,65,5,3,115,13,145,117,140,509,65,5,own 
 camote,ANTIQUE,SAN REMIGIO,bilog,g,medium,125,4,3,115,13,145,117,140,509,125,4,own cell x size,0
 camote,ANTIQUE,SAN REMIGIO,bilog,g,large,242.5,4,3,115,13,145,117,140,509,242.5,4,own cell x size,0
 camote,ANTIQUE,SAN REMIGIO,tumpok,g,conventional_nsu,1052.5,4,1,1052.5,4,1065,17,1065,17,1052.5,4,own cell x size,0
-camote tops,ANTIQUE,SAN REMIGIO,bugkos,g,conventional_nsu,230,6,1,230,6,225,69,195,449,230,6,own cell x size,0
+camote tops,ANTIQUE,SAN REMIGIO,bugkos,g,medium,230,6,1,230,6,225,69,195,449,230,6,own cell x size,0
 carrot,ANTIQUE,SAN REMIGIO,pieces or units,g,small,120,3,3,165,9,145,201,140,1169,165,9,cell pooled across sizes,0
 carrot,ANTIQUE,SAN REMIGIO,pieces or units,g,medium,185,4,3,165,9,145,201,140,1169,165,9,cell pooled across sizes,0
 carrot,ANTIQUE,SAN REMIGIO,pieces or units,g,large,305,2,3,165,9,145,201,140,1169,165,9,cell pooled across sizes,0
@@ -671,34 +671,34 @@ chicken,ANTIQUE,SAN REMIGIO,pieces or units,g,small,150,1,3,210,3,410,40,380,108
 chicken,ANTIQUE,SAN REMIGIO,pieces or units,g,medium,335,2,3,210,3,410,40,380,108,210,3,cell pooled across sizes,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,SAN REMIGIO,pieces or units,g,small,30,5,3,30,9,31,94,32,505,30,5,own cell x size,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,SAN REMIGIO,pieces or units,g,medium,40,4,3,30,9,31,94,32,505,40,4,own cell x size,0
-"crackers, cookies, buiscuits, chips/curls",ANTIQUE,SAN REMIGIO,putos,g,conventional_nsu,30,9,1,30,9,125,105,210,482,30,9,own cell x size,0
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,SAN REMIGIO,putos,g,medium,30,9,1,30,9,125,105,210,482,30,9,own cell x size,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,SAN REMIGIO,pieces,mL,medium,355,1,3,355,1,310,80,355,164,310,80,province x item x unit,0
 fresh fish,ANTIQUE,SAN REMIGIO,pieces or units,g,small,90,3,3,195,9,490,87,390,685,195,9,cell pooled across sizes,0
 fresh fish,ANTIQUE,SAN REMIGIO,pieces or units,g,medium,225,4,3,195,9,490,87,390,685,195,9,cell pooled across sizes,0
 fresh fish,ANTIQUE,SAN REMIGIO,pieces or units,g,large,2467.5,2,3,195,9,490,87,390,685,195,9,cell pooled across sizes,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SAN REMIGIO,pieces or units,g,medium,90,3,2,90,3,90,9,60,94,90,3,own cell x size,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SAN REMIGIO,pieces or units,mL,medium,100,1,2,100,1,110,33,100,166,110,33,province x item x unit,0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SAN REMIGIO,putos,mL,conventional_nsu,60,1,1,60,1,450,22,65,148,450,22,province x item x unit,0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SAN REMIGIO,putos,mL,medium,60,1,1,60,1,450,22,65,148,450,22,province x item x unit,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SAN REMIGIO,small cup,mL,small,100,1,3,100,1,100,38,100,185,100,38,province x item x unit,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SAN REMIGIO,lipid/lapad,mL,medium,375,8,3,375,8,375,100,375,618,375,8,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SAN REMIGIO,long-neck,mL,large,750,8,3,750,8,750,118,750,478,750,8,own cell x size,0
-loaf bread,ANTIQUE,SAN REMIGIO,large packs,g,conventional_nsu,640,3,1,640,3,640,47,640,411,640,3,own cell x size,0
-loaf bread,ANTIQUE,SAN REMIGIO,medium packs,g,conventional_nsu,450,4,1,450,4,450,50,450,352,450,4,own cell x size,0
+loaf bread,ANTIQUE,SAN REMIGIO,large packs,g,medium,640,3,1,640,3,640,47,640,411,640,3,own cell x size,0
+loaf bread,ANTIQUE,SAN REMIGIO,medium packs,g,medium,450,4,1,450,4,450,50,450,352,450,4,own cell x size,0
 loaf bread,ANTIQUE,SAN REMIGIO,small packs,g,medium,367.5,2,2,367.5,2,375,32,370,259,375,32,province x item x unit,0
 mango,ANTIQUE,SAN REMIGIO,pieces or units,g,small,190,3,3,245,7,230,82,230,539,245,7,cell pooled across sizes,0
 mango,ANTIQUE,SAN REMIGIO,pieces or units,g,medium,245,2,3,245,7,230,82,230,539,245,7,cell pooled across sizes,0
 mango,ANTIQUE,SAN REMIGIO,pieces or units,g,large,307.5,2,3,245,7,230,82,230,539,245,7,cell pooled across sizes,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SAN REMIGIO,bilog,g,medium,62.5,2,2,62.5,2,250,25,229,222,250,25,province x item x unit,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SAN REMIGIO,putos,g,conventional_nsu,250,4,1,250,4,250,79,250,473,250,4,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SAN REMIGIO,putos,g,medium,250,4,1,250,4,250,79,250,473,250,4,own cell x size,0
 cabbage,ANTIQUE,SEBASTE,pieces or units,g,small,415,6,3,735,17,655,219,655,1306,415,6,own cell x size,0
 cabbage,ANTIQUE,SEBASTE,pieces or units,g,medium,742.5,6,3,735,17,655,219,655,1306,742.5,6,own cell x size,0
 cabbage,ANTIQUE,SEBASTE,pieces or units,g,large,1050,5,3,735,17,655,219,655,1306,1050,5,own cell x size,0
-camote tops,ANTIQUE,SEBASTE,bugkos,g,conventional_nsu,230,3,1,230,3,225,69,195,449,230,3,own cell x size,0
+camote tops,ANTIQUE,SEBASTE,bugkos,g,medium,230,3,1,230,3,225,69,195,449,230,3,own cell x size,0
 carrot,ANTIQUE,SEBASTE,pieces or units,g,small,95,6,3,115,15,145,201,140,1169,95,6,own cell x size,0
 carrot,ANTIQUE,SEBASTE,pieces or units,g,medium,135,6,3,115,15,145,201,140,1169,135,6,own cell x size,0
 carrot,ANTIQUE,SEBASTE,pieces or units,g,large,270,3,3,115,15,145,201,140,1169,270,3,own cell x size,0
 chicken,ANTIQUE,SEBASTE,whole (chicken),g,medium,920,1,3,920,1,1105,65,1120,468,1105,65,province x item x unit,0
-"crackers, cookies, buiscuits, chips/curls",ANTIQUE,SEBASTE,pieces or units,g,conventional_nsu,31,7,1,31,7,31,94,32,505,31,7,own cell x size,0
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,SEBASTE,pieces or units,g,medium,31,7,1,31,7,31,94,32,505,31,7,own cell x size,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,SEBASTE,putos,g,small,25,5,3,55,13,125,105,210,482,25,5,own cell x size,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,SEBASTE,putos,g,medium,62.5,4,3,55,13,125,105,210,482,62.5,4,own cell x size,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,SEBASTE,putos,g,large,99,4,3,55,13,125,105,210,482,99,4,own cell x size,0
@@ -709,23 +709,23 @@ chicken,ANTIQUE,SEBASTE,whole (chicken),g,medium,920,1,3,920,1,1105,65,1120,468,
 fresh fish,ANTIQUE,SEBASTE,pieces or units,g,small,60,1,3,275,3,490,87,390,685,275,3,cell pooled across sizes,0
 fresh fish,ANTIQUE,SEBASTE,pieces or units,g,medium,475,2,3,275,3,490,87,390,685,275,3,cell pooled across sizes,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SEBASTE,pieces or units,mL,medium,100,3,2,100,3,110,33,100,166,100,3,own cell x size,0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SEBASTE,putos,mL,conventional_nsu,60,4,1,60,4,450,22,65,148,60,4,own cell x size,0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SEBASTE,putos,mL,medium,60,4,1,60,4,450,22,65,148,60,4,own cell x size,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SEBASTE,small cup,mL,small,95,2,3,110,4,100,38,100,185,110,4,cell pooled across sizes,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SEBASTE,small cup,mL,medium,165,2,3,110,4,100,38,100,185,110,4,cell pooled across sizes,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SEBASTE,lipid/lapad,mL,medium,375,5,3,375,5,375,100,375,618,375,5,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SEBASTE,long-neck,mL,medium,750,3,2,750,3,750,118,750,478,750,3,own cell x size,0
-loaf bread,ANTIQUE,SEBASTE,large packs,g,conventional_nsu,640,3,1,640,3,640,47,640,411,640,3,own cell x size,0
+loaf bread,ANTIQUE,SEBASTE,large packs,g,medium,640,3,1,640,3,640,47,640,411,640,3,own cell x size,0
 loaf bread,ANTIQUE,SEBASTE,medium packs,g,medium,460,4,3,460,4,450,50,450,352,460,4,own cell x size,0
 loaf bread,ANTIQUE,SEBASTE,small packs,g,small,375,3,3,375,3,375,32,370,259,375,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,bilog,g,small,235,2,3,235,2,250,25,229,222,250,25,province x item x unit,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,cans,g,conventional_nsu,155,5,1,155,5,155,57,155,95,155,5,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,cans,g,medium,155,5,1,155,5,155,57,155,95,155,5,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,putos,g,medium,250,4,2,375,8,250,79,250,473,250,4,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,putos,g,large,750,4,2,375,8,250,79,250,473,750,4,own cell x size,0
 cabbage,ANTIQUE,SIBALOM,pieces or units,g,small,472.5,4,3,627.5,10,655,219,655,1306,472.5,4,own cell x size,0
 cabbage,ANTIQUE,SIBALOM,pieces or units,g,medium,650,3,3,627.5,10,655,219,655,1306,650,3,own cell x size,0
 cabbage,ANTIQUE,SIBALOM,pieces or units,g,large,755,3,3,627.5,10,655,219,655,1306,755,3,own cell x size,0
 camote,ANTIQUE,SIBALOM,tumpok,g,conventional_nsu,1070,4,1,1070,4,1065,17,1065,17,1070,4,own cell x size,0
-camote tops,ANTIQUE,SIBALOM,bugkos,g,conventional_nsu,227.5,4,1,227.5,4,225,69,195,449,227.5,4,own cell x size,0
+camote tops,ANTIQUE,SIBALOM,bugkos,g,medium,227.5,4,1,227.5,4,225,69,195,449,227.5,4,own cell x size,0
 carrot,ANTIQUE,SIBALOM,pieces or units,g,small,105,4,3,160,10,145,201,140,1169,105,4,own cell x size,0
 carrot,ANTIQUE,SIBALOM,pieces or units,g,medium,170,3,3,160,10,145,201,140,1169,170,3,own cell x size,0
 carrot,ANTIQUE,SIBALOM,pieces or units,g,large,210,3,3,160,10,145,201,140,1169,210,3,own cell x size,0
@@ -746,7 +746,7 @@ fresh fish,ANTIQUE,SIBALOM,pieces or units,g,medium,175,4,3,150,9,490,87,390,685
 fresh fish,ANTIQUE,SIBALOM,pieces or units,g,large,402.5,2,3,150,9,490,87,390,685,150,9,cell pooled across sizes,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SIBALOM,pieces or units,mL,small,60,3,3,87.5,6,110,33,100,166,60,3,own cell x size,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SIBALOM,pieces or units,mL,medium,110,3,3,87.5,6,110,33,100,166,110,3,own cell x size,0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SIBALOM,putos,mL,conventional_nsu,65,3,1,65,3,450,22,65,148,65,3,own cell x size,0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SIBALOM,putos,mL,medium,65,3,1,65,3,450,22,65,148,65,3,own cell x size,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,SIBALOM,small cup,mL,small,100,5,3,100,5,100,38,100,185,100,5,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SIBALOM,lipid/lapad,mL,medium,375,9,3,375,9,375,100,375,618,375,9,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SIBALOM,long-neck,mL,large,750,9,3,750,9,750,118,750,478,750,9,own cell x size,0
@@ -756,15 +756,15 @@ loaf bread,ANTIQUE,SIBALOM,small packs,g,small,360,6,3,360,6,375,32,370,259,360,
 mango,ANTIQUE,SIBALOM,pieces or units,g,small,185,5,3,245,13,230,82,230,539,185,5,own cell x size,0
 mango,ANTIQUE,SIBALOM,pieces or units,g,medium,247.5,4,3,245,13,230,82,230,539,247.5,4,own cell x size,0
 mango,ANTIQUE,SIBALOM,pieces or units,g,large,300,4,3,245,13,230,82,230,539,300,4,own cell x size,0
-"prawns, lobster, shrimp",ANTIQUE,SIBALOM,tumpok,g,conventional_nsu,205,3,1,205,3,240,9,260,147,205,3,own cell x size,0
+"prawns, lobster, shrimp",ANTIQUE,SIBALOM,tumpok,g,medium,205,3,1,205,3,240,9,260,147,205,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SIBALOM,bilog,g,small,250,5,3,250,5,250,25,229,222,250,5,own cell x size,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SIBALOM,putos,g,conventional_nsu,250,8,1,250,8,250,79,250,473,250,8,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SIBALOM,putos,g,medium,250,8,1,250,8,250,79,250,473,250,8,own cell x size,0
 cabbage,ANTIQUE,TIBIAO,pieces or units,g,small,512.5,6,3,725,16,655,219,655,1306,512.5,6,own cell x size,0
 cabbage,ANTIQUE,TIBIAO,pieces or units,g,medium,730,5,3,725,16,655,219,655,1306,730,5,own cell x size,0
 cabbage,ANTIQUE,TIBIAO,pieces or units,g,large,1115,5,3,725,16,655,219,655,1306,1115,5,own cell x size,0
 camote,ANTIQUE,TIBIAO,bilog,g,small,82.5,6,3,85,9,145,117,140,509,82.5,6,own cell x size,0
 camote,ANTIQUE,TIBIAO,bilog,g,medium,185,3,3,85,9,145,117,140,509,185,3,own cell x size,0
-camote tops,ANTIQUE,TIBIAO,bugkos,g,conventional_nsu,142.5,6,1,142.5,6,225,69,195,449,142.5,6,own cell x size,0
+camote tops,ANTIQUE,TIBIAO,bugkos,g,medium,142.5,6,1,142.5,6,225,69,195,449,142.5,6,own cell x size,0
 carrot,ANTIQUE,TIBIAO,pieces or units,g,small,135,4,3,190,11,145,201,140,1169,135,4,own cell x size,0
 carrot,ANTIQUE,TIBIAO,pieces or units,g,medium,210,4,3,190,11,145,201,140,1169,210,4,own cell x size,0
 carrot,ANTIQUE,TIBIAO,pieces or units,g,large,315,3,3,190,11,145,201,140,1169,315,3,own cell x size,0
@@ -778,16 +778,16 @@ chicken,ANTIQUE,TIBIAO,whole (chicken),g,medium,877.5,2,3,877.5,2,1105,65,1120,4
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,TIBIAO,long-neck,mL,large,750,6,3,750,6,750,118,750,478,750,6,own cell x size,0
 loaf bread,ANTIQUE,TIBIAO,large packs,g,large,680,3,3,680,3,640,47,640,411,680,3,own cell x size,0
 loaf bread,ANTIQUE,TIBIAO,medium packs,g,medium,500,3,3,500,3,450,50,450,352,500,3,own cell x size,0
-loaf bread,ANTIQUE,TIBIAO,small packs,g,conventional_nsu,387.5,4,1,387.5,4,375,32,370,259,387.5,4,own cell x size,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,TIBIAO,putos,g,conventional_nsu,210,4,1,210,4,250,79,250,473,210,4,own cell x size,0
+loaf bread,ANTIQUE,TIBIAO,small packs,g,medium,387.5,4,1,387.5,4,375,32,370,259,387.5,4,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,TIBIAO,putos,g,medium,210,4,1,210,4,250,79,250,473,210,4,own cell x size,0
 cabbage,ANTIQUE,TOBIAS FORNIER,pieces or units,g,small,465,7,3,560,20,655,219,655,1306,465,7,own cell x size,0
 cabbage,ANTIQUE,TOBIAS FORNIER,pieces or units,g,medium,580,7,3,560,20,655,219,655,1306,580,7,own cell x size,0
 cabbage,ANTIQUE,TOBIAS FORNIER,pieces or units,g,large,772.5,6,3,560,20,655,219,655,1306,772.5,6,own cell x size,0
 camote,ANTIQUE,TOBIAS FORNIER,bilog,g,small,65,5,3,85,13,145,117,140,509,65,5,own cell x size,0
 camote,ANTIQUE,TOBIAS FORNIER,bilog,g,medium,87.5,4,3,85,13,145,117,140,509,87.5,4,own cell x size,0
 camote,ANTIQUE,TOBIAS FORNIER,bilog,g,large,155,4,3,85,13,145,117,140,509,155,4,own cell x size,0
-camote tops,ANTIQUE,TOBIAS FORNIER,bugkos,g,conventional_nsu,190,5,1,190,5,225,69,195,449,190,5,own cell x size,0
-camote tops,ANTIQUE,TOBIAS FORNIER,bundle,g,conventional_nsu,645,3,1,645,3,610,9,500,101,645,3,own cell x size,0
+camote tops,ANTIQUE,TOBIAS FORNIER,bugkos,g,medium,190,5,1,190,5,225,69,195,449,190,5,own cell x size,0
+camote tops,ANTIQUE,TOBIAS FORNIER,bundle,g,medium,645,3,1,645,3,610,9,500,101,645,3,own cell x size,0
 carrot,ANTIQUE,TOBIAS FORNIER,pieces or units,g,small,75,5,3,115,15,145,201,140,1169,75,5,own cell x size,0
 carrot,ANTIQUE,TOBIAS FORNIER,pieces or units,g,medium,117.5,6,3,115,15,145,201,140,1169,117.5,6,own cell x size,0
 carrot,ANTIQUE,TOBIAS FORNIER,pieces or units,g,large,170,4,3,115,15,145,201,140,1169,170,4,own cell x size,0
@@ -796,14 +796,14 @@ chicken,ANTIQUE,TOBIAS FORNIER,pieces or units,g,medium,220,1,3,185,2,410,40,380
 chicken,ANTIQUE,TOBIAS FORNIER,whole (chicken),g,small,750,4,3,1027.5,10,1105,65,1120,468,750,4,own cell x size,0
 chicken,ANTIQUE,TOBIAS FORNIER,whole (chicken),g,medium,1055,3,3,1027.5,10,1105,65,1120,468,1055,3,own cell x size,0
 chicken,ANTIQUE,TOBIAS FORNIER,whole (chicken),g,large,1310,3,3,1027.5,10,1105,65,1120,468,1310,3,own cell x size,0
-"crackers, cookies, buiscuits, chips/curls",ANTIQUE,TOBIAS FORNIER,putos,g,conventional_nsu,365,8,1,365,8,125,105,210,482,365,8,own cell x size,0
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,TOBIAS FORNIER,putos,g,medium,365,8,1,365,8,125,105,210,482,365,8,own cell x size,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,TOBIAS FORNIER,pieces,mL,small,215,4,3,352.5,12,310,80,355,164,352.5,12,cell pooled across sizes,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,TOBIAS FORNIER,pieces,mL,medium,427.5,6,3,352.5,12,310,80,355,164,352.5,12,cell pooled across sizes,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,TOBIAS FORNIER,pieces,mL,large,1000,2,3,352.5,12,310,80,355,164,352.5,12,cell pooled across sizes,0
 fresh fish,ANTIQUE,TOBIAS FORNIER,pieces or units,g,small,340,3,3,1450,7,490,87,390,685,1450,7,cell pooled across sizes,0
 fresh fish,ANTIQUE,TOBIAS FORNIER,pieces or units,g,medium,1517.5,2,3,1450,7,490,87,390,685,1450,7,cell pooled across sizes,0
 fresh fish,ANTIQUE,TOBIAS FORNIER,pieces or units,g,large,2862.5,2,3,1450,7,490,87,390,685,1450,7,cell pooled across sizes,0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,TOBIAS FORNIER,putos,mL,conventional_nsu,500,5,1,500,5,450,22,65,148,500,5,own cell x size,0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,TOBIAS FORNIER,putos,mL,medium,500,5,1,500,5,450,22,65,148,500,5,own cell x size,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,TOBIAS FORNIER,small cup,mL,small,100,4,3,100,4,100,38,100,185,100,4,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,TOBIAS FORNIER,lipid/lapad,mL,medium,375,8,3,375,8,375,100,375,618,375,8,own cell x size,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,TOBIAS FORNIER,long-neck,mL,medium,750,8,3,750,10,750,118,750,478,750,10,cell pooled across sizes,0
@@ -818,13 +818,13 @@ mango,ANTIQUE,TOBIAS FORNIER,pieces or units,g,large,235,1,3,205,6,230,82,230,53
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,TOBIAS FORNIER,cans,g,medium,155,4,3,155,13,155,57,155,95,155,4,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,TOBIAS FORNIER,cans,g,large,250,3,3,155,13,155,57,155,95,250,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,TOBIAS FORNIER,pack,g,medium,255,2,2,255,2,250,6,250,85,250,6,province x item x unit,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,TOBIAS FORNIER,putos,g,conventional_nsu,630,4,1,630,4,250,79,250,473,630,4,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,TOBIAS FORNIER,putos,g,medium,630,4,1,630,4,250,79,250,473,630,4,own cell x size,0
 rice,ANTIQUE,TOBIAS FORNIER,gantang,g,conventional_nsu,2255,3,1,2255,3,2257.5,6,2247.5,28,2255,3,own cell x size,0
 cabbage,ANTIQUE,VALDERRAMA,pieces or units,g,small,405,7,3,595,21,655,219,655,1306,405,7,own cell x size,0
 cabbage,ANTIQUE,VALDERRAMA,pieces or units,g,medium,597.5,8,3,595,21,655,219,655,1306,597.5,8,own cell x size,0
 cabbage,ANTIQUE,VALDERRAMA,pieces or units,g,large,975,6,3,595,21,655,219,655,1306,975,6,own cell x size,0
-camote tops,ANTIQUE,VALDERRAMA,bugkos,g,conventional_nsu,210,3,1,210,3,225,69,195,449,210,3,own cell x size,0
-camote tops,ANTIQUE,VALDERRAMA,bundle,g,conventional_nsu,1110,1,1,1110,1,610,9,500,101,610,9,province x item x unit,0
+camote tops,ANTIQUE,VALDERRAMA,bugkos,g,medium,210,3,1,210,3,225,69,195,449,210,3,own cell x size,0
+camote tops,ANTIQUE,VALDERRAMA,bundle,g,medium,1110,1,1,1110,1,610,9,500,101,610,9,province x item x unit,0
 carrot,ANTIQUE,VALDERRAMA,pieces or units,g,small,90,4,3,110,11,145,201,140,1169,90,4,own cell x size,0
 carrot,ANTIQUE,VALDERRAMA,pieces or units,g,medium,140,4,3,110,11,145,201,140,1169,140,4,own cell x size,0
 carrot,ANTIQUE,VALDERRAMA,pieces or units,g,large,265,3,3,110,11,145,201,140,1169,265,3,own cell x size,0
@@ -836,7 +836,7 @@ chicken,ANTIQUE,VALDERRAMA,whole (chicken),g,large,1705,1,3,1147.5,6,1105,65,112
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,VALDERRAMA,pieces or units,g,small,24,4,3,40,12,31,94,32,505,24,4,own cell x size,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,VALDERRAMA,pieces or units,g,medium,45,5,3,40,12,31,94,32,505,45,5,own cell x size,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,VALDERRAMA,pieces or units,g,large,98,3,3,40,12,31,94,32,505,98,3,own cell x size,0
-"crackers, cookies, buiscuits, chips/curls",ANTIQUE,VALDERRAMA,putos,g,conventional_nsu,290,6,1,290,6,125,105,210,482,290,6,own cell x size,0
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,VALDERRAMA,putos,g,medium,290,6,1,290,6,125,105,210,482,290,6,own cell x size,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,VALDERRAMA,pieces,mL,small,195,7,3,350,20,310,80,355,164,195,7,own cell x size,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,VALDERRAMA,pieces,mL,medium,352.5,8,3,350,20,310,80,355,164,352.5,8,own cell x size,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,VALDERRAMA,pieces,mL,large,1000,5,3,350,20,310,80,355,164,1000,5,own cell x size,0
@@ -848,8 +848,8 @@ chicken,ANTIQUE,VALDERRAMA,whole (chicken),g,large,1705,1,3,1147.5,6,1105,65,112
 loaf bread,ANTIQUE,VALDERRAMA,medium packs,g,medium,600,1,3,600,1,450,50,450,352,450,50,province x item x unit,0
 loaf bread,ANTIQUE,VALDERRAMA,small packs,g,small,385,1,3,385,1,375,32,370,259,375,32,province x item x unit,0
 loaf bread,ANTIQUE,VALDERRAMA,tama-tama nga putos,g,medium,500,1,2,500,1,500,7,450,23,500,7,province x item x unit,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,VALDERRAMA,cans,g,conventional_nsu,198,7,1,198,7,155,57,155,95,198,7,own cell x size,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,VALDERRAMA,putos,g,conventional_nsu,250,4,1,250,4,250,79,250,473,250,4,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,VALDERRAMA,cans,g,medium,198,7,1,198,7,155,57,155,95,198,7,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,VALDERRAMA,putos,g,medium,250,4,1,250,4,250,79,250,473,250,4,own cell x size,0
 cabbage,CAPIZ,CUARTERO,pieces or units,g,small,472.5,4,3,630,10,695,169,655,1306,630,10,cell pooled across sizes,0
 cabbage,CAPIZ,CUARTERO,pieces or units,g,medium,790,4,3,630,10,695,169,655,1306,630,10,cell pooled across sizes,0
 cabbage,CAPIZ,CUARTERO,pieces or units,g,large,1092.5,2,3,630,10,695,169,655,1306,630,10,cell pooled across sizes,0
@@ -925,23 +925,23 @@ loaf bread,CAPIZ,DAO,small packs,g,medium,545,2,3,450,3,400,33,370,259,450,3,cel
 mango,CAPIZ,DAO,pieces or units,g,small,155,3,3,200,7,230,73,230,539,200,7,cell pooled across sizes,0
 mango,CAPIZ,DAO,pieces or units,g,medium,225,2,3,200,7,230,73,230,539,200,7,cell pooled across sizes,0
 mango,CAPIZ,DAO,pieces or units,g,large,297.5,2,3,200,7,230,73,230,539,200,7,cell pooled across sizes,0
-"prawns, lobster, shrimp",CAPIZ,DAO,tumpok,g,conventional_nsu,355,1,1,355,1,290,39,260,147,290,39,province x item x unit,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DAO,bilog,g,conventional_nsu,250,3,1,250,3,70,41,229,222,250,3,own cell x size,0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DAO,putos,g,conventional_nsu,725,2,1,725,2,250,61,250,473,250,61,province x item x unit,0
+"prawns, lobster, shrimp",CAPIZ,DAO,tumpok,g,medium,355,1,1,355,1,290,39,260,147,290,39,province x item x unit,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DAO,bilog,g,medium,250,3,1,250,3,70,41,229,222,250,3,own cell x size,0
+"preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DAO,putos,g,medium,725,2,1,725,2,250,61,250,473,250,61,province x item x unit,0
 cabbage,CAPIZ,DUMALAG,pack,g,small,175,2,3,175,2,160,11,150,43,160,11,province x item x unit,0
 cabbage,CAPIZ,DUMALAG,pieces or units,g,small,407.5,6,3,635,17,695,169,655,1306,407.5,6,own cell x size,0
 cabbage,CAPIZ,DUMALAG,pieces or units,g,medium,662.5,6,3,635,17,695,169,655,1306,662.5,6,own cell x size,0
 cabbage,CAPIZ,DUMALAG,pieces or units,g,large,1125,5,3,635,17,695,169,655,1306,1125,5,own cell x size,0
 camote,CAPIZ,DUMALAG,bilog,g,small,80,2,3,85,4,145,58,140,509,85,4,cell pooled across sizes,0
 camote,CAPIZ,DUMALAG,bilog,g,medium,120,2,3,85,4,145,58,140,509,85,4,cell pooled across sizes,0
-camote tops,CAPIZ,DUMALAG,bugkos,g,conventional_nsu,187.5,2,1,187.5,2,210,51,195,449,210,51,province x item x unit,0
+camote tops,CAPIZ,DUMALAG,bugkos,g,medium,187.5,2,1,187.5,2,210,51,195,449,210,51,province x item x unit,0
 carrot,CAPIZ,DUMALAG,pieces or units,g,small,90,5,3,160,14,135,153,140,1169,90,5,own cell x size,0
 carrot,CAPIZ,DUMALAG,pieces or units,g,medium,165,5,3,160,14,135,153,140,1169,165,5,own cell x size,0
 carrot,CAPIZ,DUMALAG,pieces or units,g,large,300,4,3,160,14,135,153,140,1169,300,4,own cell x size,0
 chicken,CAPIZ,DUMALAG,whole (chicken),g,medium,1005,3,3,1355,5,1160,75,1120,468,1355,5,cell pooled across sizes,0
 chicken,CAPIZ,DUMALAG,whole (chicken),g,large,1492.5,2,3,1355,5,1160,75,1120,468,1355,5,cell pooled across sizes,0
 "crackers, cookies, buiscuits, chips/curls",CAPIZ,DUMALAG,pieces or units,g,medium,31,6,2,31,6,31.5,88,32,505,31,6,own cell x size,0
-"crackers, cookies, buiscuits, chips/curls",CAPIZ,DUMALAG,putos,g,conventional_nsu,310,4,1,310,4,287.5,54,210,482,310,4,own cell x size,0
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,DUMALAG,putos,g,medium,310,4,1,310,4,287.5,54,210,482,310,4,own cell x size,0
 "drinks at restaurant, hotel, cafe, or kiosk",CAPIZ,DUMALAG,pieces,mL,small,473,1,3,473,1,473,9,355,164,473,9,province x item x unit,0
 fresh fish,CAPIZ,DUMALAG,pieces or units,g,medium,530,2,3,722.5,4,377.5,120,390,685,722.5,4,cell pooled across sizes,0
 fresh fish,CAPIZ,DUMALAG,pieces or units,g,large,907.5,2,3,722.5,4,377.5,120,390,685,722.5,4,cell pooled across sizes,0
@@ -961,7 +961,7 @@ mango,CAPIZ,DUMALAG,pieces or units,g,small,155,3,3,195,8,230,73,230,539,195,8,c
 mango,CAPIZ,DUMALAG,pieces or units,g,medium,195,3,3,195,8,230,73,230,539,195,8,cell pooled across sizes,0
 mango,CAPIZ,DUMALAG,pieces or units,g,large,285,2,3,195,8,230,73,230,539,195,8,cell pooled across sizes,0
 "mineral or spring water, all drinking water sold in containers",CAPIZ,DUMALAG,container,mL,medium,1000,1,3,1000,1,1000,1,1000,1,,,,1
-"prawns, lobster, shrimp",CAPIZ,DUMALAG,tumpok,g,conventional_nsu,215,1,1,215,1,290,39,260,147,290,39,province x item x unit,0
+"prawns, lobster, shrimp",CAPIZ,DUMALAG,tumpok,g,medium,215,1,1,215,1,290,39,260,147,290,39,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DUMALAG,bilog,g,small,250,1,3,375,2,70,41,229,222,70,41,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DUMALAG,bilog,g,large,500,1,3,375,2,70,41,229,222,70,41,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DUMALAG,putos,g,medium,1000,3,2,1000,3,250,61,250,473,1000,3,own cell x size,0
@@ -971,7 +971,7 @@ cabbage,CAPIZ,DUMARAO,pack,g,large,770,1,3,355,5,160,11,150,43,355,5,cell pooled
 cabbage,CAPIZ,DUMARAO,pieces or units,g,small,570,3,3,890,7,695,169,655,1306,890,7,cell pooled across sizes,0
 cabbage,CAPIZ,DUMARAO,pieces or units,g,medium,925,2,3,890,7,695,169,655,1306,890,7,cell pooled across sizes,0
 cabbage,CAPIZ,DUMARAO,pieces or units,g,large,1387.5,2,3,890,7,695,169,655,1306,890,7,cell pooled across sizes,0
-camote tops,CAPIZ,DUMARAO,bugkos,g,conventional_nsu,175,1,1,175,1,210,51,195,449,210,51,province x item x unit,0
+camote tops,CAPIZ,DUMARAO,bugkos,g,medium,175,1,1,175,1,210,51,195,449,210,51,province x item x unit,0
 carrot,CAPIZ,DUMARAO,pieces or units,g,small,87.5,2,3,135,5,135,153,140,1169,135,5,cell pooled across sizes,0
 carrot,CAPIZ,DUMARAO,pieces or units,g,medium,140,2,3,135,5,135,153,140,1169,135,5,cell pooled across sizes,0
 carrot,CAPIZ,DUMARAO,pieces or units,g,large,220,1,3,135,5,135,153,140,1169,135,5,cell pooled across sizes,0
@@ -990,7 +990,7 @@ loaf bread,CAPIZ,DUMARAO,small packs,g,small,360,2,3,360,2,400,33,370,259,400,33
 mango,CAPIZ,DUMARAO,pieces or units,g,small,155,2,3,220,6,230,73,230,539,220,6,cell pooled across sizes,0
 mango,CAPIZ,DUMARAO,pieces or units,g,medium,230,3,3,220,6,230,73,230,539,220,6,cell pooled across sizes,0
 mango,CAPIZ,DUMARAO,pieces or units,g,large,355,1,3,220,6,230,73,230,539,220,6,cell pooled across sizes,0
-"prawns, lobster, shrimp",CAPIZ,DUMARAO,tumpok,g,conventional_nsu,570,1,1,570,1,290,39,260,147,290,39,province x item x unit,0
+"prawns, lobster, shrimp",CAPIZ,DUMARAO,tumpok,g,medium,570,1,1,570,1,290,39,260,147,290,39,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DUMARAO,bilog,g,medium,250,2,2,250,2,70,41,229,222,70,41,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,DUMARAO,putos,g,medium,250,2,2,250,2,250,61,250,473,250,61,province x item x unit,0
 cabbage,CAPIZ,IVISAN,pieces or units,g,small,507.5,6,3,705,18,695,169,655,1306,507.5,6,own cell x size,0
@@ -999,7 +999,7 @@ cabbage,CAPIZ,IVISAN,pieces or units,g,large,1100,5,3,705,18,695,169,655,1306,11
 camote,CAPIZ,IVISAN,bilog,g,small,90,3,3,205,9,145,58,140,509,205,9,cell pooled across sizes,0
 camote,CAPIZ,IVISAN,bilog,g,medium,212.5,4,3,205,9,145,58,140,509,205,9,cell pooled across sizes,0
 camote,CAPIZ,IVISAN,bilog,g,large,292.5,2,3,205,9,145,58,140,509,205,9,cell pooled across sizes,0
-camote tops,CAPIZ,IVISAN,bundle,g,conventional_nsu,155,3,1,155,3,170,7,500,101,155,3,own cell x size,0
+camote tops,CAPIZ,IVISAN,bundle,g,medium,155,3,1,155,3,170,7,500,101,155,3,own cell x size,0
 carrot,CAPIZ,IVISAN,pieces or units,g,small,77.5,6,3,135,13,135,153,140,1169,77.5,6,own cell x size,0
 carrot,CAPIZ,IVISAN,pieces or units,g,medium,135,3,3,135,13,135,153,140,1169,135,3,own cell x size,0
 carrot,CAPIZ,IVISAN,pieces or units,g,large,180,4,3,135,13,135,153,140,1169,180,4,own cell x size,0
@@ -1023,14 +1023,14 @@ loaf bread,CAPIZ,IVISAN,small packs,g,small,360,3,3,360,3,400,33,370,259,360,3,o
 mango,CAPIZ,IVISAN,pieces or units,g,small,220,4,3,252.5,12,230,73,230,539,220,4,own cell x size,0
 mango,CAPIZ,IVISAN,pieces or units,g,medium,260,5,3,252.5,12,230,73,230,539,260,5,own cell x size,0
 mango,CAPIZ,IVISAN,pieces or units,g,large,295,3,3,252.5,12,230,73,230,539,295,3,own cell x size,0
-"prawns, lobster, shrimp",CAPIZ,IVISAN,tumpok,g,conventional_nsu,250,3,1,250,3,290,39,260,147,250,3,own cell x size,0
+"prawns, lobster, shrimp",CAPIZ,IVISAN,tumpok,g,medium,250,3,1,250,3,290,39,260,147,250,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,IVISAN,bilog,g,large,70,3,3,70,3,70,41,229,222,70,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,IVISAN,pack,g,medium,280,3,2,280,3,280,3,250,85,280,3,own cell x size,0
 cabbage,CAPIZ,JAMINDAN,pieces or units,g,small,460,4,3,802.5,10,695,169,655,1306,460,4,own cell x size,0
 cabbage,CAPIZ,JAMINDAN,pieces or units,g,medium,840,3,3,802.5,10,695,169,655,1306,840,3,own cell x size,0
 cabbage,CAPIZ,JAMINDAN,pieces or units,g,large,1360,3,3,802.5,10,695,169,655,1306,1360,3,own cell x size,0
 camote tops,CAPIZ,JAMINDAN,bugkos,g,medium,230,1,2,230,1,210,51,195,449,210,51,province x item x unit,0
-camote tops,CAPIZ,JAMINDAN,bundle,g,conventional_nsu,245,1,1,245,1,170,7,500,101,170,7,province x item x unit,0
+camote tops,CAPIZ,JAMINDAN,bundle,g,medium,245,1,1,245,1,170,7,500,101,170,7,province x item x unit,0
 carrot,CAPIZ,JAMINDAN,pieces or units,g,medium,145,3,2,145,3,135,153,140,1169,145,3,own cell x size,0
 chicken,CAPIZ,JAMINDAN,bilog,g,large,1075,1,3,1075,1,1192.5,34,1095,230,1192.5,34,province x item x unit,0
 chicken,CAPIZ,JAMINDAN,chicken wings,g,medium,15,1,2,15,1,15,1,15,1,,,,1
@@ -1055,7 +1055,7 @@ loaf bread,CAPIZ,JAMINDAN,large packs,g,medium,640,1,2,640,1,640,68,640,411,640,
 loaf bread,CAPIZ,JAMINDAN,medium packs,g,medium,450,1,3,450,1,450,39,450,352,450,39,province x item x unit,0
 loaf bread,CAPIZ,JAMINDAN,small packs,g,small,400,1,3,400,1,400,33,370,259,400,33,province x item x unit,0
 mango,CAPIZ,JAMINDAN,pieces or units,g,medium,185,3,2,185,3,230,73,230,539,185,3,own cell x size,0
-"prawns, lobster, shrimp",CAPIZ,JAMINDAN,tumpok,g,conventional_nsu,1000,1,1,1000,1,290,39,260,147,290,39,province x item x unit,0
+"prawns, lobster, shrimp",CAPIZ,JAMINDAN,tumpok,g,medium,1000,1,1,1000,1,290,39,260,147,290,39,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,JAMINDAN,bilog,g,small,250,1,3,250,1,70,41,229,222,70,41,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,JAMINDAN,putos,g,medium,250,1,2,250,1,250,61,250,473,250,61,province x item x unit,0
 rice,CAPIZ,JAMINDAN,letse,g,conventional_nsu,430,1,1,430,1,430,1,425,3,425,3,item x unit (national),0
@@ -1176,11 +1176,11 @@ cabbage,CAPIZ,PANITAN,half,g,medium,375,1,2,375,1,325,4,275,13,325,4,province x 
 cabbage,CAPIZ,PANITAN,pieces or units,g,small,442.5,6,3,705,17,695,169,655,1306,442.5,6,own cell x size,0
 cabbage,CAPIZ,PANITAN,pieces or units,g,medium,747.5,6,3,705,17,695,169,655,1306,747.5,6,own cell x size,0
 cabbage,CAPIZ,PANITAN,pieces or units,g,large,1045,5,3,705,17,695,169,655,1306,1045,5,own cell x size,0
-cabbage,CAPIZ,PANITAN,putos (mix vegetable),g,conventional_nsu,150,3,1,150,3,165,14,160,37,150,3,own cell x size,0
+cabbage,CAPIZ,PANITAN,putos (mix vegetable),g,medium,150,3,1,150,3,165,14,160,37,150,3,own cell x size,0
 camote,CAPIZ,PANITAN,bilog,g,small,100,3,3,130,9,145,58,140,509,130,9,cell pooled across sizes,0
 camote,CAPIZ,PANITAN,bilog,g,medium,135,4,3,130,9,145,58,140,509,130,9,cell pooled across sizes,0
 camote,CAPIZ,PANITAN,bilog,g,large,270,2,3,130,9,145,58,140,509,130,9,cell pooled across sizes,0
-camote tops,CAPIZ,PANITAN,bugkos,g,conventional_nsu,222.5,4,1,222.5,4,210,51,195,449,222.5,4,own cell x size,0
+camote tops,CAPIZ,PANITAN,bugkos,g,medium,222.5,4,1,222.5,4,210,51,195,449,222.5,4,own cell x size,0
 carrot,CAPIZ,PANITAN,pieces or units,g,small,70,6,3,110,18,135,153,140,1169,70,6,own cell x size,0
 carrot,CAPIZ,PANITAN,pieces or units,g,medium,110,7,3,110,18,135,153,140,1169,110,7,own cell x size,0
 carrot,CAPIZ,PANITAN,pieces or units,g,large,210,5,3,110,18,135,153,140,1169,210,5,own cell x size,0
@@ -1211,7 +1211,7 @@ fresh fish,CAPIZ,PANITAN,pieces or units,g,large,590,2,3,160,8,377.5,120,390,685
 loaf bread,CAPIZ,PANITAN,small packs,g,small,400,4,3,500,10,400,33,370,259,500,10,cell pooled across sizes,0
 loaf bread,CAPIZ,PANITAN,small packs,g,medium,550,4,3,500,10,400,33,370,259,500,10,cell pooled across sizes,0
 loaf bread,CAPIZ,PANITAN,small packs,g,large,700,2,3,500,10,400,33,370,259,500,10,cell pooled across sizes,0
-"prawns, lobster, shrimp",CAPIZ,PANITAN,tumpok,g,conventional_nsu,285,3,1,285,3,290,39,260,147,285,3,own cell x size,0
+"prawns, lobster, shrimp",CAPIZ,PANITAN,tumpok,g,medium,285,3,1,285,3,290,39,260,147,285,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PANITAN,bilog,g,small,250,3,3,275,7,70,41,229,222,275,7,cell pooled across sizes,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PANITAN,bilog,g,medium,387.5,2,3,275,7,70,41,229,222,275,7,cell pooled across sizes,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PANITAN,bilog,g,large,1200,2,3,275,7,70,41,229,222,275,7,cell pooled across sizes,0
@@ -1220,7 +1220,7 @@ cabbage,CAPIZ,PILAR,pieces or units,g,medium,762.5,4,3,760,9,695,169,655,1306,76
 cabbage,CAPIZ,PILAR,pieces or units,g,large,1052.5,2,3,760,9,695,169,655,1306,760,9,cell pooled across sizes,0
 camote,CAPIZ,PILAR,bilog,g,small,90,1,3,145,3,145,58,140,509,145,3,cell pooled across sizes,0
 camote,CAPIZ,PILAR,bilog,g,medium,240,2,3,145,3,145,58,140,509,145,3,cell pooled across sizes,0
-camote tops,CAPIZ,PILAR,bugkos,g,conventional_nsu,125,3,1,125,3,210,51,195,449,125,3,own cell x size,0
+camote tops,CAPIZ,PILAR,bugkos,g,medium,125,3,1,125,3,210,51,195,449,125,3,own cell x size,0
 carrot,CAPIZ,PILAR,pieces or units,g,small,70,3,3,125,9,135,153,140,1169,125,9,cell pooled across sizes,0
 carrot,CAPIZ,PILAR,pieces or units,g,medium,135,4,3,125,9,135,153,140,1169,125,9,cell pooled across sizes,0
 carrot,CAPIZ,PILAR,pieces or units,g,large,192.5,2,3,125,9,135,153,140,1169,125,9,cell pooled across sizes,0
@@ -1245,7 +1245,7 @@ loaf bread,CAPIZ,PILAR,large packs,g,large,800,2,3,490,10,640,68,640,411,490,10,
 mango,CAPIZ,PILAR,"papaya, mango, banana",g,small,660,2,3,702.5,4,702.5,4,702.5,4,702.5,4,cell pooled across sizes,0
 mango,CAPIZ,PILAR,"papaya, mango, banana",g,medium,745,1,3,702.5,4,702.5,4,702.5,4,702.5,4,cell pooled across sizes,0
 mango,CAPIZ,PILAR,"papaya, mango, banana",g,large,1290,1,3,702.5,4,702.5,4,702.5,4,702.5,4,cell pooled across sizes,0
-"prawns, lobster, shrimp",CAPIZ,PILAR,tumpok,g,conventional_nsu,400,3,1,400,3,290,39,260,147,400,3,own cell x size,0
+"prawns, lobster, shrimp",CAPIZ,PILAR,tumpok,g,medium,400,3,1,400,3,290,39,260,147,400,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PILAR,bilog,g,large,70,3,3,70,3,70,41,229,222,70,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PILAR,putos,g,small,157.5,2,3,252.5,6,250,61,250,473,252.5,6,cell pooled across sizes,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PILAR,putos,g,medium,255,3,3,252.5,6,250,61,250,473,252.5,6,cell pooled across sizes,0
@@ -1256,7 +1256,7 @@ cabbage,CAPIZ,PONTEVEDRA,pieces or units,g,large,1060,5,3,807.5,18,695,169,655,1
 camote,CAPIZ,PONTEVEDRA,bilog,g,small,83,3,3,105,9,145,58,140,509,105,9,cell pooled across sizes,0
 camote,CAPIZ,PONTEVEDRA,bilog,g,medium,130,4,3,105,9,145,58,140,509,105,9,cell pooled across sizes,0
 camote,CAPIZ,PONTEVEDRA,bilog,g,large,220,2,3,105,9,145,58,140,509,105,9,cell pooled across sizes,0
-camote tops,CAPIZ,PONTEVEDRA,bugkos,g,conventional_nsu,150,5,1,150,5,210,51,195,449,150,5,own cell x size,0
+camote tops,CAPIZ,PONTEVEDRA,bugkos,g,medium,150,5,1,150,5,210,51,195,449,150,5,own cell x size,0
 carrot,CAPIZ,PONTEVEDRA,pieces or units,g,small,105,5,3,132.5,14,135,153,140,1169,105,5,own cell x size,0
 carrot,CAPIZ,PONTEVEDRA,pieces or units,g,medium,140,5,3,132.5,14,135,153,140,1169,140,5,own cell x size,0
 carrot,CAPIZ,PONTEVEDRA,pieces or units,g,large,233.5,4,3,132.5,14,135,153,140,1169,233.5,4,own cell x size,0
@@ -1272,7 +1272,7 @@ fresh fish,CAPIZ,PONTEVEDRA,pieces or units,g,large,637.5,2,3,555,7,377.5,120,39
 loaf bread,CAPIZ,PONTEVEDRA,large packs,g,large,640,2,3,640,2,640,68,640,411,640,68,province x item x unit,0
 loaf bread,CAPIZ,PONTEVEDRA,medium packs,g,medium,450,3,3,450,3,450,39,450,352,450,3,own cell x size,0
 loaf bread,CAPIZ,PONTEVEDRA,small packs,g,medium,450,1,3,450,1,400,33,370,259,400,33,province x item x unit,0
-"prawns, lobster, shrimp",CAPIZ,PONTEVEDRA,tumpok,g,conventional_nsu,225,4,1,225,4,290,39,260,147,225,4,own cell x size,0
+"prawns, lobster, shrimp",CAPIZ,PONTEVEDRA,tumpok,g,medium,225,4,1,225,4,290,39,260,147,225,4,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PONTEVEDRA,bilog,g,small,162.5,4,3,162.5,4,70,41,229,222,162.5,4,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PONTEVEDRA,putos,g,small,117,3,3,250,9,250,61,250,473,250,9,cell pooled across sizes,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PONTEVEDRA,putos,g,medium,250,4,3,250,9,250,61,250,473,250,9,cell pooled across sizes,0
@@ -1280,8 +1280,8 @@ loaf bread,CAPIZ,PONTEVEDRA,small packs,g,medium,450,1,3,450,1,400,33,370,259,40
 cabbage,CAPIZ,PRESIDENT ROXAS,pieces or units,g,small,515,3,3,717.5,8,695,169,655,1306,717.5,8,cell pooled across sizes,0
 cabbage,CAPIZ,PRESIDENT ROXAS,pieces or units,g,medium,750,3,3,717.5,8,695,169,655,1306,717.5,8,cell pooled across sizes,0
 cabbage,CAPIZ,PRESIDENT ROXAS,pieces or units,g,large,1117.5,2,3,717.5,8,695,169,655,1306,717.5,8,cell pooled across sizes,0
-cabbage,CAPIZ,PRESIDENT ROXAS,putos (mix vegetable),g,conventional_nsu,165,1,1,165,1,165,14,160,37,165,14,province x item x unit,0
-camote tops,CAPIZ,PRESIDENT ROXAS,bugkos,g,conventional_nsu,305,1,1,305,1,210,51,195,449,210,51,province x item x unit,0
+cabbage,CAPIZ,PRESIDENT ROXAS,putos (mix vegetable),g,medium,165,1,1,165,1,165,14,160,37,165,14,province x item x unit,0
+camote tops,CAPIZ,PRESIDENT ROXAS,bugkos,g,medium,305,1,1,305,1,210,51,195,449,210,51,province x item x unit,0
 carrot,CAPIZ,PRESIDENT ROXAS,pieces or units,g,small,85,3,3,190,9,135,153,140,1169,190,9,cell pooled across sizes,0
 carrot,CAPIZ,PRESIDENT ROXAS,pieces or units,g,medium,195,4,3,190,9,135,153,140,1169,190,9,cell pooled across sizes,0
 carrot,CAPIZ,PRESIDENT ROXAS,pieces or units,g,large,337.5,2,3,190,9,135,153,140,1169,190,9,cell pooled across sizes,0
@@ -1301,14 +1301,14 @@ mango,CAPIZ,PRESIDENT ROXAS,pieces or units,g,small,227.5,2,3,280,4,230,73,230,5
 mango,CAPIZ,PRESIDENT ROXAS,pieces or units,g,medium,315,1,3,280,4,230,73,230,539,280,4,cell pooled across sizes,0
 mango,CAPIZ,PRESIDENT ROXAS,pieces or units,g,large,360,1,3,280,4,230,73,230,539,280,4,cell pooled across sizes,0
 pork,CAPIZ,PRESIDENT ROXAS,2 slice,g,medium,87.5,2,2,87.5,2,87.5,2,87.5,2,,,,1
-"prawns, lobster, shrimp",CAPIZ,PRESIDENT ROXAS,tumpok,g,conventional_nsu,322.5,2,1,322.5,2,290,39,260,147,290,39,province x item x unit,0
+"prawns, lobster, shrimp",CAPIZ,PRESIDENT ROXAS,tumpok,g,medium,322.5,2,1,322.5,2,290,39,260,147,290,39,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PRESIDENT ROXAS,bilog,g,small,65,1,3,65,1,70,41,229,222,70,41,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PRESIDENT ROXAS,putos,g,small,250,1,3,250,1,250,61,250,473,250,61,province x item x unit,0
 cabbage,CAPIZ,SAPI-AN,pieces or units,g,small,530,3,3,720,9,695,169,655,1306,720,9,cell pooled across sizes,0
 cabbage,CAPIZ,SAPI-AN,pieces or units,g,medium,735,4,3,720,9,695,169,655,1306,720,9,cell pooled across sizes,0
 cabbage,CAPIZ,SAPI-AN,pieces or units,g,large,1080,2,3,720,9,695,169,655,1306,720,9,cell pooled across sizes,0
-cabbage,CAPIZ,SAPI-AN,putos (mix vegetable),g,conventional_nsu,162.5,2,1,162.5,2,165,14,160,37,165,14,province x item x unit,0
-camote tops,CAPIZ,SAPI-AN,bundle,g,conventional_nsu,175,3,1,175,3,170,7,500,101,175,3,own cell x size,0
+cabbage,CAPIZ,SAPI-AN,putos (mix vegetable),g,medium,162.5,2,1,162.5,2,165,14,160,37,165,14,province x item x unit,0
+camote tops,CAPIZ,SAPI-AN,bundle,g,medium,175,3,1,175,3,170,7,500,101,175,3,own cell x size,0
 carrot,CAPIZ,SAPI-AN,pieces or units,g,small,90,3,3,130,9,135,153,140,1169,130,9,cell pooled across sizes,0
 carrot,CAPIZ,SAPI-AN,pieces or units,g,medium,132.5,4,3,130,9,135,153,140,1169,130,9,cell pooled across sizes,0
 carrot,CAPIZ,SAPI-AN,pieces or units,g,large,210,2,3,130,9,135,153,140,1169,130,9,cell pooled across sizes,0
@@ -1332,7 +1332,7 @@ loaf bread,CAPIZ,SAPI-AN,medium packs,g,medium,440,4,3,440,4,450,39,450,352,440,
 mango,CAPIZ,SAPI-AN,pieces or units,g,small,225,1,3,345,3,230,73,230,539,345,3,cell pooled across sizes,0
 mango,CAPIZ,SAPI-AN,pieces or units,g,medium,395,2,3,345,3,230,73,230,539,345,3,cell pooled across sizes,0
 "mineral or spring water, all drinking water sold in containers",CAPIZ,SAPI-AN,refilled,mL,medium,1000,4,3,1000,4,1000,4,1000,4,1000,4,own cell x size,0
-"prawns, lobster, shrimp",CAPIZ,SAPI-AN,tumpok,g,conventional_nsu,95,1,1,95,1,290,39,260,147,290,39,province x item x unit,0
+"prawns, lobster, shrimp",CAPIZ,SAPI-AN,tumpok,g,medium,95,1,1,95,1,290,39,260,147,290,39,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,SAPI-AN,bilog,g,large,70,3,3,70,3,70,41,229,222,70,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,SAPI-AN,putos,g,medium,250,3,2,250,3,250,61,250,473,250,3,own cell x size,0
 rice,CAPIZ,SAPI-AN,gantang,g,conventional_nsu,2250,3,1,2250,3,2250,3,2247.5,28,2250,3,own cell x size,0
@@ -1341,7 +1341,7 @@ cabbage,CAPIZ,SIGMA,pieces or units,g,small,455,3,3,655,9,695,169,655,1306,655,9
 cabbage,CAPIZ,SIGMA,pieces or units,g,medium,667.5,4,3,655,9,695,169,655,1306,655,9,cell pooled across sizes,0
 cabbage,CAPIZ,SIGMA,pieces or units,g,large,920,2,3,655,9,695,169,655,1306,655,9,cell pooled across sizes,0
 cabbage,CAPIZ,SIGMA,putos (mix vegetable),g,medium,165,3,2,165,3,165,14,160,37,165,3,own cell x size,0
-camote tops,CAPIZ,SIGMA,bugkos,g,conventional_nsu,200,3,1,200,3,210,51,195,449,200,3,own cell x size,0
+camote tops,CAPIZ,SIGMA,bugkos,g,medium,200,3,1,200,3,210,51,195,449,200,3,own cell x size,0
 carrot,CAPIZ,SIGMA,pieces or units,g,medium,105,3,2,105,3,135,153,140,1169,105,3,own cell x size,0
 chicken,CAPIZ,SIGMA,whole (chicken),g,small,935,2,2,1107.5,6,1160,75,1120,468,1107.5,6,cell pooled across sizes,0
 chicken,CAPIZ,SIGMA,whole (chicken),g,medium,1117.5,2,2,1107.5,6,1160,75,1120,468,1107.5,6,cell pooled across sizes,0
@@ -1366,12 +1366,12 @@ loaf bread,CAPIZ,SIGMA,large packs,g,small,450,7,3,450,13,640,68,640,411,450,13,
 loaf bread,CAPIZ,SIGMA,large packs,g,medium,600,2,3,450,13,640,68,640,411,450,13,cell pooled across sizes,0
 loaf bread,CAPIZ,SIGMA,large packs,g,large,640,4,3,450,13,640,68,640,411,450,13,cell pooled across sizes,0
 mango,CAPIZ,SIGMA,pieces or units,g,medium,235,2,2,235,2,230,73,230,539,230,73,province x item x unit,0
-"prawns, lobster, shrimp",CAPIZ,SIGMA,tumpok,g,conventional_nsu,280,3,1,280,3,290,39,260,147,280,3,own cell x size,0
+"prawns, lobster, shrimp",CAPIZ,SIGMA,tumpok,g,medium,280,3,1,280,3,290,39,260,147,280,3,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,SIGMA,putos,g,medium,257.5,4,2,257.5,4,250,61,250,473,257.5,4,own cell x size,0
 cabbage,CAPIZ,TAPAZ,pack,g,medium,160,3,2,160,3,160,11,150,43,160,3,own cell x size,0
 cabbage,CAPIZ,TAPAZ,pieces or units,g,medium,500,3,2,500,3,695,169,655,1306,500,3,own cell x size,0
 camote,CAPIZ,TAPAZ,bilog,g,medium,95,3,2,95,3,145,58,140,509,95,3,own cell x size,0
-camote tops,CAPIZ,TAPAZ,bugkos,g,conventional_nsu,280,3,1,280,3,210,51,195,449,280,3,own cell x size,0
+camote tops,CAPIZ,TAPAZ,bugkos,g,medium,280,3,1,280,3,210,51,195,449,280,3,own cell x size,0
 carrot,CAPIZ,TAPAZ,pieces or units,g,small,95,3,3,120,9,135,153,140,1169,120,9,cell pooled across sizes,0
 carrot,CAPIZ,TAPAZ,pieces or units,g,medium,125,4,3,120,9,135,153,140,1169,120,9,cell pooled across sizes,0
 carrot,CAPIZ,TAPAZ,pieces or units,g,large,210,2,3,120,9,135,153,140,1169,120,9,cell pooled across sizes,0
@@ -2519,7 +2519,7 @@ pork,ILOILO,POTOTAN,pieces or units,g,medium,205,7,2,205,7,260,15,260,15,205,7,o
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,POTOTAN,bilog,g,medium,275,1,3,250,5,250,116,229,222,250,5,cell pooled across sizes,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,POTOTAN,putos,g,medium,250,7,3,250,7,250,182,250,473,250,7,own cell x size,0
 rice,ILOILO,POTOTAN,salmon,g,conventional_nsu,310,1,1,310,1,410,21,410,21,410,21,province x item x unit,0
-cabbage,ILOILO,SAN DIONISIO,pieces or units,g,conventional_nsu,817.5,4,1,817.5,4,660,543,655,1306,817.5,4,own cell x size,0
+cabbage,ILOILO,SAN DIONISIO,pieces or units,g,medium,817.5,4,1,817.5,4,660,543,655,1306,817.5,4,own cell x size,0
 cabbage,ILOILO,SAN DIONISIO,sliced,g,small,65,2,3,65,2,65,2,65,2,,,,1
 camote,ILOILO,SAN DIONISIO,bilog,g,small,80,5,3,130,13,140,296,140,509,80,5,own cell x size,0
 camote,ILOILO,SAN DIONISIO,bilog,g,medium,135,4,3,130,13,140,296,140,509,135,4,own cell x size,0
@@ -3287,10 +3287,12 @@ loaf bread,NEGROS OCCIDENTAL,TOBOSO,small packs,g,small,400,1,3,400,1,252.5,38,3
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,TOBOSO,bilog,g,medium,60,1,2,60,1,65,38,229,222,65,38,province x item x unit,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,TOBOSO,pack,g,medium,250,4,2,250,4,250,6,250,85,250,4,own cell x size,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,TOBOSO,putos,g,medium,250,4,2,250,4,250,70,250,473,250,4,own cell x size,0
-cabbage,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,g,medium,425,6,2,425,6,520,149,655,1306,425,6,own cell x size,0
+cabbage,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,g,small,325,3,2,425,6,520,149,655,1306,325,3,own cell x size,0
+cabbage,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,g,large,780,3,2,425,6,520,149,655,1306,780,3,own cell x size,0
 camote,NEGROS OCCIDENTAL,VALLADOLID,bilog,g,medium,95,3,2,95,3,130,38,140,509,95,3,own cell x size,0
 camote tops,NEGROS OCCIDENTAL,VALLADOLID,bugkos,g,small,535,3,3,535,3,305,74,195,449,535,3,own cell x size,0
-carrot,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,g,medium,137.5,6,2,137.5,6,130,82,140,1169,137.5,6,own cell x size,0
+carrot,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,g,small,95,3,2,137.5,6,130,82,140,1169,95,3,own cell x size,0
+carrot,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,g,large,150,3,2,137.5,6,130,82,140,1169,150,3,own cell x size,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,VALLADOLID,pieces or units,g,small,35,1,3,43,3,70,15,60,94,43,3,cell pooled across sizes,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,VALLADOLID,pieces or units,g,medium,44,2,3,43,3,70,15,60,94,43,3,cell pooled across sizes,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,VALLADOLID,pieces or units,mL,small,32,1,3,32,1,65,31,100,166,65,31,province x item x unit,0
