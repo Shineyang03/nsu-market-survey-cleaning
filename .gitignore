@@ -49,3 +49,9 @@ outputs/temp/_cpi_port/
 # the published one. Regenerated on demand and diffed against master_rename_build; there
 # is no reason to keep a second full build in the repo.
 outputs/anchor_*/
+
+# The clean from-raw rebuild 90_diagnostics/test_full_rebuild.do writes, for the same
+# reason: it is a ~70 MB second copy of the published build, produced to be diffed against
+# it and then discarded. The DIFF REPORT it writes is small and does belong in the repo,
+# so it goes to outputs/tables/ rather than into this tree.
+outputs/test_*/

@@ -31,7 +31,15 @@ the **price points** the price file holds. Neither output is derivable from the 
 ```
 cd ".../Data Cleaning/dofiles"
 "C:\Program Files\StataNow19\StataSE-64.exe" -e do master_outcome1.do
+"C:\Program Files\StataNow19\StataSE-64.exe" -e do master_outcome2.do
+"C:\Program Files\StataNow19\StataSE-64.exe" -e do 90_diagnostics\sense_check_outputs.do
 ```
+
+The third line is not part of the build. It reads what the first two published and asks
+whether the numbers are plausible — see *Checking the two deliverables* below.
+
+**`stata -e` exits 0 even when a do-file errors.** Check the log for `r(` followed by a
+number and a semicolon; an exit status of 0 is not evidence the build ran.
 
 **The working directory must be `dofiles/`.** Each step reaches `00_shared/00_globals.do`
 by a relative path, because the globals that would give it an absolute one are what
@@ -153,7 +161,7 @@ checking. Check 5 is what tells you those outputs still match their inputs.
 |---|---|
 | `00_shared/` | raw market survey → one clean weight per weighing, with `cpi_factor` |
 | `10_reference_set/` | Outcome 1 |
-| `20_psps_retrofitting/` | Outcome 2 (skeleton) |
+| `20_psps_retrofitting/` | Outcome 2 |
 | `90_diagnostics/` | scoping, auditing and reporting. Never on a critical path. |
 | `archive/` | superseded. Nothing calls it. `archive/README.md` says why each file is there. |
 
@@ -333,8 +341,37 @@ resolve.
 cross-municipality spread; the corrected figure is **6.7×**, so read it against that.
 
 **Not build steps, and still open:** #20 (approach A vs B, needs `psps_converted_capped.dta`),
-#11 (compare the two lookups' household grams — both are built), #16 (Outcome 1 against Outcome 2,
-answerable for the first time).
+#11 (compare the two lookups' household grams — both are built).
+
+### Checking the two deliverables
+
+Two diagnostics exist for the questions "does it rebuild?" and "is the answer sensible?".
+They are separate because a build can reproduce byte for byte and still be wrong by a
+factor of ten, and nothing in the reproduction check would notice.
+
+| file | asks |
+|---|---|
+| `90_diagnostics/test_full_rebuild.do` | **does the pipeline reproduce from the raw files?** Sets `${build_name}` to its own subtree, clears it, runs both masters from the raw market survey, price file and PSPS file, then compares every published dataset against the live build on row count, variable count and a hex-float sum of every numeric column. Hex float rather than a decimal sum because `local x = r(sum)` truncates a double to about 13 significant digits, which hides a difference in the last bits. Writes `outputs/tables/test_full_rebuild_diff.csv`; its build tree is gitignored |
+| `90_diagnostics/sense_check_outputs.do` | **is the answer plausible?** Reads only published outputs, plus household size from the raw PSPS file, which the pipeline does not compute. Four sections: Outcome 1's reference grams by item, Outcome 2's conversion factors by fallback rung, the two deliverables on the same cells (#16), and implied grams per person per day — the one check with a referent outside the pipeline. Writes four CSVs to `tables/` and four panels to `graphs/` |
+
+**Read `sense_check_outputs.do`'s section 4 first if something looks wrong.** Sections 1–3
+judge the outputs against other outputs from the same build, which cannot catch an error
+shared by all of them. Section 4 leaves the pipeline: it asks whether the implied food
+intake is an amount a person could eat.
+
+Two things the sense check has established, worth knowing before reading it:
+
+* **Its implausible tail is upstream.** Every household above 10 kg per person per day is
+  a *standard-unit* report — a reported count of 5-gallon water containers, or 250 kg of
+  pork — where the conversion is a stated container size times a reported count. An
+  implausible total there is an implausible reported quantity, not a conversion error.
+  The `route` column in section 4b separates the two.
+* **The borrowed rungs' higher medians are mostly composition.** L2 and L3 sit about 1.7×
+  above L0 on the raw comparison, but a borrowed rung is used exactly where the cell had
+  no weighings, so the comparison mixes rungs with baskets. Holding (item × harmonized
+  unit) fixed, the high-volume pairs come back to 0.92–1.09. What survives is concentrated
+  on labels that do not pin down a quantity in the first place — `pieces or units`,
+  `small packs` — which is a limit of the fallback ladder rather than a defect in it.
 
 **Carry the uncertainty through.** Every weighing carries flags saying whether its weight
 was corrected and whether it is disputed, anchor-flagged or unusable —
