@@ -319,6 +319,45 @@ O2_STANDARD_PATH = BDELIV / "psps_standard_units.dta"
 O2_HOUSEHOLDS_PATH = BT / "psps_households.dta"
 LEDGER_PATH = DC / "outputs" / "build" / "summary" / "attrition_ledger.csv"
 
+
+# ---- the expectations this file checks its own replication against ----------------
+# READ FROM THE GENERATED LEDGER, not frozen in a string.
+#
+# This file replicates several stage decisions independently -- stage-1 arrival drops and
+# the stage-3 eligibility cut -- so that a mismatch against the build is visible. The
+# comparison is worth having. What was NOT worth having was the comparison target written
+# as a literal: six of them had gone stale (arrival 42 vs the build's 62, non-NSU labels
+# 38 vs 58, no-weight 7 vs 8, carrot 7 vs 4, crosswalk rows 2,933 vs 2,927, singletons
+# 778 vs 773), so every run printed six mismatches that were not defects. Six standing
+# false alarms is worse than none: it trains the reader to skim past the line that will
+# one day be real.
+#
+# `attrition_ledger.csv' is GENERATED from the build by 90_diagnostics/attrition_ledger.do
+# (#8), so reading the expectation from it cannot drift. It is not circular either: the
+# ledger counts rows in the built files, this file re-derives the same drops from the raw
+# survey, and the check is that two independent routes agree.
+def _ledger_drop(stage_contains, desc_contains):
+    """rows_dropped from the generated ledger, by stage and description substring."""
+    if not LEDGER_PATH.exists():
+        return None
+    led = pd.read_csv(LEDGER_PATH, encoding='utf-8-sig')
+    m = (led.stage.astype(str).str.contains(stage_contains, case=False, na=False)
+         & led.description.astype(str).str.contains(desc_contains, case=False,
+                                                    na=False, regex=False))
+    hit = led[m]
+    if len(hit) != 1 or pd.isna(hit.rows_dropped.iloc[0]):
+        return None
+    return int(hit.rows_dropped.iloc[0])
+
+
+def _vs(label, got, want):
+    """One comparison line. Says AGREES or MISMATCH rather than leaving arithmetic
+    to the reader, and says plainly when it had nothing to compare against."""
+    if want is None:
+        return f"  {label}: {got:,} (no ledger figure to check against)"
+    verdict = "agrees with the ledger" if got == want else f"MISMATCH -- ledger says {want:,}"
+    return f"  {label}: {got:,} ({verdict})"
+
 # Lives under the build's own subtree rather than a top-level outputs/explorer/: the
 # explorer is built from one specific build, so a variant build set via ${build_name}
 # should get its own explorer rather than overwriting the published one -- the same
@@ -461,7 +500,12 @@ def classify_stage1_drops(raw, master):
     master['_key'] = master_key
 
     dropped = raw[~raw.in_master].copy()
-    log(f"  raw rows with no arrival-stage match: {len(dropped)} (expect 42)")
+    # The ledger splits stage 1 in two: hand-identified drops and non-NSU labels. Their
+    # sum is what this replication should reproduce.
+    _hand = _ledger_drop("1 arrival", "hand-identified")
+    _nonnsu = _ledger_drop("1 arrival", "not non-standard units")
+    _want1 = None if (_hand is None or _nonnsu is None) else _hand + _nonnsu
+    log(_vs("raw rows with no arrival-stage match", len(dropped), _want1))
 
     # ---- reason 1a: the one comment-flagged data-entry error -----------------
     cw = pd.read_excel(COMMENTS_XW_PATH, dtype=str)
@@ -497,9 +541,10 @@ def classify_stage1_drops(raw, master):
         & (dropped.U_norm == 'bilog') & (dropped.C == 'TIGBAUAN'))
 
     n1a, n1c, n1d = dropped.reason_1a.sum(), dropped.reason_1c.sum(), dropped.reason_1d.sum()
-    log(f"  of which: 1a data-entry error = {n1a} (expect 1)")
-    log(f"            1c non-NSU label = {n1c} (expect 38)")
-    log(f"            1d TIGBAUAN glitch = {n1d} (expect 3)")
+    # 1a and 1d are the ledger's "hand-identified" pair; 1c is its non-NSU-label row.
+    log(_vs("of which: 1c non-NSU label", n1c, _nonnsu))
+    log(_vs("          1a + 1d hand-identified", n1a + n1d, _hand))
+    log(f"            (1a data-entry error = {n1a}, 1d TIGBAUAN glitch = {n1d})")
 
     unexplained = dropped[~(dropped.reason_1a | dropped.reason_1c | dropped.reason_1d)]
     if len(unexplained):
@@ -606,10 +651,13 @@ def classify_stage3(restated, refset):
     n1 = r.drop_no_wref.sum()
     n2 = r.drop_unique_mun.sum()
     n3 = r.drop_carrot.sum()
-    log(f"  stage3 drops (replicated): no usable corrected_weight={n1} (doc: 7), "
-        f"unique_mun_price={n2} (doc: 33), carrot mixed-branch={n3} (doc: 7 -- "
-        f"stale; see module docstring, the ILOILO/TIGBAUAN carrot cell currently "
-        f"holds 4 price-quantity rows on disk, not 7)")
+    log("  stage3 drops, replicated here and checked against the generated ledger:")
+    log(_vs("  no usable corrected_weight", int(n1),
+            _ledger_drop("3 eligible", "no defensible weight")))
+    log(_vs("  unique_mun_price", int(n2),
+            _ledger_drop("3 eligible", "unique_mun_price")))
+    log(_vs("  carrot mixed-branch", int(n3),
+            _ledger_drop("3 eligible", "mixed-branch cell")))
 
     eligible = r[~(r.drop_no_wref | r.drop_unique_mun | r.drop_carrot)].copy()
     log(f"  rows entering the Outcome 1 collapse: {len(eligible)} "
@@ -946,8 +994,13 @@ def classify_price_rows(master_rename):
     intended = unmatched[unmatched.Unit_lbl.map(is_dropped_label)]
     broken = unmatched[~unmatched.Unit_lbl.map(is_dropped_label)]
     log(f"  price rows: {len(pr)} (expect 5,412)")
-    log(f"  price rows unmatched to the crosswalk: {len(unmatched)} (expect 17, all "
-        f"deliberately-dropped labels -- dofiles/00_shared/02_drop_non_nsu_labels.py)")
+    # NO FROZEN COUNT HERE. The number of unmatched rows moves with every label the
+    # trim removes -- it was 17, it is now 23 -- and the count was never the thing that
+    # mattered. The invariant is that EVERY unmatched row is a deliberately-dropped
+    # label, and that is enforced below by a hard exit on `broken', not by a number in
+    # a log line.
+    log(f"  price rows unmatched to the crosswalk: {len(unmatched)} -- all must be "
+        f"deliberately-dropped labels (dofiles/00_shared/02_drop_non_nsu_labels.py)")
     log(f"    of which deliberately-dropped labels: {len(intended)}, "
         f"BROKEN (unexplained): {len(broken)}")
     if len(broken):
@@ -1303,7 +1356,13 @@ def build_case_explorer(master_rename):
     cw['_key'] = [key4(p, c, i, h) for p, c, i, h in
                   zip(cw.province, cw.pull_municipal_city, cw.cons_name,
                       cw.harmonized_nsu_unit)]
-    log(f"  crosswalk rows embedded for the case explorer: {len(cw):,} (expect 2,933)")
+    # Checked against the crosswalk's own row count rather than a frozen 2,933, which
+    # went stale when the label trim removed six rows. The claim worth making is that
+    # the page embeds ALL of it, not that it embeds a particular number.
+    _n_xw = len(master_rename)
+    log(_vs("crosswalk rows embedded for the case explorer", len(cw), _n_xw)
+        .replace("agrees with the ledger", "the whole crosswalk")
+        .replace("MISMATCH -- ledger says", "MISMATCH -- master_nsu_rename.csv holds"))
 
     cases = []
     for k, g in cw.groupby('_key'):
@@ -1335,7 +1394,11 @@ def build_case_explorer(master_rename):
     singleton['_key4'] = [key4(p, m, i, h) for p, m, i, h in
                           zip(singleton.pull_province, singleton.pull_municipal_city,
                               singleton.pull_item, singleton.harmonized_nsu_unit)]
-    log(f"  singleton hetero-groups: {len(singleton):,} (expect 778)")
+    # No frozen 778. This is a straight read of the CSV that 90_diagnostics/
+    # scope_singleton_groups.py writes, so there is no second number to disagree with
+    # -- the count moves with the build and the file is the authority on it.
+    log(f"  singleton hetero-groups: {len(singleton):,} "
+        f"(as written by scope_singleton_groups.py)")
 
     return {
         "crosswalk": _records(cw),
