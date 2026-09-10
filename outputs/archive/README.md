@@ -61,6 +61,44 @@ an id written down today keeps its meaning. That was not true when this file was
 
 ---
 
+## `price_only_no_weight_anywhere.csv` — an orphan input, removed rather than repaired
+
+586 rows, one per price-only cell, with four informational columns:
+`item_weighed_in_this_municipality`, `n_weighings_of_item_here`,
+`other_units_weighed_here`, `this_unit_weighed_anywhere`.
+
+**Nothing in the tree ever wrote it**, and `90_diagnostics/build_pipeline_explorer.py`
+was its only reader — the orphan-input defect of issue #33, where a frozen CSV is
+presented as an intermediate, cannot be regenerated, and drifts silently as the
+crosswalk changes.
+
+The obvious fix was to give it a producer. It did not earn one:
+
+* all four columns are derivable from `nsu_weighings_cpi.dta`;
+* the explorer **already** derived the same classification freshly, using the CSV only
+  as a preferred lookup with the fresh derivation as fallback — two implementations of
+  one rule, with the frozen one winning;
+* the two agree on **585 of its 586 rows**. The one disagreement is its own drifted row,
+  CAPIZ / PANAY / drinking water / `distilled water`, which it records as weighed
+  nowhere and which the current weighings place at a province fallback;
+* that row keys to a cell that no longer exists, so it was already being filtered out.
+  **Bucket totals are identical with and without the file**: 1,943 convertible, 427
+  province fallback, 78 other-province-only, 79 weighed nowhere.
+
+So its entire remaining contribution was a warning that it had gone stale. It also
+powered a `stale-CSV` badge and a case-detail panel in the explorer, both of which
+described the CSV rather than the data and were removed with it.
+
+**One framing difference it embodied, worth knowing if it is ever revived:** it required
+a *usable weight* to call a cell weighed, whereas the live derivation counts a cell as
+weighed if any row exists. CAPIZ / TAPAZ chicken sits on exactly that line — its rows
+exist but carry no `corrected_unit`. Both are defensible; the live one is in force.
+
+To recover the per-cell detail, derive it from `nsu_weighings_cpi.dta`. Do not revive
+this file.
+
+---
+
 ## `graphs/` — superseded figures, not dead code
 
 17 files moved here from `outputs/graphs/`: six forest plots (`forest_v1` … `forest_v6`),

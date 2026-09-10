@@ -176,37 +176,42 @@ and `build_price_sankey()` do that:
              - other-province-only: weighed only in a DIFFERENT province
              - weighed nowhere: no MS weighing anywhere, for any province -- no
                conversion path
-       The classification for the price-only rows reuses
-       outputs/tables/price_only_no_weight_anywhere.csv rather than re-deriving it
-       from scratch (see that file's own richer fold logic in
-       dofiles/00_shared/01_build_crosswalk.py); this script only ADDS the same-vs-other-
-       province split that CSV does not carry, using nsu_weighings_cpi.dta.
+       The classification is derived here from nsu_weighings_cpi.dta, in
+       build_price_cells(): a cell is convertible if it holds a weighing, and
+       otherwise falls to province fallback, other-province-only or nowhere by
+       which coarser pool can reach it.
 
-PRICE-ONLY FIGURES, AND AN ORPHAN INPUT THAT HAS DRIFTED.
+PRICE-ONLY FIGURES.
 
-This script classifies price-only cells FRESHLY against the restated MS data,
-which is what its own reported figures are: currently 584 price-only, of which 79
-weighed nowhere. Those are trustworthy.
+This script classifies price-only cells freshly against the restated MS data:
+currently **584 price-only, of which 79 weighed nowhere**, against 1,943
+convertible.
 
-`price_only_no_weight_anywhere.csv` is a different matter and is the reason the
-check below can warn. It holds 586 rows, and **nothing in the tree writes it** --
-this script is its only reader. That is the same orphan-input defect as issue #33
-(`cases_in_price_not_in_MS.csv`, since given a producer): a frozen CSV presented
-as an intermediate, which cannot be regenerated and therefore drifts silently as
-the crosswalk changes. It was last written against an older trim; some of its rows
-now key to cells that no longer exist.
+**An orphan input was removed rather than repaired.**
+`outputs/tables/price_only_no_weight_anywhere.csv` used to supply that
+classification, with the fresh derivation as a fallback. It held 586 frozen rows,
+nothing in the tree wrote it, and this script was its only reader -- the same
+orphan-input defect as issue #33 (`cases_in_price_not_in_MS.csv`, since given a
+producer). The obvious fix was to give it a producer too.
 
-So the CSV is used for ONE thing only -- the drift check below -- and its counts
-are not relied on anywhere. Where the warning fires, the finding is that the CSV
-is stale, not that this script's arithmetic is wrong. Fixing it properly means
-giving it a producer, which belongs with `00b_price_ms_cases.do` (the Stata step
-that owns "which cases exist in the price file, the MS, or both") rather than
-here, since a diagnostic that writes its own input can never detect its own drift.
+The better one was to check whether it earned its place. It did not. All four of
+its informational columns are derivable from the weighings, the two
+classifications are the same rule in a different order, and on all 586 rows they
+agree 585 times. The one disagreement was its own drifted row -- CAPIZ / PANAY /
+drinking water / `distilled water' -- which keys to a cell that no longer exists
+and so was already being filtered out. Bucket totals are identical with and
+without it. Its entire remaining contribution was a warning that it had gone
+stale, which is not what an input is for.
 
-One legitimate framing difference to keep in mind when comparing the two: the CSV
-requires a USABLE WEIGHT to call a cell weighed, while this script counts a cell
-as weighed if any row exists. CAPIZ / TAPAZ chicken sits on exactly that line --
-its rows exist but carry no `corrected_unit`. Both framings are defensible.
+So there is now one derivation instead of two, and no frozen file to drift. The
+CSV is archived at `outputs/archive/` with the reasoning; if the per-cell detail
+is ever wanted back, derive it from nsu_weighings_cpi.dta.
+
+**One framing difference the old CSV embodied, worth keeping in mind** if it is
+ever revived: it required a USABLE WEIGHT to call a cell weighed, while this
+script counts a cell as weighed if any row exists. CAPIZ / TAPAZ chicken sits on
+exactly that line -- its rows exist but carry no `corrected_unit`. Both framings
+are defensible; this script's is the one in force.
 
 Nine already-computed per-case analysis tables (outputs/tables/issue21_*.csv,
 conventional_*.csv, master_rename_dropped_labels.csv) are embedded verbatim as
@@ -287,7 +292,23 @@ STDQTY_PATH = DC / "outputs" / "build" / "diagnostics" / "excluded_standard_unit
 
 # ---- price-side analysis tables (all read-only; see "THE PRICE-FILE SIDE" above) ----
 T = DC / "outputs" / "tables"
-PRICE_ONLY_PATH = T / "price_only_no_weight_anywhere.csv"
+# price_only_no_weight_anywhere.csv IS GONE, and was not replaced by a producer.
+#
+# It held 586 frozen rows, nothing in the tree wrote it, and this script was its only
+# reader -- the orphan-input defect of #33. The obvious fix was to give it a producer.
+# The better one was to notice it earned nothing: all four of its informational columns
+# (item_weighed_in_this_municipality, n_weighings_of_item_here, other_units_weighed_here,
+# this_unit_weighed_anywhere) are derivable from nsu_weighings_cpi.dta, and this script
+# ALREADY derives that classification freshly -- see the ms_cell_set / ms_prov_set /
+# ms_anywhere_set block in classify_price_rows(), which is where the page's own
+# 584-price-only / 79-weighed-nowhere figures come from.
+#
+# So its only two uses were circular: a staleness check on itself, and a case-detail
+# panel displaying the stale rows plus a `stale-CSV' badge saying so. A frozen file whose
+# entire contribution is a warning that it has gone stale is not an input.
+#
+# The file is archived at outputs/archive/. If the per-cell detail is ever wanted back,
+# derive it from nsu_weighings_cpi.dta rather than reviving the CSV.
 POOLED_SPELLING_PATH = T / "issue21_pooled_spelling_conflicts.csv"
 MERGE_RULE_PATH = T / "issue21_merge_rule_candidates.csv"
 DROPPED_LABELS_PATH = T / "master_rename_dropped_labels.csv"
@@ -1031,10 +1052,10 @@ def build_price_lookup(pr):
 
 def build_price_cells(pr, restated_full):
     """Classify every harmonized price cell by whether it has an MS weighing, and
-    if not, whether one exists elsewhere in the same province. See the module
-    docstring, "THE PRICE-FILE SIDE", for the full picture and the known
-    price_only_no_weight_anywhere.csv staleness this function prints and does not
-    silently absorb."""
+    if not, whether one exists elsewhere in the same province. Derived here from the
+    restated weighings and from nothing stored -- see the module docstring,
+    "PRICE-ONLY FIGURES", for why the frozen CSV that used to supply this was removed
+    rather than given a producer."""
     matched = pr[pr.matched].copy()
     dropped = pr[~pr.matched].copy()
 
@@ -1049,51 +1070,32 @@ def build_price_cells(pr, restated_full):
 
     matched_cell_keys = set(zip(matched.P, matched.C, matched.I, matched.H))
 
-    po = pd.read_csv(PRICE_ONLY_PATH, encoding='utf-8-sig')
-    po['P_'] = po.province.map(ng)
-    po['C_'] = po.municipality.map(ng)
-    po['I_'] = po.item.map(ni)
-    po['H_'] = po.harmonized_nsu_unit.map(nz)
-    po['k_'] = list(zip(po.P_, po.C_, po.I_, po.H_))
-    po['stale_'] = ~po.k_.isin(matched_cell_keys)
-    n_stale = int(po.stale_.sum())
-    log(f"  price_only_no_weight_anywhere.csv rows whose exact cell no longer "
-        f"exists in the current (post-label-trim) crosswalk: {n_stale} (expect "
-        f"0 -- the CSV was regenerated against the trimmed crosswalk in b3ccf67)")
-    if n_stale:
-        log(f"  *** {n_stale} row(s) of price_only_no_weight_anywhere.csv key to a cell "
-            f"that no longer exists. THAT CSV HAS NO PRODUCER -- this script is its only "
-            f"reader -- so it cannot be regenerated and drifts as the crosswalk changes. "
-            f"Same defect as issue #33. This page's own price-only figures are computed "
-            f"freshly and are unaffected; the CSV is used for this check alone. Giving it "
-            f"a producer belongs with 00b_price_ms_cases.do. ***")
-
-    po_bucket = {}
-    for row in po[~po.stale_].itertuples():
-        k = row.k_
-        if row.this_unit_weighed_anywhere == 0:
-            po_bucket[k] = 'price_only_nowhere'
-        elif (row.P_, row.I_, row.H_) in ms_prov_set:
-            po_bucket[k] = 'price_only_province_fallback'
-        else:
-            po_bucket[k] = 'price_only_other_province_only'
-
+    # ONE CLASSIFICATION, DERIVED FROM THE WEIGHINGS. This block used to prefer a bucket
+    # looked up in price_only_no_weight_anywhere.csv and fall back to deriving it, which
+    # meant two implementations of one rule with the frozen one winning. They are the same
+    # rule written in a different order -- the CSV's `this_unit_weighed_anywhere == 0' is
+    # `(i, h) not in ms_anywhere_set' -- so the fallback was always the honest version.
+    #
+    # Checked before removing it, on all 586 CSV rows: 585 agree with this derivation, and
+    # the single disagreement is the drifted row the staleness warning existed to report --
+    # CAPIZ / PANAY / drinking water / `distilled water', recorded in the CSV as weighed
+    # NOWHERE and placed by the current weighings at a province fallback.
+    #
+    # THAT ROW IS NOT A LIVE PRICE CELL, so removing the CSV moves nothing. Its cell no
+    # longer exists in the crosswalk, which is why the old code's `~po.stale_' filter
+    # already excluded it and why `n_uncovered' was 0. Bucket totals are identical either
+    # way: 1,943 convertible, 427 province fallback, 78 other-province-only, 79 nowhere.
+    # The CSV's entire remaining contribution was a warning about its own one stale row.
     records = []
-    n_uncovered = 0
     for (p, c, i, h), g in matched.groupby(['P', 'C', 'I', 'H']):
-        k = (p, c, i, h)
-        if k in ms_cell_set:
+        if (p, c, i, h) in ms_cell_set:
             bucket = 'convertible'
+        elif (p, i, h) in ms_prov_set:
+            bucket = 'price_only_province_fallback'
+        elif (i, h) in ms_anywhere_set:
+            bucket = 'price_only_other_province_only'
         else:
-            bucket = po_bucket.get(k)
-            if bucket is None:
-                n_uncovered += 1
-                if (p, i, h) in ms_prov_set:
-                    bucket = 'price_only_province_fallback'
-                elif (i, h) in ms_anywhere_set:
-                    bucket = 'price_only_other_province_only'
-                else:
-                    bucket = 'price_only_nowhere'
+            bucket = 'price_only_nowhere'
         records.append({
             "province": p, "municipality": c, "item": i, "harmonized_unit": h,
             "cell_key": key4(p, c, i, h),
@@ -1106,9 +1108,12 @@ def build_price_cells(pr, restated_full):
             "bucket": bucket,
             "dropped_label": False,
         })
-    log(f"  price-only cells not covered by price_only_no_weight_anywhere.csv "
-        f"(freshly classified against restated MS data instead): {n_uncovered} "
-        f"(expect 0)")
+    # Reported as a distribution rather than as coverage of a CSV that no longer exists.
+    _b = pd.Series([r['bucket'] for r in records]).value_counts()
+    log("  price cells by bucket, derived from the restated weighings:")
+    for _k in ['convertible', 'price_only_province_fallback',
+               'price_only_other_province_only', 'price_only_nowhere']:
+        log(f"    {_k}: {int(_b.get(_k, 0)):,}")
 
     for (p, c, i, u), g in dropped.groupby(['P', 'C', 'I', 'U']):
         records.append({
@@ -1241,20 +1246,11 @@ def load_price_analyses(pr):
     harmonized_unit") -- the browser recomputes that same string from a selected
     case's own fields rather than this script trying to parse it back apart.
 
-    `pr` (the classified price rows from classify_price_rows()) is used only to
-    flag which price_only_no_weight_anywhere.csv rows are stale post-label-trim
-    (`now_dropped_label`) -- see build_price_cells()'s KNOWN DISCREPANCY note.
+    `pr` (the classified price rows from classify_price_rows()) is passed in for the
+    per-case price tables below. It used to have a second job -- flagging which
+    price_only_no_weight_anywhere.csv rows had gone stale -- which went with that CSV.
     """
     tables = {}
-    matched_cell_keys = set(zip(pr[pr.matched].P, pr[pr.matched].C,
-                                 pr[pr.matched].I, pr[pr.matched].H))
-
-    po = pd.read_csv(PRICE_ONLY_PATH, encoding='utf-8-sig')
-    po = _addkey4(po, 'province', 'municipality', 'item', 'harmonized_nsu_unit')
-    po['now_dropped_label'] = [
-        (ng(p), ng(c), ni(i), nz(h)) not in matched_cell_keys
-        for p, c, i, h in zip(po.province, po.municipality, po.item, po.harmonized_nsu_unit)]
-    tables['price_only'] = _records(po)
 
     pooled = pd.read_csv(POOLED_SPELLING_PATH, encoding='utf-8-sig')
     tables['pooled_spelling_conflicts'] = _records(_addkey4(
@@ -1545,15 +1541,17 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
         "n_other_province_only": n_op, "n_weighed_nowhere": n_now,
     }
     price_discrepancy_note = (
-        f"outputs/tables/price_only_no_weight_anywhere.csv predates commit 3c436b9 "
-        f"(the 17-label crosswalk trim, dofiles/00_shared/02_drop_non_nsu_labels.py). 16 of its "
-        f"602 rows carry a raw label the current crosswalk no longer harmonizes at "
-        f"all -- all 16 were in that CSV's own 'weighed nowhere' bucket. This page "
-        f"reclassifies those 16 as the dropped-label sink instead of price-only, so "
-        f"its current-data figures are {n_pf + n_op + n_now:,} price-only cells "
-        f"(pre-trim: 602) and {n_now:,} weighed nowhere (pre-trim: "
-        f"96). The province-fallback ({n_pf:,}) and other-province-only ({n_op:,}) "
-        f"splits are unaffected by the trim."
+        f"Every figure here is derived from the restated market-survey weighings "
+        f"(nsu_weighings_cpi.dta) at build time: a price cell is convertible if a "
+        f"weighing exists for that exact province x municipality x item x harmonized "
+        f"unit, and otherwise falls to province fallback, other-province-only or "
+        f"weighed-nowhere by which coarser pool can reach it. Current figures: "
+        f"{n_pf + n_op + n_now:,} price-only cells, of which {n_now:,} weighed nowhere, "
+        f"{n_pf:,} reachable by a province fallback and {n_op:,} only in another "
+        f"province. A raw label the crosswalk no longer harmonizes is counted in the "
+        f"dropped-label sink rather than as price-only. These counts are not read from "
+        f"any stored file, so there is nothing here that can go stale independently of "
+        f"the build."
     )
 
     # ---- raw-side lookup for arrival provenance (raw spelling, market/vendor) --
@@ -2326,7 +2324,10 @@ function buildIndex(rows, keyField) {
   (rows || []).forEach(r => { const k = r[keyField]; if (k == null) return; (idx[k] = idx[k] || []).push(r); });
   return idx;
 }
-const IDX_price_only = buildIndex(PA.price_only, '_key');
+// No IDX_price_only: price_only_no_weight_anywhere.csv is archived and no longer
+// embedded. The bucket it used to inform is now derived from the weighings in
+// build_price_cells(), and the `stale-CSV' badge it powered described the CSV rather
+// than the data, so it went with it.
 const IDX_pooled = buildIndex(PA.pooled_spelling_conflicts, '_key');
 const IDX_rung = buildIndex(PA.rung_composition_mix, '_key');
 const IDX_fold = buildIndex(PA.outcome1_fold_check, '_key');
@@ -2350,7 +2351,6 @@ function caseStr(prov, mun, item, harm, trunc) {
 
 function gatherAnalyses(o) {
   const out = {
-    price_only: (o.analysisKey && IDX_price_only[o.analysisKey]) || [],
     pooled_spelling_conflicts: (o.analysisKey && IDX_pooled[o.analysisKey]) || [],
     rung_composition_mix: (o.analysisKey && IDX_rung[o.analysisKey]) || [],
     outcome1_fold_check: (o.analysisKey && IDX_fold[o.analysisKey]) || [],
@@ -2367,7 +2367,6 @@ function gatherAnalyses(o) {
 }
 
 const ANALYSIS_LABELS = {
-  price_only: 'Price-only case detail (price_only_no_weight_anywhere.csv)',
   pooled_spelling_conflicts: 'Pooled-spelling price conflict (issue21_pooled_spelling_conflicts.csv)',
   rung_composition_mix: 'Rung composition mix (issue21_rung_composition_mix.csv)',
   outcome1_fold_check: 'Outcome-1 fold check (issue21_outcome1_fold_check.csv)',
@@ -2560,7 +2559,6 @@ function priceFlagBadges(c) {
   const badges = [];
   if ((IDX_pooled[c.cell_key] || []).some(r => r.conflict === 1)) badges.push('<span class="flagbadge" title="pooled-spelling price conflict">conflict</span>');
   if ((IDX_rung[c.cell_key] || []).some(r => r.n_units > 1)) badges.push('<span class="flagbadge" title="pools >1 raw spelling">pooled</span>');
-  if ((IDX_price_only[c.cell_key] || []).some(r => r.now_dropped_label)) badges.push('<span class="flagbadge" title="stale in price_only_no_weight_anywhere.csv -- label since dropped from the crosswalk">stale-CSV</span>');
   return badges.join('');
 }
 
