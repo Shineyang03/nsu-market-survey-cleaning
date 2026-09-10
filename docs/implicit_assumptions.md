@@ -122,8 +122,8 @@ about; three or more is not.
 | --: | --: | --: |
 | 2 | 270 | 10.6% |
 | **3 (current)** | **518** | **20.3%** |
-| 4 | 1,040 | 40.7% |
-| 5 | 1,472 | 57.6% |
+| 4 | 1,038 | 40.6% |
+| 5 | 1,470 | 57.5% |
 
 Moving the cut by one still roughly doubles or halves the flagged share, so the threshold
 sits on a steep part of the distribution and no substantive argument selects 3 over 2 or 4.
