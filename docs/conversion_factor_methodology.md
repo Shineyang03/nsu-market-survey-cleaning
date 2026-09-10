@@ -1113,7 +1113,9 @@ A household in a PSPS case needs a conversion factor. Outcome 2 provides one whe
 
 **Outcome 1 does not use this ladder.** It publishes what was measured in the cell only. A cell with no MS weighing does not appear in Outcome 1 at all, which is correct: the reference set is the record of weights measured in that specific place, and borrowing another municipality's weight changes what the table *is*.
 
-Outcome 2's exposure is different: the PSPS asks for a quantity in an NSU, and that household needs a grams-per-unit figure whether or not the MS weighed that exact cell. The fallback exists to provide one, and the `fallback_level` flag and its companions (`cv_gpp`, `n_pairs`, `n_price`, `n_mun`) let an analyst set their own confidence threshold rather than having one choice imposed.
+Outcome 2's exposure is different: the PSPS asks for a quantity in an NSU, and that household needs a grams-per-unit figure whether or not the MS weighed that exact cell. The fallback exists to provide one, and `fallback_level` together with the weighing count at the rung used lets an analyst set their own confidence threshold rather than having one imposed.
+
+**Read from both ends.** `30_fallback.do` writes the ladder three ways, because a household can arrive at it from two directions. A cell the market survey *did* visit gets a per-cell answer. A cell it never visited — which is the larger exposure, one PSPS observation in six — cannot be served by any per-cell table, so the L2 and L3 pools are also written on their own keys (province × item × unit, and item × unit) and `28_match_and_convert.do` climbs cell → province → national. All three readings come from the same collapses, so they cannot disagree.
 
 ### The two ladders
 
@@ -1157,13 +1159,19 @@ Reason: the reference set publishes the *measured* weights for that cell. ANY th
 
 **Weighing count.** `n_g` on a fallback row is the denominator at that rung — the weighing count in the pool actually used, not the original cell. Comparing `n_g` across fallback levels thus shows how much the pool broadened. `d_thin` flags rows resting on fewer than 3 weighings *before* the fallback pool, so a reader can see whether the case had any structure to begin with.
 
-**Reliability on L2 and L3 rows.** Four columns quantify the pool:
-- $`v_g`$ is the grams-per-peso schedule, with spread quantified by `cv_gpp` (coefficient of variation)
-- `n_pairs` — the (price, weight) pairs that went into that schedule
-- `n_price` — how many distinct price points supported it
-- `n_mun` — for L2, how many municipalities contributed; 1 for L0, L1, L3
+**Reliability on L2 and L3 rows: `fallback_level` and `n_g`, and deliberately nothing else.**
 
-These let an analyst apply their own confidence threshold — e.g., "keep only rows with `n_pairs ≥ 5`" — without guessing at what the project intended.
+An earlier design published four further columns — `cv_gpp`, `n_pairs`, `n_price` and
+`n_mun` — and they are **not** in the output. They belonged to a fallback that borrowed a
+price–weight *slope* across municipalities and therefore needed a ray-fit statistic to say
+where borrowing a slope was safe. This ladder borrows a **median weight** at a coarser
+grain instead, so there is no slope to qualify and the statistic has nothing to say about
+it. The measurement of the road not taken is archived at
+`dofiles/archive/scope_price_weight_ray.do`.
+
+What ships is the rung and the count behind it. That is enough for a reader to set their
+own cut — keep L1 and drop L3, or require `n_g ≥ 5` — and every column it does not ship is
+one that would have implied a precision the estimator does not have.
 
 **Why L3 is flagged distinctly.** The same NSU varies widely across municipalities — prawns `tumpok` runs 95 g to 570 g over 17 of them — so a national median for such a unit describes no single municipality and is the least reliable rung. `fallback_level = 3` signals this unambiguously.
 

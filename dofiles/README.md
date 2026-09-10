@@ -174,7 +174,7 @@ checking. Check 5 is what tells you those outputs still match their inputs.
 | `05_manual_corrections.do` | every hand-made weight/unit fix. §1–5 are one block per correction, each asserting its row count; **§6 applies the review ledger**, `reference/reviewed/snap_verdicts.csv`, which is where the bulk of the adjudicated decisions now live. See *Adjudicating a weight* below. |
 | `06_cpi_panel.do` | province × item-group × month CPI panel, plus the item crosswalk and the spec's validation report. Stata port of a retired Python step (`archive/06_cpi_panel.py`), verified against its output before the switch |
 | `07_cpi_factor.do` | drops 98 price-quantity rows whose recorded price was not the price handed over — 71 vendor-priced (a further 23 are rescued where they were the case's only rung) and 27 where the vendor gave no price at all. **The only place those rows are dropped, and both outcomes depend on it.** Builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |
-| `08_branch.do` **(not written; decided on #28)** | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`. |
+| `08_branch.do` | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`. Wired into both masters. |
 
 **Two shared MODULES live in `00_shared/` alongside the steps.** Nothing runs them; they
 are imported, and they are where two decision rules are defined once so no caller can
@@ -289,44 +289,52 @@ later is what once turned a 10 L gallon into 10 mL.
 
 ### `20_psps_retrofitting/` — Outcome 2
 
-**One of eleven steps is written.** `30_fallback.do` builds the weight ladder; the other
-ten, including everything that touches a PSPS household row, are not. So **no PSPS
-observation has been converted yet** — the ladder is a lookup with nothing joined to it.
+**Built.** `master_outcome2.do` runs end to end and converts PSPS household rows.
+
+| | |
+|---|---|
+| household × item × slot rows | 87,959 |
+| already in a standard unit (`27`, #14) | 52,489 |
+| needing an NSU conversion | 35,448 |
+| **converted** | **34,916 (98.5%)** |
+| …at the matched price point | 28,961 |
+| …on a fallback rung | 5,955 (L1 110, L2 5,484, L3 361) |
+| refused | 532 — A11 spelling gap 304, unique price 117, nothing anywhere 111 |
 
 `26_psps_extract.do` was archived: it did vocabulary discovery — which NSU labels PSPS
 households use — that job is finished and now lives in the crosswalk, and it dropped
 `hhid` and `subdate`, so it could not serve either thing Outcome 2 needs from PSPS. See
 `../archive/README.md`.
 
-**Four steps have no blocker at all** and can be written in any order: `20a`, `22`, `24`,
-`28`. `23` is decided (#28) and unbuilt. The rest wait on a decision, named in the table.
+**Run order matters in two places and nowhere else.** `20a` must precede `24` (it writes the
+month list) and `30` must precede `28` (it writes the three fallback schedules `28` climbs).
+Everything else is independent.
 
-**Nothing reads the PSPS consumption file on a critical path today.** The first Outcome 2
-step to write is a **household-grain extract** keeping `hhid`, `subdate`, quantity and
-expenditure. Three steps below need it, at two grains: `24` needs only the list of months
-occurring in each municipality, which is a by-product; `28` and `29` need the household
-rows themselves.
+**`26` is deliberately missing from the numbering.** `26_psps_extract.do` is archived — it did
+vocabulary discovery, that job is finished and lives in the crosswalk, and it dropped `hhid` and
+`subdate`. `20a` replaces it. The gap is kept so the step numbers cited on #19, #21 and #23 still
+resolve.
 
-**Steps 20–30 are not written.** This table is the source for what each owes and
-what blocks it; `master_outcome2.do` prints an abbreviated version when it stops.
+| step | does |
+|---|---|
+| `20a_psps_households.do` | the household side of PSPS — one row per household × item × acquisition slot, keeping `hhid`, `subdate`, quantity and expenditure, normalized into the crosswalk's vocabulary. Classifies every unit label into exactly one of five conversion paths, asserted exhaustive and mutually exclusive. Also owns the **standard-unit gram table** (#14) and the month list `24` needs. `p_h` comes from the **purchased slot only** (A10) |
+| `20_case_price_points.do` | which price points a case gets: union on the peso value across weighed spellings, single-linkage merge within ₱20, merged point takes the mean (#21 §2). Owns the **`unique_mun_price` refusal** (A16) and builds A11's spelling-price gap flag |
+| `21_branch_size_based.do` | cuts each case's pooled weights into `n_points_conv` parts, lowest weights to the lowest price. The 99 reclassified cases are **never cut** (A12). Also emits the points that no group can serve, so a household can match one and be refused |
+| `22_branch_price_quantity.do` | `w_g` per case × `pull_price`. The price file is not read: every distinct peso amount is its own group, no merge (#21 §2 rows 5–6) |
+| `23_branch_conventional.do` | one weight per case, for the **24** cases whose (item, unit) pair is conventional everywhere it appears (#28). The other 99 join Branch S |
+| `24_inflate_to_psps_month.do` | `w_g_m`, `v_g_m` per interview month — **Branch P only**, crossed with the months of its own municipality |
+| `25_lookup.do` | appends the three branches, and builds #11's no-inflation variant as a second file |
+| `27_standard_units.do` | kg / L / stated-quantity answers convert from the unit's own name, with no market-survey input (#14) |
+| `28_match_and_convert.do` | the household join: nearest point, tie on `v`, `CF_h`, `grams_h`. Climbs cell → province → national for the households the price match cannot serve |
+| `29_cap.do` | clamps `p_h/p_g` to `[1/t, t]` and flags, `t = 5` (A18) |
+| `30_fallback.do` | the **weight ladder**, three ways. Per (cell × size): **L0** the cell's own rung → **L1** the cell pooled across sizes → **L2** province × item × unit → **L3** item × unit nationally → unconvertible. Per cell, for when the price match fails. And **L2 and L3 on their own keys**, which is the only reading that can serve a cell the market survey never visited — #30's actual population, one PSPS observation in six |
 
-| step | owes | blocked on |
-|---|---|---|
-| `20a_psps_households.do` | the household side of PSPS — one row per household × item × unit × source, keeping `hhid`, `subdate`, quantity and expenditure, normalized into the crosswalk's vocabulary. Read by `24`, `28` and `29`. The `a` suffix follows `00a`/`00b`: it must run before the numbered chain, since `24` needs its month list. | nothing — write it first |
-| `20_case_price_points.do` | how many price points a case gets, after the ₱20 union-merge | the `unique_mun_price` arm — **#23**. The merge rule itself is decided (#21 §2). |
-| `21_branch_size_based.do` | cut pooled weights into that many parts | 20, plus how a household reporting an unweighed spelling is routed (**#21 §5.3**, 273 cases) |
-| `22_branch_price_quantity.do` | `w_g` per case × `pull_price` | nothing — decided (#21 §2 rows 5–6) |
-| `23_branch_conventional.do` | one weight per case, for the **24** cases whose (item, unit) pair is conventional everywhere it appears | **decided on #28**, not yet built. The other **99** conventional cases are reclassified to size-based and publish as medium — see `branch` below, and A1/A12 in `../docs/implicit_assumptions.md`. |
-| `24_inflate_to_psps_month.do` | `w_g_m`, `v_g_m` per interview month | nothing — decided (#5) |
-| `25_lookup.do` | append the three branches | #11 (the no-inflation variant) |
-| `27_standard_units.do` | kg/L answers convert directly | #14 |
-| `28_match_and_convert.do` | nearest point, `CF_h`, `grams_h` | nothing — decided (#5) |
-| `29_cap.do` | clamp `p_h/p_g`, flag | **#19**, and the threshold `t` is unset. Choosing `t` needs no weights — it needs step 20 and a household-grain extract. |
-| `30_fallback.do` **(written; builds the ladder, does not yet apply it)** | the **Outcome 2 weight ladder**. Resolves every (cell × size) to a weight by climbing until the count clears `THIN`: **L0** the cell's own size rung → **L1** the cell pooled across sizes → **L2** province × item × unit → **L3** item × unit nationally → unconvertible. Publishes `fallback_level`, `grams_used` and `n_g_used` — the count **at the rung used**. Reads the weighings (`ref_11_checked`), *not* the reference set, which has already applied Outcome 1's stopping rule. Outputs `outcome2_weight_ladder.dta/.csv` and `fallback_refused.csv` | Attaching a weight to a PSPS household needs the retrofit above it and `branch` from `08_branch.do`. Rule settled on #30/#31. Current split: 1,595 at L0, 1,148 at L1, 513 at L2, 27 at L3, 22 unconvertible. |
+**#30 was the gate and it is now built.** Note that its cost argument was written against a 14×
+cross-municipality spread; the corrected figure is **6.7×**, so read it against that.
 
-**#30 gates the deliverable** regardless of what order the others land in. Note that #30's
-cost argument was written against a 14× cross-municipality spread; the corrected figure is
-**6.7×**, so re-read it against that.
+**Not build steps, and still open:** #20 (approach A vs B, needs `psps_converted_capped.dta`),
+#11 (compare the two lookups' household grams — both are built), #16 (Outcome 1 against Outcome 2,
+answerable for the first time).
 
 **Carry the uncertainty through.** Every weighing carries flags saying whether its weight
 was corrected and whether it is disputed, anchor-flagged or unusable —
@@ -421,5 +429,12 @@ Two things keep it deterministic, and both need to stay:
    for the seed to break.
 
 This is not only about reproducibility. A `bysort key: ... _n` where `key` is not
-unique is reading an order the sort seed chose. The pipeline has one such construction
-(`10_size_assignment.do`, issue #18) — pinning makes it reproducible, not correct.
+unique is reading an order the sort seed chose. **The pipeline had one such construction and
+no longer does:** `10_size_assignment.do`'s running total over label tags (#18 A7) is now
+`egen lbl_grp = group(field_ord), by(cell)`, which does not depend on within-group order.
+Verified answer-preserving on all 9,758 size-based rows.
+
+Two places still read a within-group order deliberately, and both sort on something unique
+first so there is nothing for the seed to break: the price-point clustering in
+`20_case_price_points.do` (sorted on `p_g`, which the ₱20 merge makes distinct within a case)
+and the match in `28_match_and_convert.do` (`gsort hh_row _rankkey -v_use group_id`).

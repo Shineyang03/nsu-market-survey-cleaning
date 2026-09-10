@@ -1,0 +1,533 @@
+hhid,pull_item,q_h,pull_nsu_unit,pull_province,pull_municipal_city,source,p_h,harmonized_nsu_unit,gap_sym,conv_route
+H000039,"crackers, cookies, buiscuits, chips/curls",1,can o lata,ILOILO,CABATUAN,purchased,243,can o lata,,refused: nothing anywhere
+H000058,loaf bread,3,dalagku nga putos,CAPIZ,DUMALAG,purchased,75,large packs,2.352941176470588,refused: A11 spelling gap
+H000060,loaf bread,1,large,CAPIZ,TAPAZ,purchased,65,large packs,2.125,refused: A11 spelling gap
+H000083,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H000165,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,binilog,AKLAN,IBAJAY,purchased,15,pieces or units,3.5,refused: A11 spelling gap
+H000180,rice,42,"rice cooker cup, small",ILOILO,OTON,purchased,4.761904761904762,"rice cooker cup, small",,refused: nothing anywhere
+H000198,fresh fish,1,putos,ILOILO,LEMERY,purchased,45,pack,1.305555555555556,refused: unique price
+H000241,loaf bread,2,dalagku nga putos,CAPIZ,IVISAN,purchased,45,large packs,2.047058823529412,refused: A11 spelling gap
+H000243,loaf bread,2,dalagku nga putos,ILOILO,MAASIN,purchased,80,large packs,2,refused: A11 spelling gap
+H000282,loaf bread,7,gagmay nga putos,ILOILO,SARA,purchased,5,small packs,3.136363636363637,refused: A11 spelling gap
+H000314,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H000355,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H000396,loaf bread,10,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H000451,cabbage,3,binilog,AKLAN,MALAY,purchased,60,pieces or units,2.4,refused: A11 spelling gap
+H000462,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,gamay nga tasa,ANTIQUE,TOBIAS FORNIER,purchased,30,small cup,3.142857142857143,refused: A11 spelling gap
+H000468,"liquor (e.g, whisky, coconut wine)",1,baso,ILOILO,LAMBUNAO,own_production,,baso,,refused: nothing anywhere
+H000470,"liquor (e.g, whisky, coconut wine)",2,takal ng tuba,ANTIQUE,SIBALOM,own_production,,takal ng tuba,,refused: nothing anywhere
+H000474,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",63,gamay nga tasa,ANTIQUE,TOBIAS FORNIER,purchased,10,small cup,3.142857142857143,refused: A11 spelling gap
+H000490,loaf bread,35,piece,CAPIZ,PANAY,purchased,2.142857142857143,piece,,refused: nothing anywhere
+H000490,pork,1,pack,CAPIZ,PANAY,purchased,50,pack,,refused: nothing anywhere
+H000506,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",10,binilog,AKLAN,MALAY,purchased,5,pieces or units,4.2,refused: A11 spelling gap
+H000516,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,piraso,AKLAN,IBAJAY,purchased,5,pieces or units,2.8,refused: A11 spelling gap
+H000612,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,putos,ILOILO,SAN JOAQUIN,purchased,25,putos,,refused: unique price
+H000612,carrot,1,binilog,ILOILO,SAN JOAQUIN,purchased,35,pieces or units,2.166666666666667,refused: A11 spelling gap
+H000613,carrot,1,putos,ILOILO,DUEAS,purchased,20,pack,,refused: nothing anywhere
+H000667,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",12,pieces or units,ILOILO,BAROTAC VIEJO,purchased,20,pieces or units,4.142857142857143,refused: A11 spelling gap
+H000668,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,binilog,AKLAN,MALAY,purchased,10,pieces or units,4.2,refused: A11 spelling gap
+H000686,fresh fish,3,bilog,ILOILO,SAN ENRIQUE,purchased,50,pieces or units,,refused: unique price
+H000698,carrot,2,putos,ILOILO,SAN RAFAEL,purchased,10,pack,,refused: nothing anywhere
+H000720,loaf bread,4,gagmay nga putos,ILOILO,SARA,purchased,8,small packs,3.136363636363637,refused: A11 spelling gap
+H000721,"liquor (e.g, whisky, coconut wine)",5,lipid / lapad,CAPIZ,SAPI-AN,purchased,70,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H000724,fresh fish,3,putos,ILOILO,LEMERY,purchased,100,pack,1.305555555555556,refused: unique price
+H000778,"liquor (e.g, whisky, coconut wine)",1,boll,ANTIQUE,SIBALOM,purchased,20,boll,,refused: nothing anywhere
+H000793,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",7,gamay nga tasa,ANTIQUE,TOBIAS FORNIER,purchased,25,small cup,3.142857142857143,refused: A11 spelling gap
+H000814,loaf bread,100,100pcs of pandesal,AKLAN,MALINAO,purchased,2,100pcs of pandesal,,refused: nothing anywhere
+H000831,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,tub,CAPIZ,JAMINDAN,purchased,120,tub,,refused: unique price
+H000920,loaf bread,3,gagmay nga putos,ILOILO,BAROTAC NUEVO,purchased,6,small packs,3.076923076923077,refused: A11 spelling gap
+H001033,"liquor (e.g, whisky, coconut wine)",1,lipid / lapad,CAPIZ,SAPI-AN,purchased,60,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H001070,loaf bread,5,gagmay nga putos,ILOILO,BAROTAC NUEVO,purchased,7,small packs,3.076923076923077,refused: A11 spelling gap
+H001100,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,gamay nga tasa,ANTIQUE,SEBASTE,purchased,15,small cup,2,refused: A11 spelling gap
+H001106,fresh fish,3,putos,ILOILO,LEMERY,purchased,45,pack,1.305555555555556,refused: unique price
+H001142,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,ALIMODIAN,purchased,150,long-neck,,refused: unique price
+H001207,loaf bread,1,small,CAPIZ,PANITAN,purchased,45,small packs,2.25,refused: A11 spelling gap
+H001255,loaf bread,1,small,CAPIZ,PANITAN,purchased,25,small packs,2.25,refused: A11 spelling gap
+H001256,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,18,pieces or units,3.5,refused: A11 spelling gap
+H001262,pork,1,1 bowl cooked,ILOILO,POTOTAN,gift,,1 bowl cooked,,refused: nothing anywhere
+H001290,carrot,1,putos,ILOILO,IGBARAS,purchased,10,pack,,refused: nothing anywhere
+H001312,fresh fish,2,patupa,ILOILO,JANIUAY,purchased,150,patupa,,refused: nothing anywhere
+H001364,carrot,3,pieces or units,ILOILO,BANATE,purchased,26.66666666666667,pieces or units,2,refused: A11 spelling gap
+H001375,fresh fish,1,bilog,CAPIZ,SAPI-AN,purchased,50,pieces or units,,refused: unique price
+H001405,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,MALAY,purchased,5,pieces or units,4.2,refused: A11 spelling gap
+H001483,loaf bread,1,large,NEGROS OCCIDENTAL,CALATRAVA,purchased,60,large packs,,refused: unique price
+H001498,loaf bread,2,large,CAPIZ,TAPAZ,purchased,90,large packs,2.125,refused: A11 spelling gap
+H001519,cabbage,2,bilog,ANTIQUE,PATNONGON,purchased,78,pieces or units,,refused: unique price
+H001553,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,25,pieces or units,3.5,refused: A11 spelling gap
+H001556,fresh fish,1,putos,ILOILO,LEMERY,purchased,50,pack,1.305555555555556,refused: unique price
+H001576,loaf bread,1,large,CAPIZ,TAPAZ,purchased,80,large packs,2.125,refused: A11 spelling gap
+H001585,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,DUMANGAS,purchased,150,long-neck,,refused: unique price
+H001620,carrot,1,pack,CAPIZ,MA-AYON,purchased,15,pack,,refused: nothing anywhere
+H001647,loaf bread,1,large,CAPIZ,TAPAZ,purchased,80,large packs,2.125,refused: A11 spelling gap
+H001648,chicken,1,1/2,ILOILO,BAROTAC VIEJO,purchased,140,half,,refused: nothing anywhere
+H001674,"liquor (e.g, whisky, coconut wine)",1,long-neck,AKLAN,BURUANGA,purchased,130,long-neck,,refused: unique price
+H001681,chicken,1,whole (chicken),AKLAN,NABAS,purchased,200,whole (chicken),,refused: unique price
+H001705,carrot,1,putos,ILOILO,IGBARAS,purchased,25,pack,,refused: nothing anywhere
+H001726,fresh fish,1,bilog,ILOILO,ESTANCIA,purchased,70,pieces or units,,refused: unique price
+H001740,fresh fish,2,binilog,ILOILO,MIAGAO,gift,,pieces or units,3.1,refused: A11 spelling gap
+H001740,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,gamay nga tasa,ILOILO,MIAGAO,gift,,small cup,2.8,refused: A11 spelling gap
+H001789,cabbage,1,tumpok,CAPIZ,PANAY,purchased,20,tumpok,,refused: nothing anywhere
+H001789,carrot,1,tumpok,CAPIZ,PANAY,purchased,20,tumpok,,refused: nothing anywhere
+H001900,loaf bread,10,gagmay nga putos,ILOILO,SARA,purchased,10,small packs,3.136363636363637,refused: A11 spelling gap
+H001906,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",35,gamay nga tasa,ANTIQUE,SEBASTE,purchased,10,small cup,2,refused: A11 spelling gap
+H001928,fresh fish,2,putos,ILOILO,LEMERY,purchased,90,pack,1.305555555555556,refused: unique price
+H001958,fresh fish,7,putos,ILOILO,SARA,purchased,100,pack,3,refused: A11 spelling gap
+H001972,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H001979,"crackers, cookies, buiscuits, chips/curls",1,can,ILOILO,AJUY,purchased,350,cans,,refused: nothing anywhere
+H001982,fresh fish,7,bilog,CAPIZ,PILAR,purchased,50,pieces or units,,refused: unique price
+H002027,"liquor (e.g, whisky, coconut wine)",7,lipid / lapad,CAPIZ,SAPI-AN,purchased,65,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H002049,carrot,3,piraso,ANTIQUE,PANDAN,purchased,26.66666666666667,pieces or units,2.909090909090909,refused: A11 spelling gap
+H002110,"prawns, lobster, shrimp",1,tumpok,ILOILO,DUEAS,purchased,200,tumpok,,refused: unique price
+H002136,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",10,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H002140,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,30,pieces or units,3.5,refused: A11 spelling gap
+H002153,cabbage,1,binilog,AKLAN,MALAY,purchased,30,pieces or units,2.4,refused: A11 spelling gap
+H002220,cabbage,1,bilog,CAPIZ,PONTEVEDRA,purchased,120,pieces or units,,refused: unique price
+H002233,chicken,1,putos,ILOILO,DUMANGAS,purchased,100,putos,,refused: nothing anywhere
+H002235,pork,1,portion,ILOILO,MINA,gift,,portion,,refused: nothing anywhere
+H002242,"prawns, lobster, shrimp",1,1 k caltex(kabo),CAPIZ,PONTEVEDRA,gift,,1 k caltex(kabo),,refused: nothing anywhere
+H002242,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,1 plastic cup,CAPIZ,PONTEVEDRA,purchased,90,plastic cup,,refused: nothing anywhere
+H002258,chicken,1,bilog,CAPIZ,PONTEVEDRA,purchased,210,bilog,,refused: unique price
+H002284,loaf bread,1,large,CAPIZ,TAPAZ,purchased,85,large packs,2.125,refused: A11 spelling gap
+H002304,camote tops,4,bilog,ILOILO,MAASIN,gift,,pieces or units,,refused: nothing anywhere
+H002334,"liquor (e.g, whisky, coconut wine)",7,lapad,AKLAN,IBAJAY,purchased,65,lipid/lapad,2,refused: A11 spelling gap
+H002365,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,cup,NEGROS OCCIDENTAL,ISABELA,purchased,40,cup,,refused: nothing anywhere
+H002370,loaf bread,1,medium nga pakete,NEGROS OCCIDENTAL,CALATRAVA,purchased,35,medium packs,2,refused: A11 spelling gap
+H002406,"liquor (e.g, whisky, coconut wine)",3,glass,ANTIQUE,SAN REMIGIO,gift,,glass,,refused: nothing anywhere
+H002446,"liquor (e.g, whisky, coconut wine)",1,lipid / lapad,CAPIZ,SAPI-AN,purchased,75,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H002489,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,maliit na tasa,AKLAN,BATAN,purchased,15,small cup,4,refused: A11 spelling gap
+H002504,loaf bread,3,gagmay nga putos,ILOILO,SARA,purchased,10,small packs,3.136363636363637,refused: A11 spelling gap
+H002527,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",14,pieces or units,ILOILO,SAN JOAQUIN,purchased,10,pieces or units,2.375,refused: A11 spelling gap
+H002554,"liquor (e.g, whisky, coconut wine)",3,lapad,AKLAN,IBAJAY,purchased,65,lipid/lapad,2,refused: A11 spelling gap
+H002596,rice,14,small rice cooker cup,ILOILO,OTON,purchased,14.28571428571429,small rice cooker cup,,refused: nothing anywhere
+H002624,"liquor (e.g, whisky, coconut wine)",4,lapad,AKLAN,IBAJAY,gift,,lipid/lapad,2,refused: A11 spelling gap
+H002624,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H002647,loaf bread,1,medium nga pakete,NEGROS OCCIDENTAL,CALATRAVA,purchased,50,medium packs,2,refused: A11 spelling gap
+H002738,fresh fish,1,bilog,NEGROS OCCIDENTAL,HINIGARAN,purchased,120,pieces or units,,refused: unique price
+H002760,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,plastic cup,ILOILO,ALIMODIAN,purchased,20,plastic cup,,refused: nothing anywhere
+H002771,pork,5,pieces barbeque,ANTIQUE,PANDAN,purchased,10,pieces barbeque,,refused: nothing anywhere
+H002783,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,binilog,AKLAN,MALAY,purchased,5,pieces or units,4.2,refused: A11 spelling gap
+H002826,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H002868,loaf bread,2,gagmay nga putos,ILOILO,SARA,purchased,5,small packs,3.136363636363637,refused: A11 spelling gap
+H002913,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,gamay nga tasa,ANTIQUE,SEBASTE,purchased,10,small cup,2,refused: A11 spelling gap
+H002926,"liquor (e.g, whisky, coconut wine)",1,lapad,AKLAN,IBAJAY,purchased,65,lipid/lapad,2,refused: A11 spelling gap
+H002926,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H002951,mango,2,bilog,ILOILO,CABATUAN,purchased,30,pieces or units,,refused: unique price
+H002962,cabbage,1,binilog,AKLAN,MALAY,purchased,75,pieces or units,2.4,refused: A11 spelling gap
+H003009,loaf bread,1,small,CAPIZ,PANITAN,purchased,65,small packs,2.25,refused: A11 spelling gap
+H003037,fresh fish,7,bilog,ILOILO,SAN ENRIQUE,purchased,21.42857142857143,pieces or units,,refused: unique price
+H003054,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,binilog,AKLAN,MALAY,purchased,5,pieces or units,4.2,refused: A11 spelling gap
+H003063,loaf bread,1,dalagku nga putos,ILOILO,MAASIN,purchased,60,large packs,2,refused: A11 spelling gap
+H003064,"preserved or processed meat (tocino, tapa, longaniza, etc)",2,piraso,AKLAN,BATAN,purchased,12,pieces or units,2.912037037037037,refused: A11 spelling gap
+H003082,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,20,pieces or units,3.5,refused: A11 spelling gap
+H003106,loaf bread,60,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H003117,loaf bread,6,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H003128,fresh fish,2,pack,ILOILO,SAN ENRIQUE,purchased,50,pack,2,refused: A11 spelling gap
+H003139,cabbage,1,binilog,AKLAN,MALAY,purchased,50,pieces or units,2.4,refused: A11 spelling gap
+H003148,loaf bread,14,gagmay nga putos,ILOILO,BAROTAC NUEVO,purchased,6,small packs,3.076923076923077,refused: A11 spelling gap
+H003167,carrot,2,binilog,ANTIQUE,BELISON,purchased,20,pieces or units,2,refused: A11 spelling gap
+H003206,loaf bread,2,dalagku nga putos,ILOILO,MAASIN,purchased,100,large packs,2,refused: A11 spelling gap
+H003255,cabbage,1,mix vegetables (per tumbok),CAPIZ,PILAR,purchased,20,mix vegetables (per tumbok),,refused: nothing anywhere
+H003255,carrot,1,mix vegetables (per tumpok),CAPIZ,PILAR,purchased,20,mix vegetables (per tumpok),,refused: nothing anywhere
+H003266,camote,1,small size plastic,CAPIZ,MA-AYON,gift,,small size plastic,,refused: nothing anywhere
+H003284,loaf bread,21,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H003334,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",7,gamay nga tasa,ANTIQUE,SEBASTE,purchased,20,small cup,2,refused: A11 spelling gap
+H003348,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,25,pieces or units,3.5,refused: A11 spelling gap
+H003392,loaf bread,1,medium,ILOILO,BATAD,purchased,45,medium packs,,refused: unique price
+H003396,loaf bread,16,piece,CAPIZ,PILAR,purchased,7,piece,,refused: nothing anywhere
+H003417,carrot,1,pack,ANTIQUE,LIBERTAD,purchased,20,pack,,refused: nothing anywhere
+H003422,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,putos,ILOILO,SAN RAFAEL,purchased,5,putos,,refused: unique price
+H003435,loaf bread,28,gagmay nga putos,AKLAN,MALINAO,purchased,5,small packs,2.8,refused: A11 spelling gap
+H003461,"prawns, lobster, shrimp",1,tumpok,ILOILO,DUEAS,purchased,100,tumpok,,refused: unique price
+H003498,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,tub,CAPIZ,SIGMA,purchased,420,tub,,refused: unique price
+H003504,loaf bread,2,dalagku nga putos,ILOILO,MAASIN,purchased,95,large packs,2,refused: A11 spelling gap
+H003526,cabbage,1,binilog,ANTIQUE,PATNONGON,purchased,100,pieces or units,1,refused: unique price
+H003559,chicken,1,bilog,ILOILO,ANILAO,purchased,205,bilog,,refused: unique price
+H003563,"preserved or processed meat (tocino, tapa, longaniza, etc)",3,binilog,AKLAN,TANGALAN,purchased,11,pieces or units,,refused: unique price
+H003590,loaf bread,2,dalagku nga putos,CAPIZ,IVISAN,purchased,54,large packs,2.047058823529412,refused: A11 spelling gap
+H003626,fresh fish,2,putos,ILOILO,SARA,purchased,50,pack,3,refused: A11 spelling gap
+H003643,loaf bread,1,medium nga pakete,NEGROS OCCIDENTAL,CALATRAVA,purchased,50,medium packs,2,refused: A11 spelling gap
+H003651,fresh fish,5,bilog,ILOILO,BAROTAC VIEJO,purchased,4,pieces or units,,refused: unique price
+H003660,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H003691,"crackers, cookies, buiscuits, chips/curls",6,pieces or units,ILOILO,DINGLE,purchased,8,pieces or units,2.916666666666667,refused: A11 spelling gap
+H003696,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,binilog,AKLAN,IBAJAY,purchased,25,pieces or units,3.5,refused: A11 spelling gap
+H003810,fresh fish,1,pack,ILOILO,LEMERY,purchased,50,pack,,refused: unique price
+H003849,"preserved or processed meat (tocino, tapa, longaniza, etc)",1,packs,ILOILO,MINA,purchased,50,pack,,refused: unique price
+H003877,"liquor (e.g, whisky, coconut wine)",1,lipid / lapad,CAPIZ,SAPI-AN,purchased,80,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H003973,fresh fish,10,bilog,ILOILO,SAN ENRIQUE,purchased,10,pieces or units,,refused: unique price
+H004006,loaf bread,1,large,ILOILO,BALASAN,purchased,65,large packs,2.266666666666667,refused: A11 spelling gap
+H004021,"crackers, cookies, buiscuits, chips/curls",2,pieces or units,ILOILO,DINGLE,purchased,12,pieces or units,2.916666666666667,refused: A11 spelling gap
+H004034,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,binilog,AKLAN,MALAY,purchased,10,pieces or units,4.2,refused: A11 spelling gap
+H004074,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,ice cream in cone,ILOILO,LEON,purchased,25,cone,3.076923076923077,refused: A11 spelling gap
+H004076,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",13,binilog,AKLAN,IBAJAY,purchased,6.923076923076923,pieces or units,3.5,refused: A11 spelling gap
+H004111,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,binilog,ILOILO,ALIMODIAN,purchased,120,pieces or units,2,refused: A11 spelling gap
+H004206,loaf bread,26,gagmay nga putos,CAPIZ,DUMALAG,purchased,3.846153846153846,small packs,2,refused: A11 spelling gap
+H004323,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,putos,AKLAN,LIBACAO,purchased,2,putos,,refused: unique price
+H004333,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,gamay nga tasa,ANTIQUE,VALDERRAMA,purchased,5,small cup,2.4,refused: A11 spelling gap
+H004346,loaf bread,1,gagmay nga pakete,NEGROS OCCIDENTAL,TOBOSO,purchased,20,small packs,2.25,refused: A11 spelling gap
+H004369,fresh fish,3,putos,ILOILO,LEMERY,purchased,50,pack,1.305555555555556,refused: unique price
+H004413,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H004415,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,binilog,ILOILO,ALIMODIAN,purchased,20,pieces or units,2,refused: A11 spelling gap
+H004471,loaf bread,12,gagmay nga putos,ANTIQUE,PATNONGON,purchased,4,small packs,2.625,refused: A11 spelling gap
+H004505,carrot,1,binilog,ILOILO,JANIUAY,purchased,25,pieces or units,2.25,refused: A11 spelling gap
+H004529,fresh fish,3,putos,ILOILO,LEMERY,purchased,100,pack,1.305555555555556,refused: unique price
+H004576,fresh fish,12,bilog,ANTIQUE,BUGASONG,purchased,2.916666666666667,pieces or units,,refused: unique price
+H004613,fresh fish,2,pack,ILOILO,SAN ENRIQUE,purchased,100,pack,2,refused: A11 spelling gap
+H004642,carrot,1,binilog,ANTIQUE,BELISON,purchased,25,pieces or units,2,refused: A11 spelling gap
+H004686,loaf bread,50,per piece,CAPIZ,PANAY,purchased,5,per piece,,refused: nothing anywhere
+H004688,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,gamay nga tasa,ANTIQUE,TOBIAS FORNIER,purchased,50,small cup,3.142857142857143,refused: A11 spelling gap
+H004760,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,binilog,AKLAN,IBAJAY,purchased,20,pieces or units,3.5,refused: A11 spelling gap
+H004762,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",10,pieces or units,ANTIQUE,HAMTIC,purchased,25,pieces or units,8.928571428571429,refused: A11 spelling gap
+H004778,loaf bread,2,dalagku nga putos,ILOILO,MAASIN,purchased,82.5,large packs,2,refused: A11 spelling gap
+H004817,loaf bread,1,large,ILOILO,BALASAN,purchased,75,large packs,2.266666666666667,refused: A11 spelling gap
+H004846,fresh fish,7,putos,ILOILO,LEMERY,purchased,100,pack,1.305555555555556,refused: unique price
+H004862,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,MALAY,purchased,5,pieces or units,4.2,refused: A11 spelling gap
+H004864,fresh fish,7,putos,ILOILO,LEMERY,purchased,45,pack,1.305555555555556,refused: unique price
+H004952,beer,1,1 case,CAPIZ,MAMBUSAO,purchased,585,case,,refused: nothing anywhere
+H005077,carrot,2,putos,ILOILO,CABATUAN,purchased,20,pack,,refused: nothing anywhere
+H005162,beer,1,1 case,ANTIQUE,TIBIAO,purchased,1200,case,,refused: nothing anywhere
+H005226,carrot,1,sliced,ILOILO,SAN DIONISIO,purchased,20,sliced,,refused: nothing anywhere
+H005299,fresh fish,1,putos,ILOILO,SARA,purchased,50,pack,3,refused: A11 spelling gap
+H005344,"liquor (e.g, whisky, coconut wine)",1,lapad,AKLAN,IBAJAY,purchased,70,lipid/lapad,2,refused: A11 spelling gap
+H005359,fresh fish,2,putos,ILOILO,LEMERY,purchased,100,pack,1.305555555555556,refused: unique price
+H005380,fresh fish,1,putos,ILOILO,SARA,purchased,50,pack,3,refused: A11 spelling gap
+H005389,carrot,1,pack,ANTIQUE,PANDAN,gift,,pack,,refused: nothing anywhere
+H005403,cabbage,1,binilog,AKLAN,NEW WASHINGTON,purchased,75,pieces or units,,refused: unique price
+H005404,fresh fish,3,putos,ILOILO,SARA,purchased,143.3333333333333,pack,3,refused: A11 spelling gap
+H005431,fresh fish,2,binilog,ANTIQUE,LIBERTAD,purchased,200,pieces or units,4.142857142857143,refused: A11 spelling gap
+H005443,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,binilog,AKLAN,MALAY,purchased,25,pieces or units,4.2,refused: A11 spelling gap
+H005453,"liquor (e.g, whisky, coconut wine)",1,lipid / lapad,CAPIZ,SAPI-AN,purchased,65,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H005477,loaf bread,7,gagmay nga putos,ANTIQUE,PATNONGON,purchased,10,small packs,2.625,refused: A11 spelling gap
+H005483,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H005515,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,piraso,ILOILO,SARA,purchased,10,pieces or units,2.222222222222222,refused: A11 spelling gap
+H005545,"preserved or processed meat (tocino, tapa, longaniza, etc)",1,bilog,ANTIQUE,BELISON,purchased,300,bilog,,refused: unique price
+H005551,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,gamay nga cup,ANTIQUE,TOBIAS FORNIER,purchased,20,small cup,2,refused: A11 spelling gap
+H005592,"liquor (e.g, whisky, coconut wine)",2,lipid / lapad,CAPIZ,SAPI-AN,purchased,65,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H005691,loaf bread,1,gagmay nga putos,ANTIQUE,VALDERRAMA,purchased,100,small packs,,refused: unique price
+H005730,fresh fish,3,putos,ILOILO,LEMERY,purchased,50,pack,1.305555555555556,refused: unique price
+H005735,chicken,1,patupong,ILOILO,ALIMODIAN,purchased,150,patupong,,refused: nothing anywhere
+H005758,chicken,1,whole (chicken),ANTIQUE,SEBASTE,purchased,280,whole (chicken),,refused: unique price
+H005773,loaf bread,2,gagmay nga putos,ANTIQUE,PATNONGON,purchased,35,small packs,2.625,refused: A11 spelling gap
+H005835,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,maisot nga tasa,CAPIZ,JAMINDAN,purchased,10,small cup,2,refused: A11 spelling gap
+H005873,mango,2,binilog,AKLAN,MADALAG,purchased,15,pieces or units,,refused: unique price
+H005927,cabbage,1,binilog,ANTIQUE,LIBERTAD,purchased,100,pieces or units,2.142857142857143,refused: A11 spelling gap
+H005980,carrot,1,putos,ILOILO,DINGLE,purchased,10,pack,,refused: nothing anywhere
+H005989,"crackers, cookies, buiscuits, chips/curls",1,packs,ILOILO,CARLES,purchased,55,pack,,refused: unique price
+H006024,"liquor (e.g, whisky, coconut wine)",4,lipid / lapad,CAPIZ,SAPI-AN,purchased,65,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H006043,chicken,1,1order,CAPIZ,MA-AYON,gift,,1order,,refused: nothing anywhere
+H006067,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,gamay nga tasa,ANTIQUE,TOBIAS FORNIER,purchased,10,small cup,3.142857142857143,refused: A11 spelling gap
+H006082,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,BAROTAC NUEVO,purchased,140,long-neck,,refused: unique price
+H006090,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,LEMERY,purchased,150,long-neck,,refused: unique price
+H006094,fresh fish,1,puts or plastic,CAPIZ,PILAR,purchased,50,puts or plastic,,refused: nothing anywhere
+H006120,"liquor (e.g, whisky, coconut wine)",3,lipid / lapad,CAPIZ,SAPI-AN,purchased,65,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H006148,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,BINGAWAN,purchased,150,long-neck,,refused: unique price
+H006174,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,MINA,purchased,150,long-neck,,refused: unique price
+H006200,fresh fish,1,bilog,ILOILO,GUIMBAL,purchased,170,pieces or units,,refused: unique price
+H006296,carrot,5,binilog,ILOILO,GUIMBAL,purchased,16,pieces or units,2.285714285714286,refused: A11 spelling gap
+H006304,fresh fish,1,putos,ILOILO,LEMERY,purchased,100,pack,1.305555555555556,refused: unique price
+H006328,loaf bread,5,pieces,CAPIZ,JAMINDAN,purchased,4,pieces,,refused: nothing anywhere
+H006328,camote tops,7,cassava leaves,CAPIZ,JAMINDAN,own_production,,cassava leaves,,refused: nothing anywhere
+H006367,beef,1,patupa,ANTIQUE,PANDAN,purchased,100,patupa,,refused: nothing anywhere
+H006429,"liquor (e.g, whisky, coconut wine)",3,lapad,AKLAN,IBAJAY,purchased,60,lipid/lapad,2,refused: A11 spelling gap
+H006429,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H006492,"liquor (e.g, whisky, coconut wine)",3,cup,NEGROS OCCIDENTAL,CALATRAVA,purchased,5,cup,,refused: nothing anywhere
+H006511,cabbage,1,1 chop,ILOILO,BAROTAC VIEJO,purchased,30,1 chop,,refused: nothing anywhere
+H006588,loaf bread,2,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H006598,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,gamay nga tasa,ANTIQUE,VALDERRAMA,purchased,15,small cup,2.4,refused: A11 spelling gap
+H006605,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,cone,ILOILO,SAN RAFAEL,purchased,5,cone,,refused: unique price
+H006662,loaf bread,1,large,CAPIZ,TAPAZ,purchased,70,large packs,2.125,refused: A11 spelling gap
+H006713,"liquor (e.g, whisky, coconut wine)",1,lapad,AKLAN,IBAJAY,purchased,65,lipid/lapad,2,refused: A11 spelling gap
+H006760,fresh fish,7,putos,ILOILO,LEMERY,purchased,100,pack,1.305555555555556,refused: unique price
+H006793,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,gamay nga tasa,ANTIQUE,TOBIAS FORNIER,purchased,10,small cup,3.142857142857143,refused: A11 spelling gap
+H006801,loaf bread,1,small,CAPIZ,PANITAN,purchased,15,small packs,2.25,refused: A11 spelling gap
+H006823,carrot,1,putos,ILOILO,DUMANGAS,purchased,5,pack,,refused: nothing anywhere
+H006834,carrot,1,binilog,ANTIQUE,BELISON,purchased,15,pieces or units,2,refused: A11 spelling gap
+H006915,"prawns, lobster, shrimp",3,putos,ILOILO,ESTANCIA,purchased,50,putos,,refused: nothing anywhere
+H006918,"liquor (e.g, whisky, coconut wine)",7,7 ball,ANTIQUE,SIBALOM,purchased,20,7 ball,,refused: nothing anywhere
+H006918,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,apa,ANTIQUE,SIBALOM,purchased,10,apa,,refused: nothing anywhere
+H006927,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,small cup (translate),ANTIQUE,TIBIAO,purchased,10,small cup,1.166666666666667,refused: unique price
+H006950,loaf bread,10,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H006964,loaf bread,2,gagmay nga putos,ILOILO,SARA,purchased,10,small packs,3.136363636363637,refused: A11 spelling gap
+H006995,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H007011,carrot,1,putos,ILOILO,IGBARAS,purchased,10,pack,,refused: nothing anywhere
+H007025,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,22.5,pieces or units,3.5,refused: A11 spelling gap
+H007029,carrot,1,putos,ILOILO,SAN RAFAEL,purchased,10,pack,,refused: nothing anywhere
+H007087,"liquor (e.g, whisky, coconut wine)",6,long-neck,ILOILO,CALINOG,purchased,140,long-neck,,refused: unique price
+H007133,loaf bread,3,dalagku nga putos,CAPIZ,IVISAN,purchased,80,large packs,2.047058823529412,refused: A11 spelling gap
+H007143,carrot,3,pack,ILOILO,TUBUNGAN,purchased,10,pack,,refused: nothing anywhere
+H007174,cabbage,11,slice,ILOILO,DINGLE,purchased,.9090909090909091,sliced,,refused: nothing anywhere
+H007174,carrot,1,slice,ILOILO,DINGLE,purchased,10,slice,,refused: nothing anywhere
+H007183,"liquor (e.g, whisky, coconut wine)",1,lipid / lapad,CAPIZ,SAPI-AN,purchased,55,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H007222,loaf bread,1,medium nga pakete,NEGROS OCCIDENTAL,CALATRAVA,purchased,50,medium packs,2,refused: A11 spelling gap
+H007254,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",10,gamay nga tasa,ANTIQUE,SEBASTE,purchased,10,small cup,2,refused: A11 spelling gap
+H007296,loaf bread,1,small,CAPIZ,PANITAN,purchased,65,small packs,2.25,refused: A11 spelling gap
+H007359,"liquor (e.g, whisky, coconut wine)",1,lapad,AKLAN,IBAJAY,purchased,68,lipid/lapad,2,refused: A11 spelling gap
+H007379,"prawns, lobster, shrimp",1,caltex,CAPIZ,PANAY,purchased,100,caltex,,refused: nothing anywhere
+H007400,loaf bread,2,dalagku nga putos,ILOILO,MAASIN,purchased,70,large packs,2,refused: A11 spelling gap
+H007401,"mineral or spring water, all drinking water sold in containers",10,5 gallon black container,CAPIZ,TAPAZ,purchased,1,5-gallon blue container,,refused: nothing anywhere
+H007463,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",35,binilog,AKLAN,MALAY,own_production,,pieces or units,4.2,refused: A11 spelling gap
+H007494,"liquor (e.g, whisky, coconut wine)",2,long-neck,AKLAN,BURUANGA,purchased,120,long-neck,,refused: unique price
+H007504,carrot,3,slice,ILOILO,TIGBAUAN,purchased,15,slice,,refused: nothing anywhere
+H007506,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,CALINOG,purchased,150,long-neck,,refused: unique price
+H007522,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,gamay nga tasa,ILOILO,MIAGAO,purchased,20,small cup,2.8,refused: A11 spelling gap
+H007530,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H007540,"liquor (e.g, whisky, coconut wine)",4,lapad,ANTIQUE,TOBIAS FORNIER,gift,,lipid/lapad,2.666666666666667,refused: A11 spelling gap
+H007662,loaf bread,10,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H007681,fresh fish,2,pack,ILOILO,SAN ENRIQUE,purchased,100,pack,2,refused: A11 spelling gap
+H007702,carrot,2,binilog,ILOILO,SAN JOAQUIN,purchased,25,pieces or units,2.166666666666667,refused: A11 spelling gap
+H007750,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,binilog,AKLAN,IBAJAY,purchased,15,pieces or units,3.5,refused: A11 spelling gap
+H007757,"liquor (e.g, whisky, coconut wine)",1,lapad,AKLAN,IBAJAY,gift,,lipid/lapad,2,refused: A11 spelling gap
+H007774,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H007784,"liquor (e.g, whisky, coconut wine)",3,lapad,AKLAN,IBAJAY,purchased,75,lipid/lapad,2,refused: A11 spelling gap
+H007786,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,binilog,AKLAN,IBAJAY,purchased,20,pieces or units,3.5,refused: A11 spelling gap
+H007810,loaf bread,2,medium nga pakete,NEGROS OCCIDENTAL,CALATRAVA,purchased,45,medium packs,2,refused: A11 spelling gap
+H007814,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,BAROTAC NUEVO,purchased,155,long-neck,,refused: unique price
+H007825,loaf bread,1,small,CAPIZ,PANITAN,purchased,25,small packs,2.25,refused: A11 spelling gap
+H007829,loaf bread,3,dalagku nga putos,CAPIZ,IVISAN,purchased,80,large packs,2.047058823529412,refused: A11 spelling gap
+H007838,loaf bread,2,dalagku nga putos,ILOILO,MAASIN,purchased,120,large packs,2,refused: A11 spelling gap
+H007880,loaf bread,1,large,ILOILO,SAN JOAQUIN,purchased,150,large packs,1.193548387096774,refused: unique price
+H007928,loaf bread,1,dalagku nga putos,ILOILO,MAASIN,purchased,50,large packs,2,refused: A11 spelling gap
+H007946,"liquor (e.g, whisky, coconut wine)",7,lapad,AKLAN,IBAJAY,purchased,70,lipid/lapad,2,refused: A11 spelling gap
+H007946,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H008010,fresh fish,3,bilog,ILOILO,SAN ENRIQUE,purchased,40,pieces or units,,refused: unique price
+H008028,"crackers, cookies, buiscuits, chips/curls",35,piraso,ANTIQUE,CULASI,purchased,8,pieces or units,7.777777777777778,refused: A11 spelling gap
+H008038,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,small cup,ANTIQUE,SIBALOM,purchased,10,small cup,3.5,refused: A11 spelling gap
+H008067,cabbage,2,packs,ILOILO,AJUY,purchased,20,pack,2.105263157894737,refused: A11 spelling gap
+H008078,carrot,4,binilog,ILOILO,SAN JOAQUIN,purchased,20,pieces or units,2.166666666666667,refused: A11 spelling gap
+H008159,loaf bread,1,gagmay nga putos,ILOILO,BAROTAC NUEVO,purchased,6,small packs,3.076923076923077,refused: A11 spelling gap
+H008162,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,MALAY,purchased,10,pieces or units,4.2,refused: A11 spelling gap
+H008170,"crackers, cookies, buiscuits, chips/curls",1,tupperware,ILOILO,BADIANGAN,purchased,400,tupperware,,refused: nothing anywhere
+H008181,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,7,pieces or units,3.5,refused: A11 spelling gap
+H008188,fresh fish,1,cup,NEGROS OCCIDENTAL,CALATRAVA,purchased,50,cup,,refused: nothing anywhere
+H008234,"preserved or processed meat (tocino, tapa, longaniza, etc)",3,piraso,AKLAN,MADALAG,purchased,10,pieces or units,2.668981481481482,refused: A11 spelling gap
+H008234,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,piraso,AKLAN,MADALAG,purchased,12,pieces or units,2,refused: A11 spelling gap
+H008237,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,gamay nga tasa,ANTIQUE,SEBASTE,purchased,13.33333333333333,small cup,2,refused: A11 spelling gap
+H008242,loaf bread,2,small,CAPIZ,PANITAN,own_production,,small packs,2.25,refused: A11 spelling gap
+H008247,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,16,pieces or units,3.5,refused: A11 spelling gap
+H008305,loaf bread,2,dalagku nga putos,CAPIZ,DUMALAG,purchased,100,large packs,2.352941176470588,refused: A11 spelling gap
+H008327,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,maisot nga tasa,CAPIZ,JAMINDAN,purchased,20,small cup,2,refused: A11 spelling gap
+H008347,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,MALAY,purchased,5,pieces or units,4.2,refused: A11 spelling gap
+H008370,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",21,small cup (translate),ANTIQUE,BARBAZA,purchased,10,small cup,5.125,refused: A11 spelling gap
+H008381,carrot,2,binilog,ANTIQUE,BELISON,purchased,10,pieces or units,2,refused: A11 spelling gap
+H008384,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,CALINOG,purchased,150,long-neck,,refused: unique price
+H008455,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,CALINOG,purchased,150,long-neck,,refused: unique price
+H008464,loaf bread,1,plastic bag,ILOILO,BADIANGAN,purchased,50,plastic bag,,refused: nothing anywhere
+H008486,fresh fish,4,binilog,ANTIQUE,LAUA-AN,purchased,25,pieces or units,,refused: unique price
+H008491,loaf bread,21,gagmay nga putos,ANTIQUE,PATNONGON,purchased,7,small packs,2.625,refused: A11 spelling gap
+H008537,fresh fish,1,putos,ILOILO,SARA,purchased,100,pack,3,refused: A11 spelling gap
+H008548,"liquor (e.g, whisky, coconut wine)",1,jr,ANTIQUE,BELISON,purchased,55,jr,,refused: nothing anywhere
+H008602,fresh fish,5,binilog,ANTIQUE,PATNONGON,gift,,pieces or units,2.571428571428572,refused: A11 spelling gap
+H008611,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H008615,"mineral or spring water, all drinking water sold in containers",14,tab,ANTIQUE,HAMTIC,own_production,,tab,,refused: nothing anywhere
+H008617,"preserved or processed meat (tocino, tapa, longaniza, etc)",2,lata,ANTIQUE,TOBIAS FORNIER,purchased,27,cans,,refused: unique price
+H008629,"liquor (e.g, whisky, coconut wine)",1,lipid / lapad,CAPIZ,SAPI-AN,purchased,65,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H008635,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,pitcher,ILOILO,OTON,purchased,100,pitcher,,refused: nothing anywhere
+H008670,fresh fish,1,bilog,CAPIZ,PILAR,purchased,80,pieces or units,,refused: unique price
+H008674,loaf bread,6,gagmay nga putos,ILOILO,SARA,purchased,8.333333333333334,small packs,3.136363636363637,refused: A11 spelling gap
+H008718,"liquor (e.g, whisky, coconut wine)",2,lapad,AKLAN,IBAJAY,purchased,75,lipid/lapad,2,refused: A11 spelling gap
+H008720,"prawns, lobster, shrimp",1,tumpok,ILOILO,BANATE,purchased,100,tumpok,,refused: unique price
+H008743,loaf bread,4,gagmay nga putos,ILOILO,BAROTAC NUEVO,purchased,6,small packs,3.076923076923077,refused: A11 spelling gap
+H008762,loaf bread,30,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H008777,carrot,1,pack,ANTIQUE,LIBERTAD,purchased,25,pack,,refused: nothing anywhere
+H008852,carrot,1,pack,CAPIZ,DUMARAO,purchased,20,pack,,refused: nothing anywhere
+H008901,carrot,1,pack of slices,ILOILO,BAROTAC VIEJO,purchased,75,pack of slices,,refused: nothing anywhere
+H008911,carrot,1,putos or pack,ILOILO,IGBARAS,purchased,25,putos or pack,,refused: nothing anywhere
+H009006,"crackers, cookies, buiscuits, chips/curls",1,packs,ILOILO,CABATUAN,purchased,60,pack,,refused: unique price
+H009068,fresh fish,2,putos,ILOILO,SARA,purchased,50,pack,3,refused: A11 spelling gap
+H009070,carrot,2,tumpok / plastic,ANTIQUE,SIBALOM,purchased,20,tumpok,,refused: nothing anywhere
+H009136,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,putos,ANTIQUE,BUGASONG,purchased,5,putos,,refused: unique price
+H009175,"liquor (e.g, whisky, coconut wine)",1,lipid / lapad,CAPIZ,SAPI-AN,purchased,70,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H009185,mango,3,bilog,ILOILO,BALASAN,purchased,53.33333333333334,pieces or units,,refused: unique price
+H009206,cabbage,1,binilog,ANTIQUE,TIBIAO,purchased,80,pieces or units,,refused: unique price
+H009237,fresh fish,2,putos,ILOILO,LEMERY,purchased,50,pack,1.305555555555556,refused: unique price
+H009242,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,small cup (translate),ANTIQUE,BARBAZA,purchased,10,small cup,5.125,refused: A11 spelling gap
+H009262,loaf bread,2,dalagku nga putos,ILOILO,MAASIN,purchased,85,large packs,2,refused: A11 spelling gap
+H009264,loaf bread,1,small,CAPIZ,PANITAN,purchased,65,small packs,2.25,refused: A11 spelling gap
+H009317,fresh fish,1,pieces or units,ILOILO,SARA,purchased,100,pieces or units,2.5,refused: A11 spelling gap
+H009322,"prawns, lobster, shrimp",1,tumpok,ILOILO,LEGANES,purchased,200,tumpok,,refused: unique price
+H009347,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,gamay nga tasa,ILOILO,MIAGAO,purchased,20,small cup,2.8,refused: A11 spelling gap
+H009348,"liquor (e.g, whisky, coconut wine)",1,lipid / lapad,CAPIZ,SAPI-AN,purchased,65,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H009352,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",35,small cup (translate),ANTIQUE,BARBAZA,purchased,5,small cup,5.125,refused: A11 spelling gap
+H009354,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,SARA,purchased,130,long-neck,,refused: unique price
+H009443,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,25,pieces or units,3.5,refused: A11 spelling gap
+H009464,"liquor (e.g, whisky, coconut wine)",7,ball (tuba),ANTIQUE,SAN REMIGIO,own_production,,ball (tuba),,refused: nothing anywhere
+H009466,loaf bread,1,malaking packs,ILOILO,MINA,gift,,large packs,2.116883116883117,refused: A11 spelling gap
+H009492,carrot,2,putos,ILOILO,DINGLE,purchased,15,pack,,refused: nothing anywhere
+H009495,carrot,1,putos,ILOILO,SAN JOAQUIN,purchased,15,pack,,refused: nothing anywhere
+H009563,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,MALAY,purchased,5,pieces or units,4.2,refused: A11 spelling gap
+H009593,"liquor (e.g, whisky, coconut wine)",2,lapad,AKLAN,IBAJAY,purchased,10,lipid/lapad,2,refused: A11 spelling gap
+H009593,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,20,pieces or units,3.5,refused: A11 spelling gap
+H009625,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",6,gamay nga tasa,ANTIQUE,TOBIAS FORNIER,purchased,10,small cup,3.142857142857143,refused: A11 spelling gap
+H009715,fresh fish,5,putos,ILOILO,LEMERY,purchased,100,pack,1.305555555555556,refused: unique price
+H009716,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,30,pieces or units,3.5,refused: A11 spelling gap
+H009725,loaf bread,5,gagmay nga putos,ANTIQUE,PATNONGON,purchased,8,small packs,2.625,refused: A11 spelling gap
+H009811,carrot,1,pack,CAPIZ,MA-AYON,purchased,10,pack,,refused: nothing anywhere
+H009822,loaf bread,5,gagmay nga putos,ILOILO,BAROTAC NUEVO,purchased,6,small packs,3.076923076923077,refused: A11 spelling gap
+H009871,carrot,1,pack,ILOILO,DINGLE,purchased,20,pack,,refused: nothing anywhere
+H009876,carrot,3,binilog,ILOILO,SAN JOAQUIN,purchased,40,pieces or units,2.166666666666667,refused: A11 spelling gap
+H010005,loaf bread,2,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H010055,loaf bread,2,gagmay nga putos,ILOILO,SARA,purchased,5,small packs,3.136363636363637,refused: A11 spelling gap
+H010100,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H010115,camote tops,3,tumpok,NEGROS OCCIDENTAL,CAUAYAN,own_production,,tumpok,,refused: nothing anywhere
+H010118,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,JANIUAY,purchased,150,long-neck,,refused: unique price
+H010122,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,MALAY,purchased,10,pieces or units,4.2,refused: A11 spelling gap
+H010133,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H010210,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,gamay nga tasa,ANTIQUE,SEBASTE,purchased,10,small cup,2,refused: A11 spelling gap
+H010232,fresh fish,3,putos,ILOILO,LEMERY,purchased,100,pack,1.305555555555556,refused: unique price
+H010285,fresh fish,1,putos,ILOILO,LEMERY,purchased,50,pack,1.305555555555556,refused: unique price
+H010361,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,putos,NEGROS OCCIDENTAL,HINIGARAN,purchased,70,putos,,refused: unique price
+H010375,"prawns, lobster, shrimp",1,tumpok,ILOILO,LEGANES,purchased,100,tumpok,,refused: unique price
+H010431,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,binilog,AKLAN,IBAJAY,purchased,20,pieces or units,3.5,refused: A11 spelling gap
+H010503,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",10,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H010556,"preserved or processed meat (tocino, tapa, longaniza, etc)",1,lata,ILOILO,SAN DIONISIO,purchased,48,cans,,refused: unique price
+H010561,"prawns, lobster, shrimp",1,tumpok,ILOILO,SARA,purchased,100,tumpok,,refused: unique price
+H010579,carrot,1,binilog,ILOILO,SAN JOAQUIN,purchased,8,pieces or units,2.166666666666667,refused: A11 spelling gap
+H010610,"mineral or spring water, all drinking water sold in containers",2,distilled water,CAPIZ,PANAY,purchased,79,distilled water,,refused: nothing anywhere
+H010645,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,gamay nga tasa,ANTIQUE,SEBASTE,purchased,20,small cup,2,refused: A11 spelling gap
+H010665,fresh fish,3,binilog,ILOILO,TUBUNGAN,purchased,333.3333333333333,pieces or units,7.7,refused: A11 spelling gap
+H010754,"liquor (e.g, whisky, coconut wine)",7,bul,ANTIQUE,BELISON,purchased,30,bul,,refused: nothing anywhere
+H010860,fresh fish,1,binilog,AKLAN,LIBACAO,purchased,280,pieces or units,,refused: unique price
+H010871,loaf bread,2,gagmay nga putos,ILOILO,SARA,purchased,10,small packs,3.136363636363637,refused: A11 spelling gap
+H010887,"crackers, cookies, buiscuits, chips/curls",4,pieces or units,ILOILO,DINGLE,purchased,7.5,pieces or units,2.916666666666667,refused: A11 spelling gap
+H010894,cabbage,1,buskos,ILOILO,LEMERY,purchased,20,buskos,,refused: nothing anywhere
+H010905,loaf bread,1,large,CAPIZ,TAPAZ,purchased,75,large packs,2.125,refused: A11 spelling gap
+H010910,loaf bread,10,gagmay nga putos,ILOILO,BAROTAC NUEVO,purchased,5,small packs,3.076923076923077,refused: A11 spelling gap
+H010935,carrot,1,binilog,ANTIQUE,BELISON,purchased,12,pieces or units,2,refused: A11 spelling gap
+H010956,cabbage,1,binilog,AKLAN,MALAY,purchased,120,pieces or units,2.4,refused: A11 spelling gap
+H010979,chicken,2,tingi tingi,CAPIZ,MA-AYON,purchased,150,tingi tingi,,refused: nothing anywhere
+H010987,fresh fish,5,putos,ILOILO,LEMERY,purchased,50,pack,1.305555555555556,refused: unique price
+H010991,loaf bread,28,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H011035,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,gamay nga tasa,ANTIQUE,VALDERRAMA,purchased,10,small cup,2.4,refused: A11 spelling gap
+H011084,"liquor (e.g, whisky, coconut wine)",7,cup,ILOILO,IGBARAS,own_production,,cup,,refused: nothing anywhere
+H011088,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,gamay nga tasa,ANTIQUE,SEBASTE,purchased,10,small cup,2,refused: A11 spelling gap
+H011180,chicken,1,whole (chicken),ANTIQUE,SEBASTE,purchased,300,whole (chicken),,refused: unique price
+H011224,"liquor (e.g, whisky, coconut wine)",3,lipid / lapad,CAPIZ,SAPI-AN,purchased,65,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H011248,"liquor (e.g, whisky, coconut wine)",7,lipid / lapad,CAPIZ,SAPI-AN,purchased,65,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H011296,carrot,2,pack of ice wrapper,ILOILO,SAN ENRIQUE,purchased,10,small packs,,refused: nothing anywhere
+H011303,fresh fish,1,bilog,CAPIZ,SAPI-AN,purchased,85,pieces or units,,refused: unique price
+H011317,"liquor (e.g, whisky, coconut wine)",1,long-neck,ILOILO,JANIUAY,purchased,150,long-neck,,refused: unique price
+H011321,"liquor (e.g, whisky, coconut wine)",1,lapad,AKLAN,IBAJAY,purchased,65,lipid/lapad,2,refused: A11 spelling gap
+H011332,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,MALAY,purchased,10,pieces or units,4.2,refused: A11 spelling gap
+H011338,camote,2,bundle,ILOILO,DUEAS,own_production,,bundle,,refused: nothing anywhere
+H011360,loaf bread,5,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H011410,"liquor (e.g, whisky, coconut wine)",1,lapad,AKLAN,IBAJAY,purchased,70,lipid/lapad,2,refused: A11 spelling gap
+H011426,fresh fish,2,putos,ILOILO,LEMERY,purchased,50,pack,1.305555555555556,refused: unique price
+H011447,loaf bread,1,large,ILOILO,BALASAN,gift,,large packs,2.266666666666667,refused: A11 spelling gap
+H011476,carrot,3,binilog,ILOILO,SAN JOAQUIN,purchased,43.33333333333334,pieces or units,2.166666666666667,refused: A11 spelling gap
+H011485,loaf bread,6,gagmay nga putos,ILOILO,BAROTAC NUEVO,purchased,10,small packs,3.076923076923077,refused: A11 spelling gap
+H011533,"crackers, cookies, buiscuits, chips/curls",1,tupper ware,ILOILO,ALIMODIAN,purchased,200,tupper ware,,refused: nothing anywhere
+H011681,fresh fish,1,bilog,NEGROS OCCIDENTAL,ISABELA,purchased,80,pieces or units,,refused: unique price
+H011708,cabbage,1,binilog,AKLAN,MALAY,purchased,40,pieces or units,2.4,refused: A11 spelling gap
+H011709,carrot,2,binilog,ILOILO,GUIMBAL,purchased,27.5,pieces or units,2.285714285714286,refused: A11 spelling gap
+H011712,"liquor (e.g, whisky, coconut wine)",3,coconut wine,ANTIQUE,SIBALOM,own_production,,coconut wine,,refused: nothing anywhere
+H011720,fresh fish,1,binilog,ANTIQUE,SAN REMIGIO,purchased,400,pieces or units,,refused: unique price
+H011769,fresh fish,4,packs,ILOILO,SAN ENRIQUE,purchased,100,pack,,refused: unique price
+H011801,cabbage,1,binilog,AKLAN,MALAY,purchased,80,pieces or units,2.4,refused: A11 spelling gap
+H011828,fresh fish,4,per putos ung binibili na isda,CAPIZ,SIGMA,purchased,100,pack,4,refused: A11 spelling gap
+H011871,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,gamay nga cup,ANTIQUE,TOBIAS FORNIER,purchased,15,small cup,2,refused: A11 spelling gap
+H011876,loaf bread,20,pieces,CAPIZ,MAMBUSAO,purchased,5,pieces,,refused: nothing anywhere
+H011890,"prawns, lobster, shrimp",1,1 pc. prawn,CAPIZ,IVISAN,own_production,,1 pc. prawn,,refused: nothing anywhere
+H011905,loaf bread,1,dalagku nga putos,CAPIZ,DUMALAG,purchased,100,large packs,2.352941176470588,refused: A11 spelling gap
+H011906,carrot,2,putos,ILOILO,NEW LUCENA,purchased,25,pack,,refused: nothing anywhere
+H011944,camote,1,putos,ILOILO,MINA,purchased,100,putos,,refused: nothing anywhere
+H011975,rice,63,rice cooker cup (small),ILOILO,OTON,purchased,3.174603174603174,rice cooker cup (small),,refused: nothing anywhere
+H012001,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,putos,ILOILO,LEON,purchased,5,putos,,refused: unique price
+H012017,fresh fish,3,putos,ILOILO,LEMERY,purchased,100,pack,1.305555555555556,refused: unique price
+H012045,"crackers, cookies, buiscuits, chips/curls",2,large packs,CAPIZ,IVISAN,purchased,150,large packs,,refused: nothing anywhere
+H012063,carrot,3,binilog,ILOILO,GUIMBAL,purchased,33.33333333333334,pieces or units,2.285714285714286,refused: A11 spelling gap
+H012071,chicken,1,patopung,ILOILO,DUEAS,purchased,147,patopung,,refused: nothing anywhere
+H012236,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,gamay nga cup,ANTIQUE,TIBIAO,purchased,10,small cup,,refused: unique price
+H012253,carrot,3,putos,ILOILO,LEGANES,purchased,8.333333333333334,pack,,refused: nothing anywhere
+H012254,"preserved or processed meat (tocino, tapa, longaniza, etc)",1,packs,ILOILO,BANATE,purchased,50,pack,,refused: unique price
+H012261,loaf bread,1,gagmay nga putos,CAPIZ,DUMALAG,purchased,55,small packs,2,refused: A11 spelling gap
+H012288,fresh fish,1,binilog,ANTIQUE,PATNONGON,purchased,350,pieces or units,2.571428571428572,refused: A11 spelling gap
+H012297,fresh fish,4,putos,ILOILO,SARA,purchased,50,pack,3,refused: A11 spelling gap
+H012311,loaf bread,1,gagmay nga putos,ANTIQUE,PATNONGON,purchased,45,small packs,2.625,refused: A11 spelling gap
+H012316,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,small cup (translate),ANTIQUE,BARBAZA,purchased,10,small cup,5.125,refused: A11 spelling gap
+H012319,carrot,1,mix slice of carrot,CAPIZ,SIGMA,purchased,20,mix slice of carrot,,refused: nothing anywhere
+H012326,fresh fish,3,fish sold per pack 90 each pack,ILOILO,LEMERY,purchased,90,pack,,refused: unique price
+H012331,carrot,1.5,pack,ILOILO,IGBARAS,purchased,16.66666666666667,pack,,refused: nothing anywhere
+H012373,"prawns, lobster, shrimp",1,tumpok,ILOILO,NEW LUCENA,purchased,100,tumpok,,refused: unique price
+H012433,loaf bread,1,small,CAPIZ,PANITAN,purchased,35,small packs,2.25,refused: A11 spelling gap
+H012443,carrot,1,putos,ILOILO,IGBARAS,purchased,10,pack,,refused: nothing anywhere
+H012452,"liquor (e.g, whisky, coconut wine)",2,lapad,AKLAN,IBAJAY,purchased,75,lipid/lapad,2,refused: A11 spelling gap
+H012459,"liquor (e.g, whisky, coconut wine)",1,long-neck,AKLAN,TANGALAN,purchased,120,long-neck,,refused: unique price
+H012504,loaf bread,10,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H012513,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,cone ( dirty ice cream ) 10 pesos per cone,ANTIQUE,HAMTIC,purchased,10,cone ( dirty ice cream ) 10 pesos per cone,,refused: nothing anywhere
+H012558,loaf bread,7,gagmay nga putos,ILOILO,SARA,purchased,10,small packs,3.136363636363637,refused: A11 spelling gap
+H012643,"liquor (e.g, whisky, coconut wine)",7,lipid / lapad,CAPIZ,SAPI-AN,purchased,75,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H012698,fresh fish,1,bilog,ANTIQUE,BUGASONG,purchased,450,pieces or units,,refused: unique price
+H012723,loaf bread,4,gagmay nga putos,ILOILO,SARA,purchased,5,small packs,3.136363636363637,refused: A11 spelling gap
+H012724,mango,3,bilog,ILOILO,BALASAN,purchased,16.66666666666667,pieces or units,,refused: unique price
+H012725,loaf bread,5,pieces,ILOILO,MAASIN,purchased,4,pieces,,refused: nothing anywhere
+H012735,fresh fish,1,bilog,ILOILO,ESTANCIA,purchased,50,pieces or units,,refused: unique price
+H012754,loaf bread,2,large,CAPIZ,TAPAZ,purchased,80,large packs,2.125,refused: A11 spelling gap
+H012848,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",10,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H012951,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H012973,"liquor (e.g, whisky, coconut wine)",3,4 later galon,ILOILO,ALIMODIAN,own_production,,4 later galon,,refused: nothing anywhere
+H012974,carrot,1,binilog,ANTIQUE,BELISON,purchased,20,pieces or units,2,refused: A11 spelling gap
+H013034,fresh fish,3,putos,ILOILO,LEMERY,purchased,50,pack,1.305555555555556,refused: unique price
+H013052,loaf bread,1,gagmay nga putos,ANTIQUE,PATNONGON,gift,,small packs,2.625,refused: A11 spelling gap
+H013191,loaf bread,1,large,CAPIZ,TAPAZ,purchased,70,large packs,2.125,refused: A11 spelling gap
+H013233,loaf bread,1,small,CAPIZ,PANITAN,gift,,small packs,2.25,refused: A11 spelling gap
+H013265,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,binilog,ILOILO,ALIMODIAN,purchased,10,pieces or units,2,refused: A11 spelling gap
+H013270,loaf bread,6,gagmay nga putos,CAPIZ,DUMALAG,purchased,35,small packs,2,refused: A11 spelling gap
+H013278,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H013306,"liquor (e.g, whisky, coconut wine)",1,lipid / lapad,CAPIZ,SAPI-AN,purchased,75,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H013340,"liquor (e.g, whisky, coconut wine)",2,lipid / lapad,CAPIZ,SAPI-AN,gift,,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H013370,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",7,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H013377,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",10,ice cream stick,CAPIZ,PILAR,purchased,10,ice cream stick,,refused: nothing anywhere
+H013410,loaf bread,5,gagmay nga putos,ILOILO,SARA,purchased,5,small packs,3.136363636363637,refused: A11 spelling gap
+H013417,cabbage,1,binilog,AKLAN,MALAY,purchased,40,pieces or units,2.4,refused: A11 spelling gap
+H013438,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",10,binilog,AKLAN,MALAY,purchased,5,pieces or units,4.2,refused: A11 spelling gap
+H013484,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H013501,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1,gamay nga tasa,ANTIQUE,TOBIAS FORNIER,purchased,10,small cup,3.142857142857143,refused: A11 spelling gap
+H013555,fresh fish,2,binilog,CAPIZ,JAMINDAN,gift,,pieces or units,2.3,refused: A11 spelling gap
+H013601,chicken,1,bilog,ILOILO,ANILAO,purchased,250,bilog,,refused: unique price
+H013663,loaf bread,10,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H013664,loaf bread,10,gagmay nga putos,ILOILO,BAROTAC NUEVO,purchased,5,small packs,3.076923076923077,refused: A11 spelling gap
+H013666,cabbage,2,binilog,AKLAN,MALAY,purchased,25,pieces or units,2.4,refused: A11 spelling gap
+H013691,loaf bread,3,large,CAPIZ,TAPAZ,purchased,75,large packs,2.125,refused: A11 spelling gap
+H013698,"liquor (e.g, whisky, coconut wine)",1,lipid / lapad,CAPIZ,SAPI-AN,purchased,60,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H013804,"preserved or processed meat (tocino, tapa, longaniza, etc)",4,packs,ILOILO,DUMANGAS,purchased,56.25,pack,,refused: unique price
+H013828,"prawns, lobster, shrimp",1,plastic,ANTIQUE,VALDERRAMA,purchased,150,plastic,,refused: nothing anywhere
+H013841,loaf bread,3,gagmay nga putos,ILOILO,BAROTAC NUEVO,purchased,7,small packs,3.076923076923077,refused: A11 spelling gap
+H013855,fresh fish,1,pack,ILOILO,SAN ENRIQUE,purchased,90,pack,2,refused: A11 spelling gap
+H013890,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,binilog,AKLAN,MALAY,purchased,10,pieces or units,4.2,refused: A11 spelling gap
+H013950,loaf bread,1,gagmay nga putos,ANTIQUE,PATNONGON,purchased,55,small packs,2.625,refused: A11 spelling gap
+H014024,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H014029,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",3,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H014053,"liquor (e.g, whisky, coconut wine)",1,long-neck,AKLAN,BURUANGA,purchased,130,long-neck,,refused: unique price
+H014121,fresh fish,1,bilog,ANTIQUE,SIBALOM,purchased,200,pieces or units,,refused: unique price
+H014143,loaf bread,30,pieces,ILOILO,MAASIN,purchased,5,pieces,,refused: nothing anywhere
+H014147,carrot,1,binilog,ANTIQUE,BELISON,purchased,25,pieces or units,2,refused: A11 spelling gap
+H014160,"liquor (e.g, whisky, coconut wine)",14,14 tasa,ANTIQUE,SIBALOM,own_production,,14 tasa,,refused: nothing anywhere
+H014164,fresh fish,7,putos,ILOILO,SARA,purchased,64.28571428571429,pack,3,refused: A11 spelling gap
+H014169,fresh fish,3,putos,ILOILO,LEMERY,purchased,50,pack,1.305555555555556,refused: unique price
+H014177,loaf bread,5,gagmay nga putos,ANTIQUE,PATNONGON,purchased,60,small packs,2.625,refused: A11 spelling gap
+H014253,loaf bread,30,pieces,CAPIZ,MAMBUSAO,purchased,2,pieces,,refused: nothing anywhere
+H014280,loaf bread,10,gagmay nga putos,ANTIQUE,PATNONGON,purchased,5,small packs,2.625,refused: A11 spelling gap
+H014304,"liquor (e.g, whisky, coconut wine)",7,lapad,AKLAN,IBAJAY,purchased,75,lipid/lapad,2,refused: A11 spelling gap
+H014313,fresh fish,4,putos,ILOILO,LEMERY,purchased,50,pack,1.305555555555556,refused: unique price
+H014327,loaf bread,1,large,CAPIZ,TAPAZ,purchased,60,large packs,2.125,refused: A11 spelling gap
+H014339,loaf bread,2,large packs,ILOILO,CALINOG,purchased,75,large packs,2.098765432098765,refused: A11 spelling gap
+H014344,"crackers, cookies, buiscuits, chips/curls",1,small box,ILOILO,OTON,purchased,299,small box,,refused: nothing anywhere
+H014379,fresh fish,3,putos,ILOILO,LEMERY,purchased,78.33333333333333,pack,1.305555555555556,refused: unique price
+H014412,"liquor (e.g, whisky, coconut wine)",2,glass/shots,ILOILO,IGBARAS,gift,,glass/shots,,refused: nothing anywhere
+H014504,carrot,1,binilog,ILOILO,JANIUAY,purchased,20,pieces or units,2.25,refused: A11 spelling gap
+H014521,pork,1,pcs,ILOILO,CABATUAN,gift,,pcs,,refused: nothing anywhere
+H014569,fresh fish,3,packs,ILOILO,SAN ENRIQUE,purchased,50,pack,,refused: unique price
+H014570,carrot,2,binilog,ILOILO,JANIUAY,purchased,15,pieces or units,2.25,refused: A11 spelling gap
+H014586,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",4,binilog,AKLAN,MALAY,purchased,10,pieces or units,4.2,refused: A11 spelling gap
+H014600,fresh fish,1,putos,ILOILO,LEMERY,purchased,100,pack,1.305555555555556,refused: unique price
+H014620,"prawns, lobster, shrimp",1,tumpok,ILOILO,BAROTAC NUEVO,purchased,100,tumpok,,refused: unique price
+H014685,camote tops,6,"cassava & malunggay leaves, paco or fern, squash leaves",CAPIZ,PANAY,own_production,,"cassava & malunggay leaves, paco or fern, squash leaves",,refused: nothing anywhere
+H014742,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",2,binilog,AKLAN,IBAJAY,purchased,10,pieces or units,3.5,refused: A11 spelling gap
+H014772,"mineral or spring water, all drinking water sold in containers",4,black gallon,ILOILO,CALINOG,purchased,5,black gallon,,refused: nothing anywhere
+H014815,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",7,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H014827,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",5,binilog,AKLAN,IBAJAY,purchased,5,pieces or units,3.5,refused: A11 spelling gap
+H014891,fresh fish,3,pack/ putos,ILOILO,LEMERY,purchased,50,pack,1.566666666666667,refused: unique price
+H014974,mango,10,binilog,ANTIQUE,CULASI,purchased,5,pieces or units,,refused: unique price
+H014992,"liquor (e.g, whisky, coconut wine)",2,lipid / lapad,CAPIZ,SAPI-AN,purchased,70,lipid/lapad,4.333333333333333,refused: A11 spelling gap
+H015023,chicken,1,bilog nga manok,ANTIQUE,SEBASTE,purchased,280,whole (chicken),1.08695652173913,refused: unique price
+H015034,loaf bread,10,gagmay nga putos,ANTIQUE,PATNONGON,purchased,15,small packs,2.625,refused: A11 spelling gap
+H015082,"preserved or processed meat (tocino, tapa, longaniza, etc)",1,can,ANTIQUE,VALDERRAMA,purchased,25,cans,3.72,refused: A11 spelling gap

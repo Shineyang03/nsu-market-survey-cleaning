@@ -779,10 +779,16 @@ def c_reclassification_counts():
           f"{int(len(rc))} reclassified, {len(conv)} rows in total")
     check("#28 reclassified rows: published medium vs pooled across sizes",
           "issue #28 / branch",
-          "78 medium, 21 pooled",
+          "99 medium, 0 pooled",
           f"{int((rc.size_ord == 2).sum())} medium, {int((rc.size_ord == 4).sum())} pooled",
-          note="the 21 are #28's 'cannot be finished until the fallback lands'; they are "
-               "the reclassified cases too thin to publish a size rung.")
+          note="WAS 78 medium / 21 pooled, and the change is a fix rather than a drift. A "
+               "reclassified case has exactly ONE rung by construction -- A12 forbids "
+               "terciling it -- so the L1 collapse had nothing to pool, and the 21 thin "
+               "ones were being relabelled 'pooled across sizes' anyway. "
+               "12_publish_reference_set.do sec 5b now requires >= 2 rungs before it "
+               "collapses a cell, so all 99 publish at medium and the 21 carry d_thin = 1 "
+               "instead, which says what is actually true of them. If this ever reads "
+               "anything but 99/0, the collapse gate has been loosened again.")
 
 
 def c_modal_label_criterion(sized):

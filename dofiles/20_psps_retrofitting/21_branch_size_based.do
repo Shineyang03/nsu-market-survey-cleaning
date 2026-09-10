@@ -333,6 +333,105 @@ preserve
 	tab k_use n_filled, m
 restore
 
+gen byte d_point_usable = 1
+
+
+********************************************************************************
+**# 6. The points no group can serve
+********************************************************************************
+* A household matches the NEAREST price point in its case. Some points have no weight
+* behind them, and they have to be IN the lookup anyway -- otherwise the household matches
+* the next point along and is converted at a weight belonging to a different rung, which
+* is worse than being refused. Two kinds:
+*
+*   a  a refused unique-price point (20_case_price_points.do's arm)
+*   b  a convertible point whose part of the cut came back EMPTY -- vendors tied on the
+*      cut, the lower-inclusive rule sent them all down, and the upper part has no rows
+*
+* THESE ROWS ARE BUILT HERE, not in 25_lookup.do, because this file is the one that knows
+* which parts came back empty. 25 appends branches; it does not reason about them.
+*
+* RECLASSIFIED CASES ARE EXCLUDED, and that is not an oversight. A12 gives them ONE group
+* for the whole case, matched to the mp50/median point. That single group serves every
+* household in the case whatever it paid -- the case has one weight, so there is nothing
+* for a second point to refuse. Adding refusal rows for their other points would deny a
+* conversion the decision explicitly grants.
+
+tempfile sgroups
+save "`sgroups'"
+
+* the (sub-cell) list -- which corrected_unit sub-cells this branch actually built
+preserve
+	keep pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit ///
+	     k_use n_points d_reclassified
+	duplicates drop
+	isid pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
+	tempfile subcells
+	save "`subcells'"
+restore
+
+use "${btemp}\case_price_points", clear
+* Rank the CONVERTIBLE points exactly as section 1 did, so conv_rank means the same thing
+* on both sides of the anti-join below. A refused point gets no rank -- it was never in
+* the cut -- and is carried with conv_rank missing.
+* The running sum is taken WITHOUT an `if', then restricted. `replace x = sum(c) if c'
+* would leave it ambiguous whether Stata accumulates over the selected rows or over all of
+* them, and the two give different ranks. Counting convertible points up to and including
+* this one, over every row in price order, reproduces section 1's `_n' on the filtered file
+* by construction. p_g is distinct within a case -- the PHP 20 merge collapsed equal
+* values -- so the price order has no ties for the sort seed to break.
+gen byte _conv = (d_point_unconvertible == 0)
+sort pull_province pull_municipal_city pull_item harmonized_nsu_unit p_g
+by pull_province pull_municipal_city pull_item harmonized_nsu_unit: gen int _cum = sum(_conv)
+gen int conv_rank = _cum if _conv == 1
+drop _conv _cum
+
+keep pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+     p_g conv_rank d_point_unconvertible
+
+* one row per (sub-cell x point)
+joinby pull_province pull_municipal_city pull_item harmonized_nsu_unit using "`subcells'"
+
+drop if d_reclassified == 1
+
+* Which of these already has a group? Anti-join on the sub-cell plus the rank.
+*
+* m:1, NOT 1:1. A refused point carries conv_rank missing -- it was never in the cut -- so
+* a sub-cell with two refused points has two master rows sharing the key and 1:1 would
+* fail on the master side. The USING side is what has to be unique, and it is: one group
+* per (sub-cell, rank).
+merge m:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+	corrected_unit conv_rank using "`sgroups'", ///
+	keepusing(w_g) generate(_m_g)
+keep if _m_g == 1
+drop _m_g w_g
+
+gen byte d_point_usable = 0
+gen str40 unusable_why = ""
+replace  unusable_why = "unique price, no weighing behind it" if d_point_unconvertible == 1
+replace  unusable_why = "this part of the cut came back empty" if d_point_unconvertible == 0
+assert unusable_why != ""
+
+gen double w_g = .
+gen long   n_g = .
+gen double v_g = .
+gen double cpi_factor_g = 1
+gen int    group_id = .
+gen int    n_filled = .
+gen int    n_empty  = .
+gen byte   branch = 3
+
+qui count
+di as res _n "points with no group behind them: " r(N)
+tab unusable_why
+
+append using "`sgroups'"
+replace unusable_why = "" if d_point_usable == 1
+drop d_point_unconvertible
+
+label var d_point_usable "0 = a price point a household can match but that yields no weight"
+label var unusable_why   "why a d_point_usable == 0 row has no weight"
+
 label var w_g      "median grams (or mL) in this group, pooled across vendors and field labels"
 label var n_g      "weighings behind w_g"
 label var p_g      "the price point this group is paired with, PHP per NSU"

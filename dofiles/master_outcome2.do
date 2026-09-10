@@ -1,10 +1,6 @@
 ********************************************************************************
 * master_outcome2.do -- PSPS RETRO-FITTING (Outcome 2)
 *
-* NOT YET BUILT. This file is the skeleton, so that the order of the steps and what
-* each one owes is written down in one place rather than rediscovered. Running it
-* today gets you the shared stage, then stops -- there is no Outcome 2 code yet.
-*
 * Outcome 2 converts PSPS household quantities into grams. It shares stage 00 with
 * Outcome 1 and then diverges: Outcome 1 slices weighings by the SIZE the field
 * recorded, Outcome 2 slices them by the PRICE POINTS the price file holds. The two
@@ -22,7 +18,7 @@ clear all
 set more off
 
 di as res _n "{hline 78}"
-di as res "OUTCOME 2 -- PSPS retro-fitting  (PARTIAL: steps 20-30 not written)"
+di as res "OUTCOME 2 -- PSPS retro-fitting"
 di as res "{hline 78}"
 
 * ---- PREREQUISITES not run from here -------------------------------------------
@@ -66,34 +62,68 @@ do "20_psps_retrofitting/20a_psps_households.do"
 di as res _n ">>> 08_branch.do"
 do "00_shared/08_branch.do"
 
+* ---- the price ladder ----------------------------------------------------------
+* Runs before the branch builds: 21 cuts each case's weights into as many parts as this
+* step says the case has convertible price points.
+di as res _n ">>> 20_case_price_points.do"
+do "20_psps_retrofitting/20_case_price_points.do"
+
+* ---- the three branches --------------------------------------------------------
+* Independent of each other. 25 appends them.
+di as res _n ">>> 21_branch_size_based.do"
+do "20_psps_retrofitting/21_branch_size_based.do"
+di as res _n ">>> 22_branch_price_quantity.do"
+do "20_psps_retrofitting/22_branch_price_quantity.do"
+di as res _n ">>> 23_branch_conventional.do"
+do "20_psps_retrofitting/23_branch_conventional.do"
+
+* ---- the price frame -----------------------------------------------------------
+* Branch P only. Its grams are what a fixed peso amount bought, so they move with the
+* price level; the other two branches measure objects and are left alone.
+di as res _n ">>> 24_inflate_to_psps_month.do"
+do "20_psps_retrofitting/24_inflate_to_psps_month.do"
+
+* ---- the lookup ----------------------------------------------------------------
+di as res _n ">>> 25_lookup.do"
+do "20_psps_retrofitting/25_lookup.do"
+
+* ---- the fallback ladder -------------------------------------------------------
+* MUST PRECEDE 28. 28 climbs cell -> province -> national for the households the price
+* match cannot serve, and this is what writes those three schedules.
+di as res _n ">>> 30_fallback.do"
+do "20_psps_retrofitting/30_fallback.do"
+
+* ---- the household answers -----------------------------------------------------
+di as res _n ">>> 27_standard_units.do"
+do "20_psps_retrofitting/27_standard_units.do"
+di as res _n ">>> 28_match_and_convert.do"
+do "20_psps_retrofitting/28_match_and_convert.do"
+di as res _n ">>> 29_cap.do"
+do "20_psps_retrofitting/29_cap.do"
+
 di as res _n "{hline 78}"
-di as res "STOPPING HERE. The steps below are not written yet."
-di as res "This list is abbreviated; dofiles/README.md is the source for what each step"
-di as res "owes and what blocks it, and docs/implicit_assumptions.md for the thresholds."
+di as res "OUTCOME 2 complete."
+di as res "  the lookup     : ${btemp}\outcome2_lookup.dta"
+di as res "                   ${btemp}\outcome2_lookup_noinflation.dta   (#11's variant)"
+di as res "  the households : ${btemp}\psps_converted_capped.dta   (non-standard units)"
+di as res "                   ${btemp}\psps_standard_units.dta      (kg / L / stated, #14)"
+di as res "  refused        : ${btables}\psps_unconvertible.csv"
 di as res ""
-di as res "  20_case_price_points.do   how many price points a case gets, after the"
-di as res "                            PHP20 union-merge on pooled spellings  [#21 sec2; ARM OPEN #23]"
-di as res "  21_branch_size_based.do   cut pooled weights into that many parts [#23; #21 sec5.3]"
-di as res "  22_branch_price_quantity.do   w_g per case x pull_price           [#21 sec2 rows 5-6]"
-di as res "  23_branch_conventional.do     one weight per case -- the 24 cases whose"
-di as res "                                (item,unit) pair is conventional everywhere"
-di as res "                                [#28 DECIDED, not built]"
-di as res "  24_inflate_to_psps_month.do   w_g_m, v_g_m per interview month    [#5 CLOSED]"
-di as res "  25_lookup.do                  append the three branches           [#11]"
-di as res "  27_standard_units.do          kg/L answers convert directly       [#14]"
-di as res "  28_match_and_convert.do       p_h, nearest point, CF_h, grams_h   [#5 CLOSED]"
-di as res "  29_cap.do                     clamp p_h/p_g, flag                 [#19, t unset]"
-di as res "  30_fallback.do                cases with no MS weight of their own [#30 BLOCKING]"
+di as res "  26 IS DELIBERATELY ABSENT. 26_psps_extract.do is archived: it did vocabulary"
+di as res "  discovery, that job is finished and lives in the crosswalk, and it dropped"
+di as res "  hhid and subdate. 20a replaces it. The gap in the numbering is kept so the"
+di as res "  step numbers in issues #19, #21 and #23 still resolve."
 di as res ""
-di as res "  30 is the blocker, not 29: one PSPS observation in six needs a fallback,"
-di as res "  and borrowing weights across municipalities is unsolved -- #28 measures the"
-di as res "  same unit varying up to 6.7x between municipalities. That figure WAS 14x;"
-di as res "  it fell when the snap adjudication removed a contaminated-anchor artefact,"
-di as res "  so re-read #30's cost argument against 6.7x before deciding it."
+di as res "  STILL OPEN, and neither is a build step:"
+di as res "    #20  approach A vs B sensitivity -- needs psps_converted_capped.dta"
+di as res "    #11  compare the two lookups' household grams; both are now built"
+di as res "    #16  Outcome 1 against Outcome 2, which is now answerable for the"
+di as res "         first time"
 di as res ""
-di as res "  CARRY THE UNCERTAINTY THROUGH. Every weighing now has flags saying whether"
-di as res "  its weight was corrected and whether it is disputed, anchor-flagged or"
-di as res "  unusable -- weight_correction_report.csv, written by"
-di as res "  90_diagnostics/report_weight_corrections.py. A conversion factor built on a"
-di as res "  disputed weight should say so; 1,742 weighings carry some uncertainty."
+di as res "  CARRY THE UNCERTAINTY THROUGH -- STILL NOT DONE. Every weighing carries"
+di as res "  flags saying whether its weight was corrected and whether it is disputed,"
+di as res "  anchor-flagged or unusable (weight_correction_report.csv, written by"
+di as res "  90_diagnostics/report_weight_corrections.py). Roughly one weighing in seven"
+di as res "  carries some uncertainty and NO step above reads that file, so a conversion"
+di as res "  factor built on a disputed weight does not say so."
 di as res "{hline 78}"

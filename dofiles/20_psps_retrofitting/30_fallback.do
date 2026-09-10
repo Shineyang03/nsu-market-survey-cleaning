@@ -266,5 +266,144 @@ preserve
 	di as txt "wrote ${btables}\fallback_refused.csv (" _N " row(s))"
 restore
 
+
+********************************************************************************
+**# 5. The CELL-level answer, for the households the price match cannot serve
+********************************************************************************
+* The table above is keyed (cell x size), because at L0 the household's price selects the
+* rung. A household reaching the fallback has no usable rung to select: either its cell
+* built no group at all, or the point it matched has no weight behind it. For those, the
+* question is not "which rung" but "what does this cell resolve to at all", and the answer
+* is the first rung from L1 down that clears THIN -- the SAME climb, with L0 skipped
+* because L0 is precisely the thing that failed.
+*
+* L0 IS NOT AVAILABLE HERE, and that is the whole content of this table. Skipping it means
+* from L1 down every household in the cell receives the SAME grams whatever it paid, which
+* is the substantive cost recorded as A15: a household that bought the cheap version and
+* one that bought the expensive version of the same unit are given one number. That cost
+* is accepted in exchange for not depending on a price-weight relationship holding across
+* municipalities.
+*
+* Built here rather than in 28_match_and_convert.do so the ladder has ONE definition. A
+* second climb written next to the household join would be free to drift from this one,
+* which is the defect that gave the block reading three implementations.
+
+preserve
+	keep pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+	     corrected_unit w_l1 n_l1 w_l2 n_l2 w_l3 n_l3
+	duplicates drop
+
+	* One row per cell. w_l1/n_l1 and below are constant within a cell by construction --
+	* they are collapses at or above the cell grain -- so `duplicates drop' must leave
+	* exactly one row per cell. If it does not, one of those collapses has a finer key than
+	* its name claims.
+	isid pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
+
+	gen double fb_grams  = .
+	gen long   fb_n_g    = .
+	gen byte   fb_level  = .
+	foreach L in 1 2 3 {
+		replace fb_level = `L' if missing(fb_level) & n_l`L' >= `THIN'
+		replace fb_grams = w_l`L' if fb_level == `L' & missing(fb_grams)
+		replace fb_n_g   = n_l`L' if fb_level == `L' & missing(fb_n_g)
+	}
+	gen byte fb_unconvertible = missing(fb_level)
+
+	def_fallback_level
+	label values fb_level fallback_lbl
+	label var fb_level  "coarsest-first rung serving this cell when the price match fails"
+	label var fb_grams  "grams (or mL) that rung resolves to"
+	label var fb_n_g    "weighings behind fb_grams, AT THE RUNG USED"
+	label var fb_unconvertible "1 = no rung from L1 down clears THIN; report, do not impute"
+
+	assert missing(fb_grams) & missing(fb_n_g) if fb_unconvertible
+	assert fb_n_g >= `THIN' if !fb_unconvertible
+
+	di as res _n "cell-level fallback rung:"
+	tab fb_level, m
+	qui count if fb_unconvertible
+	di as res "  cells no rung from L1 down can serve: " r(N)
+
+	keep pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit ///
+	     fb_grams fb_n_g fb_level fb_unconvertible
+	compress
+	sort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
+	save "${btemp}\outcome2_cell_fallback", replace
+	di as txt "wrote ${btemp}\outcome2_cell_fallback.dta (" _N " cell(s))"
+restore
+
+
+********************************************************************************
+**# 6. L2 and L3 AS STANDALONE SCHEDULES -- the cells with no weighing of their own
+********************************************************************************
+* THIS IS THE POPULATION ISSUE #30 IS ABOUT, and everything above misses it.
+*
+* Sections 1-5 are keyed on cells that HAVE weighings: they read ref_11_checked, so a cell
+* the market survey never visited has no row anywhere in them. But #30's exposure is
+* exactly the other case -- 419 cells needing a province fallback and 75 needing any
+* province, 5,741 PSPS observations between them, one observation in six. A household
+* there cannot be served by a table keyed on cells, because its cell is not in the table.
+*
+* So the L2 and L3 pools are also written out on THEIR OWN KEYS:
+*
+*   province schedule   province x item x harmonized unit x corrected unit
+*   national schedule   item x harmonized unit x corrected unit
+*
+* 28_match_and_convert.do climbs cell -> province -> national, which is the same ladder
+* read from the other end. The medians are the identical collapses computed in section 2 --
+* not recomputed -- so the two readings of L2 cannot disagree.
+*
+* A HOUSEHOLD IN AN UNWEIGHED CELL HAS NO DIMENSION EITHER, and neither pool can tell it
+* which. Each schedule therefore also names the dimension the pool is dominated by, on the
+* same more-weighings-wins rule 28 uses elsewhere. Since a gram and a millilitre are the
+* same reading at this precision, that choice moves a label and not a number.
+
+foreach L in 2 3 {
+	preserve
+		if `L' == 2 {
+			local lkey pull_province pull_item harmonized_nsu_unit corrected_unit
+			local lnm  "province"
+		}
+		else {
+			local lkey pull_item harmonized_nsu_unit corrected_unit
+			local lnm  "national"
+		}
+		keep `lkey' w_l`L' n_l`L'
+		duplicates drop
+		isid `lkey'
+
+		rename w_l`L' fb_grams
+		rename n_l`L' fb_n_g
+		gen byte fb_level = `L'
+
+		* Only a pool clearing THIN is offered. Below that the honest answer is nothing;
+		* the household climbs to the next rung or is reported unconvertible.
+		qui count
+		local n_all = r(N)
+		keep if fb_n_g >= `THIN'
+		qui count
+		di as res _n "`lnm' schedule: " r(N) " of `n_all' pool(s) clear THIN"
+
+		def_fallback_level
+		label values fb_level fallback_lbl
+		label var fb_grams "median grams (or mL) in this pool"
+		label var fb_n_g   "weighings behind it"
+		label var fb_level "the rung this schedule is"
+
+		compress
+		sort `lkey'
+		save "${btemp}\outcome2_fallback_`lnm'", replace
+		di as txt "  wrote ${btemp}\outcome2_fallback_`lnm'.dta"
+	restore
+}
+
+* L3 IS THE WEAKEST RUNG BY A WIDE MARGIN and the schedule is where that stops being
+* visible, so it is worth restating here as well as at the collapse. It drops province
+* entirely, and A1 measures conventional units varying up to 6.7x between municipalities
+* -- camote tops `bundle' 95 g to 635 g over 28 of them -- with 41 of 106 conventional
+* cases dispersing beyond 2x INSIDE one municipality. A national median for such a unit
+* describes nowhere in particular. It is offered because the alternative is no number, and
+* `fallback_level' is what lets a reader refuse it.
+
 di as res _n "30_fallback.do done -- ladder built. ATTACHING it to PSPS households"
 di as res "needs the retrofit and 08_branch.do, neither written."

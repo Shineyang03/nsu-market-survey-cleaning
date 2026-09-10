@@ -103,7 +103,7 @@ collapse (median) w_g = corrected_weight (count) n_g = corrected_weight ///
          (median) cpi_factor_g = cpi_factor ///
          (min) hetero_code = item_nsu_hetero_type ///
          (max) n_ms_months n_cpi_vals ///
-         (first) branch d_reclassified, ///
+         (first) branch d_reclassified item_group, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
             corrected_unit pull_price)
 
@@ -163,6 +163,14 @@ label var n_ms_months  "market-survey months the weighings in this group span"
 label var n_cpi_vals   "distinct cpi_factor values in this group; >1 means the median is an approximation"
 label var n_points     "price points in this case"
 label var group_id     "1..n_points, ordered by price ascending"
+
+* item_group RIDES ALONG for 24_inflate_to_psps_month.do, which needs it to look up the
+* CPI at the household's month. It is a function of (province, item), so 24 could rejoin
+* it from cpi_item_crosswalk.csv -- but that would put a second copy of 07_cpi_factor.do's
+* restaurant-collapse normalization in the tree, and that normalization is the one this
+* project has already had thirteen copies of (#32). Carrying the column is one definition.
+label var item_group   "COICOP group, for the CPI join in 24"
+assert !missing(item_group)
 def_hetero
 label values hetero_code hetero
 

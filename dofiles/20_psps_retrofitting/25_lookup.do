@@ -1,0 +1,211 @@
+********************************************************************************
+* 25_lookup.do -- append the three branches into the Outcome 2 conversion table
+*
+* WHAT THIS OWNS. Nothing but the append and the two column names a household join needs.
+* Every decision was made upstream: 21 cut the size-based weights onto price points, 22
+* took the price-quantity groups as the field built them, 23 gave each conventional case
+* one weight, and 24 restated Branch P into each household month. This file puts them in
+* one table and does not reason about any of them.
+*
+* ==============================================================================
+* IT APPENDS RATHER THAN UNIFYING THE GRAIN, and that is deliberate
+*
+* Only Branch P has a month dimension: its grams are "what a fixed peso amount bought", so
+* they move with the price level. Size-based and conventional grams are properties of an
+* object and are the same in every month.
+*
+* A uniform case x month grain would repeat every size-based and conventional row once per
+* month -- 12 times over -- and invite a reader to believe those rates were month-specific
+* when 86% of them are not. The join is on case and month either way, so uniformity would
+* buy nothing but redundant rows. `psps_month' is therefore MISSING on branches 1 and 3,
+* and that missing is informative.
+*
+* ==============================================================================
+* w_use AND v_use: the two columns a household is actually converted at
+*
+* Each branch supplies its weight under a different name because each earned it
+* differently, and collapsing those names upstream would have hidden the difference. Here
+* they become one pair, once:
+*
+*   branch 2  w_use = w_g_m   the restated weight, at the household's own month
+*   branch 3  w_use = w_g     the group's median, no restatement (assumption 3)
+*   branch 1  w_use = w_g     the case median, no price dimension at all
+*
+* v_use = p_g / w_use, PHP per gram. 28_match_and_convert.do converts at p_h / v_use and
+* breaks ties on v_use rather than on the price point -- see the methodology, Step B2: the
+* two coincide only if v falls monotonically across the ladder, and nothing guarantees
+* that, because v is a ratio of two independently measured quantities.
+*
+* ==============================================================================
+* TWO FILES, and the second one is issue #11
+*
+*   outcome2_lookup.dta               inflation applied on Branch P
+*   outcome2_lookup_noinflation.dta   Branch P at its measured weight, NO month dimension
+*
+* #11 asks how much the PSPS households' grams move if inflation is not accounted for.
+* Answering it needs a lookup built the other way, not a switch inside the main one -- so
+* the variant is a file, and comparing them is a diagnostic rather than a build step.
+*
+* The no-inflation variant DROPS the month dimension rather than keeping it and setting
+* the factor to 1: without a restatement there is nothing month-specific left on any
+* branch, so a month column would be 12 copies of one number. That makes the variant a
+* genuinely case-level table, which is what #11 asks for.
+*
+* ==============================================================================
+* INPUTS  ${btemp}\branch_size_based.dta         21
+*         ${btemp}\branch_price_quantity.dta     22   (for the no-inflation variant)
+*         ${btemp}\branch_price_quantity_m.dta   24   (for the main one)
+*         ${btemp}\branch_conventional.dta       23
+* OUTPUTS ${btemp}\outcome2_lookup.dta
+*         ${btemp}\outcome2_lookup_noinflation.dta
+*         ${btables}\outcome2_lookup.csv
+*
+* RUN, from the dofiles/ folder:
+*   "C:\Program Files\StataNow19\StataSE-64.exe" -e do 20_psps_retrofitting\25_lookup.do
+********************************************************************************
+
+clear all
+do "00_shared/00_globals.do"
+
+local keyvars pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
+
+
+********************************************************************************
+**# 1. The main lookup
+********************************************************************************
+
+use "${btemp}\branch_price_quantity_m", clear
+gen double w_use = w_g_m
+gen double v_use = v_g_m
+keep `keyvars' branch group_id psps_month p_g w_g w_use v_use n_g n_points ///
+     hetero_code infl_factor n_cpi_vals
+gen byte d_point_usable = 1
+gen byte d_reclassified = 0
+tempfile lk_p
+save "`lk_p'"
+
+use "${btemp}\branch_size_based", clear
+gen double w_use = w_g
+gen double v_use = v_g
+keep `keyvars' branch group_id p_g w_g w_use v_use n_g n_points ///
+     d_point_usable unusable_why d_reclassified k_use n_filled n_empty conv_rank
+tempfile lk_s
+save "`lk_s'"
+
+use "${btemp}\branch_conventional", clear
+gen double w_use = w_g
+gen double v_use = .
+keep `keyvars' branch group_id p_g w_g w_use v_use n_g n_points d_reclassified
+gen byte d_point_usable = 1
+tempfile lk_c
+save "`lk_c'"
+
+use "`lk_s'", clear
+append using "`lk_p'"
+append using "`lk_c'"
+
+replace d_point_usable = 1 if missing(d_point_usable)
+replace unusable_why   = "" if d_point_usable == 1
+
+* ---- invariants, the same discipline as 12_publish_reference_set.do section 5c --------
+* Every claim the table makes about itself, asserted on every row that carries it.
+
+* The month dimension belongs to Branch P and to nothing else.
+assert missing(psps_month) if branch != 2
+assert !missing(psps_month) if branch == 2
+
+* A conventional row has no price dimension. Not "happens to be missing" -- there is
+* nothing for a price point to be a point OF on that branch.
+assert missing(p_g) & missing(v_use) if branch == 1
+assert !missing(p_g) if branch != 1
+
+* A usable row converts; an unusable one is a matchable price with no weight, and must
+* carry a reason so a household can be told why rather than just given nothing.
+assert !missing(w_use) & w_use > 0 if d_point_usable == 1
+assert missing(w_use) & unusable_why != "" if d_point_usable == 0
+assert d_point_usable == 1 if branch != 3
+
+* v_use is the rate the conversion actually runs at, so it must agree with the two columns
+* it is built from wherever both exist. A drift here would convert at one number and
+* report another.
+assert reldif(v_use, p_g / w_use) < 1e-9 if !missing(v_use)
+
+* Only Branch S can hold a reclassified case: #28 moves cells from conventional to
+* size-based and nowhere else.
+assert branch == 3 if d_reclassified == 1
+
+* One row per (case x group), plus a month on Branch P. If this is not unique, a household
+* join will multiply rows and every total built on it will be wrong.
+*
+* `missok' IS REQUIRED, and the missings in this key are the table's structure rather than
+* a defect: psps_month is missing off Branch P, p_g is missing on Branch C, and group_id
+* is missing on a matchable point that has no group. Without missok, isid refuses the key
+* outright and says nothing about uniqueness.
+*
+* p_g IS IN THE KEY because group_id alone does not separate the unusable rows: two refused
+* points in one sub-cell both carry group_id missing. Their prices are distinct -- the
+* PHP 20 merge collapsed equal values -- and a point's price is disjoint from every group's,
+* since an unusable row is by definition a point no group took.
+isid `keyvars' branch group_id psps_month p_g, missok
+
+label var w_use "grams (or mL) per NSU this row converts at -- restated on Branch P only"
+label var v_use "PHP per gram; a household receives p_h / v_use grams per NSU"
+label var branch "1 conventional, 2 price-quantity, 3 size-based (see 08_branch.do)"
+def_hetero
+label values hetero_code hetero
+label define branchlbl 1 "conventional" 2 "price-quantity" 3 "size-based", replace
+label values branch branchlbl
+
+compress
+sort `keyvars' branch group_id psps_month
+save "${btemp}\outcome2_lookup", replace
+export delimited using "${btables}\outcome2_lookup.csv", replace
+
+di as res _n "rows by branch:"
+tab branch, m
+di as res _n "rows a household can convert at:"
+tab d_point_usable, m
+di as res _n "the unusable ones:"
+tab unusable_why if d_point_usable == 0
+
+
+********************************************************************************
+**# 2. The no-inflation variant (#11)
+********************************************************************************
+* Identical except that Branch P supplies its MEASURED weight and loses its month
+* dimension. Built from 22's output rather than from 24's, so it is not a filtered copy of
+* a restated table -- there is no month to filter to.
+
+use "${btemp}\branch_price_quantity", clear
+gen double w_use = w_g
+gen double v_use = v_g
+keep `keyvars' branch group_id p_g w_g w_use v_use n_g n_points hetero_code
+gen byte d_point_usable = 1
+gen byte d_reclassified = 0
+tempfile nk_p
+save "`nk_p'"
+
+use "`lk_s'", clear
+append using "`nk_p'"
+append using "`lk_c'"
+replace d_point_usable = 1 if missing(d_point_usable)
+replace unusable_why   = "" if d_point_usable == 1
+
+assert !missing(w_use) & w_use > 0 if d_point_usable == 1
+isid `keyvars' branch group_id p_g, missok
+
+label var w_use "grams per NSU, NO inflation adjustment anywhere -- issue #11's variant"
+label values branch branchlbl
+compress
+sort `keyvars' branch group_id
+save "${btemp}\outcome2_lookup_noinflation", replace
+
+qui count
+di as res _n "{hline 78}"
+di as res "25_lookup.do done"
+di as res "  ${btemp}\outcome2_lookup.dta              (with inflation, month dimension)"
+di as res "  ${btemp}\outcome2_lookup_noinflation.dta  " r(N) " row(s), case-level (#11)"
+di as res ""
+di as res "  The two differ ONLY on Branch P. Comparing the household grams they"
+di as res "  produce is what #11 asks for, and it is a diagnostic, not a build step."
+di as res "{hline 78}"

@@ -102,10 +102,24 @@ The honesty lives in two places instead. `conversion_factor_methodology.md`, "Wh
 means in the published file", states the composition; and `n_g` is published beside every
 row so a reader can see how thin a value is.
 
-**Two cases collide under this rule** and are still undecided — see **#21 §5.1**. At
-NEGROS OCCIDENTAL / VALLADOLID, a municipality median and a province median both map to
-`size_ord = 2`, so cabbage `pieces or units` publishes a 325 g group and a 780 g group as a
-single 425 g "medium", with `d_thin = 0` and nothing on the row to say so.
+**Two cases used to collide under this rule and no longer do.** Settled on **#21 §5.1**. At
+NEGROS OCCIDENTAL / VALLADOLID, `municipality_median` and `province_median` both mapped to
+`size_ord = 2`, so cabbage `pieces or units` published a 325 g group and a 780 g group as a single
+425 g "medium" with nothing on the row to say so.
+
+They are now **split by price rank** — the cheaper point publishes as `small`, the dearer as
+`large`, following the same convention §2d uses for a size-based case that filled groups 1 and 3.
+The ordering comes from `pull_price` and nothing is invented: `item_nsu_hetero_type` on this branch
+records *which price point the vendor was quoted*, so two price points can genuinely have bought
+two different quantities, and in both live cases the price order agrees with the weights. Note the
+two run in **opposite directions by geography** — the province median is the dearer point for
+cabbage and the cheaper one for carrot — so no rule keyed on "municipality beats province" could
+have got both right. Only the price can.
+
+The alternative that was tried and reverted was dropping the province-median weighings as "already
+a fallback". That was wrong: the price type describes how a spelling's **price** was derived, not
+where it was **weighed**, and all six weighings are genuine measurements taken in VALLADOLID.
+2 cases, 12 weighings.
 
 **Checked by** `90_diagnostics/scope_outcome1_partition.py`.
 
@@ -419,12 +433,22 @@ representative one. Those cases are therefore processed as size-based, publishin
 group as **medium** (`size_ord = 2`) and matching **mp50 / municipality median** in
 Outcome 2.
 
-**Where.** Not implemented yet. It will bind on the `branch` variable in `00_shared` and on
-`10_reference_set/10_size_assignment.do` §2a–2c.
+**Where.** Implemented. `00_shared/08_branch.do` derives `branch` and `d_reclassified`;
+`10_reference_set/10_size_assignment.do` §2a-ii gives the reclassified cases one group at
+`size_ord = 2`; `20_psps_retrofitting/21_branch_size_based.do` gives them one group in Outcome 2 and
+picks the mp50 / municipality-median point explicitly rather than by rank, because after the ₱20
+merge that point is generally not rank 1. `23_branch_conventional.do` is built from the remaining
+24 cases, not from all 123.
 
 **Rests on it.** **99 of the 123 published conventional rows**, 388 weighings — four fifths
 of the branch. The other 24 cases, whose (item, unit) pair is conventional everywhere it
 appears, keep `weighing_approach == 1` and `size_ord = 0`.
+
+All 99 publish at `size_ord = 2` and `fallback_level = 0`. **21 of them are thin** (`n_g < 3`) and
+carry `d_thin = 1`, which is the whole of what is true about them: one group, few weighings. They
+used to be relabelled `size_ord = 4`, "pooled across sizes" — which was wrong twice over, since a
+reclassified case has exactly one rung by construction and so nothing was pooled. The collapse in
+`12_publish_reference_set.do` §5b now requires two rungs before it fires.
 
 **Status: ADOPTED as a convention, with partial empirical support.** Decided on **#28**.
 
@@ -525,11 +549,17 @@ fix it appears to be.
 
 ## A14 — The province fallback is validated on cells that do not need it
 
-**Claims.** The province grams-per-peso schedule in `20_psps_retrofitting/30_fallback.do` gives a
-weight to cases with no market-survey weighing of their own. Its accuracy is known from a
-leave-one-municipality-out test: hold out a municipality, estimate the median `w/p` from the others
-in the province × item × harmonized unit, predict the held-out municipality's grams from its own
-price, and compare to the grams the reference set publishes there.
+> **Read A15 first: the design this entry was written about is superseded.** The fallback no
+> longer borrows a price–weight slope, so there is no grams-per-peso schedule in
+> `30_fallback.do` and no `cv_gpp` in any output. What survives is the *shape* of the
+> problem — the accuracy of a borrowed weight is known only from cells that did not need
+> one — and that is why the entry stays. The measurement it describes is archived at
+> `dofiles/archive/scope_price_weight_ray.do`.
+
+**Claims.** A province-level estimator gives a weight to cases with no market-survey weighing of
+their own. Its accuracy was established by a leave-one-municipality-out test: hold out a
+municipality, estimate from the others in the province × item × harmonized unit, predict the
+held-out municipality's grams, and compare to the grams the reference set publishes there.
 
 **The assumption.** That test can only run where the answer is known — that is, on cells that **do**
 have their own weighings. The cases the fallback actually serves are by construction the ones nobody
@@ -543,9 +573,11 @@ hold a rarer unit in a thinner market, so the schedule may do worse there than t
 **Status: UNTESTED and not testable from this data.** Measuring it would need weighings in the very
 cells that lack them. The gap is not quantified and should not be assumed small.
 
-Mitigated rather than resolved: no accuracy threshold is enforced. `cv_gpp`, `n_pairs`, `n_price`
-and `n_mun` ship with every fallback weight so a reader can apply their own cut, and cases whose
-province group cannot support a schedule at all are refused outright rather than served a weak one.
+Mitigated rather than resolved: no accuracy threshold is enforced. `fallback_level` and the
+weighing count at the rung used ship with every fallback weight so a reader can apply their own
+cut, and a pool that cannot clear `THIN` is refused outright rather than served weak. On the
+current build the province schedule offers 195 of 237 pools and the national one 74 of 94; the
+rest are refused.
 
 **Checked by:** nothing.
 
@@ -561,11 +593,172 @@ province group cannot support a schedule at all are refused outright rather than
 
 **What gets published.** `fallback_level` (0–3, ordinal) flags which rung supplied the weight, and `n_g` gives the weighing count **at the rung actually used** — so a reader can keep L1 and drop L3 rather than facing one all-or-nothing switch. Those two columns are the whole apparatus; there is deliberately nothing else.
 
-`cv_gpp`, `n_pairs`, `n_price` and `n_mun` are **not** published on fallback rows. They belong to a superseded design in which the fallback borrowed a *price–weight slope* across municipalities and needed a ray-fit statistic to say where that was safe. This ladder borrows a *median weight* at a coarser grain instead, so the statistic has nothing to qualify. They survive only in `90_diagnostics/scope_price_weight_ray.do` as a measurement of the alternative that was not taken.
+`cv_gpp`, `n_pairs`, `n_price` and `n_mun` are **not** published on fallback rows. They belong to a superseded design in which the fallback borrowed a *price–weight slope* across municipalities and needed a ray-fit statistic to say where that was safe. This ladder borrows a *median weight* at a coarser grain instead, so the statistic has nothing to qualify. They survive only in `dofiles/archive/scope_price_weight_ray.do` as a measurement of the alternative that was not taken.
+
+**Where it reaches a household.** `28_match_and_convert.do` puts **5,955 of 35,448** non-standard-unit household rows (16.8%) on a fallback rung — 110 at L1, 5,484 at L2 and 361 at L3 — so this entry describes one row in six rather than an edge case. Those households' own prices are not used at all.
 
 L3 is flagged distinctly because the same NSU varies up to **6.7×** across municipalities — see A1, which supersedes an earlier 14× reading — so a national median describes no single municipality.
 
 **Checked by** nothing.
+
+## A16 — A `unique_mun_price` point is refused unless a weighing stands behind it
+
+**Claims.** A price point built only from `unique_mun_price` quotes can be paired with a weight
+**only** where a market-survey weighing in that cell was actually recorded against a unique price.
+Everywhere else the point stays in the lookup so a household can match it, and then yields `.c` —
+reported unconvertible, never imputed and never redirected to another point.
+
+**Where.** `20_psps_retrofitting/20_case_price_points.do` sets `d_point_unconvertible`;
+`28_match_and_convert.do` returns the refusal.
+
+**Rests on it.** 238 points in 210 cases, of which the live ones are the **199 on the size-based
+branch** — the 28 price-quantity and 11 conventional points are inert, because neither branch
+consults a price-file point. At household level it is **117 rows** refused.
+
+**Status: DECIDED.** Settled on **#23**, where three parts of the project had been treating a
+unique price three incompatible ways.
+
+**Why refusal rather than substitution.** The price file does not record a municipal price
+separately when it is within ₱20 of the province median, so **every surviving unique price is by
+construction far from the central tendency** — gap median ₱55, 75th percentile ₱130, max ₱1,110.
+`CF_h` is linear in `1/p_g`, so choosing the unique price over the median rescales every conversion
+factor in the case by up to 6×. Substituting the cell's pooled weight would not repair that; it
+would answer a different question at a price still known to be atypical.
+
+**The refused point is not removed from matching**, and that is the load-bearing half. A household
+matches the *nearest* point, so deleting the unique price would push it onto the province median and
+convert it silently. Keeping the point and refusing it is what makes the household visible.
+
+**No case is emptied.** A unique price always accompanies another point — 347 of 351 carry a
+province median, the other 4 a full quartile triple — asserted in the code rather than assumed.
+
+**The data collapses the rule.** All 33 weighings recorded against a unique price
+(`item_nsu_hetero_type` 10 or 11) are price-quantity, in 12 cells, and that branch reads
+`pull_price` rather than the price file. So on exactly the cells where a unique price is legitimate
+it arrives by another route. `20_case_price_points.do` asserts that, because the rule and the
+shortcut coincide only while it holds.
+
+**Checked by** the assertions in `20_case_price_points.do` sections 3 and 6.
+
+## A17 — Rice `gantang` is a standard unit, at 2,250 g
+
+**Claims.** A gantang (salop) of rice is a standardised measure whose size is known independently
+of any one market, so a PSPS household reporting it needs no market-survey lookup. The factor is
+**2,250 g**.
+
+**Where.** The factor table in `20_psps_retrofitting/20a_psps_households.do` section 1, applied by
+`27_standard_units.do`.
+
+**Rests on it.** **11,665 household rows** — the largest single non-metric unit in PSPS and about a
+third of what would otherwise be the NSU conversion population.
+
+**Status: ADOPTED, on our own measurement.**
+
+**It was already excluded, but by an undocumented edit.** `90_diagnostics/scope_psps_exposure.py`
+carries a nineteen-entry standard-unit list described as `NSU_Analysis.R`'s "verbatim". That
+script's own list has **ten** entries and does **not** contain `Gantang`. Most of the additions are
+correct — the publication file spells the same metric units differently from the R's free text —
+but `Gantang` is not metric, and its inclusion removed a third of the population from every figure
+on #30 with nothing recording the decision. It is now a decision.
+
+**The factor is measured, not definitional, and the two disagree by 10%.**
+
+| | 1 gantang of rice |
+| :-- | :-- |
+| traditional | 1 salop = 3 litres, quoted at ~2.5 kg |
+| **our market survey** | **2,237.5 – 2,275 g** over 7 municipalities, 28 weighings, spread **1.7%** |
+
+Three litres of milled rice is 2.25 kg at a bulk density of 0.75 kg/L and 2.5 kg at 0.83. The
+*volume* half of the traditional figure is therefore solid and the *density* half is loose, which is
+where the 10% sits. A direct measurement of the object in the provinces concerned beats a rounded
+density. `docs/data_oddities.md` already treats ~2,250 g as the project's figure.
+
+**It is the one unit where A1 holds.** A1 reports "conventional units are standard within a
+locality" as FALSIFIED, on a 6.7× spread for camote tops `bundle`. A 1.7% spread across 7
+municipalities is a different animal, and it is what licenses a single national constant here where
+A1 forbids one everywhere else.
+
+**`ganta` takes the same factor.** The crosswalk folds raw `ganta` to harmonized `gantang`, and the
+fold pools nothing — all 14 crosswalk rows carry `n_cell_merged == 1`, because no raw `gantang`
+label exists on our side at all. Only 18 PSPS rows spell it `ganta`; giving them a different factor
+from the other 11,647 would be incoherent.
+
+**One consequence, and it is #16's question.** Outcome 1 publishes the *measured* 2,237.5–2,275 g
+for those 7 cells while Outcome 2 converts at 2,250 g everywhere. The two deliverables therefore
+disagree slightly on rice, by construction.
+
+**Checked by** nothing yet. The 1.7% spread is the claim to re-derive if the weighings change.
+
+## A18 — The extrapolation cap `t = 5`
+
+**Claims.** A household's price may stray from its matched price point by up to a factor of 5 in
+either direction before linear extrapolation stops being credible. Beyond that the ratio is clamped
+to `[1/5, 5]` and the row is flagged.
+
+**Where.** `20_psps_retrofitting/29_cap.do`.
+
+**Rests on it.** **1,283 of 19,242** household rows that carry a ratio at all (6.7%). Rows are
+clamped and kept, never dropped: `d_cap` marks them and `r_h_raw` keeps the uncapped ratio.
+
+**Status: SET FROM THE DISTRIBUTION, and it is a judgement on a continuous one.** Decided under
+**#19**, which is explicit that choosing 2 or 3 in advance would be a number with no evidence.
+
+**The distribution it answers to** (19,242 rows):
+
+| | | | | | | | |
+| :-- | --: | --: | --: | --: | --: | --: | --: |
+| | min | p1 | p5 | p25 | median | p99 | max |
+| `p_h / p_g` | 0.0017 | 0.100 | 0.167 | 0.500 | **0.875** | 2.000 | 16.0 |
+
+**The binding side is the LOW tail, which is the opposite of what #19 was written about.** That
+issue describes a household paying ten times the matched point being handed ten times the grams. In
+this data that tail barely exists — p99 is 2.0. What does exist is the other end: a minimum ratio of
+0.0017 assigns a third of a gram on a 200 g unit. The cap is symmetric, so it repairs those, and the
+**total grams rise by 1.09%** rather than falling.
+
+**The tail is worst where the price evidence is thinnest**, exactly as #19 predicted:
+
+| price points in the case | rows | median | p99 | max |
+| --: | --: | --: | --: | --: |
+| 1 | 9,310 | 0.778 | 2.500 | **16.0** |
+| 2 | 4,340 | 0.909 | 1.667 | 4.95 |
+| 3 | 5,592 | 0.938 | 1.412 | 2.95 |
+
+A one-point case has no ladder to bracket a household, so it matches that point however far its
+spend lies from it. That the median moves toward 1 and the tail shortens as the ladder gets richer
+is the first empirical support the matching step has.
+
+**What the cut costs**, published so a reader can take another:
+
+| `t` | rows clamped | share |
+| --: | --: | --: |
+| 1.5 | 6,821 | 35.5% |
+| 2 | 3,828 | 19.9% |
+| 3 | 2,441 | 12.7% |
+| **5 (current)** | **1,283** | **6.7%** |
+| 10 | 158 | 0.8% |
+
+**Checked by** the bound assertion in `29_cap.do`, which fails if any row leaves
+`[w_g/t, w_g·t]`.
+
+## A19 — A household has no dimension, so the cell's dominant one is used
+
+**Claims.** Where a case holds both gram and millilitre weighings, a PSPS household reporting that
+unit is served by the sub-cell with more weighings behind it; grams break a tie.
+
+**Where.** `28_match_and_convert.do` section 1, and again at each fallback rung in section 6.
+
+**Rests on it.** **65 of 1,941** weighed cells span both dimensions.
+
+**Status: ACCEPTED, and nearly weightless.** The lookup is keyed with `corrected_unit` because a
+gram must never be pooled with a millilitre in a *median*. But a household reporting "2 pieces of
+ice cream" says nothing about which, and something has to be chosen. The choice moves a **label**
+and almost never a number, because this project treats a millilitre and a gram as the same reading
+at the precision recorded — the items measured by volume are near water density, which is the same
+assumption `04_unit_snap.do` makes when it converts litres to millilitres and then reports grams.
+
+**Why a rule at all, if it barely matters.** Because the alternative is row order, and row order
+here is whatever the sort seed chose. Determinism is the point, not accuracy.
 
 ---
 
