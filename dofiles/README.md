@@ -384,6 +384,51 @@ cross-municipality spread; the corrected figure is **6.7×**, so read it against
 **Not build steps, and still open:** #20 (approach A vs B, needs `psps_converted_capped.dta`),
 #11 (compare the two lookups' household grams — both are built).
 
+### Joining the grams back onto PSPS consumption
+
+**The key is `hhid` + `psps_item_code` + `slot`**, asserted unique on those three.
+
+The raw PSPS consumption file is **wide by slot** — one row per (`hhid`, `item`), unique on
+that pair, with three sets of columns for the three acquisition routes. `psps_grams` is
+**long**, one row per slot that recorded something. So the merge is `m:1`:
+
+```stata
+use "<psps_grams.dta>", clear
+rename psps_item_code item
+merge m:1 hhid item using "${psps_cons}", keep(1 3)
+```
+
+**`m:1`, not `1:1`.** A household that both bought and was gifted the same item is one raw
+row and two rows here — 340 (household × item) pairs are in that position, and a `1:1`
+merge fails on them while a `1:m` in the other direction silently multiplies grams.
+
+`slot` names which raw columns the row came from: **2** purchased (`fd_cons_2a`,
+`fd_cons_2b`, 68,100 rows), **3** own production (`fd_cons_3a/3b`, 15,971), **4** gift
+(`fd_cons_4a/4b`, 3,888). `q_h` is `fd_cons_<slot>a`; `p_h` is `fd_cons_<slot>b / q_h`.
+
+Four things worth knowing before you use it:
+
+* **Not every raw row yields three rows.** A slot appears only if it recorded a usable
+  quantity — non-missing and non-zero. 245,051 raw rows → 129,094 food rows
+  (`item_type == 1`) → **87,959** slot rows.
+* **Do not key on `hh_row`.** It is assigned by a sort and is stable only *within* a build.
+  It exists for joining one build's intermediates to each other.
+* **Filter on `d_converted`, not on `grams_h > 0`.** 554 rows have no grams — 532 refusals
+  plus the 22 non-NSU rows — and `conv_route` says which and why. Filtering on `grams_h`
+  throws the reason away.
+* **To reach household × item, sum over `slot`.** `cf_h` and `p_h` are per-unit rates and
+  must not be summed.
+
+`conv_path` separates two different kinds of number: **1** (52,489 rows) is a stated
+container size × a reported count, arithmetic with no market survey in it; **2** (35,448)
+is `q_h × CF_h`, the conversion this project exists to produce; **3** (22) is not an NSU
+and has no grams. The uncertainty columns are populated on path 2 only, and are missing
+rather than zero on path 1 — there is no weighing behind a standard unit to have
+questioned (A20).
+
+`docs/conversion_factor_methodology.md`, *Joining the grams back onto PSPS consumption*,
+has the same account with the full column table.
+
 ### Checking the two deliverables
 
 **`31_psps_grams.do` is now the single household-level artefact for Outcome 2.**

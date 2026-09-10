@@ -1366,6 +1366,76 @@ thing.
    measurement. All three figures above are re-derived by
    `verify_documented_claims.py`, so a change in the data moves them visibly.
 
+## Joining the grams back onto PSPS consumption
+
+`psps_grams.dta` (and `psps_grams.csv`) is the household-level deliverable: one row per
+**household × item × acquisition slot**, 87,959 rows, with `grams_h` as the answer.
+
+**The key is `hhid` + `psps_item_code` + `slot`.** It is asserted unique on those three in
+`31_psps_grams.do`.
+
+### Merging onto the raw consumption file
+
+The raw PSPS consumption file (`${psps_cons}` in `00_shared/00_globals.do`) is **wide by
+slot**: one row per (`hhid`, `item`), unique on that pair, with three sets of columns for
+the three acquisition routes. `psps_grams` is **long**. So:
+
+```stata
+use "<psps_grams.dta>", clear
+rename psps_item_code item
+merge m:1 hhid item using "${psps_cons}", keep(1 3)
+```
+
+**`m:1`, not `1:1`, and this is the thing to get right.** A household that both bought and
+was gifted the same item is one row in the raw file and two rows here — 340 (household ×
+item) pairs are in that position. A `1:1` merge fails on them; a `1:m` merge in the other
+direction silently multiplies grams.
+
+`slot` says which set of raw columns a row came from:
+
+| `slot` | `source` | quantity | value | unit label | rows |
+| --: | :-- | :-- | :-- | :-- | --: |
+| 2 | `purchased` | `fd_cons_2a` | `fd_cons_2b` | `fd_cons_2aunit_lbl` | 68,100 |
+| 3 | `own_production` | `fd_cons_3a` | `fd_cons_3b` | `fd_cons_3aunit_lbl` | 15,971 |
+| 4 | `gift` | `fd_cons_4a` | `fd_cons_4b` | `fd_cons_4aunit_lbl` | 3,888 |
+
+So `q_h` is `fd_cons_<slot>a`, `e_h` (which is not carried here, but `p_h = e_h / q_h` is)
+is `fd_cons_<slot>b`, and `pull_nsu_unit` is `fd_cons_<slot>aunit_lbl`.
+
+### Four things that will bite otherwise
+
+**Not every raw row yields three rows.** A slot appears only if it recorded a usable
+quantity — non-missing and non-zero. 245,051 raw rows → 129,094 food rows
+(`item_type == 1`) → **87,959** slot rows. A household that only bought an item has one
+row here, not three.
+
+**Do not key on `hh_row`.** It is a row id assigned by a sort and is stable only *within*
+a build. It is there for joining the intermediate files of one build to each other, not for
+carrying a reference. `hhid` + `psps_item_code` + `slot` is the durable key.
+
+**Filter on `d_converted`, not on `grams_h > 0`.** 554 of the 87,959 rows have no grams:
+532 refusals plus 22 rows whose unit is not an NSU at all. `conv_route` says which and why
+— an A11 spelling gap, a refused unique price, or no weighing anywhere. Filtering on
+`grams_h` throws away the reason.
+
+**To get back to household × item, sum over `slot`.** `collapse (sum) grams_h, by(hhid
+psps_item_code)`. Summing `cf_h` or `p_h` across slots is meaningless — they are per-unit
+rates, not quantities.
+
+### Which grams you are getting
+
+`conv_path` separates the two routes, and they are not the same kind of number:
+
+| `conv_path` | rows | `grams_h` is |
+| --: | --: | :-- |
+| 1 | 52,489 | a stated container size × a reported count. Arithmetic, no market survey involved |
+| 2 | 35,448 | `q_h × CF_h`, the conversion this project exists to produce |
+| 3 | 22 | nothing — the unit is not an NSU |
+
+The uncertainty columns (`n_g_used`, `nu_used`, `share_uncertain`) are populated on path 2
+only, and are missing rather than zero on path 1 — a standard-unit row has no market-survey
+weighing behind it to have questioned. See A20.
+
 ## Warning for downstream use
 
 **Measurement error in $`p_h`$ propagates into grams.** $`p_h = e_h / q_h`$ is a
