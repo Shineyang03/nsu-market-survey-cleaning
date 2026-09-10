@@ -4,7 +4,7 @@ WHY THIS EXISTS. The summary-statistics output (dofiles/summary_statistics.py ->
 summary_stats_raw.csv / summary_stats_cleaned.csv / summary_stats.json) is aggregate:
 it answers "how many weighings per province", not "what exactly did the field record
 for cabbage / pack in CAPIZ / DUMARAO". The diagnostics (scope_multi_price_points.py,
-validate_folds.py) print shortlists but flatten each case to a median or a ratio. When
+validate_folds.do) print shortlists but flatten each case to a median or a ratio. When
 a shortlisted case needs adjudicating, you need the underlying rows.
 
 This file is that view. It does not compute anything new and decides nothing -- it is a

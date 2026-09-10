@@ -143,6 +143,28 @@ program define def_hetero
 		9 "province_median" 10 "unique_mun_price6" 11 "unique_mun_price7", replace
 end
 
+* ---- def_fallback_level -------------------------------------------------------
+* The fallback ladder's rung labels, defined ONCE for both outcomes. Codes 0 and 1 mean
+* the same thing in each and must keep meaning the same thing, because a reader comparing
+* an Outcome 1 row with an Outcome 2 row is entitled to read the flag the same way.
+*
+* Outcome 1 stops at 1 -- the reference set records what was weighed in a cell and does
+* not borrow across cells, so 2 and 3 never occur there. That is not a reason to give it a
+* shorter label set: a value label costs nothing and a divergent one costs a reader's
+* confidence. Declared as a program for the same reason def_hetero is -- `use ..., clear'
+* wipes value labels with the data, so it has to be re-declarable after any load.
+*
+* Ordinal on purpose. A reader can keep rung 1 and drop rung 3 rather than facing one
+* all-or-nothing switch; docs/implicit_assumptions.md A15 has the reasoning.
+capture program drop def_fallback_level
+program define def_fallback_level
+	label define fallback_lbl ///
+		0 "own cell x size" ///
+		1 "cell pooled across sizes" ///
+		2 "province x item x unit" ///
+		3 "item x unit (national)", replace
+end
+
 * ---- nsu_normalize ------------------------------------------------------------
 * THE authoritative string normalization on the Stata side. Its Python counterpart
 * is nz()/ni()/ng() in 00_shared/01_build_crosswalk.py, and the two MUST agree

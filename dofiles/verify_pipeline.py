@@ -2,7 +2,7 @@ r"""Is the pipeline on disk actually the pipeline the code describes?
 
 WHY THIS EXISTS. Every other check in this project verifies a NUMBER. Nothing verified
 that the artifacts on disk were still the ones the current code produces -- and that gap
-let a real failure sit undetected for six weeks: validate_folds.py read
+let a real failure sit undetected for six weeks: validate_folds.py (now retired to archive/) read
 outputs/temp/nsu_data.dta, the pre-Aug11 build, so it reproduced its own past answers no
 matter what changed upstream. It looked like confirmation. Three other files were archived
 for hardcoding that same path.
@@ -24,7 +24,7 @@ at the end, so one failure does not hide the others:
      and refuses to re-run. So the difference must be exactly the rows recorded in
      master_rename_dropped_labels.csv -- no more, no fewer.
 
-  3  THE FOLD EVIDENCE IS CURRENT. Re-runs validate_folds.py so its output describes the
+  3  THE FOLD EVIDENCE IS CURRENT. Re-runs validate_folds.do so its output describes the
      live weighings, then reads it back: no folded group may contradict its own weight
      test, per the policy in docs/master_rename.md sec 6.
 
@@ -53,6 +53,7 @@ Exit code 0 if every check passes, 1 otherwise.
 import argparse
 import hashlib
 import json
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -100,7 +101,7 @@ XW_KEY = ["province", "pull_municipal_city", "cons_name", "pull_nsu_unit"]
 # made about different evidence and the check fails again so it can be re-made. An
 # acknowledgement is not a mute button.
 #
-# Keyed on (item substring, label_ref, label_other) as validate_folds.py reports them.
+# Keyed on (item substring, label_ref, label_other) as validate_folds.do reports them.
 RATIO_TOL = 0.15
 #
 # EMPTY, AND THAT IS THE RESULT OF FIXING THE TEST RATHER THAN EXCUSING IT.
@@ -114,7 +115,7 @@ RATIO_TOL = 0.15
 # harmonized_nsu_unit. So the fold under test helped produce the number judging it. On the
 # block reading, which is a function of the raw weight, the unit tick and KGMAX alone, the
 # same comparison gives p=0.220 on an IDENTICAL ratio of 0.62: the fold passes.
-# validate_folds.py now defaults to that reading, and Panel A has no DIFFER rows at all.
+# validate_folds.do now defaults to that reading, and Panel A has no DIFFER rows at all.
 #
 # Keep this dict for the case it was built for -- a fold genuinely kept against its own
 # evidence -- but do not put one here to quiet a red check before establishing that the
@@ -151,10 +152,19 @@ def sha(path):
     return d.hexdigest()
 
 
-def run(cmd, what):
-    """Run a step, streaming nothing; return (rc, stdout+stderr)."""
+# Stata 19. The 17 install on this machine has an expired licence and must not be used.
+STATA = r"C:\Program Files\StataNow19\StataSE-64.exe"
+
+
+def run(cmd, what, cwd=None):
+    """Run a step, streaming nothing; return (rc, stdout+stderr).
+
+    `cwd' defaults to the project root, which is what the Python steps expect. A Stata
+    step needs dofiles/ instead, because every do-file here opens with a relative
+    `do "00_shared/00_globals.do"'.
+    """
     print(f"  running {what} ...", flush=True)
-    p = subprocess.run(cmd, cwd=DC, capture_output=True, text=True,
+    p = subprocess.run(cmd, cwd=cwd or DC, capture_output=True, text=True,
                        encoding="utf-8", errors="replace")
     return p.returncode, (p.stdout or "") + (p.stderr or "")
 
@@ -223,17 +233,43 @@ def check_crosswalk():
 # ------------------------------------------------------------------ 3
 def check_folds():
     h("3  IS THE FOLD EVIDENCE CURRENT?")
-    rc, out = run([sys.executable, "dofiles/90_diagnostics/validate_folds.py"],
-                  "validate_folds.py")
-    if rc != 0:
-        bad("validate_folds.py failed; last lines:\n" + "\n".join(out.splitlines()[-8:]))
+    # STATA, not Python. validate_folds.do is the live implementation; the .py it was
+    # validated against is retired to dofiles/archive/. It reproduced the Python exactly
+    # -- both panels, verdicts and ratios and medians bit-identical, p-values within
+    # 6.7e-13 relative, which is Mata-vs-numpy summation order and nowhere near a verdict
+    # boundary.
+    #
+    # TWO THINGS DIFFER FROM RUNNING A PYTHON STEP, and both are traps.
+    #
+    # It must run from dofiles/, because the do-file opens with
+    # `do "00_shared/00_globals.do"' -- a relative path, the convention every step here
+    # follows so a single step can be run on its own.
+    #
+    # AND `stata -e' RETURNS 0 EVEN WHEN THE DO-FILE ERRORS. It logs the failure and
+    # carries on to the next command. So the exit code proves nothing and the log has to
+    # be read for `r(NNN);'. Trusting rc here would have let a broken fold test report
+    # OK, which is the exact failure mode check 3 exists to prevent.
+    log = DC / "dofiles" / "validate_folds.log"
+    log.unlink(missing_ok=True)
+    rc, out = run([STATA, "-e", "do", r"90_diagnostics\validate_folds.do"],
+                  "validate_folds.do", cwd=DC / "dofiles")
+    if not log.exists():
+        bad(f"validate_folds.do produced no log at {log}; Stata may not have started")
         return
+    text = log.read_text(encoding="utf-8", errors="replace")
+    errs = re.findall(r"^r\(\d+\);", text, re.M)
+    if errs:
+        tail = [ln for ln in text.splitlines() if ln.strip()][-8:]
+        bad(f"validate_folds.do hit {len(errs)} Stata error(s) "
+            f"({', '.join(sorted(set(errs)))}); last lines:\n" + "\n".join(tail))
+        return
+    out = text
     for line in out.splitlines():
         if line.startswith("raw size-weighings"):
             print(f"    {line}")
     A = DC / "outputs" / "temp" / "fold_validation_A.csv"
     if not A.exists():
-        bad("validate_folds.py wrote no fold_validation_A.csv")
+        bad("validate_folds.do wrote no fold_validation_A.csv")
         return
     a = pd.read_csv(A)
     susp = a[a.verdict.eq("DIFFER")

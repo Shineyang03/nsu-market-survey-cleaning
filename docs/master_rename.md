@@ -157,7 +157,7 @@ separate; `bilog` is not merged into either the pieces group or `whole (chicken)
 
 **Fold policy — when the weight evidence is weak, do not fold.** Translation-group folding
 (`bilog`/`binilog`/`piraso` → `pieces or units`, etc.) is validated against the size-stratified weight
-test in `validate_folds.py` (comparing labels within province × size × measurement-unit). A group is kept
+test in `validate_folds.do` (comparing labels within province × size × measurement-unit). A group is kept
 folded only where the test *confirms* the members weigh the same; where it shows a difference, or the data
 are too thin to be confident, the labels are kept separate. A few size-descriptor groups (`whole
 (chicken)`, `small cup`, `small packs`) fold on the official-translation basis alone because too few

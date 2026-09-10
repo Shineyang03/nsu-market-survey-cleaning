@@ -14,7 +14,7 @@ nsu_fold_rule.py and the two crosswalk workbooks. The loop is therefore real, bu
 latched through a person and a spreadsheet rather than through code:
 
     a carve-out          (frozen in nsu_fold_rule.py / the crosswalks)
-      <- a weight test   (90_diagnostics/validate_folds.py, van Elteren)
+      <- a weight test   (90_diagnostics/validate_folds.do, van Elteren)
         <- corrected_weight
           <- 04_unit_snap.do
             <- harmonized_nsu_unit    (the snap pools its anchor on this)
@@ -26,7 +26,7 @@ already happened once, to the crackers `bilog' fold. That is a staleness problem
 needs a register of WHICH decisions are exposed, which is this file.
 
 WHAT THIS DOES AND DOES NOT DO. It reports provenance and how many weighings each
-decision governs. It does NOT re-run the weight tests -- validate_folds.py owns those,
+decision governs. It does NOT re-run the weight tests -- validate_folds.do owns those,
 and verify_pipeline.py check 3 is what fails the build when a folded group contradicts
 its own test. Duplicating the test here is exactly the divergence this project keeps
 getting bitten by.
@@ -74,7 +74,7 @@ def decisions():
             lives="nsu_fold_rule.py NOFOLD_PIECES",
             provenance=WEIGHT,
             sets="harmonized_nsu_unit",
-            evidence="validate_folds.py: camote bilog != binilog, p=0.004, ratio 1.61, "
+            evidence="validate_folds.do: camote bilog != binilog, p=0.004, ratio 1.61, "
                      "but on only 3 strata -> low confidence, so do not fold",
             pick=lambda it, cl, h: it in FR.NOFOLD_PIECES and FR.grp(cl) == pieces,
         ),
@@ -194,7 +194,7 @@ def main():
           f"does")
     print("\n  These are frozen by hand, so a snap change cannot move them on its own.")
     print("  It can leave them contradicting the evidence that justified them.")
-    print("  validate_folds.py re-runs the tests; verify_pipeline.py check 3 fails the")
+    print("  validate_folds.do re-runs the tests; verify_pipeline.py check 3 fails the")
     print("  build when a folded group contradicts its own test.")
 
     OUT.parent.mkdir(parents=True, exist_ok=True)

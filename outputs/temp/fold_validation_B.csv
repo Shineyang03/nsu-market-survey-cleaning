@@ -1,7 +1,7 @@
-﻿item,harm_A,harm_B,verdict,p,size_ctrl_ratio,n_strata,med_A_med_g,med_B_med_g
-chicken,bilog,pieces or units,DIFFER,4.292190504903875e-15,3.68,9,1045.0,502.0
-"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,pieces or units,insufficient,,1.0,2,250.0,225.0
-camote,bilog,binilog,DIFFER,0.004339101566681859,1.61,3,180.0,150.0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,pack,DIFFER,0.00010525970647927188,0.12,3,65.0,
-"crackers, cookies, buiscuits, chips/curls",putos,pack,DIFFER,3.8221286734717444e-05,0.39,6,78.0,135.0
-camote tops,bundle,bugkos,DIFFER,0.011336670741485822,1.25,7,640.0,302.0
+item,harm_A,harm_B,verdict,p,size_ctrl_ratio,n_strata,med_A_med_g,med_B_med_g
+chicken,bilog,pieces or units,DIFFER,4.2921905049038859e-15,3.6800000000000002,9,1045,502
+"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,pieces or units,insufficient,,1,2,250,225
+camote,bilog,binilog,DIFFER,.0043391015666818626,1.6100000000000001,3,180,150
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,pack,DIFFER,.00010525970647927199,.12,3,65,
+"crackers, cookies, buiscuits, chips/curls",putos,pack,DIFFER,.000038221286734717518,.39000000000000001,6,78,135
+camote tops,bundle,bugkos,DIFFER,.011336670741485833,1.25,7,640,302

@@ -172,7 +172,7 @@ GENERIC_CLEAN={'1/2':'half',
 # ================= fold rule (unchanged from v4) =================
 KEEP_SEPARATE={'bundle','packs'}
 def unsafe_pieces(item): return item=='chicken' or item.startswith('preserved')
-# Size-stratified weight test (validate_folds.py): camote bilog != binilog (p=0.004, ratio 1.61) but on
+# Size-stratified weight test (validate_folds.do): camote bilog != binilog (p=0.004, ratio 1.61) but on
 # only 3 strata -> LOW CONFIDENCE. Policy: when confidence is low, be conservative and do NOT fold. So the
 # whole pieces group is kept unfolded for camote (we cannot confirm any of its variants share a weight).
 NOFOLD_PIECES={'camote'}

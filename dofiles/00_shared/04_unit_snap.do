@@ -257,7 +257,7 @@ label var review_step1 "STEP 1 flag_review, before STEP 3 cleared it"
 *
 * Nothing about the computation changed and nothing about it depended on this file. What
 * changed is its POSITION, and that is the entire point. The fold test
-* (90_diagnostics/validate_folds.py --weight=block) asks whether two raw labels folded
+* (90_diagnostics/validate_folds.do --weight=block) asks whether two raw labels folded
 * into one harmonized_nsu_unit actually weigh the same. It cannot answer that from the
 * published weight, because STEP 1 below snaps that weight toward the median of a pool
 * keyed on ${unitvar} -- harmonized_nsu_unit -- so the grouping under test helped produce

@@ -312,7 +312,7 @@ knows which are worth the effort.
 | :-- | :-- | :-- |
 | `FOLD = 0.85` string-similarity cut | crosswalk build | how many folds change at 0.80 or 0.90 is unknown. Cheap to run; a fold change moves a pooling key. |
 | `MIN = 10`, `FLOOR = 5`, `SIB = 1.5`, `AMB = 0.35` in the anchor machinery | `04_unit_snap.do` | #18 item 5 found these are near-dead — tuning them changes almost nothing. **A reader would reasonably assume they are load-bearing.** Either document that they are not, or reconsider whether the anchor should be the primary rule. |
-| `MIN_LABEL_N = 10`, `MIN_STRATA = 2`, `RATIO_HI = 1.25` | `90_diagnostics/validate_folds.py` | these define which folds are *testable* and which count as sufficiently different, so they set the denominator of the fold validation itself |
+| `MIN_LABEL_N = 10`, `MIN_STRATA = 2`, `RATIO_HI = 1.25` | `90_diagnostics/validate_folds.do` | these define which folds are *testable* and which count as sufficiently different, so they set the denominator of the fold validation itself |
 | unit size stable between rounds (shrinkflation) | methodology assumption 3 — **load-bearing** | needs a size-comparability check against the reference photos. Recommended by the guidebook; not done. |
 | rank alignment of the weight and price ladders | methodology assumption 4 | nothing in the data establishes it — the two distributions come from different rounds and different respondents |
 | terciles are the right cut | methodology assumption 5 | no robustness check against alternative cuts or a modal-size rule |

@@ -96,7 +96,13 @@ local MIN_STRATA  = 2
 local RATIO_HI    = 1.25
 local RATIO_LO    = 1/1.25
 
-local outdir "${output}/temp/_folds_port"
+* THE CANONICAL PATH. While this file was being validated against validate_folds.py it
+* wrote to ${output}/temp/_folds_port/ so the two could be diffed without either
+* overwriting the other's reference. It reproduced the Python exactly -- both panels,
+* every row, verdicts and ratios and medians bit-identical, p-values within 6.7e-13
+* relative -- so it is now the live implementation and writes where verify_pipeline.do's
+* check 3 reads. The Python is retired to ../archive/.
+local outdir "${output}/temp"
 mkdir_missing "`outdir'"
 
 ********************************************************************************
@@ -653,6 +659,6 @@ di as res "wrote `outdir'/fold_validation_B.csv (`N' rows)"
 
 di as res _n "{hline 78}"
 di as res "validate_folds.do complete."
-di as res "outputs/temp/_folds_port/fold_validation_A.csv and _B.csv are ready to diff"
+di as res "wrote outputs/temp/fold_validation_A.csv and _B.csv"
 di as res "against outputs/temp/fold_validation_A.csv and _B.csv (the Python reference)."
 di as res "{hline 78}"

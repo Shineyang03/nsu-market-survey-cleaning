@@ -1451,7 +1451,7 @@ than to produce it:
 |---|---|
 | `dofiles/90_diagnostics/verify_documented_claims.py` | re-derives every number in `docs/` that no build file produces, and prints the documented value beside the current one. Exits non-zero if any has moved. **Run it after any pipeline change.** |
 | `dofiles/00_shared/01_build_crosswalk.py` | the authoritative raw → cleaned → harmonized NSU crosswalk; writes `master_nsu_rename.csv`, which everything else reads instead of re-deriving the fold |
-| `dofiles/90_diagnostics/validate_folds.py` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
+| `dofiles/90_diagnostics/validate_folds.do` | size-stratified weight tests behind the keep-separate decisions in the fold rule |
 | `dofiles/90_diagnostics/tally_price_points.py` | how many price points each case has, under both readings of the price file |
 | `dofiles/90_diagnostics/scope_multi_price_points.py` | measures the multi-price-point-within-a-case problem |
 | `dofiles/plot_cpi_inflation.py` | the two CPI figures embedded below, and the $`\pi`$ figures quoted with them |

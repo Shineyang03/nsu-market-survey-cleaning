@@ -176,9 +176,11 @@ drop _cell_has_thin
 * Cells no rung can serve: even the national item x unit pool is under THIN.
 gen byte unconvertible = missing(fallback_level)
 
-label define fbl 0 "own cell x size" 1 "cell pooled across sizes" ///
-	2 "province x item x unit" 3 "item x unit (national)", replace
-label values fallback_level fbl
+* ONE definition, in 00_globals.do, shared with the Outcome 1 reference set. It had a
+* second copy here under a different label name, with codes 0 and 1 spelled identically --
+* correct today and free to drift, which is the whole argument against two copies.
+def_fallback_level
+label values fallback_level fallback_lbl
 label var fallback_level "rung of the ladder that supplied the weight; 0 = the cell's own"
 label var grams_used     "weight this cell x size resolves to, in g or mL"
 label var n_g_used       "weighings behind grams_used, AT THE RUNG USED"

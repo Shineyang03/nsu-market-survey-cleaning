@@ -139,8 +139,11 @@ label define szlbl 0 "conventional_nsu" 1 "small" 2 "medium" 3 "large" ///
 label values size_ord szlbl
 gen byte d_thin = n_g < `THIN'
 
-label define fblbl 0 "own cell x size" 1 "cell pooled across sizes", replace
-label values fallback_level fblbl
+* ONE definition, in 00_globals.do, shared with the Outcome 2 ladder. Outcome 1 only ever
+* uses codes 0 and 1, but it carries the same label set so the flag reads identically
+* across the two deliverables.
+def_fallback_level
+label values fallback_level fallback_lbl
 label var fallback_level "how this weight was arrived at; 0 = the cell's own size rung"
 
 label var grams  "reference weight: median grams (or mL) for one unit of this size"

@@ -878,11 +878,11 @@ def main():
     c_restaurant_collapse_is_one_item(rest)
     c_harmonization_is_cell_independent()
 
-    # The fold policy is NOT checked here, deliberately. It needs validate_folds.py to
+    # The fold policy is NOT checked here, deliberately. It needs validate_folds.do to
     # have just run against the current weighings, and nothing in this file can
     # guarantee that -- a first attempt guarded it on file mtimes, which a git checkout
     # rewrites, so a merge would have made a stale result look fresh. It lives in
-    # dofiles/verify_pipeline.py, which runs validate_folds.py itself first.
+    # dofiles/verify_pipeline.py, which runs validate_folds.do itself first.
 
     head("CLAIMS ABOUT PRICES")
     c_pull_price_preload(rest)

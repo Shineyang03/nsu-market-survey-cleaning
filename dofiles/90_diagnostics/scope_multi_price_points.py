@@ -52,7 +52,7 @@ OUTPUTS  (outputs/tables/)
     issue21_outcome1_fold_check.csv per pooled size-based case: pooled vs single-unit
                                     size count, between-unit weight ratio, and whether
                                     the tercile splits units or sizes -- a shortlist of
-                                    folds for validate_folds.py to adjudicate
+                                    folds for validate_folds.do to adjudicate
     issue21_median_disagreement.csv per case whose spellings all carry only a
                                     median, where those medians disagree
     issue21_rung_composition_mix.csv            per case: what rung composition each
@@ -398,7 +398,7 @@ def main():
     # What this section tests is therefore the FOLD, not Outcome 1's design. A case
     # whose terciles split cleanly by raw unit rather than by field label is evidence
     # that the two raw units are different objects in that municipality and should not
-    # have been folded. dofiles/90_diagnostics/validate_folds.py is the tool for adjudicating that;
+    # have been folded. dofiles/90_diagnostics/validate_folds.do is the tool for adjudicating that;
     # this section only says where to point it.
     #
     # Two things are measured, both replicating 10_reference_set/10_size_assignment.do exactly:
@@ -492,7 +492,7 @@ def main():
         print("  purity = share of weighings in the modal category of their own tercile.")
         print("  1.00 by unit means the cut is a perfect unit split -- the published")
         print("  S/M/L is really 'which raw unit', not 'what size', which indicts the")
-        print("  FOLD rather than the tercile rule. Send these to validate_folds.py.")
+        print("  FOLD rather than the tercile rule. Send these to validate_folds.do.")
         print(c1[["grp_purity_by_unit", "grp_purity_by_label"]].describe()
               .loc[["mean", "50%", "max"]].to_string())
         worse = c1[c1.grp_purity_by_unit > c1.grp_purity_by_label]
@@ -548,7 +548,7 @@ def main():
         if int((vend_all > 1).sum()) == 0:
             print("\n  ZERO. Spelling is a vendor-level attribute throughout the file.")
             print("  CONSEQUENCE: the weight evidence is structurally incapable of")
-            print("  adjudicating any of these folds. Sending them to validate_folds.py")
+            print("  adjudicating any of these folds. Sending them to validate_folds.do")
             print("  would return a number, and the number would not be a fold test.")
             print("  The fold decision has to rest on whether the two strings are the")
             print("  same word (pack/packs, bilog/binilog, gamay/gmay -- plainly yes),")

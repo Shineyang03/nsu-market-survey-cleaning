@@ -82,7 +82,7 @@ taken literally — a pure function of `weight`, `unit` and `KGMAX`. It used to 
 depended on that merge, but its position meant a reader had to trace `04` to establish
 as much.
 
-That matters because of what reads it. `validate_folds.py` asks whether two raw labels
+That matters because of what reads it. `validate_folds.do` asks whether two raw labels
 folded into one `harmonized_nsu_unit` actually weigh the same. **The published weight
 cannot answer that**: `04` snaps it toward the median of a pool keyed on
 `harmonized_nsu_unit`, so two labels folded together are snapped toward one median,
@@ -125,7 +125,7 @@ describes.** Exit 0 means it is. It does five things:
    its inputs with nothing noticing (#33).
 2. **Accounts for the trim**: the rebuild is pre-trim and the live file post-trim, so the
    difference must be exactly the rows in `master_rename_dropped_labels.csv`.
-3. **Re-runs `validate_folds.py`** and checks that no folded group contradicts its own
+3. **Re-runs `validate_folds.do`** and checks that no folded group contradicts its own
    weight test, per `../docs/master_rename.md` §6. Folds knowingly kept despite failing
    are listed in `ACKNOWLEDGED` with their recorded figures and the reason — and they
    fail again if those figures move, so an acknowledgement is not a mute button.
@@ -209,7 +209,7 @@ by hand into `nsu_fold_rule.py` and the crosswalk workbooks:
 
 ```
 a carve-out        (frozen in nsu_fold_rule.py / the crosswalks)
-  ← a weight test  (90_diagnostics/validate_folds.py, van Elteren)
+  ← a weight test  (90_diagnostics/validate_folds.do, van Elteren)
     ← corrected_weight
       ← 04_unit_snap.do
         ← harmonized_nsu_unit   (the snap pools its anchor on this)
@@ -235,7 +235,7 @@ ledger. Read `w_block`; never re-derive it.
 
 `90_diagnostics/audit_weight_derived_folds.py` is the register of which decisions are
 exposed. It reports provenance and how many weighings each governs; it does not re-run
-the tests, because `validate_folds.py` owns those and a second copy would diverge.
+the tests, because `validate_folds.do` owns those and a second copy would diverge.
 Currently **1,277 weighings (11.3%)** have their final `harmonized_nsu_unit` set by a
 weight-derived decision, plus 712 more where only `fallback_harmonized_nsu_unit` does.
 The rest of the carve-outs rest on a stated referent difference, a quoted field comment,
