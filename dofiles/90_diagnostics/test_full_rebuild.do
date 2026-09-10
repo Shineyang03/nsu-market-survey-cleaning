@@ -185,6 +185,14 @@ do "20_psps_retrofitting/28_match_and_convert.do"
 di as res _n ">>> 29_cap.do"
 do "20_psps_retrofitting/29_cap.do"
 
+* 31 IS PART OF THE CHAIN AND MUST RUN HERE. This file inlines the steps rather than
+* calling the masters, so a step added to master_outcome2.do does NOT appear here on its
+* own -- and 31 was added after this file was written, so the single household-level
+* deliverable was the one output the reproduction check never built or compared. That is
+* the worst possible thing for this file to miss: it is the artefact a user actually opens.
+di as res _n ">>> 31_psps_grams.do"
+do "20_psps_retrofitting/31_psps_grams.do"
+
 di as res _n ">>> attrition_ledger.do"
 do "90_diagnostics/attrition_ledger.do"
 
@@ -232,7 +240,7 @@ local files_temp nsu_data_master nsu_weighings_cpi ref_10_sized ref_11_checked /
 	standard_unit_factors psps_months
 
 local files_deliv nsu_reference_set outcome2_lookup outcome2_lookup_noinflation ///
-	psps_standard_units psps_converted_capped
+	psps_standard_units psps_converted_capped psps_grams
 
 foreach grp in temp deliv {
 	if "`grp'" == "temp" {

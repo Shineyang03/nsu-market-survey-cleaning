@@ -35,10 +35,16 @@ import io, re, shutil, sys
 import numpy as np, pandas as pd
 from pathlib import Path
 
-T = Path("outputs/master_rename_build/intermediate")
-DELIV = Path("outputs/master_rename_build/deliverables")
-OUT = Path("outputs/master_rename_build/diagnostics/snap_sense_check.xlsx")
-SNAP_DO = Path("dofiles/00_shared/04_unit_snap.do")
+# ANCHORED ON THE REPO ROOT, not on the working directory -- see the note in
+# report_weight_corrections.py. Relative paths here mean that running this from dofiles/
+# creates dofiles/outputs/... and writes the review workbook into it, where nothing looks
+# for it. This workbook's verdicts are frozen into a ledger, so writing it to the wrong
+# place is not a cosmetic failure.
+DC = Path(__file__).resolve().parents[2]
+T = DC / "outputs" / "master_rename_build" / "intermediate"
+DELIV = DC / "outputs" / "master_rename_build" / "deliverables"
+OUT = DC / "outputs" / "master_rename_build" / "diagnostics" / "snap_sense_check.xlsx"
+SNAP_DO = DC / "dofiles" / "00_shared" / "04_unit_snap.do"
 
 # ---------------------------------------------------------------- constant tripwire
 # NEITHER RULE IS RE-IMPLEMENTED HERE ANY MORE. `anchor_says' reads w_step1 and

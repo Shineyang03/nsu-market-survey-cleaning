@@ -36,8 +36,15 @@ Run from the project root:  python dofiles/90_diagnostics/report_weight_correcti
 import numpy as np, pandas as pd
 from pathlib import Path
 
-T = Path("outputs/master_rename_build/intermediate")
-OUT = Path("outputs/master_rename_build/summary")
+# ANCHORED ON THE REPO ROOT, not on the working directory. These used to be relative
+# (`Path("outputs/...")`), which means running this script from dofiles/ -- the directory
+# every do-file must be run from -- silently CREATES dofiles/outputs/master_rename_build/
+# and writes there. An empty three-level tree of exactly that shape was sitting in the
+# repo, which is how the defect was found. Deriving the root from this file's own location
+# makes the script work from anywhere and makes that failure impossible.
+DC = Path(__file__).resolve().parents[2]
+T = DC / "outputs" / "master_rename_build" / "intermediate"
+OUT = DC / "outputs" / "master_rename_build" / "summary"
 
 pre = pd.read_stata(T / "prelim_nsu_data.dta", convert_categoricals=False)
 mas = pd.read_stata(T / "nsu_data_master.dta", convert_categoricals=True)
