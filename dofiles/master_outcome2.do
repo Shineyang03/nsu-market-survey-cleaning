@@ -54,7 +54,10 @@ do "00_shared/07_cpi_factor.do"
 * neither the price-level adjustment nor the lookup join. archive/README.md has the
 * full account.
 *
-* 20a_psps_households.do replaces it and is the first thing to write.
+* 20a_psps_households.do replaces it. It runs BEFORE the numbered chain, for the same
+* reason 00a and 00b do: 24_inflate_to_psps_month.do needs the month list it emits.
+di as res _n ">>> 20a_psps_households.do"
+do "20_psps_retrofitting/20a_psps_households.do"
 
 * `branch' is written now, so it runs rather than being listed as owed. Outcome 2 needs it
 * for the same reason Outcome 1 does: 23_branch_conventional.do is built from the 24 cases
@@ -68,7 +71,6 @@ di as res "STOPPING HERE. The steps below are not written yet."
 di as res "This list is abbreviated; dofiles/README.md is the source for what each step"
 di as res "owes and what blocks it, and docs/implicit_assumptions.md for the thresholds."
 di as res ""
-di as res "  20a_psps_households.do    hhid, subdate, quantity, expenditure -- WRITE FIRST"
 di as res "  20_case_price_points.do   how many price points a case gets, after the"
 di as res "                            PHP20 union-merge on pooled spellings  [#21 sec2; ARM OPEN #23]"
 di as res "  21_branch_size_based.do   cut pooled weights into that many parts [#23; #21 sec5.3]"

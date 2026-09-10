@@ -156,10 +156,19 @@ end
 *
 * Ordinal on purpose. A reader can keep rung 1 and drop rung 3 rather than facing one
 * all-or-nothing switch; docs/implicit_assumptions.md A15 has the reasoning.
+*
+* CODE 0 IS "THE CELL'S OWN WEIGHINGS", not "own cell x size". The earlier wording named a
+* size dimension, and two large populations of rows at level 0 have none: the always-
+* conventional cases (size_ord == 0) and #28's reclassified cases, which publish one group
+* by decision and are never terciled. On those rows the old label invited a reader to look
+* for a size structure that is not there. The current wording is the thing all three
+* populations actually have in common -- the weight came from this cell, nothing was
+* borrowed -- which is the whole content of level 0 and is what 12_publish_reference_set.do
+* section 5c asserts.
 capture program drop def_fallback_level
 program define def_fallback_level
 	label define fallback_lbl ///
-		0 "own cell x size" ///
+		0 "the cell's own weighings" ///
 		1 "cell pooled across sizes" ///
 		2 "province x item x unit" ///
 		3 "item x unit (national)", replace

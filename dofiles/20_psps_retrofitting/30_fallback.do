@@ -186,6 +186,59 @@ label var grams_used     "weight this cell x size resolves to, in g or mL"
 label var n_g_used       "weighings behind grams_used, AT THE RUNG USED"
 label var unconvertible  "1 = no rung reached THIN; report as unconvertible, do not impute"
 
+********************************************************************************
+**# 3b. LABEL INVARIANTS -- every rung label must be true of the row carrying it
+********************************************************************************
+* Same instrument as 12_publish_reference_set.do section 5c, and here for the same reason.
+* Three labels in the Outcome 1 publish step were wrong on real rows because THE LABEL WAS
+* WRITTEN BY THE CODE PATH THE ROW TRAVELLED THROUGH rather than derived from what happened
+* to the row -- 474 rows announced a pooling across sizes that never occurred. The ladder
+* below is the same shape of code, so it gets the same assertions.
+*
+* This ladder turns out NOT to have that defect, and the reason is worth recording rather
+* than rediscovering: a cell holding one rung has n_l1 == n_l0 identically, so a cell that
+* fails L0's thin test fails L1's too and climbs straight past it. L1 is therefore
+* unreachable for a single-rung cell by arithmetic. The assertion states that, so a future
+* change to either count breaks the build instead of quietly labelling a non-pooling as a
+* pooling.
+
+* Level 1 claims a pooling across hetero rungs. That requires the cell to hold at least
+* two, which shows up as L1's count strictly exceeding L0's.
+count if fallback_level == 1 & n_l1 <= n_l0
+if r(N) > 0 {
+	di as err r(N) " row(s) at `cell pooled across sizes' whose L1 pool is no larger than L0"
+	di as err "The label claims a pooling that did not happen -- see the note above."
+	exit 459
+}
+
+* Each rung's own count must be the one published, and must clear THIN. A row whose
+* n_g_used came from a different rung than fallback_level names is mislabelled even when
+* the weight is right.
+forvalues L = 0/3 {
+	assert n_g_used == n_l`L' & grams_used == w_l`L' if fallback_level == `L'
+	assert n_g_used >= `THIN'                        if fallback_level == `L'
+}
+
+* The ladder is ordered finest to coarsest, so a row at level L must have FAILED every
+* finer rung. Without this, a bug in the `foreach' order could publish a coarse rung while
+* a finer one was available -- the weight would be defensible and the flag would overstate
+* how far the estimate travelled.
+*
+* L0 IS NOT "n_l0 >= THIN". It is that AND no thin rung anywhere in the cell -- the
+* whole-cell rule from section 3. So the L0 assertion has to recompute the cell condition
+* rather than read n_l0 alone; a row can hold a thick rung of its own and still be denied
+* L0 because a SIBLING rung is thin. 440 rows at 294 cells are in exactly that position,
+* and reading n_l0 by itself would flag every one of them as a defect.
+tempvar cellthin
+bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit: ///
+	egen byte `cellthin' = max(n_l0 < `THIN')
+assert (fallback_level == 0) == (n_l0 >= `THIN' & `cellthin' == 0)
+assert n_l1 <  `THIN' | inlist(fallback_level, 0, 1) if !unconvertible
+assert n_l2 <  `THIN' | inlist(fallback_level, 0, 1, 2) if !unconvertible
+drop `cellthin'
+
+di as res _n "3b label invariants: all pass"
+
 di as res _n "rung that supplied the weight:"
 tab fallback_level, m
 di as res _n "still thin at the rung used (should be none by construction):"
