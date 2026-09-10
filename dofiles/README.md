@@ -18,8 +18,8 @@ Two deliverables are built from the same market-survey weighings:
   item × harmonized NSU unit, so a future enumerator can look up what a named local
   unit weighs. Built and live.
 - **Outcome 2 — PSPS retro-fitting.** Conversion factors that turn PSPS household
-  quantities into grams. Skeleton only — the step table under
-  *`20_psps_retrofitting/`* below says what each remaining step owes and what blocks it.
+  quantities into grams, and the household answers themselves. Built and live; the step
+  table under *`20_psps_retrofitting/`* below says what each step does.
 
 They share everything up to a clean, inflation-framed weight per weighing, then
 diverge: Outcome 1 slices weighings by the **size** the field recorded, Outcome 2 by

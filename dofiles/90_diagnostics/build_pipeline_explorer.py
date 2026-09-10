@@ -80,34 +80,35 @@ without being counted in a printed total that reconciles to the raw 11,495 (see
 the RECONCILIATION printout at the end of a run) -- if it does not reconcile, this
 script says so rather than adjusting a number to make it look like it does.
 
-KNOWN DISCREPANCY WITH docs/attrition_ledger.md -- READ BEFORE TRUSTING A NUMBER.
-The saved ledger (both attrition_ledger.md and its .csv) documents Stage 2
-(00_shared/07_cpi_factor.do) as dropping 74 rows (11,458 -> 11,384). The do-file and
-the 07_cpi_factor section of dofiles/master_outcome1.log currently show 98 dropped
-(27 "vendor gave no price at all" + 71 "vendor-priced, case keeps a preloaded
-rung") -> 11,355, which matches the actual row count of
-outputs/master_rename_build/temp/nsu_weighings_cpi.dta on disk.
+THE LEDGER DISCREPANCY IS RESOLVED (issue #8), and how it was resolved matters
+more than the numbers. The ledger used to be a hand-maintained CSV written against
+`cleaning_Aug11.do`, an archived file. It recorded Stage 2 as dropping 74 rows
+(11,458 -> 11,384) where the build drops 98, and it had drifted in two further
+places, because nothing regenerated it and nothing checked it.
 
-THE BRIEF'S OWN TRIPLE IS ALSO STALE NOW, and the tripwire below still holds it
-on purpose. Measured on a full clean rebuild (temp/ and tables/ cleared first):
+It is now GENERATED, by 90_diagnostics/attrition_ledger.do, which counts rows in
+the files the pipeline wrote and hardcodes only tripwires that carry their own
+arithmetic. So it cannot go stale independently of the build. It also now covers
+BOTH outcomes and the price-file side, which is the rest of what #8 asked for.
+
+The reconciled chain, and the tripwire in main() now holds these:
 
     11,495 raw
-      - 42 stage-1 drops        = 11,453 arrival/master
-      - 98 stage-2 drops        = 11,355 restated
-      - 44 stage-3 drops        = 11,311 entering the Outcome 1 collapse
-                                ->  3,321 published reference-set rows
+      - 62 stage-1 drops        = 11,433 arrival/master
+      - 98 stage-2 drops        = 11,335 restated       <- both outcomes read this
+      - 45 stage-3 drops        = 11,290 entering the Outcome 1 collapse
+                                ->  2,559 published reference-set rows
 
-against the brief's 11,495 / 11,458 / 11,360. Raw agrees; arrival and restated are
-each low by exactly 5, which is one shift and not two: stage-1 drops went from 37
-to 42 and carried through. The constants in the tripwire are deliberately NOT
-updated to match -- a hardcoded count in this project has to carry its derivation,
-and bumping a number to silence a tripwire is the failure the tripwire exists to
-prevent. Reconciling those 5 rows is issue #8. docs/data_oddities.md sec.3b already
-describes the 27-row approx_price rule as implemented; the ledger was written
-before that rule landed and was never regenerated. This script uses the files on
-disk (98 dropped, 11,355 restated) as ground truth throughout and flags the stale
-74/11,384 figures in the generated page rather than silently matching them or
-silently overwriting the ledger (out of scope: no .do or ledger edits here).
+Every real drop in the market-survey chain is 62 + 98 + 45 = 205. The last arrow is
+an AGGREGATION, not attrition: 11,290 weighings become 2,559 (case x size) groups
+and the weighings sum back exactly through `n_g`.
+
+Updating those constants is a change of policy from the previous version of this
+file, which held the task brief's 11,495 / 11,458 / 11,360 on purpose while
+reconciling them was still open work. It is no longer open, so the constants move
+to the reconciled figures and carry the derivation beside them. Bumping a number
+to silence a tripwire remains the failure a tripwire exists to catch; this is not
+that, and the difference is that the arithmetic is now written down.
 
 OUTCOME 1 SIZE ASSIGNMENT -- REPLICATED, VALIDATED 100%. To label which size a
 size-based weighing became (small / medium / large), this script replicates
@@ -126,12 +127,24 @@ future data change ever drops that match rate below 100%, the printed
 reconciliation will show it, and the page marks any unreconciled row's size as
 "unverified" and shows the published grams figure rather than inventing one.
 
-WHAT IS NOT COVERED. Outcome 2 (PSPS conversion factors) has no do-file yet
-(docs/conversion_factor_methodology.md, "Which files are live") -- this explorer
-can only mark a weighing "eligible for Outcome 2" (i.e. its branch/case survives
-the row-level attrition Outcome 2 would also apply -- unique_mun_price exclusion
-does NOT apply, since Outcome 2 keeps it) and cannot show a terminal Outcome 2
-value, because none exists yet. SurveyCTO case preloads (`nsu_cases_*.csv`) were
+OUTCOME 2 IS NOW COVERED, in two places. Section 7 shows the household flow --
+245,051 consumption rows down to grams, split by conversion path, by route and by
+fallback rung -- read from attrition_ledger.csv so the page and the ledger cannot
+disagree. Section 6's case panel gains 4c, which shows the lookup rows the build
+published for a selected case and what the PSPS households in that case received.
+
+THE HOUSEHOLD ROWS THEMSELVES ARE NOT EMBEDDED. There are 87,959 of them, this
+page is already ~21 MB, and a per-household drill-down is the wrong grain for a
+tool whose unit of observation is a market-survey weighing. Case-level counts are
+what connect the two sides; `psps_converted_capped.dta` is where a household-level
+question belongs.
+
+Section 7 is a bar list rather than a third Sankey, deliberately. The household
+flow is not a flow between comparable nodes: 52,489 rows are already in a standard
+unit and never touch the market survey at all, so drawing them as a branch off the
+same trunk as the 35,448 that do would imply a shared path they do not have.
+
+STILL NOT COVERED. SurveyCTO case preloads (`nsu_cases_*.csv`) were
 read for context (they back the pull_price-preload check in
 `verify_documented_claims.py`) but are not embedded here -- nothing in the issue's
 "Done when" criteria needs them, and embedding a fourth per-row join for a
@@ -165,20 +178,31 @@ and `build_price_sankey()` do that:
        dofiles/00_shared/01_build_crosswalk.py); this script only ADDS the same-vs-other-
        province split that CSV does not carry, using nsu_weighings_cpi.dta.
 
-PRICE-ONLY FIGURES MOVED WITH THE CROSSWALK TRIM. Commit 3c436b9 removed 17
-non-NSU labels from master_nsu_rename, which changed the price-only counts:
-602 price-only / 96 weighed-nowhere before, 586 / 80 after.
-price_only_no_weight_anywhere.csv was regenerated against the trimmed crosswalk
-in b3ccf67, so every row in it now keys to a cell that still exists; the orphan
-check below expects 0.
+PRICE-ONLY FIGURES, AND AN ORPHAN INPUT THAT HAS DRIFTED.
 
-This script classifies price-only cells freshly against the restated MS data
-rather than trusting the CSV, so its own figures (585 price-only, 79 nowhere)
-differ from the CSV's 586 / 80 by exactly one cell: CAPIZ / TAPAZ chicken, whose
-rows exist but carry no corrected_unit and therefore no usable weight. The CSV
-requires a usable weight; this script counts a cell as weighed if any row exists.
-Both framings are defensible -- the difference is recorded so it is not
-rediscovered as a bug.
+This script classifies price-only cells FRESHLY against the restated MS data,
+which is what its own reported figures are: currently 584 price-only, of which 79
+weighed nowhere. Those are trustworthy.
+
+`price_only_no_weight_anywhere.csv` is a different matter and is the reason the
+check below can warn. It holds 586 rows, and **nothing in the tree writes it** --
+this script is its only reader. That is the same orphan-input defect as issue #33
+(`cases_in_price_not_in_MS.csv`, since given a producer): a frozen CSV presented
+as an intermediate, which cannot be regenerated and therefore drifts silently as
+the crosswalk changes. It was last written against an older trim; some of its rows
+now key to cells that no longer exist.
+
+So the CSV is used for ONE thing only -- the drift check below -- and its counts
+are not relied on anywhere. Where the warning fires, the finding is that the CSV
+is stale, not that this script's arithmetic is wrong. Fixing it properly means
+giving it a producer, which belongs with `00b_price_ms_cases.do` (the Stata step
+that owns "which cases exist in the price file, the MS, or both") rather than
+here, since a diagnostic that writes its own input can never detect its own drift.
+
+One legitimate framing difference to keep in mind when comparing the two: the CSV
+requires a USABLE WEIGHT to call a cell weighed, while this script counts a cell
+as weighed if any row exists. CAPIZ / TAPAZ chicken sits on exactly that line --
+its rows exist but carry no `corrected_unit`. Both framings are defensible.
 
 Nine already-computed per-case analysis tables (outputs/tables/issue21_*.csv,
 conventional_*.csv, master_rename_dropped_labels.csv) are embedded verbatim as
@@ -274,6 +298,18 @@ FOLD_CHECK_PATH = T / "issue21_outcome1_fold_check.csv"
 # ---- case-explorer-only tables (see "THE CASE EXPLORER" below) ----
 PSPS_EXPOSURE_PATH = T / "psps_conversion_exposure.csv"
 SINGLETON_PATH = T / "singleton_hetero_groups.csv"
+
+# ---- Outcome 2, and the ledger --------------------------------------------------
+# All written by master_outcome2.do and 90_diagnostics/attrition_ledger.do. Read, never
+# recomputed: the whole point of section 7 is to show what the build decided, and a second
+# implementation of any of it here would be free to disagree.
+BT = DC / "outputs" / "master_rename_build" / "temp"
+BTB = DC / "outputs" / "master_rename_build" / "tables"
+O2_LOOKUP_PATH = BT / "outcome2_lookup.dta"
+O2_CONVERTED_PATH = BT / "psps_converted_capped.dta"
+O2_STANDARD_PATH = BT / "psps_standard_units.dta"
+O2_HOUSEHOLDS_PATH = BT / "psps_households.dta"
+LEDGER_PATH = BTB / "attrition_ledger.csv"
 
 OUT_DIR = DC / "outputs" / "explorer"
 OUT_HTML = OUT_DIR / "nsu_pipeline_explorer.html"
@@ -648,14 +684,14 @@ def main():
     raw = load_raw()
     log(f"  raw rows: {len(raw)} (expect 11,495)")
     master = load_prelim_master()
-    log(f"  master (prelim + weight/unit correction) rows: {len(master)} (expect 11,453)")
+    log(f"  master (prelim + weight/unit correction) rows: {len(master)} (expect 11,433)")
     raw, master, stage1_dropped = classify_stage1_drops(raw, master)
 
     log("=" * 78)
     log("STAGE 2: arrival -> restated")
     log("=" * 78)
     restated = load_restated()
-    log(f"  restated rows on disk: {len(restated)} (expect 11,355)")
+    log(f"  restated rows on disk: {len(restated)} (expect 11,335)")
     master = classify_stage2(master, restated)
 
     log("=" * 78)
@@ -686,9 +722,34 @@ def main():
     log(f"  -> {len(refset):,} Outcome 1 reference-set rows (aggregation, not attrition)")
     ok = (n_raw - n_s1_drop == n_master) and (n_master - n_s2_drop == n_restated)
     log(f"  reconciles end to end: {ok}")
-    if n_raw != 11495 or n_master != 11458 or n_restated != 11360:
-        log("  *** WARNING: stage counts do not match the brief's stated "
-            "11,495 / 11,458 / 11,360 -- printed above, not silently adjusted ***")
+
+    # THE TRIPWIRE, AND ITS DERIVATION. It used to hold the task brief's
+    # 11,495 / 11,458 / 11,360 and warn on any departure, deliberately un-updated because
+    # reconciling those figures WAS issue #8 and bumping a number to silence a tripwire is
+    # the failure a tripwire exists to catch. #8 is now closed -- the ledger is generated
+    # from the build by 90_diagnostics/attrition_ledger.do -- so the constants move to the
+    # reconciled chain, and they carry the arithmetic that produces them:
+    #
+    #     11,495  raw weighings
+    #        - 4  comment-flagged and other hand-identified drops   (03_clean_ms.do)
+    #       - 58  labels that are not NSUs: standard quantity 31, ambiguous 22, not a unit 5
+    #     ------
+    #     11,433  arrival
+    #       - 98  price-quantity rows whose recorded price was not the amount handed over
+    #     ------  (27 no price at all + 71 vendor-priced where the case keeps a preloaded
+    #     11,335   rung; a further 23 vendor-priced rows are RESCUED, not dropped)
+    #
+    # If this fires, read the stage counts printed above and the ledger, and reconcile the
+    # arithmetic. Do not edit these numbers to match a new build.
+    if n_raw != 11495 or n_master != 11433 or n_restated != 11335:
+        log("  *** WARNING: stage counts do not match the reconciled "
+            "11,495 / 11,433 / 11,335 -- printed above, not silently adjusted. "
+            "See the derivation beside this check. ***")
+
+    log("=" * 78)
+    log("OUTCOME 2")
+    log("=" * 78)
+    outcome2 = load_outcome2()
 
     log("=" * 78)
     log("Building JSON payload and writing HTML")
@@ -698,7 +759,8 @@ def main():
                              counts=dict(n_raw=n_raw, n_s1_drop=n_s1_drop,
                                          n_master=n_master, n_s2_drop=n_s2_drop,
                                          n_restated=n_restated, n_s3_drop=n_s3_drop,
-                                         n_eligible=n_eligible, n_refset=len(refset)))
+                                         n_eligible=n_eligible, n_refset=len(refset)),
+                             outcome2=outcome2)
     write_html(payload)
     log(f"wrote {OUT_HTML}")
 
@@ -927,10 +989,13 @@ def build_price_cells(pr, restated_full):
     log(f"  price_only_no_weight_anywhere.csv rows whose exact cell no longer "
         f"exists in the current (post-label-trim) crosswalk: {n_stale} (expect "
         f"0 -- the CSV was regenerated against the trimmed crosswalk in b3ccf67)")
-    if n_stale and not (po.loc[po.stale_, 'this_unit_weighed_anywhere'] == 0).all():
-        log("  *** WARNING: not every stale row was in that CSV's own 'weighed "
-            "nowhere' bucket -- the 602/96 -> 586/80 arithmetic in the module "
-            "docstring no longer holds; re-derive it before trusting the note ***")
+    if n_stale:
+        log(f"  *** {n_stale} row(s) of price_only_no_weight_anywhere.csv key to a cell "
+            f"that no longer exists. THAT CSV HAS NO PRODUCER -- this script is its only "
+            f"reader -- so it cannot be regenerated and drifts as the crosswalk changes. "
+            f"Same defect as issue #33. This page's own price-only figures are computed "
+            f"freshly and are unaffected; the CSV is used for this check alone. Giving it "
+            f"a producer belongs with 00b_price_ms_cases.do. ***")
 
     po_bucket = {}
     for row in po[~po.stale_].itertuples():
@@ -1232,8 +1297,14 @@ def build_case_explorer(master_rename):
     psps = pd.read_csv(PSPS_EXPOSURE_PATH, encoding='utf-8-sig')
     psps['_key'] = [key4(p, m, i, h) for p, m, i, h in
                     zip(psps.prov, psps.mun, psps.item, psps.harm)]
-    log(f"  PSPS exposure rows: {len(psps):,} (expect 2,496), "
-        f"total PSPS NSU observations: {int(psps.n_psps_obs.sum()):,} (expect 35,489)")
+    # 35,470 = the 35,448 rows master_outcome2.do converts or refuses, plus the 22 whose
+    # label is not an NSU at all. The two sides agree exactly now that
+    # scope_psps_exposure.py reads the standard-unit table 20a writes instead of carrying
+    # its own copy -- it used to report 35,489 against the build's 35,448, because its
+    # list wrongly held "Gantang" and, separately, right about 19 spelling variants the
+    # build's table also has.
+    log(f"  PSPS exposure rows: {len(psps):,} (expect 2,480), "
+        f"total PSPS NSU observations: {int(psps.n_psps_obs.sum()):,} (expect 35,470)")
 
     singleton = pd.read_csv(SINGLETON_PATH, encoding='utf-8-sig')
     singleton['_key4'] = [key4(p, m, i, h) for p, m, i, h in
@@ -1249,8 +1320,111 @@ def build_case_explorer(master_rename):
     }
 
 
+def load_outcome2():
+    """OUTCOME 2, read from the build. Nothing here is recomputed.
+
+    This function is what makes the explorer's answer to "where did this row go"
+    complete. Until Outcome 2 existed the page could only mark a weighing "eligible for
+    Outcome 2" and stop, because there was no terminal value to show.
+
+    Three things come back:
+
+      summary   the aggregate flow, straight out of attrition_ledger.csv -- so the page
+                and the ledger cannot disagree, and the ledger is generated from the same
+                .dta files the rest of this script reads
+      lookup    the conversion table, keyed on the case so section 6 can show what
+                Outcome 2 published for the case a user is looking at
+      cases     per-case household counts: how many PSPS rows the case converted, by
+                which route, and at which fallback rung
+
+    THE HOUSEHOLD ROWS THEMSELVES ARE NOT EMBEDDED. There are 87,959 of them and the page
+    is already 21 MB; a per-household drill-down is also the wrong grain for a tool whose
+    unit is a market-survey weighing. The case-level counts are what connect the two.
+    """
+    ledger = pd.read_csv(LEDGER_PATH, encoding='utf-8-sig')
+    log(f"  attrition ledger rows: {len(ledger):,}")
+
+    lk = pd.read_stata(O2_LOOKUP_PATH, convert_categoricals=False)
+    lk['_key'] = [key4(p, m, i, h) for p, m, i, h in
+                  zip(lk.pull_province, lk.pull_municipal_city, lk.pull_item,
+                      lk.harmonized_nsu_unit)]
+
+    # psps_month is a Stata %tm value, which pandas reads as a datetime -- so a MISSING
+    # one is NaT, and json.dumps refuses NaT rather than treating it as null. It is
+    # missing on two of the three branches by design (only the price-quantity branch has
+    # a month dimension), so this is the common case and not an edge one. Formatted to a
+    # plain "YYYY-MM" string, None where absent, which is also what the page displays.
+    lk['psps_month'] = [None if pd.isna(m) else f"{m.year:04d}-{m.month:02d}"
+                        for m in lk.psps_month]
+    log(f"  Outcome 2 lookup rows: {len(lk):,} "
+        f"({int(lk.psps_month.notna().sum()):,} carry a month)")
+
+    cv = pd.read_stata(O2_CONVERTED_PATH, convert_categoricals=False)
+    cv['_key'] = [key4(p, m, i, h) for p, m, i, h in
+                  zip(cv.pull_province, cv.pull_municipal_city, cv.pull_item,
+                      cv.harmonized_nsu_unit)]
+    log(f"  Outcome 2 household rows (non-standard unit): {len(cv):,}")
+
+    st = pd.read_stata(O2_STANDARD_PATH, convert_categoricals=False,
+                       columns=['pull_province', 'pull_municipal_city', 'pull_item',
+                                'harmonized_nsu_unit', 'grams_h', 'std_basis'])
+    log(f"  standard-unit household rows: {len(st):,}")
+
+    # per-case household counts
+    cases = []
+    for k, g in cv.groupby('_key'):
+        routes = g.conv_route.value_counts().to_dict()
+        cases.append({
+            "_key": k,
+            "n_psps_rows": int(len(g)),
+            "n_converted": int((g.d_converted == 1).sum()),
+            "n_refused": int((g.d_converted == 0).sum()),
+            "n_capped": int((g.d_cap == 1).sum()),
+            "n_no_price": int((g.d_no_price == 1).sum()),
+            "max_fallback": (None if g.fallback_level.isna().all()
+                             else int(g.fallback_level.max())),
+            "grams_total": (None if g.grams_h.isna().all() else float(g.grams_h.sum())),
+            "routes": {str(a): int(b) for a, b in routes.items()},
+        })
+    log(f"  cases with at least one PSPS NSU row: {len(cases):,}")
+
+    def _tot(rt, stage, desc_contains=None):
+        m = (ledger.record_type == rt) & (ledger.stage == stage)
+        if desc_contains:
+            m &= ledger.description.str.contains(desc_contains, regex=False, na=False)
+        return ledger[m]
+
+    routes = _tot('detail', 'H5 converted')
+    routes = routes[routes.description.str.startswith('route: ')]
+    rungs = _tot('detail', 'H5 converted')
+    rungs = rungs[rungs.description.str.startswith('converted at fallback level ')]
+
+    summary = {
+        "paths": [{"path": r.description, "rows": int(r.rows_out)}
+                  for r in _tot('stage', 'H3 path').itertuples()],
+        "routes": [{"route": r.description.replace('route: ', ''),
+                    "rows": int(r.rows_out)} for r in routes.itertuples()],
+        "rungs": [{"rung": r.description.replace('converted at fallback level ', 'L'),
+                   "rows": int(r.rows_out)} for r in rungs.itertuples()],
+        "n_cons": int(_tot('stage', 'H0 consumption').rows_out.iloc[0]),
+        "n_food": int(_tot('stage', 'H1 food').rows_out.iloc[0]),
+        "n_slots": int(_tot('aggregation', 'H2 slots').rows_out.iloc[0]),
+        "n_standard": int(len(st)),
+        "n_nsu": int(len(cv)),
+        "n_converted": int((cv.d_converted == 1).sum()),
+        "n_refused": int((cv.d_converted == 0).sum()),
+        "n_capped": int((cv.d_cap == 1).sum()),
+        "n_lookup": int(len(lk)),
+        "grams_nsu": float(cv.grams_h.sum(skipna=True)),
+        "grams_standard": float(st.grams_h.sum(skipna=True)),
+    }
+
+    return {"summary": summary, "lookup": _records(lk), "cases": cases,
+            "ledger": _records(ledger)}
+
+
 def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_lookup,
-                   refset, counts):
+                   refset, counts, outcome2):
     master_rename = pd.read_csv(MASTER_RENAME_PATH, encoding='utf-8-sig', dtype=str)
 
     sankey = build_sankey(raw, master, stage1_dropped, restated_full, eligible, counts)
@@ -1429,16 +1603,17 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
     # everything except the no-usable-weight and carrot-rule drops.
     n_o2_eligible = int(counts['n_eligible']
                          + restated_full.drop_unique_mun.sum())
+    o2s = outcome2['summary']
 
     ledger_note = (
-        "docs/attrition_ledger.md and its .csv record Stage 2 as dropping 74 rows "
-        "(11,458 -> 11,384). The current dofiles/00_shared/07_cpi_factor.do and its own "
-        "saved log drop 98 (27 'vendor gave no price at all' + 71 'vendor-priced, "
-        "case keeps a preloaded rung') -> 11,355, matching the file on disk and this "
-        "tool's own counts throughout. docs/data_oddities.md sec.3b already documents "
-        "the 27-row rule; the ledger was written earlier and has not been regenerated. "
-        "This page uses the files on disk as ground truth and flags the stale figures "
-        "here rather than matching them."
+        "RESOLVED (issue #8). The ledger used to be a hand-maintained CSV written against "
+        "an archived do-file, and it disagreed with the build in three places -- most "
+        "visibly recording Stage 2 as dropping 74 rows against the 98 the build actually "
+        "drops. It is now GENERATED by 90_diagnostics/attrition_ledger.do, which counts "
+        "rows in the files the pipeline wrote, so it cannot go stale independently of "
+        "them. This page reads that CSV for its Outcome 2 figures and its own .dta counts "
+        "for everything else; the two agree by construction. Regenerate the ledger after "
+        "any build, and note it now covers BOTH outcomes plus the price-file side."
     )
 
     meta = {
@@ -1448,16 +1623,19 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
         "price_counts": price_counts,
         "ledger_discrepancy_note": ledger_note,
         "price_discrepancy_note": price_discrepancy_note,
-        "outcome2_note": (f"Outcome 2 (PSPS conversion factors) has no do-file yet -- "
-                           f"{n_o2_eligible:,} restated weighings would still be in scope for it "
-                           f"(everything except the {int(restated_full.drop_no_wref.sum())} rows "
-                           f"with no usable weight and the "
-                           f"{int(restated_full.drop_carrot.sum())} carrot-rule rows Outcome 1 and "
-                           f"Outcome 2 split between them), but this tool cannot show a terminal "
-                           f"Outcome 2 value because none has been built. This is not drawn as a "
-                           f"Sankey branch because a row is eligible for Outcome 2 independently "
-                           f"of whether it also feeds the Outcome 1 collapse -- drawing both as "
-                           f"sinks off one node would double-count the flow."),
+        "outcome2_note": (
+            f"BUILT. master_outcome2.do runs end to end: of "
+            f"{o2s['n_slots']:,} household x item x slot rows, {o2s['n_standard']:,} were "
+            f"already in a standard unit and converted from the unit's own name, and "
+            f"{o2s['n_nsu']:,} needed the market survey -- of which "
+            f"{o2s['n_converted']:,} converted ({100 * o2s['n_converted'] / o2s['n_nsu']:.1f}%) "
+            f"and {o2s['n_refused']:,} are reported unconvertible. Section 7 has the flow "
+            f"and section 6 shows what Outcome 2 published for a selected case. "
+            f"{n_o2_eligible:,} restated weighings are in scope for Outcome 2 -- more than "
+            f"feed the Outcome 1 collapse, because Outcome 2 keeps the unique_mun_price "
+            f"weighings. That is why Outcome 2 is NOT drawn as a branch of the Sankey in "
+            f"section 1: a row is in scope for it independently of whether it also feeds "
+            f"Outcome 1, so drawing both as sinks off one node would double-count."),
     }
 
     return {
@@ -1470,6 +1648,7 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
         "price_cells": price_cells,
         "price_analyses": price_analyses,
         "case_explorer": case_explorer,
+        "outcome2": outcome2,
     }
 
 
@@ -1575,6 +1754,27 @@ tbody tr.selected { background: #1e3a5f; }
 .pricebox { margin-top: 6px; font-size: 12px; }
 .pricebox table { font-size: 11.5px; }
 footer { padding: 14px 20px; color: var(--muted); font-size: 11.5px; }
+
+/* section 7 -- Outcome 2 */
+.o2chain { display: flex; flex-wrap: wrap; gap: 8px; align-items: stretch; margin: 4px 0 16px 0; }
+.o2step { background: var(--panel2); border: 1px solid var(--border); border-radius: 6px;
+          padding: 8px 12px; min-width: 128px; }
+.o2step .n { font-size: 18px; font-weight: 600; }
+.o2step .l { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.o2step.drop { border-color: var(--drop); }
+.o2step.ok { border-color: var(--ok); }
+.o2arrow { align-self: center; color: var(--muted); font-size: 16px; }
+.o2grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+.o2bar { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center;
+         padding: 3px 0; font-size: 12px; }
+.o2bar .track { background: #0b0e12; border-radius: 3px; height: 16px; position: relative;
+                overflow: hidden; }
+.o2bar .fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); opacity: .75; }
+.o2bar .fill.warn { background: var(--warn); }
+.o2bar .fill.bad { background: var(--drop); }
+.o2bar .lbl { position: absolute; left: 6px; top: 0; line-height: 16px; font-size: 11px;
+              white-space: nowrap; }
+.o2bar .v { color: var(--muted); font-variant-numeric: tabular-nums; }
 a { color: var(--accent); }
 </style>
 </head>
@@ -1689,6 +1889,43 @@ a { color: var(--accent); }
   </div>
   <div id="case-results" class="subtable" style="max-height:240px"></div>
   <div id="case-detail" style="margin-top:16px"></div>
+</section>
+
+<section id="outcome2-section">
+  <h2>7. Outcome 2 &mdash; from a PSPS household row to grams</h2>
+  <p style="color:var(--muted);font-size:12.5px;margin:0 0 10px 0">
+    Sections 1&ndash;6 follow a market-survey weighing. This one follows the other side: a
+    household that reported a quantity in a non-standard unit, and what it received. Every
+    figure below is read from <code>outputs/master_rename_build/tables/attrition_ledger.csv</code>
+    and the build's own <code>.dta</code> files &mdash; nothing on this page recomputes an
+    Outcome 2 decision, which is the same rule the rest of the tool follows.
+  </p>
+  <div id="o2-chain" class="o2chain"></div>
+  <div class="o2grid">
+    <div>
+      <h3 style="margin:0 0 6px 0;font-size:13px">Conversion path</h3>
+      <div id="o2-paths"></div>
+      <p style="color:var(--muted);font-size:11.5px;margin:6px 0 0 0">Every household row
+      takes exactly one. <code>20a_psps_households.do</code> asserts the five are
+      exhaustive and mutually exclusive, so no row is unaccounted for.</p>
+    </div>
+    <div>
+      <h3 style="margin:0 0 6px 0;font-size:13px">Route &mdash; the rows needing the market survey</h3>
+      <div id="o2-routes"></div>
+      <p style="color:var(--muted);font-size:11.5px;margin:6px 0 0 0">A refused row is
+      reported, never imputed and never silently redirected to another price point. The
+      list is <code>psps_unconvertible.csv</code>.</p>
+    </div>
+    <div>
+      <h3 style="margin:0 0 6px 0;font-size:13px">Fallback rung used</h3>
+      <div id="o2-rungs"></div>
+      <p style="color:var(--muted);font-size:11.5px;margin:6px 0 0 0">From L1 down the
+      household's own price is not used at all: every household in the cell receives the
+      same grams whatever it paid (A15). L3 drops province entirely and is the weakest
+      rung by a wide margin &mdash; the same NSU varies up to 6.7&times; between
+      municipalities (A1).</p>
+    </div>
+  </div>
 </section>
 
 <footer id="footer"></footer>
@@ -2378,9 +2615,19 @@ function selectPriceCell(c) {
 // one implementation of "which row does this case fall in", not two that could
 // silently disagree.
 // ============================================================================
+// OUTCOME 2 INDEXES, declared HERE rather than beside the section-7 renderer at the
+// bottom. `const` is hoisted into a temporal dead zone, so a renderCaseDetail() call made
+// before the declaration line executes would throw a ReferenceError rather than read an
+// undefined -- and renderCaseDetail is reachable from a click handler wired in section 3.
+// Declaring the indexes with the other DATA views removes the ordering hazard entirely.
+const O2 = DATA.outcome2;
+const O2S = O2.summary;
+const O2_BY_CASE = {}; O2.cases.forEach(c => O2_BY_CASE[c._key] = c);
+
 const CE = DATA.case_explorer;
 const CASE_BY_KEY = {}; CE.cases.forEach(c => CASE_BY_KEY[c.case_key] = c);
 const CROSSWALK_BY_CASE = buildIndex(CE.crosswalk, '_key');
+const O2_LOOKUP_BY_CASE = buildIndex(O2.lookup, '_key');
 const IDX_ce_psps = buildIndex(CE.psps_exposure, '_key');
 const IDX_ce_singleton = buildIndex(CE.singleton_groups, '_key4');
 const IDX_dropped_cell3 = buildIndex(PA.dropped_labels, '_cell3');
@@ -2586,6 +2833,74 @@ function renderSingletonFlag(caseKey, caseWeighings) {
     : `<div class="note">${groups.length} of ${totalGroups} hetero-group(s) in this case rest on a single weighing.</div>`);
 }
 
+// 4c. THE PANEL THAT COULD NOT EXIST BEFORE. Until master_outcome2.do ran end to end,
+// section 6 could say a case was "eligible for Outcome 2" and no more. This shows the
+// lookup rows the build published for the case and what the PSPS households in it
+// received -- read from outcome2_lookup.dta and psps_converted_capped.dta, never
+// recomputed here.
+//
+// The lookup is keyed on the 5-key case (it carries corrected_unit) while a case here is
+// the 4-key one, so a case spanning grams and millilitres shows both sub-cells' rows. The
+// dimension column is displayed rather than collapsed, because that IS the distinction.
+function renderOutcome2Built(caseKey) {
+  const rows = O2_LOOKUP_BY_CASE[caseKey] || [];
+  const hh = O2_BY_CASE[caseKey];
+  if (!rows.length && !hh) {
+    return '<div class="placeholder">No Outcome 2 lookup row and no PSPS household row for this case. '
+      + 'Either no household reported this unit here, or the case has no weighing to build a group from '
+      + '-- section 7 has the population-level counts.</div>';
+  }
+  let out = '';
+  if (rows.length) {
+    const BR = { 1: 'conventional', 2: 'price-quantity', 3: 'size-based' };
+    out += '<div class="subtable"><table><thead><tr>'
+      + '<th>branch</th><th>grp</th><th>dim</th><th>month</th><th>p_g</th>'
+      + '<th>w_use</th><th>v_use</th><th>n_g</th><th>usable</th></tr></thead><tbody>'
+      + rows.slice().sort((a, b) => (a.group_id || 0) - (b.group_id || 0)).map(r => {
+        const usable = r.d_point_usable === 1
+          ? '<span style="color:var(--ok)">yes</span>'
+          : `<span style="color:var(--drop)">no</span> <span style="color:var(--muted)">${esc(r.unusable_why || '')}</span>`;
+        return `<tr>
+          <td>${esc(BR[r.branch] || r.branch)}</td>
+          <td>${r.group_id ?? '&mdash;'}</td>
+          <td>${r.corrected_unit === 1 ? 'g' : (r.corrected_unit === 2 ? 'mL' : '&mdash;')}</td>
+          <td>${r.psps_month == null ? '<span style="color:var(--muted)">n/a</span>' : esc(String(r.psps_month))}</td>
+          <td>${r.p_g == null ? '&mdash;' : Number(r.p_g).toFixed(2)}</td>
+          <td>${r.w_use == null ? '&mdash;' : Number(r.w_use).toFixed(1)}</td>
+          <td>${r.v_use == null ? '&mdash;' : Number(r.v_use).toFixed(4)}</td>
+          <td>${r.n_g ?? '&mdash;'}</td>
+          <td>${usable}</td></tr>`;
+      }).join('') + '</tbody></table></div>'
+      + '<div class="note">A row with <code>usable = no</code> is a price point a household '
+      + 'can match but that yields no weight. It is in the table on purpose: removing it '
+      + 'would push the household onto the next point along and convert it at a weight '
+      + 'belonging to a different rung. <code>month</code> is n/a off the price-quantity '
+      + 'branch, where grams are a property of an object and do not move with the price level.</div>';
+  } else {
+    out += '<div class="placeholder">No lookup row: this case built no Outcome 2 group. '
+      + 'Its households, if any, are served by the fallback ladder or reported unconvertible.</div>';
+  }
+  if (hh) {
+    const routes = Object.entries(hh.routes).sort((a, b) => b[1] - a[1])
+      .map(([k, v]) => `${esc(k)} &times;${v}`).join(' &middot; ');
+    out += [
+      ['PSPS household rows in this case', hh.n_psps_rows.toLocaleString()],
+      ['converted', `${hh.n_converted.toLocaleString()}`],
+      ['refused', hh.n_refused ? `<span style="color:var(--drop)">${hh.n_refused}</span>` : '0'],
+      ['no faced price (own production / gift)', hh.n_no_price.toLocaleString()],
+      ['price ratio clamped', hh.n_capped.toLocaleString()],
+      ['deepest fallback rung used', hh.max_fallback == null ? '&mdash;' : 'L' + hh.max_fallback],
+      ['total grams', hh.grams_total == null ? '&mdash;' : Math.round(hh.grams_total).toLocaleString()],
+      ['routes', routes],
+    ].map(([k, v]) => `<div class="pathstep"><div class="stage">${k}</div><div class="val">${v}</div></div>`).join('');
+  } else {
+    out += '<div class="note">No PSPS household reported this unit in this cell, so nothing '
+      + 'was converted through it. The reference set still publishes it &mdash; Outcome 1 '
+      + 'records what was weighed regardless of whether anyone reported it.</div>';
+  }
+  return out;
+}
+
 function renderCaseDetail(caseKey) {
   const caseObj = CASE_BY_KEY[caseKey];
   const holder = document.getElementById('case-detail');
@@ -2619,6 +2934,7 @@ function renderCaseDetail(caseKey) {
     `<h3>3. How each surviving spelling was weighed</h3>` + renderWeighingSummary(caseWeighings) +
     `<h3 style="margin-top:16px">4a. Outcome 1 &mdash; reference-set row(s)</h3>` + renderOutcome1Panel(caseWeighings) +
     `<h3 style="margin-top:16px">4b. Outcome 2 &mdash; conversion-factor eligibility</h3>` + renderOutcome2Panel(caseWeighings) +
+    `<h3 style="margin-top:16px">4c. Outcome 2 &mdash; what was actually published, and what the households got</h3>` + renderOutcome2Built(caseKey) +
     `<h3 style="margin-top:16px">PSPS exposure (psps_conversion_exposure.csv)</h3>` + renderPSPSExposure(caseKey) +
     `<h3 style="margin-top:16px">Singleton hetero-groups (singleton_hetero_groups.csv)</h3>` + renderSingletonFlag(caseKey, caseWeighings) +
     `<h3 style="margin-top:16px">Related analyses</h3>` + renderAnalysesHTML(gatherAnalyses({
@@ -2680,6 +2996,55 @@ document.getElementById('sankey-to-case').addEventListener('click', () =>
   document.getElementById('case-explorer-section').scrollIntoView({ behavior: 'smooth', block: 'start' }));
 document.getElementById('price-sankey-to-case').addEventListener('click', () =>
   document.getElementById('case-explorer-section').scrollIntoView({ behavior: 'smooth', block: 'start' }));
+
+// ---------------------------------------------------------------- section 7: Outcome 2
+// A bar list rather than a Sankey. The household flow is not a flow between comparable
+// nodes -- 52,489 standard-unit rows never touch the market survey at all, so drawing
+// them as a branch off the same trunk as the 35,448 that do would suggest a shared path
+// they do not have. Bars in three named groups say what happened without implying it.
+function o2bars(holder, rows, keyName, opts) {
+  opts = opts || {};
+  const max = Math.max(1, ...rows.map(r => r.rows));
+  document.getElementById(holder).innerHTML = rows.map(r => {
+    const label = String(r[keyName]);
+    const bad = /refus/i.test(label);
+    const warn = /fallback|L[123]$|not an NSU/i.test(label);
+    const cls = bad ? 'bad' : (warn ? 'warn' : '');
+    const pct = (100 * r.rows / max).toFixed(1);
+    const share = opts.denom ? ` (${(100 * r.rows / opts.denom).toFixed(1)}%)` : '';
+    return `<div class="o2bar">
+      <div class="track"><div class="fill ${cls}" style="width:${pct}%"></div>
+        <div class="lbl">${esc(label)}</div></div>
+      <div class="v">${r.rows.toLocaleString()}${share}</div>
+    </div>`;
+  }).join('');
+}
+
+(function renderOutcome2() {
+  const step = (n, l, cls) =>
+    `<div class="o2step ${cls || ''}"><div class="n">${n.toLocaleString()}</div>
+       <div class="l">${l}</div></div>`;
+  const arrow = '<div class="o2arrow">&rarr;</div>';
+  document.getElementById('o2-chain').innerHTML = [
+    step(O2S.n_cons, 'PSPS consumption rows'),
+    arrow,
+    step(O2S.n_food, 'food rows'),
+    arrow,
+    step(O2S.n_slots, 'household &times; item &times; slot<br>with a usable quantity'),
+    arrow,
+    step(O2S.n_standard, 'standard unit &mdash; converted<br>from the unit&rsquo;s own name', 'ok'),
+    step(O2S.n_nsu, 'non-standard unit &mdash;<br>needs the market survey'),
+    arrow,
+    step(O2S.n_converted, 'converted', 'ok'),
+    step(O2S.n_refused, 'refused, and reported', 'drop'),
+  ].join('');
+
+  o2bars('o2-paths', O2S.paths.map(p => ({ path: p.path, rows: p.rows })), 'path',
+         { denom: O2S.n_slots });
+  o2bars('o2-routes', O2S.routes.slice().sort((a, b) => b.rows - a.rows), 'route',
+         { denom: O2S.n_nsu });
+  o2bars('o2-rungs', O2S.rungs, 'rung', { denom: O2S.n_converted });
+})();
 </script>
 </body>
 </html>

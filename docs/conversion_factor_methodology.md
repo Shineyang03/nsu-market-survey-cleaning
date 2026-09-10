@@ -87,17 +87,19 @@ means the two outputs cannot be derived from one another.
 flowchart TD
     G{"What are you building?"}
 
-    G -->|"Outcome 1 — reference set"| WA1{"Case's weighing_approach?"}
-    WA1 -->|"conventional"| OC["No size to resolve.<br/>Report median(w) for the case."]
+    G -->|"Outcome 1 — reference set"| WA1{"Case's BRANCH?<br/>(08_branch.do, not weighing_approach)"}
+    WA1 -->|"conventional<br/>24 cases"| OC["No size to resolve.<br/>Report median(w) for the case.<br/>size_ord = 0"]
+    WA1 -->|"RECLASSIFIED<br/>99 cases"| ORC["Field-conventional, but its item x unit<br/>mixes approaches elsewhere (#28).<br/>NEVER terciled -- one group,<br/>published as MEDIUM. A12"]
     WA1 -->|"size-based"| OS1{"How many of S/M/L<br/>appear in the raw data?"}
-    WA1 -->|"price-quantity"| OP1["Read the size off the price label:<br/>mp25 = S, mp50 = M, mp75 = L,<br/>municipal or province median = M.<br/>EXCLUDE unique_mun_price."]
+    WA1 -->|"price-quantity"| OP1["Read the size off the price label:<br/>mp25 = S, mp50 = M, mp75 = L,<br/>municipal or province median = M.<br/>Two medians in one cell split by<br/>PRICE RANK. EXCLUDE unique_mun_price."]
 
     OS1 -->|"all three (553 cases)"| OS3["Pool across vendors and markets,<br/>cut into 3 empirical terciles,<br/>report median within case x group."]
     OS1 -->|"two (260 cases)"| OS2["Pool, cut into 2,<br/>report median within case x group."]
     OS1 -->|"one (758 cases)"| OS0["Pool, one group,<br/>report the case median."]
 
-    G -->|"Outcome 2 — PSPS conversion factors"| WA2{"Case's weighing_approach?"}
-    WA2 -->|"conventional"| C1["CF = median(w) over the case.<br/>pi not applicable."]
+    G -->|"Outcome 2 — PSPS conversion factors"| WA2{"Case's BRANCH?"}
+    WA2 -->|"conventional<br/>24 cases"| C1["CF = median(w) over the case.<br/>No price point, pi not applicable."]
+    WA2 -->|"RECLASSIFIED<br/>99 cases"| C1R["One group, matched to the case's<br/>mp50 / municipality median. A12"]
     WA2 -->|"price-quantity"| P1["Already priced. NO conversion.<br/>Keep the fielded price points.<br/>w_g moves with the price level, so<br/>ADJUST THE WEIGHT: w_psps = w_g(1+pi)"]
     WA2 -->|"size-based"| S1{"What does the PRICE FILE<br/>hold for this case?"}
 
@@ -180,10 +182,10 @@ flowchart TB
         D1 --> D2 --> D3 --> D4 --> D5 --> D6
     end
 
-    subgraph PEND["STAGE 3 - PENDING. Not yet built"]
+    subgraph PEND["STAGE 3 - BUILT. Sizes, and the price round"]
         direction TB
-        P1["RE-TERCILE the sizes (Step A).<br/>Replaces the field S/M/L labels with terciles of<br/>the pooled weight distribution within the case."]
-        P2["Join pi on province x COICOP group x month pair,<br/>for the price-quantity branch only (Step B1)."]
+        P1["RE-TERCILE the sizes (Step A).<br/>Replaces the field S/M/L labels with terciles of<br/>the pooled weight distribution within the case.<br/>10_reference_set/10_size_assignment.do"]
+        P2["Join pi on province x COICOP group x month pair,<br/>for the price-quantity branch only (Step B1).<br/>24_inflate_to_psps_month.do"]
     end
 
     F4 --> U1
@@ -201,7 +203,7 @@ flowchart TB
 | 0 field | *nothing* — this is the input | — | the instrument and the enumerator |
 | 1 upstream | NSU **names**, MS and price side alike | `pull_nsu_unit` → `cleaned_nsu_unit` → `harmonized_nsu_unit` | `dofiles/00_shared/01_build_crosswalk.py` → `outputs/tables/master_nsu_rename.csv`; see `docs/master_rename.md` |
 | 2 desk | the **grain**, then the **unit of measure** | raw MS rows → `corrected_weight` in g or mL, keyed on `harmonized_nsu_unit` | `dofiles/00_shared/03_clean_ms.do` → `dofiles/00_shared/04_unit_snap.do` |
-| 3 pending | **sizes**, and the price **round** | field S/M/L → weight terciles; nominal PSPS pesos → MS-frame weights | Step A and Step B1 below |
+| 3 build | **sizes**, and the price **round** | field S/M/L → weight terciles; MS-month weights → the household's own month | Step A and Step B1 below — `10_size_assignment.do` and `24_inflate_to_psps_month.do` |
 
 **The size labels are the one field artefact cleaning replaces outright.** Stage 0
 recorded S/M/L as a local, per-vendor judgement; Stage 3 discards those labels and
@@ -522,9 +524,16 @@ single-branch, with zero exceptions, and it survives splitting the grain further
 
 | approach | cases | weighings |
 |---|---|---|
-| size-based | **1,515 (78%)** | 9,770 (85%) |
-| price-quantity | 314 (16%) | 1,220 (11%) |
+| size-based | **1,564 (78%)** | 10,141 (85%) |
+| price-quantity | 318 (16%) | 1,114 (10%) |
 | conventional | 123 (6%) | 468 (4%) |
+
+Counted on the documented case grain — province × municipality × item × harmonized unit
+× corrected unit — over the 11,335 weighings both outcomes read. **`weighing_approach`, not
+`branch`:** these are the shares of what the *field* did. What the *build* does with them
+differs, because 99 of the 123 conventional cases are processed as size-based (#28) — so
+Branch C is built from 24 cases and 80 weighings, not 123 and 468. See `branch` in
+`dofiles/README.md`.
 
 The fold introduces exactly one exception, so the table above assigns each case its
 modal approach: ILOILO / TIGBAUAN / carrot, where `bilog` (9 size-based weighings)
@@ -652,9 +661,23 @@ is 40.4% / 13.3% / 45.8%, plus 11 cells with 4 or 5 groups. The qualitative conc
 holds either way.) Both grains are tallied by `dofiles/90_diagnostics/scope_price_combo_grain.py`;
 `dofiles/90_diagnostics/tally_price_points.py` computes the raw grain only.
 
-So on the Outcome 2 side about **60%** of cases collapse to a single group on price
-grounds, and the two-group case is genuinely rare at 3.5% — in practice a case has either
-the full three-group ladder or no ladder at all.
+**Those shares are counted on price-*type* combinations, and the build does not use them.**
+What Outcome 2 cuts on is the number of price points *after* the ₱20 union-merge, over the
+cases that have a weighed spelling to build a group from. Measured on the built ladder
+(`20_case_price_points.do`, 1,907 cases with at least one convertible point):
+
+| convertible price points | cases | share |
+|---|---|---|
+| 1 | 1,221 | 64.0% |
+| **2** | **346** | **18.1%** |
+| 3 | 340 | 17.8% |
+
+So the single-point case still dominates at about two thirds, but **the two-group case is
+not rare** — the earlier reading of 3.5% does not survive the merge. 365 of the 3,171
+points are built from more than one peso value, and a quartile triple whose gaps are
+within ₱20 collapses to two points or one. "A case has either the full three-group ladder
+or no ladder at all" was true of the price file's own output and is not true of the ladder
+the pipeline builds.
 
 Two caveats. These figures cover all price-file cases, including price-only ones with no
 MS weighings, so the shares among cases that actually have weights will differ. And the
@@ -1043,23 +1066,32 @@ group empties.
 
 ### What "medium" means in the published file
 
-`size_ord = 2` is published as **medium** on 1,274 of the 3,307 reference-set rows, and
+`size_ord = 2` is published as **medium** on **913 of the 2,559** reference-set rows, and
 the label does not mean the same thing on all of them. The decision (issue #21 §3) is to
 keep the single name and state the composition here rather than split it into two labels
 the field cannot act on.
 
 | what the case looks like | medium rows | what "medium" is describing |
 |---|---|---|
-| publishes all three sizes | 502 | the middle tercile, as the name implies |
-| publishes two sizes | 273 | the upper or lower of two groups, named by position |
-| publishes one size only | 499 | **the case's only value.** Not a middle of anything — the case never separated into sizes, so its single median is labelled medium by default |
+| publishes all three sizes | 239 | the middle tercile, as the name implies |
+| publishes two sizes | 79 | the upper or lower of two groups, named by position |
+| publishes one size only | **595** | **the case's only value.** Not a middle of anything — the case never separated into sizes, so its single median is labelled medium by default |
 
-The third row is the one to read carefully. For 499 cases the published "medium" is the
+The third row is the one to read carefully. For 595 cases the published "medium" is the
 whole case: a municipality/item/unit median with no size structure behind it. `n_g` on
 those rows is the weighing count the value rests on, and `d_thin` marks the ones resting
 on fewer than three. A reader wanting only genuinely-middle values should keep rows whose
 case publishes three sizes; a reader wanting a best single estimate per case should
 prefer the one-size rows precisely because they pool everything.
+
+**The one-size share grew when the fallback ladder landed**, and the reason is worth
+knowing rather than reading as a deterioration. A cell with any thin rung now publishes a
+single pooled median instead of a size ladder (the L1 rule), so cells that used to
+contribute a small, a medium and a large now contribute one row. Those rows carry
+`fallback_level = 1` and `size_ord = 4`, so they are not counted as medium at all — what
+grew is the share of *medium* rows that are their cell's only row. 99 of them are also
+#28's reclassified conventional cases, which are never terciled and publish one group by
+decision (A12); `d_reclassified` identifies those.
 
 This is a naming convention, not a measurement claim. Nothing downstream keys on the
 label — the case grain plus `size_ord` identifies a row, and `grams` is the estimate.
@@ -1087,10 +1119,12 @@ its weighings were the ones the field had called medium.
 | groups 1, 3 filled of 3 | small + large (the rank rule already gives this) |
 | groups filled = $`k`$ | untouched, whatever $`k`$ is |
 
-Only the first line changes anything, and it moves **25 published rows from small to
-medium** — small 1,173 → 1,148, medium 1,245 → 1,270. Grams and $`n_g`$ are untouched:
-this renames groups, it does not recut them, so it cannot create a non-monotonic row and
-it cannot change the published row count (3,321 either way).
+Only the first line changes anything. Grams and $`n_g`$ are untouched: this renames
+groups, it does not recut them, so it cannot create a non-monotonic row and it cannot
+change the published row count. (The row counts this paragraph used to quote were from
+before the fallback ladder, which recut the table; the rule and its effect are unchanged,
+so the figures are left to `verify_documented_claims.py`, which re-derives the under-filled
+decomposition on every run.)
 
 Both two-group shapes already come out right, because `ord_at1` and `ord_at3` on a case
 holding {S, M, L} *are* small and large. `10_size_assignment.do` §2d asserts that rather
@@ -1177,14 +1211,35 @@ one that would have implied a precision the estimator does not have.
 
 ### Cost and resilience of the ladder
 
-On **Outcome 1's reference set**, the size-ladder costs are measured:
-- **3,305 cases capable of a size ladder** → 2,557 published (748 fewer)
-- **962 of 1,995 cases lose their size ladder** because they hit L1 — they publish 1,710 rows at L0, but 962 fewer after the cell thin rule
-- **1,033 cases with no thin rung** are untouched, all L0, 1,595 rows
+On **Outcome 1's reference set** (2,559 rows over 1,995 cells):
 
-On **Outcome 2's conversion factors**, fallback depth is the exposure:
-- **518 of 962 cells** that lost their size ladder remain thin even after pooling to L1, so they publish `fallback_level = 1` and `d_thin = 1` together, resting on 1–2 weighings
-- Every household in those cells receives a single $`\widehat{CF}`$ — heterogeneity is erased from the household estimate, but the reference set still holds size-specific medians for comparison
+| | |
+|---|---|
+| cells with no thin rung — untouched, all L0 | 1,033 |
+| cells with a thin rung **and two or more rungs** → collapsed to one pooled row, `fallback_level = 1` | **488** |
+| cells with a thin rung but only **one** rung → keep their own size label, since nothing would be pooled | 474 |
+| published rows flagged `d_thin` | 518 |
+
+**The collapse requires two rungs.** A one-rung cell has no size ladder to lose and no
+second estimator to mix with, so collapsing it would pool nothing while overwriting the
+size the field measured — 474 rows, of which 209 had published `small`. The gate is
+`k_rungs ≥ 2`.
+
+On **Outcome 2's household conversions**, fallback depth is the exposure. Of 35,448
+non-standard-unit household rows:
+
+| rung | rows | share |
+|---|---|---|
+| L0 — the matched price point in the cell's own weighings | 28,961 | 82.9% |
+| L1 — the cell pooled across sizes | 110 | 0.3% |
+| L2 — province × item × unit | 5,484 | 15.7% |
+| L3 — item × unit nationally | 361 | 1.0% |
+| refused, and reported | 532 | 1.5% |
+
+**One household row in six takes a borrowed weight**, and from L1 down its own price is
+not used at all: every household in the cell receives the same grams whatever it paid. The
+reference set still holds size-specific medians for those cells, so the two deliverables
+can be compared (#16).
 
 This is a deliberate trade — narrower precision for independence from cross-municipality price–weight relationships that are unobserved and cannot be validated.
 
@@ -1442,15 +1497,45 @@ arithmetically immune to CPI mismeasurement — worth knowing given the spread a
 
 Run in this order. Anything not listed here is not part of the pipeline.
 
-| file | does | status |
-|---|---|---|
-| `dofiles/00_shared/03_clean_ms.do` | raw MS → cleaned weighings on the harmonized NSU key | live |
-| `dofiles/00_shared/04_unit_snap.do` | called by the above; kg→g, L→mL, magnitude snap | live |
-| `dofiles/build_cpi_level_panel.py` | PSA CPI → `cpi_level_panel.csv` (levels only) | live |
-| `dofiles/00_shared/07_cpi_factor.do` | builds `cpi_factor`, the province × item-group × month index ratio Outcome 2 uses for the MS → PSPS adjustment. It no longer restates weights: the former `w_ref` is retired (issue #29). | live |
-| `dofiles/10_reference_set/12_publish_reference_set.do` | **Outcome 1** — the reference set | live |
-| *Outcome 2 — PSPS conversion factors* | | **not yet written** |
-| `dofiles/archive/nsu_step_a_rungs.do` | an earlier shared "Step A" | ⚠️ **superseded — do not run** |
+**`dofiles/README.md` is the authoritative run order** and is updated when a step lands.
+This table names what each file is for; where the two disagree, the README is right.
+
+Run the prerequisites once (they build the id registry, the crosswalk and the CPI panel and
+change rarely), then either master. Working directory must be `dofiles/`.
+
+| file | does |
+|---|---|
+| **prerequisites** | |
+| `00_shared/00a_weighing_ids.do` | assigns every raw weighing a durable `id` |
+| `00_shared/00b_price_ms_cases.do` | which cases exist in the price file, the MS, or both |
+| `00_shared/01_build_crosswalk.py` | the raw → cleaned → harmonized NSU crosswalk |
+| `00_shared/02_drop_non_nsu_labels.py` | removes labels that are not NSUs |
+| `00_shared/06_cpi_panel.do` | province × item-group × month CPI panel |
+| **shared stage — both outcomes** | |
+| `00_shared/03_clean_ms.do` | raw MS → cleaned weighings on the harmonized NSU key. Calls 03a, 04, 05 |
+| `00_shared/03a_block_reading.do` | the block reading `w_block`, computed before any fold is applied |
+| `00_shared/04_unit_snap.do` | kg→g, L→mL, the magnitude snap and its referee |
+| `00_shared/05_manual_corrections.do` | every hand-made weight/unit fix, and the review ledger |
+| `00_shared/07_cpi_factor.do` | builds `cpi_factor`. Also the only place the 98 vendor-priced rows are dropped, so **both** outcomes depend on it |
+| `00_shared/08_branch.do` | derives `branch` — how a weighing is *processed*, as against what the field did (#28) |
+| **Outcome 1** | |
+| `10_reference_set/10_size_assignment.do` | `size_ord`, re-derived from the pooled weights |
+| `10_reference_set/11_size_checks.do` | checkpoint; changes no rows |
+| `10_reference_set/12_publish_reference_set.do` | **the reference set** |
+| **Outcome 2** | |
+| `20_psps_retrofitting/20a_psps_households.do` | the PSPS household side, and the standard-unit table (#14) |
+| `20_psps_retrofitting/20_case_price_points.do` | the price ladder, and the `unique_mun_price` refusal (A16) |
+| `20_psps_retrofitting/21` `22` `23` | the size-based, price-quantity and conventional branch builds |
+| `20_psps_retrofitting/24_inflate_to_psps_month.do` | Branch P restated to each household month |
+| `20_psps_retrofitting/25_lookup.do` | the conversion lookup, plus #11's no-inflation variant |
+| `20_psps_retrofitting/30_fallback.do` | the fallback ladder. **Must run before 28** |
+| `20_psps_retrofitting/27_standard_units.do` | households that already answered in a standard unit |
+| `20_psps_retrofitting/28_match_and_convert.do` | **the household join** — grams per household row |
+| `20_psps_retrofitting/29_cap.do` | clamps `p_h/p_g` and flags (A18) |
+| **superseded** | |
+| `dofiles/archive/nsu_step_a_rungs.do` | an earlier shared "Step A" — ⚠️ **do not run** |
+| `dofiles/archive/26_psps_extract.do` | vocabulary discovery; that job is finished. Replaced by `20a` |
+| `dofiles/archive/scope_price_weight_ray.do` | the ray-fit measurement behind a fallback design that was not adopted |
 
 Not part of the build, but not throwaway either — run these to check the build rather
 than to produce it:

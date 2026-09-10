@@ -342,17 +342,26 @@ can be applied to all three.
 
 **Status: NEW, and unmeasured.** Raised on **#27**.
 
-**A convention worth carrying forward.** The archived `26_psps_extract.do` refused to treat
+**The convention was carried forward.** The archived `26_psps_extract.do` refused to treat
 gifts and own production as prices: only the **purchased** slot fed `p_h`, because the other
-two carry an imputed value rather than a price the household faced. That is the right rule
-and the assumption does **not** bite at price construction — but the file is now in
-`dofiles/archive/` and its replacement, `20a_psps_households.do`, is unwritten. **The rule
-has to be re-stated there**, or `p_h` will silently start absorbing imputed values.
+two carry an imputed value rather than a price the household faced. This entry used to warn
+that the rule was at risk of being lost with that file. It was not:
+`20a_psps_households.do` re-states it, computes `p_h` on the purchased slot only (99.96%
+coverage), and **asserts `p_h` is missing on every other slot** — so nothing downstream can
+reach an imputed value through that column.
 
-**Where it does bite.** It bites at conversion. A household that received camote tops as a
-gift still reports a quantity in a non-standard unit, and that quantity gets grams from a
-factor estimated on purchase transactions. The claim is that a gifted `bugkos` is the same
-size as a bought one. That is plausible and completely untested.
+**Where it does bite, and it is now measured.** It bites at conversion. A household that
+received camote tops as a gift still reports a quantity in a non-standard unit, and that
+quantity gets grams from a factor estimated on purchase transactions. The claim is that a
+gifted `bugkos` is the same size as a bought one. That is plausible and completely untested.
+
+**11,809 of the 35,448 non-standard-unit household rows — 33.3% — have no faced price**
+(own production 10,187, gift 1,606, and 16 purchased rows with no usable price).
+`28_match_and_convert.do` gives them the case's middle price point and converts at that
+group's own weight, which is the degenerate `p_h = p_g` case, `CF_h = w_g`. They carry
+`d_no_price = 1`. So the assumption reaches a third of the household population, not a
+sixth as the food-row figure below suggests — and the flag is the only way a reader can
+separate them.
 
 **Exposure.** Of 129,094 PSPS food rows, 102,444 record a purchase, 21,597 own production
 and 5,627 a gift — the slots are separate, so a row can hold more than one. Roughly **one
