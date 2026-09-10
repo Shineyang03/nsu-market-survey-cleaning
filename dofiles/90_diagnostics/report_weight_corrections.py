@@ -14,6 +14,13 @@ that nothing else in the project answered:
        step1_flagged   the anchor machinery distrusted its own answer
        unusable        no interpretation was defensible, so the weight is .c
 
+     THESE ARE THE BUILD'S FLAGS, read from nsu_weighings_cpi.dta. `08_branch.do' owns
+     their definition, because both deliverables now publish them (#35): the reference
+     set carries n_disputed / n_flagged / n_uncertain / share_uncertain per published
+     row, and every converted PSPS household row carries nu_used at the rung that
+     supplied its weight. This script no longer derives them, so it cannot disagree
+     with what shipped.
+
 WHY BOTH NUMBERS MATTER TOGETHER. The corrected count on its own reads as a defect rate.
 It is not: most corrections are decimal slips the pipeline is meant to repair. The
 uncertain count is the part a reader should discount, and it is much smaller.
@@ -65,13 +72,38 @@ d.loc[~d.magnitude_corrected, "decades_moved"] = 0.0
 d["decades_moved"] = d.decades_moved.replace([np.inf, -np.inf], np.nan).round(2)
 
 # ---- 2. the three kinds of uncertainty --------------------------------------------
-# `disputed' is read off snap_block against w_step1 rather than recomputed: a row is
-# disputed exactly when the published value is not STEP 1's answer, which is what
-# snap_block records. Recomputing the block rule here would duplicate it.
-d["unusable"] = d.published.isna()
-d["disputed"] = d.snap_block.fillna(0).astype(int).eq(1) & ~d.unusable
-d["step1_flagged"] = d.review_step1.fillna(0).astype(int).eq(1)
-d["any_uncertainty"] = d.unusable | d.disputed | d.step1_flagged
+# READ FROM THE BUILD, NOT DERIVED HERE. `08_branch.do' defines these four flags and
+# writes them into nsu_weighings_cpi.dta, because both deliverables now publish them
+# (#35). This script used to derive its own copy from snap_block and review_step1 --
+# correct at the time and free to drift the moment either definition moved, which is the
+# duplication #32 forced out of the string normalizers.
+#
+# So the direction is: the build decides, this report describes. A diagnostic reads the
+# quantity the pipeline computed; it never recomputes it.
+_flags = ["d_unusable", "d_disputed", "d_step1_flagged", "d_any_uncertain"]
+fl = pd.read_stata(T / "nsu_weighings_cpi.dta", columns=["id"] + _flags)
+d = d.merge(fl, on="id", how="left", validate="1:1")
+
+# A weighing missing from nsu_weighings_cpi was dropped at stage 2 and never reached
+# either deliverable, so it has no published flag to report. Left as NA rather than
+# filled: a False here would say "not questioned" about a row nothing ever judged.
+d = d.rename(columns={"d_unusable": "unusable", "d_disputed": "disputed",
+                      "d_step1_flagged": "step1_flagged",
+                      "d_any_uncertain": "any_uncertainty"})
+for c in ["unusable", "disputed", "step1_flagged", "any_uncertainty"]:
+    d[c] = d[c].astype("boolean")
+
+# The one cross-check worth keeping, and it is a check rather than a second definition:
+# `unusable' means the published weight is missing, which this script can see directly
+# from the column it already read. If the build's flag and the published value disagree,
+# one of them is wrong and the report must not paper over it.
+_seen = d.unusable.notna()
+_mismatch = int((d.loc[_seen, "unusable"].astype(bool) != d.loc[_seen, "published"].isna()).sum())
+if _mismatch:
+    raise SystemExit(
+        f"{_mismatch} row(s) where the build's d_unusable disagrees with whether "
+        "corrected_weight is missing. 08_branch.do and this report cannot both be right; "
+        "fix the build before quoting either number.")
 
 # `branch' is ADDED, not substituted. The subject of this report is the weight correction,
 # which happens upstream of branching and is unaffected by it -- so weighing_approach, the

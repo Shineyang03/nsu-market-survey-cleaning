@@ -59,8 +59,12 @@
 * CALLED BY   master_outcome1.do and master_outcome2.do, after 07_cpi_factor.do and before
 *             anything that assigns sizes.
 *
-* IN / OUT    ${btemp}\nsu_weighings_cpi.dta, augmented in place with `branch' and
-*             `d_reclassified'.
+* IN / OUT    ${btemp}\nsu_weighings_cpi.dta, augmented in place with `branch',
+*             `d_reclassified' and the four uncertainty flags below.
+*
+* IT ALSO OWNS THE UNCERTAINTY FLAGS, for the same reason it owns `branch': this is the
+* last step both masters share, so a variable defined here reaches both deliverables with
+* one definition. See the block at the foot of this file and #35.
 ********************************************************************************
 
 clear all
@@ -135,5 +139,76 @@ assert branch == weighing_approach if !d_reclassified
 
 drop _conv_here _other_here _mixed_pair _case _conv_in_case _other_in_case
 
+********************************************************************************
+* THE UNCERTAINTY FLAGS -- defined here, once, because both outcomes read this file
+*
+* WHY HERE. A published conversion factor should say whether the weight behind it was
+* questioned. Three different things get conflated if they are not separated, and they
+* need different follow-up:
+*
+*   d_unusable        no interpretation of the reading was defensible, so the weight is .c
+*   d_disputed        the two snap rules disagreed and one had to be chosen
+*   d_step1_flagged   the anchor machinery distrusted its own answer
+*
+* NOTHING IS DERIVED HERE. Each flag is read off a column the build already carries --
+* `corrected_weight', `snap_block' and `review_step1' -- so this block records a decision
+* made upstream rather than re-deciding it. `snap_block == 1' means the published value is
+* not STEP 1's answer, which is exactly what "the rules disagreed" means; recomputing the
+* block rule here would put a second copy of it in the pipeline.
+*
+* WHY NOT READ THE DIAGNOSTIC'S CSV. `weight_correction_report.csv' publishes these same
+* three flags, and reading it would be shorter. It is forbidden: a build step that reads a
+* diagnostic output is the orphan-input defect of #33, and it would make the build
+* unreproducible from the raw files alone. The direction is the other way round -- the
+* diagnostic reads these columns.
+*
+* THIS IS THE ONLY DEFINITION. 08 is the last step both masters share, so both deliverables
+* inherit the same four variables and neither can re-implement them differently. That is
+* the consolidation #32 forced on the string normalizers, applied before the duplication
+* has a chance to appear.
+*
+* WHAT THE FLAGS DO NOT SAY. That a weight was questioned, not by how much it could be
+* wrong. There is no interval here and none is implied. See #35 and A20.
+********************************************************************************
+
+gen byte d_unusable      = missing(corrected_weight)
+gen byte d_disputed      = (snap_block == 1) & !d_unusable
+gen byte d_step1_flagged = (review_step1 == 1)
+gen byte d_any_uncertain = d_unusable | d_disputed | d_step1_flagged
+
+label var d_unusable      "1 = no defensible reading; weight is .c"
+label var d_disputed      "1 = the two snap rules disagreed and one had to be chosen"
+label var d_step1_flagged "1 = the anchor machinery distrusted its own answer"
+label var d_any_uncertain "1 = disputed, anchor-flagged or unusable; see #35"
+
+* The source columns must exist and must be the ones these flags claim to read. A missing
+* column would make `snap_block == 1' silently false for every row and publish a table
+* saying nothing was ever disputed -- which is the failure this whole block exists to
+* prevent, arriving as a clean build.
+confirm numeric variable corrected_weight snap_block review_step1
+
+* d_any_uncertain is an OR, so it must be at least as large as each part and no larger
+* than their sum. Cheap, and it catches a future edit that turns the OR into an AND.
+assert d_any_uncertain >= d_unusable
+assert d_any_uncertain >= d_disputed
+assert d_any_uncertain >= d_step1_flagged
+assert d_any_uncertain <= d_unusable + d_disputed + d_step1_flagged
+
+* An unusable weighing cannot also be disputed: there was no published value to dispute.
+assert !(d_unusable == 1 & d_disputed == 1)
+
+qui count
+local n_all = r(N)
+di as res _n "08_branch.do -- uncertainty flags on `n_all' priced weighings:"
+foreach v in d_unusable d_disputed d_step1_flagged d_any_uncertain {
+	qui count if `v' == 1
+	di as res "  " %-18s "`v'" %8.0fc r(N) "   " %5.1f 100 * r(N) / `n_all' "%"
+}
+
+* Read against branch, because a branch carrying disproportionate uncertainty would change
+* how the three Outcome 2 branch builds should be read.
+di as res _n "share uncertain by branch:"
+table branch, statistic(frequency) statistic(mean d_any_uncertain) nformat(%9.3f)
+
 save "${btemp}\nsu_weighings_cpi", replace
-di as txt "08_branch.do: wrote branch and d_reclassified into nsu_weighings_cpi.dta"
+di as txt "08_branch.do: wrote branch, d_reclassified and the four uncertainty flags"

@@ -265,7 +265,12 @@ tab k_use, m
 **# 4. Collapse, and pair each group with its point
 ********************************************************************************
 
+* The uncertainty counts ride with n_g through to the lookup and on to the household, so
+* a household's grams can say how questioned the weight behind them was (#35). Summed
+* here, at the only grain where the weighings are still visible.
 collapse (median) w_g = corrected_weight (count) n_g = corrected_weight ///
+         (sum) n_disputed = d_disputed n_flagged = d_step1_flagged ///
+               n_uncertain = d_any_uncertain ///
          (first) branch d_reclassified k_use n_points_conv, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
             corrected_unit grp)
@@ -414,6 +419,13 @@ assert unusable_why != ""
 
 gen double w_g = .
 gen long   n_g = .
+* Missing, not zero. These rows have no weighings behind them at all, and a zero count of
+* questioned weighings would read as "none of them was questioned" -- a claim about a set
+* that does not exist. The append below would fill an absent column with missing anyway;
+* writing it explicitly is what makes the distinction deliberate rather than incidental.
+gen long   n_disputed  = .
+gen long   n_flagged   = .
+gen long   n_uncertain = .
 gen double v_g = .
 gen double cpi_factor_g = 1
 gen int    group_id = .

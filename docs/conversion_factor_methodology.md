@@ -1373,6 +1373,41 @@ derived unit value: misreporting $`e_h`$ or $`q_h`$ feeds into $`p_h`$, which ca
 flip the household across a size boundary in B2 and scales $`\widehat g_h`$
 proportionally in B3.
 
+### How much of the weight behind a number was questioned
+
+Both deliverables publish this, and it is worth reading before quoting any single row.
+
+The magnitude snap decides whether a typed reading means grams or kilograms, and for some
+readings the rules disagree or the anchor machinery distrusts its own answer. Those
+weighings still ship — the alternative is discarding a seventh of the sample — but the
+published rows say so.
+
+| column | on | means |
+| :-- | :-- | :-- |
+| `n_disputed` | reference set, Outcome 2 lookup | weighings behind the estimate where the two snap rules disagreed |
+| `n_flagged` | reference set, Outcome 2 lookup | weighings the anchor machinery distrusted |
+| `n_uncertain` | reference set, Outcome 2 lookup | either of the above; the union, not the sum |
+| `share_uncertain` | all three outputs | `n_uncertain / n_g` |
+| `nu_used` | converted household rows | of `n_g_used`, how many were questioned — **at the fallback rung that actually supplied the weight**, not at the household's own cell |
+
+**Read `share_uncertain` against `n_g`, not on its own.** One questioned weighing out of
+five is a different claim from one out of one, and the counts are published so that
+distinction survives. `share_uncertain == 1` is the sharp signal: nothing behind the
+estimate went unquestioned.
+
+**Nothing is dropped or down-weighted on account of these columns.** They exist so a
+reader can apply their own tolerance; the build applies none. See A20 for why the three
+kinds of doubt are not weighted against each other.
+
+**The coarser fallback rungs are more questioned, not equally so.** 12.6% of the weighings
+behind an L0 household row, against 20.6% at L2 and 38.7% at L3. L3 was already the
+weakest rung on dispersion grounds (A1); it is the most uncertain on provenance grounds
+too, so a reader discounting L3 has two independent reasons rather than one.
+
+**A standard-unit household row has none of these columns populated**, and that is
+correct: its grams come from a stated container size, not from a market-survey weighing,
+so there is no weighing to have questioned.
+
 ## Practical prerequisites
 
 - **Unit-name harmonization.** Already done, upstream of everything here —

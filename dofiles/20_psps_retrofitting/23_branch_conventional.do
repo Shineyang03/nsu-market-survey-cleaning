@@ -100,7 +100,10 @@ assert cpi_factor == 1
 * dimensions -- because a case CAN span g and mL, and one median over both would be a
 * number in neither.
 
+* The uncertainty counts ride with n_g through to the lookup and on to the household (#35).
 collapse (median) w_g = corrected_weight (count) n_g = corrected_weight ///
+         (sum) n_disputed = d_disputed n_flagged = d_step1_flagged ///
+               n_uncertain = d_any_uncertain ///
          (first) branch d_reclassified, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit)
 

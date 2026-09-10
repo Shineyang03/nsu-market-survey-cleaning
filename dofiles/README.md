@@ -182,7 +182,7 @@ checking. Check 5 is what tells you those outputs still match their inputs.
 | `05_manual_corrections.do` | every hand-made weight/unit fix. §1–5 are one block per correction, each asserting its row count; **§6 applies the review ledger**, `reference/reviewed/snap_verdicts.csv`, which is where the bulk of the adjudicated decisions now live. See *Adjudicating a weight* below. |
 | `06_cpi_panel.do` | province × item-group × month CPI panel, plus the item crosswalk and the spec's validation report. Stata port of a retired Python step (`archive/06_cpi_panel.py`), verified against its output before the switch |
 | `07_cpi_factor.do` | drops 98 price-quantity rows whose recorded price was not the price handed over — 71 vendor-priced (a further 23 are rescued where they were the case's only rung) and 27 where the vendor gave no price at all. **The only place those rows are dropped, and both outcomes depend on it.** Builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |
-| `08_branch.do` | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`. Wired into both masters. |
+| `08_branch.do` | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`, and **owns the four uncertainty flags** (`d_unusable`, `d_disputed`, `d_step1_flagged`, `d_any_uncertain`) that both deliverables publish — see *The uncertainty is carried through* below. Wired into both masters. |
 
 **Two shared MODULES live in `00_shared/` alongside the steps.** Nothing runs them; they
 are imported, and they are where two decision rules are defined once so no caller can
@@ -373,13 +373,40 @@ Two things the sense check has established, worth knowing before reading it:
   on labels that do not pin down a quantity in the first place — `pieces or units`,
   `small packs` — which is a limit of the fallback ladder rather than a defect in it.
 
-**Carry the uncertainty through.** Every weighing carries flags saying whether its weight
-was corrected and whether it is disputed, anchor-flagged or unusable —
-`weight_correction_report.csv`, written by `90_diagnostics/report_weight_corrections.py`.
-Roughly one weighing in seven carries some uncertainty; run that script for the current
-count rather than trusting a number written here, because it moves with every review
-round. A conversion factor built on a disputed weight should say so, and no step
-currently reads that file.
+**The uncertainty is carried through (#35).** Roughly one weighing in seven is disputed,
+anchor-flagged or unusable, and both deliverables now say so per published row.
+
+`08_branch.do` owns the definition — four flags read off `corrected_weight`, `snap_block`
+and `review_step1`, all of which the build already carries. It is defined there because
+`08` is the last step both masters share, so one definition reaches both deliverables and
+neither can re-implement it differently.
+
+| output | columns |
+|---|---|
+| reference set | `n_disputed`, `n_flagged`, `n_uncertain`, `share_uncertain` |
+| `outcome2_lookup` (and the no-inflation variant) | the same four |
+| converted household rows | `nu_used`, `share_uncertain`, taken **at the fallback rung that supplied the weight** |
+
+That last row is the part that needed care. A household served by a province pool must
+inherit the uncertainty of the pool it got, not of its own cell — so the ladder computes
+`nu_l0`…`nu_l3` and `30_fallback.do` picks `nu_used` in the same `replace` as
+`grams_used`, with an assertion per rung that the two came from the same place. A count
+from one rung printed beside a weight from another is the mislabel class closed in
+`12_publish_reference_set.do` section 5c.
+
+**Read the counts, not a dummy.** 29.7% of reference-set rows rest on at least one
+questioned weighing but only 8.8% rest entirely on them, and the median row sits on three
+weighings. `share_uncertain == 1` is the signal worth acting on.
+
+**Nothing is dropped or down-weighted.** The columns let a reader apply a tolerance; the
+build applies none. A20 says why the three kinds of doubt are not weighted against each
+other.
+
+`90_diagnostics/report_weight_corrections.py` still writes
+`weight_correction_report.csv`, which the pipeline explorer reads — but it now **reads**
+these flags from the build instead of deriving its own copy, so the report and the
+deliverables cannot disagree. It keeps `magnitude_corrected` and `decades_moved`, which
+are its own and are not needed downstream.
 
 ## Adjudicating a weight: the snap review loop
 

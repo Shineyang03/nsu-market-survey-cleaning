@@ -771,6 +771,49 @@ here is whatever the sort seed chose. Determinism is the point, not accuracy.
 
 ---
 
+## A20 — The three kinds of weight uncertainty are treated as equally serious
+
+**Claims.** A weighing is *questioned* if any of three things is true, and the published
+`n_uncertain` counts all three the same way:
+
+| flag | means | source column |
+| :-- | :-- | :-- |
+| `d_unusable` | no reading was defensible, so the weight is `.c` | `corrected_weight` missing |
+| `d_disputed` | the two snap rules disagreed and one had to be chosen | `snap_block == 1` |
+| `d_step1_flagged` | the anchor machinery distrusted its own answer | `review_step1 == 1` |
+
+**Where.** Defined once in `08_branch.do`. Published as `n_disputed`, `n_flagged`,
+`n_uncertain` and `share_uncertain` on the reference set; as the same four columns on the
+Outcome 2 lookup; and as `nu_used` / `share_uncertain` on every converted PSPS household row,
+taken at the fallback rung that actually supplied the weight.
+
+**Rests on it.** Run `90_diagnostics/report_weight_corrections.py` for the current split —
+the three counts move with every review round, which is why they are not copied here.
+
+**Status: ACCEPTED, with the disagreement published rather than resolved.** The three are not
+obviously equally serious: an unusable weight is worse than a step-1 flag, and a disputed
+weight sits somewhere between. Weighting them would mean inventing exchange rates between three
+kinds of doubt, on no evidence. So they are OR'd into one indicator **and each is published
+separately beside it**, which lets a reader who disagrees rebuild the combination from the
+columns rather than argue with ours.
+
+**What the flags do not say.** How wrong the weight could be. These record that a reading was
+questioned, not an interval around it, and no variance is propagated anywhere. A row with
+`share_uncertain == 1` is not a row with a known error; it is a row where nothing behind the
+estimate went unquestioned.
+
+**Nothing is dropped or down-weighted.** Every row that published before this change still
+publishes, with the same number. Baking the discount into the build would put our judgement
+inside a table whose purpose is to be reusable — see #35.
+
+**A note on the rungs, which is the reason this was worth carrying.** The Outcome 2 ladder's
+coarser rungs are *more* questioned, not equally so: 12.6% of the weighings behind an L0 row
+against 20.6% at L2 and 38.7% at L3. L3 was already the weakest rung on dispersion grounds
+(A1); it is also the most uncertain on provenance grounds, so the two weaknesses compound
+rather than trading off.
+
+---
+
 Add an entry when you write a threshold, a tie rule, a fallback, or a normalizer choice that
 could reasonably have gone another way. The test is: *would a reader of this line know that
 a decision was made here?* If not, it belongs in the register.

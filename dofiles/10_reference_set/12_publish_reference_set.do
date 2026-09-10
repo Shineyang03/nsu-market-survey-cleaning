@@ -45,7 +45,22 @@ label values size_ord szlbl
 * it changed. Both are constant within a case by construction -- 08_branch.do asserts no
 * case mixes conventional with another approach internally -- so (first) is exact rather
 * than a choice among differing values.
+* THE UNCERTAINTY COUNTS ride along too, as counts rather than as a dummy. 26% of
+* published rows rest on at least one questioned weighing but only 12% rest ENTIRELY on
+* them, and the median row sits on 3 weighings -- so "this row touches an uncertain
+* weight" would condemn a quarter of the table while saying nothing about degree. Counts
+* plus `share_uncertain' let a reader set the tolerance; `share_uncertain == 1' is the
+* sharp signal, meaning nothing behind the estimate went unquestioned. See #35.
+*
+* `d_unusable' is deliberately NOT summed here. An unusable weighing has no weight, so it
+* was dropped upstream and cannot reach this collapse -- asserted immediately below rather
+* than assumed, because a future change that let one through would make every count on
+* this row understate its denominator.
+assert !missing(corrected_weight)
+
 collapse (median) grams = corrected_weight (count) n_g = corrected_weight ///
+         (sum) n_disputed = d_disputed n_flagged = d_step1_flagged ///
+               n_uncertain = d_any_uncertain ///
          (first) weighing_approach branch d_reclassified, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
             corrected_unit size_ord)
@@ -133,7 +148,13 @@ preserve
 	use "${btemp}\ref_11_checked", clear
 	merge m:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
 		corrected_unit using "`thincells'", keep(3) nogen
+	* Same counts, re-summed over the WEIGHINGS for the same reason the median is: a
+	* pooled row's count of questioned weighings is not the sum of its rungs' counts once
+	* a weighing can sit in more than one rung, and re-reading is the only reading that
+	* cannot drift from the gram value beside it.
 	collapse (median) grams = corrected_weight (count) n_g = corrected_weight ///
+	         (sum) n_disputed = d_disputed n_flagged = d_step1_flagged ///
+	               n_uncertain = d_any_uncertain ///
 	         (first) weighing_approach branch d_reclassified, ///
 	         by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
 	            corrected_unit)
@@ -204,6 +225,32 @@ label var n_g    "weighings behind this estimate"
 * cannot go stale.
 label var d_thin "1 = fewer than ${THIN} weighings behind the estimate; treat as uncertain"
 label var size_ord "size"
+
+* ---- how much of this estimate was questioned (#35) --------------------------------
+* A SHARE, not a dummy, and the denominator is n_g so the two columns are read together:
+* 1 of 5 questioned is a different claim from 1 of 1, and a dummy cannot say which.
+gen double share_uncertain = n_uncertain / n_g
+
+label var n_disputed      "weighings behind this estimate where the two snap rules disagreed"
+label var n_flagged       "weighings behind this estimate the anchor machinery distrusted"
+label var n_uncertain     "weighings behind this estimate that are disputed or anchor-flagged"
+label var share_uncertain "n_uncertain / n_g; 1 = nothing behind this estimate went unquestioned"
+
+format share_uncertain %5.3f
+
+qui count if share_uncertain > 0
+local n_touch = r(N)
+qui count if share_uncertain == 1
+local n_all_u = r(N)
+qui count
+local n_pub = r(N)
+di as res _n "uncertainty at the published grain (of `n_pub' rows):"
+di as res "  resting on at least one questioned weighing  " %6.0fc `n_touch' ///
+	"   " %5.1f 100 * `n_touch' / `n_pub' "%"
+di as res "  resting ENTIRELY on questioned weighings     " %6.0fc `n_all_u' ///
+	"   " %5.1f 100 * `n_all_u' / `n_pub' "%"
+di as res "  Nothing is dropped or down-weighted here. The columns let a reader discount"
+di as res "  what they judge should be discounted; that judgement is not the table's."
 
 * EVERY exported column needs a label, because the export below uses
 * firstrow(varlabels): an unlabelled variable falls back to its raw variable name, and a
@@ -294,6 +341,26 @@ assert weighing_approach == 1 & branch == 3 if d_reclassified == 1
 * or as its cell's pooled value and nothing else.
 assert inlist(size_ord, 2, 4) if d_reclassified == 1
 
+* --- the uncertainty counts (#35) ----------------------------------------------
+* Each count is bounded by the number of weighings it counts within. A count above n_g
+* would mean the collapse summed a different set of rows from the one it counted -- the
+* exact failure that makes a share meaningless while still printing a plausible number.
+assert n_disputed  <= n_g
+assert n_flagged   <= n_g
+assert n_uncertain <= n_g
+
+* n_uncertain is the OR of the parts, so it is at least as large as each and no larger
+* than their sum. Stated at the published grain as well as at the weighing grain in
+* 08_branch.do, because the collapse is what could break the relationship.
+assert n_uncertain >= n_disputed
+assert n_uncertain >= n_flagged
+assert n_uncertain <= n_disputed + n_flagged
+
+* The share is a reading of the two columns beside it and nothing else, and it is the
+* column a reader will actually filter on.
+assert reldif(share_uncertain, n_uncertain / n_g) < 1e-12
+assert inrange(share_uncertain, 0, 1)
+
 di as res _n "5c label invariants: all pass"
 
 * grams must rise with size within a case, or the table is visibly wrong to a user
@@ -327,5 +394,8 @@ di as txt _n "thin estimates (n_g < `THIN'):"
 tab d_thin, m
 qui su n_g, detail
 di as txt "weighings behind an estimate -- min `r(min)', p25 `r(p25)', median `r(p50)', max `r(max)'"
+
+di as txt _n "how much of each estimate was questioned (#35):"
+tab share_uncertain, m
 
 di as res _n "OUTCOME 1 complete."
