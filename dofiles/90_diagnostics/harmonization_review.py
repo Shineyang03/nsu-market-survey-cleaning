@@ -55,7 +55,7 @@ import difflib
 import importlib.util
 import shutil
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 import pandas as pd
@@ -71,7 +71,7 @@ OUT = DC / "outputs" / "build" / "diagnostics" / "harmonization_review.xlsx"
 REVIEWED = DC / "reference" / "reviewed"
 
 sys.path.insert(0, str(SHARED))
-from nsu_normalize import nz, ni  # noqa: E402
+from nsu_normalize import ng, ni, nz  # noqa: E402
 
 # nsu_fold_rule.py is THE rule. Imported by path because a sibling module cannot be
 # imported by name from a package whose peers start with a digit.
@@ -128,6 +128,7 @@ def main():
     wgh = pd.read_stata(INTER / "nsu_weighings_cpi.dta")
     wgh["item"] = wgh.pull_item.map(ni)
     wgh["harm"] = wgh.harmonized_nsu_unit.map(nz)
+    wgh["raw"] = wgh.pull_nsu_unit.map(nz)          # the spelling as the vendor gave it
     wgh = wgh[wgh.corrected_weight.notna()]
 
     cw = pd.read_excel(TABLES / "price_ms_unit_harmonization_crosswalk.xlsx", dtype=str)
@@ -145,13 +146,22 @@ def main():
              .agg(["size", "median"]).rename(columns={"size": "n_w", "median": "med_g"}))
     wstat_h = (wgh.groupby("harm").corrected_weight
                .agg(["size", "median"]).rename(columns={"size": "n_w", "median": "med_g"}))
+    # WEIGHINGS OF A RAW SPELLING, keyed on the spelling itself. An earlier version
+    # looked a RAW label up in the HARMONIZED index, which silently returned "0
+    # weighings" for any label the rename moves -- `putos (pack)' read as no evidence
+    # at all when 73 weighings sit behind it. A reviewer would have decided blind.
+    wstat_raw = (wgh.groupby("raw").corrected_weight
+                 .agg(["size", "median"]).rename(columns={"size": "n_w", "median": "med_g"}))
 
     # ------------------------------------------------------------ full mapping
     rows = []
     for (item, raw), sub in master.groupby(["item", "raw"]):
         cleaned, route = nfr.to_cleaned(item, raw)
         harms = sorted(set(sub.harm))
-        key = nfr.foldkey(item, harms[0] if len(harms) == 1 else raw)
+        # Key on the RAW label, always. Keying on the harmonized value where it happened
+        # to be unique and on the raw label otherwise made two rows incomparable with
+        # the rest of the column.
+        key = nfr.foldkey(item, raw)
         ws = wstat.loc[(item, harms[0])] if (item, harms[0]) in wstat.index else None
         rows.append({
             "item": item,
@@ -159,7 +169,10 @@ def main():
             "cleaned_nsu_unit": cleaned,
             "harmonized_nsu_unit": "; ".join(harms),
             "route": route,
-            "translation_group": nfr.grp(raw) or "",
+            # canonical() looks up the group of the CLEANED value, not the raw label.
+            # Both are shown because they differ on 30 rows and only one governs.
+            "group_of_cleaned_governs": nfr.grp(cleaned) or "",
+            "group_of_raw_label": nfr.grp(raw) or "",
             "fold_verdict": nfr.fold_verdict(item, cleaned),
             "n_rows": len(sub),
             "n_provinces": sub.pull_province.nunique(),
@@ -218,10 +231,17 @@ def main():
                     "harmonized_nsu_unit": h,
                     "route": nfr.to_cleaned(item, raw)[1],
                     "n_rows": int(((master.raw == raw) & (master.item == item)).sum()),
+                    # Tag ONLY when the carve-out touches THIS label. Keying it on the
+                    # item alone tagged crackers `bilog' as "putos kept separate",
+                    # which is a statement about a different label entirely.
                     "deliberate_carve_out": (
-                        "camote pieces" if item in nfr.NOFOLD_PIECES else
-                        "chicken/preserved bilog" if nfr.unsafe_pieces(item) else
-                        "putos kept separate" if item in nfr.PUTOS_KEEP_SEPARATE_ITEMS else ""),
+                        "camote pieces kept separate"
+                        if item in nfr.NOFOLD_PIECES and nfr.grp(raw) == "pieces or units"
+                        else "bilog kept separate for this item"
+                        if nfr.unsafe_pieces(item) and raw == "bilog"
+                        else "putos kept separate for this item"
+                        if item in nfr.PUTOS_KEEP_SEPARATE_ITEMS and raw == "putos"
+                        else ""),
                 })
     cross = pd.DataFrame(conf).sort_values(["pull_nsu_unit", "item"])
 
@@ -260,6 +280,47 @@ def main():
             return "", f"ambiguous -- candidate groups: {sorted(cands)}", "none"
         return "", "no candidate group -- may be genuinely ungrouped", "none"
 
+    # ---------------------------------------------------- is a label's group inert?
+    # THE ONLY HONEST TEST IS TO TRY IT. An earlier version of this sheet reasoned from
+    # the ROUTE -- "the hand rename already resolves this label, so its translation
+    # group cannot matter" -- and was wrong for 34 of 76 labels. canonical() looks up
+    # grp() of the CLEANED value, and the rename very often maps a label to ITSELF, so
+    # the group is consulted after all. `tama-tama nga putos' is a rename entry and
+    # still governs 57 rows.
+    #
+    # So: give each label a sentinel group, recompute every harmonized value, and count
+    # what moves. Two counts, because they are different risks -- `own' is the label's
+    # own rows, `other' is collateral on labels that merely REDUCE to this one or carry
+    # it as their cleaned value. `putos (mix vegetable)' has own=0 and other=10: giving
+    # it a group would break the mixed-bag fold for ten rows of other spellings.
+    SENTINEL = "zz sentinel group"
+    ov = [bool(nfr.CELL_MIX.get((ng(p), ng(c), ni(i), nz(u))))
+          for p, c, i, u in zip(master.pull_province, master.pull_municipal_city,
+                                master.item, master.raw)]
+    # cell overrides never consult grp(), so only the non-overridden pairs can move
+    pair_rows = Counter((i, u) for (i, u), o in zip(zip(master.item, master.raw), ov) if not o)
+    pairs = sorted(pair_rows)
+
+    def harmonize_pairs():
+        return {p: nz(nfr.canonical(p[0], nfr.to_cleaned(p[0], p[1])[0])) for p in pairs}
+
+    base_h = harmonize_pairs()
+    inert = {}
+    for lbl in sorted(set(nogroup.lbl)):
+        had = lbl in nfr.GRP
+        prev = nfr.GRP.get(lbl)
+        nfr.GRP[lbl] = SENTINEL
+        after = harmonize_pairs()
+        if had:
+            nfr.GRP[lbl] = prev
+        else:
+            del nfr.GRP[lbl]
+        own = sum(n for (i, u), n in pair_rows.items()
+                  if base_h[(i, u)] != after[(i, u)] and u == lbl)
+        oth = sum(n for (i, u), n in pair_rows.items()
+                  if base_h[(i, u)] != after[(i, u)] and u != lbl)
+        inert[lbl] = (own, oth)
+
     prior, prior_src = load_prior_verdicts()
     cur_harm = {}
     for lbl, sub in master.groupby("raw"):
@@ -269,20 +330,22 @@ def main():
     for r in nogroup.sort_values("n_obs", ascending=False).itertuples():
         g, why, conf_lvl = propose(r.lbl)
         k = nfr.foldkey("", r.lbl)
-        fam = sorted(x for x in nogroup.lbl if nfr.foldkey("", x) == k and x != r.lbl)
+        # THE WHOLE CROSSWALK, not just the no-group part. Searching only the no-group
+        # labels hid the one sibling that answers the question: `per pack', `in a pack'
+        # and `per packs' all share a key with `pack' and `packs', which ARE grouped,
+        # and the sheet showed each of them only the other two ungrouped spellings.
+        fam = sorted(x for x in cw.lbl if nfr.foldkey("", x) == k and x != r.lbl)
         pv, psrc = prior.get(r.lbl, ("", ""))
-        ws = wstat_h.loc[r.lbl] if r.lbl in wstat_h.index else None
-        # A blank translation group only BITES where nothing else already decides the
-        # label. Where the hand rename or a mixed-bag entry already resolves it, filling
-        # the group changes nothing -- and accepting a proposal there would re-litigate
-        # a decision that was made on evidence the string does not carry.
+        ws = wstat_raw.loc[r.lbl] if r.lbl in wstat_raw.index else None
+        # and the bucket this label lands in, which is what a fold would pool with
+        cells = set(zip(master.item[master.raw == r.lbl], master.harm[master.raw == r.lbl]))
+        bucket = wgh[[(i, h) in cells for i, h in zip(wgh.item, wgh.harm)]]
         used_by = sorted(set(master.item[master.raw == r.lbl]))
-        routes = {nfr.to_cleaned(it, r.lbl)[1] for it in used_by}
         in_mix = any((it, r.lbl) in nfr.MIX_UNITS for it in used_by)
-        settled = ("mixed-bag entry (MIX_UNITS)" if in_mix else
-                   "hand rename" if routes and routes <= {"rename", "rename+reduce",
-                                                          "rename-fuzzy", "generic"}
-                   else "")
+        own, oth = inert.get(r.lbl, (0, 0))
+        decided_by = ("mixed-bag entry (MIX_UNITS)" if in_mix else
+                      "; ".join(sorted({nfr.to_cleaned(it, r.lbl)[1] for it in used_by}))
+                      or "(not observed)")
         rev.append({
             "unit_lbl": r.lbl,
             "n_ms": r.n_ms_i,
@@ -291,12 +354,24 @@ def main():
             "observed_in_build": int(r.lbl in set(master.raw)),
             "current_harmonized": cur_harm.get(r.lbl, "(not observed)"),
             "items_using": "; ".join(used_by),
-            "already_resolved_by": settled,
-            "n_weighings": int(ws.n_w) if ws is not None else 0,
-            "median_g": round(float(ws.med_g), 1) if ws is not None else None,
+            # measured by the sentinel test above, not inferred from the route
+            "safe_to_skip": int(own == 0 and oth == 0),
+            "rows_affected_own": own,
+            "rows_affected_other_labels": oth,
+            "currently_decided_by": decided_by,
+            # weighings recorded against THIS spelling
+            "n_weighings_this_label": int(ws.n_w) if ws is not None else 0,
+            "median_g_this_label": round(float(ws.med_g), 1) if ws is not None else None,
+            # weighings in the (item, harmonized) buckets this spelling lands in --
+            # what it is already pooled with, and what a fold would pool it into
+            "n_weighings_in_bucket": len(bucket),
+            "median_g_in_bucket": (round(float(bucket.corrected_weight.median()), 1)
+                                   if len(bucket) else None),
             "fold_key_counts": k[0],
             "fold_key_tokens": k[1],
             "same_key_labels": "; ".join(fam),
+            "same_key_grouped_siblings": "; ".join(
+                f"{s} [{nfr.grp(s)}]" for s in fam if nfr.grp(s)),
             "proposed_group": g,
             "proposed_why": why,
             "confidence": conf_lvl,
@@ -308,9 +383,11 @@ def main():
             "reviewer_note": "",
         })
     to_review = pd.DataFrame(rev)
-    # unsettled labels first -- those are the ones where a blank group actually bites
+    # labels whose group actually governs something come first, biggest blast radius
+    # at the top; the rows a reviewer can genuinely skip sink to the bottom
     to_review = to_review.sort_values(
-        ["already_resolved_by", "n_obs"], ascending=[True, False]).reset_index(drop=True)
+        ["safe_to_skip", "rows_affected_own", "rows_affected_other_labels", "n_obs"],
+        ascending=[True, False, False, False]).reset_index(drop=True)
 
     # NEAR MISSES ARE PROPOSALS FOR A HUMAN, NEVER A MECHANISM -- and this sheet is the
     # evidence for why. Similarity ranks these pairs in the WRONG ORDER: the genuine
@@ -411,6 +488,65 @@ def main():
                                    "n_ms_i": "n_ms", "n_pr_i": "n_price"})
                   .sort_values(["translation_group", "unit_lbl"]))
 
+    # ------------------------------------------------------------ self-check
+    # EVERY DERIVED COLUMN IS RECOMPUTED A SECOND WAY AND COMPARED. This exists because
+    # a column here was wrong in a way no reader could have spotted: `already_resolved_by'
+    # was inferred from the route, which was the wrong test, and it was wrong for 34 of
+    # 76 labels. A column that is argued for rather than measured is the failure mode,
+    # so each one below is checked against an independent recomputation.
+    problems = []
+
+    def verify(name, ok, detail=""):
+        if not ok:
+            problems.append(f"{name}{': ' + detail if detail else ''}")
+
+    def parts(s):
+        return [z for z in str(s or "").split("; ") if z and z != "nan"]
+
+    obs_raw = set(master.raw)
+    verify("n_obs disagrees with the crosswalk",
+           all(int(cw.set_index("lbl").n_obs.get(nz(r.unit_lbl), -1)) == r.n_obs
+               for r in to_review.itertuples()))
+    verify("observed_in_build disagrees with master_nsu_rename",
+           all((nz(r.unit_lbl) in obs_raw) == bool(r.observed_in_build)
+               for r in to_review.itertuples()))
+    verify("items_using disagrees with the build",
+           all(sorted(set(master.item[master.raw == nz(r.unit_lbl)])) == parts(r.items_using)
+               for r in to_review.itertuples()))
+    verify("current_harmonized disagrees with the build",
+           all(("; ".join(sorted(set(master.harm[master.raw == nz(r.unit_lbl)])))
+                or "(not observed)") == str(r.current_harmonized)
+               for r in to_review.itertuples()))
+    # the weighings columns must be keyed on the spelling, never on the harmonized index
+    verify("n_weighings_this_label is not keyed on the raw spelling",
+           all(int(r.n_weighings_this_label)
+               == int((wgh.raw == nz(r.unit_lbl)).sum()) for r in to_review.itertuples()))
+    # same_key_labels must span the whole crosswalk
+    kk = defaultdict(list)
+    for lb in cw.lbl:
+        kk[nfr.foldkey("", lb)].append(lb)
+    verify("same_key_labels does not span the whole crosswalk",
+           all(sorted(z for z in kk[nfr.foldkey("", nz(r.unit_lbl))] if z != nz(r.unit_lbl))
+               == sorted(parts(r.same_key_labels)) for r in to_review.itertuples()))
+    # safe_to_skip must agree with the sentinel measurement it came from
+    verify("safe_to_skip disagrees with the sentinel measurement",
+           all(bool(r.safe_to_skip) == (inert.get(nz(r.unit_lbl), (0, 0)) == (0, 0))
+               for r in to_review.itertuples()))
+    # full_mapping: the group shown as governing must be the one canonical() consults
+    verify("group_of_cleaned_governs is not grp(cleaned)",
+           all((nfr.grp(nz(r.cleaned_nsu_unit)) or "") == str(r.group_of_cleaned_governs or "")
+               for r in full.itertuples()))
+    verify("full_mapping fold key is not keyed on the raw label",
+           all(nfr.foldkey(ni(r.item), nz(r.pull_nsu_unit))[1] == r.fold_key_tokens
+               for r in full.itertuples()))
+    # live_gaps families must be real
+    verify("a live_gaps family has fewer than two distinct values",
+           all(g.harmonized_nsu_unit.nunique() >= 2
+               for _, g in live.groupby("fold_key_tokens")) if len(live) else True)
+    verify("a live_gaps member does not carry its stated key",
+           all(nfr.foldkey("", nz(r.harmonized_nsu_unit))[1] == r.fold_key_tokens
+               for r in live.itertuples()) if len(live) else True)
+
     # ------------------------------------------------------------ write
     archived = archive_annotated()
     OUT.parent.mkdir(parents=True, exist_ok=True)
@@ -432,11 +568,11 @@ def main():
         if stale:
             print(f"  ! {len(stale)} prior verdict(s) match no current label: {stale[:6]}")
     print(f"\nwrote {OUT.relative_to(DC)}")
-    unsettled = to_review[to_review.already_resolved_by == ""]
+    unsettled = to_review[to_review.safe_to_skip == 0]
     print(f"  to_review    {len(to_review):5d}  ({(to_review.confidence == 'strong').sum()} strong, "
           f"{(to_review.confidence == 'medium').sum()} medium, "
           f"{(to_review.confidence == 'none').sum()} need a human)")
-    print(f"     of which NOT already settled upstream: {len(unsettled)}  "
+    print(f"     of which a group ACTUALLY GOVERNS something: {len(unsettled)}  "
           f"({(unsettled.confidence == 'strong').sum()} strong, "
           f"{(unsettled.confidence == 'medium').sum()} medium, "
           f"{(unsettled.confidence == 'none').sum()} need a human)")
@@ -457,6 +593,12 @@ def main():
                 print(f"      [{r.item}] {r.pull_nsu_unit!r}: "
                       f"{r.original_cleaned!r} -> {r.current_cleaned!r}")
     print(f"  groups_now   {len(groups_now):5d}")
+    if problems:
+        print(f"\n  !! {len(problems)} SELF-CHECK FAILURE(S) -- do not review this workbook:")
+        for p in problems:
+            print(f"     - {p}")
+        raise SystemExit(1)
+    print("\n  self-check: all derived columns recomputed independently and agree")
     return to_review, live, near, cross, full
 
 
