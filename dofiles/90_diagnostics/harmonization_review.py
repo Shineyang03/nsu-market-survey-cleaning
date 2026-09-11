@@ -136,6 +136,23 @@ def main():
     wgh["raw"] = wgh.pull_nsu_unit.map(nz)          # the spelling as the vendor gave it
     wgh = wgh[wgh.corrected_weight.notna()]
 
+    # PSPS household rows carrying each raw label. This is the measure of how much a
+    # harmonization decision actually moves the deliverable, and it is NOT the same as
+    # the weighing count: a label can carry 204 weighings and 9 household rows. The two
+    # are separate channels -- weighings change the CONVERSION FACTOR, household rows
+    # change how many rows get RE-LABELLED -- and summing them, as the crosswalk's
+    # n_ms + n_price does, produces a number that is neither.
+    try:
+        pg = pd.read_stata(DC / "outputs" / "build" / "deliverables" / "psps_grams.dta")
+        pg["raw"] = pg.pull_nsu_unit.map(nz)
+        psps_rows = pg.groupby("raw").size()
+        psps_conv = pg[pg.grams_h.notna()].groupby("raw").size()
+        n_psps_total = len(pg)
+    except Exception as exc:                                      # noqa: BLE001
+        print(f"  ! psps_grams unavailable ({exc}); PSPS impact columns will be blank")
+        psps_rows = psps_conv = pd.Series(dtype=int)
+        n_psps_total = 0
+
     cw = pd.read_excel(TABLES / "price_ms_unit_harmonization_crosswalk.xlsx", dtype=str)
     cw["lbl"] = cw.unit_lbl.map(nz)
     cw["group"] = cw.translation_group.fillna("").map(nz)
@@ -402,6 +419,8 @@ def main():
             "n_price_frozen": r.n_pr_i,
             "n_obs_frozen": r.n_obs,
             "n_rows_in_build": int((master.raw == r.lbl).sum()),
+            "psps_rows": int(psps_rows.get(r.lbl, 0)),
+            "psps_rows_converted": int(psps_conv.get(r.lbl, 0)),
             "observed_in_build": int(r.lbl in set(master.raw)),
             "current_harmonized": cur_harm.get(r.lbl, "(not observed)"),
             "items_using": "; ".join(used_by),
@@ -442,8 +461,7 @@ def main():
     # labels whose group actually governs something come first, biggest blast radius
     # at the top; the rows a reviewer can genuinely skip sink to the bottom
     to_review = to_review.sort_values(
-        ["safe_to_skip", "rows_affected_own", "rows_affected_other_labels",
-         "n_rows_in_build"],
+        ["safe_to_skip", "psps_rows", "rows_affected_own", "n_weighings_this_label"],
         ascending=[True, False, False, False]).reset_index(drop=True)
 
     # NEAR MISSES ARE PROPOSALS FOR A HUMAN, NEVER A MECHANISM -- and this sheet is the
@@ -560,9 +578,18 @@ def main():
                            "crosswalk workbook. Also frozen (sums to 5,412 against "
                            "2,927 price-side rows). NOT a PSPS household count.",
          "frozen"),
-        ("n_obs_frozen", "n_ms_frozen + n_price_frozen. The crosswalk's own measure of "
-                         "how common a label is. Frozen; use n_rows_in_build instead.",
-         "frozen"),
+        ("n_obs_frozen", "n_ms_frozen + n_price_frozen. DO NOT USE IT AS A SIZE. It "
+                         "adds a WEIGHING-level count to a CASE-level one -- weighings "
+                         "observed within heterogeneity groups, plus the number of "
+                         "heterogeneity groups -- so the sum is not a quantity. Kept "
+                         "only because it is what the crosswalk records. Use psps_rows "
+                         "for downstream impact and n_weighings_this_label for "
+                         "conversion-factor impact.", "frozen"),
+        ("psps_rows", "PSPS household consumption rows whose reported unit is this "
+                      "label. THE measure of how much a decision moves the deliverable. "
+                      "Live from psps_grams.", "live"),
+        ("psps_rows_converted", "of those, rows that currently receive a gram figure.",
+         "live"),
         ("n_rows_in_build", "rows of master_nsu_rename carrying this label -- one per "
                             "(province, municipality, item, label). Computed live from "
                             "the current build. This is the honest size measure.", "live"),
@@ -753,6 +780,12 @@ def main():
           + ", ".join(f"{k}={v}" for k, v in unsettled.basis.value_counts().items()))
     print("     by fold class: "
           + ", ".join(f"{k}={v}" for k, v in unsettled.fold_class.value_counts().items()))
+    if n_psps_total:
+        tot = int(unsettled.psps_rows.sum())
+        top5 = int(unsettled.nlargest(5, "psps_rows").psps_rows.sum())
+        print(f"     downstream reach: {tot} PSPS household rows of {n_psps_total} "
+              f"({tot / n_psps_total * 100:.1f}%); the top 5 labels are "
+              f"{top5 / tot * 100:.0f}% of that")
     vetoes = unsettled[unsettled.weight_test.fillna("").str.contains("VETO")]
     if len(vetoes):
         print(f"     !! {len(vetoes)} proposal(s) carry a weight-test VETO:")

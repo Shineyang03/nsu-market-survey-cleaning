@@ -42,8 +42,17 @@ SHELL_WRITE = re.compile(
     r"""|(^|\s)perl\s+(-[a-zA-Z]*\s+)*-[a-zA-Z]*i"""
 )
 
-# A redirect that actually lands in a file. `2>&1', `>/dev/null' and `>&2' are not writes.
-REDIRECT = re.compile(r"(?<![0-9&])>>?\s*(?!&|/dev/null|/dev/stderr|/dev/stdout)\S")
+# A redirect that actually lands in a file. `2>&1', `>/dev/null' and `>&2' are not
+# writes -- and neither is an ASCII arrow in prose. `->' inside a commit message was a
+# false positive that blocked a legitimate `git commit', so the `>' must be preceded by
+# whitespace or start the command, which a shell redirect is and an arrow is not.
+REDIRECT = re.compile(r"(?:^|(?<=\s))>>?\s*(?!&|/dev/null|/dev/stderr|/dev/stdout)\S")
+
+# A heredoc feeding a command's ARGUMENT is not a file write. `git commit -F -',
+# `git commit -m "$(cat <<EOF ...)"' and `gh issue comment --body-file' all pass text to
+# a program; none of them writes a file from a Python string literal, which is the
+# failure this hook exists to prevent.
+ARG_HEREDOC = re.compile(r"\bgit\s+(commit|tag|notes)\b|\bgh\s+(issue|pr)\b")
 
 # Paths where throwaway measurement output is expected and allowed
 TEMP_HINT = re.compile(r"scratchpad|[/\\][Tt]emp[/\\]|AppData[/\\]Local[/\\]Temp|/tmp/",
@@ -77,6 +86,9 @@ def main():
         sys.exit(0)
 
     heredoc = bool(HEREDOC.search(cmd))
+    # a heredoc supplying a commit message or an issue body is an argument, not a write
+    if heredoc and ARG_HEREDOC.search(cmd) and not PY_WRITE.search(cmd):
+        sys.exit(0)
     writes = bool(PY_WRITE.search(cmd)) or (heredoc and bool(REDIRECT.search(cmd)))
 
     if SHELL_WRITE.search(cmd) or (heredoc and writes) or (writes and not heredoc
