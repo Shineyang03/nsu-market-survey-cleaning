@@ -229,6 +229,102 @@ def reduce_unit(item,U):                         # heuristic FALLBACK (rename-mi
         if all(w in STOP for w in rest): return base
     return u
 
+# ================= the comparison key: normalize, then match exactly =================
+#
+# WHY A KEY AND NOT A HIGHER THRESHOLD. to_cleaned()'s fuzzy step compares a raw label to
+# the KEYS OF THE HAND RENAME, so two labels that are identical to each other but absent
+# from the rename are never compared at all. Raising FOLD cannot fix that -- there is no
+# comparison to make more permissive. And similarity is the wrong instrument regardless:
+# ts('3bugkos','bugkos') = 0.923, which must NOT fold (three bundles), while
+# ts('per piece','piece') = 0.714, which must. Both are decided by structure, not degree.
+#
+# So the rule is: normalize each label down to a key, and fold labels whose keys are
+# EQUAL. Nothing is folded by degree of resemblance. What the key throws away is exactly
+# what carries no meaning for a unit label -- punctuation, word order, a redundant
+# leading count of 1, English pluralization, prepositions, and a restatement of the item
+# name. What it keeps is everything that changes the referent: any count other than a
+# leading 1, and every content word including size qualifiers. `rice cooker cup (small)'
+# and `small rice cooker cup' share a key; `rice cooker cup (small)' and
+# `rice cooker cup (large)' do not, and neither do `3bugkos' and `bugkos'.
+
+# Pluralization and abbreviation are WHITELISTED, never rule-based. A blanket English
+# plural rule would mangle the Visayan units this survey is full of -- putos -> puto,
+# bugkos -> bugko, kilos -> kilo -- so every member below is written out by hand.
+ABBREV={'pc':'piece','pcs':'piece','pce':'piece','pces':'piece','pieces':'piece',
+        'pck':'pack','pks':'pack','pkt':'pack','packs':'pack',
+        'kg':'kilo','kgs':'kilo','kls':'kilo','kilos':'kilo','kilogram':'kilo',
+        'kilograms':'kilo','gms':'gram','grams':'gram',
+        'btl':'bottle','bottles':'bottle','cups':'cup','glasses':'glass','bowls':'bowl',
+        'slices':'slice','sliced':'slice','sacks':'sack','bundles':'bundle',
+        'tasas':'tasa','cans':'can','boxes':'box','ties':'tie','heads':'head',
+        'stalks':'stalk','sticks':'stick','orders':'order','servings':'serving',
+        'sachets':'sachet','balls':'ball','cones':'cone','gallons':'gallon',
+        'galon':'gallon','galons':'gallon','trays':'tray','loaves':'loaf',
+        'units':'unit','bars':'bar'}
+
+# Function words, English and Visayan. `mix' is deliberately ABSENT: a mixed bag is a
+# different product and MIX_CANON exists to keep it that way.
+KEY_STOP={'per','ung','na','ng','sa','of','and','the','a','in','for','po','nga','or',
+          'with','w'}
+
+def foldkey(item,u):
+    """(counts, token bag) for a label. Equal keys mean the same referent.
+
+    Returned as a tuple so the counts can never be compared away by a similarity
+    measure: a label carrying `3' and one carrying nothing differ in the first element.
+    """
+    s=nz(u)
+    s=re.sub(r'(\d)([a-z])',r'\1 \2',s); s=re.sub(r'([a-z])(\d)',r'\1 \2',s)  # 3bugkos
+    parts=re.sub(r'[^a-z0-9]+',' ',s).split()
+    nums=[p for p in parts if p.isdigit()]; toks=[p for p in parts if not p.isdigit()]
+    if nums and parts[0]=='1': nums=nums[1:]      # a leading 1 is redundant; 3 is not
+    nums=sorted(n.lstrip('0') or '0' for n in nums)
+    toks=[t for t in (ABBREV.get(x,x) for x in toks) if t not in KEY_STOP]
+    itoks={ABBREV.get(t,t) for t in re.findall(r'[a-z]+',ni(item))}
+    kept=[t for t in toks if t not in itoks]       # the unit need not restate the item
+    if kept: toks=kept                             # ...but only if something survives
+    return ('#'.join(nums),''.join(sorted(toks)))  # spaces dropped: tupper ware==tupperware
+
+def fold_blocked(item,a,b):
+    """Why two key-equal labels must still not be pooled, or None.
+
+    The carve-outs of canonical() are decisions about what does not share a weight, and
+    they outrank the key: two labels can denote the same thing and still be kept apart
+    because the weight evidence says the members differ.
+    """
+    ga,gb=grp(a),grp(b)
+    if ga is not None and gb is not None and ga!=gb:
+        return 'different official translation groups'
+    g=ga or gb
+    if g in KEEP_SEPARATE: return 'keep-separate group (%s)' % g
+    if g=='pieces or units':
+        if item in NOFOLD_PIECES: return 'camote pieces kept separate (low-confidence weight test)'
+        if unsafe_pieces(item) and 'bilog' in (a,b): return 'bilog kept separate for this item'
+    ma,mb=(item,a) in MIX_UNITS,(item,b) in MIX_UNITS
+    if ma!=mb: return 'mixed-vegetable bag vs single-item'
+    return None
+
+def cluster_map(item,values,weight=None):
+    """{label -> representative} for the labels of one item that share a fold key.
+
+    Only ever MERGES: every value either maps to itself or to another value already in
+    `values'. The representative is chosen deterministically -- official crosswalk
+    vocabulary first, then the spelling carrying the most rows, then the shortest, then
+    alphabetical -- so the result cannot depend on the order the labels arrive in.
+    """
+    weight=weight or {}
+    byk=defaultdict(list)
+    for v in sorted(set(values)): byk[foldkey(item,v)].append(v)
+    out={}
+    for _,members in sorted(byk.items()):
+        if len(members)<2: continue
+        if any(fold_blocked(item,members[i],members[j])
+               for i in range(len(members)) for j in range(i+1,len(members))): continue
+        rep=sorted(members,key=lambda h:(grp(h) is None,-weight.get(h,0),len(h),h))[0]
+        for v in members:
+            if v!=rep: out[v]=rep
+    return out
+
 RENAME_KEYS=defaultdict(list)
 for (I,u) in RENAME: RENAME_KEYS[I].append(u)
 def to_cleaned(I,U):                               # raw unit -> cleaned_nsu_unit, via OUR (corrected) rename
