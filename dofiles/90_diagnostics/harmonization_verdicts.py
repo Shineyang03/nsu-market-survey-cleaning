@@ -54,8 +54,8 @@ THE PIECES FAMILY IS TWO SEPARATE DECISIONS, and they should be taken in order:
     measured    a weight comparison supports it. Check the ratio.
     structural  a fold key, the group table, or a count/size rule decides it.
     language    my reading of a Hiligaynon / Cebuano / Tagalog term, with no weight
-                evidence. THIS IS THE CATEGORY TO CHECK -- being wrong here is
-                undetectable from the data.
+                evidence. THIS IS THE CATEGORY TO CHECK: if the reading is wrong,
+                nothing in the data will show it.
     field       needs someone who was there, or exclusion.
 
 `action':
