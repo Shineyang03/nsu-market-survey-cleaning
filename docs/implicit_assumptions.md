@@ -935,6 +935,48 @@ figures reproduced, because the original entry quoted the fourth column without 
 
 ---
 
+## A21 — Nine labels are not reusable local units, and Outcome 1 excludes them
+
+**Claims.** A reference book is only useful for a label that *names a unit another
+enumerator will hear again*. Nine harmonized labels do not, and so are excluded from
+Outcome 1 — not because the evidence behind them is weak, but because of what they are:
+
+| kind | labels |
+| :-- | :-- |
+| a count, not a unit | `1 order`, `1 serve`, `2 slice`, `2bond`, `3bugkos` |
+| an item, not a unit | `papaya, mango, banana` |
+| a one-off phrasing | `pinutos / plastic`, `role`, `stick` |
+
+**Rests on it.** The Outcome 1 deliverable only. `10_size_assignment.do` drops these
+before sizing; the weighings are written to
+`outputs/build/diagnostics/refbook_excluded_not_a_unit.csv` with their weights, so the
+exclusion is recoverable. **Outcome 2 is untouched** — a household that reported "2 slice"
+still needs its grams, and `master_outcome2.do` never calls that file.
+
+**Status: ACCEPTED, and it is a new kind of rule.** Every other exclusion in
+`10_size_assignment.do` is structural — no usable weight, `unique_mun_price` is not a
+size, wrong branch in a mixed cell. This is the first time the pipeline asks whether a
+label denotes a unit at all, and the judgement is editorial rather than measured.
+
+**It does not weaken A3.** Thinness still never drops a row. Several of these rest on
+four weighings, and 267 published rows still sit on a single weighing. They are excluded
+for their kind, not their thinness, and the two rules must not be conflated: a future
+reader tempted to extend this list "because the cell is thin" would be making a different
+decision from this one.
+
+**Checked by** `10_size_assignment.do` itself, which `exit 459`s if any listed label
+matches no weighing — so a respelling or an upstream fold cannot silently empty the list.
+The count excluded prints on every run, and `n_g` over the published rows plus the 23
+excluded weighings reconciles to the pre-exclusion total.
+
+**What would overturn it.** Evidence that any of these is a real vendor unit rather than a
+transcription of a purchase — a second municipality recording the same label, most
+obviously. `pinutos / plastic` is the likeliest candidate: it is a real Visayan phrasing
+(`pinutos` = wrapped), and it is excluded here as a one-off because it appears in exactly
+one cell, not because the phrase is meaningless.
+
+---
+
 Add an entry when you write a threshold, a tie rule, a fallback, or a normalizer choice that
 could reasonably have gone another way. The test is: *would a reader of this line know that
 a decision was made here?* If not, it belongs in the register.

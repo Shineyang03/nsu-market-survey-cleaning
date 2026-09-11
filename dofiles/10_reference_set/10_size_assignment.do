@@ -55,6 +55,63 @@ count if inlist(item_nsu_hetero_type, 10, 11)
 di as res "unique_mun_price weighings excluded from Outcome 1: " r(N)
 drop if inlist(item_nsu_hetero_type, 10, 11)
 
+* --- NOT A REUSABLE LOCAL UNIT. Outcome 1 is a reference book: an enumerator meets a
+*     vendor, hears a unit name, and looks up what it weighs. That only works for a
+*     label that NAMES A UNIT someone else will hear again. These nine do not.
+*
+*     Three reasons, and they are different:
+*       a count, not a unit   `1 order', `1 serve', `2 slice', `2bond', `3bugkos' --
+*                             the number is part of the label, so the row answers
+*                             "what do two slices weigh", which no enumerator asks
+*       an item, not a unit   `papaya, mango, banana' -- a list of what was bought
+*       a one-off phrasing    `pinutos / plastic', `role', `stick' -- one vendor's
+*                             wording, recorded once, in one municipality
+*
+*     THIS IS THE FIRST TIME THE PIPELINE ASKS WHETHER A LABEL IS A UNIT AT ALL. Every
+*     other exclusion here is structural -- no weight, not a size, wrong branch. A3 in
+*     docs/implicit_assumptions.md is explicit that thinness NEVER drops a row (`the
+*     flag is a convenience, not a filter'), and that stands: these are excluded for
+*     what they are, not for how thin they are. Several are not thin -- `3bugkos' and
+*     `pinutos / plastic' rest on 4 weighings each.
+*
+*     OUTCOME 2 IS UNAFFECTED, deliberately. A household that reported "2 slice" still
+*     needs its grams, and the weighings behind these labels are real. This file feeds
+*     Outcome 1 only; master_outcome2.do never calls it.
+*
+*     Excluded rows are written out rather than vanishing, to
+*     ${btables}\refbook_excluded_not_a_unit.csv.
+local notaunit `" "1 order" "1 serve" "2 slice" "2bond" "3bugkos" "papaya, mango, banana" "pinutos / plastic" "role" "stick" "'
+gen byte _notaunit = 0
+foreach u of local notaunit {
+	replace _notaunit = 1 if harmonized_nsu_unit == "`u'"
+}
+count if _notaunit
+di as res "not-a-unit weighings excluded from Outcome 1: " r(N)
+* A label that stops matching is a silent scope change, so fail rather than drift.
+foreach u of local notaunit {
+	count if harmonized_nsu_unit == "`u'"
+	if r(N) == 0 {
+		di as err "not-a-unit exclusion list names `u', which matches no weighing."
+		di as err "The label was respelled or folded upstream. Reconcile the list;"
+		di as err "do not delete the entry -- see the fold tables in nsu_fold_rule.py."
+		exit 459
+	}
+}
+* The record of what left, at the grain it left at -- one row per weighing, with the
+* weight it carried, so a reader can see exactly what the reference book gave up and
+* recover it if a label is later judged a real unit after all.
+preserve
+	keep if _notaunit
+	keep pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+	     pull_nsu_unit corrected_weight corrected_unit weighing_approach id
+	gsort pull_item harmonized_nsu_unit pull_province pull_municipal_city
+	export delimited using "${btables}\refbook_excluded_not_a_unit.csv", replace
+	di as txt "  wrote ${btables}\refbook_excluded_not_a_unit.csv (" _N " weighing(s))"
+restore
+
+drop if _notaunit
+drop _notaunit
+
 * --- the carrot: where a harmonized cell holds both branches, Outcome 1 keeps the
 *     size-based rows only. Written as a general rule rather than hard-coding the
 *     one case, so a future fold that creates another is handled the same way.

@@ -2,19 +2,19 @@ pull_item,g_min,g_p25,g_med,g_p75,g_max,n_rows
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",32,60,100,112.5,1250,325
 loaf bread,60,400,450,640,700,291
 cabbage,65,420,640,770,1360,257
-"preserved or processed meat (tocino, tapa, longaniza, etc)",22.5,183.75,250,252.5,1000,224
+"preserved or processed meat (tocino, tapa, longaniza, etc)",22.5,182.5,250,252.5,1000,223
 carrot,40,105,140,180,320,211
 "crackers, cookies, buiscuits, chips/curls",18,31,67.5,285,1500,209
 "liquor (e.g, whisky, coconut wine)",250,375,468.75,750,1240,200
 chicken,15,890,1102.5,1230,1970,190
-fresh fish,85,273,465,615,1450,141
-camote tops,90,161.25,215.25,318.75,1445,136
+fresh fish,85,269,470,616.25,1450,140
+camote tops,90,160,215,310,1445,134
 camote,43.5,95,146.25,210,1070,114
-mango,135,200,230,276.25,702.5,112
+mango,135,200,230,275,412.5,111
 "drinks at restaurant, hotel, cafe, or kiosk",162.5,297.5,355,500,1000,59
 "prawns, lobster, shrimp",15,205,250,342.5,1000,55
 rice,310,415,425,2250,25000,19
-pork,25,160,255,445,1562.5,9
+pork,160,205,255,272.5,445,5
 beef,517.5,836.25,1236.25,1688.75,2060,4
 "mineral or spring water, all drinking water sold in containers",1000,1000,1000,1000,1000,2
 beer,4440,4440,4440,4440,4440,1

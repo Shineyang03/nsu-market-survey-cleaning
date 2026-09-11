@@ -60,12 +60,80 @@ label values size_ord szlbl
 * this row understate its denominator.
 assert !missing(corrected_weight)
 
+********************************************************************************
+**# 4b. The raw spellings behind each published unit
+********************************************************************************
+* A reference book names a unit; a field officer hears a WORD. `harmonized_nsu_unit'
+* is the pooling key and is often not anything a vendor said -- `pieces or units' is a
+* group name, not a phrase. So each published row also carries the raw labels that
+* actually fed it.
+*
+* TWO COLUMNS, BECAUSE THEY ANSWER DIFFERENT QUESTIONS.
+*
+*   source_nsu_units_here   the spellings observed in THIS municipality for this item
+*                           and unit. Exact provenance for the row: it never claims a
+*                           spelling that was not heard in this cell.
+*   source_nsu_units_item   every spelling that folds to this unit for this item,
+*                           anywhere. The vocabulary an enumerator arriving in a new
+*                           municipality needs.
+*
+* THE TWO ARE NOT REDUNDANT, AND ONE PAIR PROVES IT. Harmonization is a function of
+* (item, spelling) for 264 of the 266 observed pairs, so for those the item-wide list is
+* just the union of the local ones. The exceptions are cabbage `putos' and carrot
+* `putos', which fold to `putos (mix vegetable)' at ILOILO / TIGBAUAN and to `pack'
+* everywhere else -- a deliberate cell-level entry (CELL_MIX in nsu_fold_rule.py),
+* recorded because the field officer wrote "There is no cabbage packs alone this is
+* mixed with carrots". An item-wide column alone would show `putos' under BOTH units and
+* imply a contradiction; the local column is what disambiguates it.
+tempfile refbody
+save "`refbody'"
+
+* --- local: province x municipality x item x harmonized unit
+preserve
+	keep pull_province pull_municipal_city pull_item harmonized_nsu_unit pull_nsu_unit
+	duplicates drop
+	sort pull_province pull_municipal_city pull_item harmonized_nsu_unit pull_nsu_unit
+	by pull_province pull_municipal_city pull_item harmonized_nsu_unit: ///
+		gen str244 source_nsu_units_here = pull_nsu_unit if _n == 1
+	by pull_province pull_municipal_city pull_item harmonized_nsu_unit: ///
+		replace source_nsu_units_here = source_nsu_units_here[_n-1] + "; " + pull_nsu_unit if _n > 1
+	by pull_province pull_municipal_city pull_item harmonized_nsu_unit: keep if _n == _N
+	drop pull_nsu_unit
+	tempfile srclocal
+	save "`srclocal'"
+restore
+
+* --- item-wide: item x harmonized unit
+preserve
+	keep pull_item harmonized_nsu_unit pull_nsu_unit
+	duplicates drop
+	sort pull_item harmonized_nsu_unit pull_nsu_unit
+	by pull_item harmonized_nsu_unit: gen str244 source_nsu_units_item = pull_nsu_unit if _n == 1
+	by pull_item harmonized_nsu_unit: ///
+		replace source_nsu_units_item = source_nsu_units_item[_n-1] + "; " + pull_nsu_unit if _n > 1
+	by pull_item harmonized_nsu_unit: keep if _n == _N
+	drop pull_nsu_unit
+	tempfile srcitem
+	save "`srcitem'"
+restore
+
+use "`refbody'", clear
+
 collapse (median) grams = corrected_weight (count) n_g = corrected_weight ///
          (sum) n_disputed = d_disputed n_flagged = d_step1_flagged ///
                n_uncertain = d_any_uncertain ///
          (first) weighing_approach branch d_reclassified, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
             corrected_unit size_ord)
+
+* Attach the spellings. assert(3) on both: every published row came from weighings, so
+* every row must find its source list, and a list with no row means the collapse key
+* and the source key have drifted apart.
+merge m:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+	using "`srclocal'", assert(3) nogen
+merge m:1 pull_item harmonized_nsu_unit using "`srcitem'", assert(3) nogen
+label var source_nsu_units_here "raw NSU spellings observed in this municipality for this unit"
+label var source_nsu_units_item "every raw NSU spelling folding to this unit for this item, anywhere"
 
 ********************************************************************************
 **# 5b. FALLBACK LEVEL 1 -- a cell with any thin rung publishes one pooled weight
@@ -170,6 +238,19 @@ preserve
 	* an explicit exclusion.
 	gen byte size_ord = 4
 	gen byte fallback_level = 1
+
+	* The source-spelling columns must be attached HERE TOO. This collapse re-reads
+	* ref_11_checked and builds brand-new rows, so it does not inherit the merge in
+	* section 5 -- and because these rows are appended, the missing values would be
+	* silent: the column exists, the row is there, the cell is just blank. That is
+	* exactly what happened on the first run, on all 486 pooled rows.
+	* assert(2 3), not assert(3): this collapse holds ONLY the thin cells, so most rows
+	* of the source lists have no pooled row to match and are legitimately unmatched.
+	* What must never happen is a pooled row with no source list -- _merge == 1 -- which
+	* is what assert(2 3) forbids. keep(3) then drops the unmatched using rows.
+	merge m:1 pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+		using "`srclocal'", assert(2 3) keep(3) nogen
+	merge m:1 pull_item harmonized_nsu_unit using "`srcitem'", assert(2 3) keep(3) nogen
 
 	* EVERY POOLED ROW MUST HAVE POOLED SOMETHING. The gate in 5b is on the rung count,
 	* which is computed on the collapsed rows; this asserts the same fact from the other
@@ -437,6 +518,23 @@ if _rc == 0 {
 	di as err "Name and drop them -- a tempvar survives to here and ships."
 	exit 459
 }
+
+* EVERY ROW NAMES THE SPELLINGS BEHIND IT. A merge with assert(3) cannot catch this:
+* the pooled rows of section 5b are built by a separate collapse and APPENDED, so a
+* missing source list arrives as a blank cell in a column that exists, on a row that is
+* present, and nothing complains. That is how all 486 pooled rows shipped empty the
+* first time. The count is asserted, not just the presence of the column.
+qui count if missing(source_nsu_units_here) | source_nsu_units_here == ""
+if r(N) > 0 {
+	di as err "`r(N)' published row(s) carry no source_nsu_units_here."
+	di as err "A step that CREATES rows after section 5 must attach the source lists"
+	di as err "itself -- see the merges in 5b. Appended rows inherit nothing."
+	list pull_province pull_municipal_city pull_item harmonized_nsu_unit size_ord ///
+		if missing(source_nsu_units_here) | source_nsu_units_here == "", noobs
+	exit 459
+}
+qui count if missing(source_nsu_units_item) | source_nsu_units_item == ""
+assert r(N) == 0
 
 compress
 sort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit size_ord
