@@ -78,6 +78,7 @@ def ts(a,b): return difflib.SequenceMatcher(None,' '.join(sorted(toks(a))),' '.j
 cw=pd.read_excel(BOX+r'\Data Cleaning\outputs\tables\price_ms_unit_harmonization_crosswalk.xlsx', dtype=str)
 GRP={nz(r.unit_lbl):(nz(r.translation_group) if isinstance(r.translation_group,str) and r.translation_group.strip() else None) for r in cw.itertuples()}
 def grp(u): return GRP.get(nz(u))
+# GROUP_FILL is applied to GRP further down, once it is defined -- see _apply_group_fill.
 
 # ---- rename crosswalk: (item, raw pull_nsu_unit) -> cleaned_nsu_unit  [step 1, authoritative] ----
 _rn=pd.read_excel(BOX+r'\Data Cleaning\outputs\tables\nsu_rename_crosswalk.xlsx', dtype=str)
@@ -168,6 +169,107 @@ GENERIC_CLEAN={'1/2':'half',
                'pack of ice wrapper':'small packs',
                'packs in cellophane':'small packs',
                'small pack for pancit (noodles)':'small packs'}
+
+# ================= issue #36: the no-group review, applied =================
+#
+# The official translation crosswalk assigns a group to only 54 of its 210 labels. The
+# other 156 carry `resolved_by = no-group', `action = keep', note "not in translation
+# crosswalk" -- they were never adjudicated, because the crosswalk was built by matching
+# observed labels INTO a pre-existing translation vocabulary and whatever missed it fell
+# through. 91 of them turned out to govern something.
+#
+# The decisions from that review live HERE rather than in the workbook, for the same
+# reason `GENERIC_CLEAN' and the putos carve-out do: the workbook is what the field team
+# wrote, and this file is what the project decided. Keeping them apart means a future
+# reader can see which is which, and every entry below is revertible on its own line.
+#
+# The reasoning for each entry, with its weight evidence and what it rests on, is in
+# 90_diagnostics/harmonization_verdicts.py. That module is a REPORT of these tables and
+# imports them; this file must never import it.
+
+# label -> official translation group. Applied by patching GRP after it is read, so the
+# label behaves exactly as if the crosswalk had carried the group all along.
+GROUP_FILL={
+    # The English piece vocabulary, absent from the crosswalk entirely. `piece',
+    # `pieces', `per piece' and `pcs' sit there with a BLANK translation_group, so
+    # grp() returned None and they passed through as themselves -- 60 crosswalk rows on
+    # an English spelling against 60 on the canonical one. Weight-checked per item:
+    # pork 215 g vs pieces or units 260 g (x1.21), 272 g vs 260 g (x1.05); prawns
+    # already folded; drinks-at-restaurant has 189 weighings and no other vocabulary,
+    # so nothing is pooled there.
+    'piece':'pieces or units', 'pieces':'pieces or units',
+    'per piece':'pieces or units', 'pcs':'pieces or units',
+    'pc':'pieces or units', 'pc.':'pieces or units', 'pcs.':'pieces or units',
+    'unit':'pieces or units', 'units':'pieces or units',
+    'per pc':'pieces or units', 'per pcs':'pieces or units',
+    'per piraso':'pieces or units', '1 pc. prawn':'pieces or units',
+
+    # `tama-tama' is `just right / moderate'. Loaf bread, 23 weighings at median 450 g,
+    # which is EXACTLY the medium packs median (n=352); large is 640 g, small 370 g.
+    #
+    # THE REASON TO FOLD IS COVERAGE, NOT THE MEDIAN. Its 424 household rows span 57
+    # cells and its 23 weighings cover 8 of them, so only 49 rows have a same-cell
+    # weighing of this spelling and the rest convert off a borrowed rung -- 116 rows
+    # pool all 23 nationally. Folding gives 348 of 424 a same-cell weighing of the
+    # target. A label can be well observed in total and still be unobserved where its
+    # households are.
+    'tama-tama nga putos':'medium packs',
+
+    # `o' is `or': the label gives the English and Visayan name of one thing, and `lata'
+    # is the canonical member of the cans group.
+    'can o lata':'cans',
+}
+
+# label -> the spelling it harmonizes onto, item-independent. Same mechanism as
+# GENERIC_CLEAN and applied alongside it: an exact normalized string, remapped before
+# the heuristic. Every entry here is ONE WORD differently spelled, spaced or
+# prepositioned, or a translation confirmed against weights in the same item.
+SPELLING_FOLD={
+    # --- one word, differently written. Identity is settled by the string; a weight
+    # --- divergence between two spellings of one word is variation within a unit.
+    'sliced':'slice',
+    'per pack':'pack', 'putos (pack)':'pack', 'pack/ putos':'pack',
+    'putos /supot':'pack',
+    'tupper ware':'tupperware',
+    '1order':'1 order',
+    'rice cooker cup (small)':'small rice cooker cup',
+    'rice cooker cup, small':'small rice cooker cup',
+    'tumpok / plastic':'tumpok', 'tumpok(pile)':'tumpok',
+    'cone ( dirty ice cream ) 10 pesos per cone':'cone',
+    'glass/shots':'glass',
+    # misspellings that no similarity threshold reaches: patupa/patupong 0.714,
+    # patopung/patupong 0.750, boll/bul 0.571, tumbok/tumpok 0.947, bugkos/buskos 0.833
+    # -- against bilog/binilog at 0.833, which is a REAL distinction (p=0.004). The
+    # ordering is why these are listed by hand rather than folded by a cutoff.
+    'patupong':'patupa', 'patopung':'patupa',
+    'boll':'ball (tuba)', 'bul':'ball (tuba)',
+    'buskos':'bugkos',
+    'mix vegetables (per tumbok)':'mix vegetables (per tumpok)',
+    'jr':'junior lapad',
+
+    # --- different words, same referent, checked where a check was possible
+    'balde':'bucket',            # Spanish-derived Tagalog/Visayan for bucket; same item
+                                 # (crackers) 1500 g (n=5) vs 1065 g (n=2), x1.41
+    'baso':'glass',              # Tagalog/Visayan for drinking glass; no co-occurring
+                                 # weighings, rests on the translation
+    'apa':'cone',                # the wafer cone in Visayan; `cone' has 39 weighings in
+                                 # the same item, `apa' none
+    '1 k caltex(kabo)':'caltex',  # `kabo' is a dipper; both unweighed
+    'mix slice of carrot':'putos (mix vegetable)',   # MIX_UNITS covers the siblings
+}
+
+# Fill the blank translation groups. Done by assignment and not setdefault: these labels
+# are PRESENT in the crosswalk with an empty translation_group, so the key already
+# exists and setdefault would silently do nothing. That exact mistake made the first
+# measurement of this change report "0 rows affected".
+_GF_BEFORE={u: GRP.get(nz(u)) for u in GROUP_FILL}
+for _u,_g in GROUP_FILL.items():
+    GRP[nz(_u)]=_g
+    assert grp(_u)==_g, 'GROUP_FILL did not take for %r' % _u
+# An entry that was already grouped would be overriding the field team, not filling a
+# blank, and that needs to be a deliberate decision rather than a side effect.
+_GF_CLASH={u:(b,GROUP_FILL[u]) for u,b in _GF_BEFORE.items() if b is not None and b!=GROUP_FILL[u]}
+assert not _GF_CLASH, 'GROUP_FILL overrides a group the crosswalk already set: %r' % _GF_CLASH
 
 # ================= fold rule (unchanged from v4) =================
 KEEP_SEPARATE={'bundle','packs'}
@@ -330,6 +432,11 @@ for (I,u) in RENAME: RENAME_KEYS[I].append(u)
 def to_cleaned(I,U):                               # raw unit -> cleaned_nsu_unit, via OUR (corrected) rename
     u=nz(U)
     if u in GENERIC_CLEAN: return GENERIC_CLEAN[u],'generic'   # manual reconciliation wins over the crosswalk
+    # The #36 spelling folds sit HERE, ahead of the hand rename, because several of the
+    # labels they cover already have a rename entry mapping them to THEMSELVES -- an
+    # identity row the crosswalk carries for every observed label. Placed after the
+    # rename they would never fire.
+    if u in SPELLING_FOLD: return SPELLING_FOLD[u],'spelling-fold'
     if (I,u) in RENAME: return RENAME[(I,u)],'rename'
     ru=reduce_unit(I,U)                            # strip redundant descriptors, then re-try the rename
     if (I,ru) in RENAME: return RENAME[(I,ru)],'rename+reduce'

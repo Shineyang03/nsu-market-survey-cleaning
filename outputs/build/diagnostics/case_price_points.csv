@@ -385,12 +385,12 @@ ANTIQUE,"liquor (e.g, whisky, coconut wine)",BARBAZA,long-neck,1,157.5,1,0,0,0,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BARBAZA,long-neck,2,250,1,0,0,0,0,0,1,0,2,1,2,1
 ANTIQUE,loaf bread,BARBAZA,large packs,1,90,2,0,0,0,0,1,1,0,3,0,2,1
 ANTIQUE,loaf bread,BARBAZA,large packs,2,180,1,0,0,0,0,0,1,0,3,1,2,1
+ANTIQUE,loaf bread,BARBAZA,medium packs,1,73.5,1,1,0,0,0,0,0,0,3,0,3,3
+ANTIQUE,loaf bread,BARBAZA,medium packs,2,100,1,0,1,0,0,0,0,0,3,0,3,3
+ANTIQUE,loaf bread,BARBAZA,medium packs,3,140,1,0,0,1,0,0,0,0,3,0,3,3
 ANTIQUE,loaf bread,BARBAZA,small packs,1,40,1,1,0,0,0,0,0,0,3,0,3,3
 ANTIQUE,loaf bread,BARBAZA,small packs,2,70,1,0,1,0,0,0,0,0,3,0,3,3
 ANTIQUE,loaf bread,BARBAZA,small packs,3,118.5,1,0,0,1,0,0,0,0,3,0,3,3
-ANTIQUE,loaf bread,BARBAZA,tama-tama nga putos,1,73.5,1,1,0,0,0,0,0,0,3,0,3,3
-ANTIQUE,loaf bread,BARBAZA,tama-tama nga putos,2,100,1,0,1,0,0,0,0,0,3,0,3,3
-ANTIQUE,loaf bread,BARBAZA,tama-tama nga putos,3,140,1,0,0,1,0,0,0,0,3,0,3,3
 ANTIQUE,mango,BARBAZA,pieces or units,1,20,1,0,0,0,0,0,1,0,3,1,2,1
 ANTIQUE,mango,BARBAZA,pieces or units,2,80,1,0,0,0,0,1,0,0,3,0,2,1
 ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",BARBAZA,bilog,1,45,1,0,0,0,0,1,0,0,3,0,1,1
@@ -444,7 +444,7 @@ ANTIQUE,"crackers, cookies, buiscuits, chips/curls",BUGASONG,pieces or units,1,4
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",BUGASONG,putos,1,74.75,1,1,0,0,0,0,0,0,3,0,3,3
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",BUGASONG,putos,2,123,1,0,1,0,0,0,0,0,3,0,3,3
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",BUGASONG,putos,3,192.75,1,0,0,1,0,0,0,0,3,0,3,3
-ANTIQUE,"drinks at restaurant, hotel, cafe, or kiosk",BUGASONG,pieces,1,53.75,1,0,0,1,0,0,0,0,3,0,1,1
+ANTIQUE,"drinks at restaurant, hotel, cafe, or kiosk",BUGASONG,pieces or units,1,53.75,1,0,0,1,0,0,0,0,3,0,1,1
 ANTIQUE,fresh fish,BUGASONG,pieces or units,1,35,1,0,0,0,0,0,1,0,3,1,3,1
 ANTIQUE,fresh fish,BUGASONG,pieces or units,2,70,1,0,0,0,0,1,0,0,3,0,3,1
 ANTIQUE,fresh fish,BUGASONG,pieces or units,3,450,1,0,0,0,0,0,1,0,3,1,3,1
@@ -501,7 +501,7 @@ ANTIQUE,carrot,HAMTIC,pieces or units,1,45,1,0,0,0,1,0,0,0,3,0,1,1
 ANTIQUE,chicken,HAMTIC,whole (chicken),1,205,1,1,0,0,0,0,0,0,3,0,3,3
 ANTIQUE,chicken,HAMTIC,whole (chicken),2,270,1,0,1,0,0,0,0,0,3,0,3,3
 ANTIQUE,chicken,HAMTIC,whole (chicken),3,300,1,0,0,1,0,0,0,0,3,0,3,3
-ANTIQUE,"crackers, cookies, buiscuits, chips/curls",HAMTIC,balde,1,335,1,0,0,0,0,1,0,0,3,0,1,1
+ANTIQUE,"crackers, cookies, buiscuits, chips/curls",HAMTIC,bucket,1,335,1,0,0,0,0,1,0,0,3,0,1,1
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",HAMTIC,pack,1,110,1,0,0,0,0,1,0,0,3,0,1,1
 ANTIQUE,fresh fish,HAMTIC,pieces or units,1,50,1,0,0,0,0,0,1,0,3,1,2,1
 ANTIQUE,fresh fish,HAMTIC,pieces or units,2,180,1,0,0,0,0,1,0,0,3,0,2,1
@@ -595,7 +595,7 @@ ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PANDAN,piece
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PANDAN,putos,1,45,1,0,0,0,0,1,0,0,3,0,2,1
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PANDAN,putos,2,250,1,0,0,0,0,0,1,0,3,1,2,1
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PANDAN,small cup,1,30,1,0,0,0,0,1,0,0,3,0,1,1
-ANTIQUE,"liquor (e.g, whisky, coconut wine)",PANDAN,baso,1,20,1,0,0,0,0,1,0,0,3,0,1,1
+ANTIQUE,"liquor (e.g, whisky, coconut wine)",PANDAN,glass,1,20,1,0,0,0,0,1,0,0,3,0,1,1
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",PANDAN,lipid/lapad,1,80,1,0,0,0,1,0,0,0,3,0,1,1
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",PANDAN,long-neck,1,125.625,2,1,1,0,0,0,0,0,3,0,2,2
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",PANDAN,long-neck,2,195,1,0,0,1,0,0,0,0,3,0,2,2
@@ -657,7 +657,7 @@ ANTIQUE,chicken,SAN REMIGIO,pieces or units,3,312.5,1,0,0,1,0,0,0,0,3,0,3,3
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",SAN REMIGIO,pieces or units,1,40,1,0,0,0,1,0,0,0,3,0,1,1
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",SAN REMIGIO,putos,1,62.5,2,1,1,0,0,0,0,0,3,0,2,2
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",SAN REMIGIO,putos,2,124,1,0,0,1,0,0,0,0,3,0,2,2
-ANTIQUE,"drinks at restaurant, hotel, cafe, or kiosk",SAN REMIGIO,pieces,1,150,1,0,0,1,0,0,0,0,3,0,1,1
+ANTIQUE,"drinks at restaurant, hotel, cafe, or kiosk",SAN REMIGIO,pieces or units,1,150,1,0,0,1,0,0,0,0,3,0,1,1
 ANTIQUE,fresh fish,SAN REMIGIO,pieces or units,1,180,1,0,0,0,0,1,0,0,3,0,2,1
 ANTIQUE,fresh fish,SAN REMIGIO,pieces or units,2,400,1,0,0,0,0,0,1,0,3,1,2,1
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,1,35,1,0,0,0,1,0,0,0,2,0,1,1
@@ -689,7 +689,7 @@ ANTIQUE,chicken,SEBASTE,whole (chicken),2,290,2,0,0,0,0,0,1,0,3,1,2,1
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",SEBASTE,pieces or units,1,48,1,0,0,0,1,0,0,0,3,0,1,1
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",SEBASTE,putos,1,80.875,2,1,1,0,0,0,0,0,3,0,2,2
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",SEBASTE,putos,2,180,1,0,0,1,0,0,0,0,3,0,2,2
-ANTIQUE,"drinks at restaurant, hotel, cafe, or kiosk",SEBASTE,pieces,1,60,1,0,0,1,0,0,0,0,3,0,1,1
+ANTIQUE,"drinks at restaurant, hotel, cafe, or kiosk",SEBASTE,pieces or units,1,60,1,0,0,1,0,0,0,0,3,0,1,1
 ANTIQUE,fresh fish,SEBASTE,pieces or units,1,50,1,0,0,0,0,0,1,0,3,1,2,1
 ANTIQUE,fresh fish,SEBASTE,pieces or units,2,180,1,0,0,0,0,1,0,0,3,0,2,1
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SEBASTE,pieces or units,1,20,1,0,0,0,1,0,0,0,2,0,1,1
@@ -828,10 +828,9 @@ ANTIQUE,"liquor (e.g, whisky, coconut wine)",VALDERRAMA,lipid/lapad,2,160,2,0,1,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",VALDERRAMA,long-neck,1,157.5,1,0,0,0,0,1,0,0,3,0,3,1
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",VALDERRAMA,long-neck,2,260,1,0,0,0,0,0,1,0,3,1,3,1
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",VALDERRAMA,long-neck,3,400,1,0,0,0,0,0,1,0,3,1,3,1
-ANTIQUE,loaf bread,VALDERRAMA,medium packs,1,55,1,0,0,0,1,0,0,0,3,0,1,1
+ANTIQUE,loaf bread,VALDERRAMA,medium packs,1,62.5,2,0,0,0,1,1,0,0,3,0,1,1
 ANTIQUE,loaf bread,VALDERRAMA,small packs,1,50,1,0,0,0,0,1,0,0,3,0,2,1
 ANTIQUE,loaf bread,VALDERRAMA,small packs,2,105,2,0,0,0,0,0,1,0,3,1,2,1
-ANTIQUE,loaf bread,VALDERRAMA,tama-tama nga putos,1,70,1,0,0,0,0,1,0,0,2,0,1,1
 ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",VALDERRAMA,cans,1,93,1,0,0,0,0,1,0,0,3,0,1,1
 ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",VALDERRAMA,putos,1,47.5,2,1,1,0,0,0,0,0,3,0,2,2
 ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",VALDERRAMA,putos,2,100,1,0,0,1,0,0,0,0,3,0,2,2
@@ -1086,7 +1085,7 @@ CAPIZ,carrot,MAMBUSAO,pieces or units,1,25,1,0,0,0,1,0,0,0,3,0,1,1
 CAPIZ,chicken,MAMBUSAO,bilog,1,260,1,0,0,0,1,0,0,0,2,0,1,1
 CAPIZ,chicken,MAMBUSAO,whole (chicken),1,235,1,1,0,0,0,0,0,0,3,0,2,2
 CAPIZ,chicken,MAMBUSAO,whole (chicken),2,290,2,0,1,1,0,0,0,0,3,0,2,2
-CAPIZ,"crackers, cookies, buiscuits, chips/curls",MAMBUSAO,balde,1,364,1,0,0,0,0,1,0,0,2,0,1,1
+CAPIZ,"crackers, cookies, buiscuits, chips/curls",MAMBUSAO,bucket,1,364,1,0,0,0,0,1,0,0,2,0,1,1
 CAPIZ,"crackers, cookies, buiscuits, chips/curls",MAMBUSAO,pieces or units,1,30,1,1,0,0,0,0,0,0,3,0,3,3
 CAPIZ,"crackers, cookies, buiscuits, chips/curls",MAMBUSAO,pieces or units,2,65,1,0,1,0,0,0,0,0,3,0,3,3
 CAPIZ,"crackers, cookies, buiscuits, chips/curls",MAMBUSAO,pieces or units,3,101,1,0,0,1,0,0,0,0,3,0,3,3
@@ -1563,14 +1562,11 @@ ILOILO,"liquor (e.g, whisky, coconut wine)",BAROTAC NUEVO,long-neck,2,180,1,0,0,
 ILOILO,loaf bread,BAROTAC NUEVO,large packs,1,79.5,1,1,0,0,0,0,0,0,3,0,3,3
 ILOILO,loaf bread,BAROTAC NUEVO,large packs,2,117.5,1,0,1,0,0,0,0,0,3,0,3,3
 ILOILO,loaf bread,BAROTAC NUEVO,large packs,3,162.5,1,0,0,1,0,0,0,0,3,0,3,3
-ILOILO,loaf bread,BAROTAC NUEVO,medium packs,1,62.625,2,1,1,0,0,0,0,0,3,0,2,2
-ILOILO,loaf bread,BAROTAC NUEVO,medium packs,2,104.5,1,0,0,1,0,0,0,0,3,0,2,2
+ILOILO,loaf bread,BAROTAC NUEVO,medium packs,1,65,3,1,1,0,0,0,0,0,3,0,2,2
+ILOILO,loaf bread,BAROTAC NUEVO,medium packs,2,107.3333333333333,3,0,1,1,0,0,0,0,3,0,2,2
 ILOILO,loaf bread,BAROTAC NUEVO,small packs,1,58.75,1,1,0,0,0,0,0,0,3,0,3,3
 ILOILO,loaf bread,BAROTAC NUEVO,small packs,2,100,1,0,1,0,0,0,0,0,3,0,3,3
 ILOILO,loaf bread,BAROTAC NUEVO,small packs,3,142.5,1,0,0,1,0,0,0,0,3,0,3,3
-ILOILO,loaf bread,BAROTAC NUEVO,tama-tama nga putos,1,69.75,1,1,0,0,0,0,0,0,3,0,3,3
-ILOILO,loaf bread,BAROTAC NUEVO,tama-tama nga putos,2,97.5,1,0,1,0,0,0,0,0,3,0,3,3
-ILOILO,loaf bread,BAROTAC NUEVO,tama-tama nga putos,3,120,1,0,0,1,0,0,0,0,3,0,3,3
 ILOILO,mango,BAROTAC NUEVO,pieces or units,1,80,1,0,0,0,0,1,0,0,2,0,1,1
 ILOILO,"prawns, lobster, shrimp",BAROTAC NUEVO,tumpok,1,67.5,2,0,0,0,0,1,1,0,3,0,2,1
 ILOILO,"prawns, lobster, shrimp",BAROTAC NUEVO,tumpok,2,100,1,0,0,0,0,0,1,0,3,1,2,1
@@ -1794,10 +1790,9 @@ ILOILO,"liquor (e.g, whisky, coconut wine)",CONCEPCION,lipid/lapad,2,160,1,0,1,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",CONCEPCION,lipid/lapad,3,240,1,0,0,1,0,0,0,0,3,0,3,3
 ILOILO,loaf bread,CONCEPCION,large packs,1,100,1,1,0,0,0,0,0,0,3,0,2,2
 ILOILO,loaf bread,CONCEPCION,large packs,2,165,2,0,1,1,0,0,0,0,3,0,2,2
-ILOILO,loaf bread,CONCEPCION,medium packs,1,75,1,0,0,0,1,0,0,0,3,0,1,1
+ILOILO,loaf bread,CONCEPCION,medium packs,1,72.5,2,0,0,0,1,0,0,0,3,0,1,1
 ILOILO,loaf bread,CONCEPCION,small packs,1,42.25,2,1,1,0,0,0,0,0,3,0,2,2
 ILOILO,loaf bread,CONCEPCION,small packs,2,78,1,0,0,1,0,0,0,0,3,0,2,2
-ILOILO,loaf bread,CONCEPCION,tama-tama nga putos,1,70,1,0,0,0,1,0,0,0,3,0,1,1
 ILOILO,"prawns, lobster, shrimp",CONCEPCION,tumpok,1,60,1,0,0,0,0,1,0,0,3,0,1,1
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",CONCEPCION,bilog,1,48,1,0,0,0,1,0,0,0,3,0,1,1
 ILOILO,cabbage,DINGLE,pack,1,27.5,1,0,0,0,0,1,0,0,3,0,1,1
@@ -1837,7 +1832,7 @@ ILOILO,carrot,DUEAS,pieces or units,1,40,1,0,0,0,1,0,0,0,3,0,1,1
 ILOILO,chicken,DUEAS,whole (chicken),1,220,1,1,0,0,0,0,0,0,3,0,3,3
 ILOILO,chicken,DUEAS,whole (chicken),2,250,1,0,1,0,0,0,0,0,3,0,3,3
 ILOILO,chicken,DUEAS,whole (chicken),3,375,1,0,0,1,0,0,0,0,3,0,3,3
-ILOILO,"crackers, cookies, buiscuits, chips/curls",DUEAS,balde,1,369,1,0,0,0,0,1,0,0,3,0,1,1
+ILOILO,"crackers, cookies, buiscuits, chips/curls",DUEAS,bucket,1,369,1,0,0,0,0,1,0,0,3,0,1,1
 ILOILO,"crackers, cookies, buiscuits, chips/curls",DUEAS,putos,1,65,1,1,0,0,0,0,0,0,3,0,3,3
 ILOILO,"crackers, cookies, buiscuits, chips/curls",DUEAS,putos,2,120,1,0,1,0,0,0,0,0,3,0,3,3
 ILOILO,"crackers, cookies, buiscuits, chips/curls",DUEAS,putos,3,159,1,0,0,1,0,0,0,0,3,0,3,3
@@ -1856,9 +1851,8 @@ ILOILO,"liquor (e.g, whisky, coconut wine)",DUEAS,long-neck,2,980,1,0,0,0,0,0,1,
 ILOILO,loaf bread,DUEAS,large packs,1,80.875,4,1,1,0,0,0,0,0,3,0,3,3
 ILOILO,loaf bread,DUEAS,large packs,2,140,1,0,0,1,0,0,0,0,3,0,3,3
 ILOILO,loaf bread,DUEAS,large packs,3,164.5,1,0,0,1,0,0,0,0,3,0,3,3
-ILOILO,loaf bread,DUEAS,medium packs,1,70,1,0,0,0,1,0,0,0,3,0,1,1
+ILOILO,loaf bread,DUEAS,medium packs,1,67.5,2,0,0,0,1,0,0,0,3,0,1,1
 ILOILO,loaf bread,DUEAS,small packs,1,57.25,2,0,0,0,1,0,0,0,3,0,1,1
-ILOILO,loaf bread,DUEAS,tama-tama nga putos,1,65,1,0,0,0,1,0,0,0,3,0,1,1
 ILOILO,mango,DUEAS,pieces or units,1,37.5,1,1,0,0,0,0,0,0,3,0,3,3
 ILOILO,mango,DUEAS,pieces or units,2,80,1,0,1,0,0,0,0,0,3,0,3,3
 ILOILO,mango,DUEAS,pieces or units,3,112.5,1,0,0,1,0,0,0,0,3,0,3,3
@@ -2001,7 +1995,7 @@ ILOILO,chicken,JANIUAY,whole (chicken),1,196.25,1,1,0,0,0,0,0,0,3,0,2,2
 ILOILO,chicken,JANIUAY,whole (chicken),2,281.6666666666667,3,0,1,1,0,1,0,0,3,0,2,2
 ILOILO,"crackers, cookies, buiscuits, chips/curls",JANIUAY,putos,1,66.625,2,1,1,0,0,0,0,0,3,0,2,2
 ILOILO,"crackers, cookies, buiscuits, chips/curls",JANIUAY,putos,2,158,1,0,0,1,0,0,0,0,3,0,2,2
-ILOILO,"drinks at restaurant, hotel, cafe, or kiosk",JANIUAY,pieces,1,50,1,0,0,1,0,0,0,0,3,0,1,1
+ILOILO,"drinks at restaurant, hotel, cafe, or kiosk",JANIUAY,pieces or units,1,50,1,0,0,1,0,0,0,0,3,0,1,1
 ILOILO,fresh fish,JANIUAY,pieces or units,1,127.5,2,1,1,0,0,0,0,0,3,0,2,2
 ILOILO,fresh fish,JANIUAY,pieces or units,2,200,1,0,0,1,0,0,0,0,3,0,2,2
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",JANIUAY,putos,1,48,1,0,0,0,0,1,0,0,3,0,1,1
@@ -2260,9 +2254,9 @@ ILOILO,"liquor (e.g, whisky, coconut wine)",NEW LUCENA,long-neck,2,280,1,0,0,0,0
 ILOILO,loaf bread,NEW LUCENA,large packs,1,88.75,1,1,0,0,0,0,0,0,3,0,3,3
 ILOILO,loaf bread,NEW LUCENA,large packs,2,135,1,0,1,0,0,0,0,0,3,0,3,3
 ILOILO,loaf bread,NEW LUCENA,large packs,3,170,1,0,0,1,0,0,0,0,3,0,3,3
+ILOILO,loaf bread,NEW LUCENA,medium packs,1,61,2,1,1,0,0,0,0,0,3,0,2,2
+ILOILO,loaf bread,NEW LUCENA,medium packs,2,160,1,0,0,1,0,0,0,0,3,0,2,2
 ILOILO,loaf bread,NEW LUCENA,small packs,1,60,1,0,0,0,1,0,0,0,3,0,1,1
-ILOILO,loaf bread,NEW LUCENA,tama-tama nga putos,1,61,2,1,1,0,0,0,0,0,3,0,2,2
-ILOILO,loaf bread,NEW LUCENA,tama-tama nga putos,2,160,1,0,0,1,0,0,0,0,3,0,2,2
 ILOILO,mango,NEW LUCENA,pieces or units,1,150,1,0,0,0,1,0,0,0,3,0,1,1
 ILOILO,"prawns, lobster, shrimp",NEW LUCENA,tumpok,1,60,1,0,0,0,0,1,0,0,3,0,2,1
 ILOILO,"prawns, lobster, shrimp",NEW LUCENA,tumpok,2,100,1,0,0,0,0,0,1,0,3,1,2,1
@@ -2354,7 +2348,7 @@ ILOILO,rice,POTOTAN,salmon,1,305,1,1,0,0,0,0,0,0,1,0,3,3
 ILOILO,rice,POTOTAN,salmon,2,450,1,0,1,0,0,0,0,0,1,0,3,3
 ILOILO,rice,POTOTAN,salmon,3,609,1,0,0,1,0,0,0,0,1,0,3,3
 ILOILO,cabbage,SAN DIONISIO,pieces or units,1,30,1,0,0,0,1,0,0,0,3,0,1,1
-ILOILO,cabbage,SAN DIONISIO,sliced,1,20,1,0,0,0,0,1,0,0,3,0,1,1
+ILOILO,cabbage,SAN DIONISIO,slice,1,20,1,0,0,0,0,1,0,0,3,0,1,1
 ILOILO,camote,SAN DIONISIO,bilog,1,30,1,0,0,0,0,1,0,0,3,0,2,1
 ILOILO,camote,SAN DIONISIO,bilog,2,60,1,0,0,0,0,0,1,0,3,1,2,1
 ILOILO,camote tops,SAN DIONISIO,bugkos,1,20,1,0,0,0,1,0,0,0,3,0,1,1
@@ -2375,10 +2369,8 @@ ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN DIONISIO,
 ILOILO,"liquor (e.g, whisky, coconut wine)",SAN DIONISIO,lipid/lapad,1,75,1,1,0,0,0,0,0,0,3,0,3,3
 ILOILO,"liquor (e.g, whisky, coconut wine)",SAN DIONISIO,lipid/lapad,2,130,1,0,1,0,0,0,0,0,3,0,3,3
 ILOILO,"liquor (e.g, whisky, coconut wine)",SAN DIONISIO,lipid/lapad,3,225,1,0,0,1,0,0,0,0,3,0,3,3
-ILOILO,loaf bread,SAN DIONISIO,medium packs,1,64.5,2,1,1,0,0,0,0,0,3,0,2,2
-ILOILO,loaf bread,SAN DIONISIO,medium packs,2,140,1,0,0,1,0,0,0,0,3,0,2,2
-ILOILO,loaf bread,SAN DIONISIO,tama-tama nga putos,1,48.5,1,1,0,0,0,0,0,0,3,0,2,2
-ILOILO,loaf bread,SAN DIONISIO,tama-tama nga putos,2,110,2,0,1,1,0,0,0,0,3,0,2,2
+ILOILO,loaf bread,SAN DIONISIO,medium packs,1,59.16666666666666,3,1,1,0,0,0,0,0,3,0,2,2
+ILOILO,loaf bread,SAN DIONISIO,medium packs,2,120,3,0,1,1,0,0,0,0,3,0,2,2
 ILOILO,mango,SAN DIONISIO,pieces or units,1,80,1,0,0,0,0,1,0,0,3,0,1,1
 ILOILO,"prawns, lobster, shrimp",SAN DIONISIO,tumpok,1,60,1,0,0,0,0,1,0,0,3,0,1,1
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",SAN DIONISIO,cans,1,48,1,0,0,0,0,0,1,0,3,1,2,1
@@ -2400,7 +2392,7 @@ ILOILO,"crackers, cookies, buiscuits, chips/curls",SAN ENRIQUE,pieces or units,1
 ILOILO,"crackers, cookies, buiscuits, chips/curls",SAN ENRIQUE,pieces or units,2,89.75,1,0,0,1,0,0,0,0,3,0,2,2
 ILOILO,"crackers, cookies, buiscuits, chips/curls",SAN ENRIQUE,putos,1,67.5,2,1,1,0,0,0,0,0,3,0,2,2
 ILOILO,"crackers, cookies, buiscuits, chips/curls",SAN ENRIQUE,putos,2,115,1,0,0,1,0,0,0,0,3,0,2,2
-ILOILO,"drinks at restaurant, hotel, cafe, or kiosk",SAN ENRIQUE,pieces,1,225,1,0,0,1,0,0,0,0,3,0,1,1
+ILOILO,"drinks at restaurant, hotel, cafe, or kiosk",SAN ENRIQUE,pieces or units,1,225,1,0,0,1,0,0,0,0,3,0,1,1
 ILOILO,fresh fish,SAN ENRIQUE,pack,1,150,1,0,0,0,0,0,1,0,3,1,3,1
 ILOILO,fresh fish,SAN ENRIQUE,pack,2,300,1,0,0,0,0,1,0,0,3,0,3,1
 ILOILO,fresh fish,SAN ENRIQUE,pack,3,400,1,0,0,0,0,0,1,0,3,1,3,1
@@ -2483,10 +2475,10 @@ ILOILO,"liquor (e.g, whisky, coconut wine)",SAN MIGUEL,lipid/lapad,1,76.25,1,1,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",SAN MIGUEL,lipid/lapad,2,198,1,0,1,0,0,0,0,0,3,0,3,3
 ILOILO,"liquor (e.g, whisky, coconut wine)",SAN MIGUEL,lipid/lapad,3,315,1,0,0,1,0,0,0,0,3,0,3,3
 ILOILO,loaf bread,SAN MIGUEL,large packs,1,170,1,0,0,0,1,0,0,0,3,0,1,1
+ILOILO,loaf bread,SAN MIGUEL,medium packs,1,92.5,2,1,1,0,0,0,0,0,3,0,2,2
+ILOILO,loaf bread,SAN MIGUEL,medium packs,2,150,1,0,0,1,0,0,0,0,3,0,2,2
 ILOILO,loaf bread,SAN MIGUEL,small packs,1,50.5,2,1,1,0,0,0,0,0,3,0,2,2
 ILOILO,loaf bread,SAN MIGUEL,small packs,2,195,1,0,0,1,0,0,0,0,3,0,2,2
-ILOILO,loaf bread,SAN MIGUEL,tama-tama nga putos,1,92.5,2,1,1,0,0,0,0,0,3,0,2,2
-ILOILO,loaf bread,SAN MIGUEL,tama-tama nga putos,2,150,1,0,0,1,0,0,0,0,3,0,2,2
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",SAN MIGUEL,bilog,1,50,1,0,0,0,0,1,0,0,3,0,1,1
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",SAN MIGUEL,putos,1,150,1,1,0,0,0,0,0,0,3,0,3,3
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",SAN MIGUEL,putos,2,180,1,0,1,0,0,0,0,0,3,0,3,3
@@ -2653,7 +2645,7 @@ ILOILO,carrot,TUBUNGAN,pieces or units,1,45,1,0,0,0,1,0,0,0,3,0,1,1
 ILOILO,chicken,TUBUNGAN,bilog,1,200,1,1,0,0,0,0,0,0,3,0,3,3
 ILOILO,chicken,TUBUNGAN,bilog,2,280,1,0,1,0,0,0,0,0,3,0,3,3
 ILOILO,chicken,TUBUNGAN,bilog,3,470,1,0,0,1,0,0,0,0,3,0,3,3
-ILOILO,"drinks at restaurant, hotel, cafe, or kiosk",TUBUNGAN,pieces,1,150,1,0,0,1,0,0,0,0,3,0,1,1
+ILOILO,"drinks at restaurant, hotel, cafe, or kiosk",TUBUNGAN,pieces or units,1,150,1,0,0,1,0,0,0,0,3,0,1,1
 ILOILO,fresh fish,TUBUNGAN,pieces or units,1,100,1,0,0,0,0,1,0,0,3,0,1,1
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TUBUNGAN,gallons,1,500,1,0,0,0,0,1,0,0,3,0,1,1
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TUBUNGAN,pieces or units,1,40,2,0,0,0,1,0,0,0,3,0,1,1
@@ -2746,7 +2738,7 @@ NEGROS OCCIDENTAL,chicken,CANDONI,bilog,2,300,1,0,0,1,0,0,0,0,2,0,2,2
 NEGROS OCCIDENTAL,chicken,CANDONI,whole (chicken),1,250,1,1,0,0,0,0,0,0,2,0,3,3
 NEGROS OCCIDENTAL,chicken,CANDONI,whole (chicken),2,290,1,0,1,0,0,0,0,0,2,0,3,3
 NEGROS OCCIDENTAL,chicken,CANDONI,whole (chicken),3,387.5,1,0,0,1,0,0,0,0,2,0,3,3
-NEGROS OCCIDENTAL,"drinks at restaurant, hotel, cafe, or kiosk",CANDONI,pieces,1,45,1,0,0,1,0,0,0,0,3,0,1,1
+NEGROS OCCIDENTAL,"drinks at restaurant, hotel, cafe, or kiosk",CANDONI,pieces or units,1,45,1,0,0,1,0,0,0,0,3,0,1,1
 NEGROS OCCIDENTAL,fresh fish,CANDONI,pieces or units,1,160,1,0,0,0,0,1,0,0,2,0,2,1
 NEGROS OCCIDENTAL,fresh fish,CANDONI,pieces or units,2,200,1,0,0,0,0,0,1,0,2,1,2,1
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CANDONI,cone,1,140,1,0,0,0,0,1,0,0,3,0,1,1

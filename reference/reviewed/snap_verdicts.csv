@@ -195,8 +195,8 @@ ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces o
 ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,0.425,425.0,block,425.0,43.0,9834
 ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,large_size,3,0.00121,121.0,anchor,1.0,121.0,9836
 ILOILO,TIGBAUAN,chicken,pieces or units,province_median,1,1.415,1415.0,block,1415.0,141.0,9951
-ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces,large_size,3,0.0018300001,183.0,anchor,2.0,183.0,9996
-ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces,large_size,3,0.001835,184.0,anchor,2.0,184.0,9998
+ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,large_size,3,0.0018300001,183.0,anchor,2.0,183.0,9996
+ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,large_size,3,0.001835,184.0,anchor,2.0,184.0,9998
 ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,large_size,2,485.0,485.0,block,485.0,49.0,10043
 ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,485.0,485.0,block,485.0,49.0,10047
 ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,large_size,2,490.0,490.0,block,490.0,49.0,10035

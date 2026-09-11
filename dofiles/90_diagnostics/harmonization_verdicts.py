@@ -177,8 +177,14 @@ VERDICTS = {
     "distilled water": ("notaunit", "", "notaunit", "structural", "a product type, not a unit."),
     "1 serve": ("keep", "pieces or units", "distinct", "measured", "pork, 1 weighing at 515 g."),
     "stick": ("keep", "pieces or units", "distinct", "measured", "pork, 1 weighing at 25 g. A skewer."),
-    "role": ("keep", "", "field", "language",
-             "preserved meat, 250 g. Probably `roll', but the fold is untested."),
+    "role": ("keep", "putos", "field", "field",
+             "THERE IS NO `roll' ANYWHERE IN THE DATA -- not in this item, not in any "
+             "item -- so the obvious reading has nothing to fold into. One row only "
+             "(CAPIZ/PANAY, 250 g), and its weight is price-quantity inferred rather "
+             "than a scale reading. 250 g is exactly the median of putos (n=474), pack "
+             "(n=85) and pakete (n=5) in the same item, so it is indistinguishable from "
+             "the pack family -- but on n=1 that is suggestive, not decisive. Needs a "
+             "field ruling on what the vendor meant."),
     "individual": ("keep", "small packs", "distinct", "measured",
                    "loaf bread, 60 g vs small packs 370 g. A single roll."),
 

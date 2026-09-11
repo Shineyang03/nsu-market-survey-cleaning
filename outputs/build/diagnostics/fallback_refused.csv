@@ -1,5 +1,5 @@
 pull_item,pull_province,pull_municipal_city,harmonized_nsu_unit,corrected_unit,size_ord,n_l0,n_l1,n_l2,n_l3
-"liquor (e.g, whisky, coconut wine)",ANTIQUE,PANDAN,baso,mL,large,1,1,1,1
+"liquor (e.g, whisky, coconut wine)",ANTIQUE,PANDAN,glass,mL,large,1,1,1,1
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,tupperware,g,medium,1,1,1,1
 "mineral or spring water, all drinking water sold in containers",CAPIZ,DUMALAG,container,mL,medium,1,1,1,1
 chicken,CAPIZ,JAMINDAN,chicken wings,g,medium,1,1,1,1
@@ -14,10 +14,9 @@ pork,CAPIZ,PRESIDENT ROXAS,2 slice,g,medium,2,2,2,2
 carrot,ILOILO,AJUY,pack,g,medium,1,1,1,1
 beef,ILOILO,BAROTAC VIEJO,half,g,small,2,2,2,2
 beef,ILOILO,IGBARAS,intestine,g,medium,1,1,1,1
-"crackers, cookies, buiscuits, chips/curls",ILOILO,LEMERY,bucket,g,large,2,2,2,2
 pork,ILOILO,OTON,1 serve,g,small,1,1,1,1
 pork,ILOILO,OTON,stick,g,small,1,1,1,1
-cabbage,ILOILO,SAN DIONISIO,sliced,g,small,2,2,2,2
+cabbage,ILOILO,SAN DIONISIO,slice,g,small,2,2,2,2
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,TIGBAUAN,gallons,g,small,1,2,2,2
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,TIGBAUAN,gallons,g,large,1,2,2,2
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,TIGBAUAN,plastic cup,g,large,1,1,1,1

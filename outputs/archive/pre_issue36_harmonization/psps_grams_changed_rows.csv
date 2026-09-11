@@ -1,0 +1,507 @@
+hh_row,pull_province,pull_municipal_city,pull_item,pull_nsu_unit,harmonized_nsu_unit_before,q_h,p_h,cf_h_before,grams_h_before,n_g_used_before,harmonized_nsu_unit_after,cf_h_after,grams_h_after,n_g_used_after,outcome
+94,ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,16.0,medium packs,412.8440366972477,412.8440366972477,4.0,grams changed
+210,ILOILO,CABATUAN,"crackers, cookies, buiscuits, chips/curls",can o lata,can o lata,1.0,243.0,,,,cans,,,,grams changed
+892,ILOILO,SAN DIONISIO,loaf bread,tama-tama nga putos,tama-tama nga putos,14.0,10.0,92.78350515463917,1298.9690721649483,1.0,medium packs,94.0,1316.0,6.0,grams changed
+932,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,65.0,450.0,900.0,16.0,medium packs,480.00000000000006,960.0000000000001,1.0,grams changed
+979,ILOILO,OTON,rice,"rice cooker cup, small","rice cooker cup, small",42.0,4.761904761904762,,,,small rice cooker cup,,,,grams changed
+1011,CAPIZ,MAMBUSAO,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,20.0,450.0,3150.0,23.0,medium packs,450.0,3150.0,39.0,relabelled only
+1025,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,65.0,450.0,900.0,16.0,medium packs,470.2651515151515,940.530303030303,4.0,grams changed
+1419,ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,95.0,500.0,500.0,7.0,medium packs,633.3333333333334,633.3333333333334,4.0,grams changed
+1500,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,30.0,450.0,1800.0,16.0,medium packs,265.5097355890276,1062.0389423561105,2.0,grams changed
+1868,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,40.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+1889,ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,1.0,50.0,379.2415169660679,379.2415169660679,2.0,medium packs,346.1538461538462,346.1538461538462,2.0,grams changed
+2095,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,8.0,35.0,450.0,3600.0,23.0,medium packs,242.30769230769232,1938.4615384615386,4.0,grams changed
+2476,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,450.0,450.0,23.0,medium packs,380.76923076923083,380.76923076923083,1.0,grams changed
+2484,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,450.0,900.0,16.0,medium packs,516.9230769230769,1033.8461538461538,1.0,grams changed
+2600,CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+2621,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",baso,baso,1.0,5.0,,,,glass,,,,grams changed
+2741,CAPIZ,PANAY,loaf bread,piece,piece,35.0,2.142857142857143,,,,pieces or units,,,,grams changed
+3211,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,55.0,392.85714285714283,392.85714285714283,6.0,medium packs,366.6666666666667,366.6666666666667,9.0,grams changed
+3294,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,5.0,450.0,1800.0,23.0,medium packs,90.0,360.0,4.0,grams changed
+3720,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,68.0,450.0,900.0,16.0,medium packs,511.47826086956525,1022.9565217391305,2.0,grams changed
+3806,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,20.0,5.0,450.0,9000.0,23.0,medium packs,90.0,1800.0,4.0,grams changed
+4125,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,60.0,450.0,1350.0,23.0,medium packs,447.5,1342.5,4.0,grams changed
+4192,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,10.0,450.0,4500.0,16.0,medium packs,,,,lost conversion
+4397,ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",boll,boll,1.0,20.0,,,,ball (tuba),,,,grams changed
+4466,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,265.38461538461536,265.38461538461536,3.0,medium packs,333.33333333333337,333.33333333333337,9.0,grams changed
+4678,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,75.0,450.0,450.0,16.0,medium packs,542.6136363636364,542.6136363636364,4.0,grams changed
+4855,ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,6.666666666666667,450.0,1350.0,16.0,medium packs,95.0,285.0,3.0,grams changed
+4884,CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+5021,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,60.0,450.0,1350.0,23.0,medium packs,450.0,1350.0,39.0,relabelled only
+5239,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,14.0,12.0,450.0,6300.0,16.0,medium packs,90.2608695652174,1263.6521739130437,2.0,grams changed
+5270,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,40.0,450.0,450.0,23.0,medium packs,298.3333333333333,298.3333333333333,4.0,grams changed
+5418,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,345.0,345.0,3.0,medium packs,433.33333333333337,433.33333333333337,9.0,grams changed
+5465,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,30.0,450.0,900.0,23.0,medium packs,207.6923076923077,415.3846153846154,4.0,grams changed
+5632,ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,2.0,54.0,409.5808383233533,819.1616766467066,2.0,medium packs,373.84615384615387,747.6923076923077,2.0,grams changed
+5671,ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,500.0,1000.0,7.0,medium packs,,,,lost conversion
+6021,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,14.0,450.0,2250.0,16.0,medium packs,86.31192660550458,431.5596330275229,3.0,grams changed
+6145,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,70.0,499.99999999999994,499.99999999999994,6.0,medium packs,466.6666666666667,466.6666666666667,9.0,grams changed
+6411,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,30.0,450.0,900.0,23.0,medium packs,207.6923076923077,415.3846153846154,1.0,grams changed
+6524,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,75.0,450.0,450.0,23.0,medium packs,559.375,559.375,4.0,grams changed
+7030,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,150.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+7240,ILOILO,DINGLE,loaf bread,tama-tama nga putos,tama-tama nga putos,14.0,7.0,450.0,6300.0,16.0,medium packs,94.5,1323.0,2.0,grams changed
+7260,CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,85.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+7631,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,55.0,450.0,1800.0,23.0,medium packs,410.2083333333333,1640.8333333333333,4.0,grams changed
+7657,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,291.9230769230769,291.9230769230769,3.0,medium packs,366.6666666666667,366.6666666666667,9.0,grams changed
+7719,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,45.0,450.0,900.0,16.0,medium packs,396.16993586266386,792.3398717253277,2.0,grams changed
+7775,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,10.0,450.0,1350.0,16.0,medium packs,86.5,259.5,2.0,grams changed
+7826,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,51.0,450.0,450.0,16.0,medium packs,314.42201834862385,314.42201834862385,3.0,grams changed
+7884,CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,450.0,900.0,23.0,medium packs,310.2803738317757,620.5607476635514,2.0,grams changed
+8501,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,10.0,450.0,2250.0,16.0,medium packs,86.5,432.5,2.0,grams changed
+8605,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,405.73770491803276,405.73770491803276,4.0,medium packs,405.73770491803276,405.73770491803276,4.0,relabelled only
+8794,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,16.0,medium packs,308.25688073394497,308.25688073394497,3.0,grams changed
+8873,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+9007,ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,25.0,450.0,900.0,16.0,medium packs,173.0769230769231,346.1538461538462,8.0,grams changed
+9395,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,371.53846153846155,371.53846153846155,3.0,medium packs,466.6666666666667,466.6666666666667,9.0,grams changed
+9439,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,85.0,450.0,450.0,23.0,medium packs,633.9583333333334,633.9583333333334,4.0,grams changed
+9551,ILOILO,BANATE,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,75.0,450.0,1350.0,16.0,medium packs,450.0,1350.0,176.0,relabelled only
+9564,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+9603,ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,500.0,500.0,7.0,medium packs,450.0,450.0,56.0,grams changed
+9711,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,10.0,450.0,450.0,16.0,medium packs,,,,lost conversion
+9939,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,6.0,33.333333333333336,450.0,2700.0,16.0,medium packs,293.4592117501214,1760.7552705007286,2.0,grams changed
+10032,ILOILO,SAN MIGUEL,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,50.0,243.24324324324326,972.972972972973,5.0,medium packs,243.24324324324326,972.972972972973,5.0,relabelled only
+10047,ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,400.0,400.0,2.0,grams changed
+10237,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,443.0769230769231,443.0769230769231,1.0,grams changed
+11138,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,6.0,69.0,345.0,3.0,medium packs,90.0,450.0,9.0,grams changed
+11326,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,450.0,450.0,16.0,medium packs,397.9166666666667,397.9166666666667,4.0,grams changed
+11515,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,50.0,450.0,1800.0,16.0,medium packs,338.235294117647,1352.941176470588,6.0,grams changed
+12190,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,265.38461538461536,265.38461538461536,3.0,medium packs,333.33333333333337,333.33333333333337,9.0,grams changed
+13022,CAPIZ,PONTEVEDRA,"prawns, lobster, shrimp",1 k caltex(kabo),1 k caltex(kabo),1.0,170.0,,,,caltex,,,,grams changed
+13119,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,2.0,35.0,257.7519379844961,515.5038759689922,5.0,medium packs,278.02816901408454,556.0563380281691,6.0,grams changed
+13276,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,16.0,medium packs,338.235294117647,338.235294117647,6.0,grams changed
+13299,ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,10.0,500.0,2000.0,7.0,medium packs,450.0,1800.0,56.0,grams changed
+13720,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,75.0,450.0,450.0,16.0,medium packs,462.3853211009174,462.3853211009174,3.0,grams changed
+13933,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,10.0,450.0,3150.0,16.0,medium packs,,,,lost conversion
+14178,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,450.0,450.0,16.0,medium packs,396.16993586266386,396.16993586266386,2.0,grams changed
+14280,ILOILO,SAN RAFAEL,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,65.0,450.0,900.0,16.0,medium packs,376.3157894736842,752.6315789473684,2.0,grams changed
+14394,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,12.0,10.0,450.0,5400.0,16.0,medium packs,86.5,1038.0,2.0,grams changed
+14761,ILOILO,BAROTAC NUEVO,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,55.0,354.83870967741933,709.6774193548387,1.0,medium packs,380.76923076923083,761.5384615384617,2.0,grams changed
+14905,ILOILO,SAN RAFAEL,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,52.0,450.0,450.0,16.0,medium packs,301.05263157894734,301.05263157894734,2.0,grams changed
+14911,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,10.0,450.0,4500.0,16.0,medium packs,,,,lost conversion
+14921,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,450.0,900.0,23.0,medium packs,522.0833333333334,1044.1666666666667,4.0,grams changed
+15362,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,82.0,450.0,450.0,16.0,medium packs,554.7058823529411,554.7058823529411,6.0,grams changed
+15430,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,450.0,450.0,23.0,medium packs,410.2083333333333,410.2083333333333,4.0,grams changed
+15545,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,470.2651515151515,470.2651515151515,4.0,grams changed
+15607,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,6.0,450.0,4500.0,16.0,medium packs,86.5,865.0,2.0,grams changed
+15626,ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,75.0,500.0,1000.0,7.0,medium packs,492.85714285714283,985.7142857142857,4.0,grams changed
+15736,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,450.0,900.0,16.0,medium packs,405.88235294117646,811.7647058823529,6.0,grams changed
+15884,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,80.0,450.0,1350.0,23.0,medium packs,596.6666666666666,1790.0,4.0,grams changed
+15994,ILOILO,SAN MIGUEL,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,243.24324324324326,486.4864864864865,5.0,medium packs,243.24324324324326,486.4864864864865,5.0,relabelled only
+16182,ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,75.0,450.0,450.0,16.0,medium packs,500.0,500.0,2.0,grams changed
+16276,ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,42.0,450.0,450.0,16.0,medium packs,450.0,450.0,176.0,relabelled only
+16316,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,50.0,450.0,1350.0,16.0,medium packs,369.2307692307693,1107.6923076923078,1.0,grams changed
+16609,CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+16747,ANTIQUE,BARBAZA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,47.0,287.7551020408163,287.7551020408163,3.0,medium packs,287.7551020408163,287.7551020408163,3.0,relabelled only
+17121,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,450.0,450.0,16.0,medium packs,325.5681818181818,325.5681818181818,4.0,grams changed
+17208,ANTIQUE,VALDERRAMA,loaf bread,medium nga putos,medium packs,1.0,55.0,600.0,600.0,1.0,medium packs,484.46522344603153,484.46522344603153,1.0,grams changed
+17232,ANTIQUE,LAUA-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,500.0,500.0,7.0,medium packs,553.8461538461539,553.8461538461539,3.0,grams changed
+17270,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,50.0,450.0,1800.0,16.0,medium packs,338.235294117647,1352.941176470588,6.0,grams changed
+17379,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,8.0,450.0,2250.0,16.0,medium packs,,,,lost conversion
+17420,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,16.0,medium packs,619.5227163743978,619.5227163743978,2.0,grams changed
+17548,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,65.0,479.50819672131144,959.0163934426229,4.0,medium packs,479.50819672131144,959.0163934426229,4.0,relabelled only
+17700,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,450.0,900.0,16.0,medium packs,516.9230769230769,1033.8461538461538,1.0,grams changed
+17856,ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,35.0,450.0,450.0,16.0,medium packs,,,,lost conversion
+17991,ILOILO,CONCEPCION,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,514.2857142857142,514.2857142857142,1.0,medium packs,529.6551724137931,529.6551724137931,4.0,grams changed
+18348,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,25.0,450.0,450.0,23.0,medium packs,169.81132075471697,169.81132075471697,3.0,grams changed
+18423,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,10.0,450.0,1800.0,16.0,medium packs,,,,lost conversion
+18450,ANTIQUE,BARBAZA,loaf bread,tama-tama nga putos,tama-tama nga putos,22.0,8.181818181818182,90.0,1980.0,3.0,medium packs,90.0,1980.0,3.0,relabelled only
+18517,CAPIZ,PANITAN,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,20.0,450.0,2250.0,23.0,medium packs,450.0,2250.0,39.0,relabelled only
+18570,ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,60.0,450.0,1350.0,16.0,medium packs,400.0,1200.0,2.0,grams changed
+18629,ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,500.0,1000.0,7.0,medium packs,,,,lost conversion
+18780,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,75.0,398.0769230769231,796.1538461538462,3.0,medium packs,500.0,1000.0,9.0,grams changed
+18818,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,58.0,414.2857142857142,414.2857142857142,6.0,medium packs,386.6666666666667,386.6666666666667,9.0,grams changed
+18841,ILOILO,SAN DIONISIO,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,14.285714285714286,132.5478645066274,927.8350515463918,1.0,medium packs,113.48088531187125,794.3661971830987,6.0,grams changed
+18854,ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,55.0,500.0,1000.0,7.0,medium packs,366.6666666666667,733.3333333333334,4.0,grams changed
+18901,CAPIZ,PILAR,cabbage,mix vegetables (per tumbok),mix vegetables (per tumbok),1.0,20.0,,,,mix vegetables (per tumpok),,,,grams changed
+19155,ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,45.0,450.0,1350.0,16.0,medium packs,426.52173913043475,1279.5652173913043,4.0,grams changed
+19196,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,450.0,900.0,16.0,medium packs,308.25688073394497,616.5137614678899,3.0,grams changed
+19319,ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,25.0,450.0,4500.0,16.0,medium packs,236.9565217391304,2369.565217391304,4.0,grams changed
+19477,ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,450.0,450.0,176.0,relabelled only
+19630,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,12.0,450.0,4500.0,16.0,medium packs,90.2608695652174,902.608695652174,2.0,grams changed
+19716,CAPIZ,PILAR,loaf bread,piece,piece,16.0,7.0,,,,pieces or units,,,,grams changed
+20007,ILOILO,MIAGAO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,16.0,medium packs,506.15384615384613,506.15384615384613,2.0,grams changed
+20237,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,48.0,450.0,450.0,23.0,medium packs,326.0377358490566,326.0377358490566,3.0,grams changed
+20970,ILOILO,MIAGAO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,470.0,470.0,2.0,grams changed
+21173,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,85.0,450.0,450.0,16.0,medium packs,524.0366972477065,524.0366972477065,3.0,grams changed
+21309,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,65.0,450.0,900.0,16.0,medium packs,488.91304347826093,977.8260869565219,2.0,grams changed
+21444,ANTIQUE,VALDERRAMA,loaf bread,medium nga putos,medium packs,1.0,40.0,436.3636363636364,436.3636363636364,1.0,medium packs,352.3383443243866,352.3383443243866,1.0,grams changed
+21504,ILOILO,CONCEPCION,loaf bread,medium,medium packs,1.0,78.0,499.2,499.2,3.0,medium packs,516.4137931034483,516.4137931034483,4.0,grams changed
+21527,ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,1.0,55.0,417.16566866267465,417.16566866267465,2.0,medium packs,380.76923076923083,380.76923076923083,2.0,grams changed
+21997,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,100.0,5.0,450.0,45000.0,23.0,medium packs,90.0,9000.0,4.0,grams changed
+22101,ANTIQUE,TOBIAS FORNIER,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,25.0,500.0,1000.0,7.0,medium packs,,,,lost conversion
+22360,CAPIZ,DUMALAG,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,23.0,medium packs,509.09090909090907,509.09090909090907,4.0,grams changed
+22726,ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,500.0,500.0,7.0,medium packs,450.0,450.0,56.0,grams changed
+23072,ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,85.0,450.0,900.0,16.0,medium packs,,,,lost conversion
+23168,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,55.0,392.85714285714283,392.85714285714283,6.0,medium packs,366.6666666666667,366.6666666666667,9.0,grams changed
+23278,ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,25.0,450.0,900.0,16.0,medium packs,173.0769230769231,346.1538461538462,8.0,grams changed
+23345,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,50.0,450.0,3150.0,16.0,medium packs,440.1888176251821,3081.3217233762743,2.0,grams changed
+23384,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,90.0,642.8571428571428,642.8571428571428,6.0,medium packs,600.0,600.0,9.0,grams changed
+23776,ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,61.0,500.0,500.0,7.0,medium packs,450.0,450.0,56.0,grams changed
+23870,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,23.0,medium packs,447.5,447.5,4.0,grams changed
+23904,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,60.0,428.57142857142856,428.57142857142856,6.0,medium packs,400.0,400.0,9.0,grams changed
+23912,ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,57.0,450.0,450.0,16.0,medium packs,450.0,450.0,176.0,relabelled only
+23917,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,5.0,450.0,1800.0,16.0,medium packs,96.0,384.0,1.0,grams changed
+24642,ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,415.3846153846154,415.3846153846154,8.0,grams changed
+24834,ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,64.0,450.0,900.0,16.0,medium packs,450.0,900.0,176.0,relabelled only
+25002,ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,84.0,450.0,900.0,16.0,medium packs,560.0,1120.0,2.0,grams changed
+25360,ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,500.0,500.0,7.0,medium packs,439.0243902439025,439.0243902439025,3.0,grams changed
+25555,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,331.9672131147541,331.9672131147541,4.0,medium packs,331.9672131147541,331.9672131147541,4.0,relabelled only
+25766,ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,60.0,450.0,1350.0,16.0,medium packs,,,,lost conversion
+25798,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,450.0,900.0,23.0,medium packs,415.3846153846154,830.7692307692308,1.0,grams changed
+25868,ANTIQUE,SIBALOM,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,500.0,500.0,7.0,medium packs,330.6122448979592,330.6122448979592,6.0,grams changed
+26056,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,10.0,450.0,2250.0,16.0,medium packs,,,,lost conversion
+26383,ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,500.0,500.0,7.0,medium packs,366.6666666666667,366.6666666666667,4.0,grams changed
+26814,ANTIQUE,HAMTIC,"crackers, cookies, buiscuits, chips/curls",balde,balde,1.0,335.0,1400.0,1400.0,1.0,bucket,1400.0,1400.0,1.0,relabelled only
+27101,CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+27252,CAPIZ,PANAY,loaf bread,per piece,per piece,50.0,5.0,,,,pieces or units,,,,grams changed
+27493,ANTIQUE,VALDERRAMA,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,627.0571204984417,1254.1142409968834,1.0,medium packs,672.0,1344.0,1.0,grams changed
+27541,ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,20.0,450.0,2250.0,16.0,medium packs,189.56521739130434,947.8260869565217,4.0,grams changed
+27561,ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,450.0,450.0,16.0,medium packs,553.8461538461539,553.8461538461539,5.0,grams changed
+27632,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,450.0,450.0,23.0,medium packs,380.76923076923083,380.76923076923083,4.0,grams changed
+28108,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,10.0,450.0,900.0,16.0,medium packs,,,,lost conversion
+28341,ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,85.0,500.0,500.0,7.0,medium packs,566.6666666666667,566.6666666666667,4.0,grams changed
+28669,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,16.0,medium packs,506.43939393939394,506.43939393939394,4.0,grams changed
+28775,ILOILO,DUEAS,loaf bread,medium,medium packs,2.0,60.0,428.57142857142856,857.1428571428571,6.0,medium packs,400.0,800.0,9.0,grams changed
+28942,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,450.0,900.0,23.0,medium packs,522.0833333333334,1044.1666666666667,4.0,grams changed
+29013,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,65.0,464.2857142857142,464.2857142857142,6.0,medium packs,433.33333333333337,433.33333333333337,9.0,grams changed
+29067,ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,56.0,500.0,1500.0,7.0,medium packs,409.75609756097566,1229.268292682927,3.0,grams changed
+29103,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,60.0,428.57142857142856,428.57142857142856,6.0,medium packs,400.0,400.0,9.0,grams changed
+29532,ILOILO,SAN MIGUEL,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,267.56756756756755,267.56756756756755,5.0,medium packs,267.56756756756755,267.56756756756755,5.0,relabelled only
+29694,ILOILO,MINA,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,55.0,450.0,2250.0,16.0,medium packs,377.1428571428571,1885.7142857142856,3.0,grams changed
+29769,CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,62.0,450.0,450.0,23.0,medium packs,384.74766355140184,384.74766355140184,2.0,grams changed
+29909,ANTIQUE,SIBALOM,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,500.0,500.0,7.0,medium packs,440.8163265306123,440.8163265306123,6.0,grams changed
+30441,ILOILO,SAN DIONISIO,cabbage,sliced,sliced,1.0,20.0,65.0,65.0,2.0,slice,65.0,65.0,2.0,relabelled only
+30442,ILOILO,SAN DIONISIO,carrot,sliced,sliced,1.0,20.0,,,,slice,,,,grams changed
+30505,ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,40.0,500.0,500.0,7.0,medium packs,344.6153846153846,344.6153846153846,2.0,grams changed
+30541,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,75.0,450.0,450.0,16.0,medium packs,507.35294117647055,507.35294117647055,6.0,grams changed
+30573,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,80.0,571.4285714285713,571.4285714285713,6.0,medium packs,533.3333333333334,533.3333333333334,9.0,grams changed
+30735,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,45.0,450.0,900.0,23.0,medium packs,311.53846153846155,623.0769230769231,1.0,grams changed
+30928,ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,20.0,450.0,450.0,16.0,medium packs,138.46153846153848,138.46153846153848,5.0,grams changed
+31481,ILOILO,SAN RAFAEL,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,376.3157894736842,376.3157894736842,2.0,grams changed
+31609,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,405.73770491803276,405.73770491803276,4.0,medium packs,405.73770491803276,405.73770491803276,4.0,relabelled only
+31825,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,70.0,5.0,450.0,31500.0,23.0,medium packs,90.0,6300.0,4.0,grams changed
+32197,ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,80.0,500.0,1000.0,7.0,medium packs,585.3658536585366,1170.7317073170732,3.0,grams changed
+32211,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,85.0,450.0,1350.0,16.0,medium packs,752.2775841689116,2256.832752506735,2.0,grams changed
+32364,ILOILO,MINA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,445.71428571428567,445.71428571428567,3.0,grams changed
+32555,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,450.0,900.0,23.0,medium packs,450.0,900.0,39.0,relabelled only
+33055,ILOILO,BATAD,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,40.0,450.0,900.0,16.0,medium packs,,,,lost conversion
+33117,ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,1.0,50.0,379.2415169660679,379.2415169660679,2.0,medium packs,346.1538461538462,346.1538461538462,2.0,grams changed
+33243,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,20.0,450.0,2250.0,23.0,medium packs,138.46153846153848,692.3076923076924,4.0,grams changed
+33450,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+33459,ILOILO,ALIMODIAN,chicken,patupong,patupong,1.0,150.0,,,,patupa,935.0,935.0,3.0,newly converted
+33709,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,450.0,450.0,23.0,medium packs,305.66037735849056,305.66037735849056,3.0,grams changed
+34004,ANTIQUE,TOBIAS FORNIER,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,56.0,500.0,500.0,7.0,medium packs,,,,lost conversion
+34234,ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,616.0869565217391,616.0869565217391,4.0,grams changed
+34301,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,479.50819672131144,479.50819672131144,4.0,medium packs,479.50819672131144,479.50819672131144,4.0,relabelled only
+34349,ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,11.428571428571429,500.0,3500.0,7.0,medium packs,450.0,3150.0,56.0,grams changed
+34360,ILOILO,CONCEPCION,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,10.0,90.0,450.0,1.0,medium packs,96.0,480.0,4.0,grams changed
+34484,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,10.0,450.0,900.0,16.0,medium packs,,,,lost conversion
+34505,ILOILO,DINGLE,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,5.0,450.0,4500.0,16.0,medium packs,94.5,945.0,2.0,grams changed
+34589,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,60.0,442.6229508196721,1327.8688524590164,4.0,medium packs,442.6229508196721,1327.8688524590164,4.0,relabelled only
+34935,CAPIZ,PANITAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,75.0,450.0,900.0,23.0,medium packs,450.0,900.0,39.0,relabelled only
+35273,CAPIZ,MA-AYON,chicken,1order,1order,1.0,70.0,,,,1 order,,,,grams changed
+35349,CAPIZ,MAMBUSAO,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,450.0,900.0,23.0,medium packs,450.0,900.0,39.0,relabelled only
+35497,ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,500.0,500.0,7.0,medium packs,328.57142857142856,328.57142857142856,4.0,grams changed
+35502,ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,2.0,68.0,515.7684630738523,1031.5369261477047,2.0,medium packs,470.76923076923083,941.5384615384617,2.0,grams changed
+35647,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,4.0,75.0,552.3255813953489,2209.3023255813955,5.0,medium packs,595.774647887324,2383.098591549296,6.0,grams changed
+35694,ANTIQUE,CULASI,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,40.0,500.0,500.0,7.0,medium packs,307.6923076923077,307.6923076923077,3.0,grams changed
+35950,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+35999,AKLAN,BURUANGA,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,20.0,450.0,3150.0,23.0,medium packs,,,,lost conversion
+36370,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,43.0,450.0,450.0,16.0,medium packs,323.4347826086957,323.4347826086957,2.0,grams changed
+36407,ANTIQUE,VALDERRAMA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,447.8979432131726,447.8979432131726,1.0,medium packs,447.8979432131726,447.8979432131726,1.0,relabelled only
+36582,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,450.0,900.0,16.0,medium packs,369.9082568807339,739.8165137614678,3.0,grams changed
+36636,ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,450.00000000000006,450.00000000000006,8.0,grams changed
+36721,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,6.0,5.0,450.0,2700.0,16.0,medium packs,105.6453162300437,633.8718973802622,2.0,grams changed
+36727,ILOILO,SAN DIONISIO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,47.0,436.0824742268041,436.0824742268041,1.0,medium packs,373.3521126760564,373.3521126760564,6.0,grams changed
+36881,CAPIZ,JAMINDAN,loaf bread,pieces,pieces,5.0,4.0,,,,pieces or units,,,,grams changed
+37136,ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,500.0,500.0,7.0,medium packs,525.7142857142857,525.7142857142857,4.0,grams changed
+37990,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,1.0,65.0,478.6821705426357,478.6821705426357,5.0,medium packs,516.3380281690141,516.3380281690141,6.0,grams changed
+38208,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,,450.0,1350.0,23.0,medium packs,450.0,1350.0,39.0,relabelled only
+38278,CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,450.0,450.0,23.0,medium packs,279.2523364485981,279.2523364485981,2.0,grams changed
+39031,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,82.0,450.0,450.0,16.0,medium packs,505.5412844036697,505.5412844036697,3.0,grams changed
+39777,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,75.0,450.0,900.0,16.0,medium packs,550.925925925926,1101.851851851852,1.0,grams changed
+40200,ANTIQUE,SIBALOM,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",apa,apa,3.0,10.0,,,,cone,110.0,330.0,25.0,newly converted
+40305,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,20.0,450.0,1350.0,16.0,medium packs,147.6923076923077,443.0769230769231,1.0,grams changed
+40650,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,10.0,450.0,1800.0,16.0,medium packs,86.5,346.0,2.0,grams changed
+40772,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,10.0,450.0,2250.0,16.0,medium packs,,,,lost conversion
+40891,ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,450.0,900.0,16.0,medium packs,473.9130434782608,947.8260869565216,4.0,grams changed
+40955,ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,500.0,500.0,7.0,medium packs,430.7692307692308,430.7692307692308,2.0,grams changed
+41031,ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,500.0,1000.0,7.0,medium packs,450.0,900.0,56.0,grams changed
+41149,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,60.0,450.0,1350.0,16.0,medium packs,405.88235294117646,1217.6470588235293,6.0,grams changed
+41315,ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,10.0,450.0,450.0,16.0,medium packs,90.0,90.0,5.0,grams changed
+41506,ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,2.0,47.0,356.4870259481038,712.9740518962076,2.0,medium packs,325.3846153846154,650.7692307692308,2.0,grams changed
+41521,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,15.0,13.333333333333334,450.0,6750.0,16.0,medium packs,84.0,1260.0,3.0,grams changed
+41720,ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,30.0,500.0,1500.0,7.0,medium packs,258.46153846153845,775.3846153846154,2.0,grams changed
+41914,ANTIQUE,LAUA-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,500.0,500.0,7.0,medium packs,415.3846153846154,415.3846153846154,3.0,grams changed
+41956,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,70.0,450.0,1350.0,23.0,medium packs,484.61538461538464,1453.8461538461538,1.0,grams changed
+42257,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,95.0,450.0,450.0,16.0,medium packs,687.3106060606061,687.3106060606061,4.0,grams changed
+42424,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,6.0,50.0,450.0,2700.0,16.0,medium packs,,,,lost conversion
+42567,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,81.0,450.0,1350.0,16.0,medium packs,499.3761467889908,1498.1284403669724,3.0,grams changed
+42663,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,40.0,5.0,450.0,18000.0,23.0,medium packs,90.0,3600.0,4.0,grams changed
+42674,ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,1.0,56.0,424.750499001996,424.750499001996,2.0,medium packs,387.69230769230774,387.69230769230774,2.0,grams changed
+42693,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,531.0194711780553,531.0194711780553,2.0,grams changed
+42743,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,3.0,45.0,331.3953488372093,994.186046511628,5.0,medium packs,357.4647887323944,1072.3943661971832,6.0,grams changed
+42927,CAPIZ,DUMALAG,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,23.0,medium packs,436.3636363636363,436.3636363636363,4.0,grams changed
+42960,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,450.0,900.0,23.0,medium packs,447.5,895.0,4.0,grams changed
+43540,ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,450.00000000000006,450.00000000000006,8.0,grams changed
+43646,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,55.0,450.0,2250.0,23.0,medium packs,410.2083333333333,2051.0416666666665,4.0,grams changed
+43870,CAPIZ,DUMALAG,loaf bread,tama-tama nga putos,tama-tama nga putos,21.0,5.0,450.0,9450.0,23.0,medium packs,100.0,2100.0,4.0,grams changed
+44158,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,69.0,450.0,450.0,16.0,medium packs,425.39449541284404,425.39449541284404,3.0,grams changed
+44557,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,70.0,450.0,1350.0,23.0,medium packs,522.0833333333334,1566.25,4.0,grams changed
+44826,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,60.0,450.0,1800.0,16.0,medium packs,369.9082568807339,1479.6330275229357,3.0,grams changed
+45034,ILOILO,BANATE,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,450.0,450.0,176.0,relabelled only
+45045,CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,23.0,medium packs,310.2803738317757,310.2803738317757,2.0,grams changed
+45129,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,450.0,900.0,16.0,medium packs,516.9230769230769,1033.8461538461538,1.0,grams changed
+45588,ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,80.0,450.0,900.0,16.0,medium packs,,,,lost conversion
+45840,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,400.73394495412845,400.73394495412845,3.0,grams changed
+46041,ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,1.0,80.0,606.7864271457086,606.7864271457086,2.0,medium packs,553.8461538461539,553.8461538461539,2.0,grams changed
+46452,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,80.0,571.4285714285713,571.4285714285713,6.0,medium packs,533.3333333333334,533.3333333333334,9.0,grams changed
+46488,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,64.0,450.0,450.0,16.0,medium packs,481.3913043478261,481.3913043478261,2.0,grams changed
+47171,ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,500.0,1000.0,7.0,medium packs,430.7692307692308,861.5384615384615,2.0,grams changed
+47485,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,20.0,450.0,2250.0,23.0,medium packs,135.8490566037736,679.2452830188679,3.0,grams changed
+47717,ANTIQUE,VALDERRAMA,loaf bread,medium nga putos,medium packs,1.0,70.0,763.6363636363637,763.6363636363637,1.0,medium packs,672.0,672.0,1.0,grams changed
+47763,ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,500.0,500.0,7.0,medium packs,560.0,560.0,2.0,grams changed
+47865,ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,90.0,500.0,500.0,7.0,medium packs,648.0,648.0,3.0,grams changed
+47926,ILOILO,BAROTAC NUEVO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,85.0,450.0,450.0,16.0,medium packs,588.4615384615386,588.4615384615386,2.0,grams changed
+48208,ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,450.0,450.0,16.0,medium packs,533.3333333333334,533.3333333333334,2.0,grams changed
+48747,ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,81.66666666666667,450.0,1350.0,16.0,medium packs,517.2222222222223,1551.666666666667,3.0,grams changed
+48784,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,23.0,medium packs,522.0833333333334,522.0833333333334,4.0,grams changed
+49623,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+49780,ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",jr,jr,1.0,55.0,,,,junior lapad,250.0,250.0,9.0,newly converted
+50019,CAPIZ,MAMBUSAO,"crackers, cookies, buiscuits, chips/curls",balde,balde,1.0,364.0,1712.3987970955172,1712.3987970955172,1.0,bucket,1712.3987970955172,1712.3987970955172,1.0,relabelled only
+50289,ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,16.0,medium packs,466.6666666666667,466.6666666666667,2.0,grams changed
+50334,ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,20.0,500.0,1500.0,7.0,medium packs,,,,lost conversion
+50763,ILOILO,BANATE,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,85.0,450.0,900.0,16.0,medium packs,450.0,900.0,176.0,relabelled only
+50919,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,75.0,535.7142857142857,535.7142857142857,6.0,medium packs,500.0,500.0,9.0,grams changed
+50979,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,10.0,450.0,2250.0,16.0,medium packs,96.0,480.0,1.0,grams changed
+50991,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,55.0,450.0,900.0,16.0,medium packs,406.1538461538462,812.3076923076924,1.0,grams changed
+51087,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,23.0,medium packs,475.47169811320754,475.47169811320754,3.0,grams changed
+51175,ILOILO,JANIUAY,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,75.0,450.0,1350.0,16.0,medium packs,,,,lost conversion
+51261,ILOILO,SAN MIGUEL,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,75.0,364.8648648648649,729.7297297297298,5.0,medium packs,364.8648648648649,729.7297297297298,5.0,relabelled only
+51313,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,23.0,medium packs,484.7916666666667,484.7916666666667,4.0,grams changed
+51430,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+51718,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,80.0,450.0,900.0,16.0,medium packs,578.7878787878788,1157.5757575757575,4.0,grams changed
+51737,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,450.0,450.0,16.0,medium packs,493.2110091743119,493.2110091743119,3.0,grams changed
+51753,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,6.0,6.333333333333333,450.0,2700.0,23.0,medium packs,90.0,540.0,4.0,grams changed
+51925,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,23.0,medium packs,346.1538461538462,346.1538461538462,1.0,grams changed
+52178,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,21.0,5.0,450.0,9450.0,23.0,medium packs,90.0,1890.0,4.0,grams changed
+52450,ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,5.0,500.0,5000.0,7.0,medium packs,90.0,900.0,3.0,grams changed
+52734,ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,20.0,450.0,450.0,16.0,medium packs,133.33333333333334,133.33333333333334,2.0,grams changed
+52811,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,3.0,60.0,441.8604651162791,1325.5813953488373,5.0,medium packs,476.6197183098592,1429.8591549295775,6.0,grams changed
+53110,ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,50.0,500.0,2500.0,7.0,medium packs,,,,lost conversion
+53228,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,80.0,450.0,900.0,23.0,medium packs,596.6666666666666,1193.3333333333333,4.0,grams changed
+53578,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,33.333333333333336,450.0,1350.0,23.0,medium packs,230.7692307692308,692.3076923076924,4.0,grams changed
+53723,ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,90.0,450.0,900.0,16.0,medium packs,570.0,1140.0,3.0,grams changed
+54078,ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,450.0,900.0,16.0,medium packs,,,,lost conversion
+54163,ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,500.0,500.0,7.0,medium packs,432.0,432.0,3.0,grams changed
+54205,CAPIZ,MAMBUSAO,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,20.0,450.0,1350.0,23.0,medium packs,450.0,1350.0,39.0,relabelled only
+54274,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,75.0,450.0,900.0,16.0,medium packs,550.925925925926,1101.851851851852,1.0,grams changed
+54601,ILOILO,SAN DIONISIO,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,5.0,90.0,270.0,1.0,medium packs,94.0,282.0,6.0,grams changed
+54676,ILOILO,BANATE,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,100.0,450.0,900.0,16.0,medium packs,450.0,900.0,176.0,relabelled only
+55059,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,23.0,medium packs,339.62264150943395,339.62264150943395,3.0,grams changed
+55205,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,100.0,450.0,450.0,16.0,medium packs,618.9376443418014,618.9376443418014,1.0,grams changed
+55506,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,450.0,450.0,16.0,medium packs,541.1764705882352,541.1764705882352,6.0,grams changed
+55624,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,23.0,medium packs,447.5,447.5,4.0,grams changed
+55727,CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,75.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+55769,ILOILO,CONCEPCION,loaf bread,tama-tama nga putos,tama-tama nga putos,6.0,10.0,90.0,540.0,1.0,medium packs,96.0,576.0,4.0,grams changed
+56128,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,78.0,557.1428571428571,557.1428571428571,6.0,medium packs,520.0,520.0,9.0,grams changed
+56138,ANTIQUE,BARBAZA,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,14.285714285714286,90.0,630.0,3.0,medium packs,90.0,630.0,3.0,relabelled only
+56563,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+56745,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,60.0,442.6229508196721,1327.8688524590164,4.0,medium packs,442.6229508196721,1327.8688524590164,4.0,relabelled only
+56947,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,100.0,450.0,450.0,16.0,medium packs,616.5137614678899,616.5137614678899,3.0,grams changed
+57028,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+57231,ILOILO,BAROTAC NUEVO,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,6.0,90.0,360.0,1.0,medium packs,90.0,360.0,2.0,relabelled only
+57383,ILOILO,DUEAS,"crackers, cookies, buiscuits, chips/curls",balde,balde,1.0,369.0,1500.0,1500.0,3.0,bucket,1500.0,1500.0,3.0,relabelled only
+57855,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,50.0,450.0,3150.0,16.0,medium packs,369.2307692307693,2584.6153846153848,1.0,grams changed
+58117,ILOILO,BAROTAC NUEVO,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,15.0,96.7741935483871,967.741935483871,1.0,medium packs,103.84615384615385,1038.4615384615386,2.0,grams changed
+58838,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,450.0,900.0,23.0,medium packs,450.0,900.0,39.0,relabelled only
+58988,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,1.0,50.0,368.2170542635659,368.2170542635659,5.0,medium packs,397.1830985915493,397.1830985915493,6.0,grams changed
+59011,ILOILO,MIAGAO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,470.0,470.0,2.0,grams changed
+59015,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,1.0,64.0,471.3178294573644,471.3178294573644,5.0,medium packs,508.39436619718316,508.39436619718316,6.0,grams changed
+59202,ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,32.0,450.0,450.0,16.0,medium packs,,,,lost conversion
+59560,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,2.0,70.0,515.5038759689922,1031.0077519379845,5.0,medium packs,556.0563380281691,1112.1126760563382,6.0,grams changed
+59580,ILOILO,BATAD,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,40.0,450.0,900.0,16.0,medium packs,,,,lost conversion
+59651,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,16.0,medium packs,308.25688073394497,308.25688073394497,3.0,grams changed
+59901,ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,55.0,450.0,900.0,16.0,medium packs,366.6666666666667,733.3333333333334,2.0,grams changed
+60017,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,575.2710937762265,575.2710937762265,2.0,grams changed
+60177,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,6.0,33.333333333333336,450.0,2700.0,16.0,medium packs,225.49019607843138,1352.9411764705883,6.0,grams changed
+60371,ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,66.0,500.0,500.0,7.0,medium packs,,,,lost conversion
+60407,ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,45.0,450.0,900.0,16.0,medium packs,450.0,900.0,176.0,relabelled only
+60476,ANTIQUE,LAUA-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,500.0,500.0,7.0,medium packs,484.61538461538464,484.61538461538464,3.0,grams changed
+60493,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,65.0,450.0,900.0,16.0,medium packs,439.70588235294116,879.4117647058823,6.0,grams changed
+60579,ANTIQUE,TIBIAO,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,65.0,500.0,1500.0,7.0,medium packs,,,,lost conversion
+60636,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,450.0,900.0,16.0,medium packs,434.0909090909091,868.1818181818182,4.0,grams changed
+61813,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,6.0,50.0,450.0,2700.0,16.0,medium packs,442.5162259817127,2655.097355890276,2.0,grams changed
+61837,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+62509,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+62654,ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",bul,bul,7.0,30.0,,,,ball (tuba),,,,grams changed
+62851,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,10.0,450.0,2250.0,16.0,medium packs,84.0,420.0,3.0,grams changed
+63130,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,75.0,450.0,450.0,23.0,medium packs,509.4339622641509,509.4339622641509,3.0,grams changed
+63195,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,1.0,60.0,441.8604651162791,441.8604651162791,5.0,medium packs,476.6197183098592,476.6197183098592,6.0,grams changed
+63465,ILOILO,LEMERY,cabbage,buskos,buskos,1.0,20.0,,,,bugkos,,,,grams changed
+63999,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,75.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+64465,CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,450.0,900.0,23.0,medium packs,310.2803738317757,620.5607476635514,2.0,grams changed
+64870,ILOILO,BATAD,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,65.0,450.0,900.0,16.0,medium packs,430.1470588235294,860.2941176470588,5.0,grams changed
+64914,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+64927,ILOILO,IGBARAS,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,60.0,450.0,1350.0,16.0,medium packs,415.3846153846154,1246.1538461538462,3.0,grams changed
+65011,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,16.666666666666668,450.0,1350.0,16.0,medium packs,102.75229357798166,308.25688073394497,3.0,grams changed
+65049,ILOILO,CONCEPCION,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,45.0,289.2857142857143,1157.142857142857,1.0,medium packs,297.93103448275866,1191.7241379310346,4.0,grams changed
+65065,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,450.0,900.0,16.0,medium packs,369.2307692307693,738.4615384615386,1.0,grams changed
+65428,ILOILO,CONCEPCION,loaf bread,medium,medium packs,1.0,75.0,480.0,480.0,3.0,medium packs,496.55172413793105,496.55172413793105,4.0,grams changed
+65617,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,50.0,450.0,1350.0,23.0,medium packs,346.1538461538462,1038.4615384615386,1.0,grams changed
+65629,ANTIQUE,TOBIAS FORNIER,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,500.0,1000.0,7.0,medium packs,,,,lost conversion
+65758,ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,66.0,450.0,450.0,16.0,medium packs,,,,lost conversion
+66368,ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,135.0,500.0,1500.0,7.0,medium packs,887.1428571428571,2661.4285714285716,4.0,grams changed
+66399,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,75.0,398.0769230769231,398.0769230769231,3.0,medium packs,500.0,500.0,9.0,grams changed
+67124,ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,450.0,900.0,16.0,medium packs,495.4128440366972,990.8256880733944,4.0,grams changed
+67125,ILOILO,ALIMODIAN,"crackers, cookies, buiscuits, chips/curls",tupper ware,tupper ware,1.0,200.0,,,,tupperware,,,,grams changed
+67138,ILOILO,SAN DIONISIO,loaf bread,tama-tama nga putos,tama-tama nga putos,14.0,20.0,185.56701030927834,2597.9381443298967,1.0,medium packs,158.87323943661974,2224.2253521126763,6.0,grams changed
+67303,ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,16.0,medium packs,346.1538461538462,346.1538461538462,8.0,grams changed
+67517,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,81.0,450.0,450.0,23.0,medium packs,604.125,604.125,4.0,grams changed
+67601,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+67619,ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,450.0,450.0,16.0,medium packs,348.33333333333337,348.33333333333337,3.0,grams changed
+67636,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,65.0,464.2857142857142,464.2857142857142,6.0,medium packs,433.33333333333337,433.33333333333337,9.0,grams changed
+67813,ILOILO,BATAD,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,450.0,450.0,16.0,medium packs,,,,lost conversion
+67852,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,451.304347826087,451.304347826087,2.0,grams changed
+68282,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,40.0,450.0,900.0,16.0,medium packs,270.5882352941176,541.1764705882352,6.0,grams changed
+68322,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,434.0909090909091,434.0909090909091,4.0,grams changed
+68612,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,40.0,450.0,900.0,16.0,medium packs,270.5882352941176,541.1764705882352,6.0,grams changed
+68777,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,1.0,60.0,441.8604651162791,441.8604651162791,5.0,medium packs,476.6197183098592,476.6197183098592,6.0,grams changed
+68888,ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,10.0,500.0,5000.0,7.0,medium packs,90.0,900.0,3.0,grams changed
+68914,CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,30.0,450.0,900.0,23.0,medium packs,186.1682242990654,372.3364485981308,2.0,grams changed
+69000,ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,450.0,900.0,16.0,medium packs,484.61538461538464,969.2307692307693,5.0,grams changed
+69100,CAPIZ,MAMBUSAO,loaf bread,pieces,pieces,20.0,5.0,,,,pieces or units,,,,grams changed
+69118,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,10.0,450.0,900.0,16.0,medium packs,,,,lost conversion
+69168,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,85.0,450.0,450.0,16.0,medium packs,524.0366972477065,524.0366972477065,3.0,grams changed
+69174,CAPIZ,IVISAN,"prawns, lobster, shrimp",1 pc. prawn,1 pc. prawn,1.0,50.0,,,,pieces or units,15.0,15.0,4.0,newly converted
+69367,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,450.0,450.0,23.0,medium packs,305.66037735849056,305.66037735849056,3.0,grams changed
+69614,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,434.0909090909091,434.0909090909091,4.0,grams changed
+69694,ILOILO,OTON,rice,rice cooker cup (small),rice cooker cup (small),63.0,3.1746031746031744,,,,small rice cooker cup,,,,grams changed
+69695,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,20.0,450.0,3150.0,16.0,medium packs,135.2941176470588,947.0588235294117,6.0,grams changed
+69830,CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,85.0,450.0,900.0,23.0,medium packs,450.0,900.0,39.0,relabelled only
+69847,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,1.0,65.0,478.6821705426357,478.6821705426357,5.0,medium packs,516.3380281690141,516.3380281690141,6.0,grams changed
+69869,ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,450.0,900.0,16.0,medium packs,,,,lost conversion
+69948,ANTIQUE,VALDERRAMA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,447.8979432131726,447.8979432131726,1.0,medium packs,447.8979432131726,447.8979432131726,1.0,relabelled only
+70139,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,30.0,2.0,450.0,13500.0,23.0,medium packs,90.0,2700.0,4.0,grams changed
+70257,ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,450.0,900.0,16.0,medium packs,316.6666666666667,633.3333333333334,3.0,grams changed
+70316,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,65.0,464.2857142857142,464.2857142857142,6.0,medium packs,433.33333333333337,433.33333333333337,9.0,grams changed
+70317,ILOILO,DUEAS,chicken,patopung,patopung,1.0,147.0,,,,patupa,935.0,935.0,3.0,newly converted
+70366,ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,495.4128440366972,495.4128440366972,4.0,grams changed
+70702,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,23.0,medium packs,484.7916666666667,484.7916666666667,4.0,grams changed
+70779,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,50.0,3.0,450.0,22500.0,23.0,medium packs,90.0,4500.0,4.0,grams changed
+70834,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+70860,ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,2.0,60.0,455.0898203592814,910.1796407185628,2.0,medium packs,415.3846153846154,830.7692307692308,2.0,grams changed
+70953,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,46.666666666666664,450.0,1350.0,23.0,medium packs,323.0769230769231,969.2307692307693,4.0,grams changed
+71019,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,450.0,450.0,23.0,medium packs,553.8461538461539,553.8461538461539,1.0,grams changed
+71162,ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,500.0,500.0,7.0,medium packs,394.2857142857143,394.2857142857143,4.0,grams changed
+71526,ILOILO,CONCEPCION,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,40.0,257.1428571428571,257.1428571428571,1.0,medium packs,264.82758620689657,264.82758620689657,4.0,grams changed
+71560,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+71758,CAPIZ,SIGMA,carrot,mix slice of carrot,mix slice of carrot,1.0,20.0,,,,putos (mix vegetable),152.5,152.5,16.0,newly converted
+72147,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,60.0,450.0,2250.0,16.0,medium packs,369.9082568807339,1849.5412844036696,3.0,grams changed
+72328,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,15.0,450.0,1350.0,16.0,medium packs,112.82608695652175,338.47826086956525,2.0,grams changed
+72815,ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,20.0,450.0,450.0,16.0,medium packs,138.46153846153848,138.46153846153848,8.0,grams changed
+72894,ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone ( dirty ice cream ) 10 pesos per cone,cone ( dirty ice cream ) 10 pesos per cone,5.0,10.0,,,,cone,198.78667654089134,993.9333827044567,2.0,newly converted
+72925,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,16.0,medium packs,338.235294117647,338.235294117647,6.0,grams changed
+72955,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,80.0,590.1639344262295,1180.327868852459,4.0,medium packs,590.1639344262295,1180.327868852459,4.0,relabelled only
+73061,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,20.0,450.0,2250.0,23.0,medium packs,138.46153846153848,692.3076923076924,1.0,grams changed
+73139,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,450.0,900.0,16.0,medium packs,405.88235294117646,811.7647058823529,6.0,grams changed
+73183,ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,100.0,450.0,1800.0,16.0,medium packs,479.54545454545456,1918.1818181818182,2.0,grams changed
+73522,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,10.5,450.0,1800.0,16.0,medium packs,105.6453162300437,422.5812649201748,2.0,grams changed
+73583,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,10.0,450.0,900.0,16.0,medium packs,92.0,184.0,6.0,grams changed
+73695,ILOILO,CONCEPCION,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,45.0,289.2857142857143,578.5714285714286,1.0,medium packs,297.93103448275866,595.8620689655173,4.0,grams changed
+73913,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,10.0,450.0,1800.0,16.0,medium packs,86.5,346.0,2.0,grams changed
+74041,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,50.0,450.0,3150.0,16.0,medium packs,440.1888176251821,3081.3217233762743,2.0,grams changed
+74124,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,1.0,65.0,478.6821705426357,478.6821705426357,5.0,medium packs,516.3380281690141,516.3380281690141,6.0,grams changed
+74141,ILOILO,MAASIN,loaf bread,pieces,pieces,5.0,4.0,,,,pieces or units,,,,grams changed
+74169,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,50.0,450.0,900.0,16.0,medium packs,361.74242424242425,723.4848484848485,4.0,grams changed
+75047,ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,68.0,450.0,450.0,16.0,medium packs,450.0,450.0,176.0,relabelled only
+75151,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,70.0,499.99999999999994,499.99999999999994,6.0,medium packs,466.6666666666667,466.6666666666667,9.0,grams changed
+75220,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,488.91304347826093,488.91304347826093,2.0,grams changed
+75241,ILOILO,BANATE,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,450.0,450.0,16.0,medium packs,450.0,450.0,176.0,relabelled only
+75365,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,488.91304347826093,488.91304347826093,2.0,grams changed
+75411,ILOILO,BATAD,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,65.0,450.0,900.0,16.0,medium packs,430.1470588235294,860.2941176470588,5.0,grams changed
+75946,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,70.0,450.0,1350.0,23.0,medium packs,475.47169811320754,1426.4150943396226,3.0,grams changed
+76280,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,450.0,450.0,23.0,medium packs,305.66037735849056,305.66037735849056,3.0,grams changed
+76594,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,450.0,900.0,16.0,medium packs,434.0909090909091,868.1818181818182,4.0,grams changed
+76746,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,318.46153846153845,318.46153846153845,3.0,medium packs,400.0,400.0,9.0,grams changed
+76935,ILOILO,CONCEPCION,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,10.0,90.0,630.0,1.0,medium packs,96.0,672.0,4.0,grams changed
+76978,ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,500.0,500.0,7.0,medium packs,516.9230769230769,516.9230769230769,2.0,grams changed
+77007,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,25.0,450.0,2250.0,23.0,medium packs,169.81132075471697,849.0566037735848,3.0,grams changed
+77037,ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,500.0,1000.0,7.0,medium packs,,,,lost conversion
+77061,CAPIZ,PANITAN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,46.666666666666664,450.0,1350.0,23.0,medium packs,450.0,1350.0,39.0,relabelled only
+77073,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,50.0,450.0,1800.0,16.0,medium packs,442.5162259817127,1770.0649039268508,2.0,grams changed
+77229,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,5.0,450.0,1800.0,16.0,medium packs,86.5,346.0,2.0,grams changed
+77494,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,85.0,450.0,900.0,16.0,medium packs,624.3827160493828,1248.7654320987656,1.0,grams changed
+77656,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,25.0,450.0,900.0,16.0,medium packs,184.61538461538464,369.2307692307693,1.0,grams changed
+77761,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,23.0,medium packs,484.61538461538464,484.61538461538464,1.0,grams changed
+77907,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,23.0,medium packs,407.54716981132077,407.54716981132077,3.0,grams changed
+77952,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,7.0,65.0,450.0,3150.0,16.0,medium packs,439.70588235294116,3077.9411764705883,6.0,grams changed
+77996,ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,500.0,500.0,7.0,medium packs,387.6923076923077,387.6923076923077,2.0,grams changed
+78064,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,63.0,450.0,450.0,16.0,medium packs,455.79545454545456,455.79545454545456,4.0,grams changed
+78198,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,30.0,5.0,450.0,13500.0,23.0,medium packs,90.0,2700.0,4.0,grams changed
+78282,CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+78371,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,10.0,450.0,900.0,16.0,medium packs,,,,lost conversion
+78379,ILOILO,SAN DIONISIO,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,10.0,92.78350515463917,927.8350515463917,1.0,medium packs,94.0,940.0,6.0,grams changed
+78384,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,85.0,450.0,450.0,23.0,medium packs,633.9583333333334,633.9583333333334,4.0,grams changed
+78471,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+78584,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,450.0,450.0,16.0,medium packs,493.2110091743119,493.2110091743119,3.0,grams changed
+78665,ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,45.0,450.0,900.0,16.0,medium packs,450.0,900.0,176.0,relabelled only
+78666,ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,450.0,450.0,16.0,medium packs,450.0,450.0,176.0,relabelled only
+78728,ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,16.0,medium packs,433.33333333333337,433.33333333333337,2.0,grams changed
+78848,CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,65.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+79021,ILOILO,SAN JOAQUIN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,54.0,450.0,450.0,16.0,medium packs,373.84615384615387,373.84615384615387,6.0,grams changed
+79376,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,85.0,607.1428571428571,607.1428571428571,6.0,medium packs,566.6666666666667,566.6666666666667,9.0,grams changed
+79572,CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,21.0,5.0,450.0,9450.0,23.0,medium packs,450.0,9450.0,39.0,relabelled only
+80095,ANTIQUE,LAUA-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,70.0,500.0,1500.0,7.0,medium packs,484.61538461538464,1453.8461538461538,3.0,grams changed
+80371,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,450.0,900.0,16.0,medium packs,506.43939393939394,1012.8787878787879,4.0,grams changed
+80427,ILOILO,DUEAS,loaf bread,medium,medium packs,1.0,55.0,392.85714285714283,392.85714285714283,6.0,medium packs,366.6666666666667,366.6666666666667,9.0,grams changed
+80563,ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,5.0,500.0,2500.0,7.0,medium packs,90.0,450.0,3.0,grams changed
+80630,CAPIZ,MAMBUSAO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+80641,ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,40.0,450.0,450.0,16.0,medium packs,276.92307692307696,276.92307692307696,5.0,grams changed
+80904,CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,450.0,450.0,23.0,medium packs,450.0,450.0,39.0,relabelled only
+81164,ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,85.0,450.0,1350.0,16.0,medium packs,,,,lost conversion
+81590,ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,40.0,450.0,1800.0,16.0,medium packs,379.1304347826087,1516.5217391304348,4.0,grams changed
+81752,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,50.0,450.0,450.0,23.0,medium packs,372.9166666666667,372.9166666666667,4.0,grams changed
+81801,ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,450.0,450.0,16.0,medium packs,395.0617283950617,395.0617283950617,2.0,grams changed
+82106,CAPIZ,DUMALAG,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,60.0,450.0,1350.0,23.0,medium packs,436.3636363636363,1309.090909090909,4.0,grams changed
+82424,ANTIQUE,SIBALOM,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,500.0,500.0,7.0,medium packs,514.2857142857143,514.2857142857143,6.0,grams changed
+82544,ILOILO,MAASIN,loaf bread,pieces,pieces,30.0,5.0,,,,pieces or units,,,,grams changed
+82617,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,95.0,504.2307692307692,504.2307692307692,3.0,medium packs,633.3333333333334,633.3333333333334,9.0,grams changed
+82649,ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,90.0,500.0,500.0,7.0,medium packs,600.0,600.0,4.0,grams changed
+82799,ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,16.0,medium packs,434.0909090909091,434.0909090909091,4.0,grams changed
+82876,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,10.0,450.0,2250.0,16.0,medium packs,,,,lost conversion
+83138,ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,45.0,450.0,450.0,16.0,medium packs,398.26460338354144,398.26460338354144,2.0,grams changed
+83188,CAPIZ,MAMBUSAO,loaf bread,pieces,pieces,30.0,2.0,,,,pieces or units,,,,grams changed
+83273,ILOILO,DUEAS,loaf bread,medium,medium packs,3.0,60.0,428.57142857142856,1285.7142857142858,6.0,medium packs,400.0,1200.0,9.0,grams changed
+83310,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,67.0,494.2622950819672,494.2622950819672,4.0,medium packs,494.2622950819672,494.2622950819672,4.0,relabelled only
+83425,CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,60.0,450.0,450.0,23.0,medium packs,407.54716981132077,407.54716981132077,3.0,grams changed
+83930,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,55.0,450.0,450.0,16.0,medium packs,372.05882352941177,372.05882352941177,6.0,grams changed
+83957,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,10.0,450.0,900.0,16.0,medium packs,86.5,173.0,2.0,grams changed
+84060,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,70.0,450.0,450.0,23.0,medium packs,522.0833333333334,522.0833333333334,4.0,grams changed
+84090,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",glass/shots,glass/shots,2.0,5.0,,,,glass,,,,grams changed
+84230,ILOILO,CONCEPCION,loaf bread,medium,medium packs,1.0,60.0,384.0,384.0,3.0,medium packs,397.2413793103448,397.2413793103448,4.0,grams changed
+84315,ANTIQUE,PANDAN,"liquor (e.g, whisky, coconut wine)",baso,baso,3.0,6.666666666666667,250.0,750.0,1.0,glass,250.0,750.0,1.0,relabelled only
+84542,CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,45.0,450.0,900.0,23.0,medium packs,311.53846153846155,623.0769230769231,1.0,grams changed
+84562,ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,40.0,450.0,450.0,16.0,medium packs,379.1304347826087,379.1304347826087,4.0,grams changed
+84705,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,20.0,5.0,450.0,9000.0,23.0,medium packs,90.0,1800.0,4.0,grams changed
+84719,ILOILO,CABATUAN,pork,pcs,pcs,1.0,80.0,,,,pieces or units,244.32659206330993,244.32659206330993,4.0,newly converted
+85279,ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,1.0,60.0,455.0898203592814,455.0898203592814,2.0,medium packs,415.3846153846154,415.3846153846154,2.0,grams changed
+85286,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,90.0,450.0,900.0,16.0,medium packs,608.8235294117646,1217.6470588235293,6.0,grams changed
+85450,CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,21.0,5.0,450.0,9450.0,23.0,medium packs,90.0,1890.0,4.0,grams changed
+85485,ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,4.0,75.0,552.3255813953489,2209.3023255813955,5.0,medium packs,595.774647887324,2383.098591549296,6.0,grams changed
+85668,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,60.0,450.0,900.0,16.0,medium packs,405.88235294117646,811.7647058823529,6.0,grams changed
+85770,ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,14.0,12.0,450.0,6300.0,16.0,medium packs,90.2608695652174,1263.6521739130437,2.0,grams changed
+85969,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,47.0,450.0,450.0,16.0,medium packs,289.76146788990826,289.76146788990826,3.0,grams changed
+86043,ILOILO,BAROTAC VIEJO,loaf bread,tama-tama nga putos,tama-tama nga putos,5.0,10.0,450.0,2250.0,16.0,medium packs,90.0,450.0,2.0,grams changed
+86442,ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,424.6153846153846,424.6153846153846,3.0,medium packs,533.3333333333334,533.3333333333334,9.0,grams changed
+86634,ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,3.0,65.0,450.0,1350.0,16.0,medium packs,433.33333333333337,1300.0,2.0,grams changed
+86664,ILOILO,SAN MIGUEL,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,85.0,413.51351351351354,413.51351351351354,5.0,medium packs,413.51351351351354,413.51351351351354,5.0,relabelled only
+86673,ILOILO,SAN DIONISIO,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,5.0,90.0,900.0,1.0,medium packs,94.0,940.0,6.0,grams changed
+86689,ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,80.0,500.0,500.0,7.0,medium packs,576.0,576.0,3.0,grams changed
+87131,ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,4.0,10.0,450.0,1800.0,16.0,medium packs,,,,lost conversion
+87299,ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,90.0,450.0,450.0,16.0,medium packs,608.8235294117646,608.8235294117646,6.0,grams changed
+87358,CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,68.0,450.0,450.0,23.0,medium packs,507.1666666666667,507.1666666666667,4.0,grams changed
+87385,ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,10.0,5.0,450.0,4500.0,16.0,medium packs,109.0,1090.0,4.0,grams changed
+87715,ILOILO,SAN JOAQUIN,loaf bread,tama-tama nga putos,tama-tama nga putos,1.0,48.0,450.0,450.0,16.0,medium packs,332.3076923076923,332.3076923076923,6.0,grams changed
+87763,ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,2.0,70.0,450.0,900.0,16.0,medium packs,431.5596330275229,863.1192660550458,3.0,grams changed
+87774,ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,6.0,5.0,450.0,2700.0,16.0,medium packs,96.0,576.0,1.0,grams changed

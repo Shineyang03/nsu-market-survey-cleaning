@@ -2761,7 +2761,7 @@
         "data": [
           {
             "level": "all",
-            "value": 58
+            "value": 56
           }
         ]
       },
@@ -2774,7 +2774,7 @@
         "data": [
           {
             "level": "all",
-            "value": 99
+            "value": 98
           }
         ]
       },
@@ -2787,7 +2787,7 @@
         "data": [
           {
             "level": "all",
-            "value": 57
+            "value": 53
           }
         ]
       },
@@ -2800,7 +2800,7 @@
         "data": [
           {
             "level": "all",
-            "value": 86
+            "value": 84
           }
         ]
       },
@@ -2813,7 +2813,7 @@
         "data": [
           {
             "level": "all",
-            "value": 2011
+            "value": 2006
           }
         ]
       },
@@ -3464,7 +3464,7 @@
           },
           {
             "level": "ANTIQUE",
-            "value": 296
+            "value": 295
           },
           {
             "level": "CAPIZ",
@@ -3472,7 +3472,7 @@
           },
           {
             "level": "ILOILO",
-            "value": 833
+            "value": 829
           },
           {
             "level": "NEGROS OCCIDENTAL",
@@ -3914,11 +3914,11 @@
         "data": [
           {
             "level": "1",
-            "value": 839
+            "value": 833
           },
           {
             "level": "2",
-            "value": 701
+            "value": 702
           },
           {
             "level": "3",
@@ -3948,7 +3948,7 @@
         "data": [
           {
             "level": "Public Market | 1",
-            "value": 800
+            "value": 799
           },
           {
             "level": "Public Market | 2",
@@ -3960,15 +3960,15 @@
           },
           {
             "level": "Roadside Vendors | 1",
-            "value": 893
+            "value": 892
           },
           {
             "level": "Roadside Vendors | 2",
-            "value": 526
+            "value": 524
           },
           {
             "level": "Roadside Vendors | 3+",
-            "value": 415
+            "value": 416
           },
           {
             "level": "Talipapa | 1",
@@ -3993,7 +3993,7 @@
         "data": [
           {
             "level": "all",
-            "value": 1.978185595567867
+            "value": 1.9792135804607656
           }
         ]
       },
@@ -4014,7 +4014,7 @@
           },
           {
             "level": "Size-based (small, medium, large)",
-            "value": 1568
+            "value": 1564
           }
         ]
       },
@@ -4027,7 +4027,7 @@
         "data": [
           {
             "level": "all",
-            "value": 1
+            "value": 2
           }
         ]
       },
@@ -4048,7 +4048,7 @@
           },
           {
             "level": "Size-based (small, medium, large)",
-            "value": 6.2300319488817895
+            "value": 6.245996156310057
           }
         ]
       },
@@ -4069,7 +4069,7 @@
           },
           {
             "level": "medium_size",
-            "value": 974
+            "value": 970
           },
           {
             "level": "mp25_price",
@@ -4114,7 +4114,7 @@
         "data": [
           {
             "level": "all",
-            "value": 850
+            "value": 851
           }
         ]
       },
@@ -4135,7 +4135,7 @@
           },
           {
             "level": "medium_size",
-            "value": 3.4110996916752314
+            "value": 3.4251805985552117
           },
           {
             "level": "mp25_price",
@@ -4301,7 +4301,7 @@
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
-            "value": 148.9705069124424
+            "value": 152.2884792626728
           },
           {
             "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
@@ -4487,7 +4487,7 @@
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
-            "value": 217.5579768684592
+            "value": 246.86743067192916
           },
           {
             "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
@@ -4673,7 +4673,7 @@
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | g",
-            "value": 2400.0
+            "value": 4000.0
           },
           {
             "level": "drinks at restaurant, hotel, cafe, or kiosk | g",
@@ -4772,7 +4772,7 @@
         "data": [
           {
             "level": "all",
-            "value": 58
+            "value": 56
           }
         ]
       },
@@ -4785,7 +4785,7 @@
         "data": [
           {
             "level": "all",
-            "value": 57
+            "value": 53
           }
         ]
       },
@@ -4794,7 +4794,7 @@
         "title": "Distinct raw pull_nsu_unit labels folding into each item x harmonized_nsu_unit cell",
         "description": "",
         "grouping": "item | harmonized_nsu_unit",
-        "n_levels": 86,
+        "n_levels": 84,
         "data": [
           {
             "level": "beef | half",
@@ -4829,7 +4829,7 @@
             "value": 7
           },
           {
-            "level": "cabbage | sliced",
+            "level": "cabbage | slice",
             "value": 1
           },
           {
@@ -4913,16 +4913,12 @@
             "value": 4
           },
           {
-            "level": "crackers, cookies, buiscuits, chips/curls | balde",
-            "value": 1
-          },
-          {
             "level": "crackers, cookies, buiscuits, chips/curls | big can",
             "value": 1
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | bucket",
-            "value": 1
+            "value": 2
           },
           {
             "level": "crackers, cookies, buiscuits, chips/curls | pack",
@@ -4937,7 +4933,7 @@
             "value": 1
           },
           {
-            "level": "drinks at restaurant, hotel, cafe, or kiosk | pieces",
+            "level": "drinks at restaurant, hotel, cafe, or kiosk | pieces or units",
             "value": 1
           },
           {
@@ -5001,11 +4997,11 @@
             "value": 3
           },
           {
-            "level": "liquor (e.g, whisky, coconut wine) | baso",
+            "level": "liquor (e.g, whisky, coconut wine) | gin",
             "value": 1
           },
           {
-            "level": "liquor (e.g, whisky, coconut wine) | gin",
+            "level": "liquor (e.g, whisky, coconut wine) | glass",
             "value": 1
           },
           {
@@ -5030,15 +5026,11 @@
           },
           {
             "level": "loaf bread | medium packs",
-            "value": 5
+            "value": 6
           },
           {
             "level": "loaf bread | small packs",
             "value": 3
-          },
-          {
-            "level": "loaf bread | tama-tama nga putos",
-            "value": 1
           },
           {
             "level": "mango | papaya, mango, banana",
@@ -5151,11 +5143,11 @@
         "data": [
           {
             "level": "1",
-            "value": 58
+            "value": 55
           },
           {
             "level": "2",
-            "value": 10
+            "value": 11
           },
           {
             "level": "3+",
