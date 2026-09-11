@@ -351,6 +351,61 @@ def main():
                 })
     near = pd.DataFrame(nm).sort_values("key_similarity", ascending=False)
 
+    # ------------------------------------------------------- original decisions
+    # EVERY NSU harmonization decision the original pipeline made, checked against what
+    # the current one produces. The original is outputs/temp/ms_nsu_item_rename.dta, the
+    # table dofiles/archive/cleaning.do merged at its line 869; the only manual NSU
+    # statement outside it is the mixed-bag rule at line 874, which now lives in
+    # MIX_UNITS / CELL_MIX with a tripwire in 03_clean_ms.do.
+    #
+    # The point of this sheet is that a decision must never be lost QUIETLY. Every
+    # departure has to be one of: a documented code override, or a row a documented
+    # filter removed. Anything else lands as UNEXPLAINED and should be treated as a bug.
+    orig_path = DC / "outputs" / "temp" / "ms_nsu_item_rename.dta"
+    orig_rows = []
+    if orig_path.exists():
+        orig = pd.read_stata(orig_path)
+        orig["item"] = orig.pull_item.map(ni)
+        orig["raw"] = orig.pull_nsu_unit.map(nz)
+        orig["orig_cleaned"] = orig.cleaned_nsu_unit.map(nz)
+        built = {(r.item, r.raw): (r.clean, r.harm) for r in master.itertuples()}
+        dropped = {}
+        dpath = TABLES / "master_rename_dropped_labels.csv"
+        if dpath.exists():
+            dd = pd.read_csv(dpath, encoding="utf-8-sig")
+            for r in dd.itertuples():
+                dropped[(ni(r.cons_name), nz(r.pull_nsu_unit))] = str(r.drop_reason)
+        for r in orig.itertuples():
+            cur_clean, route = nfr.to_cleaned(r.item, r.raw)
+            cur_clean = nz(cur_clean)
+            b = built.get((r.item, r.raw))
+            drop_reason = dropped.get((r.item, r.raw), "")
+            same = cur_clean == r.orig_cleaned
+            if same and b:
+                status = "survived"
+            elif not b and drop_reason:
+                status = f"dropped by a documented filter: {drop_reason}"
+            elif not b:
+                status = "UNEXPLAINED -- not in the build and not in the drop ledger"
+            elif route == "generic":
+                status = "deliberate override (GENERIC_CLEAN)"
+            elif (r.item, r.raw) in nfr.RENAME and nz(nfr.RENAME[(r.item, r.raw)]) != r.orig_cleaned:
+                status = "deliberate override (rename crosswalk edited)"
+            else:
+                status = "UNEXPLAINED -- cleaned value changed with no recorded reason"
+            orig_rows.append({
+                "item": r.item,
+                "pull_nsu_unit": r.raw,
+                "original_cleaned": r.orig_cleaned,
+                "current_cleaned": cur_clean,
+                "current_harmonized": b[1] if b else "",
+                "route": route,
+                "reaches_build": int(b is not None),
+                "status": status,
+                "original_note": str(r.note or ""),
+            })
+    original = pd.DataFrame(orig_rows)
+
     groups_now = (grouped[["lbl", "group", "canonical_unit", "n_ms_i", "n_pr_i", "resolved_by"]]
                   .rename(columns={"lbl": "unit_lbl", "group": "translation_group",
                                    "n_ms_i": "n_ms", "n_pr_i": "n_price"})
@@ -365,6 +420,8 @@ def main():
         near.to_excel(xl, sheet_name="near_miss", index=False)
         cross.to_excel(xl, sheet_name="cross_item", index=False)
         full.to_excel(xl, sheet_name="full_mapping", index=False)
+        if len(original):
+            original.to_excel(xl, sheet_name="original_decisions", index=False)
         groups_now.to_excel(xl, sheet_name="groups_now", index=False)
 
     if archived:
@@ -387,6 +444,18 @@ def main():
     print(f"  near_miss    {len(near):5d}")
     print(f"  cross_item   {len(cross):5d}  ({cross.pull_nsu_unit.nunique() if len(cross) else 0} labels)")
     print(f"  full_mapping {len(full):5d}")
+    if len(original):
+        surv = (original.status == "survived").sum()
+        delib = original.status.str.startswith("deliberate").sum()
+        drop = original.status.str.startswith("dropped").sum()
+        bad = original[original.status.str.startswith("UNEXPLAINED")]
+        print(f"  original_decisions {len(original):3d}  ({surv} survived unchanged, "
+              f"{delib} deliberate override, {drop} dropped by a documented filter)")
+        if len(bad):
+            print(f"  ! {len(bad)} ORIGINAL DECISION(S) CHANGED WITH NO RECORDED REASON:")
+            for r in bad.itertuples():
+                print(f"      [{r.item}] {r.pull_nsu_unit!r}: "
+                      f"{r.original_cleaned!r} -> {r.current_cleaned!r}")
     print(f"  groups_now   {len(groups_now):5d}")
     return to_review, live, near, cross, full
 
