@@ -393,9 +393,15 @@ def main():
                       or "(not observed)")
         rev.append({
             "unit_lbl": r.lbl,
-            "n_ms": r.n_ms_i,
-            "n_price": r.n_pr_i,
-            "n_obs": r.n_obs,
+            # FROZEN counts, hand-entered in the crosswalk workbook. Nothing in the tree
+            # regenerates them and they no longer match the build: n_ms sums to 11,495
+            # against 11,335 actual weighing rows, n_price to 5,412 against 2,927
+            # price-side rows. Kept because they are what the crosswalk records; use the
+            # live counts beside them for anything that matters.
+            "n_ms_frozen": r.n_ms_i,
+            "n_price_frozen": r.n_pr_i,
+            "n_obs_frozen": r.n_obs,
+            "n_rows_in_build": int((master.raw == r.lbl).sum()),
             "observed_in_build": int(r.lbl in set(master.raw)),
             "current_harmonized": cur_harm.get(r.lbl, "(not observed)"),
             "items_using": "; ".join(used_by),
@@ -436,7 +442,8 @@ def main():
     # labels whose group actually governs something come first, biggest blast radius
     # at the top; the rows a reviewer can genuinely skip sink to the bottom
     to_review = to_review.sort_values(
-        ["safe_to_skip", "rows_affected_own", "rows_affected_other_labels", "n_obs"],
+        ["safe_to_skip", "rows_affected_own", "rows_affected_other_labels",
+         "n_rows_in_build"],
         ascending=[True, False, False, False]).reset_index(drop=True)
 
     # NEAR MISSES ARE PROPOSALS FOR A HUMAN, NEVER A MECHANISM -- and this sheet is the
@@ -538,6 +545,103 @@ def main():
                                    "n_ms_i": "n_ms", "n_pr_i": "n_price"})
                   .sort_values(["translation_group", "unit_lbl"]))
 
+    # ------------------------------------------------------------ column guide
+    # Every column of to_review, said plainly, including where a number comes from and
+    # whether it is live or frozen. Shipped as a sheet so it travels with the workbook.
+    GUIDE = [
+        ("unit_lbl", "the raw NSU label, normalized (ASCII, lower-case, whitespace "
+                     "collapsed). This is the thing being decided.", "key"),
+        ("n_ms_frozen", "market-survey weighing rows carrying this label, AS RECORDED "
+                        "IN THE CROSSWALK WORKBOOK. Hand-entered and frozen: nothing in "
+                        "the tree regenerates it and it no longer matches the build "
+                        "(sums to 11,495 against 11,335 actual weighing rows). NOT a "
+                        "PSPS household count.", "frozen"),
+        ("n_price_frozen", "price-file rows carrying this label, as recorded in the "
+                           "crosswalk workbook. Also frozen (sums to 5,412 against "
+                           "2,927 price-side rows). NOT a PSPS household count.",
+         "frozen"),
+        ("n_obs_frozen", "n_ms_frozen + n_price_frozen. The crosswalk's own measure of "
+                         "how common a label is. Frozen; use n_rows_in_build instead.",
+         "frozen"),
+        ("n_rows_in_build", "rows of master_nsu_rename carrying this label -- one per "
+                            "(province, municipality, item, label). Computed live from "
+                            "the current build. This is the honest size measure.", "live"),
+        ("observed_in_build", "1 if the label appears in master_nsu_rename at all. 0 "
+                              "means a documented filter removed it and no decision is "
+                              "needed.", "live"),
+        ("current_harmonized", "the harmonized_nsu_unit the build currently publishes "
+                               "for this label; several values separated by '; ' means "
+                               "it resolves differently depending on the item.", "live"),
+        ("items_using", "the items this label appears with.", "live"),
+        ("safe_to_skip", "1 if giving this label a translation group changes NOTHING "
+                         "anywhere. MEASURED, not inferred: each label is assigned a "
+                         "sentinel group and every harmonized value recomputed.", "live"),
+        ("rows_affected_own", "rows of this label that would move if its group changed.",
+         "live"),
+        ("rows_affected_other_labels", "rows of OTHER labels that would move -- "
+                                       "collateral via labels that reduce to this one "
+                                       "or carry it as their cleaned value.", "live"),
+        ("currently_decided_by", "which branch of to_cleaned() resolves it today "
+                                 "(rename, heuristic, generic, ...), or the mixed-bag "
+                                 "entry. Information only -- NOT a reason to skip.",
+         "live"),
+        ("n_weighings_this_label", "market-survey weighings whose OWN raw spelling is "
+                                   "this label. Live from nsu_weighings_cpi.", "live"),
+        ("median_g_this_label", "median corrected weight of those weighings, grams.",
+         "live"),
+        ("n_weighings_in_bucket", "weighings in the (item, harmonized) cells this label "
+                                  "lands in -- what it is already pooled with.", "live"),
+        ("median_g_in_bucket", "median corrected weight of that bucket, grams. Pools "
+                               "across items where the label spans items, so read it "
+                               "with items_using.", "live"),
+        ("fold_key_counts", "counts kept by the fold key. A leading 1 is dropped as "
+                            "redundant; any other count is kept and blocks a fold.",
+         "derived"),
+        ("fold_key_tokens", "the fold key's token bag: punctuation, word order, English "
+                            "plurals, prepositions and a restatement of the item are "
+                            "removed. Equal keys mean the same referent.", "derived"),
+        ("same_key_labels", "every OTHER crosswalk label sharing this fold key.",
+         "derived"),
+        ("same_key_grouped_siblings", "those siblings that already carry a translation "
+                                      "group, with the group named. If this is "
+                                      "non-empty the answer is usually that group.",
+         "derived"),
+        ("proposed_action", "group <g> / fold <l> / keep / notaunit / manual. See "
+                            "harmonization_verdicts.py.", "proposal"),
+        ("proposed_target", "the group or label to harmonize onto, for group/fold only.",
+         "proposal"),
+        ("compared_against", "for a keep, the nearest candidate, named so the weight "
+                             "test is exercised rather than asserted.", "proposal"),
+        ("fold_class", "spelling (one word, folds unconditionally, weight test has NO "
+                       "standing) / translation (different words claimed to share a "
+                       "referent, weight test GATES) / count / size / distinct / "
+                       "notaunit / field.", "proposal"),
+        ("basis", "what the proposal rests on: measured, structural, language, field. "
+                  "'language' is the category to check -- if the reading is wrong, "
+                  "nothing in the data will show it.", "proposal"),
+        ("weight_test", "per item: this label's median against the target's median in "
+                        "the SAME item, with the ratio. 'VETO' where a translation "
+                        "claim exceeds the ratio line. Never pooled across items.",
+         "proposal"),
+        ("proposed_why", "the reasoning, quoted from the verdict table.", "proposal"),
+        ("string_only_proposed_group", "a second opinion from the original string-only "
+                                       "proposer, which consults no weighings and can "
+                                       "only ever name one of the existing groups. Kept "
+                                       "so the two can be compared.", "proposal"),
+        ("string_only_why", "that proposer's reason.", "proposal"),
+        ("string_only_confidence", "strong / medium / none, from the string-only "
+                                   "proposer. Medium is visibly noisy.", "proposal"),
+        ("prior_verdict", "your decision from the newest reviewed workbook, matched on "
+                          "the label.", "review"),
+        ("prior_verdict_from", "which reviewed workbook it came from.", "review"),
+        ("verdict_landed", "1 if that prior decision is reflected in what the build "
+                           "publishes now.", "review"),
+        ("Corrected Group", "YOURS TO FILL. Overrides the proposal; read back on the "
+                            "next run.", "review"),
+        ("reviewer_note", "YOURS TO FILL. Free text.", "review"),
+    ]
+    guide = pd.DataFrame(GUIDE, columns=["column", "meaning", "kind"])
+
     # ------------------------------------------------------------ self-check
     # EVERY DERIVED COLUMN IS RECOMPUTED A SECOND WAY AND COMPARED. This exists because
     # a column here was wrong in a way no reader could have spotted: `already_resolved_by'
@@ -554,8 +658,11 @@ def main():
         return [z for z in str(s or "").split("; ") if z and z != "nan"]
 
     obs_raw = set(master.raw)
-    verify("n_obs disagrees with the crosswalk",
-           all(int(cw.set_index("lbl").n_obs.get(nz(r.unit_lbl), -1)) == r.n_obs
+    verify("n_obs_frozen disagrees with the crosswalk",
+           all(int(cw.set_index("lbl").n_obs.get(nz(r.unit_lbl), -1)) == r.n_obs_frozen
+               for r in to_review.itertuples()))
+    verify("n_rows_in_build disagrees with master_nsu_rename",
+           all(int((master.raw == nz(r.unit_lbl)).sum()) == r.n_rows_in_build
                for r in to_review.itertuples()))
     verify("observed_in_build disagrees with master_nsu_rename",
            all((nz(r.unit_lbl) in obs_raw) == bool(r.observed_in_build)
@@ -589,6 +696,14 @@ def main():
     verify("full_mapping fold key is not keyed on the raw label",
            all(nfr.foldkey(ni(r.item), nz(r.pull_nsu_unit))[1] == r.fold_key_tokens
                for r in full.itertuples()))
+    # the column guide must describe exactly the columns that exist. A guide that has
+    # drifted from the sheet is worse than no guide, because it is trusted.
+    verify("to_review columns missing from column_guide", not
+           (set(to_review.columns) - set(guide.column)),
+           str(sorted(set(to_review.columns) - set(guide.column))))
+    verify("column_guide describes columns that do not exist", not
+           (set(guide.column) - set(to_review.columns)),
+           str(sorted(set(guide.column) - set(to_review.columns))))
     # the verdict table must cover exactly the labels whose group governs something
     governing = {nz(r.unit_lbl) for r in to_review.itertuples() if not r.safe_to_skip}
     verify("labels whose group governs something but carry no written verdict",
@@ -613,6 +728,7 @@ def main():
     archived = archive_annotated()
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with pd.ExcelWriter(OUT, engine="openpyxl") as xl:
+        guide.to_excel(xl, sheet_name="column_guide", index=False)
         to_review.to_excel(xl, sheet_name="to_review", index=False)
         live.to_excel(xl, sheet_name="live_gaps", index=False)
         near.to_excel(xl, sheet_name="near_miss", index=False)
