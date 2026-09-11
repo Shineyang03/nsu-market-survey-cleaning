@@ -118,6 +118,25 @@ foreach v in cleaned_nsu_unit harmonized_nsu_unit fallback_harmonized_nsu_unit {
 
 destring n_cell_merged, replace
 
+* price_case_id is an id, so it must be a number. `stringcols(_all)' above imports every
+* column as text -- the right default when a raw NSU label like `1/2' would otherwise be
+* read as a date -- which leaves ids as strings too. Destring here, after the import has
+* done its job, rather than carving an exception into it.
+*
+* `force' is NOT used, deliberately: the MS & Price rows are blank by design (their id is
+* the WEIGHING id, which lives at weighing grain), and blanks destring to missing without
+* it. If a non-numeric value ever appears, destring should fail and say so rather than
+* silently turning the row into a missing id.
+destring price_case_id, replace
+capture confirm numeric variable price_case_id
+if _rc {
+	di as error "price_case_id did not destring -- a non-numeric value reached it."
+	di as error "It is written by 01_build_crosswalk.py as a nullable integer; check there."
+	exit 459
+}
+label var price_case_id "Price Only: durable case id, same sequence as the weighing ids"
+notes price_case_id: blank on MS & Price rows -- those are identified by their weighing id
+
 label var pull_item                    "trimmed & lower case pull_item (cons_name in master)"
 label var pull_nsu_unit                "Raw NSU unit, trimmed & lower case, ASCII-dropped"
 label var cleaned_nsu_unit             "ref only: pull_nsu_unit cleaned for spelling"

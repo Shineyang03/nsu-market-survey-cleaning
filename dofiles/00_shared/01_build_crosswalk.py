@@ -320,8 +320,14 @@ if REG.exists():
     # MS & Price rows are left blank on purpose: their id is the WEIGHING id, which
     # lives at weighing grain and cannot sit on a case row without implying one
     # weighing per case.
-    master["price_case_id"] = master._idkey.map(reg.set_index("idkey").id)
+    # Int64, NOT the default. `.map()' over a key with unmatched rows produces NaN,
+    # which upcasts the whole column to float, and the writer then emits `11687.0' --
+    # an id with a decimal point, as text. The nullable integer type holds the misses
+    # without upcasting, so the CSV carries `11687' and Stata can destring it.
+    master["price_case_id"] = (master._idkey.map(reg.set_index("idkey").id)
+                               .astype("Int64"))
     master.loc[~_po, "price_case_id"] = pd.NA
+    assert master.price_case_id.dtype == "Int64", master.price_case_id.dtype
     n_id = int(master.price_case_id.notna().sum())
     print(f"crosswalk: {n_id:,} of {int(_po.sum()):,} price-only rows carry a price_case_id")
     assert n_id == int(_po.sum()), "a price-only crosswalk row did not receive an id"

@@ -109,6 +109,7 @@ merge.
 | `cell_merge_with` | Other raw nsus **in the same `(prov,mun,item)` cell** that share this row's `harmonized_nsu_unit` — the sibling spellings/translations it pools with (`; `-separated). Empty if it's the only spelling in its cell. |
 | `n_cell_merged` | Count of raw spellings in this cell that collapse to this `harmonized_nsu_unit` (this row + `cell_merge_with`). `>1` means an in-cell merge happened. |
 | `cause_label`, `in_MS_as` | Populated for `Price Only` rows (from the diagnosis); blank otherwise. |
+| `price_case_id` | Durable id for a `Price Only` case, continuing the same sequence as the weighing ids so a number means one thing across the project. **Blank on `MS & Price` rows by design** — those are identified by their weighing id, which lives at weighing grain and cannot sit on a case row without implying one weighing per case. Numeric; `03_clean_ms.do` destrings it after the `stringcols(_all)` import. |
 
 **Weight de-contamination (raw-sourced):** because the cell inventory and the weights are built from
 **raw** `pull_nsu_unit` re-cleaned by our (corrected) rename — not `nsu_data`'s `cleaned_nsu_unit` — the
@@ -116,3 +117,43 @@ old rename's bad `putos → pack` fold for *ice cream* and *crackers* no longer 
 Those items now carry `putos` (~60 g / ~160 g) and `pack` (~525 g / ~300 g) as separate harmonized
 units with their own weights; the other validated `putos` folds (e.g. cabbage `putos`≈`pack`) are
 unchanged. See `docs/master_rename.md` for construction and use.
+
+---
+
+## `outputs/build/deliverables/outcome2_lookup.csv` — the Outcome 2 conversion lookup
+
+One row per published conversion point. The column that causes the most confusion is
+`psps_month`, so it is explained first.
+
+### `psps_month` is blank on most rows, and that is structural — not missing data
+
+`psps_month` is populated on **exactly** the price-quantity rows and blank on every other
+row:
+
+| `branch` | rows | `psps_month` |
+|---|--:|---|
+| `price-quantity` | 1,093 | populated |
+| `size-based` | 2,633 | **blank** |
+| `conventional` | 24 | **blank** |
+
+`infl_factor` and `n_cpi_vals` are blank on identically the same rows.
+
+**Why.** Only Branch P carries a market-survey *price*, and a price collected in one month
+has to be restated in the household's interview month before it can be compared with what
+that household paid — that is what `24_inflate_to_psps_month.do` does, and it is the only
+step that needs a month. A size-based weight comes from weighings with no price attached,
+so there is no month to restate and no inflation factor to apply. The row is complete
+without them.
+
+**It is not a broken join.** A join failing on a unit-label mismatch would scatter blanks
+across all three branches; these align perfectly with one. Read a blank here as *not
+applicable*, the same way you would read a blank `price_case_id` on an `MS & Price` row.
+
+### The other columns readers ask about
+
+| column | definition |
+|---|---|
+| `conv_rank` | Which rung of the fallback ladder supplied this row. `0` is a same-cell match; `1`–`3` are borrowed rungs, widening from municipality to province to item. Blank where no weighing stands behind the row. |
+| `w_use`, `v_use` | The weight used, and the value per gram derived from it (`v = p_g / w_g`). `v_use` is what a household price is divided by to get grams. |
+| `d_point_usable`, `unusable_why` | Whether the price point can carry a conversion, and if not, why. 495 of 3,750 rows are unusable and say so rather than being dropped. |
+| `n_g`, `n_disputed`, `n_flagged`, `n_uncertain`, `share_uncertain` | How many weighings stand behind the row, and how many of them were questioned. `share_uncertain == 1` is the sharp signal — nothing behind the estimate went unquestioned. See A20. |
