@@ -90,6 +90,7 @@ AKLAN,BURUANGA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binil
 AKLAN,LIBACAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,pieces or units,,safe-fold,,1,27.0,269.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['putos', 'small cup']"
 AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,,fold(untested/minor-flag),,1,4.0,83.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
 AKLAN,NABAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",maisot nga tasa,small cup,,fold(untested/minor-flag),,1,3.0,83.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['binilog', 'putos']"
+AKLAN,BURUANGA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 AKLAN,LIBACAO,loaf bread,kasarangan nga putos,,,safe-fold,,3,10.0,161.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
 AKLAN,LIBACAO,loaf bread,mabahoe nga putos,,,safe-fold,,3,11.0,161.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
 AKLAN,LIBACAO,loaf bread,maisot nga putos,,,fold(untested/minor-flag),,1,15.0,134.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
@@ -168,11 +169,22 @@ ANTIQUE,TOBIAS FORNIER,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo
 ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",jr,junior lapad,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (spelling-fold); cell has ['gin', 'lipid / lapad', 'long-neck']"
 ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",glass,glass,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (heuristic); cell has ['lipid / lapad', 'long-neck']"
 ANTIQUE,BUGASONG,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),,1,10.0,134.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,6.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ANTIQUE,CULASI,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,2,1.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,5.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,LAUA-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,4.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,7.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 ANTIQUE,PANDAN,loaf bread,dalagku nga putos,large packs,,safe-fold,,1,1.0,12.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
 ANTIQUE,PANDAN,loaf bread,daragkul nga putos,large packs,,safe-fold,,1,3.0,83.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
 ANTIQUE,PANDAN,loaf bread,malaking packs,large packs,,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,valid for item elsewhere (heuristic); cell has ['small packs']
 ANTIQUE,PANDAN,loaf bread,medium nga putos,medium packs,,safe-fold,,1,1.0,75.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
-ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,,1,6.0,56.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
+ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,,identity(ungrouped),,1,6.0,56.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
+ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,4.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,5.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,5.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,SIBALOM,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,3.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,TIBIAO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,2,1.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ANTIQUE,TOBIAS FORNIER,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,3.0,56.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 ANTIQUE,TIBIAO,"mineral or spring water, all drinking water sold in containers",7 liters of gallons,,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
 ANTIQUE,PANDAN,pork,pieces barbeque,,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,item absent from this cell (item not surveyed anywhere in province); step1=heuristic
 ANTIQUE,BUGASONG,"prawns, lobster, shrimp",tumpok,,,safe-fold,,1,1.0,7.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
@@ -284,28 +296,34 @@ CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,pu
 CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,,safe-fold,,1,2.0,57.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['lipid / lapad']
 CAPIZ,SIGMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,,safe-fold,,3,15.0,57.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['bottle (500 ml)', 'lipid / lapad']"
 CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,,safe-fold,,1,9.0,57.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['lipid / lapad']
+CAPIZ,DUMALAG,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,4.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,18.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,11.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['individual', 'large packs', 'medium packs', 'small packs']"
+CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,13.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 CAPIZ,MAMBUSAO,loaf bread,medium,medium packs,,safe-fold,,1,8.0,143.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'small packs']"
-CAPIZ,MAMBUSAO,loaf bread,tama-tama nga putos,medium packs,,safe-fold,,3,4.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'small packs']"
+CAPIZ,MAMBUSAO,loaf bread,tama-tama nga putos,tama-tama nga putos,,identity(ungrouped),,3,4.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'small packs']"
 CAPIZ,PANAY,loaf bread,dalagku nga putos,large packs,,safe-fold,,3,12.0,46.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'small packs']"
 CAPIZ,PANAY,loaf bread,large,large packs,,safe-fold,,3,8.0,118.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'small packs']"
+CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,23.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'small packs']"
 CAPIZ,PANITAN,loaf bread,large,large packs,,safe-fold,,3,13.0,118.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
 CAPIZ,PANITAN,loaf bread,medium,medium packs,,safe-fold,,1,16.0,143.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
-CAPIZ,PANITAN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,,1,3.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
+CAPIZ,PANITAN,loaf bread,tama-tama nga putos,tama-tama nga putos,,identity(ungrouped),,1,3.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['small packs']
 CAPIZ,PILAR,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),,1,10.0,212.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 CAPIZ,PILAR,loaf bread,medium,medium packs,,safe-fold,,1,3.0,143.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 CAPIZ,PILAR,loaf bread,small,small packs,,fold(untested/minor-flag),,1,9.0,76.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
-CAPIZ,PILAR,loaf bread,tama-tama nga putos,medium packs,,safe-fold,,1,12.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,,identity(ungrouped),,1,12.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 CAPIZ,SAPI-AN,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),,3,12.0,212.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
 CAPIZ,SAPI-AN,loaf bread,maisot nga putos,small packs,,fold(untested/minor-flag),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
 CAPIZ,SAPI-AN,loaf bread,small,small packs,,fold(untested/minor-flag),,1,2.0,76.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,6.0,115.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
 CAPIZ,SIGMA,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),,3,36.0,212.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 CAPIZ,SIGMA,loaf bread,medium,medium packs,,safe-fold,,3,17.0,143.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 CAPIZ,SIGMA,loaf bread,small,small packs,,fold(untested/minor-flag),,1,8.0,76.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
-CAPIZ,SIGMA,loaf bread,tama-tama nga putos,medium packs,,safe-fold,,1,9.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,,identity(ungrouped),,1,9.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 CAPIZ,TAPAZ,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),,1,21.0,212.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 CAPIZ,TAPAZ,loaf bread,medium,medium packs,,safe-fold,,1,6.0,143.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 CAPIZ,TAPAZ,loaf bread,small,small packs,,fold(untested/minor-flag),,1,1.0,76.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
-CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,medium packs,,safe-fold,,1,12.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,,identity(ungrouped),,1,12.0,115.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 CAPIZ,MAMBUSAO,mango,bilog,,,safe-fold,,3,2.0,39.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
 CAPIZ,TAPAZ,"mineral or spring water, all drinking water sold in containers",5 gallon black container,,,safe-fold,,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
 CAPIZ,PANAY,pork,pack,,,keep-separate,,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
@@ -480,22 +498,45 @@ ILOILO,SAN DIONISIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",
 ILOILO,GUIMBAL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,,,safe-fold,,3,9.0,1883.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
 ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",glass/shots,glass,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (spelling-fold); cell has ['junior lapad', 'lipid / lapad', 'long-neck']"
 ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",baso,glass,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"valid for item elsewhere (spelling-fold); cell has ['lipid / lapad', 'long-neck']"
+ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,23.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,4.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 ILOILO,BADIANGAN,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),,1,44.0,475.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
 ILOILO,BADIANGAN,loaf bread,small,small packs,,fold(untested/minor-flag),,1,13.0,222.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,23.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,8.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 ILOILO,BANATE,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),,3,6.0,475.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 ILOILO,BANATE,loaf bread,medium,medium packs,,safe-fold,,1,2.0,412.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 ILOILO,BANATE,loaf bread,medium packs,medium packs,,safe-fold,,1,2.0,7.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
 ILOILO,BANATE,loaf bread,small,small packs,,fold(untested/minor-flag),,2,1.0,222.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
-ILOILO,BANATE,loaf bread,tama-tama nga putos,medium packs,,safe-fold,,3,5.0,252.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,BANATE,loaf bread,tama-tama nga putos,tama-tama nga putos,,identity(ungrouped),,3,5.0,252.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,BAROTAC VIEJO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,2,1.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,BATAD,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,5.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,16.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 ILOILO,CALINOG,loaf bread,small,small packs,,fold(untested/minor-flag),,1,6.0,222.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,15.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,DINGLE,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,2.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,IGBARAS,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,2,1.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,JANIUAY,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,2,1.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,5.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 ILOILO,LEGANES,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),,3,11.0,475.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
-ILOILO,LEGANES,loaf bread,tama-tama nga putos,medium packs,,safe-fold,,1,8.0,252.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,,identity(ungrouped),,1,8.0,252.0,2,empty/uncommon,False,valid for item elsewhere (rename); cell has ['large packs']
+ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,14.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 ILOILO,MAASIN,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),,3,20.0,475.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
 ILOILO,MAASIN,loaf bread,small,small packs,,fold(untested/minor-flag),,1,28.0,222.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,10.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs']"
+ILOILO,MIAGAO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,3.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,MINA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,2.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,21.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,7.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 ILOILO,SAN DIONISIO,loaf bread,dalagku nga putos,large packs,,safe-fold,,1,7.0,253.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'tama-tama nga putos']"
 ILOILO,SAN DIONISIO,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),,3,30.0,475.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'tama-tama nga putos']"
 ILOILO,SAN DIONISIO,loaf bread,large,large packs,,safe-fold,,3,10.0,336.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'tama-tama nga putos']"
 ILOILO,SAN DIONISIO,loaf bread,small,small packs,,fold(untested/minor-flag),,1,4.0,222.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['medium packs', 'tama-tama nga putos']"
+ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,9.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,SAN JOAQUIN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,2.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,SAN RAFAEL,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,3.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,1,15.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
+ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,identity(ungrouped),,3,6.0,252.0,2,empty/uncommon,False,"valid for item elsewhere (rename); cell has ['large packs', 'medium packs', 'small packs']"
 ILOILO,BADIANGAN,mango,bilog,,,safe-fold,,1,2.0,112.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=rename"
 ILOILO,CALINOG,"mineral or spring water, all drinking water sold in containers",black gallon,,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
 ILOILO,MINA,pork,portion,,,identity(ungrouped),,1,1.0,1.0,2,empty/uncommon,False,"item absent from this cell (item in province, not this city); step1=heuristic"
@@ -638,7 +679,6 @@ AKLAN,ALTAVAS,loaf bread,mabahoe nga putos,large packs,,safe-fold,large packs,3,
 AKLAN,ALTAVAS,loaf bread,malaking packs,large packs,,safe-fold,large packs,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'large packs'
 AKLAN,BATAN,loaf bread,small,small packs,,fold(untested/minor-flag),small packs,1,1.0,6.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 AKLAN,BURUANGA,loaf bread,small packs,small packs,,fold(untested/minor-flag),small packs,3,4.0,5.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
-AKLAN,BURUANGA,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 AKLAN,IBAJAY,loaf bread,large,large packs,,safe-fold,large packs,1,1.0,5.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 AKLAN,IBAJAY,loaf bread,maisot nga putos,small packs,,fold(untested/minor-flag),small packs,1,23.0,134.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 AKLAN,IBAJAY,loaf bread,medium,medium packs,,safe-fold,medium packs,1,2.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
@@ -723,38 +763,27 @@ ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,,s
 ANTIQUE,BELISON,loaf bread,daragkul nga putos,large packs,,safe-fold,large packs,1,5.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,BUGASONG,loaf bread,daragkul nga putos,large packs,,safe-fold,large packs,3,4.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,BUGASONG,loaf bread,medium nga putos,medium packs,,safe-fold,medium packs,1,2.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,6.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ANTIQUE,CULASI,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,2,1.0,12.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,CULASI,loaf bread,daragkul nga putos,large packs,,safe-fold,large packs,1,3.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,CULASI,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,8.0,134.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ANTIQUE,CULASI,loaf bread,medium nga putos,medium packs,,safe-fold,medium packs,1,3.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ANTIQUE,CULASI,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,2,1.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ANTIQUE,HAMTIC,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,1,5.0,12.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,HAMTIC,loaf bread,daragkul nga putos,large packs,,safe-fold,large packs,3,5.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,HAMTIC,loaf bread,medium nga putos,medium packs,,safe-fold,medium packs,1,4.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,5.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ANTIQUE,LAUA-AN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,4.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ANTIQUE,LIBERTAD,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,4,3.0,12.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,LIBERTAD,loaf bread,maliit na packs,small packs,,fold(untested/minor-flag),small packs,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
-ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,7.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ANTIQUE,PATNONGON,loaf bread,daragkul nga putos,large packs,,safe-fold,large packs,3,5.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,PATNONGON,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,24.0,134.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ANTIQUE,PATNONGON,loaf bread,medium nga putos,medium packs,,safe-fold,medium packs,1,8.0,75.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,4.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ANTIQUE,SAN REMIGIO,loaf bread,daragkul nga putos,large packs,,safe-fold,large packs,1,6.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,SAN REMIGIO,loaf bread,large,large packs,,safe-fold,large packs,2,1.0,20.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,SAN REMIGIO,loaf bread,medium,medium packs,,safe-fold,medium packs,2,1.0,25.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,5.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ANTIQUE,SEBASTE,loaf bread,medium,medium packs,,safe-fold,medium packs,1,1.0,25.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,5.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ANTIQUE,SIBALOM,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,6.0,134.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ANTIQUE,SIBALOM,loaf bread,large,large packs,,safe-fold,large packs,1,6.0,20.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ANTIQUE,SIBALOM,loaf bread,medium,medium packs,,safe-fold,medium packs,1,4.0,25.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ANTIQUE,SIBALOM,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,3.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ANTIQUE,TIBIAO,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,1,1.0,12.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
-ANTIQUE,TIBIAO,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,2,1.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ANTIQUE,TOBIAS FORNIER,loaf bread,daragkul nga putos,large packs,,safe-fold,large packs,1,19.0,83.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
-ANTIQUE,TOBIAS FORNIER,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,3.0,56.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ANTIQUE,SIBALOM,mango,binilog,pieces or units,,safe-fold,bilog,2,1.0,8.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
 ANTIQUE,VALDERRAMA,"preserved or processed meat (tocino, tapa, longaniza, etc)",can,cans,,safe-fold,lata,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'lata'
 CAPIZ,DAO,cabbage,putos /mix mix,putos (mix vegetable),,identity(ungrouped),putos (mix vegetable),1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'putos (mix vegetable)'
@@ -772,23 +801,17 @@ CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,,sa
 CAPIZ,CUARTERO,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,5,4.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 CAPIZ,DUMALAG,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,3.0,46.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 CAPIZ,DUMALAG,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,3.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-CAPIZ,DUMALAG,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,4.0,115.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 CAPIZ,IVISAN,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,4.0,46.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 CAPIZ,IVISAN,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,46.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 CAPIZ,IVISAN,loaf bread,medium packs,medium packs,,safe-fold,medium packs,1,2.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 CAPIZ,IVISAN,loaf bread,small packs,small packs,,fold(untested/minor-flag),small packs,1,1.0,1.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
-CAPIZ,IVISAN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,18.0,115.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 CAPIZ,JAMINDAN,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,27.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,11.0,115.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 CAPIZ,MA-AYON,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,4.0,46.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 CAPIZ,MA-AYON,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,12.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,13.0,115.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 CAPIZ,MAMBUSAO,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,17.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 CAPIZ,PANAY,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,12.0,212.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-CAPIZ,PANAY,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,23.0,115.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 CAPIZ,PANITAN,loaf bread,small,small packs,,fold(untested/minor-flag),small packs,1,10.0,76.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 CAPIZ,PILAR,loaf bread,large,large packs,,safe-fold,large packs,3,5.0,118.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
-CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,6.0,115.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 CAPIZ,SIGMA,loaf bread,large,large packs,,safe-fold,large packs,3,13.0,118.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 CAPIZ,TAPAZ,loaf bread,large,large packs,,safe-fold,large packs,3,11.0,118.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 CAPIZ,JAMINDAN,mango,binilog,pieces or units,,safe-fold,bilog,1,1.0,1.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
@@ -852,94 +875,71 @@ ILOILO,SAN JOAQUIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",b
 ILOILO,SAN JOAQUIN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,pieces or units,,safe-fold,bilog,2,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
 ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",piraso,pieces or units,,safe-fold,bilog,1,1.0,2.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'bilog'
 ILOILO,AJUY,loaf bread,small,small packs,,fold(untested/minor-flag),small packs,1,1.0,222.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-ILOILO,AJUY,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,23.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,ALIMODIAN,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,1,1.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,ALIMODIAN,loaf bread,daragkul nga putos,large packs,,safe-fold,large packs,1,1.0,14.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,ALIMODIAN,loaf bread,medium nga putos,medium packs,,safe-fold,medium packs,1,1.0,26.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,4.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,BADIANGAN,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,28.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
-ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,23.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,BALASAN,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,6.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,BALASAN,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,24.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,BALASAN,loaf bread,large,large packs,,safe-fold,large packs,1,3.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
-ILOILO,BALASAN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,8.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,BANATE,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,1,2.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,BAROTAC NUEVO,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,1,2.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,BAROTAC NUEVO,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,10.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,BAROTAC VIEJO,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,1,4.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,BAROTAC VIEJO,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,34.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,BAROTAC VIEJO,loaf bread,small packs,small packs,,fold(untested/minor-flag),small packs,2,1.0,11.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
-ILOILO,BAROTAC VIEJO,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,2,1.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,BATAD,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,21.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,BATAD,loaf bread,small packs,small packs,,fold(untested/minor-flag),small packs,2,1.0,11.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
-ILOILO,BATAD,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,5.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,BINGAWAN,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,1,2.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,BINGAWAN,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,15.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-ILOILO,CABATUAN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,16.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,CALINOG,loaf bread,large packs,large packs,,safe-fold,large packs,1,1.0,4.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,CALINOG,loaf bread,medium packs,medium packs,,safe-fold,medium packs,1,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,CARLES,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,12.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,CARLES,loaf bread,small packs,small packs,,fold(untested/minor-flag),small packs,2,1.0,11.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
-ILOILO,CARLES,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,15.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,CONCEPCION,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,4.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
-ILOILO,CONCEPCION,loaf bread,medium packs,medium packs,,safe-fold,tama-tama nga putos,1,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'tama-tama nga putos'
+ILOILO,CONCEPCION,loaf bread,medium packs,medium packs,,safe-fold,medium packs,1,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,CONCEPCION,loaf bread,small,small packs,,fold(untested/minor-flag),small packs,1,3.0,222.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,DINGLE,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,15.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,DINGLE,loaf bread,large,large packs,,safe-fold,large packs,3,12.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,DINGLE,loaf bread,medium packs,medium packs,,safe-fold,medium packs,1,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ILOILO,DINGLE,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,2.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,IGBARAS,loaf bread,large,large packs,,safe-fold,large packs,3,33.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,IGBARAS,loaf bread,small,small packs,,fold(untested/minor-flag),small packs,1,20.0,222.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-ILOILO,IGBARAS,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,2,1.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,JANIUAY,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,16.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,JANIUAY,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,12.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,JANIUAY,loaf bread,medium nga putos,medium packs,,safe-fold,medium packs,3,3.0,26.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ILOILO,JANIUAY,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,2,1.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,LAMBUNAO,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,15.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,LAMBUNAO,loaf bread,daragkul nga putos,large packs,,safe-fold,large packs,1,1.0,14.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,LAMBUNAO,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,7.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,LAMBUNAO,loaf bread,medium,medium packs,,safe-fold,medium packs,1,9.0,412.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,5.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,LEGANES,loaf bread,malaking packs,large packs,,safe-fold,large packs,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'large packs'
 ILOILO,LEMERY,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,1,12.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,LEMERY,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,32.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,LEMERY,loaf bread,large packs,large packs,,safe-fold,large packs,2,1.0,4.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,LEMERY,loaf bread,medium packs,medium packs,,safe-fold,medium packs,2,1.0,7.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,LEMERY,loaf bread,small packs,small packs,,fold(untested/minor-flag),small packs,1,1.0,11.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
-ILOILO,LEMERY,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,14.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,LEON,loaf bread,daragkul nga putos,large packs,,safe-fold,large packs,1,2.0,14.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,LEON,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,2.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,LEON,loaf bread,medium,medium packs,,safe-fold,medium packs,1,10.0,412.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,MAASIN,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,9.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
-ILOILO,MAASIN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,10.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,MIAGAO,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,2.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,MIAGAO,loaf bread,medium nga putos,medium packs,,safe-fold,medium packs,1,2.0,26.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
-ILOILO,MIAGAO,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,3.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,MINA,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,3.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,MINA,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,2.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,MINA,loaf bread,malaking packs,large packs,,safe-fold,large packs,1,1.0,2.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'large packs'
-ILOILO,MINA,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,2.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,OTON,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,13.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
 ILOILO,OTON,loaf bread,large,large packs,,safe-fold,large packs,1,6.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
-ILOILO,OTON,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,21.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,POTOTAN,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,1,7.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,POTOTAN,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,17.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-ILOILO,POTOTAN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,7.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,SAN ENRIQUE,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,12.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,SAN ENRIQUE,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,3,4.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,9.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,SAN JOAQUIN,loaf bread,large,large packs,,safe-fold,large packs,3,10.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,SAN JOAQUIN,loaf bread,large packs,large packs,,safe-fold,large packs,1,1.0,4.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,SAN JOAQUIN,loaf bread,medium nga putos,medium packs,,safe-fold,medium packs,1,7.0,26.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,SAN JOAQUIN,loaf bread,small,small packs,,fold(untested/minor-flag),small packs,1,4.0,222.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-ILOILO,SAN JOAQUIN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,2.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,SAN RAFAEL,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,1.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-ILOILO,SAN RAFAEL,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,3.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,SARA,loaf bread,dalagku nga putos,large packs,,safe-fold,large packs,3,2.0,253.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,SARA,loaf bread,gagmay nga putos,small packs,,fold(untested/minor-flag),small packs,1,12.0,475.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'
-ILOILO,SARA,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,1,15.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,TIGBAUAN,loaf bread,small packs,small packs,,fold(untested/minor-flag),small packs,3,7.0,11.0,3,harmonizable,True,folds (heuristic) to MS cleaned unit 'small packs'
-ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,medium packs,,safe-fold,medium packs,3,6.0,252.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,TUBUNGAN,loaf bread,large,large packs,,safe-fold,large packs,1,5.0,336.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'large packs'
 ILOILO,TUBUNGAN,loaf bread,medium nga putos,medium packs,,safe-fold,medium packs,1,7.0,26.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'medium packs'
 ILOILO,TUBUNGAN,loaf bread,small,small packs,,fold(untested/minor-flag),small packs,3,6.0,222.0,3,harmonizable,True,folds (rename) to MS cleaned unit 'small packs'

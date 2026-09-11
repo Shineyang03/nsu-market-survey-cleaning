@@ -11,9 +11,9 @@ n_unique_nsu_raw_label,overall,all,112.0
 n_unique_item_x_nsu_raw_label,overall,all,155.0
 n_unique_nsu_cleaned_label,overall,all,56.0
 n_unique_item_x_nsu_cleaned_label,overall,all,98.0
-n_unique_nsu_harmonized,overall,all,53.0
-n_unique_item_x_nsu_harmonized,overall,all,84.0
-n_unique_cases,overall,all,2006.0
+n_unique_nsu_harmonized,overall,all,54.0
+n_unique_item_x_nsu_harmonized,overall,all,85.0
+n_unique_cases,overall,all,2011.0
 n_weighings_by_province,pull_province,AKLAN,1562.0
 n_weighings_by_province,pull_province,ANTIQUE,1940.0
 n_weighings_by_province,pull_province,CAPIZ,1540.0
@@ -160,9 +160,9 @@ n_weighings_by_market_type,market_type_lbl,Public Market,6306.0
 n_weighings_by_market_type,market_type_lbl,Roadside Vendors,3224.0
 n_weighings_by_market_type,market_type_lbl,Talipapa,1903.0
 n_cases_by_province,pull_province,AKLAN,231.0
-n_cases_by_province,pull_province,ANTIQUE,295.0
+n_cases_by_province,pull_province,ANTIQUE,296.0
 n_cases_by_province,pull_province,CAPIZ,331.0
-n_cases_by_province,pull_province,ILOILO,829.0
+n_cases_by_province,pull_province,ILOILO,833.0
 n_cases_by_province,pull_province,NEGROS OCCIDENTAL,320.0
 n_items_by_municipality,prov_mun,AKLAN | ALTAVAS,12.0
 n_items_by_municipality,prov_mun,AKLAN | BANGA,10.0
@@ -268,30 +268,30 @@ n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | SALVADOR BENEDICTO,8.0
 n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | SAN ENRIQUE,11.0
 n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | TOBOSO,8.0
 n_items_by_municipality,prov_mun,NEGROS OCCIDENTAL | VALLADOLID,11.0
-n_cases_by_market_slots_filled,n_market_types_present,1,833.0
-n_cases_by_market_slots_filled,n_market_types_present,2,702.0
+n_cases_by_market_slots_filled,n_market_types_present,1,839.0
+n_cases_by_market_slots_filled,n_market_types_present,2,701.0
 n_cases_by_market_slots_filled,n_market_types_present,3,467.0
 max_vendors_observed_in_one_cell,overall,all,6.0
-n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Public Market | 1,799.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Public Market | 1,800.0
 n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Public Market | 2,620.0
 n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Public Market | 3+,1410.0
-n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Roadside Vendors | 1,892.0
-n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Roadside Vendors | 2,524.0
-n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Roadside Vendors | 3+,416.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Roadside Vendors | 1,893.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Roadside Vendors | 2,526.0
+n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Roadside Vendors | 3+,415.0
 n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Talipapa | 1,581.0
 n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Talipapa | 2,278.0
 n_vendors_per_cell_by_market_type,market_type | n_vendor_bucket,Talipapa | 3+,253.0
-avg_vendors_per_cell,overall,all,1.9792135804607656
+avg_vendors_per_cell,overall,all,1.978185595567867
 n_cases_with_ge1_obs_by_weighing_approach,weighing_approach_lbl,"Conventional NSU (eg. ganta, salmon, salop)",123.0
 n_cases_with_ge1_obs_by_weighing_approach,weighing_approach_lbl,"Price-quantity based (lower, median, higher price)",321.0
-n_cases_with_ge1_obs_by_weighing_approach,weighing_approach_lbl,"Size-based (small, medium, large)",1564.0
-n_cases_multi_weighing_approach,overall,all,2.0
+n_cases_with_ge1_obs_by_weighing_approach,weighing_approach_lbl,"Size-based (small, medium, large)",1568.0
+n_cases_multi_weighing_approach,overall,all,1.0
 avg_weighings_per_case_by_weighing_approach,weighing_approach_lbl,"Conventional NSU (eg. ganta, salmon, salop)",3.8048780487804876
 avg_weighings_per_case_by_weighing_approach,weighing_approach_lbl,"Price-quantity based (lower, median, higher price)",3.775
-avg_weighings_per_case_by_weighing_approach,weighing_approach_lbl,"Size-based (small, medium, large)",6.245996156310057
+avg_weighings_per_case_by_weighing_approach,weighing_approach_lbl,"Size-based (small, medium, large)",6.2300319488817895
 n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,conventional_nsu,123.0
 n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,large_size,812.0
-n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,medium_size,970.0
+n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,medium_size,974.0
 n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,mp25_price,24.0
 n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,mp50_price,35.0
 n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,mp75_price,23.0
@@ -300,10 +300,10 @@ n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,province_median,128.0
 n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,small_size,1147.0
 n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,unique_mun_price6,12.0
 n_cases_with_ge1_obs_by_hetero_type,hetero_lbl,unique_mun_price7,1.0
-n_cases_multi_hetero_type,overall,all,851.0
+n_cases_multi_hetero_type,overall,all,850.0
 avg_weighings_per_case_by_hetero_type,hetero_lbl,conventional_nsu,3.8048780487804876
 avg_weighings_per_case_by_hetero_type,hetero_lbl,large_size,3.2032019704433496
-avg_weighings_per_case_by_hetero_type,hetero_lbl,medium_size,3.4251805985552117
+avg_weighings_per_case_by_hetero_type,hetero_lbl,medium_size,3.4110996916752314
 avg_weighings_per_case_by_hetero_type,hetero_lbl,mp25_price,3.0416666666666665
 avg_weighings_per_case_by_hetero_type,hetero_lbl,mp50_price,3.0
 avg_weighings_per_case_by_hetero_type,hetero_lbl,mp75_price,3.090909090909091
@@ -443,7 +443,7 @@ n_weighings_by_unit,corrected_unit_lbl,mL,1846.0
 n_weighings_by_unit,corrected_unit_lbl,nan,7.0
 n_distinct_pull_nsu_unit,overall,all,112.0
 n_distinct_cleaned_nsu_unit,overall,all,56.0
-n_distinct_harmonized_nsu_unit,overall,all,53.0
+n_distinct_harmonized_nsu_unit,overall,all,54.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,beef | half,1.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,beef | intestine,1.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,beef | pieces or units,1.0
@@ -501,8 +501,9 @@ n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,"liquor (e.g, wh
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,"liquor (e.g, whisky, coconut wine) | long-neck",1.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,loaf bread | individual,1.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,loaf bread | large packs,6.0
-n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,loaf bread | medium packs,6.0
+n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,loaf bread | medium packs,5.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,loaf bread | small packs,3.0
+n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,loaf bread | tama-tama nga putos,1.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,"mango | papaya, mango, banana",1.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,mango | pieces or units,2.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,"mineral or spring water, all drinking water sold in containers | container",1.0
@@ -528,6 +529,6 @@ n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,rice | gantang,1
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,rice | letse,1.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,rice | sack of rice,1.0
 n_raw_labels_by_item_harmonized_unit,item | harmonized_nsu_unit,rice | salmon,1.0
-n_item_harmonized_cells_by_collapse_count,n_raw_labels_collapsed,1,55.0
+n_item_harmonized_cells_by_collapse_count,n_raw_labels_collapsed,1,56.0
 n_item_harmonized_cells_by_collapse_count,n_raw_labels_collapsed,2,11.0
 n_item_harmonized_cells_by_collapse_count,n_raw_labels_collapsed,3+,18.0

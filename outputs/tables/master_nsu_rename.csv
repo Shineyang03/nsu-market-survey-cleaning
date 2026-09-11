@@ -1886,10 +1886,10 @@ AKLAN,BATAN,loaf bread,kasarangan nga putos,medium packs,medium packs,MS & Price
 AKLAN,BATAN,loaf bread,maisot nga putos,small packs,small packs,MS & Price,small,2,,,,
 AKLAN,BATAN,loaf bread,small,small packs,small packs,Price Only,maisot nga putos,2,harmonizable,small packs,,11524.0
 AKLAN,BURUANGA,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,,1,,,,
-AKLAN,BURUANGA,loaf bread,kasarangan nga putos,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-AKLAN,BURUANGA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,kasarangan nga putos,2,harmonizable,medium packs,,11534.0
+AKLAN,BURUANGA,loaf bread,kasarangan nga putos,medium packs,medium packs,MS & Price,,1,,,,
 AKLAN,BURUANGA,loaf bread,maisot nga putos,small packs,small packs,MS & Price,small packs,2,,,,
 AKLAN,BURUANGA,loaf bread,small packs,small packs,small packs,Price Only,maisot nga putos,2,harmonizable,small packs,,11533.0
+AKLAN,BURUANGA,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11534.0
 AKLAN,IBAJAY,loaf bread,large,large packs,large packs,Price Only,mabahoe nga putos,2,harmonizable,large packs,,11545.0
 AKLAN,IBAJAY,loaf bread,mabahoe nga putos,large packs,large packs,MS & Price,large,2,,,,
 AKLAN,IBAJAY,loaf bread,kasarangan nga putos,medium packs,medium packs,MS & Price,medium,2,,,,
@@ -1931,88 +1931,88 @@ AKLAN,TANGALAN,loaf bread,mabahoe nga putos,large packs,large packs,MS & Price,,
 AKLAN,TANGALAN,loaf bread,kasarangan nga putos,medium packs,medium packs,MS & Price,,1,,,,
 AKLAN,TANGALAN,loaf bread,maisot nga putos,small packs,small packs,MS & Price,,1,,,,
 ANTIQUE,BARBAZA,loaf bread,daragkul nga putos,large packs,large packs,MS & Price,,1,,,,
-ANTIQUE,BARBAZA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,MS & Price,,1,,,,
 ANTIQUE,BARBAZA,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ANTIQUE,BARBAZA,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,MS & Price,,1,,,,
 ANTIQUE,BELISON,loaf bread,daragkul nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,11610.0
 ANTIQUE,BELISON,loaf bread,large,large packs,large packs,MS & Price,daragkul nga putos,2,,,,
 ANTIQUE,BELISON,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,,1,,,,
 ANTIQUE,BUGASONG,loaf bread,daragkul nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,11618.0
 ANTIQUE,BUGASONG,loaf bread,large,large packs,large packs,MS & Price,daragkul nga putos,2,,,,
-ANTIQUE,BUGASONG,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos; tama-tama nga putos,3,,,,
-ANTIQUE,BUGASONG,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,11620.0
-ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,11621.0
+ANTIQUE,BUGASONG,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos,2,,,,
+ANTIQUE,BUGASONG,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,11620.0
 ANTIQUE,BUGASONG,loaf bread,gagmay nga putos,small packs,small packs,Price Only,,1,empty/uncommon,,,11619.0
+ANTIQUE,BUGASONG,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11621.0
 ANTIQUE,CULASI,loaf bread,dalagku nga putos,large packs,large packs,Price Only,daragkul nga putos; large,3,harmonizable,large packs,,11631.0
 ANTIQUE,CULASI,loaf bread,daragkul nga putos,large packs,large packs,Price Only,dalagku nga putos; large,3,harmonizable,large packs,,11632.0
 ANTIQUE,CULASI,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos; daragkul nga putos,3,,,,
-ANTIQUE,CULASI,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos; tama-tama nga putos,3,,,,
-ANTIQUE,CULASI,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,11634.0
-ANTIQUE,CULASI,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,11635.0
+ANTIQUE,CULASI,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos,2,,,,
+ANTIQUE,CULASI,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,11634.0
 ANTIQUE,CULASI,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,11633.0
 ANTIQUE,CULASI,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ANTIQUE,CULASI,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11635.0
 ANTIQUE,HAMTIC,loaf bread,dalagku nga putos,large packs,large packs,Price Only,daragkul nga putos; large; large packs,4,harmonizable,large packs,,11650.0
 ANTIQUE,HAMTIC,loaf bread,daragkul nga putos,large packs,large packs,Price Only,dalagku nga putos; large; large packs,4,harmonizable,large packs,,11651.0
 ANTIQUE,HAMTIC,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos; daragkul nga putos; large packs,4,,,,
 ANTIQUE,HAMTIC,loaf bread,large packs,large packs,large packs,MS & Price,dalagku nga putos; daragkul nga putos; large,4,,,,
-ANTIQUE,HAMTIC,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos; tama-tama nga putos,3,,,,
-ANTIQUE,HAMTIC,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,11652.0
-ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,11653.0
+ANTIQUE,HAMTIC,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos,2,,,,
+ANTIQUE,HAMTIC,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,11652.0
 ANTIQUE,HAMTIC,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ANTIQUE,HAMTIC,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11653.0
 ANTIQUE,LAUA-AN,loaf bread,daragkul nga putos,large packs,large packs,MS & Price,,1,,,,
-ANTIQUE,LAUA-AN,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ANTIQUE,LAUA-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium nga putos,2,harmonizable,medium packs,,11666.0
+ANTIQUE,LAUA-AN,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,,1,,,,
 ANTIQUE,LAUA-AN,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ANTIQUE,LAUA-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11666.0
 ANTIQUE,LIBERTAD,loaf bread,dalagku nga putos,large packs,large packs,Price Only,daragkul nga putos,2,harmonizable,large packs,,11682.0
 ANTIQUE,LIBERTAD,loaf bread,daragkul nga putos,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ANTIQUE,LIBERTAD,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium nga putos,2,harmonizable,medium packs,,11684.0
+ANTIQUE,LIBERTAD,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,,1,,,,
 ANTIQUE,LIBERTAD,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,maliit na packs,2,,,,
 ANTIQUE,LIBERTAD,loaf bread,maliit na packs,maliit na packs,small packs,Price Only,gagmay nga putos,2,harmonizable,small packs,,11683.0
+ANTIQUE,LIBERTAD,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11684.0
 ANTIQUE,PANDAN,loaf bread,dalagku nga putos,large packs,large packs,Price Only,daragkul nga putos; malaking packs,3,empty/uncommon,,,11697.0
 ANTIQUE,PANDAN,loaf bread,daragkul nga putos,large packs,large packs,Price Only,dalagku nga putos; malaking packs,3,empty/uncommon,,,11698.0
 ANTIQUE,PANDAN,loaf bread,malaking packs,malaking packs,large packs,Price Only,dalagku nga putos; daragkul nga putos,3,empty/uncommon,,,11699.0
-ANTIQUE,PANDAN,loaf bread,medium nga putos,medium packs,medium packs,Price Only,tama-tama nga putos,2,empty/uncommon,,,11700.0
-ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium nga putos,2,empty/uncommon,,,11701.0
+ANTIQUE,PANDAN,loaf bread,medium nga putos,medium packs,medium packs,Price Only,,1,empty/uncommon,,,11700.0
 ANTIQUE,PANDAN,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ANTIQUE,PANDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,,11701.0
 ANTIQUE,PATNONGON,loaf bread,daragkul nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,11717.0
 ANTIQUE,PATNONGON,loaf bread,large,large packs,large packs,MS & Price,daragkul nga putos,2,,,,
-ANTIQUE,PATNONGON,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos; tama-tama nga putos,3,,,,
-ANTIQUE,PATNONGON,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,11719.0
-ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,11720.0
+ANTIQUE,PATNONGON,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos,2,,,,
+ANTIQUE,PATNONGON,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,11719.0
 ANTIQUE,PATNONGON,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,11718.0
 ANTIQUE,PATNONGON,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ANTIQUE,PATNONGON,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11720.0
 ANTIQUE,SAN REMIGIO,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,daragkul nga putos; large,3,,,,
 ANTIQUE,SAN REMIGIO,loaf bread,daragkul nga putos,large packs,large packs,Price Only,dalagku nga putos; large,3,harmonizable,large packs,,11735.0
 ANTIQUE,SAN REMIGIO,loaf bread,large,large packs,large packs,Price Only,dalagku nga putos; daragkul nga putos,3,harmonizable,large packs,,11736.0
-ANTIQUE,SAN REMIGIO,loaf bread,medium,medium packs,medium packs,Price Only,medium nga putos; tama-tama nga putos,3,harmonizable,medium packs,,11737.0
-ANTIQUE,SAN REMIGIO,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,medium; tama-tama nga putos,3,,,,
-ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,11738.0
+ANTIQUE,SAN REMIGIO,loaf bread,medium,medium packs,medium packs,Price Only,medium nga putos,2,harmonizable,medium packs,,11737.0
+ANTIQUE,SAN REMIGIO,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,medium,2,,,,
 ANTIQUE,SAN REMIGIO,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ANTIQUE,SAN REMIGIO,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11738.0
 ANTIQUE,SEBASTE,loaf bread,daragkul nga putos,large packs,large packs,MS & Price,,1,,,,
-ANTIQUE,SEBASTE,loaf bread,medium,medium packs,medium packs,Price Only,medium nga putos; tama-tama nga putos,3,harmonizable,medium packs,,11750.0
-ANTIQUE,SEBASTE,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,medium; tama-tama nga putos,3,,,,
-ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,11751.0
+ANTIQUE,SEBASTE,loaf bread,medium,medium packs,medium packs,Price Only,medium nga putos,2,harmonizable,medium packs,,11750.0
+ANTIQUE,SEBASTE,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,medium,2,,,,
 ANTIQUE,SEBASTE,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ANTIQUE,SEBASTE,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11751.0
 ANTIQUE,SIBALOM,loaf bread,daragkul nga putos,large packs,large packs,MS & Price,large,2,,,,
 ANTIQUE,SIBALOM,loaf bread,large,large packs,large packs,Price Only,daragkul nga putos,2,harmonizable,large packs,,11771.0
-ANTIQUE,SIBALOM,loaf bread,medium,medium packs,medium packs,Price Only,medium nga putos; tama-tama nga putos,3,harmonizable,medium packs,,11772.0
-ANTIQUE,SIBALOM,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,medium; tama-tama nga putos,3,,,,
-ANTIQUE,SIBALOM,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,11773.0
+ANTIQUE,SIBALOM,loaf bread,medium,medium packs,medium packs,Price Only,medium nga putos,2,harmonizable,medium packs,,11772.0
+ANTIQUE,SIBALOM,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,medium,2,,,,
 ANTIQUE,SIBALOM,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,11770.0
 ANTIQUE,SIBALOM,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ANTIQUE,SIBALOM,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11773.0
 ANTIQUE,TIBIAO,loaf bread,dalagku nga putos,large packs,large packs,Price Only,daragkul nga putos,2,harmonizable,large packs,,11784.0
 ANTIQUE,TIBIAO,loaf bread,daragkul nga putos,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ANTIQUE,TIBIAO,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ANTIQUE,TIBIAO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium nga putos,2,harmonizable,medium packs,,11785.0
+ANTIQUE,TIBIAO,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,,1,,,,
 ANTIQUE,TIBIAO,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ANTIQUE,TIBIAO,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11785.0
 ANTIQUE,TOBIAS FORNIER,loaf bread,daragkul nga putos,large packs,large packs,Price Only,large packs,2,harmonizable,large packs,,11800.0
 ANTIQUE,TOBIAS FORNIER,loaf bread,large packs,large packs,large packs,MS & Price,daragkul nga putos,2,,,,
-ANTIQUE,TOBIAS FORNIER,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ANTIQUE,TOBIAS FORNIER,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium nga putos,2,harmonizable,medium packs,,11801.0
+ANTIQUE,TOBIAS FORNIER,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,,1,,,,
 ANTIQUE,TOBIAS FORNIER,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
-ANTIQUE,VALDERRAMA,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ANTIQUE,VALDERRAMA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,MS & Price,medium nga putos,2,,,,
+ANTIQUE,TOBIAS FORNIER,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11801.0
+ANTIQUE,VALDERRAMA,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,,1,,,,
 ANTIQUE,VALDERRAMA,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ANTIQUE,VALDERRAMA,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,MS & Price,,1,,,,
 CAPIZ,CUARTERO,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 CAPIZ,CUARTERO,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
 CAPIZ,CUARTERO,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
@@ -2023,61 +2023,61 @@ CAPIZ,DAO,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 CAPIZ,DAO,loaf bread,small,small packs,small packs,MS & Price,,1,,,,
 CAPIZ,DUMALAG,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,11827.0
 CAPIZ,DUMALAG,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-CAPIZ,DUMALAG,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-CAPIZ,DUMALAG,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,11829.0
+CAPIZ,DUMALAG,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 CAPIZ,DUMALAG,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,11828.0
 CAPIZ,DUMALAG,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+CAPIZ,DUMALAG,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11829.0
 CAPIZ,DUMARAO,loaf bread,large,large packs,large packs,MS & Price,,1,,,,
 CAPIZ,DUMARAO,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 CAPIZ,DUMARAO,loaf bread,small,small packs,small packs,MS & Price,,1,,,,
 CAPIZ,IVISAN,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,11845.0
 CAPIZ,IVISAN,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-CAPIZ,IVISAN,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs; tama-tama nga putos,3,,,,
-CAPIZ,IVISAN,loaf bread,medium packs,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,11847.0
-CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium packs,3,harmonizable,medium packs,,11849.0
+CAPIZ,IVISAN,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs,2,,,,
+CAPIZ,IVISAN,loaf bread,medium packs,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,11847.0
 CAPIZ,IVISAN,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small; small packs,3,harmonizable,small packs,,11846.0
 CAPIZ,IVISAN,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos; small packs,3,,,,
 CAPIZ,IVISAN,loaf bread,small packs,small packs,small packs,Price Only,gagmay nga putos; small,3,harmonizable,small packs,,11848.0
+CAPIZ,IVISAN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11849.0
 CAPIZ,JAMINDAN,loaf bread,individual,individual,individual,MS & Price,,1,,,,
 CAPIZ,JAMINDAN,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,,1,,,,
-CAPIZ,JAMINDAN,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,11858.0
+CAPIZ,JAMINDAN,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 CAPIZ,JAMINDAN,loaf bread,pieces,pieces,pieces or units,Price Only,,1,nonsensical (unmappable),,,11857.0
 CAPIZ,JAMINDAN,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,11856.0
 CAPIZ,JAMINDAN,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+CAPIZ,JAMINDAN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11858.0
 CAPIZ,MA-AYON,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,11870.0
 CAPIZ,MA-AYON,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-CAPIZ,MA-AYON,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,11872.0
+CAPIZ,MA-AYON,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 CAPIZ,MA-AYON,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,11871.0
 CAPIZ,MA-AYON,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+CAPIZ,MA-AYON,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11872.0
 CAPIZ,MAMBUSAO,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 CAPIZ,MAMBUSAO,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-CAPIZ,MAMBUSAO,loaf bread,medium,medium packs,medium packs,Price Only,tama-tama nga putos,2,empty/uncommon,,,11883.0
-CAPIZ,MAMBUSAO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,empty/uncommon,,,11885.0
+CAPIZ,MAMBUSAO,loaf bread,medium,medium packs,medium packs,Price Only,,1,empty/uncommon,,,11883.0
 CAPIZ,MAMBUSAO,loaf bread,pieces,pieces,pieces or units,Price Only,,1,nonsensical (unmappable),,,11884.0
 CAPIZ,MAMBUSAO,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,11882.0
 CAPIZ,MAMBUSAO,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+CAPIZ,MAMBUSAO,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,,11885.0
 CAPIZ,PANAY,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,empty/uncommon,,,11894.0
 CAPIZ,PANAY,loaf bread,large,large packs,large packs,Price Only,dalagku nga putos,2,empty/uncommon,,,11896.0
-CAPIZ,PANAY,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,11899.0
+CAPIZ,PANAY,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 CAPIZ,PANAY,loaf bread,per piece,per piece,pieces or units,Price Only,piece,2,nonsensical (unmappable),,,11897.0
 CAPIZ,PANAY,loaf bread,piece,piece,pieces or units,Price Only,per piece,2,nonsensical (unmappable),,,11898.0
 CAPIZ,PANAY,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,11895.0
 CAPIZ,PANAY,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+CAPIZ,PANAY,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11899.0
 CAPIZ,PANITAN,loaf bread,large,large packs,large packs,Price Only,,1,empty/uncommon,,,11907.0
-CAPIZ,PANITAN,loaf bread,medium,medium packs,medium packs,Price Only,tama-tama nga putos,2,empty/uncommon,,,11908.0
-CAPIZ,PANITAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,empty/uncommon,,,11910.0
+CAPIZ,PANITAN,loaf bread,medium,medium packs,medium packs,Price Only,,1,empty/uncommon,,,11908.0
 CAPIZ,PANITAN,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,small,2,,,,
 CAPIZ,PANITAN,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,harmonizable,small packs,,11909.0
+CAPIZ,PANITAN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,,11910.0
 CAPIZ,PILAR,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 CAPIZ,PILAR,loaf bread,large,large packs,large packs,Price Only,dalagku nga putos,2,harmonizable,large packs,,11924.0
-CAPIZ,PILAR,loaf bread,medium,medium packs,medium packs,Price Only,tama-tama nga putos,2,empty/uncommon,,,11925.0
-CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,empty/uncommon,,,11928.0
+CAPIZ,PILAR,loaf bread,medium,medium packs,medium packs,Price Only,,1,empty/uncommon,,,11925.0
 CAPIZ,PILAR,loaf bread,piece,piece,pieces or units,Price Only,,1,nonsensical (unmappable),,,11926.0
 CAPIZ,PILAR,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,empty/uncommon,,,11923.0
 CAPIZ,PILAR,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,empty/uncommon,,,11927.0
+CAPIZ,PILAR,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,,11928.0
 CAPIZ,PONTEVEDRA,loaf bread,large,large packs,large packs,MS & Price,,1,,,,
 CAPIZ,PONTEVEDRA,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 CAPIZ,PONTEVEDRA,loaf bread,small,small packs,small packs,MS & Price,,1,,,,
@@ -2085,77 +2085,77 @@ CAPIZ,PRESIDENT ROXAS,loaf bread,large,large packs,large packs,MS & Price,,1,,,,
 CAPIZ,PRESIDENT ROXAS,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 CAPIZ,PRESIDENT ROXAS,loaf bread,small,small packs,small packs,MS & Price,,1,,,,
 CAPIZ,SAPI-AN,loaf bread,large,large packs,large packs,MS & Price,,1,,,,
-CAPIZ,SAPI-AN,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,11945.0
+CAPIZ,SAPI-AN,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 CAPIZ,SAPI-AN,loaf bread,gagmay nga putos,small packs,small packs,Price Only,maisot nga putos; small,3,empty/uncommon,,,11942.0
 CAPIZ,SAPI-AN,loaf bread,maisot nga putos,small packs,small packs,Price Only,gagmay nga putos; small,3,empty/uncommon,,,11943.0
 CAPIZ,SAPI-AN,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos; maisot nga putos,3,empty/uncommon,,,11944.0
+CAPIZ,SAPI-AN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11945.0
 CAPIZ,SIGMA,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 CAPIZ,SIGMA,loaf bread,large,large packs,large packs,Price Only,dalagku nga putos,2,harmonizable,large packs,,11963.0
-CAPIZ,SIGMA,loaf bread,medium,medium packs,medium packs,Price Only,tama-tama nga putos,2,empty/uncommon,,,11964.0
-CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,empty/uncommon,,,11966.0
+CAPIZ,SIGMA,loaf bread,medium,medium packs,medium packs,Price Only,,1,empty/uncommon,,,11964.0
 CAPIZ,SIGMA,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,empty/uncommon,,,11962.0
 CAPIZ,SIGMA,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,empty/uncommon,,,11965.0
+CAPIZ,SIGMA,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,,11966.0
 CAPIZ,TAPAZ,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 CAPIZ,TAPAZ,loaf bread,large,large packs,large packs,Price Only,dalagku nga putos,2,harmonizable,large packs,,11977.0
-CAPIZ,TAPAZ,loaf bread,medium,medium packs,medium packs,Price Only,tama-tama nga putos,2,empty/uncommon,,,11978.0
-CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,empty/uncommon,,,11980.0
+CAPIZ,TAPAZ,loaf bread,medium,medium packs,medium packs,Price Only,,1,empty/uncommon,,,11978.0
 CAPIZ,TAPAZ,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,empty/uncommon,,,11976.0
 CAPIZ,TAPAZ,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,empty/uncommon,,,11979.0
+CAPIZ,TAPAZ,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,,11980.0
 ILOILO,AJUY,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 ILOILO,AJUY,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,AJUY,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,11991.0
+ILOILO,AJUY,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,AJUY,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,small,2,,,,
 ILOILO,AJUY,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,harmonizable,small packs,,11990.0
+ILOILO,AJUY,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,11991.0
 ILOILO,ALIMODIAN,loaf bread,dalagku nga putos,large packs,large packs,Price Only,daragkul nga putos; large,3,harmonizable,large packs,,12003.0
 ILOILO,ALIMODIAN,loaf bread,daragkul nga putos,large packs,large packs,Price Only,dalagku nga putos; large,3,harmonizable,large packs,,12004.0
 ILOILO,ALIMODIAN,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos; daragkul nga putos,3,,,,
-ILOILO,ALIMODIAN,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos; tama-tama nga putos,3,,,,
-ILOILO,ALIMODIAN,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,12005.0
-ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,12006.0
+ILOILO,ALIMODIAN,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos,2,,,,
+ILOILO,ALIMODIAN,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,12005.0
 ILOILO,ALIMODIAN,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ILOILO,ALIMODIAN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12006.0
 ILOILO,ANILAO,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
 ILOILO,BADIANGAN,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12012.0
 ILOILO,BADIANGAN,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,BADIANGAN,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12016.0
+ILOILO,BADIANGAN,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,BADIANGAN,loaf bread,plastic bag,plastic bag,plastic bag,Price Only,,1,nonsensical (unmappable),,,12014.0
 ILOILO,BADIANGAN,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,empty/uncommon,,,12013.0
 ILOILO,BADIANGAN,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,empty/uncommon,,,12015.0
+ILOILO,BADIANGAN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12016.0
 ILOILO,BALASAN,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large; large packs,3,harmonizable,large packs,,12025.0
 ILOILO,BALASAN,loaf bread,large,large packs,large packs,Price Only,dalagku nga putos; large packs,3,harmonizable,large packs,,12027.0
 ILOILO,BALASAN,loaf bread,large packs,large packs,large packs,MS & Price,dalagku nga putos; large,3,,,,
-ILOILO,BALASAN,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12028.0
+ILOILO,BALASAN,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,BALASAN,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12026.0
 ILOILO,BALASAN,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,BALASAN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12028.0
 ILOILO,BANATE,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12038.0
 ILOILO,BANATE,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,BANATE,loaf bread,medium,medium packs,medium packs,Price Only,medium packs; tama-tama nga putos,3,empty/uncommon,,,12040.0
-ILOILO,BANATE,loaf bread,medium packs,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,empty/uncommon,,,12041.0
-ILOILO,BANATE,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium packs,3,empty/uncommon,,,12043.0
+ILOILO,BANATE,loaf bread,medium,medium packs,medium packs,Price Only,medium packs,2,empty/uncommon,,,12040.0
+ILOILO,BANATE,loaf bread,medium packs,medium packs,medium packs,Price Only,medium,2,empty/uncommon,,,12041.0
 ILOILO,BANATE,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,empty/uncommon,,,12039.0
 ILOILO,BANATE,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,empty/uncommon,,,12042.0
+ILOILO,BANATE,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,,12043.0
 ILOILO,BAROTAC NUEVO,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12047.0
 ILOILO,BAROTAC NUEVO,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,BAROTAC NUEVO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,MS & Price,medium,2,,,,
+ILOILO,BAROTAC NUEVO,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,BAROTAC NUEVO,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12048.0
 ILOILO,BAROTAC NUEVO,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,BAROTAC NUEVO,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,MS & Price,,1,,,,
 ILOILO,BAROTAC VIEJO,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12067.0
 ILOILO,BAROTAC VIEJO,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,BAROTAC VIEJO,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,BAROTAC VIEJO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12070.0
+ILOILO,BAROTAC VIEJO,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,BAROTAC VIEJO,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small; small packs,3,harmonizable,small packs,,12068.0
 ILOILO,BAROTAC VIEJO,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos; small packs,3,,,,
 ILOILO,BAROTAC VIEJO,loaf bread,small packs,small packs,small packs,Price Only,gagmay nga putos; small,3,harmonizable,small packs,,12069.0
+ILOILO,BAROTAC VIEJO,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12070.0
 ILOILO,BATAD,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,,1,,,,
-ILOILO,BATAD,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,BATAD,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12081.0
+ILOILO,BATAD,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,BATAD,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small; small packs,3,harmonizable,small packs,,12079.0
 ILOILO,BATAD,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos; small packs,3,,,,
 ILOILO,BATAD,loaf bread,small packs,small packs,small packs,Price Only,gagmay nga putos; small,3,harmonizable,small packs,,12080.0
+ILOILO,BATAD,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12081.0
 ILOILO,BINGAWAN,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12084.0
 ILOILO,BINGAWAN,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
 ILOILO,BINGAWAN,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
@@ -2163,11 +2163,11 @@ ILOILO,BINGAWAN,loaf bread,gagmay nga putos,small packs,small packs,Price Only,s
 ILOILO,BINGAWAN,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
 ILOILO,CABATUAN,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 ILOILO,CABATUAN,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,CABATUAN,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs; tama-tama nga putos,3,,,,
-ILOILO,CABATUAN,loaf bread,medium packs,medium packs,medium packs,MS & Price,medium; tama-tama nga putos,3,,,,
-ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium packs,3,harmonizable,medium packs,,12091.0
+ILOILO,CABATUAN,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs,2,,,,
+ILOILO,CABATUAN,loaf bread,medium packs,medium packs,medium packs,MS & Price,medium,2,,,,
 ILOILO,CABATUAN,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,small,2,,,,
 ILOILO,CABATUAN,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,CABATUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12091.0
 ILOILO,CALINOG,loaf bread,large,large packs,large packs,MS & Price,large packs,2,,,,
 ILOILO,CALINOG,loaf bread,large packs,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12097.0
 ILOILO,CALINOG,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs,2,,,,
@@ -2175,31 +2175,31 @@ ILOILO,CALINOG,loaf bread,medium packs,medium packs,medium packs,Price Only,medi
 ILOILO,CALINOG,loaf bread,small,small packs,small packs,Price Only,,1,empty/uncommon,,,12099.0
 ILOILO,CARLES,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 ILOILO,CARLES,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,CARLES,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12107.0
+ILOILO,CARLES,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,CARLES,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small; small packs,3,harmonizable,small packs,,12105.0
 ILOILO,CARLES,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos; small packs,3,,,,
 ILOILO,CARLES,loaf bread,small packs,small packs,small packs,Price Only,gagmay nga putos; small,3,harmonizable,small packs,,12106.0
+ILOILO,CARLES,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12107.0
 ILOILO,CONCEPCION,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12116.0
 ILOILO,CONCEPCION,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,CONCEPCION,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs; tama-tama nga putos,3,,,,
-ILOILO,CONCEPCION,loaf bread,medium packs,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,tama-tama nga putos,,12117.0
-ILOILO,CONCEPCION,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,MS & Price,medium; medium packs,3,,,,
+ILOILO,CONCEPCION,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs,2,,,,
+ILOILO,CONCEPCION,loaf bread,medium packs,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,12117.0
 ILOILO,CONCEPCION,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,small,2,,,,
 ILOILO,CONCEPCION,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,harmonizable,small packs,,12118.0
+ILOILO,CONCEPCION,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,MS & Price,,1,,,,
 ILOILO,DINGLE,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 ILOILO,DINGLE,loaf bread,large,large packs,large packs,Price Only,dalagku nga putos,2,harmonizable,large packs,,12134.0
-ILOILO,DINGLE,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs; tama-tama nga putos,3,,,,
-ILOILO,DINGLE,loaf bread,medium packs,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,12135.0
-ILOILO,DINGLE,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium packs,3,harmonizable,medium packs,,12136.0
+ILOILO,DINGLE,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs,2,,,,
+ILOILO,DINGLE,loaf bread,medium packs,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,12135.0
 ILOILO,DINGLE,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12133.0
 ILOILO,DINGLE,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,DINGLE,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12136.0
 ILOILO,DUEAS,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 ILOILO,DUEAS,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,DUEAS,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,MS & Price,medium,2,,,,
+ILOILO,DUEAS,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,DUEAS,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,small,2,,,,
 ILOILO,DUEAS,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,DUEAS,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,MS & Price,,1,,,,
 ILOILO,DUMANGAS,loaf bread,large,large packs,large packs,MS & Price,,1,,,,
 ILOILO,DUMANGAS,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,DUMANGAS,loaf bread,small,small packs,small packs,MS & Price,,1,,,,
@@ -2213,38 +2213,38 @@ ILOILO,GUIMBAL,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,
 ILOILO,GUIMBAL,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
 ILOILO,IGBARAS,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 ILOILO,IGBARAS,loaf bread,large,large packs,large packs,Price Only,dalagku nga putos,2,harmonizable,large packs,,12189.0
-ILOILO,IGBARAS,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,IGBARAS,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12191.0
+ILOILO,IGBARAS,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,IGBARAS,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,small,2,,,,
 ILOILO,IGBARAS,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,harmonizable,small packs,,12190.0
+ILOILO,IGBARAS,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12191.0
 ILOILO,JANIUAY,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12203.0
 ILOILO,JANIUAY,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,JANIUAY,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos; tama-tama nga putos,3,,,,
-ILOILO,JANIUAY,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,12205.0
-ILOILO,JANIUAY,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,12206.0
+ILOILO,JANIUAY,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos,2,,,,
+ILOILO,JANIUAY,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,12205.0
 ILOILO,JANIUAY,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12204.0
 ILOILO,JANIUAY,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,JANIUAY,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12206.0
 ILOILO,LAMBUNAO,loaf bread,dalagku nga putos,large packs,large packs,Price Only,daragkul nga putos; large,3,harmonizable,large packs,,12215.0
 ILOILO,LAMBUNAO,loaf bread,daragkul nga putos,large packs,large packs,Price Only,dalagku nga putos; large,3,harmonizable,large packs,,12216.0
 ILOILO,LAMBUNAO,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos; daragkul nga putos,3,,,,
-ILOILO,LAMBUNAO,loaf bread,medium,medium packs,medium packs,Price Only,medium nga putos; tama-tama nga putos,3,harmonizable,medium packs,,12218.0
-ILOILO,LAMBUNAO,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,medium; tama-tama nga putos,3,,,,
-ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,12219.0
+ILOILO,LAMBUNAO,loaf bread,medium,medium packs,medium packs,Price Only,medium nga putos,2,harmonizable,medium packs,,12218.0
+ILOILO,LAMBUNAO,loaf bread,medium nga putos,medium packs,medium packs,MS & Price,medium,2,,,,
 ILOILO,LAMBUNAO,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12217.0
 ILOILO,LAMBUNAO,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,LAMBUNAO,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12219.0
 ILOILO,LEGANES,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,malaking packs,2,,,,
 ILOILO,LEGANES,loaf bread,malaking packs,malaking packs,large packs,Price Only,dalagku nga putos,2,harmonizable,large packs,,12229.0
-ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,,1,empty/uncommon,,,12230.0
 ILOILO,LEGANES,loaf bread,gagmay nga putos,small packs,small packs,Price Only,,1,empty/uncommon,,,12228.0
+ILOILO,LEGANES,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,,12230.0
 ILOILO,LEMERY,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large; large packs,3,harmonizable,large packs,,12242.0
 ILOILO,LEMERY,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos; large packs,3,,,,
 ILOILO,LEMERY,loaf bread,large packs,large packs,large packs,Price Only,dalagku nga putos; large,3,harmonizable,large packs,,12244.0
-ILOILO,LEMERY,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs; tama-tama nga putos,3,,,,
-ILOILO,LEMERY,loaf bread,medium packs,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,12245.0
-ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium packs,3,harmonizable,medium packs,,12247.0
+ILOILO,LEMERY,loaf bread,medium,medium packs,medium packs,MS & Price,medium packs,2,,,,
+ILOILO,LEMERY,loaf bread,medium packs,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,12245.0
 ILOILO,LEMERY,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small; small packs,3,harmonizable,small packs,,12243.0
 ILOILO,LEMERY,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos; small packs,3,,,,
 ILOILO,LEMERY,loaf bread,small packs,small packs,small packs,Price Only,gagmay nga putos; small,3,harmonizable,small packs,,12246.0
+ILOILO,LEMERY,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12247.0
 ILOILO,LEON,loaf bread,daragkul nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12258.0
 ILOILO,LEON,loaf bread,large,large packs,large packs,MS & Price,daragkul nga putos,2,,,,
 ILOILO,LEON,loaf bread,medium,medium packs,medium packs,Price Only,medium nga putos,2,harmonizable,medium packs,,12260.0
@@ -2253,83 +2253,83 @@ ILOILO,LEON,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small
 ILOILO,LEON,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
 ILOILO,MAASIN,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12269.0
 ILOILO,MAASIN,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,MAASIN,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12273.0
+ILOILO,MAASIN,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,MAASIN,loaf bread,pieces,pieces,pieces or units,Price Only,,1,nonsensical (unmappable),,,12271.0
 ILOILO,MAASIN,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,empty/uncommon,,,12270.0
 ILOILO,MAASIN,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,empty/uncommon,,,12272.0
+ILOILO,MAASIN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12273.0
 ILOILO,MIAGAO,loaf bread,large,large packs,large packs,MS & Price,,1,,,,
-ILOILO,MIAGAO,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos; tama-tama nga putos,3,,,,
-ILOILO,MIAGAO,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,12289.0
-ILOILO,MIAGAO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,12290.0
+ILOILO,MIAGAO,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos,2,,,,
+ILOILO,MIAGAO,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,12289.0
 ILOILO,MIAGAO,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12288.0
 ILOILO,MIAGAO,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,MIAGAO,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12290.0
 ILOILO,MINA,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large; malaking packs,3,harmonizable,large packs,,12302.0
 ILOILO,MINA,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos; malaking packs,3,,,,
 ILOILO,MINA,loaf bread,malaking packs,malaking packs,large packs,Price Only,dalagku nga putos; large,3,harmonizable,large packs,,12304.0
-ILOILO,MINA,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,MINA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12305.0
+ILOILO,MINA,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,MINA,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12303.0
 ILOILO,MINA,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,MINA,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12305.0
 ILOILO,NEW LUCENA,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,,1,,,,
-ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,MS & Price,,1,,,,
 ILOILO,NEW LUCENA,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,MS & Price,,1,,,,
 ILOILO,OTON,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 ILOILO,OTON,loaf bread,large,large packs,large packs,Price Only,dalagku nga putos,2,harmonizable,large packs,,12323.0
-ILOILO,OTON,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12324.0
+ILOILO,OTON,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,OTON,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12322.0
 ILOILO,OTON,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,OTON,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12324.0
 ILOILO,POTOTAN,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12329.0
 ILOILO,POTOTAN,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,POTOTAN,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12331.0
+ILOILO,POTOTAN,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,POTOTAN,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12330.0
 ILOILO,POTOTAN,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,POTOTAN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12331.0
 ILOILO,SAN DIONISIO,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,empty/uncommon,,,12337.0
 ILOILO,SAN DIONISIO,loaf bread,large,large packs,large packs,Price Only,dalagku nga putos,2,empty/uncommon,,,12339.0
-ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,SAN DIONISIO,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,MS & Price,medium,2,,,,
+ILOILO,SAN DIONISIO,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,SAN DIONISIO,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,empty/uncommon,,,12338.0
 ILOILO,SAN DIONISIO,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,empty/uncommon,,,12340.0
+ILOILO,SAN DIONISIO,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,MS & Price,,1,,,,
 ILOILO,SAN ENRIQUE,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12350.0
 ILOILO,SAN ENRIQUE,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,SAN ENRIQUE,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12352.0
+ILOILO,SAN ENRIQUE,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,SAN ENRIQUE,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12351.0
 ILOILO,SAN ENRIQUE,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,SAN ENRIQUE,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12352.0
 ILOILO,SAN JOAQUIN,loaf bread,daragkul nga putos,large packs,large packs,MS & Price,large; large packs,3,,,,
 ILOILO,SAN JOAQUIN,loaf bread,large,large packs,large packs,Price Only,daragkul nga putos; large packs,3,harmonizable,large packs,,12364.0
 ILOILO,SAN JOAQUIN,loaf bread,large packs,large packs,large packs,Price Only,daragkul nga putos; large,3,harmonizable,large packs,,12365.0
-ILOILO,SAN JOAQUIN,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos; tama-tama nga putos,3,,,,
-ILOILO,SAN JOAQUIN,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium; tama-tama nga putos,3,harmonizable,medium packs,,12366.0
-ILOILO,SAN JOAQUIN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium; medium nga putos,3,harmonizable,medium packs,,12368.0
+ILOILO,SAN JOAQUIN,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos,2,,,,
+ILOILO,SAN JOAQUIN,loaf bread,medium nga putos,medium packs,medium packs,Price Only,medium,2,harmonizable,medium packs,,12366.0
 ILOILO,SAN JOAQUIN,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,small,2,,,,
 ILOILO,SAN JOAQUIN,loaf bread,small,small packs,small packs,Price Only,gagmay nga putos,2,harmonizable,small packs,,12367.0
+ILOILO,SAN JOAQUIN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12368.0
 ILOILO,SAN MIGUEL,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,,1,,,,
-ILOILO,SAN MIGUEL,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,MS & Price,,1,,,,
 ILOILO,SAN MIGUEL,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,,1,,,,
+ILOILO,SAN MIGUEL,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,MS & Price,,1,,,,
 ILOILO,SAN RAFAEL,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 ILOILO,SAN RAFAEL,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,SAN RAFAEL,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,SAN RAFAEL,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12377.0
+ILOILO,SAN RAFAEL,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,SAN RAFAEL,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12376.0
 ILOILO,SAN RAFAEL,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,SAN RAFAEL,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12377.0
 ILOILO,SANTA BARBARA,loaf bread,large,large packs,large packs,MS & Price,,1,,,,
 ILOILO,SANTA BARBARA,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,SANTA BARBARA,loaf bread,small,small packs,small packs,MS & Price,,1,,,,
 ILOILO,SARA,loaf bread,dalagku nga putos,large packs,large packs,Price Only,large,2,harmonizable,large packs,,12388.0
 ILOILO,SARA,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,SARA,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12390.0
+ILOILO,SARA,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,SARA,loaf bread,gagmay nga putos,small packs,small packs,Price Only,small,2,harmonizable,small packs,,12389.0
 ILOILO,SARA,loaf bread,small,small packs,small packs,MS & Price,gagmay nga putos,2,,,,
+ILOILO,SARA,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12390.0
 ILOILO,TIGBAUAN,loaf bread,dalagku nga putos,large packs,large packs,MS & Price,large,2,,,,
 ILOILO,TIGBAUAN,loaf bread,large,large packs,large packs,MS & Price,dalagku nga putos,2,,,,
-ILOILO,TIGBAUAN,loaf bread,medium,medium packs,medium packs,MS & Price,tama-tama nga putos,2,,,,
-ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,medium packs,Price Only,medium,2,harmonizable,medium packs,,12397.0
+ILOILO,TIGBAUAN,loaf bread,medium,medium packs,medium packs,MS & Price,,1,,,,
 ILOILO,TIGBAUAN,loaf bread,gagmay nga putos,small packs,small packs,MS & Price,small packs,2,,,,
 ILOILO,TIGBAUAN,loaf bread,small packs,small packs,small packs,Price Only,gagmay nga putos,2,harmonizable,small packs,,12396.0
+ILOILO,TIGBAUAN,loaf bread,tama-tama nga putos,tama-tama nga putos,tama-tama nga putos,Price Only,,1,empty/uncommon,,medium packs,12397.0
 ILOILO,TUBUNGAN,loaf bread,daragkul nga putos,large packs,large packs,MS & Price,large,2,,,,
 ILOILO,TUBUNGAN,loaf bread,large,large packs,large packs,Price Only,daragkul nga putos,2,harmonizable,large packs,,12406.0
 ILOILO,TUBUNGAN,loaf bread,medium,medium packs,medium packs,MS & Price,medium nga putos,2,,,,

@@ -790,6 +790,14 @@ save "${btemp}\nsu_data_master", replace
 * on EVERY command, and the loop below issues dozens. On a Box-synced folder that
 * races the sync client and fails with "could not be saved" (r603) -- reproducibly,
 * not occasionally. One write at the end instead.
+* ...and `replace' is still not enough on its own. This file is written by BOTH
+* masters, because 03 is shared, so running master_outcome2.do after
+* master_outcome1.do asks putexcel to overwrite a workbook Box wrote seconds earlier
+* and may still be holding. That fails r(603) and takes the whole build with it.
+* Erasing first means `replace' writes a new file rather than overwriting a held one
+* -- the same fix already used for excluded_standard_unit_obs.xlsx at the top of this
+* file. `capture' because the file legitimately does not exist on a clean build.
+capture erase "${btables}\build_comparison.xlsx"
 putexcel set "${btables}\build_comparison.xlsx", replace sheet("counts") open
 putexcel A1 = "Metric"  B1 = "master_nsu_rename (this build)"  C1 = "nsu_rename_crosswalk (pre-Aug11)", bold
 

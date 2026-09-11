@@ -91,10 +91,15 @@ VERDICTS = {
                     "fold key reduces this to `piece'."),
 
     # ------------------------------------------------------------- high impact
-    "tama-tama nga putos": ("group", "medium packs", "translation", "measured",
-                            "loaf bread, 23 weighings at median 450 g -- EXACTLY the medium "
-                            "packs median (450 g, n=352); large is 640 g and small 370 g. "
-                            "`tama-tama' = just right / moderate. Reading and weight agree."),
+    "tama-tama nga putos": ("keep", "medium packs", "translation", "measured",
+                            "PROPOSED AS A FOLD, APPLIED, MEASURED AND REVERTED. 23 "
+                            "weighings at median 450 g against the medium packs median of "
+                            "450 g (n=352), and `tama-tama' = just right / moderate, so both "
+                            "the weight and the reading say medium. The fold also fixed a "
+                            "real coverage problem: 375 of its 424 household rows were "
+                            "converting off a borrowed rung. But it cost 39 households their "
+                            "gram figure -- they fail the PRICE-POINT match under the target "
+                            "-- and a borrowed weight beats no weight. Kept separate."),
     "cone": ("keep", "small cup", "translation", "measured",
              "ice cream, 39 weighings at 110 g. NOTE HONESTLY: the weight test does NOT "
              "support keeping this apart -- 110 g against small cup's 100 g is x1.10. The "

@@ -1,6 +1,6 @@
 ﻿category,n
-direct in-cell match (harmonizable),347
-resolved via in-cell fallback,157
+direct in-cell match (harmonizable),306
+resolved via in-cell fallback,198
 "no MS presence in cell at all (no match, no fallback)",445
   of which: nonsensical (unmappable) -- no weight at all (.c),57
   of which: nonsensical (recoverable) -- heuristic salvage only,8

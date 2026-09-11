@@ -204,16 +204,29 @@ GROUP_FILL={
     'per pc':'pieces or units', 'per pcs':'pieces or units',
     'per piraso':'pieces or units', '1 pc. prawn':'pieces or units',
 
-    # `tama-tama' is `just right / moderate'. Loaf bread, 23 weighings at median 450 g,
-    # which is EXACTLY the medium packs median (n=352); large is 640 g, small 370 g.
+    # NOT HERE, DELIBERATELY: 'tama-tama nga putos' -> 'medium packs'.
     #
-    # THE REASON TO FOLD IS COVERAGE, NOT THE MEDIAN. Its 424 household rows span 57
-    # cells and its 23 weighings cover 8 of them, so only 49 rows have a same-cell
-    # weighing of this spelling and the rest convert off a borrowed rung -- 116 rows
-    # pool all 23 nationally. Folding gives 348 of 424 a same-cell weighing of the
-    # target. A label can be well observed in total and still be unobserved where its
-    # households are.
-    'tama-tama nga putos':'medium packs',
+    # `tama-tama' is `just right / moderate'. Loaf bread, 23 weighings at median 450 g,
+    # which is EXACTLY the medium packs median (n=352); large is 640 g, small 370 g. The
+    # case for folding was coverage rather than the median: its 424 household rows span
+    # 57 cells and its 23 weighings cover 8 of them, so 375 rows were converting off a
+    # borrowed rung -- 116 pooling all 23 nationally. Folding raised same-cell coverage
+    # to 348 of 424 and moved 385 rows onto local weighings (n_g_used 4, 2, 3, 6 instead
+    # of 16 and 23).
+    #
+    # IT WAS APPLIED, MEASURED AND REVERTED. The fold cost 39 households their gram
+    # figure entirely -- SARA 15, SAN ENRIQUE 9, BUGASONG 6, and five more municipalities.
+    # Not a missing weighing and not a fallback refusal: they fail at the PRICE-POINT
+    # match, because the household's price does not align with the price structure
+    # `medium packs' has in that municipality, where the retired `tama-tama' case had
+    # points that did. The trade was a better conversion factor for 385 rows against no
+    # conversion factor for 39, and the project's call is that no figure is worse than a
+    # borrowed one. See outputs/archive/pre_issue36_harmonization/README.md.
+    #
+    # A middle path exists and has not been built: fold, and extend the price-point
+    # match so a household price outside the target's local structure falls back to the
+    # target's provincial points rather than failing. That is a change to 28/30, not to
+    # this table.
 
     # `o' is `or': the label gives the English and Visayan name of one thing, and `lata'
     # is the canonical member of the cans group.

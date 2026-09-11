@@ -20,7 +20,7 @@ fresh fish,AKLAN,ALTAVAS,pieces or units,g,small,95,3,2,3,95,3,2,387.5,62,22,390
 "liquor (e.g, whisky, coconut wine)",AKLAN,ALTAVAS,lipid/lapad,mL,medium,375,3,0,3,375,3,0,375,76,0,375,618,7,375,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,ALTAVAS,long-neck,mL,medium,750,4,0,2,750,4,0,750,104,0,750,478,1,750,4,0,the cell's own weighings,0,0
 loaf bread,AKLAN,ALTAVAS,large packs,g,large,640,4,0,3,640,4,0,640,43,0,640,411,6,640,4,0,the cell's own weighings,0,0
-loaf bread,AKLAN,ALTAVAS,medium packs,g,medium,450,4,0,3,450,4,0,450,51,0,450,374,0,450,4,0,the cell's own weighings,0,0
+loaf bread,AKLAN,ALTAVAS,medium packs,g,medium,450,4,0,3,450,4,0,450,51,0,450,352,0,450,4,0,the cell's own weighings,0,0
 loaf bread,AKLAN,ALTAVAS,small packs,g,small,360,3,0,3,360,3,0,360,33,0,370,259,2,360,3,0,the cell's own weighings,0,0
 pork,AKLAN,ALTAVAS,slice,g,small,160,1,1,3,160,1,1,160,1,1,425,4,4,425,4,4,item x unit (national),0,1
 "prawns, lobster, shrimp",AKLAN,ALTAVAS,tumpok,g,medium,135,3,0,1,135,3,0,290,23,5,260,147,27,135,3,0,the cell's own weighings,0,0
@@ -45,7 +45,7 @@ chicken,AKLAN,BANGA,whole (chicken),g,large,1765,5,1,3,1272.5,10,1,1265,83,1,112
 "liquor (e.g, whisky, coconut wine)",AKLAN,BANGA,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,76,0,375,618,7,375,6,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,BANGA,long-neck,mL,large,750,7,0,3,750,7,0,750,104,0,750,478,1,750,7,0,the cell's own weighings,0,0
 loaf bread,AKLAN,BANGA,large packs,g,large,640,4,0,3,640,4,0,640,43,0,640,411,6,640,4,0,the cell's own weighings,0,0
-loaf bread,AKLAN,BANGA,medium packs,g,medium,450,5,0,3,450,5,0,450,51,0,450,374,0,450,5,0,the cell's own weighings,0,0
+loaf bread,AKLAN,BANGA,medium packs,g,medium,450,5,0,3,450,5,0,450,51,0,450,352,0,450,5,0,the cell's own weighings,0,0
 loaf bread,AKLAN,BANGA,small packs,g,small,360,2,0,3,360,2,0,360,33,0,370,259,2,360,33,0,province x item x unit,0,0
 mango,AKLAN,BANGA,pieces or units,g,small,185,2,0,3,260,5,0,230,77,0,230,539,1,260,5,0,cell pooled across sizes,0,0
 mango,AKLAN,BANGA,pieces or units,g,medium,300,2,0,3,260,5,0,230,77,0,230,539,1,260,5,0,cell pooled across sizes,0,0
@@ -78,7 +78,7 @@ fresh fish,AKLAN,BATAN,pieces or units,g,large,410,2,0,3,155,9,2,387.5,62,22,390
 "liquor (e.g, whisky, coconut wine)",AKLAN,BATAN,long-neck,mL,small,425,2,0,3,750,5,0,750,104,0,750,478,1,750,5,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,BATAN,long-neck,mL,medium,750,3,0,3,750,5,0,750,104,0,750,478,1,750,5,0,cell pooled across sizes,0,0
 loaf bread,AKLAN,BATAN,large packs,g,large,620,5,0,3,620,5,0,640,43,0,640,411,6,620,5,0,the cell's own weighings,0,0
-loaf bread,AKLAN,BATAN,medium packs,g,medium,450,1,0,3,450,1,0,450,51,0,450,374,0,450,51,0,province x item x unit,0,0
+loaf bread,AKLAN,BATAN,medium packs,g,medium,450,1,0,3,450,1,0,450,51,0,450,352,0,450,51,0,province x item x unit,0,0
 loaf bread,AKLAN,BATAN,small packs,g,small,330,2,0,3,330,2,0,360,33,0,370,259,2,360,33,0,province x item x unit,0,0
 mango,AKLAN,BATAN,pieces or units,g,small,230,5,0,3,245,15,0,230,77,0,230,539,1,230,5,0,the cell's own weighings,0,0
 mango,AKLAN,BATAN,pieces or units,g,medium,250,7,0,3,245,15,0,230,77,0,230,539,1,250,7,0,the cell's own weighings,0,0
@@ -112,7 +112,7 @@ chicken,AKLAN,BURUANGA,whole (chicken),g,large,1325,3,0,3,1160,7,0,1265,83,1,112
 "liquor (e.g, whisky, coconut wine)",AKLAN,BURUANGA,lipid/lapad,mL,medium,375,9,0,3,375,9,0,375,76,0,375,618,7,375,9,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,BURUANGA,long-neck,mL,large,750,9,0,3,750,9,0,750,104,0,750,478,1,750,9,0,the cell's own weighings,0,0
 loaf bread,AKLAN,BURUANGA,large packs,g,large,600,3,0,3,600,3,0,640,43,0,640,411,6,600,3,0,the cell's own weighings,0,0
-loaf bread,AKLAN,BURUANGA,medium packs,g,medium,450,5,0,3,450,5,0,450,51,0,450,374,0,450,5,0,the cell's own weighings,0,0
+loaf bread,AKLAN,BURUANGA,medium packs,g,medium,450,5,0,3,450,5,0,450,51,0,450,352,0,450,5,0,the cell's own weighings,0,0
 loaf bread,AKLAN,BURUANGA,small packs,g,small,350,4,0,3,350,4,0,360,33,0,370,259,2,350,4,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,BURUANGA,pieces or units,g,small,250,3,0,3,250,3,0,65,28,3,65,33,7,250,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,BURUANGA,putos,g,small,220,5,0,3,225,8,0,300,81,7,250,473,60,220,5,0,the cell's own weighings,0,0
@@ -146,7 +146,7 @@ fresh fish,AKLAN,IBAJAY,pieces or units,g,large,475,4,0,3,235,14,6,387.5,62,22,3
 "liquor (e.g, whisky, coconut wine)",AKLAN,IBAJAY,long-neck,mL,small,750,6,0,3,750,7,0,750,104,0,750,478,1,750,7,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,IBAJAY,long-neck,mL,large,1000,1,0,3,750,7,0,750,104,0,750,478,1,750,7,0,cell pooled across sizes,0,0
 loaf bread,AKLAN,IBAJAY,large packs,g,large,620,3,0,3,620,3,0,640,43,0,640,411,6,620,3,0,the cell's own weighings,0,0
-loaf bread,AKLAN,IBAJAY,medium packs,g,medium,525,2,0,3,525,2,0,450,51,0,450,374,0,450,51,0,province x item x unit,0,0
+loaf bread,AKLAN,IBAJAY,medium packs,g,medium,525,2,0,3,525,2,0,450,51,0,450,352,0,450,51,0,province x item x unit,0,0
 loaf bread,AKLAN,IBAJAY,small packs,g,small,372.5,2,0,3,372.5,2,0,360,33,0,370,259,2,360,33,0,province x item x unit,0,0
 mango,AKLAN,IBAJAY,pieces or units,g,small,155,5,0,3,225,15,0,230,77,0,230,539,1,155,5,0,the cell's own weighings,0,0
 mango,AKLAN,IBAJAY,pieces or units,g,medium,227.5,6,0,3,225,15,0,230,77,0,230,539,1,227.5,6,0,the cell's own weighings,0,0
@@ -208,8 +208,8 @@ fresh fish,AKLAN,MADALAG,pieces or units,g,large,1105,3,3,3,437.5,12,7,387.5,62,
 "liquor (e.g, whisky, coconut wine)",AKLAN,MADALAG,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,76,0,375,618,7,375,6,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,MADALAG,long-neck,mL,large,750,5,0,3,750,5,0,750,104,0,750,478,1,750,5,0,the cell's own weighings,0,0
 loaf bread,AKLAN,MADALAG,large packs,g,large,640,1,0,3,640,1,0,640,43,0,640,411,6,640,43,0,province x item x unit,0,0
-loaf bread,AKLAN,MADALAG,medium packs,g,medium,525,2,0,3,610,4,0,450,51,0,450,374,0,610,4,0,cell pooled across sizes,0,0
-loaf bread,AKLAN,MADALAG,medium packs,g,large,660,2,0,3,610,4,0,450,51,0,450,374,0,610,4,0,cell pooled across sizes,0,0
+loaf bread,AKLAN,MADALAG,medium packs,g,medium,525,2,0,3,610,4,0,450,51,0,450,352,0,610,4,0,cell pooled across sizes,0,0
+loaf bread,AKLAN,MADALAG,medium packs,g,large,660,2,0,3,610,4,0,450,51,0,450,352,0,610,4,0,cell pooled across sizes,0,0
 loaf bread,AKLAN,MADALAG,small packs,g,small,220,1,0,3,220,1,0,360,33,0,370,259,2,360,33,0,province x item x unit,0,0
 mango,AKLAN,MADALAG,pieces or units,g,small,172.5,2,0,3,217.5,4,0,230,77,0,230,539,1,217.5,4,0,cell pooled across sizes,0,0
 mango,AKLAN,MADALAG,pieces or units,g,medium,255,1,0,3,217.5,4,0,230,77,0,230,539,1,217.5,4,0,cell pooled across sizes,0,0
@@ -234,7 +234,7 @@ fresh fish,AKLAN,MAKATO,pieces or units,g,large,785,3,3,3,527.5,12,3,387.5,62,22
 "liquor (e.g, whisky, coconut wine)",AKLAN,MAKATO,lipid/lapad,mL,medium,375,9,0,3,375,9,0,375,76,0,375,618,7,375,9,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,MAKATO,long-neck,mL,large,750,9,0,3,750,9,0,750,104,0,750,478,1,750,9,0,the cell's own weighings,0,0
 loaf bread,AKLAN,MAKATO,large packs,g,large,640,5,0,3,640,5,0,640,43,0,640,411,6,640,5,0,the cell's own weighings,0,0
-loaf bread,AKLAN,MAKATO,medium packs,g,medium,465,8,0,3,465,8,0,450,51,0,450,374,0,465,8,0,the cell's own weighings,0,0
+loaf bread,AKLAN,MAKATO,medium packs,g,medium,465,8,0,3,465,8,0,450,51,0,450,352,0,465,8,0,the cell's own weighings,0,0
 loaf bread,AKLAN,MAKATO,small packs,g,small,392.5,4,0,3,392.5,4,0,360,33,0,370,259,2,392.5,4,0,the cell's own weighings,0,0
 mango,AKLAN,MAKATO,pieces or units,g,small,142.5,4,0,3,190,12,0,230,77,0,230,539,1,142.5,4,0,the cell's own weighings,0,0
 mango,AKLAN,MAKATO,pieces or units,g,medium,195,5,0,3,190,12,0,230,77,0,230,539,1,195,5,0,the cell's own weighings,0,0
@@ -263,7 +263,7 @@ chicken,AKLAN,MALAY,whole (chicken),g,medium,1232.5,4,0,3,1137.5,8,0,1265,83,1,1
 "liquor (e.g, whisky, coconut wine)",AKLAN,MALAY,lipid/lapad,mL,medium,375,9,0,3,375,9,0,375,76,0,375,618,7,375,9,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,MALAY,long-neck,mL,large,750,9,0,3,750,9,0,750,104,0,750,478,1,750,9,0,the cell's own weighings,0,0
 loaf bread,AKLAN,MALAY,large packs,g,large,580,4,0,3,580,4,0,640,43,0,640,411,6,580,4,0,the cell's own weighings,0,0
-loaf bread,AKLAN,MALAY,medium packs,g,medium,425,4,0,3,425,4,0,450,51,0,450,374,0,425,4,0,the cell's own weighings,0,0
+loaf bread,AKLAN,MALAY,medium packs,g,medium,425,4,0,3,425,4,0,450,51,0,450,352,0,425,4,0,the cell's own weighings,0,0
 loaf bread,AKLAN,MALAY,small packs,g,small,300,3,0,3,300,3,0,360,33,0,370,259,2,300,3,0,the cell's own weighings,0,0
 mango,AKLAN,MALAY,pieces or units,g,small,140,5,0,3,230,15,0,230,77,0,230,539,1,140,5,0,the cell's own weighings,0,0
 mango,AKLAN,MALAY,pieces or units,g,medium,230,6,0,3,230,15,0,230,77,0,230,539,1,230,6,0,the cell's own weighings,0,0
@@ -301,7 +301,7 @@ fresh fish,AKLAN,MALINAO,pieces or units,g,large,4850,1,0,3,505,6,0,387.5,62,22,
 "liquor (e.g, whisky, coconut wine)",AKLAN,MALINAO,long-neck,mL,medium,750,5,0,3,750,14,0,750,104,0,750,478,1,750,5,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,MALINAO,long-neck,mL,large,1000,4,0,3,750,14,0,750,104,0,750,478,1,1000,4,0,the cell's own weighings,0,0
 loaf bread,AKLAN,MALINAO,large packs,g,large,620,5,0,3,620,5,0,640,43,0,640,411,6,620,5,0,the cell's own weighings,0,0
-loaf bread,AKLAN,MALINAO,medium packs,g,medium,450,6,0,3,450,6,0,450,51,0,450,374,0,450,6,0,the cell's own weighings,0,0
+loaf bread,AKLAN,MALINAO,medium packs,g,medium,450,6,0,3,450,6,0,450,51,0,450,352,0,450,6,0,the cell's own weighings,0,0
 loaf bread,AKLAN,MALINAO,small packs,g,small,310,2,0,3,310,2,0,360,33,0,370,259,2,360,33,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALINAO,putos,g,medium,200,3,0,2,200,3,0,300,81,7,250,473,60,200,3,0,the cell's own weighings,0,0
 cabbage,AKLAN,NABAS,pieces or units,g,small,595,7,0,3,832.5,20,1,722.5,226,14,655,1306,73,595,7,0,the cell's own weighings,0,0
@@ -321,7 +321,7 @@ chicken,AKLAN,NABAS,whole (chicken),g,large,1240,4,0,3,1110,9,0,1265,83,1,1120,4
 "liquor (e.g, whisky, coconut wine)",AKLAN,NABAS,long-neck,mL,small,750,6,0,3,750,10,0,750,104,0,750,478,1,750,6,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,NABAS,long-neck,mL,medium,1000,4,0,3,750,10,0,750,104,0,750,478,1,1000,4,0,the cell's own weighings,0,0
 loaf bread,AKLAN,NABAS,large packs,g,large,700,1,0,3,700,1,0,640,43,0,640,411,6,640,43,0,province x item x unit,0,0
-loaf bread,AKLAN,NABAS,medium packs,g,small,345,3,0,3,345,3,0,450,51,0,450,374,0,345,3,0,the cell's own weighings,0,0
+loaf bread,AKLAN,NABAS,medium packs,g,small,345,3,0,3,345,3,0,450,51,0,450,352,0,345,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,NABAS,pieces or units,g,medium,70,1,0,2,70,1,0,65,28,3,65,33,7,65,28,3,province x item x unit,0,.1071428571428571
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,NABAS,putos,g,medium,237.5,2,0,2,237.5,2,0,300,81,7,250,473,60,300,81,7,province x item x unit,0,.0864197530864197
 cabbage,AKLAN,NEW WASHINGTON,pieces or units,g,small,500,9,0,3,647.5,26,0,722.5,226,14,655,1306,73,500,9,0,the cell's own weighings,0,0
@@ -342,7 +342,7 @@ chicken,AKLAN,NEW WASHINGTON,whole (chicken),g,large,1540,6,0,3,1540,6,0,1265,83
 "liquor (e.g, whisky, coconut wine)",AKLAN,NEW WASHINGTON,long-neck,mL,small,750,5,0,3,750,7,0,750,104,0,750,478,1,750,7,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,NEW WASHINGTON,long-neck,mL,large,1000,2,0,3,750,7,0,750,104,0,750,478,1,750,7,0,cell pooled across sizes,0,0
 loaf bread,AKLAN,NEW WASHINGTON,large packs,g,large,640,4,0,3,640,4,0,640,43,0,640,411,6,640,4,0,the cell's own weighings,0,0
-loaf bread,AKLAN,NEW WASHINGTON,medium packs,g,medium,465,4,0,3,465,4,0,450,51,0,450,374,0,465,4,0,the cell's own weighings,0,0
+loaf bread,AKLAN,NEW WASHINGTON,medium packs,g,medium,465,4,0,3,465,4,0,450,51,0,450,352,0,465,4,0,the cell's own weighings,0,0
 loaf bread,AKLAN,NEW WASHINGTON,small packs,g,small,392.5,2,0,3,392.5,2,0,360,33,0,370,259,2,360,33,0,province x item x unit,0,0
 "prawns, lobster, shrimp",AKLAN,NEW WASHINGTON,tumpok,g,medium,342.5,4,1,1,342.5,4,1,290,23,5,260,147,27,342.5,4,1,the cell's own weighings,0,.25
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,NEW WASHINGTON,pieces or units,g,small,70,1,0,3,70,1,0,65,28,3,65,33,7,65,28,3,province x item x unit,0,.1071428571428571
@@ -369,7 +369,7 @@ chicken,AKLAN,TANGALAN,whole (chicken),g,large,1395,3,0,3,1167.5,10,0,1265,83,1,
 "liquor (e.g, whisky, coconut wine)",AKLAN,TANGALAN,long-neck,mL,small,750,9,0,3,750,11,0,750,104,0,750,478,1,750,11,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",AKLAN,TANGALAN,long-neck,mL,large,1000,2,0,3,750,11,0,750,104,0,750,478,1,750,11,0,cell pooled across sizes,0,0
 loaf bread,AKLAN,TANGALAN,large packs,g,large,682.5,4,0,3,682.5,4,0,640,43,0,640,411,6,682.5,4,0,the cell's own weighings,0,0
-loaf bread,AKLAN,TANGALAN,medium packs,g,medium,600,5,0,3,600,5,0,450,51,0,450,374,0,600,5,0,the cell's own weighings,0,0
+loaf bread,AKLAN,TANGALAN,medium packs,g,medium,600,5,0,3,600,5,0,450,51,0,450,352,0,600,5,0,the cell's own weighings,0,0
 loaf bread,AKLAN,TANGALAN,small packs,g,small,400,8,0,3,400,8,0,360,33,0,370,259,2,400,8,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,TANGALAN,pieces or units,g,small,57.5,6,0,3,57.5,6,0,65,28,3,65,33,7,57.5,6,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,TANGALAN,putos,g,small,112,4,2,3,250,11,2,300,81,7,250,473,60,112,4,2,the cell's own weighings,0,.5
@@ -398,8 +398,8 @@ fresh fish,ANTIQUE,BARBAZA,pieces or units,g,large,2055,1,1,3,675,6,3,490,87,45,
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,BARBAZA,lipid/lapad,mL,medium,375,4,0,3,375,4,0,375,100,0,375,618,7,375,4,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,BARBAZA,long-neck,mL,medium,750,7,0,2,750,7,0,750,118,0,750,478,1,750,7,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,BARBAZA,large packs,g,large,680,5,0,3,680,5,0,640,47,0,640,411,6,680,5,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,BARBAZA,medium packs,g,medium,475,6,0,3,475,6,0,450,56,0,450,374,0,475,6,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,BARBAZA,small packs,g,small,400,3,0,3,400,3,0,375,32,0,370,259,2,400,3,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,BARBAZA,tama-tama nga putos,g,medium,475,6,0,3,475,6,0,500,7,0,450,23,0,475,6,0,the cell's own weighings,0,0
 mango,ANTIQUE,BARBAZA,pieces or units,g,small,200,5,0,3,240,13,0,230,82,0,230,539,1,200,5,0,the cell's own weighings,0,0
 mango,ANTIQUE,BARBAZA,pieces or units,g,medium,245,4,0,3,240,13,0,230,82,0,230,539,1,245,4,0,the cell's own weighings,0,0
 mango,ANTIQUE,BARBAZA,pieces or units,g,large,297.5,4,0,3,240,13,0,230,82,0,230,539,1,297.5,4,0,the cell's own weighings,0,0
@@ -431,7 +431,7 @@ chicken,ANTIQUE,BELISON,whole (chicken),g,large,1350,1,0,3,1077.5,6,0,1105,65,0,
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,BELISON,lipid/lapad,mL,medium,375,7,0,2,375,7,0,375,100,0,375,618,7,375,7,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,BELISON,long-neck,mL,medium,750,8,0,2,750,8,0,750,118,0,750,478,1,750,8,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,BELISON,large packs,g,large,640,4,0,3,640,4,0,640,47,0,640,411,6,640,4,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,BELISON,medium packs,g,medium,450,5,0,3,450,5,0,450,56,0,450,374,0,450,5,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,BELISON,medium packs,g,medium,450,5,0,3,450,5,0,450,50,0,450,352,0,450,5,0,the cell's own weighings,0,0
 mango,ANTIQUE,BELISON,pieces or units,g,small,170,4,0,3,260,11,0,230,82,0,230,539,1,170,4,0,the cell's own weighings,0,0
 mango,ANTIQUE,BELISON,pieces or units,g,medium,262.5,4,0,3,260,11,0,230,82,0,230,539,1,262.5,4,0,the cell's own weighings,0,0
 mango,ANTIQUE,BELISON,pieces or units,g,large,325,3,0,3,260,11,0,230,82,0,230,539,1,325,3,0,the cell's own weighings,0,0
@@ -473,7 +473,7 @@ fresh fish,ANTIQUE,BUGASONG,pieces or units,g,large,1590,1,1,3,695,5,3,490,87,45
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,BUGASONG,long-neck,mL,small,750,8,0,3,750,10,0,750,118,0,750,478,1,750,10,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,BUGASONG,long-neck,mL,large,1000,2,0,3,750,10,0,750,118,0,750,478,1,750,10,0,cell pooled across sizes,0,0
 loaf bread,ANTIQUE,BUGASONG,large packs,g,large,660,2,0,3,660,2,0,640,47,0,640,411,6,640,47,0,province x item x unit,0,0
-loaf bread,ANTIQUE,BUGASONG,medium packs,g,medium,450,5,0,3,450,5,0,450,56,0,450,374,0,450,5,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,BUGASONG,medium packs,g,medium,450,5,0,3,450,5,0,450,50,0,450,352,0,450,5,0,the cell's own weighings,0,0
 mango,ANTIQUE,BUGASONG,pieces or units,g,small,145,5,0,3,217.5,14,0,230,82,0,230,539,1,145,5,0,the cell's own weighings,0,0
 mango,ANTIQUE,BUGASONG,pieces or units,g,medium,225,5,0,3,217.5,14,0,230,82,0,230,539,1,225,5,0,the cell's own weighings,0,0
 mango,ANTIQUE,BUGASONG,pieces or units,g,large,287.5,4,0,3,217.5,14,0,230,82,0,230,539,1,287.5,4,0,the cell's own weighings,0,0
@@ -504,7 +504,7 @@ fresh fish,ANTIQUE,CULASI,pieces or units,g,large,735,5,4,3,247.5,16,6,490,87,45
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,CULASI,lipid/lapad,mL,medium,375,8,0,3,375,8,0,375,100,0,375,618,7,375,8,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,CULASI,long-neck,mL,large,750,8,0,3,750,8,0,750,118,0,750,478,1,750,8,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,CULASI,large packs,g,large,640,5,0,3,640,5,0,640,47,0,640,411,6,640,5,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,CULASI,medium packs,g,medium,500,3,0,3,500,3,0,450,56,0,450,374,0,500,3,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,CULASI,medium packs,g,medium,500,3,0,3,500,3,0,450,50,0,450,352,0,500,3,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,CULASI,small packs,g,small,355,2,0,3,355,2,0,375,32,0,370,259,2,375,32,0,province x item x unit,0,0
 mango,ANTIQUE,CULASI,pieces or units,g,small,155,7,0,3,230,17,0,230,82,0,230,539,1,155,7,0,the cell's own weighings,0,0
 mango,ANTIQUE,CULASI,pieces or units,g,medium,235,5,0,3,230,17,0,230,82,0,230,539,1,235,5,0,the cell's own weighings,0,0
@@ -546,7 +546,7 @@ fresh fish,ANTIQUE,HAMTIC,pieces or units,g,large,850,3,3,3,685,12,7,490,87,45,3
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,HAMTIC,long-neck,mL,small,750,9,0,3,750,11,0,750,118,0,750,478,1,750,11,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,HAMTIC,long-neck,mL,large,1000,2,0,3,750,11,0,750,118,0,750,478,1,750,11,0,cell pooled across sizes,0,0
 loaf bread,ANTIQUE,HAMTIC,large packs,g,large,640,6,0,3,640,6,0,640,47,0,640,411,6,640,6,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,HAMTIC,medium packs,g,medium,465,6,0,3,465,6,0,450,56,0,450,374,0,465,6,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,HAMTIC,medium packs,g,medium,465,6,0,3,465,6,0,450,50,0,450,352,0,465,6,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,HAMTIC,small packs,g,small,325,2,0,3,325,2,0,375,32,0,370,259,2,375,32,0,province x item x unit,0,0
 "prawns, lobster, shrimp",ANTIQUE,HAMTIC,tumpok,g,medium,632.5,2,1,1,632.5,2,1,240,9,1,260,147,27,240,9,1,province x item x unit,0,.1111111111111111
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,HAMTIC,bilog,g,small,250,4,0,3,250,4,0,250,25,4,229,222,91,250,4,0,the cell's own weighings,0,0
@@ -572,7 +572,7 @@ fresh fish,ANTIQUE,LAUA-AN,pieces or units,g,large,2885,1,0,3,1047.5,6,3,490,87,
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,LAUA-AN,lipid/lapad,mL,medium,375,7,0,3,375,7,0,375,100,0,375,618,7,375,7,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,LAUA-AN,long-neck,mL,large,750,7,0,3,750,7,0,750,118,0,750,478,1,750,7,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,LAUA-AN,large packs,g,large,640,3,0,3,640,3,0,640,47,0,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,LAUA-AN,medium packs,g,medium,450,3,0,3,450,3,0,450,56,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,LAUA-AN,medium packs,g,medium,450,3,0,3,450,3,0,450,50,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,LAUA-AN,small packs,g,small,360,1,0,3,360,1,0,375,32,0,370,259,2,375,32,0,province x item x unit,0,0
 mango,ANTIQUE,LAUA-AN,pieces or units,g,medium,205,1,0,3,205,1,0,230,82,0,230,539,1,230,82,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,LAUA-AN,putos,g,medium,200,3,0,1,200,3,0,250,79,13,250,473,60,200,3,0,the cell's own weighings,0,0
@@ -598,7 +598,7 @@ fresh fish,ANTIQUE,LIBERTAD,pieces or units,g,large,1327.5,2,2,3,615,7,5,490,87,
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,LIBERTAD,lipid/lapad,mL,medium,375,4,0,3,375,4,0,375,100,0,375,618,7,375,4,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,LIBERTAD,long-neck,mL,large,750,4,0,3,750,4,0,750,118,0,750,478,1,750,4,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,LIBERTAD,large packs,g,large,680,1,0,3,680,1,0,640,47,0,640,411,6,640,47,0,province x item x unit,0,0
-loaf bread,ANTIQUE,LIBERTAD,medium packs,g,medium,560,2,0,3,560,2,0,450,56,0,450,374,0,450,56,0,province x item x unit,0,0
+loaf bread,ANTIQUE,LIBERTAD,medium packs,g,medium,560,2,0,3,560,2,0,450,50,0,450,352,0,450,50,0,province x item x unit,0,0
 loaf bread,ANTIQUE,LIBERTAD,small packs,g,medium,400,3,0,1,400,3,0,375,32,0,370,259,2,400,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,LIBERTAD,putos,g,medium,200,5,0,1,200,5,0,250,79,13,250,473,60,200,5,0,the cell's own weighings,0,0
 cabbage,ANTIQUE,PANDAN,pack,g,medium,270,3,2,1,270,3,2,270,3,2,150,43,6,270,3,2,the cell's own weighings,0,.6666666666666666
@@ -650,7 +650,7 @@ fresh fish,ANTIQUE,PATNONGON,tumpok,g,medium,525,1,1,1,525,1,1,525,1,1,750,25,25
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,PATNONGON,lipid/lapad,mL,medium,375,7,0,3,375,7,0,375,100,0,375,618,7,375,7,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,PATNONGON,long-neck,mL,large,750,7,0,3,750,7,0,750,118,0,750,478,1,750,7,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,PATNONGON,large packs,g,large,640,3,0,3,640,3,0,640,47,0,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,PATNONGON,medium packs,g,medium,450,3,0,3,450,3,0,450,56,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,PATNONGON,medium packs,g,medium,450,3,0,3,450,3,0,450,50,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,PATNONGON,small packs,g,small,375,3,0,3,375,3,0,375,32,0,370,259,2,375,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,PATNONGON,putos,g,medium,225,5,0,1,225,5,0,250,79,13,250,473,60,225,5,0,the cell's own weighings,0,0
 cabbage,ANTIQUE,SAN REMIGIO,pieces or units,g,small,375,3,0,3,655,9,0,655,219,7,655,1306,73,655,9,0,cell pooled across sizes,0,0
@@ -683,7 +683,7 @@ fresh fish,ANTIQUE,SAN REMIGIO,pieces or units,g,large,2467.5,2,1,3,195,9,5,490,
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SAN REMIGIO,lipid/lapad,mL,medium,375,8,0,3,375,8,0,375,100,0,375,618,7,375,8,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SAN REMIGIO,long-neck,mL,large,750,8,0,3,750,8,0,750,118,0,750,478,1,750,8,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,SAN REMIGIO,large packs,g,medium,640,3,0,1,640,3,0,640,47,0,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,SAN REMIGIO,medium packs,g,medium,450,4,0,1,450,4,0,450,56,0,450,374,0,450,4,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,SAN REMIGIO,medium packs,g,medium,450,4,0,1,450,4,0,450,50,0,450,352,0,450,4,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,SAN REMIGIO,small packs,g,medium,367.5,2,0,2,367.5,2,0,375,32,0,370,259,2,375,32,0,province x item x unit,0,0
 mango,ANTIQUE,SAN REMIGIO,pieces or units,g,small,190,3,0,3,245,7,0,230,82,0,230,539,1,245,7,0,cell pooled across sizes,0,0
 mango,ANTIQUE,SAN REMIGIO,pieces or units,g,medium,245,2,0,3,245,7,0,230,82,0,230,539,1,245,7,0,cell pooled across sizes,0,0
@@ -715,7 +715,7 @@ fresh fish,ANTIQUE,SEBASTE,pieces or units,g,medium,475,2,1,3,275,3,2,490,87,45,
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SEBASTE,lipid/lapad,mL,medium,375,5,0,3,375,5,0,375,100,0,375,618,7,375,5,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SEBASTE,long-neck,mL,medium,750,3,0,2,750,3,0,750,118,0,750,478,1,750,3,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,SEBASTE,large packs,g,medium,640,3,0,1,640,3,0,640,47,0,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,SEBASTE,medium packs,g,medium,460,4,0,3,460,4,0,450,56,0,450,374,0,460,4,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,SEBASTE,medium packs,g,medium,460,4,0,3,460,4,0,450,50,0,450,352,0,460,4,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,SEBASTE,small packs,g,small,375,3,0,3,375,3,0,375,32,0,370,259,2,375,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,bilog,g,small,235,2,0,3,235,2,0,250,25,4,229,222,91,250,25,4,province x item x unit,0,.16
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,SEBASTE,cans,g,medium,155,5,1,1,155,5,1,155,57,4,155,95,6,155,5,1,the cell's own weighings,0,.2
@@ -751,7 +751,7 @@ fresh fish,ANTIQUE,SIBALOM,pieces or units,g,large,402.5,2,0,3,150,9,3,490,87,45
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SIBALOM,lipid/lapad,mL,medium,375,9,0,3,375,9,0,375,100,0,375,618,7,375,9,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,SIBALOM,long-neck,mL,large,750,9,0,3,750,9,0,750,118,0,750,478,1,750,9,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,SIBALOM,large packs,g,medium,640,6,0,2,640,6,0,640,47,0,640,411,6,640,6,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,SIBALOM,medium packs,g,medium,450,7,0,3,450,7,0,450,56,0,450,374,0,450,7,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,SIBALOM,medium packs,g,medium,450,7,0,3,450,7,0,450,50,0,450,352,0,450,7,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,SIBALOM,small packs,g,small,360,6,0,3,360,6,0,375,32,0,370,259,2,360,6,0,the cell's own weighings,0,0
 mango,ANTIQUE,SIBALOM,pieces or units,g,small,185,5,0,3,245,13,0,230,82,0,230,539,1,185,5,0,the cell's own weighings,0,0
 mango,ANTIQUE,SIBALOM,pieces or units,g,medium,247.5,4,0,3,245,13,0,230,82,0,230,539,1,247.5,4,0,the cell's own weighings,0,0
@@ -777,7 +777,7 @@ chicken,ANTIQUE,TIBIAO,whole (chicken),g,medium,877.5,2,0,3,877.5,2,0,1105,65,0,
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,TIBIAO,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,100,0,375,618,7,375,6,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,TIBIAO,long-neck,mL,large,750,6,0,3,750,6,0,750,118,0,750,478,1,750,6,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,TIBIAO,large packs,g,large,680,3,0,3,680,3,0,640,47,0,640,411,6,680,3,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,TIBIAO,medium packs,g,medium,500,3,0,3,500,3,0,450,56,0,450,374,0,500,3,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,TIBIAO,medium packs,g,medium,500,3,0,3,500,3,0,450,50,0,450,352,0,500,3,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,TIBIAO,small packs,g,medium,387.5,4,0,1,387.5,4,0,375,32,0,370,259,2,387.5,4,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,TIBIAO,putos,g,medium,210,4,0,1,210,4,0,250,79,13,250,473,60,210,4,0,the cell's own weighings,0,0
 cabbage,ANTIQUE,TOBIAS FORNIER,pieces or units,g,small,465,7,0,3,560,20,0,655,219,7,655,1306,73,465,7,0,the cell's own weighings,0,0
@@ -809,7 +809,7 @@ fresh fish,ANTIQUE,TOBIAS FORNIER,pieces or units,g,large,2862.5,2,1,3,1450,7,5,
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,TOBIAS FORNIER,long-neck,mL,medium,750,8,0,3,750,10,0,750,118,0,750,478,1,750,10,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,TOBIAS FORNIER,long-neck,mL,large,1000,2,0,3,750,10,0,750,118,0,750,478,1,750,10,0,cell pooled across sizes,0,0
 loaf bread,ANTIQUE,TOBIAS FORNIER,large packs,g,large,640,3,0,3,640,3,0,640,47,0,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,TOBIAS FORNIER,medium packs,g,medium,450,4,0,2,450,4,0,450,56,0,450,374,0,450,4,0,the cell's own weighings,0,0
+loaf bread,ANTIQUE,TOBIAS FORNIER,medium packs,g,medium,450,4,0,2,450,4,0,450,50,0,450,352,0,450,4,0,the cell's own weighings,0,0
 loaf bread,ANTIQUE,TOBIAS FORNIER,small packs,g,medium,360,1,0,2,360,1,0,375,32,0,370,259,2,375,32,0,province x item x unit,0,0
 mango,ANTIQUE,TOBIAS FORNIER,pieces or units,g,small,187.5,2,0,3,205,6,0,230,82,0,230,539,1,205,6,0,cell pooled across sizes,0,0
 mango,ANTIQUE,TOBIAS FORNIER,pieces or units,g,medium,205,3,0,3,205,6,0,230,82,0,230,539,1,205,6,0,cell pooled across sizes,0,0
@@ -845,8 +845,9 @@ chicken,ANTIQUE,VALDERRAMA,whole (chicken),g,large,1705,1,0,3,1147.5,6,0,1105,65
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,VALDERRAMA,lipid/lapad,mL,medium,375,7,0,3,375,7,0,375,100,0,375,618,7,375,7,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,VALDERRAMA,long-neck,mL,small,750,9,0,3,750,14,0,750,118,0,750,478,1,750,9,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,VALDERRAMA,long-neck,mL,medium,1000,5,0,3,750,14,0,750,118,0,750,478,1,1000,5,0,the cell's own weighings,0,0
-loaf bread,ANTIQUE,VALDERRAMA,medium packs,g,medium,600,1,0,3,600,1,0,450,56,0,450,374,0,450,56,0,province x item x unit,0,0
+loaf bread,ANTIQUE,VALDERRAMA,medium packs,g,medium,600,1,0,3,600,1,0,450,50,0,450,352,0,450,50,0,province x item x unit,0,0
 loaf bread,ANTIQUE,VALDERRAMA,small packs,g,small,385,1,0,3,385,1,0,375,32,0,370,259,2,375,32,0,province x item x unit,0,0
+loaf bread,ANTIQUE,VALDERRAMA,tama-tama nga putos,g,medium,500,1,0,2,500,1,0,500,7,0,450,23,0,500,7,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,VALDERRAMA,cans,g,medium,198,7,2,1,198,7,2,155,57,4,155,95,6,198,7,2,the cell's own weighings,0,.2857142857142857
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ANTIQUE,VALDERRAMA,putos,g,medium,250,4,0,1,250,4,0,250,79,13,250,473,60,250,4,0,the cell's own weighings,0,0
 cabbage,CAPIZ,CUARTERO,pieces or units,g,small,472.5,4,0,3,630,10,0,695,169,9,655,1306,73,630,10,0,cell pooled across sizes,0,0
@@ -879,7 +880,7 @@ fresh fish,CAPIZ,CUARTERO,pieces or units,g,large,797.5,2,2,3,475,9,2,377.5,120,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,tupperware,mL,medium,1250,1,1,2,1250,1,1,1250,1,1,700,4,1,700,4,1,item x unit (national),0,.25
 "liquor (e.g, whisky, coconut wine)",CAPIZ,CUARTERO,lipid/lapad,mL,medium,375,4,0,3,375,4,0,375,103,3,375,618,7,375,4,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,CUARTERO,large packs,g,large,640,5,0,3,640,5,0,640,68,3,640,411,6,640,5,0,the cell's own weighings,0,0
-loaf bread,CAPIZ,CUARTERO,medium packs,g,medium,450,5,0,3,450,5,0,450,39,0,450,374,0,450,5,0,the cell's own weighings,0,0
+loaf bread,CAPIZ,CUARTERO,medium packs,g,medium,450,5,0,3,450,5,0,450,39,0,450,352,0,450,5,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,CUARTERO,small packs,g,small,220,2,0,3,220,2,0,400,33,0,370,259,2,400,33,0,province x item x unit,0,0
 mango,CAPIZ,CUARTERO,pieces or units,g,small,160,3,0,3,220,9,0,230,73,0,230,539,1,220,9,0,cell pooled across sizes,0,0
 mango,CAPIZ,CUARTERO,pieces or units,g,medium,227.5,4,0,3,220,9,0,230,73,0,230,539,1,220,9,0,cell pooled across sizes,0,0
@@ -917,8 +918,8 @@ fresh fish,CAPIZ,DAO,pieces or units,g,large,760,1,1,3,375,6,1,377.5,120,35,390,
 "liquor (e.g, whisky, coconut wine)",CAPIZ,DAO,lipid/lapad,mL,medium,750,1,0,3,375,3,0,375,103,3,375,618,7,375,3,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",CAPIZ,DAO,long-neck,mL,large,750,3,0,3,750,3,0,750,26,0,750,478,1,750,3,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,DAO,large packs,g,large,640,1,0,3,640,1,0,640,68,3,640,411,6,640,68,3,province x item x unit,0,.0441176470588235
-loaf bread,CAPIZ,DAO,medium packs,g,medium,450,1,0,3,545,2,0,450,39,0,450,374,0,450,39,0,province x item x unit,0,0
-loaf bread,CAPIZ,DAO,medium packs,g,large,640,1,0,3,545,2,0,450,39,0,450,374,0,450,39,0,province x item x unit,0,0
+loaf bread,CAPIZ,DAO,medium packs,g,medium,450,1,0,3,545,2,0,450,39,0,450,352,0,450,39,0,province x item x unit,0,0
+loaf bread,CAPIZ,DAO,medium packs,g,large,640,1,0,3,545,2,0,450,39,0,450,352,0,450,39,0,province x item x unit,0,0
 loaf bread,CAPIZ,DAO,small packs,g,small,360,1,0,3,450,3,0,400,33,0,370,259,2,450,3,0,cell pooled across sizes,0,0
 loaf bread,CAPIZ,DAO,small packs,g,medium,545,2,0,3,450,3,0,400,33,0,370,259,2,450,3,0,cell pooled across sizes,0,0
 mango,CAPIZ,DAO,pieces or units,g,small,155,3,0,3,200,7,0,230,73,0,230,539,1,200,7,0,cell pooled across sizes,0,0
@@ -952,8 +953,8 @@ fresh fish,CAPIZ,DUMALAG,pieces or units,g,large,907.5,2,2,3,722.5,4,3,377.5,120
 "liquor (e.g, whisky, coconut wine)",CAPIZ,DUMALAG,long-neck,mL,small,750,1,0,2,875,2,0,750,26,0,750,478,1,750,26,0,province x item x unit,0,0
 "liquor (e.g, whisky, coconut wine)",CAPIZ,DUMALAG,long-neck,mL,medium,1000,1,0,2,875,2,0,750,26,0,750,478,1,750,26,0,province x item x unit,0,0
 loaf bread,CAPIZ,DUMALAG,large packs,g,large,700,3,0,3,700,3,0,640,68,3,640,411,6,700,3,0,the cell's own weighings,0,0
-loaf bread,CAPIZ,DUMALAG,medium packs,g,medium,500,4,0,3,500,5,0,450,39,0,450,374,0,500,5,0,cell pooled across sizes,0,0
-loaf bread,CAPIZ,DUMALAG,medium packs,g,large,640,1,0,3,500,5,0,450,39,0,450,374,0,500,5,0,cell pooled across sizes,0,0
+loaf bread,CAPIZ,DUMALAG,medium packs,g,medium,500,4,0,3,500,5,0,450,39,0,450,352,0,500,5,0,cell pooled across sizes,0,0
+loaf bread,CAPIZ,DUMALAG,medium packs,g,large,640,1,0,3,500,5,0,450,39,0,450,352,0,500,5,0,cell pooled across sizes,0,0
 loaf bread,CAPIZ,DUMALAG,small packs,g,small,400,1,0,3,450,2,0,400,33,0,370,259,2,400,33,0,province x item x unit,0,0
 loaf bread,CAPIZ,DUMALAG,small packs,g,medium,500,1,0,3,450,2,0,400,33,0,370,259,2,400,33,0,province x item x unit,0,0
 mango,CAPIZ,DUMALAG,pieces or units,g,small,155,3,0,3,195,8,0,230,73,0,230,539,1,195,8,0,cell pooled across sizes,0,0
@@ -983,8 +984,8 @@ fresh fish,CAPIZ,DUMARAO,pieces or units,g,large,680,1,1,3,680,1,1,377.5,120,35,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,DUMARAO,small cup,mL,small,100,3,0,3,100,3,0,100,27,1,100,185,5,100,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",CAPIZ,DUMARAO,lipid/lapad,mL,medium,375,3,0,3,375,3,0,375,103,3,375,618,7,375,3,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,DUMARAO,large packs,g,large,640,2,0,3,640,2,0,640,68,3,640,411,6,640,68,3,province x item x unit,0,.0441176470588235
-loaf bread,CAPIZ,DUMARAO,medium packs,g,small,450,4,0,3,450,5,0,450,39,0,450,374,0,450,5,0,cell pooled across sizes,0,0
-loaf bread,CAPIZ,DUMARAO,medium packs,g,large,640,1,0,3,450,5,0,450,39,0,450,374,0,450,5,0,cell pooled across sizes,0,0
+loaf bread,CAPIZ,DUMARAO,medium packs,g,small,450,4,0,3,450,5,0,450,39,0,450,352,0,450,5,0,cell pooled across sizes,0,0
+loaf bread,CAPIZ,DUMARAO,medium packs,g,large,640,1,0,3,450,5,0,450,39,0,450,352,0,450,5,0,cell pooled across sizes,0,0
 loaf bread,CAPIZ,DUMARAO,small packs,g,small,360,2,0,3,360,2,0,400,33,0,370,259,2,400,33,0,province x item x unit,0,0
 mango,CAPIZ,DUMARAO,pieces or units,g,small,155,2,0,3,220,6,0,230,73,0,230,539,1,220,6,0,cell pooled across sizes,0,0
 mango,CAPIZ,DUMARAO,pieces or units,g,medium,230,3,0,3,220,6,0,230,73,0,230,539,1,220,6,0,cell pooled across sizes,0,0
@@ -1017,7 +1018,7 @@ fresh fish,CAPIZ,IVISAN,pieces or units,g,large,587.5,4,1,3,490,15,2,377.5,120,3
 "liquor (e.g, whisky, coconut wine)",CAPIZ,IVISAN,lipid/lapad,mL,large,1000,3,3,3,600,12,3,375,103,3,375,618,7,1000,3,3,the cell's own weighings,0,1
 "liquor (e.g, whisky, coconut wine)",CAPIZ,IVISAN,long-neck,mL,large,750,4,0,3,750,4,0,750,26,0,750,478,1,750,4,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,IVISAN,large packs,g,large,640,3,0,3,640,3,0,640,68,3,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,CAPIZ,IVISAN,medium packs,g,medium,450,4,0,3,450,4,0,450,39,0,450,374,0,450,4,0,the cell's own weighings,0,0
+loaf bread,CAPIZ,IVISAN,medium packs,g,medium,450,4,0,3,450,4,0,450,39,0,450,352,0,450,4,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,IVISAN,small packs,g,small,360,3,0,3,360,3,0,400,33,0,370,259,2,360,3,0,the cell's own weighings,0,0
 mango,CAPIZ,IVISAN,pieces or units,g,small,220,4,0,3,252.5,12,0,230,73,0,230,539,1,220,4,0,the cell's own weighings,0,0
 mango,CAPIZ,IVISAN,pieces or units,g,medium,260,5,0,3,252.5,12,0,230,73,0,230,539,1,260,5,0,the cell's own weighings,0,0
@@ -1051,7 +1052,7 @@ fresh fish,CAPIZ,JAMINDAN,pieces or units,g,large,585,1,0,3,390,5,0,377.5,120,35
 "liquor (e.g, whisky, coconut wine)",CAPIZ,JAMINDAN,long-neck,mL,large,750,1,0,3,750,1,0,750,26,0,750,478,1,750,26,0,province x item x unit,0,0
 loaf bread,CAPIZ,JAMINDAN,individual,g,small,60,1,1,3,60,1,1,60,1,1,60,1,1,,,,,1,
 loaf bread,CAPIZ,JAMINDAN,large packs,g,medium,640,1,0,2,640,1,0,640,68,3,640,411,6,640,68,3,province x item x unit,0,.0441176470588235
-loaf bread,CAPIZ,JAMINDAN,medium packs,g,medium,450,1,0,3,450,1,0,450,39,0,450,374,0,450,39,0,province x item x unit,0,0
+loaf bread,CAPIZ,JAMINDAN,medium packs,g,medium,450,1,0,3,450,1,0,450,39,0,450,352,0,450,39,0,province x item x unit,0,0
 loaf bread,CAPIZ,JAMINDAN,small packs,g,small,400,1,0,3,400,1,0,400,33,0,370,259,2,400,33,0,province x item x unit,0,0
 mango,CAPIZ,JAMINDAN,pieces or units,g,medium,185,3,0,2,185,3,0,230,73,0,230,539,1,185,3,0,the cell's own weighings,0,0
 "prawns, lobster, shrimp",CAPIZ,JAMINDAN,tumpok,g,medium,1000,1,0,1,1000,1,0,290,39,11,260,147,27,290,39,11,province x item x unit,0,.282051282051282
@@ -1086,7 +1087,7 @@ fresh fish,CAPIZ,MA-AYON,pieces or units,g,medium,380,2,0,2,322.5,4,0,377.5,120,
 "liquor (e.g, whisky, coconut wine)",CAPIZ,MA-AYON,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,103,3,375,618,7,375,6,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",CAPIZ,MA-AYON,long-neck,mL,large,750,6,0,3,750,6,0,750,26,0,750,478,1,750,6,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,MA-AYON,large packs,g,large,640,3,0,3,640,3,0,640,68,3,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,CAPIZ,MA-AYON,medium packs,g,medium,450,3,0,3,450,3,0,450,39,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,CAPIZ,MA-AYON,medium packs,g,medium,450,3,0,3,450,3,0,450,39,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,MA-AYON,small packs,g,small,300,1,0,3,300,1,0,400,33,0,370,259,2,400,33,0,province x item x unit,0,0
 mango,CAPIZ,MA-AYON,pieces or units,g,small,192.5,2,0,3,250,6,0,230,73,0,230,539,1,250,6,0,cell pooled across sizes,0,0
 mango,CAPIZ,MA-AYON,pieces or units,g,medium,265,3,0,3,250,6,0,230,73,0,230,539,1,250,6,0,cell pooled across sizes,0,0
@@ -1158,7 +1159,7 @@ fresh fish,CAPIZ,PANAY,pieces or units,g,large,600,2,1,3,375,9,1,377.5,120,35,39
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,PANAY,small cup,mL,small,100,1,0,3,100,1,0,100,27,1,100,185,5,100,27,1,province x item x unit,0,.037037037037037
 "liquor (e.g, whisky, coconut wine)",CAPIZ,PANAY,lipid/lapad,mL,medium,375,2,0,3,375,2,0,375,103,3,375,618,7,375,103,3,province x item x unit,0,.029126213592233
 "liquor (e.g, whisky, coconut wine)",CAPIZ,PANAY,long-neck,mL,large,750,2,0,3,750,2,0,750,26,0,750,478,1,750,26,0,province x item x unit,0,0
-loaf bread,CAPIZ,PANAY,medium packs,g,medium,447.5,4,0,3,447.5,4,0,450,39,0,450,374,0,447.5,4,0,the cell's own weighings,0,0
+loaf bread,CAPIZ,PANAY,medium packs,g,medium,447.5,4,0,3,447.5,4,0,450,39,0,450,352,0,447.5,4,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,PANAY,small packs,g,small,220,4,0,3,220,4,0,400,33,0,370,259,2,220,4,0,the cell's own weighings,0,0
 mango,CAPIZ,PANAY,pieces or units,g,small,197.5,4,0,3,222.5,12,0,230,73,0,230,539,1,197.5,4,0,the cell's own weighings,0,0
 mango,CAPIZ,PANAY,pieces or units,g,medium,230,5,0,3,222.5,12,0,230,73,0,230,539,1,230,5,0,the cell's own weighings,0,0
@@ -1269,7 +1270,7 @@ fresh fish,CAPIZ,PONTEVEDRA,pieces or units,g,large,637.5,2,2,3,555,7,2,377.5,12
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,PONTEVEDRA,small cup,mL,small,110,5,0,3,110,5,0,100,27,1,100,185,5,110,5,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",CAPIZ,PONTEVEDRA,lipid/lapad,mL,medium,375,3,0,3,375,3,0,375,103,3,375,618,7,375,3,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,PONTEVEDRA,large packs,g,large,640,2,0,3,640,2,0,640,68,3,640,411,6,640,68,3,province x item x unit,0,.0441176470588235
-loaf bread,CAPIZ,PONTEVEDRA,medium packs,g,medium,450,3,0,3,450,3,0,450,39,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,CAPIZ,PONTEVEDRA,medium packs,g,medium,450,3,0,3,450,3,0,450,39,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,PONTEVEDRA,small packs,g,medium,450,1,0,3,450,1,0,400,33,0,370,259,2,400,33,0,province x item x unit,0,0
 "prawns, lobster, shrimp",CAPIZ,PONTEVEDRA,tumpok,g,medium,225,4,1,1,225,4,1,290,39,11,260,147,27,225,4,1,the cell's own weighings,0,.25
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,PONTEVEDRA,bilog,g,small,162.5,4,2,3,162.5,4,2,70,41,27,229,222,91,162.5,4,2,the cell's own weighings,0,.5
@@ -1294,7 +1295,7 @@ fresh fish,CAPIZ,PRESIDENT ROXAS,pieces or units,g,large,835,1,1,3,545,2,1,377.5
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,PRESIDENT ROXAS,small cup,mL,small,100,2,0,3,100,2,0,100,27,1,100,185,5,100,27,1,province x item x unit,0,.037037037037037
 "liquor (e.g, whisky, coconut wine)",CAPIZ,PRESIDENT ROXAS,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,103,3,375,618,7,375,6,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,PRESIDENT ROXAS,large packs,g,large,600,3,0,3,600,3,0,640,68,3,640,411,6,600,3,0,the cell's own weighings,0,0
-loaf bread,CAPIZ,PRESIDENT ROXAS,medium packs,g,medium,560,3,0,3,560,3,0,450,39,0,450,374,0,560,3,0,the cell's own weighings,0,0
+loaf bread,CAPIZ,PRESIDENT ROXAS,medium packs,g,medium,560,3,0,3,560,3,0,450,39,0,450,352,0,560,3,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,PRESIDENT ROXAS,small packs,g,small,375,3,0,3,375,3,0,400,33,0,370,259,2,375,3,0,the cell's own weighings,0,0
 mango,CAPIZ,PRESIDENT ROXAS,pieces or units,g,small,227.5,2,0,3,280,4,0,230,73,0,230,539,1,280,4,0,cell pooled across sizes,0,0
 mango,CAPIZ,PRESIDENT ROXAS,pieces or units,g,medium,315,1,0,3,280,4,0,230,73,0,230,539,1,280,4,0,cell pooled across sizes,0,0
@@ -1327,7 +1328,7 @@ fresh fish,CAPIZ,SAPI-AN,pieces or units,g,large,762.5,2,2,3,195,9,5,377.5,120,3
 "liquor (e.g, whisky, coconut wine)",CAPIZ,SAPI-AN,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,103,3,375,618,7,375,6,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",CAPIZ,SAPI-AN,long-neck,mL,large,750,5,0,3,750,5,0,750,26,0,750,478,1,750,5,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,SAPI-AN,large packs,g,large,640,3,0,3,640,3,0,640,68,3,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,CAPIZ,SAPI-AN,medium packs,g,medium,440,4,0,3,440,4,0,450,39,0,450,374,0,440,4,0,the cell's own weighings,0,0
+loaf bread,CAPIZ,SAPI-AN,medium packs,g,medium,440,4,0,3,440,4,0,450,39,0,450,352,0,440,4,0,the cell's own weighings,0,0
 mango,CAPIZ,SAPI-AN,pieces or units,g,small,225,1,0,3,345,3,0,230,73,0,230,539,1,345,3,0,cell pooled across sizes,0,0
 mango,CAPIZ,SAPI-AN,pieces or units,g,medium,395,2,0,3,345,3,0,230,73,0,230,539,1,345,3,0,cell pooled across sizes,0,0
 "mineral or spring water, all drinking water sold in containers",CAPIZ,SAPI-AN,refilled,mL,medium,1000,4,4,3,1000,4,4,1000,4,4,1000,4,4,1000,4,4,the cell's own weighings,0,1
@@ -1427,8 +1428,8 @@ fresh fish,ILOILO,AJUY,tumpok,g,large,1080,1,1,3,627.5,6,6,750,24,24,750,25,25,6
 "liquor (e.g, whisky, coconut wine)",ILOILO,AJUY,long-neck,mL,medium,937.5,2,0,3,1200,3,0,750,185,1,750,478,1,1200,3,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,AJUY,long-neck,mL,large,1220,1,0,3,1200,3,0,750,185,1,750,478,1,1200,3,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,AJUY,large packs,g,large,597.5,2,0,3,597.5,2,0,640,188,1,640,411,6,640,188,1,province x item x unit,0,.0053191489361702
-loaf bread,ILOILO,AJUY,medium packs,g,medium,432.5,2,0,3,530,4,0,450,176,0,450,374,0,530,4,0,cell pooled across sizes,0,0
-loaf bread,ILOILO,AJUY,medium packs,g,large,632.5,2,0,3,530,4,0,450,176,0,450,374,0,530,4,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,AJUY,medium packs,g,medium,432.5,2,0,3,530,4,0,450,160,0,450,352,0,530,4,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,AJUY,medium packs,g,large,632.5,2,0,3,530,4,0,450,160,0,450,352,0,530,4,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,AJUY,small packs,g,medium,400,1,0,3,400,1,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 mango,ILOILO,AJUY,pieces or units,g,medium,250,1,0,2,250,1,0,230,289,0,230,539,1,230,289,0,province x item x unit,0,0
 "prawns, lobster, shrimp",ILOILO,AJUY,tumpok,g,small,230,1,0,3,415,3,1,250,55,10,260,147,27,415,3,1,cell pooled across sizes,0,.3333333333333333
@@ -1471,7 +1472,7 @@ fresh fish,ILOILO,ALIMODIAN,pieces or units,g,large,617.5,4,2,3,185,13,7,390,368
 "liquor (e.g, whisky, coconut wine)",ILOILO,ALIMODIAN,lipid/lapad,mL,medium,375,9,0,3,375,9,0,375,267,4,375,618,7,375,9,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,ALIMODIAN,long-neck,mL,large,750,9,0,3,750,9,0,750,185,1,750,478,1,750,9,0,the cell's own weighings,0,0
 loaf bread,ILOILO,ALIMODIAN,large packs,g,large,640,7,0,3,640,7,0,640,188,1,640,411,6,640,7,0,the cell's own weighings,0,0
-loaf bread,ILOILO,ALIMODIAN,medium packs,g,medium,450,6,0,3,450,6,0,450,176,0,450,374,0,450,6,0,the cell's own weighings,0,0
+loaf bread,ILOILO,ALIMODIAN,medium packs,g,medium,450,6,0,3,450,6,0,450,160,0,450,352,0,450,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,ALIMODIAN,small packs,g,small,400,6,0,3,400,6,0,385,123,2,370,259,2,400,6,0,the cell's own weighings,0,0
 mango,ILOILO,ALIMODIAN,pieces or units,g,small,177.5,4,0,3,250,10,0,230,289,0,230,539,1,177.5,4,0,the cell's own weighings,0,0
 mango,ILOILO,ALIMODIAN,pieces or units,g,medium,270,3,0,3,250,10,0,230,289,0,230,539,1,270,3,0,the cell's own weighings,0,0
@@ -1535,7 +1536,7 @@ chicken,ILOILO,BADIANGAN,whole (chicken),g,large,1175,1,0,3,980,3,0,1035,180,1,1
 "liquor (e.g, whisky, coconut wine)",ILOILO,BADIANGAN,lipid/lapad,mL,medium,375,3,0,3,375,3,0,375,267,4,375,618,7,375,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,BADIANGAN,long-neck,mL,large,750,4,0,3,750,4,0,750,185,1,750,478,1,750,4,0,the cell's own weighings,0,0
 loaf bread,ILOILO,BADIANGAN,large packs,g,large,680,4,0,3,680,4,0,640,188,1,640,411,6,680,4,0,the cell's own weighings,0,0
-loaf bread,ILOILO,BADIANGAN,medium packs,g,medium,420,5,0,3,420,5,0,450,176,0,450,374,0,420,5,0,the cell's own weighings,0,0
+loaf bread,ILOILO,BADIANGAN,medium packs,g,medium,420,5,0,3,420,5,0,450,160,0,450,352,0,420,5,0,the cell's own weighings,0,0
 pork,ILOILO,BADIANGAN,slice,g,medium,445,3,3,2,445,3,3,445,3,3,425,4,4,445,3,3,the cell's own weighings,0,1
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,BADIANGAN,putos,g,small,200,4,0,3,200,4,0,250,182,29,250,473,60,200,4,0,the cell's own weighings,0,0
 cabbage,ILOILO,BALASAN,pieces or units,g,small,592.5,4,0,3,660,8,1,660,543,32,655,1306,73,660,8,1,cell pooled across sizes,0,.125
@@ -1560,8 +1561,8 @@ fresh fish,ILOILO,BALASAN,pieces or units,g,large,717.5,2,2,3,475,5,2,390,368,10
 "liquor (e.g, whisky, coconut wine)",ILOILO,BALASAN,lipid/lapad,mL,small,375,3,0,3,375,5,0,375,267,4,375,618,7,375,5,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,BALASAN,lipid/lapad,mL,medium,750,2,0,3,375,5,0,375,267,4,375,618,7,375,5,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,BALASAN,large packs,g,large,620,2,0,3,620,2,0,640,188,1,640,411,6,640,188,1,province x item x unit,0,.0053191489361702
-loaf bread,ILOILO,BALASAN,medium packs,g,medium,450,2,0,3,545,4,0,450,176,0,450,374,0,545,4,0,cell pooled across sizes,0,0
-loaf bread,ILOILO,BALASAN,medium packs,g,large,640,2,0,3,545,4,0,450,176,0,450,374,0,545,4,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,BALASAN,medium packs,g,medium,450,2,0,3,545,4,0,450,160,0,450,352,0,545,4,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,BALASAN,medium packs,g,large,640,2,0,3,545,4,0,450,160,0,450,352,0,545,4,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,BALASAN,small packs,g,small,220,2,0,3,220,2,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 mango,ILOILO,BALASAN,pieces or units,g,small,185,2,0,3,215,4,0,230,289,0,230,539,1,215,4,0,cell pooled across sizes,0,0
 mango,ILOILO,BALASAN,pieces or units,g,medium,240,2,0,3,215,4,0,230,289,0,230,539,1,215,4,0,cell pooled across sizes,0,0
@@ -1633,9 +1634,10 @@ fresh fish,ILOILO,BAROTAC NUEVO,pieces or units,g,large,892.5,2,2,2,595,6,3,390,
 "liquor (e.g, whisky, coconut wine)",ILOILO,BAROTAC NUEVO,lipid/lapad,mL,large,750,1,0,3,375,4,0,375,267,4,375,618,7,375,4,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,BAROTAC NUEVO,long-neck,mL,large,750,3,0,3,750,3,0,750,185,1,750,478,1,750,3,0,the cell's own weighings,0,0
 loaf bread,ILOILO,BAROTAC NUEVO,large packs,g,large,640,1,0,3,640,1,0,640,188,1,640,411,6,640,188,1,province x item x unit,0,.0053191489361702
-loaf bread,ILOILO,BAROTAC NUEVO,medium packs,g,medium,450,2,0,3,475,4,0,450,176,0,450,374,0,475,4,0,cell pooled across sizes,0,0
-loaf bread,ILOILO,BAROTAC NUEVO,medium packs,g,large,570,2,0,3,475,4,0,450,176,0,450,374,0,475,4,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,BAROTAC NUEVO,medium packs,g,medium,475,2,0,3,500,3,0,450,160,0,450,352,0,500,3,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,BAROTAC NUEVO,medium packs,g,large,640,1,0,3,500,3,0,450,160,0,450,352,0,500,3,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,BAROTAC NUEVO,small packs,g,small,290,2,0,3,290,2,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
+loaf bread,ILOILO,BAROTAC NUEVO,tama-tama nga putos,g,medium,450,1,0,3,450,1,0,450,16,0,450,23,0,450,16,0,province x item x unit,0,0
 mango,ILOILO,BAROTAC NUEVO,pieces or units,g,medium,280,3,0,2,280,3,0,230,289,0,230,539,1,280,3,0,the cell's own weighings,0,0
 "prawns, lobster, shrimp",ILOILO,BAROTAC NUEVO,tumpok,g,small,240,1,0,3,240,1,0,250,55,10,260,147,27,250,55,10,province x item x unit,0,.1818181818181818
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,BAROTAC NUEVO,putos,g,small,250,3,0,3,625,6,3,250,182,29,250,473,60,250,3,0,the cell's own weighings,0,0
@@ -1671,7 +1673,7 @@ fresh fish,ILOILO,BAROTAC VIEJO,tumpok,g,large,1395,1,1,3,882.5,6,6,750,24,24,75
 "liquor (e.g, whisky, coconut wine)",ILOILO,BAROTAC VIEJO,lipid/lapad,mL,large,750,1,0,3,375,5,0,375,267,4,375,618,7,375,5,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,BAROTAC VIEJO,long-neck,mL,large,750,2,0,3,750,2,0,750,185,1,750,478,1,750,185,1,province x item x unit,0,.0054054054054054
 loaf bread,ILOILO,BAROTAC VIEJO,large packs,g,large,640,3,0,3,640,3,0,640,188,1,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,ILOILO,BAROTAC VIEJO,medium packs,g,medium,450,2,0,3,450,2,0,450,176,0,450,374,0,450,176,0,province x item x unit,0,0
+loaf bread,ILOILO,BAROTAC VIEJO,medium packs,g,medium,450,2,0,3,450,2,0,450,160,0,450,352,0,450,160,0,province x item x unit,0,0
 loaf bread,ILOILO,BAROTAC VIEJO,small packs,g,small,220,1,0,3,220,1,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 mango,ILOILO,BAROTAC VIEJO,pieces or units,g,small,222.5,4,0,3,255,10,0,230,289,0,230,539,1,222.5,4,0,the cell's own weighings,0,0
 mango,ILOILO,BAROTAC VIEJO,pieces or units,g,medium,265,3,0,3,255,10,0,230,289,0,230,539,1,265,3,0,the cell's own weighings,0,0
@@ -1707,8 +1709,8 @@ fresh fish,ILOILO,BATAD,pieces or units,g,large,577.5,2,0,3,490,9,0,390,368,102,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,BATAD,small cup,mL,small,110,2,0,3,110,2,0,100,75,2,100,185,5,100,75,2,province x item x unit,0,.0266666666666667
 "liquor (e.g, whisky, coconut wine)",ILOILO,BATAD,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,267,4,375,618,7,375,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,BATAD,large packs,g,large,640,4,0,3,640,4,0,640,188,1,640,411,6,640,4,0,the cell's own weighings,0,0
-loaf bread,ILOILO,BATAD,medium packs,g,medium,450,4,0,3,450,5,0,450,176,0,450,374,0,450,5,0,cell pooled across sizes,0,0
-loaf bread,ILOILO,BATAD,medium packs,g,large,640,1,0,3,450,5,0,450,176,0,450,374,0,450,5,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,BATAD,medium packs,g,medium,450,4,0,3,450,5,0,450,160,0,450,352,0,450,5,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,BATAD,medium packs,g,large,640,1,0,3,450,5,0,450,160,0,450,352,0,450,5,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,BATAD,small packs,g,small,220,1,0,3,220,1,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 mango,ILOILO,BATAD,pieces or units,g,small,200,4,0,3,255,9,0,230,289,0,230,539,1,255,9,0,cell pooled across sizes,0,0
 mango,ILOILO,BATAD,pieces or units,g,medium,260,3,0,3,255,9,0,230,289,0,230,539,1,255,9,0,cell pooled across sizes,0,0
@@ -1748,7 +1750,7 @@ fresh fish,ILOILO,BINGAWAN,pieces or units,g,large,550,1,0,3,425,6,0,390,368,102
 "liquor (e.g, whisky, coconut wine)",ILOILO,BINGAWAN,long-neck,mL,medium,750,6,0,3,750,8,0,750,185,1,750,478,1,750,8,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,BINGAWAN,long-neck,mL,large,1000,2,0,3,750,8,0,750,185,1,750,478,1,750,8,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,BINGAWAN,large packs,g,large,700,5,0,3,700,5,0,640,188,1,640,411,6,700,5,0,the cell's own weighings,0,0
-loaf bread,ILOILO,BINGAWAN,medium packs,g,medium,475,4,0,3,475,4,0,450,176,0,450,374,0,475,4,0,the cell's own weighings,0,0
+loaf bread,ILOILO,BINGAWAN,medium packs,g,medium,475,4,0,3,475,4,0,450,160,0,450,352,0,475,4,0,the cell's own weighings,0,0
 loaf bread,ILOILO,BINGAWAN,small packs,g,small,350,3,0,3,350,3,0,385,123,2,370,259,2,350,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,BINGAWAN,bilog,g,small,260,1,0,3,260,1,0,250,116,33,229,222,91,250,116,33,province x item x unit,0,.2844827586206897
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,BINGAWAN,putos,g,small,200,1,0,3,200,1,0,250,182,29,250,473,60,250,182,29,province x item x unit,0,.1593406593406593
@@ -1789,7 +1791,7 @@ fresh fish,ILOILO,CABATUAN,pieces or units,g,large,655,2,2,3,530,7,2,390,368,102
 "liquor (e.g, whisky, coconut wine)",ILOILO,CABATUAN,lipid/lapad,mL,medium,670,3,0,3,580,6,0,375,267,4,375,618,7,670,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,CABATUAN,long-neck,mL,large,1230,2,0,3,1230,2,0,750,185,1,750,478,1,750,185,1,province x item x unit,0,.0054054054054054
 loaf bread,ILOILO,CABATUAN,large packs,g,large,677.5,6,0,3,677.5,6,0,640,188,1,640,411,6,677.5,6,0,the cell's own weighings,0,0
-loaf bread,ILOILO,CABATUAN,medium packs,g,medium,477.5,4,0,3,477.5,4,0,450,176,0,450,374,0,477.5,4,0,the cell's own weighings,0,0
+loaf bread,ILOILO,CABATUAN,medium packs,g,medium,477.5,4,0,3,477.5,4,0,450,160,0,450,352,0,477.5,4,0,the cell's own weighings,0,0
 loaf bread,ILOILO,CABATUAN,small packs,g,small,382.5,4,0,3,382.5,4,0,385,123,2,370,259,2,382.5,4,0,the cell's own weighings,0,0
 mango,ILOILO,CABATUAN,pieces or units,g,small,167.5,6,0,3,200,13,0,230,289,0,230,539,1,167.5,6,0,the cell's own weighings,0,0
 mango,ILOILO,CABATUAN,pieces or units,g,medium,210,3,0,3,200,13,0,230,289,0,230,539,1,210,3,0,the cell's own weighings,0,0
@@ -1824,8 +1826,8 @@ fresh fish,ILOILO,CALINOG,pieces or units,g,large,635,5,3,3,370,17,3,390,368,102
 "liquor (e.g, whisky, coconut wine)",ILOILO,CALINOG,long-neck,mL,medium,750,8,0,3,750,10,0,750,185,1,750,478,1,750,10,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,CALINOG,long-neck,mL,large,1000,2,0,3,750,10,0,750,185,1,750,478,1,750,10,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,CALINOG,large packs,g,large,640,6,0,3,640,6,0,640,188,1,640,411,6,640,6,0,the cell's own weighings,0,0
-loaf bread,ILOILO,CALINOG,medium packs,g,medium,450,5,0,3,450,7,0,450,176,0,450,374,0,450,7,0,cell pooled across sizes,0,0
-loaf bread,ILOILO,CALINOG,medium packs,g,large,560,2,0,3,450,7,0,450,176,0,450,374,0,450,7,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,CALINOG,medium packs,g,medium,450,5,0,3,450,7,0,450,160,0,450,352,0,450,7,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,CALINOG,medium packs,g,large,560,2,0,3,450,7,0,450,160,0,450,352,0,450,7,0,cell pooled across sizes,0,0
 mango,ILOILO,CALINOG,pieces or units,g,small,200,6,0,3,250,15,0,230,289,0,230,539,1,200,6,0,the cell's own weighings,0,0
 mango,ILOILO,CALINOG,pieces or units,g,medium,255,5,0,3,250,15,0,230,289,0,230,539,1,255,5,0,the cell's own weighings,0,0
 mango,ILOILO,CALINOG,pieces or units,g,large,332.5,4,0,3,250,15,0,230,289,0,230,539,1,332.5,4,0,the cell's own weighings,0,0
@@ -1869,7 +1871,7 @@ fresh fish,ILOILO,CARLES,pieces or units,g,large,842.5,2,2,3,435,9,3,390,368,102
 loaf bread,ILOILO,CARLES,large packs,g,small,425,2,0,3,600,5,0,640,188,1,640,411,6,600,5,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,CARLES,large packs,g,medium,615,2,0,3,600,5,0,640,188,1,640,411,6,600,5,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,CARLES,large packs,g,large,640,1,0,3,600,5,0,640,188,1,640,411,6,600,5,0,cell pooled across sizes,0,0
-loaf bread,ILOILO,CARLES,medium packs,g,medium,487.5,2,0,2,487.5,2,0,450,176,0,450,374,0,450,176,0,province x item x unit,0,0
+loaf bread,ILOILO,CARLES,medium packs,g,medium,487.5,2,0,2,487.5,2,0,450,160,0,450,352,0,450,160,0,province x item x unit,0,0
 loaf bread,ILOILO,CARLES,small packs,g,medium,415,1,0,3,415,1,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 "prawns, lobster, shrimp",ILOILO,CARLES,tumpok,g,small,225,1,0,3,225,1,0,250,55,10,260,147,27,250,55,10,province x item x unit,0,.1818181818181818
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,CARLES,bilog,g,small,165,2,0,3,267.5,6,0,250,116,33,229,222,91,267.5,6,0,cell pooled across sizes,0,0
@@ -1911,9 +1913,10 @@ fresh fish,ILOILO,CONCEPCION,tumpok,g,large,1030,3,3,3,775,12,12,750,24,24,750,2
 "liquor (e.g, whisky, coconut wine)",ILOILO,CONCEPCION,lipid/lapad,mL,large,1000,1,1,3,750,15,1,375,267,4,375,618,7,750,15,1,cell pooled across sizes,0,.0666666666666667
 loaf bread,ILOILO,CONCEPCION,large packs,g,medium,560,4,0,3,665,7,0,640,188,1,640,411,6,560,4,0,the cell's own weighings,0,0
 loaf bread,ILOILO,CONCEPCION,large packs,g,large,675,3,0,3,665,7,0,640,188,1,640,411,6,675,3,0,the cell's own weighings,0,0
-loaf bread,ILOILO,CONCEPCION,medium packs,g,medium,480,3,0,3,480,4,0,450,176,0,450,374,0,480,4,0,cell pooled across sizes,0,0
-loaf bread,ILOILO,CONCEPCION,medium packs,g,large,670,1,0,3,480,4,0,450,176,0,450,374,0,480,4,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,CONCEPCION,medium packs,g,medium,480,2,0,3,480,3,0,450,160,0,450,352,0,480,3,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,CONCEPCION,medium packs,g,large,670,1,0,3,480,3,0,450,160,0,450,352,0,480,3,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,CONCEPCION,small packs,g,small,220,1,0,3,220,1,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
+loaf bread,ILOILO,CONCEPCION,tama-tama nga putos,g,medium,450,1,0,3,450,1,0,450,16,0,450,23,0,450,16,0,province x item x unit,0,0
 "prawns, lobster, shrimp",ILOILO,CONCEPCION,tumpok,g,small,255,1,0,3,380,3,1,250,55,10,260,147,27,380,3,1,cell pooled across sizes,0,.3333333333333333
 "prawns, lobster, shrimp",ILOILO,CONCEPCION,tumpok,g,medium,442.5,2,1,3,380,3,1,250,55,10,260,147,27,380,3,1,cell pooled across sizes,0,.3333333333333333
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,CONCEPCION,bilog,g,small,155,4,0,3,282.5,10,3,250,116,33,229,222,91,155,4,0,the cell's own weighings,0,0
@@ -1949,7 +1952,7 @@ fresh fish,ILOILO,DINGLE,pieces or units,g,large,627.5,2,1,3,245,9,3,390,368,102
 "liquor (e.g, whisky, coconut wine)",ILOILO,DINGLE,long-neck,mL,medium,750,5,0,3,750,6,0,750,185,1,750,478,1,750,6,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,DINGLE,long-neck,mL,large,1000,1,0,3,750,6,0,750,185,1,750,478,1,750,6,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,DINGLE,large packs,g,large,640,4,0,3,640,4,0,640,188,1,640,411,6,640,4,0,the cell's own weighings,0,0
-loaf bread,ILOILO,DINGLE,medium packs,g,medium,497.5,4,0,3,497.5,4,0,450,176,0,450,374,0,497.5,4,0,the cell's own weighings,0,0
+loaf bread,ILOILO,DINGLE,medium packs,g,medium,497.5,4,0,3,497.5,4,0,450,160,0,450,352,0,497.5,4,0,the cell's own weighings,0,0
 loaf bread,ILOILO,DINGLE,small packs,g,small,400,3,0,3,400,3,0,385,123,2,370,259,2,400,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,DINGLE,bilog,g,small,250,4,1,3,250,4,1,250,116,33,229,222,91,250,4,1,the cell's own weighings,0,.25
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,DINGLE,pack,g,small,250,3,0,3,250,4,0,250,70,12,250,85,12,250,4,0,cell pooled across sizes,0,0
@@ -1983,8 +1986,9 @@ fresh fish,ILOILO,DUEAS,pieces or units,g,large,702.5,2,2,3,565,9,5,390,368,102,
 "liquor (e.g, whisky, coconut wine)",ILOILO,DUEAS,long-neck,mL,medium,750,8,0,3,750,10,0,750,185,1,750,478,1,750,10,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,DUEAS,long-neck,mL,large,1000,2,0,3,750,10,0,750,185,1,750,478,1,750,10,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,DUEAS,large packs,g,large,667.5,8,0,3,667.5,8,0,640,188,1,640,411,6,667.5,8,0,the cell's own weighings,0,0
-loaf bread,ILOILO,DUEAS,medium packs,g,medium,450,9,0,3,450,9,0,450,176,0,450,374,0,450,9,0,the cell's own weighings,0,0
+loaf bread,ILOILO,DUEAS,medium packs,g,medium,500,6,0,3,500,6,0,450,160,0,450,352,0,500,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,DUEAS,small packs,g,small,360,8,2,3,360,8,2,385,123,2,370,259,2,360,8,2,the cell's own weighings,0,.25
+loaf bread,ILOILO,DUEAS,tama-tama nga putos,g,medium,345,3,0,3,345,3,0,450,16,0,450,23,0,345,3,0,the cell's own weighings,0,0
 mango,ILOILO,DUEAS,pieces or units,g,small,207.5,4,0,3,270,12,0,230,289,0,230,539,1,207.5,4,0,the cell's own weighings,0,0
 mango,ILOILO,DUEAS,pieces or units,g,medium,275,5,0,3,270,12,0,230,289,0,230,539,1,275,5,0,the cell's own weighings,0,0
 mango,ILOILO,DUEAS,pieces or units,g,large,340,3,0,3,270,12,0,230,289,0,230,539,1,340,3,0,the cell's own weighings,0,0
@@ -2005,7 +2009,7 @@ carrot,ILOILO,DUMANGAS,pieces or units,g,large,240,1,1,3,145,6,1,135,538,74,140,
 "liquor (e.g, whisky, coconut wine)",ILOILO,DUMANGAS,lipid/lapad,mL,medium,375,2,0,3,375,2,0,375,267,4,375,618,7,375,267,4,province x item x unit,0,.0149812734082397
 "liquor (e.g, whisky, coconut wine)",ILOILO,DUMANGAS,long-neck,mL,large,750,2,0,3,750,2,0,750,185,1,750,478,1,750,185,1,province x item x unit,0,.0054054054054054
 loaf bread,ILOILO,DUMANGAS,large packs,g,large,640,2,0,3,640,2,0,640,188,1,640,411,6,640,188,1,province x item x unit,0,.0053191489361702
-loaf bread,ILOILO,DUMANGAS,medium packs,g,medium,400,1,0,3,400,1,0,450,176,0,450,374,0,450,176,0,province x item x unit,0,0
+loaf bread,ILOILO,DUMANGAS,medium packs,g,medium,400,1,0,3,400,1,0,450,160,0,450,352,0,450,160,0,province x item x unit,0,0
 loaf bread,ILOILO,DUMANGAS,small packs,g,small,220,2,0,3,220,2,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 mango,ILOILO,DUMANGAS,pieces or units,g,small,192.5,2,0,3,210,6,0,230,289,0,230,539,1,210,6,0,cell pooled across sizes,0,0
 mango,ILOILO,DUMANGAS,pieces or units,g,medium,215,3,0,3,210,6,0,230,289,0,230,539,1,210,6,0,cell pooled across sizes,0,0
@@ -2035,7 +2039,7 @@ fresh fish,ILOILO,ESTANCIA,pieces or units,g,large,262.5,4,0,3,160,15,3,390,368,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,ESTANCIA,small cup,mL,small,100,3,0,3,100,3,0,100,75,2,100,185,5,100,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,ESTANCIA,lipid/lapad,mL,medium,375,7,0,3,375,7,0,375,267,4,375,618,7,375,7,0,the cell's own weighings,0,0
 loaf bread,ILOILO,ESTANCIA,large packs,g,large,640,3,0,3,640,3,0,640,188,1,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,ILOILO,ESTANCIA,medium packs,g,medium,450,3,0,3,450,3,0,450,176,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,ILOILO,ESTANCIA,medium packs,g,medium,450,3,0,3,450,3,0,450,160,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,ILOILO,ESTANCIA,small packs,g,small,220,1,0,3,220,1,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 mango,ILOILO,ESTANCIA,pieces or units,g,small,185,4,0,3,232.5,12,0,230,289,0,230,539,1,185,4,0,the cell's own weighings,0,0
 mango,ILOILO,ESTANCIA,pieces or units,g,medium,235,5,0,3,232.5,12,0,230,289,0,230,539,1,235,5,0,the cell's own weighings,0,0
@@ -2064,7 +2068,7 @@ fresh fish,ILOILO,GUIMBAL,pieces or units,g,large,650,3,3,3,530,11,4,390,368,102
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,GUIMBAL,pieces or units,g,medium,135,1,0,3,110,3,0,55,59,7,60,94,12,110,3,0,cell pooled across sizes,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,GUIMBAL,small cup,g,small,125,1,0,3,125,1,0,100,71,15,100,120,18,100,71,15,province x item x unit,0,.2112676056338028
 loaf bread,ILOILO,GUIMBAL,large packs,g,large,645,7,0,3,645,7,0,640,188,1,640,411,6,645,7,0,the cell's own weighings,0,0
-loaf bread,ILOILO,GUIMBAL,medium packs,g,medium,465,5,0,3,465,5,0,450,176,0,450,374,0,465,5,0,the cell's own weighings,0,0
+loaf bread,ILOILO,GUIMBAL,medium packs,g,medium,465,5,0,3,465,5,0,450,160,0,450,352,0,465,5,0,the cell's own weighings,0,0
 loaf bread,ILOILO,GUIMBAL,small packs,g,small,262.5,2,0,3,450,5,0,385,123,2,370,259,2,450,5,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,GUIMBAL,small packs,g,medium,512.5,2,0,3,450,5,0,385,123,2,370,259,2,450,5,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,GUIMBAL,small packs,g,large,720,1,0,3,450,5,0,385,123,2,370,259,2,450,5,0,cell pooled across sizes,0,0
@@ -2100,7 +2104,7 @@ fresh fish,ILOILO,IGBARAS,pieces or units,g,large,680,5,3,3,257.5,18,8,390,368,1
 "liquor (e.g, whisky, coconut wine)",ILOILO,IGBARAS,lipid/lapad,mL,medium,375,7,0,3,375,7,0,375,267,4,375,618,7,375,7,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,IGBARAS,long-neck,mL,large,750,7,0,3,750,7,0,750,185,1,750,478,1,750,7,0,the cell's own weighings,0,0
 loaf bread,ILOILO,IGBARAS,large packs,g,large,607.5,4,0,3,607.5,4,0,640,188,1,640,411,6,607.5,4,0,the cell's own weighings,0,0
-loaf bread,ILOILO,IGBARAS,medium packs,g,medium,450,5,0,3,450,5,0,450,176,0,450,374,0,450,5,0,the cell's own weighings,0,0
+loaf bread,ILOILO,IGBARAS,medium packs,g,medium,450,5,0,3,450,5,0,450,160,0,450,352,0,450,5,0,the cell's own weighings,0,0
 loaf bread,ILOILO,IGBARAS,small packs,g,small,400,4,0,3,400,4,0,385,123,2,370,259,2,400,4,0,the cell's own weighings,0,0
 mango,ILOILO,IGBARAS,pieces or units,g,small,170,2,0,3,225,6,0,230,289,0,230,539,1,225,6,0,cell pooled across sizes,0,0
 mango,ILOILO,IGBARAS,pieces or units,g,medium,240,3,0,3,225,6,0,230,289,0,230,539,1,225,6,0,cell pooled across sizes,0,0
@@ -2137,7 +2141,7 @@ fresh fish,ILOILO,JANIUAY,pieces or units,g,large,625,5,2,3,457.5,18,2,390,368,1
 "liquor (e.g, whisky, coconut wine)",ILOILO,JANIUAY,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,267,4,375,618,7,375,6,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,JANIUAY,long-neck,mL,medium,750,8,1,3,750,8,1,750,185,1,750,478,1,750,8,1,the cell's own weighings,0,.125
 loaf bread,ILOILO,JANIUAY,large packs,g,large,640,7,0,3,640,7,0,640,188,1,640,411,6,640,7,0,the cell's own weighings,0,0
-loaf bread,ILOILO,JANIUAY,medium packs,g,medium,450,5,0,3,450,5,0,450,176,0,450,374,0,450,5,0,the cell's own weighings,0,0
+loaf bread,ILOILO,JANIUAY,medium packs,g,medium,450,5,0,3,450,5,0,450,160,0,450,352,0,450,5,0,the cell's own weighings,0,0
 loaf bread,ILOILO,JANIUAY,small packs,g,small,220,3,0,3,220,3,0,385,123,2,370,259,2,220,3,0,the cell's own weighings,0,0
 mango,ILOILO,JANIUAY,pieces or units,g,small,185,7,0,3,250,18,0,230,289,0,230,539,1,185,7,0,the cell's own weighings,0,0
 mango,ILOILO,JANIUAY,pieces or units,g,medium,250,6,0,3,250,18,0,230,289,0,230,539,1,250,6,0,the cell's own weighings,0,0
@@ -2170,7 +2174,7 @@ chicken,ILOILO,LAMBUNAO,whole (chicken),g,large,1085,3,0,3,990,7,0,1035,180,1,11
 "liquor (e.g, whisky, coconut wine)",ILOILO,LAMBUNAO,lipid/lapad,mL,medium,375,5,0,3,375,5,0,375,267,4,375,618,7,375,5,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,LAMBUNAO,long-neck,mL,large,750,5,0,3,750,5,0,750,185,1,750,478,1,750,5,0,the cell's own weighings,0,0
 loaf bread,ILOILO,LAMBUNAO,large packs,g,large,670,4,0,3,670,4,0,640,188,1,640,411,6,670,4,0,the cell's own weighings,0,0
-loaf bread,ILOILO,LAMBUNAO,medium packs,g,medium,450,5,0,3,450,5,0,450,176,0,450,374,0,450,5,0,the cell's own weighings,0,0
+loaf bread,ILOILO,LAMBUNAO,medium packs,g,medium,450,5,0,3,450,5,0,450,160,0,450,352,0,450,5,0,the cell's own weighings,0,0
 loaf bread,ILOILO,LAMBUNAO,small packs,g,small,400,4,0,3,400,4,0,385,123,2,370,259,2,400,4,0,the cell's own weighings,0,0
 mango,ILOILO,LAMBUNAO,pieces or units,g,small,155,3,0,3,200,8,0,230,289,0,230,539,1,200,8,0,cell pooled across sizes,0,0
 mango,ILOILO,LAMBUNAO,pieces or units,g,medium,200,3,0,3,200,8,0,230,289,0,230,539,1,200,8,0,cell pooled across sizes,0,0
@@ -2248,7 +2252,7 @@ fresh fish,ILOILO,LEMERY,pieces or units,g,large,285,1,0,3,232.5,6,1,390,368,102
 "liquor (e.g, whisky, coconut wine)",ILOILO,LEMERY,lipid/lapad,mL,medium,375,2,0,3,375,2,0,375,267,4,375,618,7,375,267,4,province x item x unit,0,.0149812734082397
 "liquor (e.g, whisky, coconut wine)",ILOILO,LEMERY,long-neck,mL,large,750,2,0,3,750,2,0,750,185,1,750,478,1,750,185,1,province x item x unit,0,.0054054054054054
 loaf bread,ILOILO,LEMERY,large packs,g,large,645,2,0,3,645,2,0,640,188,1,640,411,6,640,188,1,province x item x unit,0,.0053191489361702
-loaf bread,ILOILO,LEMERY,medium packs,g,medium,480,1,0,3,480,1,0,450,176,0,450,374,0,450,176,0,province x item x unit,0,0
+loaf bread,ILOILO,LEMERY,medium packs,g,medium,480,1,0,3,480,1,0,450,160,0,450,352,0,450,160,0,province x item x unit,0,0
 loaf bread,ILOILO,LEMERY,small packs,g,small,220,1,0,3,220,1,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 "prawns, lobster, shrimp",ILOILO,LEMERY,tumpok,g,small,125,1,0,3,380,3,1,250,55,10,260,147,27,380,3,1,cell pooled across sizes,0,.3333333333333333
 "prawns, lobster, shrimp",ILOILO,LEMERY,tumpok,g,medium,505,2,1,3,380,3,1,250,55,10,260,147,27,380,3,1,cell pooled across sizes,0,.3333333333333333
@@ -2272,7 +2276,7 @@ fresh fish,ILOILO,LEON,pieces or units,g,medium,440,4,1,3,440,4,1,390,368,102,39
 "liquor (e.g, whisky, coconut wine)",ILOILO,LEON,long-neck,mL,small,750,9,0,3,750,12,0,750,185,1,750,478,1,750,9,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,LEON,long-neck,mL,large,1000,3,0,3,750,12,0,750,185,1,750,478,1,1000,3,0,the cell's own weighings,0,0
 loaf bread,ILOILO,LEON,large packs,g,large,640,5,0,3,640,5,0,640,188,1,640,411,6,640,5,0,the cell's own weighings,0,0
-loaf bread,ILOILO,LEON,medium packs,g,medium,450,6,0,3,450,6,0,450,176,0,450,374,0,450,6,0,the cell's own weighings,0,0
+loaf bread,ILOILO,LEON,medium packs,g,medium,450,6,0,3,450,6,0,450,160,0,450,352,0,450,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,LEON,small packs,g,small,360,5,0,3,360,5,0,385,123,2,370,259,2,360,5,0,the cell's own weighings,0,0
 mango,ILOILO,LEON,pieces or units,g,small,165,9,0,3,210,27,0,230,289,0,230,539,1,165,9,0,the cell's own weighings,0,0
 mango,ILOILO,LEON,pieces or units,g,medium,225,10,0,3,210,27,0,230,289,0,230,539,1,225,10,0,the cell's own weighings,0,0
@@ -2303,7 +2307,7 @@ fresh fish,ILOILO,MAASIN,pieces or units,g,medium,720,2,2,3,570,5,2,390,368,102,
 "liquor (e.g, whisky, coconut wine)",ILOILO,MAASIN,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,267,4,375,618,7,375,6,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,MAASIN,long-neck,mL,medium,750,6,0,3,750,6,0,750,185,1,750,478,1,750,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,MAASIN,large packs,g,large,700,1,0,3,700,1,0,640,188,1,640,411,6,640,188,1,province x item x unit,0,.0053191489361702
-loaf bread,ILOILO,MAASIN,medium packs,g,medium,550,2,0,3,550,2,0,450,176,0,450,374,0,450,176,0,province x item x unit,0,0
+loaf bread,ILOILO,MAASIN,medium packs,g,medium,550,2,0,3,550,2,0,450,160,0,450,352,0,450,160,0,province x item x unit,0,0
 pork,ILOILO,MAASIN,pieces or units,g,medium,255,4,0,2,255,4,0,260,15,2,260,15,2,255,4,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,MAASIN,pack,g,small,200,5,0,3,212.5,10,0,250,70,12,250,85,12,200,5,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,MAASIN,pack,g,medium,225,5,0,3,212.5,10,0,250,70,12,250,85,12,225,5,0,the cell's own weighings,0,0
@@ -2333,7 +2337,7 @@ fresh fish,ILOILO,MIAGAO,pieces or units,g,large,1340,3,3,3,565,10,5,390,368,102
 "liquor (e.g, whisky, coconut wine)",ILOILO,MIAGAO,long-neck,mL,medium,750,3,0,3,750,5,0,750,185,1,750,478,1,750,5,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,MIAGAO,long-neck,mL,large,1000,2,0,3,750,5,0,750,185,1,750,478,1,750,5,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,MIAGAO,large packs,g,large,660,2,0,3,660,2,0,640,188,1,640,411,6,640,188,1,province x item x unit,0,.0053191489361702
-loaf bread,ILOILO,MIAGAO,medium packs,g,medium,470,2,0,3,470,2,0,450,176,0,450,374,0,450,176,0,province x item x unit,0,0
+loaf bread,ILOILO,MIAGAO,medium packs,g,medium,470,2,0,3,470,2,0,450,160,0,450,352,0,450,160,0,province x item x unit,0,0
 loaf bread,ILOILO,MIAGAO,small packs,g,small,375,6,0,3,397.5,12,0,385,123,2,370,259,2,375,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,MIAGAO,small packs,g,medium,475,3,0,3,397.5,12,0,385,123,2,370,259,2,475,3,0,the cell's own weighings,0,0
 loaf bread,ILOILO,MIAGAO,small packs,g,large,615,3,0,3,397.5,12,0,385,123,2,370,259,2,615,3,0,the cell's own weighings,0,0
@@ -2374,7 +2378,7 @@ chicken,ILOILO,MINA,whole (chicken),g,large,1655,1,0,3,1145,4,0,1035,180,1,1120,
 "liquor (e.g, whisky, coconut wine)",ILOILO,MINA,lipid/lapad,mL,medium,375,5,0,3,375,5,0,375,267,4,375,618,7,375,5,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,MINA,long-neck,mL,medium,750,6,0,3,750,6,0,750,185,1,750,478,1,750,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,MINA,large packs,g,large,620,3,0,3,620,3,0,640,188,1,640,411,6,620,3,0,the cell's own weighings,0,0
-loaf bread,ILOILO,MINA,medium packs,g,medium,450,3,0,3,450,3,0,450,176,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,ILOILO,MINA,medium packs,g,medium,450,3,0,3,450,3,0,450,160,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,ILOILO,MINA,small packs,g,small,400,3,0,3,400,3,0,385,123,2,370,259,2,400,3,0,the cell's own weighings,0,0
 mango,ILOILO,MINA,pieces or units,g,small,150,4,0,3,200,11,0,230,289,0,230,539,1,150,4,0,the cell's own weighings,0,0
 mango,ILOILO,MINA,pieces or units,g,medium,207.5,4,0,3,200,11,0,230,289,0,230,539,1,207.5,4,0,the cell's own weighings,0,0
@@ -2407,8 +2411,8 @@ fresh fish,ILOILO,NEW LUCENA,pieces or units,g,large,925,2,2,3,485,7,3,390,368,1
 "liquor (e.g, whisky, coconut wine)",ILOILO,NEW LUCENA,lipid/lapad,mL,medium,375,9,0,3,375,9,0,375,267,4,375,618,7,375,9,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,NEW LUCENA,long-neck,mL,large,750,9,0,3,750,9,0,750,185,1,750,478,1,750,9,0,the cell's own weighings,0,0
 loaf bread,ILOILO,NEW LUCENA,large packs,g,large,640,4,0,3,640,4,0,640,188,1,640,411,6,640,4,0,the cell's own weighings,0,0
-loaf bread,ILOILO,NEW LUCENA,medium packs,g,medium,450,4,0,3,450,4,0,450,176,0,450,374,0,450,4,0,the cell's own weighings,0,0
 loaf bread,ILOILO,NEW LUCENA,small packs,g,small,420,1,0,3,420,1,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
+loaf bread,ILOILO,NEW LUCENA,tama-tama nga putos,g,medium,450,4,0,3,450,4,0,450,16,0,450,23,0,450,4,0,the cell's own weighings,0,0
 mango,ILOILO,NEW LUCENA,pieces or units,g,small,220,3,0,3,262.5,8,0,230,289,0,230,539,1,262.5,8,0,cell pooled across sizes,0,0
 mango,ILOILO,NEW LUCENA,pieces or units,g,medium,265,3,0,3,262.5,8,0,230,289,0,230,539,1,262.5,8,0,cell pooled across sizes,0,0
 mango,ILOILO,NEW LUCENA,pieces or units,g,large,325,2,0,3,262.5,8,0,230,289,0,230,539,1,262.5,8,0,cell pooled across sizes,0,0
@@ -2455,7 +2459,7 @@ fresh fish,ILOILO,OTON,pieces or units,g,large,665,4,3,3,250,15,8,390,368,102,39
 "liquor (e.g, whisky, coconut wine)",ILOILO,OTON,lipid/lapad,mL,medium,375,8,0,3,375,8,0,375,267,4,375,618,7,375,8,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,OTON,long-neck,mL,large,750,8,0,3,750,8,0,750,185,1,750,478,1,750,8,0,the cell's own weighings,0,0
 loaf bread,ILOILO,OTON,large packs,g,large,650,6,0,3,650,6,0,640,188,1,640,411,6,650,6,0,the cell's own weighings,0,0
-loaf bread,ILOILO,OTON,medium packs,g,medium,460,6,0,3,460,6,0,450,176,0,450,374,0,460,6,0,the cell's own weighings,0,0
+loaf bread,ILOILO,OTON,medium packs,g,medium,460,6,0,3,460,6,0,450,160,0,450,352,0,460,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,OTON,small packs,g,small,360,2,0,3,360,2,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 mango,ILOILO,OTON,pieces or units,g,small,152.5,6,0,3,192.5,18,0,230,289,0,230,539,1,152.5,6,0,the cell's own weighings,0,0
 mango,ILOILO,OTON,pieces or units,g,medium,210,7,0,3,192.5,18,0,230,289,0,230,539,1,210,7,0,the cell's own weighings,0,0
@@ -2505,7 +2509,7 @@ fresh fish,ILOILO,POTOTAN,pieces or units,g,large,1010,3,2,3,475,12,3,390,368,10
 "liquor (e.g, whisky, coconut wine)",ILOILO,POTOTAN,lipid/lapad,mL,medium,375,9,0,3,375,9,0,375,267,4,375,618,7,375,9,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,POTOTAN,long-neck,mL,large,750,9,0,3,750,9,0,750,185,1,750,478,1,750,9,0,the cell's own weighings,0,0
 loaf bread,ILOILO,POTOTAN,large packs,g,large,640,8,0,3,640,8,0,640,188,1,640,411,6,640,8,0,the cell's own weighings,0,0
-loaf bread,ILOILO,POTOTAN,medium packs,g,medium,450,8,0,3,450,8,0,450,176,0,450,374,0,450,8,0,the cell's own weighings,0,0
+loaf bread,ILOILO,POTOTAN,medium packs,g,medium,450,8,0,3,450,8,0,450,160,0,450,352,0,450,8,0,the cell's own weighings,0,0
 loaf bread,ILOILO,POTOTAN,small packs,g,small,400,1,0,3,400,1,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 mango,ILOILO,POTOTAN,pieces or units,g,small,217.5,8,0,3,270,19,0,230,289,0,230,539,1,217.5,8,0,the cell's own weighings,0,0
 mango,ILOILO,POTOTAN,pieces or units,g,medium,275,5,0,3,270,19,0,230,289,0,230,539,1,275,5,0,the cell's own weighings,0,0
@@ -2533,8 +2537,9 @@ fresh fish,ILOILO,SAN DIONISIO,pieces or units,g,medium,730,1,1,3,525,3,1,390,36
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,SAN DIONISIO,pieces or units,g,small,45,2,0,3,52.5,4,0,55,59,7,60,94,12,52.5,4,0,cell pooled across sizes,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,SAN DIONISIO,pieces or units,g,medium,57.5,2,0,3,52.5,4,0,55,59,7,60,94,12,52.5,4,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,SAN DIONISIO,lipid/lapad,mL,medium,750,7,0,3,750,7,0,375,267,4,375,618,7,750,7,0,the cell's own weighings,0,0
-loaf bread,ILOILO,SAN DIONISIO,medium packs,g,medium,470,6,0,3,475,10,0,450,176,0,450,374,0,470,6,0,the cell's own weighings,0,0
-loaf bread,ILOILO,SAN DIONISIO,medium packs,g,large,667.5,4,0,3,475,10,0,450,176,0,450,374,0,667.5,4,0,the cell's own weighings,0,0
+loaf bread,ILOILO,SAN DIONISIO,medium packs,g,medium,475,5,0,3,475,9,0,450,160,0,450,352,0,475,5,0,the cell's own weighings,0,0
+loaf bread,ILOILO,SAN DIONISIO,medium packs,g,large,667.5,4,0,3,475,9,0,450,160,0,450,352,0,667.5,4,0,the cell's own weighings,0,0
+loaf bread,ILOILO,SAN DIONISIO,tama-tama nga putos,g,medium,450,1,0,3,450,1,0,450,16,0,450,23,0,450,16,0,province x item x unit,0,0
 mango,ILOILO,SAN DIONISIO,pieces or units,g,small,192.5,2,0,3,220,4,0,230,289,0,230,539,1,220,4,0,cell pooled across sizes,0,0
 mango,ILOILO,SAN DIONISIO,pieces or units,g,medium,230,1,0,3,220,4,0,230,289,0,230,539,1,220,4,0,cell pooled across sizes,0,0
 mango,ILOILO,SAN DIONISIO,pieces or units,g,large,300,1,0,3,220,4,0,230,289,0,230,539,1,220,4,0,cell pooled across sizes,0,0
@@ -2573,7 +2578,7 @@ fresh fish,ILOILO,SAN ENRIQUE,pieces or units,g,medium,425,1,0,3,340,3,0,390,368
 "liquor (e.g, whisky, coconut wine)",ILOILO,SAN ENRIQUE,lipid/lapad,mL,medium,375,8,0,3,375,8,0,375,267,4,375,618,7,375,8,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,SAN ENRIQUE,long-neck,mL,medium,750,6,0,3,750,6,0,750,185,1,750,478,1,750,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,SAN ENRIQUE,large packs,g,large,640,3,0,3,640,3,0,640,188,1,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,ILOILO,SAN ENRIQUE,medium packs,g,medium,450,3,0,3,450,3,0,450,176,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,ILOILO,SAN ENRIQUE,medium packs,g,medium,450,3,0,3,450,3,0,450,160,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,ILOILO,SAN ENRIQUE,small packs,g,small,410,2,0,3,410,2,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 "prawns, lobster, shrimp",ILOILO,SAN ENRIQUE,pieces or units,g,medium,140,1,1,3,140,1,1,15,4,4,15,4,4,15,4,4,province x item x unit,0,1
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,SAN ENRIQUE,putos,g,small,200,4,0,3,200,4,0,250,182,29,250,473,60,200,4,0,the cell's own weighings,0,0
@@ -2609,7 +2614,7 @@ fresh fish,ILOILO,SAN JOAQUIN,pieces or units,g,large,740,7,6,3,312.5,22,13,390,
 "liquor (e.g, whisky, coconut wine)",ILOILO,SAN JOAQUIN,lipid/lapad,mL,medium,375,10,0,3,375,10,0,375,267,4,375,618,7,375,10,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,SAN JOAQUIN,long-neck,mL,large,750,9,0,3,750,9,0,750,185,1,750,478,1,750,9,0,the cell's own weighings,0,0
 loaf bread,ILOILO,SAN JOAQUIN,large packs,g,large,640,6,0,3,640,6,0,640,188,1,640,411,6,640,6,0,the cell's own weighings,0,0
-loaf bread,ILOILO,SAN JOAQUIN,medium packs,g,medium,450,6,0,3,450,6,0,450,176,0,450,374,0,450,6,0,the cell's own weighings,0,0
+loaf bread,ILOILO,SAN JOAQUIN,medium packs,g,medium,450,6,0,3,450,6,0,450,160,0,450,352,0,450,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,SAN JOAQUIN,small packs,g,small,360,1,0,3,360,1,0,385,123,2,370,259,2,385,123,2,province x item x unit,0,.016260162601626
 mango,ILOILO,SAN JOAQUIN,pieces or units,g,small,152.5,4,0,3,207.5,10,0,230,289,0,230,539,1,152.5,4,0,the cell's own weighings,0,0
 mango,ILOILO,SAN JOAQUIN,pieces or units,g,medium,215,3,0,3,207.5,10,0,230,289,0,230,539,1,215,3,0,the cell's own weighings,0,0
@@ -2641,8 +2646,8 @@ fresh fish,ILOILO,SAN MIGUEL,pieces or units,g,large,745,2,2,3,620,8,4,390,368,1
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,SAN MIGUEL,pieces or units,g,medium,65,4,0,3,52.5,8,2,55,59,7,60,94,12,65,4,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,SAN MIGUEL,lipid/lapad,mL,medium,375,9,0,3,375,9,0,375,267,4,375,618,7,375,9,0,the cell's own weighings,0,0
 loaf bread,ILOILO,SAN MIGUEL,large packs,g,large,640,8,0,3,640,8,0,640,188,1,640,411,6,640,8,0,the cell's own weighings,0,0
-loaf bread,ILOILO,SAN MIGUEL,medium packs,g,medium,450,6,0,3,450,6,0,450,176,0,450,374,0,450,6,0,the cell's own weighings,0,0
 loaf bread,ILOILO,SAN MIGUEL,small packs,g,small,420,5,0,3,420,5,0,385,123,2,370,259,2,420,5,0,the cell's own weighings,0,0
+loaf bread,ILOILO,SAN MIGUEL,tama-tama nga putos,g,medium,450,6,0,3,450,6,0,450,16,0,450,23,0,450,6,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,SAN MIGUEL,bilog,g,large,637.5,2,2,3,637.5,2,2,250,116,33,229,222,91,250,116,33,province x item x unit,0,.2844827586206897
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,SAN MIGUEL,putos,g,small,225,4,0,3,225,4,0,250,182,29,250,473,60,225,4,0,the cell's own weighings,0,0
 cabbage,ILOILO,SAN RAFAEL,pack,g,medium,95,3,0,2,95,3,0,135,26,1,150,43,6,95,3,0,the cell's own weighings,0,0
@@ -2677,7 +2682,7 @@ fresh fish,ILOILO,SAN RAFAEL,pieces or units,g,large,612.5,2,0,3,545,9,0,390,368
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,SAN RAFAEL,small cup,g,small,32,1,1,3,32,1,1,100,71,15,100,120,18,100,71,15,province x item x unit,0,.2112676056338028
 "liquor (e.g, whisky, coconut wine)",ILOILO,SAN RAFAEL,lipid/lapad,mL,medium,680,5,0,3,680,5,0,375,267,4,375,618,7,680,5,0,the cell's own weighings,0,0
 loaf bread,ILOILO,SAN RAFAEL,large packs,g,large,675,3,0,3,675,3,0,640,188,1,640,411,6,675,3,0,the cell's own weighings,0,0
-loaf bread,ILOILO,SAN RAFAEL,medium packs,g,medium,385,2,0,3,385,2,0,450,176,0,450,374,0,450,176,0,province x item x unit,0,0
+loaf bread,ILOILO,SAN RAFAEL,medium packs,g,medium,385,2,0,3,385,2,0,450,160,0,450,352,0,450,160,0,province x item x unit,0,0
 loaf bread,ILOILO,SAN RAFAEL,small packs,g,small,290,3,0,3,345,6,0,385,123,2,370,259,2,345,6,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,SAN RAFAEL,small packs,g,medium,435,2,0,3,345,6,0,385,123,2,370,259,2,345,6,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,SAN RAFAEL,small packs,g,large,670,1,0,3,345,6,0,385,123,2,370,259,2,345,6,0,cell pooled across sizes,0,0
@@ -2707,7 +2712,7 @@ fresh fish,ILOILO,SANTA BARBARA,pieces or units,g,large,600,7,3,3,355,24,3,390,3
 "liquor (e.g, whisky, coconut wine)",ILOILO,SANTA BARBARA,lipid/lapad,mL,large,850,1,1,3,375,8,2,375,267,4,375,618,7,375,8,2,cell pooled across sizes,0,.25
 "liquor (e.g, whisky, coconut wine)",ILOILO,SANTA BARBARA,long-neck,mL,large,750,8,0,3,750,8,0,750,185,1,750,478,1,750,8,0,the cell's own weighings,0,0
 loaf bread,ILOILO,SANTA BARBARA,large packs,g,large,665,9,0,3,665,9,0,640,188,1,640,411,6,665,9,0,the cell's own weighings,0,0
-loaf bread,ILOILO,SANTA BARBARA,medium packs,g,medium,480,9,0,3,480,9,0,450,176,0,450,374,0,480,9,0,the cell's own weighings,0,0
+loaf bread,ILOILO,SANTA BARBARA,medium packs,g,medium,480,9,0,3,480,9,0,450,160,0,450,352,0,480,9,0,the cell's own weighings,0,0
 loaf bread,ILOILO,SANTA BARBARA,small packs,g,small,385,9,0,3,385,9,0,385,123,2,370,259,2,385,9,0,the cell's own weighings,0,0
 mango,ILOILO,SANTA BARBARA,pieces or units,g,small,200,9,0,3,225,25,0,230,289,0,230,539,1,200,9,0,the cell's own weighings,0,0
 mango,ILOILO,SANTA BARBARA,pieces or units,g,medium,230,8,0,3,225,25,0,230,289,0,230,539,1,230,8,0,the cell's own weighings,0,0
@@ -2748,7 +2753,7 @@ fresh fish,ILOILO,SARA,pieces or units,g,large,405,7,0,2,217.5,14,0,390,368,102,
 loaf bread,ILOILO,SARA,large packs,g,small,477.5,2,0,3,622.5,4,0,640,188,1,640,411,6,622.5,4,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,SARA,large packs,g,medium,675,1,0,3,622.5,4,0,640,188,1,640,411,6,622.5,4,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,SARA,large packs,g,large,765,1,0,3,622.5,4,0,640,188,1,640,411,6,622.5,4,0,cell pooled across sizes,0,0
-loaf bread,ILOILO,SARA,medium packs,g,medium,450,1,0,3,450,1,0,450,176,0,450,374,0,450,176,0,province x item x unit,0,0
+loaf bread,ILOILO,SARA,medium packs,g,medium,450,1,0,3,450,1,0,450,160,0,450,352,0,450,160,0,province x item x unit,0,0
 loaf bread,ILOILO,SARA,small packs,g,small,285,1,0,3,430,3,0,385,123,2,370,259,2,430,3,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,SARA,small packs,g,medium,550,2,0,3,430,3,0,385,123,2,370,259,2,430,3,0,cell pooled across sizes,0,0
 mango,ILOILO,SARA,pieces or units,g,small,200,3,0,3,245,9,0,230,289,0,230,539,1,245,9,0,cell pooled across sizes,0,0
@@ -2813,8 +2818,8 @@ fresh fish,ILOILO,TIGBAUAN,pieces or units,g,large,425,3,0,2,295,9,2,390,368,102
 loaf bread,ILOILO,TIGBAUAN,large packs,g,small,480,3,0,3,667.5,8,0,640,188,1,640,411,6,667.5,8,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,TIGBAUAN,large packs,g,medium,670,4,0,3,667.5,8,0,640,188,1,640,411,6,667.5,8,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,TIGBAUAN,large packs,g,large,765,1,0,3,667.5,8,0,640,188,1,640,411,6,667.5,8,0,cell pooled across sizes,0,0
-loaf bread,ILOILO,TIGBAUAN,medium packs,g,small,475,3,0,3,475,5,0,450,176,0,450,374,0,475,5,0,cell pooled across sizes,0,0
-loaf bread,ILOILO,TIGBAUAN,medium packs,g,medium,527.5,2,0,3,475,5,0,450,176,0,450,374,0,475,5,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,TIGBAUAN,medium packs,g,small,475,3,0,3,475,5,0,450,160,0,450,352,0,475,5,0,cell pooled across sizes,0,0
+loaf bread,ILOILO,TIGBAUAN,medium packs,g,medium,527.5,2,0,3,475,5,0,450,160,0,450,352,0,475,5,0,cell pooled across sizes,0,0
 loaf bread,ILOILO,TIGBAUAN,small packs,g,small,385,3,0,3,385,3,0,385,123,2,370,259,2,385,3,0,the cell's own weighings,0,0
 mango,ILOILO,TIGBAUAN,pieces or units,g,medium,135,3,0,2,135,3,0,230,289,0,230,539,1,135,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,TIGBAUAN,bilog,g,small,165,3,0,3,255,9,2,250,116,33,229,222,91,255,9,2,cell pooled across sizes,0,.2222222222222222
@@ -2847,7 +2852,7 @@ fresh fish,ILOILO,TUBUNGAN,pieces or units,g,large,750,3,3,3,350,12,5,390,368,10
 "liquor (e.g, whisky, coconut wine)",ILOILO,TUBUNGAN,lipid/lapad,mL,medium,375,9,0,3,375,9,0,375,267,4,375,618,7,375,9,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,TUBUNGAN,long-neck,mL,large,750,9,0,3,750,9,0,750,185,1,750,478,1,750,9,0,the cell's own weighings,0,0
 loaf bread,ILOILO,TUBUNGAN,large packs,g,large,700,5,0,3,700,5,0,640,188,1,640,411,6,700,5,0,the cell's own weighings,0,0
-loaf bread,ILOILO,TUBUNGAN,medium packs,g,medium,500,7,0,3,500,7,0,450,176,0,450,374,0,500,7,0,the cell's own weighings,0,0
+loaf bread,ILOILO,TUBUNGAN,medium packs,g,medium,500,7,0,3,500,7,0,450,160,0,450,352,0,500,7,0,the cell's own weighings,0,0
 loaf bread,ILOILO,TUBUNGAN,small packs,g,small,400,5,0,3,400,5,0,385,123,2,370,259,2,400,5,0,the cell's own weighings,0,0
 mango,ILOILO,TUBUNGAN,pieces or units,g,small,210,3,0,3,235,5,0,230,289,0,230,539,1,235,5,0,cell pooled across sizes,0,0
 mango,ILOILO,TUBUNGAN,pieces or units,g,medium,250,2,0,3,235,5,0,230,289,0,230,539,1,235,5,0,cell pooled across sizes,0,0
@@ -2874,7 +2879,7 @@ fresh fish,ILOILO,ZARRAGA,pieces or units,g,large,535,5,2,3,420,18,2,390,368,102
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,ZARRAGA,small cup,mL,small,100,3,0,3,100,3,0,100,75,2,100,185,5,100,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,ZARRAGA,lipid/lapad,mL,medium,375,5,0,3,375,5,0,375,267,4,375,618,7,375,5,0,the cell's own weighings,0,0
 loaf bread,ILOILO,ZARRAGA,large packs,g,large,640,6,0,3,640,6,0,640,188,1,640,411,6,640,6,0,the cell's own weighings,0,0
-loaf bread,ILOILO,ZARRAGA,medium packs,g,medium,450,7,0,3,450,7,0,450,176,0,450,374,0,450,7,0,the cell's own weighings,0,0
+loaf bread,ILOILO,ZARRAGA,medium packs,g,medium,450,7,0,3,450,7,0,450,160,0,450,352,0,450,7,0,the cell's own weighings,0,0
 loaf bread,ILOILO,ZARRAGA,small packs,g,small,360,3,0,3,360,3,0,385,123,2,370,259,2,360,3,0,the cell's own weighings,0,0
 mango,ILOILO,ZARRAGA,pieces or units,g,medium,180,4,0,2,180,4,0,230,289,0,230,539,1,180,4,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,ZARRAGA,bilog,g,small,50,3,3,3,65,8,8,250,116,33,229,222,91,65,8,8,cell pooled across sizes,0,1
@@ -2897,7 +2902,7 @@ chicken,NEGROS OCCIDENTAL,BINALBAGAN,whole (chicken),g,large,1172.5,2,0,3,985,9,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,BINALBAGAN,small cup,mL,small,120,3,0,3,120,3,0,100,33,2,100,185,5,120,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,BINALBAGAN,lipid/lapad,mL,medium,375,6,0,2,375,6,0,375,72,0,375,618,7,375,6,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,BINALBAGAN,large packs,g,large,640,4,0,3,640,4,0,640,65,2,640,411,6,640,4,0,the cell's own weighings,0,0
-loaf bread,NEGROS OCCIDENTAL,BINALBAGAN,medium packs,g,medium,450,5,0,3,450,5,0,450,52,0,450,374,0,450,5,0,the cell's own weighings,0,0
+loaf bread,NEGROS OCCIDENTAL,BINALBAGAN,medium packs,g,medium,450,5,0,3,450,5,0,450,52,0,450,352,0,450,5,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,BINALBAGAN,putos,g,medium,245,4,0,2,245,4,0,250,70,3,250,473,60,245,4,0,the cell's own weighings,0,0
 cabbage,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,g,medium,495,6,0,2,495,6,0,520,149,11,655,1306,73,495,6,0,the cell's own weighings,0,0
 camote tops,NEGROS OCCIDENTAL,CALATRAVA,bundle,g,small,252.5,4,0,3,252.5,4,0,270,19,3,500,101,48,252.5,4,0,the cell's own weighings,0,0
@@ -2909,7 +2914,7 @@ chicken,NEGROS OCCIDENTAL,CALATRAVA,whole (chicken),g,medium,1150,3,0,2,1150,3,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,lipid/lapad,mL,medium,375,5,0,2,375,5,0,375,72,0,375,618,7,375,5,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CALATRAVA,long-neck,mL,medium,750,5,0,2,750,5,0,750,45,0,750,478,1,750,5,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,CALATRAVA,large packs,g,large,600,1,0,3,600,1,0,640,65,2,640,411,6,640,65,2,province x item x unit,0,.0307692307692308
-loaf bread,NEGROS OCCIDENTAL,CALATRAVA,medium packs,g,medium,405,3,0,3,405,3,0,450,52,0,450,374,0,405,3,0,the cell's own weighings,0,0
+loaf bread,NEGROS OCCIDENTAL,CALATRAVA,medium packs,g,medium,405,3,0,3,405,3,0,450,52,0,450,352,0,405,3,0,the cell's own weighings,0,0
 mango,NEGROS OCCIDENTAL,CALATRAVA,pieces or units,g,medium,300,4,1,2,300,4,1,222.5,18,1,230,539,1,300,4,1,the cell's own weighings,0,.25
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CALATRAVA,bilog,g,medium,65,1,1,2,65,1,1,65,38,26,229,222,91,65,38,26,province x item x unit,0,.6842105263157895
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CALATRAVA,putos,g,medium,250,3,0,2,250,3,0,250,70,3,250,473,60,250,3,0,the cell's own weighings,0,0
@@ -2928,7 +2933,7 @@ fresh fish,NEGROS OCCIDENTAL,CANDONI,pieces or units,g,medium,460,1,0,2,460,1,0,
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CANDONI,lipid/lapad,mL,medium,375,4,0,2,375,4,0,375,72,0,375,618,7,375,4,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CANDONI,long-neck,mL,large,750,3,0,3,750,3,0,750,45,0,750,478,1,750,3,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,CANDONI,large packs,g,large,640,2,0,3,640,2,0,640,65,2,640,411,6,640,65,2,province x item x unit,0,.0307692307692308
-loaf bread,NEGROS OCCIDENTAL,CANDONI,medium packs,g,medium,450,3,0,3,450,3,0,450,52,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,NEGROS OCCIDENTAL,CANDONI,medium packs,g,medium,450,3,0,3,450,3,0,450,52,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,CANDONI,small packs,g,small,220,2,0,3,220,2,0,252.5,38,0,370,259,2,252.5,38,0,province x item x unit,0,0
 "prawns, lobster, shrimp",NEGROS OCCIDENTAL,CANDONI,tumpok,g,medium,210,1,0,2,210,1,0,230,21,0,260,147,27,230,21,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CANDONI,bilog,g,medium,62.5,2,2,2,62.5,2,2,65,38,26,229,222,91,65,38,26,province x item x unit,0,.6842105263157895
@@ -2951,7 +2956,7 @@ chicken,NEGROS OCCIDENTAL,CAUAYAN,whole (chicken),g,large,1360,2,0,2,1102.5,6,0,
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,lipid/lapad,mL,medium,375,5,0,2,375,5,0,375,72,0,375,618,7,375,5,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CAUAYAN,long-neck,mL,medium,750,5,0,2,750,5,0,750,45,0,750,478,1,750,5,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,CAUAYAN,large packs,g,large,650,6,0,3,650,6,0,640,65,2,640,411,6,650,6,0,the cell's own weighings,0,0
-loaf bread,NEGROS OCCIDENTAL,CAUAYAN,medium packs,g,medium,450,3,0,3,450,3,0,450,52,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,NEGROS OCCIDENTAL,CAUAYAN,medium packs,g,medium,450,3,0,3,450,3,0,450,52,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,CAUAYAN,small packs,g,small,360,3,0,3,360,3,0,252.5,38,0,370,259,2,360,3,0,the cell's own weighings,0,0
 "prawns, lobster, shrimp",NEGROS OCCIDENTAL,CAUAYAN,tumpok,g,medium,260,3,0,2,260,3,0,230,21,0,260,147,27,260,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,CAUAYAN,putos,g,medium,250,4,0,2,250,4,0,250,70,3,250,473,60,250,4,0,the cell's own weighings,0,0
@@ -2976,7 +2981,7 @@ fresh fish,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),pieces or units,g,lar
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),lipid/lapad,mL,medium,375,1,0,2,375,1,0,375,72,0,375,618,7,375,72,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),large packs,g,small,220,3,2,3,450,9,2,640,65,2,640,411,6,220,3,2,the cell's own weighings,0,.6666666666666666
 loaf bread,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),large packs,g,medium,545,6,0,3,450,9,2,640,65,2,640,411,6,545,6,0,the cell's own weighings,0,0
-loaf bread,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),medium packs,g,medium,400,2,0,3,400,2,0,450,52,0,450,374,0,450,52,0,province x item x unit,0,0
+loaf bread,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),medium packs,g,medium,400,2,0,3,400,2,0,450,52,0,450,352,0,450,52,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),small packs,g,small,220,2,0,3,220,2,0,252.5,38,0,370,259,2,252.5,38,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),bilog,g,medium,62.5,2,2,2,62.5,2,2,65,38,26,229,222,91,65,38,26,province x item x unit,0,.6842105263157895
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),cans,g,medium,150,5,0,2,150,5,0,152.5,6,0,155,95,6,150,5,0,the cell's own weighings,0,0
@@ -3002,7 +3007,7 @@ fresh fish,NEGROS OCCIDENTAL,HINIGARAN,pieces or units,g,medium,607.5,2,1,3,525,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,HINIGARAN,tupperware,mL,medium,700,1,0,3,575,2,0,575,2,0,700,4,1,700,4,1,item x unit (national),0,.25
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINIGARAN,lipid/lapad,mL,medium,375,2,0,2,375,2,0,375,72,0,375,618,7,375,72,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,HINIGARAN,large packs,g,large,415,1,0,3,415,1,0,640,65,2,640,411,6,640,65,2,province x item x unit,0,.0307692307692308
-loaf bread,NEGROS OCCIDENTAL,HINIGARAN,medium packs,g,medium,575,2,0,3,575,2,0,450,52,0,450,374,0,450,52,0,province x item x unit,0,0
+loaf bread,NEGROS OCCIDENTAL,HINIGARAN,medium packs,g,medium,575,2,0,3,575,2,0,450,52,0,450,352,0,450,52,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,HINIGARAN,small packs,g,small,385,2,0,3,385,2,0,252.5,38,0,370,259,2,252.5,38,0,province x item x unit,0,0
 mango,NEGROS OCCIDENTAL,HINIGARAN,pieces or units,g,medium,215,5,0,2,215,5,0,222.5,18,1,230,539,1,215,5,0,the cell's own weighings,0,0
 "prawns, lobster, shrimp",NEGROS OCCIDENTAL,HINIGARAN,tumpok,g,medium,235,2,0,2,235,2,0,230,21,0,260,147,27,230,21,0,province x item x unit,0,0
@@ -3025,7 +3030,7 @@ chicken,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),bilog,g,large,1135,1,0,2,1052.5,4,0,1
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),lipid/lapad,mL,medium,375,2,0,2,375,2,0,375,72,0,375,618,7,375,72,0,province x item x unit,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),long-neck,mL,medium,750,2,0,2,750,2,0,750,45,0,750,478,1,750,45,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),large packs,g,large,640,6,0,3,640,6,0,640,65,2,640,411,6,640,6,0,the cell's own weighings,0,0
-loaf bread,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),medium packs,g,medium,450,6,0,3,450,6,0,450,52,0,450,374,0,450,6,0,the cell's own weighings,0,0
+loaf bread,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),medium packs,g,medium,450,6,0,3,450,6,0,450,52,0,450,352,0,450,6,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),small packs,g,small,220,5,0,3,220,5,0,252.5,38,0,370,259,2,220,5,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),pack,g,medium,250,1,0,2,250,1,0,250,6,0,250,85,12,250,6,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),putos,g,medium,250,4,0,2,250,4,0,250,70,3,250,473,60,250,4,0,the cell's own weighings,0,0
@@ -3048,7 +3053,7 @@ chicken,NEGROS OCCIDENTAL,ILOG,whole (chicken),g,large,1245,2,0,3,1115,7,0,1120,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,ILOG,small cup,g,small,100,5,0,3,100,5,0,100,13,1,100,120,18,100,5,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ILOG,lipid/lapad,mL,medium,375,1,0,2,375,1,0,375,72,0,375,618,7,375,72,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,ILOG,large packs,g,large,640,3,0,3,640,3,0,640,65,2,640,411,6,640,3,0,the cell's own weighings,0,0
-loaf bread,NEGROS OCCIDENTAL,ILOG,medium packs,g,medium,450,3,0,3,450,3,0,450,52,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,NEGROS OCCIDENTAL,ILOG,medium packs,g,medium,450,3,0,3,450,3,0,450,52,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,ILOG,small packs,g,small,360,3,0,3,360,3,0,252.5,38,0,370,259,2,360,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ILOG,bilog,g,medium,60,3,3,2,60,3,3,65,38,26,229,222,91,60,3,3,the cell's own weighings,0,1
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ILOG,putos,g,medium,250,3,0,2,250,3,0,250,70,3,250,473,60,250,3,0,the cell's own weighings,0,0
@@ -3072,7 +3077,7 @@ fresh fish,NEGROS OCCIDENTAL,ISABELA,pieces or units,g,large,537.5,2,0,3,295,9,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ISABELA,lipid/lapad,mL,medium,375,3,0,2,375,3,0,375,72,0,375,618,7,375,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,ISABELA,long-neck,mL,medium,750,4,0,2,750,4,0,750,45,0,750,478,1,750,4,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,ISABELA,large packs,g,large,650,3,0,3,650,3,0,640,65,2,640,411,6,650,3,0,the cell's own weighings,0,0
-loaf bread,NEGROS OCCIDENTAL,ISABELA,medium packs,g,medium,450,3,0,3,450,3,0,450,52,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,NEGROS OCCIDENTAL,ISABELA,medium packs,g,medium,450,3,0,3,450,3,0,450,52,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,ISABELA,small packs,g,small,290,2,0,3,290,2,0,252.5,38,0,370,259,2,252.5,38,0,province x item x unit,0,0
 mango,NEGROS OCCIDENTAL,ISABELA,pieces or units,g,medium,215,3,0,2,215,3,0,222.5,18,1,230,539,1,215,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,ISABELA,bilog,g,medium,60,3,3,2,60,3,3,65,38,26,229,222,91,60,3,3,the cell's own weighings,0,1
@@ -3092,7 +3097,7 @@ chicken,NEGROS OCCIDENTAL,LA CASTELLANA,bilog,g,medium,1440,2,0,2,1247.5,4,0,109
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,lipid/lapad,mL,medium,375,4,0,2,375,4,0,375,72,0,375,618,7,375,4,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,LA CASTELLANA,long-neck,mL,medium,750,6,0,2,750,6,0,750,45,0,750,478,1,750,6,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,LA CASTELLANA,large packs,g,large,620,2,0,3,620,2,0,640,65,2,640,411,6,640,65,2,province x item x unit,0,.0307692307692308
-loaf bread,NEGROS OCCIDENTAL,LA CASTELLANA,medium packs,g,medium,400,1,0,3,400,1,0,450,52,0,450,374,0,450,52,0,province x item x unit,0,0
+loaf bread,NEGROS OCCIDENTAL,LA CASTELLANA,medium packs,g,medium,400,1,0,3,400,1,0,450,52,0,450,352,0,450,52,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,LA CASTELLANA,small packs,g,small,380,2,0,3,380,2,0,252.5,38,0,370,259,2,252.5,38,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,LA CASTELLANA,bilog,g,medium,155,2,1,2,155,2,1,65,38,26,229,222,91,65,38,26,province x item x unit,0,.6842105263157895
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,LA CASTELLANA,putos,g,medium,225,2,0,2,225,2,0,250,70,3,250,473,60,250,70,3,province x item x unit,0,.0428571428571429
@@ -3114,7 +3119,7 @@ fresh fish,NEGROS OCCIDENTAL,MANAPLA,pieces or units,g,large,645,2,2,3,580,9,2,3
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,MANAPLA,small cup,mL,small,120,4,0,3,120,4,0,100,33,2,100,185,5,120,4,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MANAPLA,lipid/lapad,mL,medium,375,6,0,2,375,6,0,375,72,0,375,618,7,375,6,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,MANAPLA,large packs,g,large,640,5,0,3,640,5,0,640,65,2,640,411,6,640,5,0,the cell's own weighings,0,0
-loaf bread,NEGROS OCCIDENTAL,MANAPLA,medium packs,g,medium,450,6,0,3,450,6,0,450,52,0,450,374,0,450,6,0,the cell's own weighings,0,0
+loaf bread,NEGROS OCCIDENTAL,MANAPLA,medium packs,g,medium,450,6,0,3,450,6,0,450,52,0,450,352,0,450,6,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,MANAPLA,small packs,g,small,220,1,0,3,220,1,0,252.5,38,0,370,259,2,252.5,38,0,province x item x unit,0,0
 "prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,g,small,135,3,0,2,205,9,0,230,21,0,260,147,27,135,3,0,the cell's own weighings,0,0
 "prawns, lobster, shrimp",NEGROS OCCIDENTAL,MANAPLA,tumpok,g,medium,205,3,0,2,205,9,0,230,21,0,260,147,27,205,3,0,the cell's own weighings,0,0
@@ -3144,7 +3149,7 @@ chicken,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),whole (chicken),g,large,1305
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),lipid/lapad,mL,medium,375,6,0,2,375,6,0,375,72,0,375,618,7,375,6,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),long-neck,mL,medium,750,6,0,2,750,6,0,750,45,0,750,478,1,750,6,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),large packs,g,large,610,2,0,3,610,2,0,640,65,2,640,411,6,640,65,2,province x item x unit,0,.0307692307692308
-loaf bread,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),medium packs,g,medium,435,2,0,3,435,2,0,450,52,0,450,374,0,450,52,0,province x item x unit,0,0
+loaf bread,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),medium packs,g,medium,435,2,0,3,435,2,0,450,52,0,450,352,0,450,52,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),small packs,g,small,275,2,0,3,275,2,0,252.5,38,0,370,259,2,252.5,38,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),putos,g,medium,250,2,0,2,250,2,0,250,70,3,250,473,60,250,70,3,province x item x unit,0,.0428571428571429
 cabbage,NEGROS OCCIDENTAL,MURCIA,pieces or units,g,medium,405,3,0,2,405,3,0,520,149,11,655,1306,73,405,3,0,the cell's own weighings,0,0
@@ -3156,7 +3161,7 @@ chicken,NEGROS OCCIDENTAL,MURCIA,bilog,g,medium,1185,2,0,2,1160,4,0,1095,55,3,10
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,MURCIA,putos,mL,small,75,1,0,3,75,1,0,60,24,1,65,148,2,60,24,1,province x item x unit,0,.0416666666666667
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,MURCIA,lipid/lapad,mL,medium,375,2,0,2,375,2,0,375,72,0,375,618,7,375,72,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,MURCIA,large packs,g,large,700,2,0,3,700,2,0,640,65,2,640,411,6,640,65,2,province x item x unit,0,.0307692307692308
-loaf bread,NEGROS OCCIDENTAL,MURCIA,medium packs,g,medium,450,1,0,3,450,1,0,450,52,0,450,374,0,450,52,0,province x item x unit,0,0
+loaf bread,NEGROS OCCIDENTAL,MURCIA,medium packs,g,medium,450,1,0,3,450,1,0,450,52,0,450,352,0,450,52,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MURCIA,bilog,g,medium,60,3,3,2,60,3,3,65,38,26,229,222,91,60,3,3,the cell's own weighings,0,1
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,MURCIA,putos,g,medium,250,4,0,2,250,4,0,250,70,3,250,473,60,250,4,0,the cell's own weighings,0,0
 cabbage,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,g,medium,445,3,1,2,445,3,1,520,149,11,655,1306,73,445,3,1,the cell's own weighings,0,.3333333333333333
@@ -3190,7 +3195,7 @@ fresh fish,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,g,medium,410,3,1,2,280,6
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,PONTEVEDRA,long-neck,mL,medium,750,2,0,2,750,2,0,750,45,0,750,478,1,750,45,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,PONTEVEDRA,large packs,g,small,500,2,0,3,620,4,0,640,65,2,640,411,6,620,4,0,cell pooled across sizes,0,0
 loaf bread,NEGROS OCCIDENTAL,PONTEVEDRA,large packs,g,medium,640,2,0,3,620,4,0,640,65,2,640,411,6,620,4,0,cell pooled across sizes,0,0
-loaf bread,NEGROS OCCIDENTAL,PONTEVEDRA,medium packs,g,medium,450,1,0,3,450,1,0,450,52,0,450,374,0,450,52,0,province x item x unit,0,0
+loaf bread,NEGROS OCCIDENTAL,PONTEVEDRA,medium packs,g,medium,450,1,0,3,450,1,0,450,52,0,450,352,0,450,52,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,PONTEVEDRA,small packs,g,small,250,2,0,3,280,3,0,252.5,38,0,370,259,2,280,3,0,cell pooled across sizes,0,0
 loaf bread,NEGROS OCCIDENTAL,PONTEVEDRA,small packs,g,medium,450,1,0,3,280,3,0,252.5,38,0,370,259,2,280,3,0,cell pooled across sizes,0,0
 mango,NEGROS OCCIDENTAL,PONTEVEDRA,pieces or units,g,medium,225,3,0,2,225,3,0,222.5,18,1,230,539,1,225,3,0,the cell's own weighings,0,0
@@ -3212,7 +3217,7 @@ fresh fish,NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,g,medium,507.5,2,0,2,507
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,PULUPANDAN,small cup,mL,small,100,1,0,3,100,1,0,100,33,2,100,185,5,100,33,2,province x item x unit,0,.0606060606060606
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,PULUPANDAN,lipid/lapad,mL,medium,375,3,0,2,375,3,0,375,72,0,375,618,7,375,3,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,PULUPANDAN,large packs,g,large,640,6,0,3,640,6,0,640,65,2,640,411,6,640,6,0,the cell's own weighings,0,0
-loaf bread,NEGROS OCCIDENTAL,PULUPANDAN,medium packs,g,medium,475,2,0,3,475,2,0,450,52,0,450,374,0,450,52,0,province x item x unit,0,0
+loaf bread,NEGROS OCCIDENTAL,PULUPANDAN,medium packs,g,medium,475,2,0,3,475,2,0,450,52,0,450,352,0,450,52,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,PULUPANDAN,small packs,g,small,220,3,0,3,220,3,0,252.5,38,0,370,259,2,220,3,0,the cell's own weighings,0,0
 "prawns, lobster, shrimp",NEGROS OCCIDENTAL,PULUPANDAN,tumpok,g,medium,200,1,0,2,200,1,0,230,21,0,260,147,27,230,21,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,PULUPANDAN,bilog,g,medium,250,3,1,2,250,3,1,65,38,26,229,222,91,250,3,1,the cell's own weighings,0,.3333333333333333
@@ -3228,7 +3233,7 @@ chicken,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,bilog,g,medium,985,1,0,2,967.5,2,0,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,small cup,mL,small,180,1,0,3,180,1,0,100,33,2,100,185,5,100,33,2,province x item x unit,0,.0606060606060606
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,lipid/lapad,mL,medium,375,1,0,2,375,1,0,375,72,0,375,618,7,375,72,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,large packs,g,large,670,2,0,3,670,2,0,640,65,2,640,411,6,640,65,2,province x item x unit,0,.0307692307692308
-loaf bread,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,medium packs,g,medium,475,2,0,3,475,2,0,450,52,0,450,374,0,450,52,0,province x item x unit,0,0
+loaf bread,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,medium packs,g,medium,475,2,0,3,475,2,0,450,52,0,450,352,0,450,52,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,SALVADOR BENEDICTO,small packs,g,small,310,2,0,3,310,2,0,252.5,38,0,370,259,2,252.5,38,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,bilog,g,medium,250,2,0,2,250,2,0,65,38,26,229,222,91,65,38,26,province x item x unit,0,.6842105263157895
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SALVADOR BENEDICTO,cans,g,medium,175,1,0,2,175,1,0,152.5,6,0,155,95,6,152.5,6,0,province x item x unit,0,0
@@ -3256,7 +3261,7 @@ fresh fish,NEGROS OCCIDENTAL,SAN ENRIQUE,pieces or units,g,large,267.5,2,0,3,190
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SAN ENRIQUE,lipid/lapad,mL,large,750,1,0,3,375,7,0,375,72,0,375,618,7,375,7,0,cell pooled across sizes,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,SAN ENRIQUE,long-neck,mL,medium,750,5,0,2,750,5,0,750,45,0,750,478,1,750,5,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,SAN ENRIQUE,large packs,g,large,645,4,0,3,645,4,0,640,65,2,640,411,6,645,4,0,the cell's own weighings,0,0
-loaf bread,NEGROS OCCIDENTAL,SAN ENRIQUE,medium packs,g,medium,450,3,0,3,450,3,0,450,52,0,450,374,0,450,3,0,the cell's own weighings,0,0
+loaf bread,NEGROS OCCIDENTAL,SAN ENRIQUE,medium packs,g,medium,450,3,0,3,450,3,0,450,52,0,450,352,0,450,3,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,SAN ENRIQUE,small packs,g,small,220,2,0,3,220,2,0,252.5,38,0,370,259,2,252.5,38,0,province x item x unit,0,0
 "prawns, lobster, shrimp",NEGROS OCCIDENTAL,SAN ENRIQUE,tumpok,g,medium,115,2,0,2,115,2,0,230,21,0,260,147,27,230,21,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,SAN ENRIQUE,bilog,g,medium,62.5,4,4,2,62.5,4,4,65,38,26,229,222,91,62.5,4,4,the cell's own weighings,0,1
@@ -3277,7 +3282,7 @@ chicken,NEGROS OCCIDENTAL,TOBOSO,bilog,g,large,1240,2,0,2,1107.5,4,0,1095,55,3,1
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,lipid/lapad,mL,medium,375,4,0,2,375,4,0,375,72,0,375,618,7,375,4,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,TOBOSO,long-neck,mL,medium,750,5,0,2,750,5,0,750,45,0,750,478,1,750,5,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,TOBOSO,large packs,g,large,600,1,0,3,600,1,0,640,65,2,640,411,6,640,65,2,province x item x unit,0,.0307692307692308
-loaf bread,NEGROS OCCIDENTAL,TOBOSO,medium packs,g,medium,450,1,0,3,450,1,0,450,52,0,450,374,0,450,52,0,province x item x unit,0,0
+loaf bread,NEGROS OCCIDENTAL,TOBOSO,medium packs,g,medium,450,1,0,3,450,1,0,450,52,0,450,352,0,450,52,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,TOBOSO,small packs,g,small,400,1,0,3,400,1,0,252.5,38,0,370,259,2,252.5,38,0,province x item x unit,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,TOBOSO,bilog,g,medium,60,1,1,2,60,1,1,65,38,26,229,222,91,65,38,26,province x item x unit,0,.6842105263157895
 "preserved or processed meat (tocino, tapa, longaniza, etc)",NEGROS OCCIDENTAL,TOBOSO,pack,g,medium,250,4,0,2,250,4,0,250,6,0,250,85,12,250,4,0,the cell's own weighings,0,0
@@ -3295,7 +3300,7 @@ carrot,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,g,large,150,3,0,2,137.5,6,0,
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,VALLADOLID,lipid/lapad,mL,medium,375,2,0,2,375,2,0,375,72,0,375,618,7,375,72,0,province x item x unit,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,VALLADOLID,long-neck,mL,medium,750,2,0,2,750,2,0,750,45,0,750,478,1,750,45,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,VALLADOLID,large packs,g,large,650,2,0,3,650,2,0,640,65,2,640,411,6,640,65,2,province x item x unit,0,.0307692307692308
-loaf bread,NEGROS OCCIDENTAL,VALLADOLID,medium packs,g,medium,480,3,0,3,480,3,0,450,52,0,450,374,0,480,3,0,the cell's own weighings,0,0
+loaf bread,NEGROS OCCIDENTAL,VALLADOLID,medium packs,g,medium,480,3,0,3,480,3,0,450,52,0,450,352,0,480,3,0,the cell's own weighings,0,0
 loaf bread,NEGROS OCCIDENTAL,VALLADOLID,small packs,g,small,220,3,0,3,220,3,0,252.5,38,0,370,259,2,220,3,0,the cell's own weighings,0,0
 mango,NEGROS OCCIDENTAL,VALLADOLID,pieces or units,g,medium,205,3,0,2,205,3,0,222.5,18,1,230,539,1,205,3,0,the cell's own weighings,0,0
 "prawns, lobster, shrimp",NEGROS OCCIDENTAL,VALLADOLID,tumpok,g,medium,245,3,0,2,245,3,0,230,21,0,260,147,27,245,3,0,the cell's own weighings,0,0
