@@ -79,6 +79,11 @@ _spec = importlib.util.spec_from_file_location("nsu_fold_rule", str(SHARED / "ns
 nfr = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(nfr)
 
+# The proposed verdicts. A hand-written table, kept beside this script rather than
+# inside it so the proposals can be read and argued with on their own.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from harmonization_verdicts import RATIO_VETO, VERDICTS  # noqa: E402
+
 
 # ------------------------------------------------------------------ prior verdicts
 def load_prior_verdicts():
@@ -321,6 +326,46 @@ def main():
                   if base_h[(i, u)] != after[(i, u)] and u != lbl)
         inert[lbl] = (own, oth)
 
+    # ------------------------------------------------- the proposed verdict, and its test
+    # Within-item medians, because a label used for two items has two medians and they are
+    # not comparable. The weight test runs ONLY for `translation' proposals -- a claim that
+    # two DIFFERENT WORDS share a referent. For a `spelling' proposal the string settles
+    # identity and a weight divergence is a note about the weighings, not an objection.
+    def verdict_evidence(lbl):
+        try:
+            action, target, fold_class, basis, why = VERDICTS[lbl]
+        except KeyError:
+            return dict(proposed_action="(no verdict written)", proposed_target="",
+                        fold_class="", basis="", weight_test="", proposed_why="")
+        lines = []
+        for it in sorted(set(master.item[master.raw == lbl])):
+            mine = wgh[(wgh.item == it) & (wgh.raw == lbl)].corrected_weight
+            if target:
+                tgt = wgh[(wgh.item == it) & (wgh.harm == nz(target))].corrected_weight
+            else:
+                tgt = wgh.iloc[0:0].corrected_weight
+            if not len(mine) or not len(tgt):
+                lines.append(f"{it[:22]}: "
+                             + (f"{len(mine)}@{mine.median():.0f}g vs target n=0"
+                                if len(mine) else "no weighings of this spelling"))
+                continue
+            ratio = mine.median() / tgt.median() if tgt.median() else float("nan")
+            tag = ""
+            if fold_class == "translation":
+                tag = "  VETO" if (ratio > RATIO_VETO or ratio < 1 / RATIO_VETO) else "  ok"
+            elif fold_class == "spelling":
+                tag = "  (not a gate: one word)"
+            lines.append(f"{it[:22]}: {len(mine)}@{mine.median():.0f}g vs "
+                         f"{target} {len(tgt)}@{tgt.median():.0f}g  x{ratio:.2f}{tag}")
+        # For a `keep', `target' is the nearest CANDIDATE rather than a destination: it is
+        # named so the weight test is actually exercised and the reader can see the number
+        # that justifies keeping the label apart, instead of taking the verdict on trust.
+        return dict(proposed_action=action,
+                    proposed_target=target if action in ("group", "fold") else "",
+                    compared_against=target if action not in ("group", "fold") else "",
+                    fold_class=fold_class, basis=basis,
+                    weight_test=" | ".join(lines) or "not applicable", proposed_why=why)
+
     prior, prior_src = load_prior_verdicts()
     cur_harm = {}
     for lbl, sub in master.groupby("raw"):
@@ -372,9 +417,14 @@ def main():
             "same_key_labels": "; ".join(fam),
             "same_key_grouped_siblings": "; ".join(
                 f"{s} [{nfr.grp(s)}]" for s in fam if nfr.grp(s)),
-            "proposed_group": g,
-            "proposed_why": why,
-            "confidence": conf_lvl,
+            **(verdict_evidence(r.lbl) if own or oth else
+               dict(proposed_action="(skippable -- group governs nothing)",
+                    proposed_target="", fold_class="", basis="", weight_test="",
+                    proposed_why="")),
+            # the old string-only proposer, kept as a second opinion
+            "string_only_proposed_group": g,
+            "string_only_why": why,
+            "string_only_confidence": conf_lvl,
             "prior_verdict": pv,
             "prior_verdict_from": psrc,
             "verdict_landed": ("" if not pv else
@@ -539,6 +589,18 @@ def main():
     verify("full_mapping fold key is not keyed on the raw label",
            all(nfr.foldkey(ni(r.item), nz(r.pull_nsu_unit))[1] == r.fold_key_tokens
                for r in full.itertuples()))
+    # the verdict table must cover exactly the labels whose group governs something
+    governing = {nz(r.unit_lbl) for r in to_review.itertuples() if not r.safe_to_skip}
+    verify("labels whose group governs something but carry no written verdict",
+           not (governing - set(VERDICTS)), str(sorted(governing - set(VERDICTS))[:8]))
+    verify("verdicts written for labels that are not in the review set",
+           not (set(VERDICTS) - governing), str(sorted(set(VERDICTS) - governing)[:8]))
+    # a fold target must itself be a real label or group, never a typo
+    bad_t = sorted({t for a, t, fc, b, wy in VERDICTS.values()
+                    if a != "group" and t and nz(t) not in set(master.harm) | set(master.raw)}
+                   | {t for a, t, fc, b, wy in VERDICTS.values()
+                      if a == "group" and t and t not in set(grouped.group)})
+    verify("a verdict names a fold target that does not exist", not bad_t, str(bad_t[:8]))
     # live_gaps families must be real
     verify("a live_gaps family has fewer than two distinct values",
            all(g.harmonized_nsu_unit.nunique() >= 2
@@ -569,13 +631,17 @@ def main():
             print(f"  ! {len(stale)} prior verdict(s) match no current label: {stale[:6]}")
     print(f"\nwrote {OUT.relative_to(DC)}")
     unsettled = to_review[to_review.safe_to_skip == 0]
-    print(f"  to_review    {len(to_review):5d}  ({(to_review.confidence == 'strong').sum()} strong, "
-          f"{(to_review.confidence == 'medium').sum()} medium, "
-          f"{(to_review.confidence == 'none').sum()} need a human)")
-    print(f"     of which a group ACTUALLY GOVERNS something: {len(unsettled)}  "
-          f"({(unsettled.confidence == 'strong').sum()} strong, "
-          f"{(unsettled.confidence == 'medium').sum()} medium, "
-          f"{(unsettled.confidence == 'none').sum()} need a human)")
+    print(f"  to_review    {len(to_review):5d}  ({len(unsettled)} whose group actually "
+          f"governs something, {len(to_review) - len(unsettled)} skippable)")
+    print("     verdicts by what they rest on: "
+          + ", ".join(f"{k}={v}" for k, v in unsettled.basis.value_counts().items()))
+    print("     by fold class: "
+          + ", ".join(f"{k}={v}" for k, v in unsettled.fold_class.value_counts().items()))
+    vetoes = unsettled[unsettled.weight_test.fillna("").str.contains("VETO")]
+    if len(vetoes):
+        print(f"     !! {len(vetoes)} proposal(s) carry a weight-test VETO:")
+        for r in vetoes.itertuples():
+            print(f"        {r.unit_lbl!r}: {r.weight_test}")
     print(f"  live_gaps    {len(live):5d}  ({live.fold_key_tokens.nunique() if len(live) else 0} families)")
     print(f"  near_miss    {len(near):5d}")
     print(f"  cross_item   {len(cross):5d}  ({cross.pull_nsu_unit.nunique() if len(cross) else 0} labels)")
