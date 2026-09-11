@@ -4,13 +4,17 @@
 and which steps are still unwritten. Update it when a step lands, not when a decision is
 made; decisions live in the issue that owns them and in `../docs/`.
 
-Two companions, and they do not overlap:
+Three companions, and they do not overlap:
 
 - **`../docs/implicit_assumptions.md`** — every hard-coded threshold, tie rule and
   fallback, and what each one claims about the data. **Read it before changing any
   constant in a do-file.**
 - **`../docs/conversion_factor_methodology.md`** — what the method is and why, including
   the assumptions the method itself makes.
+- **`../docs/adjudication_playbook.md`** — how to put judgement calls in front of a
+  reviewer. **Read it before building any review artifact.** Two efforts in this project
+  — the harmonization review and the unit-snap review — consumed a large share of the
+  total time, mostly by being re-done; that file is why a third one need not be.
 
 Two deliverables are built from the same market-survey weighings:
 
