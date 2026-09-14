@@ -377,6 +377,12 @@ same decade; 25 g is a decade out. Absolute distance would prefer the value that
 times too small, because 127 g is closer to 190 g than 1,265 g is. The decade is the thing
 the two rules disagree about, so the decade is what gets compared.
 
+> **The referee decides nothing in the current build, and that is deliberate.** The
+> block reading is published wherever it is a *possible* reading for the item — see
+> *The block reading governs* below. Everything in this subsection describes the
+> fallback that takes over when it is not, which on this vintage is no rows at all.
+> It is documented because it is reachable, not because it is doing work.
+
 **The referee** is the median of the rows in a cell where the two rules *already agree*.
 Those rows carry no information about which rule is better, which is exactly what makes
 their median a usable yardstick for the rows that disagree. A pool must hold more than 5
@@ -392,23 +398,61 @@ describes smaller units. That bias does not stop applying when a hetero pool is 
 it just stops being visible. Geography is the weaker confounder: a medium puto in the
 next province is a closer referent for a medium puto than a large puto in the same market.
 
-| pool | hetero grain | rows refereed by it |
+| pool | hetero grain | rows it would referee |
 |---|---|---|
-| province × municipality × item × unit × hetero-group | kept | 8,906 |
+| province × municipality × item × unit × hetero-group | kept | 8,909 |
 | province × item × unit × hetero-group | kept | 1,972 |
 | item × unit × hetero-group, across the region | kept | 310 |
-| province × municipality × item × unit (the pooled cell) | **dropped** | 18 |
-| province × item × unit | **dropped** | 73 |
-| no usable pool — rules 2 to 4 decide | — | 154 |
+| province × municipality × item × unit (the pooled cell) | **dropped** | 22 |
+| province × item × unit | **dropped** | 66 |
+| no usable pool | — | 154 |
 
-The two hetero-blind rungs now referee 91 rows between them. They used to referee
-thousands, and the reorder is what moved those rows onto a pool that respects the size
-they were recorded at.
+The two hetero-blind rungs reach 88 rows between them. They used to reach thousands, and
+the reorder is what moved those rows onto a pool that respects the size they were
+recorded at.
 
 **Repeated sub-1 decimals are a convention, not a slip.** Where several readings in one
 cell are 0.xxx, that is what the enumerators in that market wrote on purpose, and the
 block reading — which restates the number — is the better reading. A *single* 0.xxx
 reading is not covered by this: that is the one-off the anchor is for.
+
+### The block reading governs
+
+**A well-formed reading in the recorded unit is an observation, and is published as
+one.** The anchor — that number moved a decade — is a value nobody wrote down. Overruling
+an observation requires evidence that it is not an observation, and "it differs from its
+neighbours" is not that evidence for a **non-standard** unit, whose defining property is
+that it varies from vendor to vendor. Dispersion is partly the thing being measured.
+
+Two things, and only two, overrule the block reading:
+
+1. **The plausibility bounds.** A reading below 10 g/mL or above 50 kg is not a reading,
+   and the referee ladder above is then the only candidate left.
+2. **A hand verdict** in `reference/reviewed/snap_verdicts.csv`, applied by
+   `05_manual_corrections.do`, which runs afterwards and wins outright.
+
+On the current build the published weight *is* the block reading on **11,402 of 11,421**
+rows. The 19 exceptions are all hand decisions. No row reaches the ladder, because
+`03a_block_reading.do`'s misplaced-decimal repair leaves no block reading outside the
+bounds.
+
+**What this replaced, and why.** The pool used to overrule a plausible block reading on
+197 rows. That override was split 104 up a decade against 93 down — a regression toward
+the local centre in both directions, not the correction of a systematic error. Tested
+against each row's own item × unit × size range, built from rows where the two rules
+already agreed, it landed the row inside that range on 101 and left it outside on 71,
+with 25 having no comparable rows at all. Meanwhile, of the 227 rows a person adjudicated
+in the review ledger, **200 chose the block reading against 21 for the anchor** — the
+rule was overruling the field far more often than any reviewer looking at the same rows
+ever did.
+
+**The one independent check moved the right way.** Agreement between the enumerator's own
+small/medium/large label and the empirical tercile rose from 65.4% to **68.4%** per
+weighing and from 78.5% to **82.0%** per group across the changes described here, and the
+modal-label bias shrank from −0.131 to **−0.097**. The snap never reads the field labels,
+so that is an observation of the same object made independently of every rule above.
+It is weak evidence — the labels are wrong about a third of the time at row level — but
+it is not circular, which the pool comparisons are.
 
 **The bounds are the last word.** Nothing below 10 g/mL or above 50,000 g/mL is published
 while the other candidate is inside those bounds, whichever rule chose it. The ceiling is
@@ -1270,11 +1314,11 @@ figures are a tabulation of `size_ord` and `d_thin` on `nsu_reference_set.dta`. 
 figures below describe the build of 14 September 2026 and are here to show the *shape*,
 not to be cited.
 
-On **Outcome 1's reference set** — 2,551 rows over 1,986 cells:
+On **Outcome 1's reference set** — 2,552 rows over 1,986 cells:
 
 | | rows |
 |---|---|
-| collapsed to one pooled row, `fallback_level = 1`, `size_ord = "pooled across sizes"` | **489** |
+| collapsed to one pooled row, `fallback_level = 1`, `size_ord = "pooled across sizes"` | **488** |
 | flagged `d_thin` | 513 |
 | …of which pooled and still thin | 43 |
 | …of which thin and **never pooled**, because the cell held one rung | **470** |
@@ -1423,12 +1467,12 @@ thing.
 
    | | agreement with the field label |
    |---|---|
-   | per weighing — why re-terciling exists | **66.9%** (3,734 / 5,580) |
-   | per group, using the modal label — what the criterion assumes | **80.3%** (1,171 / 1,458) |
+   | per weighing — why re-terciling exists | **68.4%** (3,838 / 5,609) |
+   | per group, using the modal label — what the criterion assumes | **82.0%** (1,203 / 1,467) |
 
    Aggregating does recover signal, which is what the criterion needs. **But the
-   disagreement is not symmetric.** 215 groups carry a modal label *below* their tercile
-   position against 72 above — mean signed error **−0.117**. So the modal field label runs systematically *low*, and a
+   disagreement is not symmetric.** 195 groups carry a modal label *below* their tercile
+   position against 69 above — mean signed error **−0.097**. So the modal field label runs systematically *low*, and a
    criterion built on it is biased toward the *lower* of two candidate names.
 
    **These three figures have improved at every review round, always for the same reason**, and it is

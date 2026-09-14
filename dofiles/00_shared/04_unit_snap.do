@@ -522,14 +522,64 @@ replace _rule = "whole number" if missing(_rule) & !missing(_pick_block)
 replace _pick_block = 1 if missing(_pick_block)
 replace _rule = "block default" if missing(_rule)
 
+local WFLOOR = 10       // g/mL: below this a result is contaminated, not small
+local WCEIL  = 50000    // g/mL: 2x the largest real purchase (a 25 kg rice sack)
+
+* ---- 3e-v-b. THE BLOCK READING GOVERNS UNLESS IT CANNOT BE A READING --------------
+* Everything above computes which candidate a pool of neighbours prefers. THAT ANSWER
+* IS NOW CONSULTED ONLY WHERE THE BLOCK READING IS IMPOSSIBLE. Where the block reading
+* is a number the item could have weighed, it is published, whatever the pool says.
+*
+* WHY. The block reading restates what the enumerator typed, in canonical units. The
+* anchor is that number moved a decade -- a value nobody observed. Overruling an
+* observation requires evidence that it is not an observation, and "it differs from its
+* neighbours" is not that evidence for a NON-STANDARD unit, whose defining property is
+* that it varies from vendor to vendor. Dispersion is partly the thing being measured.
+*
+* THE EVIDENCE THAT SETTLED IT. On the 197 rows where the pool overruled a plausible
+* block reading, the override was split 104 up a decade against 93 down -- not a
+* correction of a systematic error but a regression toward the local centre in both
+* directions. Tested against each row's own item x unit x size range, built from rows
+* where the two rules already agreed, the override landed the row inside that range on
+* 101 and left it outside on 71; the remaining 25 had no comparable rows at all. And
+* where a person adjudicated a disputed row -- 227 of them, in the review ledger -- they
+* chose the block reading 200 times against 21 for the anchor. The rule was overruling
+* the field far more often than a reviewer looking at the same rows ever did.
+*
+* WHAT STILL OVERRULES IT. Two things, and only two:
+*   1. the plausibility bounds below -- a block reading outside them is not a reading,
+*      and the pool's answer is then the only candidate left;
+*   2. a hand verdict in reference/reviewed/snap_verdicts.csv, applied by
+*      05_manual_corrections.do, which runs after this file and wins outright.
+*
+* As of the vintage this was written against, 03a_block_reading.do's misplaced-decimal
+* repair means NO block reading falls outside the bounds, so the ladder above currently
+* decides nothing. It is kept, not deleted, because it is the fallback the moment a new
+* vintage produces a block reading that cannot be a reading. `snap_referee' still
+* records which pool WOULD have refereed, which is what makes that reachable-but-unused
+* claim checkable rather than asserted.
+gen byte _block_ok = !missing(w_block) ///
+    & round(w_block,1) >= `WFLOOR' & round(w_block,1) <= `WCEIL'
+
+* COUNT ONLY WHERE IT CHANGES THE ANSWER. On the rows where the anchor and the block
+* reading already agree -- the large majority -- `_pick_block' is 0 but publishing
+* either one gives the same weight, so counting those would report about 10,700
+* "reinstatements" that move nothing and bury the number that matters.
+count if _block_ok & _pick_block == 0 & !missing(base_corr) ///
+       & round(w_block,1) != round(base_corr,1)
+di as result "3e-v-b: block reading reinstated over the pool's answer on " r(N) " row(s)"
+replace _rule = "block governs" if _block_ok & _pick_block == 0 & !missing(base_corr) ///
+       & round(w_block,1) != round(base_corr,1)
+replace _pick_block = 1         if _block_ok
+
+count if !_block_ok
+di as result "3e-v-b: block reading impossible, ladder decides on " r(N) " row(s)"
+
 * ---- 3e-vi. publish, then the plausibility floor/ceiling LAST ---------------------
 * The bounds are the last word regardless of which rule won: an answer outside them is
 * physically impossible, and where the OTHER candidate is inside them it is published
 * instead. This is what catches a contaminated anchor pool -- 2 beer "case" rows
-* reaching 1.2M g, and fresh-fish rows falling to 4-9 g -- and it now equally catches a
-* block reading the rules above would otherwise have adopted.
-local WFLOOR = 10       // g/mL: below this a result is contaminated, not small
-local WCEIL  = 50000    // g/mL: 2x the largest real purchase (a 25 kg rice sack)
+* reaching 1.2M g, and fresh-fish rows falling to 4-9 g.
 
 gen double _chosen = cond(_pick_block == 1, w_block, base_corr)
 gen double _other  = cond(_pick_block == 1, base_corr, w_block)
@@ -575,7 +625,7 @@ gen byte snap_block = (_pick_block == 1)
 label var snap_block "1 = published the block reading, 0 = published the anchor snap"
 
 drop _agree _agreed _cell_med _cell_nagree _ph_med _ph_n _p_med _p_n ///
-     _rh_med _rh_n ///
+     _rh_med _rh_n _block_ok ///
      _ref_med _ref_src _pick_block _sub1 _cell_sub1 _rule _chosen _other ///
      _chosen_bad _other_ok
 

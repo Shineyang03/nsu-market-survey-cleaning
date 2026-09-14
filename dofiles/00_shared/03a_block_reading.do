@@ -123,6 +123,47 @@ replace w_block = cond(weight>=10, weight, weight*1000) if unit==2 & _usable
 *   protection, not a guard -- reviewed and accepted, see issue #18 B2.
 replace w_block = cond(weight>=10, weight, weight*1000) if unit==3 & _usable
 
+* --- THE MISPLACED DECIMAL: a sub-0.01 litre entry is not a reading -----------------
+* The rule above would turn 0.001215 L into 1.215 mL. There is no 1 mL bottle of
+* liquor, no 2 mL glass of drink and no 1 mL tub of ice cream. The typed number is the
+* intended value with the decimal point three places too far left, so the repair is to
+* move it back and then apply the litre conversion -- one multiplication by 10^6.
+*
+*     0.001215  ->  1.215 L  ->  1,215 mL     (a long-neck bottle)
+*     0.001175  ->  1.175 L  ->  1,175 g      (a whole chicken)
+*     0.001250  ->  1.250 L  ->  1,250 mL     (an ice cream tub)
+*
+* WHY THIS BELONGS HERE AND NOT IN THE SNAP. These 41 rows used to reach 04 with an
+* impossible block reading, and 04 repaired them by asking a local median which decade
+* to use. That produced TWO answers for ONE pattern -- 26 rows multiplied by 10^5 and
+* 14 by 10^6, decided by whichever decade the nearest pool median happened to sit in --
+* and of the 34 with a comparable item range, the result landed inside it on exactly 1.
+* A misplaced decimal is a property of the typed number, not of the neighbourhood, so it
+* is repaired where the typed number is read. After this branch no block reading in the
+* build falls outside the plausibility bounds.
+*
+* THE BOUND IS EMPIRICAL AND THE POPULATION IS HOMOGENEOUS. Every row below 0.01 in
+* this vintage carries a litre tick -- there is not one gram or kilogram entry beneath
+* it -- and the raw values run 0.00116 to 0.007 with the next litre entry at 0.010.
+* The assert below fails if either of those stops being true, because a sub-0.01 GRAM
+* entry would mean something different and must not be swept up by this rule.
+* NOTE THE float() WRAPPER, and do not remove it. `weight' is a float, and 0.01 is not
+* exactly representable: the float nearest 0.010 is 0.00999999977, so a bare
+* `weight < 0.01' compares a float against a DOUBLE literal and is TRUE for every row
+* that recorded 0.010. Those rows are the refilled water containers, which read 1 L and
+* are handled by 05_manual_corrections.do sec 3 on the value 10. Swept up here they
+* became 10,000 instead, sec 3 then matched nothing, and its own tripwire stopped the
+* build -- which is the only reason this was caught rather than shipped.
+count if _usable & weight < float(0.01) & unit != 3
+if r(N) > 0 {
+	di as err "03a_block_reading.do: " r(N) " sub-0.01 row(s) carry a non-litre tick."
+	di as err "The misplaced-decimal repair is defined for litres only. Adjudicate them."
+	exit 459
+}
+count if _usable & weight < float(0.01) & unit == 3
+di as txt "03a misplaced decimal (sub-0.01 litres, read x10^6): " r(N) " row(s) matched"
+replace w_block = weight * 1000000 if unit==3 & weight < float(0.01) & _usable
+
 * --- unit==1 (kg) sub-1 entries are true kg -> grams via x1000 -----------------
 replace w_block = weight*1000 if unit==1 & weight<1 & _usable
 

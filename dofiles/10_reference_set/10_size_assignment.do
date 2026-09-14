@@ -440,20 +440,29 @@ forvalues j = 1/3 {
 *              small, medium and large, which sits below the larges and hands the
 *              row to the anchor. Four cases stopped collapsing to a single group.
 *
+*   96 ->  94  when the block reading became the published weight everywhere it is a
+*              possible reading (04 STEP 3e-v-b), and 03a gained the misplaced-decimal
+*              repair for sub-0.01 litre entries. The block reading restates the typed
+*              number instead of pulling it toward a median, so this is the same
+*              mechanism as the three moves above, running once more in the same
+*              direction and now over 352 rows at once.
+*
 * The four counts below must reconcile against each other and against the crosstab:
-*     30 collapsed to one group  +  49 small+medium  +  17 small+large  =  96
-* and in the crosstab (k=2, filled=1) + (k=3, filled=1) = 30, while
-* 49 + 17 = 66 (k=3, filled=2). If one moves and the others do not, the tie rule
+*     31 collapsed to one group  +  48 small+medium  +  15 small+large  =  94
+* and in the crosstab (k=2, filled=1) + (k=3, filled=1) = 31, while
+* 48 + 15 = 63 (k=3, filled=2). If one moves and the others do not, the tie rule
 * changed rather than the weights.
 *
-* SMALL+LARGE HAS NOW MOVED, 14 -> 17, and this is the first change that ever moved
-* it. It held at 14 through the anchor snap, the 3e rules and all three review
-* rounds, because each of those alters a weight without altering WHICH pool the row
-* is judged against -- and a case whose MIDDLE group empties is not one a shifted
-* weight tends to reach. The ladder reorder is the first change that alters the pool
-* itself: a row is now refereed against its own size group's median, so a medium can
-* land on a different side of a tercile cut than it did against a size-blind one.
-* The shape that nothing had tested is now tested, and it responded.
+* SMALL+LARGE NOW MOVES, 14 -> 17 -> 15, and it held at 14 for the whole history
+* above. It was unmoved by the anchor snap, the 3e rules and all three review rounds,
+* because each of those alters a weight without altering WHICH pool the row is judged
+* against -- and a case whose MIDDLE group empties is not one a shifted weight tends
+* to reach. The two changes that moved it are the two that changed the pool itself:
+* the ladder reorder (a row is refereed against its own size group's median, so a
+* medium can land on a different side of a tercile cut) and then STEP 3e-v-b (a row is
+* not refereed at all unless its block reading is impossible). The shape nothing had
+* tested is now tested, and it responds to pool changes and not to weight changes --
+* which is what its stability through the first three moves was already saying.
 *
 * Under-filled cases are reported and not patched -- see issue #3, settled as status
 * quo.
@@ -463,16 +472,16 @@ egen byte tag_cell_sz = tag(cell) if weighing_approach == 3
 tab k_sizes n_filled if tag_cell_sz, m
 count if tag_cell_sz & n_filled < k_sizes
 di as txt "under-filled size-based cases: " r(N)
-assert r(N) == 96
+assert r(N) == 94
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 1
 di as txt "  ... collapsed to a single group: " r(N)
-assert r(N) == 30
+assert r(N) == 31
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g2
 di as txt "  ... two groups, small+medium filled: " r(N)
-assert r(N) == 49
+assert r(N) == 48
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g3
 di as txt "  ... two groups, small+large filled: " r(N)
-assert r(N) == 17
+assert r(N) == 15
 
 * the two-group shapes must ALREADY be right, or the claim above is wrong
 assert size_ord == 1 if weighing_approach == 3 & n_filled < k_sizes & n_filled == 2 & grp == 1
