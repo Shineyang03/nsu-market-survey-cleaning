@@ -1160,10 +1160,41 @@ Both outcomes use `corrected_unit` as a key at every level — grams are never p
 | level | grain | condition |
 |---|---|---|
 | L0 | prov × mun × item × harmonized_nsu_unit × corrected_unit × hetero | $`n_g \geq 3`$ on every rung in the cell |
-| L1 | prov × mun × item × harmonized_nsu_unit × corrected_unit | ANY rung in the cell is thin ($`n_g < 3`$) |
+| L1 | prov × mun × item × harmonized_nsu_unit × corrected_unit | ANY rung in the cell is thin ($`n_g < 3`$) **AND the cell holds at least two rungs** |
+| L0 (kept) | unchanged — the rung keeps its own size label | the cell is thin but holds **one** rung |
 | — | not published at all | the cell has no MS weighing |
 
 Reason: the reference set publishes the *measured* weights for that cell. ANY thin rung collapses the WHOLE cell to L1, not just the thin rung — replacing only thin rungs leaves a published small at the cell's own median alongside medium at the pooled median, which can invert the size ordering (M > L). Outcome 1 validates this, so a non-monotonic result is caught before export.
+
+**It takes two rungs to pool, and a single-rung cell is deliberately excluded.** Both
+justifications above are statements about a *ladder*: there is no size distribution to be
+noise with three labels on it, and no second estimator to mix with, when a cell holds one
+rung. Collapsing it pools nothing — the median is taken over the same weighings either way
+and the published gram value is identical to the digit.
+
+What the collapse *did* do to those rows was rename them. `size_ord` was overwritten with
+4, *"pooled across sizes"*, and `fallback_level` with 1 — so a row whose cell recorded
+exactly one size announced a pooling that never happened **and lost the size it measured**.
+474 of the 962 collapsing cells were single-rung: 209 had published `small`, 97 `medium`,
+53 `large`, 108 were a price-quantity median and 7 conventional. The table could not tell a
+reader that 209 of its rows are the small the field went out and weighed.
+
+So the gate is `k_rungs >= 2`. The effects are label-only: no gram value moves, no row is
+added or removed, `n_g` and `d_thin` are untouched, and A3's sensitivity table does not
+shift. What changes is that `fallback_level == 1` and `size_ord == 4` now mean what they
+say.
+
+**Pooling does not rescue a thin cell**, and must not be read as if it did. A cell whose
+two rungs hold one weighing each pools to $`n_g = 2`$, is still thin, and carries
+`fallback_level = 1` **and** `d_thin = 1` — both published. In the current build 43 of the
+486 pooled rows are still flagged thin, and 470 thin rows were never pooled because their
+cell held one rung. The two flags are close to orthogonal: reading `pooled` as "this row is
+weak", or `thin` as "this row was pooled", is wrong in both directions.
+
+**Singletons** — a cell or rung resting on a single weighing — are the limiting case of
+thinness, not a separate rule. Outcome 1 keeps and flags them; it never replaces one with
+another cell's weight. Outcome 2's ladder may carry a household past its own cell entirely.
+Issue #31 records the singleton population and what each outcome does with it.
 
 **Outcome 2 (PSPS conversion factors): climbs until $`n_g \geq 3`$**
 
