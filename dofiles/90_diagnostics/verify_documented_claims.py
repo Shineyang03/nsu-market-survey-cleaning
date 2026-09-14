@@ -686,7 +686,7 @@ def c_underfilled_shapes(sized):
           # Moved by the STEP 3e adjudication (issue #18, from the manual review of
           # snap_sense_check.xlsx). The rules adopt the block reading on 431 rows where
           # the old plausibility gate moved only 42.
-          "97 cases fill fewer groups than the field recorded labels",
+          "96 cases fill fewer groups than the field recorded labels",
           f"{len(under):,} cases fill fewer groups than the field recorded labels",
           "must equal the count 11_size_checks.do sec 3 prints and"
           " ref_underfilled_sizes.xlsx holds")
@@ -701,7 +701,7 @@ def c_underfilled_shapes(sized):
           # Moved by the STEP 3e adjudication (issue #18, from the manual review of
           # snap_sense_check.xlsx). The rules adopt the block reading on 431 rows where
           # the old plausibility gate moved only 42.
-          "34 with one group filled; 49 filled (1,2); 14 filled (1,3)",
+          "30 with one group filled; 49 filled (1,2); 17 filled (1,3)",
           f"{len(shape1)} with one group filled; {g12} filled (1,2); {g13} filled (1,3)",
           "the (1,2) and (1,3) split is why the rule cannot be keyed on the number of"
           " filled groups alone -- 'small + large' is right for (1,3) and wrong for (1,2)")
@@ -745,7 +745,7 @@ def c_thin_sensitivity():
     got = {t: int((ref.n_g < t).sum()) for t in (2, 3, 4, 5)}
     check("A3 rows flagged at THIN = 2 / 3 / 4 / 5",
           "implicit_assumptions.md / A3",
-          "267 / 513 / 1037 / 1465 of 2550",
+          "267 / 513 / 1038 / 1466 of 2551",
           f"{got[2]} / {got[3]} / {got[4]} / {got[5]} of {n}",
           note="A3's table is a claim about sensitivity; if these move, the argument for "
                "calling THIN = 3 badly placed has to be re-made on the new numbers.")
@@ -833,7 +833,7 @@ def c_modal_label_criterion(sized):
           # Rose again (64.0% -> 64.7%) when the referee became hetero-aware. The field
           # labels are a signal the snap never reads, so agreement improving is evidence
           # the rule picks better, not evidence of fitting to them.
-          "65.4% (3,647 of 5,578)",
+          "66.9% (3,734 of 5,580)",
           f"{per_row / len(full) * 100:.1f}% ({per_row:,} of {len(full):,})",
           "this is the number that justifies re-terciling in the first place -- the"
           " field label is wrong about a third of the time at row level")
@@ -844,7 +844,7 @@ def c_modal_label_criterion(sized):
     check("modal field label agrees with the tercile, per group",
           "methodology.md / assumption 7",
           # ROSE from 66.5%, same independence argument as the per-weighing figure above.
-          "78.5% (1,144 of 1,458)",
+          "80.3% (1,171 of 1,458)",
           f"{per_grp / len(g) * 100:.1f}% ({per_grp:,} of {len(g):,})",
           "aggregating recovers signal, which is what the naming criterion needs")
 
@@ -857,7 +857,7 @@ def c_modal_label_criterion(sized):
           # with the review's finding that the log-10 snap tends to underestimate: adopting
           # the block reading on 431 rows removes part of that downward pull. Still not
           # symmetric, so the caveat below stands.
-          "mean signed error -0.131; 238 groups below their tercile, 76 above",
+          "mean signed error -0.117; 215 groups below their tercile, 72 above",
           f"mean signed error {err.mean():+.3f};"
           f" {below} groups below their tercile, {above} above",
           "NOT symmetric. The modal field label runs systematically low, so a criterion"

@@ -103,7 +103,8 @@ def main():
 
     # WHICH RUNG REFEREED, in each build. This is what the pool sizes above only hint at,
     # and it is the difference between "the raw pool was noisier" and a named mechanism:
-    # the ladder is cell_hetero > cell > prov_hetero > prov, so a rung MOVING DOWN means
+    # the ladder is cell_hetero > prov_hetero > region_hetero > cell > prov, so a rung
+    # MOVING DOWN means
     # the pool the re-keying produced was too thin to referee itself and the row was
     # judged against a wider one. Falling off a *_hetero rung is the case 04's own STEP 3e
     # comment warns about -- a median pooled across small/medium/large sits below the
@@ -113,7 +114,11 @@ def main():
     # ANCHOR, which is itself keyed on ${unitvar}. So the re-keying changes which rows
     # are eligible to referee, not just how many there are -- a raw sub-pool can hold
     # MORE agreeing rows than the harmonized pool that contains it.
-    LADDER = {"cell_hetero": 1, "cell": 2, "prov_hetero": 3, "prov": 4}
+    # MUST MATCH 04_unit_snap.do STEP 3e's ladder, in order. Every hetero-correct pool
+    # ranks above every hetero-blind one; within each half, most local first. An unknown
+    # label maps to NaN and the row silently becomes "n/a", so a rung added to 04 and not
+    # added here does not fail -- it just stops being measured. Hence the assert below.
+    LADDER = {"cell_hetero": 1, "prov_hetero": 2, "region_hetero": 3, "cell": 4, "prov": 5}
     for tag, root in (("H", LIVE), ("R", VAR)):
         s = pd.read_stata(root / "standard_weight_unit_correction.dta")[
             ["id", "snap_rule", "snap_referee"]]
@@ -123,6 +128,13 @@ def main():
     # astype(str) first, then float after. snap_referee reads back as a Categorical, and
     # .map() on one returns another Categorical -- whose `>' compares CATEGORY ORDER, not
     # the depth numbers, which silently inverted these labels on the first run.
+    for _tag in ("referee_H", "referee_R"):
+        _seen = set(real[_tag].astype(str).unique()) - {"", "nan", "None"}
+        _unknown = _seen - set(LADDER)
+        assert not _unknown, (
+            f"{_tag} carries referee pool(s) missing from LADDER: {sorted(_unknown)}. "
+            "A rung was added to 04_unit_snap.do STEP 3e without updating this map.")
+
     depth_h = real.referee_H.astype(str).map(LADDER).astype(float)
     depth_r = real.referee_R.astype(str).map(LADDER).astype(float)
     real["rung"] = np.select(

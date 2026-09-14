@@ -354,6 +354,36 @@ egen long   _ch_n   = count(_agreed),  by(pull_province pull_municipal_city pull
 egen double _cell_med    = median(_agreed), by(pull_province pull_municipal_city pull_item ${unitvar})
 egen long   _cell_nagree = count(_agreed),  by(pull_province pull_municipal_city pull_item ${unitvar})
 
+* THE REGIONAL HETERO POOL -- item x unit x hetero-group across all five provinces.
+* It exists because the rung below it, the pooled cell, is HETERO-BLIND, and being
+* hetero-blind is a worse defect than being geographically broad.
+*
+* The pooled cell mixes smalls, mediums and larges, so its median sits near the middle
+* of the case and a large's block reading looks a decade too big against it. The anchor
+* -- the block reading divided by ten -- then wins by being closer to a number that
+* describes smaller units. That bias is already documented for the cell_hetero rung
+* above; what was missed is that it does not stop applying when the hetero pool is too
+* thin to referee. It just stops being visible, because the fallback silently drops the
+* hetero grain instead of widening the geography.
+*
+* Measured on the build this rung was added to fix. Of the rows where the block reading
+* sits a decade above the published weight, the pooled cell refereed 88 and an
+* independent item x unit x hetero median over undisputed rows contradicts the
+* published value on 70 of them -- consistently in one direction, the anchor winning
+* when it should not have. The hetero-AWARE cell rung refereed 54 of the same class and
+* the same independent median backs the published value on 51. The rung that keeps the
+* hetero grain is right; the rung that drops it is wrong, and wrong the same way each
+* time.
+*
+* So: exhaust the hetero-correct pools before falling back to any hetero-blind one.
+* Geography is the weaker confounder. A medium puto in the next province is a closer
+* referent for a medium puto than a large puto in the same market.
+*
+* THIS POOL IS REGIONAL, NOT NATIONAL. All five surveyed provinces are Western Visayas
+* (Region VI). See def_fallback_level in 00_globals.do.
+egen double _rh_med = median(_agreed), by(pull_item ${unitvar} item_nsu_hetero_type)
+egen long   _rh_n   = count(_agreed),  by(pull_item ${unitvar} item_nsu_hetero_type)
+
 * the province-level fallbacks for thin cells, hetero-group first then without it
 egen double _ph_med = median(_agreed), by(pull_province pull_item ${unitvar} item_nsu_hetero_type)
 egen long   _ph_n   = count(_agreed),  by(pull_province pull_item ${unitvar} item_nsu_hetero_type)
@@ -383,16 +413,38 @@ local NAGREE = 5
 * pooled cell it replaces.
 local NAGREE_HET = 2
 
+* THE LADDER, and the one sentence that generates its order:
+*
+*     exhaust every HETERO-CORRECT pool, most local first,
+*     before falling back to any HETERO-BLIND pool, most local first.
+*
+*         cell_hetero  -> prov_hetero -> region_hetero  | cell -> prov
+*         \___________ hetero grain kept ____________/  \_ grain dropped _/
+*
+* The order used to be cell_hetero -> cell -> prov_hetero -> prov, which crosses the
+* line in the middle of the ladder: a thin hetero pool fell straight to a pooled cell
+* that mixes smalls, mediums and larges. See the comment on _rh_med above for what that
+* cost -- 70 of 88 contested rows refereed the wrong way, one direction every time.
+*
+* `_ref_src' IS str14 AND MUST STAY AT LEAST THAT WIDE. "region_hetero" is 13
+* characters; at the old str12 Stata truncates it to "region_heter" silently, and every
+* downstream tab, label and diagnostic inherits the typo with nothing failing.
 gen double _ref_med = .
-gen str12  _ref_src = ""
+gen str14  _ref_src = ""
 replace _ref_med = _ch_med   if _ch_n > `NAGREE_HET' & !missing(_ch_med)
 replace _ref_src = "cell_hetero" if _ch_n > `NAGREE_HET' & !missing(_ch_med)
-replace _ref_med = _cell_med if missing(_ref_med) & _cell_nagree > `NAGREE' & !missing(_cell_med)
-replace _ref_src = "cell"    if missing(_ref_src) & !missing(_ref_med)
 replace _ref_med = _ph_med   if missing(_ref_med) & _ph_n > `NAGREE' & !missing(_ph_med)
 replace _ref_src = "prov_hetero" if missing(_ref_src) & !missing(_ref_med)
+replace _ref_med = _rh_med   if missing(_ref_med) & _rh_n > `NAGREE' & !missing(_rh_med)
+replace _ref_src = "region_hetero" if missing(_ref_src) & !missing(_ref_med)
+replace _ref_med = _cell_med if missing(_ref_med) & _cell_nagree > `NAGREE' & !missing(_cell_med)
+replace _ref_src = "cell"    if missing(_ref_src) & !missing(_ref_med)
 replace _ref_med = _p_med    if missing(_ref_med) & _p_n  > `NAGREE' & !missing(_p_med)
 replace _ref_src = "prov"    if missing(_ref_src) & !missing(_ref_med)
+
+* The truncation guard the comment above warns about, made mechanical.
+assert _ref_src != "region_heter"
+assert inlist(_ref_src, "", "cell_hetero", "prov_hetero", "region_hetero", "cell", "prov")
 
 * ---- 3e-ii. rule 1: closer in log10 terms wins -----------------------------------
 gen byte _pick_block = .
@@ -424,6 +476,14 @@ gen str16 _rule = "log10 median" if !missing(_pick_block)
 * The flip is captured BEFORE _pick_block moves. Writing the label off the post-flip
 * value would also relabel rows rule 1 had already sent to the block, destroying the
 * provenance `snap_rule' exists to record.
+*
+* "region_hetero" IS DELIBERATELY ABSENT from the list below, and that is not an
+* oversight from when the rung was added. This rule overrules a referee using
+* `_cell_med', which is the HETERO-BLIND pooled cell -- the pool the regional hetero
+* rung exists to stop consulting. Letting a hetero-blind local median overrule a
+* hetero-correct regional one reintroduces exactly the bias the new rung removes.
+* The province rungs stay in scope because the 34 rows behind this rule were reviewed
+* by hand against them; nothing equivalent has been reviewed for the regional pool.
 gen byte _own_flip = (_pick_block == 0 ///
     & inlist(_ref_src, "prov", "prov_hetero") ///
     & !missing(_cell_med) & _cell_med > 0 ///
@@ -515,6 +575,7 @@ gen byte snap_block = (_pick_block == 1)
 label var snap_block "1 = published the block reading, 0 = published the anchor snap"
 
 drop _agree _agreed _cell_med _cell_nagree _ph_med _ph_n _p_med _p_n ///
+     _rh_med _rh_n ///
      _ref_med _ref_src _pick_block _sub1 _cell_sub1 _rule _chosen _other ///
      _chosen_bad _other_ok
 

@@ -433,16 +433,27 @@ forvalues j = 1/3 {
 *              single group and became small+medium instead. So the count being
 *              stable is not the same as nothing having changed, which is why all
 *              four numbers below are asserted and not just the total.
+*   97 ->  96  when STEP 3e's referee ladder was reordered to exhaust every
+*              hetero-CORRECT pool before any hetero-BLIND one, adding the
+*              region_hetero rung. 74 weighings moved, 68 of them UP a decade: the
+*              pooled cell had been refereeing them against a median that mixes
+*              small, medium and large, which sits below the larges and hands the
+*              row to the anchor. Four cases stopped collapsing to a single group.
 *
 * The four counts below must reconcile against each other and against the crosstab:
-*     34 collapsed to one group  +  49 small+medium  +  14 small+large  =  97
-* and in the crosstab (k=2, filled=1) + (k=3, filled=1) = 34, while
-* 49 + 14 = 63 (k=3, filled=2). If one moves and the others do not, the tie rule
+*     30 collapsed to one group  +  49 small+medium  +  17 small+large  =  96
+* and in the crosstab (k=2, filled=1) + (k=3, filled=1) = 30, while
+* 49 + 17 = 66 (k=3, filled=2). If one moves and the others do not, the tie rule
 * changed rather than the weights.
 *
-* SMALL+LARGE HAS NEVER MOVED -- 14 across all four counts. That is informative
-* rather than reassuring: the cases whose MIDDLE group empties are not the ones any
-* of these corrections touch, so nothing done so far tests that shape.
+* SMALL+LARGE HAS NOW MOVED, 14 -> 17, and this is the first change that ever moved
+* it. It held at 14 through the anchor snap, the 3e rules and all three review
+* rounds, because each of those alters a weight without altering WHICH pool the row
+* is judged against -- and a case whose MIDDLE group empties is not one a shifted
+* weight tends to reach. The ladder reorder is the first change that alters the pool
+* itself: a row is now refereed against its own size group's median, so a medium can
+* land on a different side of a tercile cut than it did against a size-blind one.
+* The shape that nothing had tested is now tested, and it responded.
 *
 * Under-filled cases are reported and not patched -- see issue #3, settled as status
 * quo.
@@ -452,16 +463,16 @@ egen byte tag_cell_sz = tag(cell) if weighing_approach == 3
 tab k_sizes n_filled if tag_cell_sz, m
 count if tag_cell_sz & n_filled < k_sizes
 di as txt "under-filled size-based cases: " r(N)
-assert r(N) == 97
+assert r(N) == 96
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 1
 di as txt "  ... collapsed to a single group: " r(N)
-assert r(N) == 34
+assert r(N) == 30
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g2
 di as txt "  ... two groups, small+medium filled: " r(N)
 assert r(N) == 49
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g3
 di as txt "  ... two groups, small+large filled: " r(N)
-assert r(N) == 14
+assert r(N) == 17
 
 * the two-group shapes must ALREADY be right, or the claim above is wrong
 assert size_ord == 1 if weighing_approach == 3 & n_filled < k_sizes & n_filled == 2 & grp == 1

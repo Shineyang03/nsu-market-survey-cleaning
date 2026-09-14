@@ -132,12 +132,12 @@ about; three or more is not.
 
 **Status: ACCEPTED, with the sensitivity stated.**
 
-| threshold | rows flagged | share of 2,550 |
+| threshold | rows flagged | share of 2,551 |
 | --: | --: | --: |
 | 2 | 267 | 10.5% |
 | **3 (current)** | **513** | **20.1%** |
-| 4 | 1,037 | 40.7% |
-| 5 | 1,465 | 57.5% |
+| 4 | 1,038 | 40.7% |
+| 5 | 1,466 | 57.5% |
 
 Moving the cut by one still roughly doubles or halves the flagged share, so the threshold
 sits on a steep part of the distribution and no substantive argument selects 3 over 2 or 4.
@@ -212,13 +212,13 @@ grams, so ties on a cut are common and the direction of the rule genuinely bites
 
 Ties go to the **smaller** weight — the conservative reading. What changed is how
 under-filled cases are *named*: `10_reference_set/10_size_assignment.do` §2d no longer names
-surviving groups by rank. **97 cases** fill fewer groups than the field recorded labels:
+surviving groups by rank. **96 cases** fill fewer groups than the field recorded labels:
 
 | shape | cases | published as |
 | :-- | --: | :-- |
-| one group filled, `k ≥ 2` | 34 | **medium** |
+| one group filled, `k ≥ 2` | 30 | **medium** |
 | groups (1,2) filled — top emptied | 49 | small + medium |
-| groups (1,3) filled — middle emptied | 14 | small + large |
+| groups (1,3) filled — middle emptied | 17 | small + large |
 
 The rule fires only where `n_filled < k_sizes`. **Keyed on `n_filled` alone it would also
 catch 751 cases** that recorded one label and filled one group — overwriting 406 the field

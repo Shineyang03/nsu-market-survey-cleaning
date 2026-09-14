@@ -317,7 +317,7 @@ snap give different weights if its anchor pooled on the raw label instead of the
 harmonized one?" by building the variant and leaving the published build alone, so the
 two can be diffed with no backup-and-restore step. `outputs/anchor_*/` is gitignored.
 
-**Which unit the anchor pools on.** `04_unit_snap.do` pools its anchor and all four
+**Which unit the anchor pools on.** `04_unit_snap.do` pools its anchor and all five
 referee rungs on `pull_item × ${unitvar}`, defaulting to `harmonized_nsu_unit`. Three
 candidates exist: the raw `pull_nsu_unit`, `cleaned_nsu_unit` (what the pre-Aug11 build
 used), and the current harmonized unit. The choice matters beyond accuracy, because

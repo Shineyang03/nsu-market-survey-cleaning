@@ -172,9 +172,10 @@ d["x_from_median"] = d.x_from_median.where(d.x_from_median >= 1, 1/d.x_from_medi
 #
 # `cell_median' above pools small, medium and large together, so it sits BELOW the larges
 # and a large item's block reading looks a decade too big against it. 04's referee ladder
-# does not have that problem: it tries the cell WITHIN a hetero-group first (`cell_hetero',
-# NAGREE_HET) and only falls back to the pooled cell. So the number this sheet displayed
-# was not the number the pipeline decided on.
+# does not have that problem: it exhausts every hetero-correct pool -- the cell within a
+# hetero-group (`cell_hetero', NAGREE_HET), then the province within one, then the region
+# within one -- before it will consult the pooled cell at all. So the number this sheet
+# displayed was not the number the pipeline decided on.
 #
 # Measured on the current build: of 571 disputed rows with both medians usable, the two
 # differ on 389 and imply the OPPOSITE rule on 100 -- 96 of those 100 favouring the block
