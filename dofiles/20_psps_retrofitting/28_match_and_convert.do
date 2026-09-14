@@ -420,6 +420,91 @@ replace fallback_level = r3_lvl if conv_route == "" & !missing(r3_g)
 replace conv_route     = "fallback: regional pool"   if conv_route == "" & !missing(r3_g)
 
 replace conv_route     = "refused: nothing anywhere" if conv_route == ""
+
+
+********************************************************************************
+**# 6b. THE HETERO-BLIND VARIANT -- the same ladder, started one rung lower
+********************************************************************************
+* WHAT IT IS. One conversion factor per province x municipality x item x harmonized unit
+* x corrected_unit, with no within-NSU heterogeneity at all. Every household in a cell
+* gets that cell's pooled weight whatever it paid and whatever size it bought.
+*
+* WHY IT EXISTS. The published file resolves 81,377 household rows at L0 -- the household's
+* own hetero rung, selected by the price it faced. That matching is the most consequential
+* thing Outcome 2 does and the build has no way to say how much it moves. This variant is
+* the counterfactual: identical in every other respect, so a difference between the two
+* files is the price/size matching and nothing else.
+*
+* IT IS A15 APPLIED TO EVERY ROW. Section 6's note states the cost for fallback rows --
+* a household that bought the cheap version and one that bought the expensive version of
+* the same unit receive the same grams. Here that holds universally. This file is
+* therefore a ROBUSTNESS OBJECT, not a better answer, and nothing downstream should
+* prefer it without saying why.
+*
+* THE LADDER STILL CLIMBS. Starting at L1 does not mean stopping there: a cell too thin
+* to serve itself falls to its province and then to the region, exactly as section 6
+* does. Refusing to climb would strand the 499 cells that borrow, and the comparison
+* against the published file would stop being like-for-like.
+*
+* BUILT FROM THE SAME `rung1'/`rung2'/`rung3' TEMPFILES the section above merged in, so
+* there is one definition of each rung and no median is recomputed. THE CAP DOES NOT
+* APPLY: 29_cap.do bounds r_h = p_h / p_g, which exists only where a household price was
+* divided by a group price. No blind row has one.
+gen double cf_h_blind          = .
+gen byte   dim_blind           = .
+gen byte   fallback_level_blind = .
+gen long   n_g_used_blind      = .
+gen long   nu_used_blind       = .
+gen str28  conv_route_blind    = ""
+
+* ---- A11 SURVIVES GOING BLIND, and this guard must come first ---------------------
+* A spelling-gap refusal is a statement that the household's NSU LABEL cannot be trusted
+* to name the same object the market survey weighed. That has nothing to do with matching
+* on price, so removing the price match does not remove the objection -- and a blind file
+* that converted these 304 rows would differ from the published one on two counts at
+* once, which destroys the only thing this variant is for.
+*
+* CONTRAST WITH "unique price". That refusal says a price point had no weighing behind
+* it, which IS an obstacle only the price match faces; with no point to match, 148 rows
+* are legitimately served here that the headline file refuses. That difference is the
+* counterfactual working, not leaking.
+replace conv_route_blind = "refused: A11 spelling gap" if d_spelling_gap == 1
+
+* FINEST RUNG FIRST, each guarded on the blind route still being empty so a coarser rung
+* cannot overwrite a finer one -- the same shape as section 6, on its own columns.
+replace dim_blind            = r1_dim if conv_route_blind == "" & !missing(r1_g)
+replace cf_h_blind           = r1_g   if conv_route_blind == "" & !missing(r1_g)
+replace n_g_used_blind       = r1_n   if conv_route_blind == "" & !missing(r1_g)
+replace nu_used_blind        = r1_nu  if conv_route_blind == "" & !missing(r1_g)
+replace fallback_level_blind = r1_lvl if conv_route_blind == "" & !missing(r1_g)
+replace conv_route_blind     = "blind: cell pooled"     if conv_route_blind == "" & !missing(r1_g)
+
+replace dim_blind            = r2_dim if conv_route_blind == "" & !missing(r2_g)
+replace cf_h_blind           = r2_g   if conv_route_blind == "" & !missing(r2_g)
+replace n_g_used_blind       = r2_n   if conv_route_blind == "" & !missing(r2_g)
+replace nu_used_blind        = r2_nu  if conv_route_blind == "" & !missing(r2_g)
+replace fallback_level_blind = r2_lvl if conv_route_blind == "" & !missing(r2_g)
+replace conv_route_blind     = "blind: province pool"   if conv_route_blind == "" & !missing(r2_g)
+
+replace dim_blind            = r3_dim if conv_route_blind == "" & !missing(r3_g)
+replace cf_h_blind           = r3_g   if conv_route_blind == "" & !missing(r3_g)
+replace n_g_used_blind       = r3_n   if conv_route_blind == "" & !missing(r3_g)
+replace nu_used_blind        = r3_nu  if conv_route_blind == "" & !missing(r3_g)
+replace fallback_level_blind = r3_lvl if conv_route_blind == "" & !missing(r3_g)
+replace conv_route_blind     = "blind: regional pool"   if conv_route_blind == "" & !missing(r3_g)
+
+replace conv_route_blind     = "refused: nothing anywhere" if conv_route_blind == ""
+
+* The blind ladder never reaches L0 by construction -- that rung IS the hetero match.
+assert fallback_level_blind != 0 if !missing(fallback_level_blind)
+assert inlist(fallback_level_blind, 1, 2, 3) if !missing(cf_h_blind)
+assert missing(cf_h_blind) == (strpos(conv_route_blind, "refused") > 0)
+
+* Every A11 row is refused here exactly as it is in the headline file, so the two agree
+* on that population by construction rather than by coincidence.
+assert conv_route_blind == "refused: A11 spelling gap" if d_spelling_gap == 1
+assert conv_route == conv_route_blind if d_spelling_gap == 1
+
 drop r1_* r2_* r3_*
 
 * A FALLBACK ROW IGNORES THE HOUSEHOLD'S PRICE ENTIRELY, and that is A15's cost stated as
@@ -435,6 +520,22 @@ drop r1_* r2_* r3_*
 ********************************************************************************
 
 gen double grams_h = q_h * cf_h
+
+* ---- the hetero-blind counterfactual, same arithmetic on the blind factor ----------
+* No CF_h = p_h / v_g here: the blind factor IS the grams in one unit, so this is the
+* degenerate p_h = p_g case applied to every row. See section 6b.
+gen double grams_h_blind = q_h * cf_h_blind
+gen byte   d_converted_blind = !missing(grams_h_blind)
+assert grams_h_blind > 0 if !missing(grams_h_blind)
+
+label var cf_h_blind           "hetero-blind: grams in one unit of this NSU, cell pooled across hetero-groups"
+label var grams_h_blind        "hetero-blind: q_h * cf_h_blind -- the no-price-matching counterfactual"
+label var dim_blind            "hetero-blind: dimension of cf_h_blind (1 = g, 2 = mL)"
+label var fallback_level_blind "hetero-blind rung: 1 cell pooled, 2 province, 3 regional (never 0)"
+label var conv_route_blind     "hetero-blind: how this row got its grams, or why it did not"
+label var n_g_used_blind       "hetero-blind: weighings behind cf_h_blind"
+label var nu_used_blind        "hetero-blind: of n_g_used_blind, how many were disputed or anchor-flagged"
+label var d_converted_blind    "1 = the hetero-blind ladder produced grams for this row"
 
 gen byte d_converted = !missing(grams_h)
 gen byte d_thin = n_g_used < ${THIN} if !missing(n_g_used)

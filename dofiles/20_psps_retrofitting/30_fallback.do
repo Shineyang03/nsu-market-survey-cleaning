@@ -464,5 +464,64 @@ foreach L in 2 3 {
 * says nothing about the Philippines outside this region. The label read "national" until
 * it was corrected, which invited exactly the generalization the data cannot support.
 
+********************************************************************************
+**# The hetero-blind lookup, published
+********************************************************************************
+* ONE CONVERSION FACTOR PER CELL, with no within-NSU heterogeneity in it at all. This is
+* the cell-grain ladder above, promoted from an intermediate to a deliverable because it
+* answers a question on its own: what does a household get if the price/size matching is
+* removed entirely?
+*
+* THE KEY IS FIVE COLUMNS, NOT FOUR. `corrected_unit' has to stay in it. 65 of the cells
+* hold both a gram reading and a millilitre one, and pooling those would add grams to
+* millilitres. A household reports no dimension, so 28_match_and_convert.do picks one per
+* cell when it serves a row -- but the LOOKUP publishes both sub-cells, because which one
+* is right is a property of the item and not of this table.
+*
+* THE LADDER STILL CLIMBS. `fb_level' says how far: 1 means the cell's own weighings
+* pooled across hetero-groups, 2 the province, 3 the region. A cell too thin to serve
+* itself borrows, exactly as the headline ladder does, so this table and the published
+* one cover the same cells and a difference between them is the hetero matching alone.
+*
+* THIS IS A ROBUSTNESS OBJECT, NOT A BETTER ANSWER. It is A15's cost applied universally:
+* a household that bought the cheap version and one that bought the expensive version of
+* the same unit receive identical grams. Nothing downstream should prefer it without
+* saying why. Its household-level counterpart is psps_grams_heteroblind, written by
+* 31_psps_grams.do from the same rungs.
+preserve
+	use "${btemp}\outcome2_cell_fallback", clear
+
+	rename (fb_grams fb_n_g fb_nu fb_level fb_unconvertible) ///
+	       (cf_blind n_g_used nu_used fallback_level d_unconvertible)
+
+	label var cf_blind       "grams (or mL) in one unit of this NSU, pooled across hetero-groups"
+	label var n_g_used       "weighings behind cf_blind, at the rung actually used"
+	label var nu_used        "of n_g_used, how many were disputed or anchor-flagged (#35)"
+	label var fallback_level "rung: 1 cell pooled, 2 province, 3 regional (never 0 -- L0 IS the hetero match)"
+	label var d_unconvertible "1 = no rung from L1 down clears THIN; reported, never imputed"
+	label var corrected_unit "dimension of cf_blind: 1 = g, 2 = mL -- part of the key, never pooled over"
+
+	gen double share_uncertain = nu_used / n_g_used
+	format share_uncertain %5.3f
+	label var share_uncertain "nu_used / n_g_used; 1 = nothing behind this factor went unquestioned"
+
+	isid pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
+	assert inlist(fallback_level, 1, 2, 3) if !d_unconvertible
+	assert missing(cf_blind) == (d_unconvertible == 1)
+
+	order pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit ///
+	      cf_blind fallback_level n_g_used nu_used share_uncertain d_unconvertible
+	compress
+	sort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
+	save "${bdeliv}\outcome2_lookup_heteroblind", replace
+	di as txt "wrote ${bdeliv}\outcome2_lookup_heteroblind.dta (" _N " cell x dimension row(s))"
+	qui export delimited using "${bdeliv}\outcome2_lookup_heteroblind.csv", replace
+	di as txt "wrote ${bdeliv}\outcome2_lookup_heteroblind.csv"
+
+	di as res _n "hetero-blind lookup, rung serving each cell:"
+	tab fallback_level, m
+restore
+
+
 di as res _n "30_fallback.do done -- ladder built, with nu_lN beside every rung's count."
 di as res "28_match_and_convert.do runs next and attaches it to PSPS household rows."

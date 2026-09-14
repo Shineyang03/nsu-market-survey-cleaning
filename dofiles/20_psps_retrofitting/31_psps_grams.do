@@ -116,10 +116,16 @@ qui count
 local n_nsu = r(N)
 di as res _n "NSU rows (market-survey branch, conv_path 2): `n_nsu'"
 
+* THE _blind COLUMNS RIDE ALONG on the NSU rows only, and are missing everywhere else by
+* construction: a standard-unit row never used an NSU conversion, so there is no
+* hetero-blind counterfactual for it to have. 28_match_and_convert.do section 6b builds
+* them; the standalone deliverable at the end of this file is written from them.
 keep hh_row hhid psps_item_code slot source ///
      pull_province pull_municipal_city pull_item pull_nsu_unit harmonized_nsu_unit ///
      q_h p_h cf_h grams_h conv_path conv_route d_converted fallback_level d_cap ///
-     n_g_used nu_used
+     n_g_used nu_used ///
+     cf_h_blind grams_h_blind dim_blind fallback_level_blind conv_route_blind ///
+     n_g_used_blind nu_used_blind d_converted_blind
 
 isid `keyvars'
 tempfile nsu
@@ -379,10 +385,20 @@ if _rc == 0 {
 	exit 459
 }
 
+* d_converted_blind must be 0 rather than missing on rows the blind ladder refused, so
+* `tab d_converted_blind' counts the same population as d_converted. It arrives missing
+* only on the standard-unit and conv_path 3 rows, which the append leaves empty and which
+* have no NSU conversion to have a counterfactual for -- those stay missing on purpose.
+replace d_converted_blind = 0 if conv_path == 2 & missing(d_converted_blind)
+assert !missing(d_converted_blind) if conv_path == 2
+assert missing(d_converted_blind)  if conv_path != 2
+
 order hh_row hhid psps_item_code slot source ///
       pull_province pull_municipal_city pull_item pull_nsu_unit harmonized_nsu_unit ///
       q_h p_h cf_h grams_h conv_path conv_route d_converted fallback_level d_cap ///
-      d_no_price n_g_used nu_used share_uncertain
+      d_no_price n_g_used nu_used share_uncertain ///
+      cf_h_blind grams_h_blind dim_blind fallback_level_blind conv_route_blind ///
+      n_g_used_blind nu_used_blind d_converted_blind
 
 compress
 sort hh_row
@@ -396,38 +412,112 @@ di as txt "wrote ${bdeliv}\psps_grams.dta -- `n_all' row(s)"
 * non-Stata user opens, so the header is built by hand instead of shipping raw
 * variable names -- the exact defect 12_publish_reference_set.do's own note warns
 * against, just on a format where the built-in option does not exist to prevent it.
-qui ds
-local allvars `r(varlist)'
-foreach v of local allvars {
-	local lbl : variable label `v'
-	if `"`lbl'"' == "" {
-		di as err "ERROR: `v' has no variable label -- every published column needs one."
+* DEFINED AS A PROGRAM because this file now publishes TWO csv deliverables -- the
+* headline file and the hetero-blind variant in section 6b -- and a second hand-copy of
+* thirty lines of file-handle work is exactly the silent divergence the project keeps
+* being bitten by. One definition, called twice, on whatever is in memory.
+capture program drop _labeled_csv
+program define _labeled_csv
+	syntax , OUTfile(string)
+
+	qui ds
+	local allvars `r(varlist)'
+	foreach v of local allvars {
+		local lbl : variable label `v'
+		if `"`lbl'"' == "" {
+			di as err "ERROR: `v' has no variable label -- every published column needs one."
+			exit 459
+		}
+	}
+
+	tempfile csvbody csvhead
+	qui export delimited using "`csvbody'.csv", novarnames replace
+
+	tempname fh
+	file open `fh' using "`csvhead'.csv", write replace
+	local line ""
+	foreach v of local allvars {
+		local lbl : variable label `v'
+		local line `"`line'"`lbl'","'
+	}
+	local line = substr(`"`line'"', 1, length(`"`line'"') - 1)
+	file write `fh' `"`line'"' _n
+	file close `fh'
+
+	cap erase "`outfile'"
+	! copy /b "`csvhead'.csv"+"`csvbody'.csv" "`outfile'"
+	cap confirm file "`outfile'"
+	if _rc != 0 {
+		di as err "ERROR: labeled CSV concatenation failed; `outfile' not written."
 		exit 459
 	}
-}
+	qui count
+	di as txt "wrote `outfile' (header = variable labels, " r(N) " data row(s))"
+end
 
-tempfile csvbody csvhead
-qui export delimited using "`csvbody'.csv", novarnames replace
+_labeled_csv, outfile("${bdeliv}\psps_grams.csv")
 
-tempname fh
-file open `fh' using "`csvhead'.csv", write replace
-local line ""
-foreach v of local allvars {
-	local lbl : variable label `v'
-	local line `"`line'"`lbl'","'
-}
-local line = substr(`"`line'"', 1, length(`"`line'"') - 1)
-file write `fh' `"`line'"' _n
-file close `fh'
 
-cap erase "${bdeliv}\psps_grams.csv"
-! copy /b "`csvhead'.csv"+"`csvbody'.csv" "${bdeliv}\psps_grams.csv"
-cap confirm file "${bdeliv}\psps_grams.csv"
-if _rc != 0 {
-	di as err "ERROR: labeled CSV concatenation failed; ${bdeliv}\psps_grams.csv not written."
-	exit 459
-}
-di as txt "wrote ${bdeliv}\psps_grams.csv (header = variable labels, `n_all' data row(s))"
+********************************************************************************
+**# 6b. The hetero-blind deliverable -- a drop-in file, not extra columns
+********************************************************************************
+* WHY A SEPARATE FILE and not just the _blind columns above. An analyst running the
+* counterfactual should not have to rename six columns and remember which ones, because
+* the one they forget is the one that silently keeps the published answer. So this ships
+* the variant with the SAME COLUMN NAMES as the headline file: `grams_h' here IS the
+* hetero-blind number. Same precedent as outcome2_lookup_noinflation.
+*
+* Built from the file already in memory, so the two cannot drift.
+*
+* WHAT IS NOT IN IT. `d_cap' and `p_h' are dropped: the cap bounds r_h = p_h / p_g, which
+* exists only where a household price was divided by a group price, and no blind row has
+* one. Keeping a cap flag that can never be 1 would invite a reader to conclude the cap
+* was tested here and found to bind on nothing.
+*
+* ROWS OUTSIDE conv_path 2 ARE UNCHANGED, and that is the point of the comparison: a
+* standard-unit row's grams come from the unit's own name, never from an NSU conversion,
+* so there is nothing hetero-blind about it. A difference between this file and the
+* headline one is the price/size matching and nothing else.
+preserve
+
+	replace cf_h            = cf_h_blind            if conv_path == 2
+	replace grams_h         = grams_h_blind         if conv_path == 2
+	replace conv_route      = conv_route_blind      if conv_path == 2
+	replace fallback_level  = fallback_level_blind  if conv_path == 2
+	replace d_converted     = d_converted_blind     if conv_path == 2
+	replace n_g_used        = n_g_used_blind        if conv_path == 2
+	replace nu_used         = nu_used_blind         if conv_path == 2
+	replace share_uncertain = nu_used / n_g_used    if conv_path == 2
+
+	drop cf_h_blind grams_h_blind dim_blind fallback_level_blind ///
+	     conv_route_blind n_g_used_blind nu_used_blind d_converted_blind ///
+	     d_cap p_h
+
+	label var cf_h    "grams (or mL) in one unit of this NSU -- CELL POOLED across hetero-groups"
+	label var grams_h "q_h * cf_h -- HETERO-BLIND grams for this household x item x slot"
+	label var conv_route "how this row got its hetero-blind grams, or why it did not"
+	label var fallback_level "hetero-blind rung: 1 cell pooled, 2 province, 3 regional (never 0)"
+
+	* The blind ladder starts at L1, so a converted NSU row can never read 0 here. If this
+	* fires, a headline-file column survived the swap above.
+	assert fallback_level != 0 if conv_path == 2 & d_converted == 1
+	assert !missing(grams_h) == (d_converted == 1) if conv_path == 2
+
+	compress
+	sort hh_row
+	save "${bdeliv}\psps_grams_heteroblind", replace
+	qui count
+	di as txt "wrote ${bdeliv}\psps_grams_heteroblind.dta -- " r(N) " row(s)"
+
+	_labeled_csv, outfile("${bdeliv}\psps_grams_heteroblind.csv")
+
+	* ---- what the counterfactual costs, printed rather than left to be derived ------
+	qui count if conv_path == 2 & d_converted == 1
+	di as res _n "hetero-blind: converted NSU rows " r(N)
+	qui su grams_h if conv_path == 2 & d_converted == 1
+	di as res "hetero-blind: total grams over converted NSU rows " %18.0fc r(sum)
+
+restore
 
 
 ********************************************************************************

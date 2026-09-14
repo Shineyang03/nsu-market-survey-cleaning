@@ -195,10 +195,11 @@ below). Five folders, split by what a reader needs to know before opening a file
 | `diagnostics/` | `${btables}` | issue-specific scoping tables and review workbooks. Never a dependency of another step |
 | `graphs/` | `${bgraphs}` | analytic figures meant to be read on their own |
 
-A reader looking for a specific file: the deliverables are the six objects the two
+A reader looking for a specific file: the deliverables are the eight objects the two
 masters exist to produce (`nsu_reference_set.dta`/`.xlsx`, `outcome2_lookup.dta`/`.csv`,
-`outcome2_lookup_noinflation.dta`, `psps_converted_capped.dta`, `psps_standard_units.dta`,
-`psps_grams.dta`/`.csv`) and live in `deliverables/`; anything else that ends in `.dta`
+`outcome2_lookup_noinflation.dta`, `outcome2_lookup_heteroblind.dta`/`.csv`,
+`psps_converted_capped.dta`, `psps_standard_units.dta`, `psps_grams.dta`/`.csv`,
+`psps_grams_heteroblind.dta`/`.csv`) and live in `deliverables/`; anything else that ends in `.dta`
 lives in `intermediate/`; a sense-check CSV, a summary-statistics table, the attrition
 ledger or `nsu_pipeline_explorer.html` lives in `summary/`; everything else that used to
 be in a folder called `tables/` — one-off scoping exports, review queues — is in
@@ -377,13 +378,53 @@ resolve.
 | `24_inflate_to_psps_month.do` | `w_g_m`, `v_g_m` per interview month — **Branch P only**, crossed with the months of its own municipality |
 | `25_lookup.do` | appends the three branches, and builds #11's no-inflation variant as a second file |
 | `27_standard_units.do` | kg / L / stated-quantity answers convert from the unit's own name, with no market-survey input (#14) |
-| `28_match_and_convert.do` | the household join: nearest point, tie on `v`, `CF_h`, `grams_h`. Climbs cell → province → regional for the households the price match cannot serve |
+| `28_match_and_convert.do` | the household join: nearest point, tie on `v`, `CF_h`, `grams_h`. Climbs cell → province → regional for the households the price match cannot serve. **§6b** builds the hetero-blind counterfactual from the same rung tempfiles — `cf_h_blind`, `grams_h_blind`, `fallback_level_blind` — so no median is recomputed |
 | `29_cap.do` | clamps `p_h/p_g` to `[1/t, t]` and flags, `t = 5` (A18) |
-| `31_psps_grams.do` | **the single household-level deliverable.** Appends `psps_converted_capped.dta` (35,448 NSU rows) and `psps_standard_units.dta` (52,489 standard-unit rows) — they share 23 columns and do not overlap — and adds the 22 `conv_path == 3` rows (reach the crosswalk join, judged not an NSU at all) that ship in neither, so the row count reconciles to 20a's own 87,959, not to 87,937. Publishes `psps_grams.dta` and a labeled `psps_grams.csv` |
-| `30_fallback.do` | the **weight ladder**, three ways. Per (cell × size): **L0** the cell's own rung → **L1** the cell pooled across sizes → **L2** province × item × unit → **L3** item × unit regionally → unconvertible. Per cell, for when the price match fails. And **L2 and L3 on their own keys**, which is the only reading that can serve a cell the market survey never visited — #30's actual population, one PSPS observation in six |
+| `31_psps_grams.do` | **the single household-level deliverable.** Appends `psps_converted_capped.dta` (35,448 NSU rows) and `psps_standard_units.dta` (52,489 standard-unit rows) — they share 23 columns and do not overlap — and adds the 22 `conv_path == 3` rows (reach the crosswalk join, judged not an NSU at all) that ship in neither, so the row count reconciles to 20a's own 87,959, not to 87,937. Publishes `psps_grams.dta` and a labeled `psps_grams.csv`, and **§6b** the hetero-blind drop-in `psps_grams_heteroblind.dta`/`.csv`, where `grams_h` *is* the blind number so no column has to be renamed to run the counterfactual. The labeled-CSV writer is the `_labeled_csv` program, defined once and called for both |
+| `30_fallback.do` | the **weight ladder**, three ways. Per (cell × size): **L0** the cell's own rung → **L1** the cell pooled across sizes → **L2** province × item × unit → **L3** item × unit regionally → unconvertible. Per cell, for when the price match fails. And **L2 and L3 on their own keys**, which is the only reading that can serve a cell the market survey never visited — #30's actual population, one PSPS observation in six. Also publishes the cell-grain ladder as `outcome2_lookup_heteroblind.dta`/`.csv` — 1,986 rows on the five-column key — since it answers a question on its own |
 
 **#30 was the gate and it is now built.** Note that its cost argument was written against a 14×
 cross-municipality spread; the corrected figure is **6.7×**, so read it against that.
+
+### The hetero-blind pair: what the price/size matching is worth
+
+`outcome2_lookup_heteroblind.dta`/`.csv` and `psps_grams_heteroblind.dta`/`.csv` are the
+same pipeline with **within-NSU heterogeneity removed entirely** — one conversion factor
+per province × municipality × item × harmonized unit × `corrected_unit`, and every
+household in a cell gets it whatever it paid and whatever size it bought.
+
+They exist because matching a household to its own size rung by price is the most
+consequential thing Outcome 2 does — it resolves 81,377 household rows — and the build
+otherwise has no way to say how much it moves. The variant is identical in every other
+respect, so **a difference between the two files is the price/size matching and nothing
+else.** Read them as a robustness object, not a better answer: this is A15's cost applied
+universally, and nothing downstream should prefer the blind file without saying why.
+
+| | headline | hetero-blind |
+|---|---|---|
+| converted NSU rows | 34,893 | 35,019 |
+| rung: L0 / L1 / L2 / L3 | 81,377 / 118 / 5,522 / 365 | — / 23,791 / 10,823 / 405 |
+| **total grams over comparable rows** | 27,349,919 | **34,496,233 (126.1%)** |
+| rows larger / smaller / identical | — | 20,598 / 6,155 / 8,118 |
+
+**Going blind raises household grams by about a quarter**, median row ratio 1.154. The
+matching is therefore pulling households toward *smaller* units on balance — which is
+what you would expect if purchases skew to the cheap end of each NSU, and is the substance
+of what the blind file gives up.
+
+Two asymmetries are deliberate and asserted in `28_match_and_convert.do` §6b:
+
+- **A11 spelling-gap refusals survive.** The objection is that the household's NSU label
+  may not name the object the market survey weighed; that is unaffected by removing the
+  price match, so those 304 rows are refused in both files.
+- **"unique price" refusals do not.** That refusal says a price point had no weighing
+  behind it — an obstacle only the price match faces. 148 rows are legitimately served in
+  the blind file and refused in the headline one.
+
+The five-column key is not optional: 65 cells hold both a gram and a millilitre reading,
+and `corrected_unit` is what keeps those apart. The ladder still climbs — 1,473 cells
+serve themselves, 474 borrow their province, 25 the region, 14 get nothing — so both files
+cover the same cells.
 
 **Not build steps, and still open:** #20 (approach A vs B, needs `psps_converted_capped.dta`),
 #11 (compare the two lookups' household grams — both are built).
