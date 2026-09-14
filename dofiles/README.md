@@ -434,6 +434,27 @@ unique price). It passes only because ₱380 has no weighing behind it, so `n_po
 is 3 and the household matching ₱380 is refused rather than cut against. A vintage that
 weighs that fourth point reaches the guard for real.
 
+**How far the pile-up actually goes, and what stops it.** Four is the live maximum after
+the merge, not the ceiling of the problem:
+
+| stage | max points in one case |
+| :-- | --: |
+| raw price points, as the price file supplies them | **11** |
+| after the ₱20 single-linkage merge | 4 |
+| convertible — points with a weighing behind them, which is what the cut sees | 3 |
+
+**Two mechanisms in series hold the cut at three, and neither was designed as a bound.**
+The merge reduces the point count in 358 cases; the convertibility filter removes the
+rest. Twenty cases carry 4 or more raw points, and **17 of those 20 fold two or more
+spellings** — so harmonization really is the driver at the top end, which is what #21
+said. The exception is the largest case of all: NEGROS OCCIDENTAL / PONTEVEDRA / cabbage
+/ `pieces or units` reaches 11 raw points from a **single** spelling, `bilog`, whose
+municipal quotes simply span a wide range. Eight of them collapse into one ₱33.28 point.
+
+The margin to the guard is therefore one unweighed price point, in one case. If that
+concerns you, the lever is `PMERGE`, not the cut: a wider tolerance merges more and pulls
+the maximum down; a narrower one pushes cases into the guard.
+
 ### The hetero-blind pair: what the price/size matching is worth
 
 `outcome2_lookup_heteroblind.dta`/`.csv` and `psps_grams_heteroblind.dta`/`.csv` are the

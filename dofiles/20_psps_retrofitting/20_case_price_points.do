@@ -28,12 +28,22 @@
 * record a municipal price separately when it is within PHP 20 of the province median, and
 * collapses quartiles to the median alone when both quartile gaps are within PHP 20.
 *
-* KNOWN AND ACCEPTED INCONSISTENCY. The merge applies only where harmonization pooled more
-* than one weighed spelling. A single-spelling case keeps its points as recorded however
-* close they are, and 452 of 959 single-spelling quartile triples have an adjacent gap of
-* PHP 20 or less. So identical gaps are merged in one case and kept in another. The rule is
-* scoped to what the fold created and leaves the price file's own output alone; extending
-* it would touch 452 cases and is a different decision.
+* THE MERGE IS UNCONDITIONAL, and this paragraph used to say the opposite. It described a
+* "known and accepted inconsistency" -- that the merge applied only where harmonization
+* pooled more than one weighed spelling, so identical gaps were merged in one case and
+* kept in another. The code below carries no such condition: it is keyed on
+* (province, municipality, item, harmonized unit) and nothing else, so it fires wherever
+* two values sit within PHP `PMERGE'.
+*
+* Measured on the current build: the merge fires on 272 SINGLE-SPELLING cells, which is
+* exactly the population the old note said it left alone. The inconsistency it warned
+* about no longer exists -- the rule is uniform. That is the better state; it simply was
+* never written down, and a reader following the old note would have mis-stated what the
+* build does to a third of its merges.
+*
+* What this means substantively: the tolerance is applied to the PRICE FILE's own output
+* as well as to what the fold created. Two quotes within PHP 20 become one point whether
+* they arrived from two spellings or from one spelling's own quartile triple.
 *
 * ==============================================================================
 * THE unique_mun_price ARM -- decided, and it is what unblocked this file
