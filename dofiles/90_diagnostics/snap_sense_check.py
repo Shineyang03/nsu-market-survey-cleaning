@@ -237,9 +237,12 @@ d["size_points_to"] = _closer(d.cell_median_size)
 d["medians_disagree"] = (d.pooled_points_to.notna() & d.size_points_to.notna()
                          & (d.pooled_points_to != d.size_points_to))
 
-d["anchor_implausible"] = d.anchor_says.notna() & (
-    (d.anchor_says < WFLOOR) | (d.anchor_says > WCEIL))
-d["rule_used"] = np.where(d.anchor_implausible, "block (anchor rejected)", "anchor")
+# `rule_used' AND `anchor_implausible' ARE GONE. rule_used re-derived which rule decided
+# a row from whether the anchor was inside the plausibility bounds -- a second copy of a
+# fact the build already publishes as `snap_rule', and once STEP 3e-v-b landed, a WRONG
+# copy: it reported "anchor" for every row whose anchor happened to be plausible, when
+# the block reading is published on those rows regardless. Read snap_rule; it is in COLS
+# below. A diagnostic reads the quantity the pipeline computed and never recomputes it.
 
 # hetero_group sits beside `cell' because it is what splits a cell into rows: on the
 # size-based branch it is the field's small/medium/large label, on the price-quantity
@@ -256,7 +259,7 @@ d["rule_used"] = np.where(d.anchor_implausible, "block (anchor rejected)", "anch
 COLS = ["id","cell","hetero_group","approach","unit","weight",
         "block_says","anchor_says","published","final_weight","final_differs",
         "snap_rule","snap_referee",
-        "rule_used","cell_median","n_cell_agreeing","x_from_median",
+        "cell_median","n_cell_agreeing","x_from_median",
         "cell_median_size","n_size_agreeing","x_from_median_size","medians_disagree",
         "review_step1","cleaning_notes"]
 
@@ -529,18 +532,19 @@ if (_conf > 1).any():
 # The workbook above is still written; only the LEDGER write is refused, because that is
 # the artefact a build reads. Reconcile the listed keys -- or confirm the rows really are
 # gone and remove the verdicts deliberately -- then re-run.
+# THE GUARD SKIPS THE WRITE; IT DOES NOT EXIT HERE. Raising at this point would abort
+# before the workbook is written, so the one artefact a reviewer needs in order to
+# RECONCILE the unmatched keys would be the thing the guard withheld. The script
+# continues, writes the workbook, and exits non-zero at the very end.
 if _unmatched:
-    raise SystemExit(
-        f"REFUSING TO WRITE THE LEDGER: {len(_unmatched)} prior verdict(s) match no row "
-        "in this build, and rewriting would delete them.\n"
-        "  The workbook was written; the ledger was not.\n"
-        "  Reconcile these keys, or remove the verdicts deliberately, then re-run:\n"
-        + "\n".join(f"    {k}" for k in sorted(_unmatched)))
-
-_out.sort_values(_ck).to_csv(LEDGER, index=False, encoding="utf-8")
-print(f"\nwrote {LEDGER}: {len(_out)} verdict(s) on {_conf.size} content key(s)")
-print(_out.chose.str.replace(r"raw-weight default.*", "raw-weight default",
-                             regex=True).value_counts().to_string())
+    print(f"\nREFUSING TO WRITE THE LEDGER: {len(_unmatched)} prior verdict(s) match no "
+          "row in this build, and rewriting would delete them.")
+    print(f"  {LEDGER} is left exactly as it was. The workbook is still written below.")
+else:
+    _out.sort_values(_ck).to_csv(LEDGER, index=False, encoding="utf-8")
+    print(f"\nwrote {LEDGER}: {len(_out)} verdict(s) on {_conf.size} content key(s)")
+    print(_out.chose.str.replace(r"raw-weight default.*", "raw-weight default",
+                                 regex=True).value_counts().to_string())
 
 
 def _landed(row):
@@ -579,132 +583,70 @@ def _landed(row):
 d["verdict_landed"] = d.apply(_landed, axis=1)
 
 # ---- what still needs a human ------------------------------------------------
-# Two populations, and they are different problems.
+# REWRITTEN FOR THE RULE THE PIPELINE NOW USES. The old triage asked whether a PROVINCE
+# pool had refereed a row into publishing the anchor while the row's own cell preferred
+# the block reading. That question cannot arise any more: STEP 3e-v-b publishes the block
+# reading wherever it is a possible reading, so no pool of any kind can put the anchor on
+# a row that has one. The old flag selected several hundred rows; every one of them now
+# publishes the block reading, which is what the reviewer chose 200 times out of 227.
+#
+# Two populations are left, and they really are different problems.
 #
 #   a) a verdict was given and did not land. A bug, and it publishes a wrong number.
-#   b) the anchor published, a PROVINCE pool refereed it, and the block reading sits
-#      closer to the row's OWN cell median in decades. "Default to the block" only
-#      fires where the referee is undecided; where the province pool has an opinion
-#      the anchor still wins, and for units whose local meaning varies that pool is
-#      the wrong authority (issue #28).
-# Against the value that SHIPS, not 04's answer. `published' is pre-05, so a row the
-# review already adjudicated to the block reading still looks anchor-published there
-# and would be handed back for review a second time. final_says is post-05.
-_anchor_won = d.final_says.round(6).eq(d.anchor_says.round(6))
-_prov = d.snap_referee.astype(str).str.startswith("prov")
-_disagree = d.anchor_says.round(6).ne(d.block_says.round(6))
-
-# ROUND 2 SETTLED THE OTHER HALF OF THIS. Every row where a province pool published
-# the anchor while the block reading sat closer to the row's OWN cell was reviewed,
-# and all 34 were adjudicated to the block. That is now STEP 3e-ii-b in
-# 04_unit_snap.do, so those rows no longer reach this flag.
+#   b) the published weight is NOT the block reading and no hand decision put it there.
+#      Under the current rule that means the block reading was missing or impossible and
+#      the anchor decided -- the only rows a rule genuinely cannot settle.
 #
-# What is left is the mirror image: a province pool published the anchor and the row's
-# own cell AGREES with it. The local evidence does not contradict the province here,
-# so the round-2 argument does not reach these -- but they were never looked at, and
-# they are the largest remaining block of anchor-published rows. Round 3.
+# Judged against the value that SHIPS, not 04's answer: `published' is pre-05, so a row
+# the review already adjudicated still looks rule-published there and would be handed
+# back a second time. `final_says' is post-05.
+_no_block = d.block_says.isna() | ~d.block_says.between(WFLOOR, WCEIL)
+_anchor_decided = d.final_says.round(6).eq(d.anchor_says.round(6)) & _no_block
+
 d["needs_review"] = ""
-d.loc[_anchor_won & _prov & _disagree, "needs_review"] = \
-    "province refereed, anchor published -- own cell does not contradict it"
+d.loc[_anchor_decided, "needs_review"] = \
+    "no usable block reading -- the anchor decided this row"
 
-# A ROW THE REVIEW HAS ALREADY SETTLED MUST NOT COME BACK. Switching the triage to
-# `final_says' stopped that for verdicts adopting the BLOCK reading, but not for
-# verdicts adopting the ANCHOR: there `final_says == anchor_says` is exactly what the
-# flag tests, so the condition stays true however many times a human confirms it. All
-# 15 anchor verdicts from round 2 were handed back in round 3 for that reason.
-#
-# The flag cannot distinguish "the anchor won because the algorithm chose it" from
-# "because the reviewer chose it" -- so the verdict, not the flag, decides.
+# A ROW THE REVIEW HAS ALREADY SETTLED MUST NOT COME BACK. The flag cannot distinguish
+# "the anchor won because the rule chose it" from "because the reviewer chose it", so the
+# verdict, not the flag, decides. All 15 anchor verdicts from round 2 were handed back in
+# round 3 before this line existed.
 d.loc[d.verdict_landed.astype(str).str.strip().eq("yes"), "needs_review"] = ""
 
 d.loc[d.verdict_landed.astype(str).str.startswith("NO"), "needs_review"] = \
     "PRIOR VERDICT NOT APPLIED"
 
-# The shape of the raw number is the evidence the round-1 rules turn on ("a whole
-# number should follow block_says"; "a shared 0.xxx structure is the market's
-# convention"). Surfaced as a column so a reviewer can sort on it rather than reading
-# it off `weight' one row at a time.
-d["raw_shape"] = np.where(d.weight.isna(), "",
-    np.where(d.weight < 1, "sub-1 decimal (0.xxx)",
-             np.where(d.weight.eq(d.weight.round()), "whole number", "decimal")))
-
 # ---- a proposed verdict, so the reviewer edits rather than starts blank ---------
-# This applies the reviewer's OWN round-1 rules to the rows still outstanding. Those
-# rules exist in 04_unit_snap.do as 3e-iii and 3e-iv, but only as FALLBACKS: they are
-# guarded by `if missing(_pick_block)', so they never fire on a row that rule 1 has
-# already decided. On these rows rule 1 always decides, using a province pool.
+# GREATLY REDUCED, because the rules it used to apply are gone. It previously
+# re-implemented 04's 3e-iii and 3e-iv -- "a whole number was typed as-is", "a sub-1
+# decimal repeated in the cell is a convention" -- to propose a value on rows a province
+# referee had decided. Both of those rules were deleted from 04 once STEP 3e-v-b made
+# them unable to change a published weight, and a workbook proposing values from a rule
+# the pipeline no longer contains is worse than proposing nothing: it arrives carrying an
+# authority it does not have.
 #
-# The proposal is therefore: where the ONLY referee available is a province pool, let
-# the shape of the raw number outrank it. A whole number typed as-is, or a sub-1
-# decimal repeated within the cell, is evidence about THIS reading; a province median
-# is evidence about other municipalities.
-#
-# NOT IMPLEMENTED, and deliberately so -- it would flip published weights on rows
-# nobody has looked at. It is a column in a workbook, for a human to agree with or not.
-_sub1_in_cell = (d.weight.lt(1) & d.weight.notna()).groupby(d.cell).transform("sum")
-
+# What a row on this sheet now has is a missing or impossible block reading. There is no
+# rule left to propose from, so the proposal is the honest one -- the anchor's value,
+# which is what shipped -- and the reviewer is told that is all the evidence there is.
 d["proposed_value"] = np.nan
 d["proposed_why"] = ""
 
-# Every row still needing a decision gets a proposal -- including the ones flagged
-# PRIOR VERDICT NOT APPLIED, which previously got none. A row showing an unapplied
-# verdict and no proposal reads as emptier than it is; the reviewer has to reconstruct
-# what the candidates were.
-_out = d.needs_review.ne("")
+# A row carrying a LANDED verdict is not proposed against: the proposal does not consult
+# prior_verdict, so on a settled row it can contradict a decision already made. It did,
+# on 3 of the 15 anchor verdicts, proposing 350 g for an ice-cream small cup the reviewer
+# had put at 35 g.
+_out = d.needs_review.ne("") & ~d.verdict_landed.astype(str).str.strip().eq("yes")
 
-# A row carrying a LANDED verdict is not proposed against. The proposal machinery does
-# not consult prior_verdict, so on a settled row it can contradict a decision already
-# made -- it did, on 3 of the 15 anchor verdicts, proposing 350 g for an ice-cream
-# small cup the reviewer had put at 35 g.
-_settled = d.verdict_landed.astype(str).str.strip().eq("yes")
-_out = _out & ~_settled
-
-_whole = _out & d.raw_shape.eq("whole number")
-d.loc[_whole, "proposed_value"] = d.loc[_whole, "block_says"]
-d.loc[_whole, "proposed_why"] = "round-1: a whole number was typed as-is"
-
-_dec = _out & d.raw_shape.eq("sub-1 decimal (0.xxx)") & _sub1_in_cell.ge(2)
-d.loc[_dec, "proposed_value"] = d.loc[_dec, "block_says"]
-d.loc[_dec, "proposed_why"] = "round-1: 0.xxx repeated in this cell, a convention"
-
-_keep = _out & d.proposed_value.isna()
-d.loc[_keep, "proposed_value"] = d.loc[_keep, "published"]
-d.loc[_keep, "proposed_why"] = "no round-1 rule reaches it -- province referee stands"
-
-# THE PLAUSIBILITY GATE APPLIES TO A PROPOSAL TOO, and leaving it off was a real bug
-# rather than a tidiness point. The "0.xxx repeated in the cell is a convention"
-# argument assumes multiplying by 1,000 lands somewhere sensible. It does for 0.275 ->
-# 275 g. It does NOT for 0.001175, which is a six-decade slip, not a three-decade
-# convention: the block reading there is 1 g.
-#
-# Ten of the 185 proposals were outside [WFLOOR, WCEIL], and one of them was ILOILO /
-# BADIANGAN chicken `whole (chicken)' -- the ONE GRAM WHOLE CHICKEN that was the
-# headline defect on issue #31. A proposal that reinstates a fixed bug is worse than
-# no proposal, because it arrives carrying a rule's authority.
-#
-# 04_unit_snap.do already applies these bounds last (3e-vi), so the pipeline would
-# have rejected these anyway. The failure was showing a reviewer a number the pipeline
-# would never publish.
-_prop_bad = _out & d.proposed_value.notna() & (
-    d.proposed_value.lt(WFLOOR) | d.proposed_value.gt(WCEIL))
-_alt_ok = d.published.between(WFLOOR, WCEIL)
-_revert = _prop_bad & _alt_ok
-# Guarded: an empty slice makes the string concat below fail on dtype rather than
-# no-op, and the slice IS empty once every implausible row has been settled by review.
-if int(_revert.sum()):
-    d.loc[_revert, "proposed_value"] = d.loc[_revert, "published"]
-    d.loc[_revert, "proposed_why"] = (
-        "round-1 rule REJECTED: block reading is implausible ("
-        + d.loc[_revert, "block_says"].map(lambda v: f"{v:g}")
-        + f" outside [{WFLOOR}, {WCEIL}]) -- keeping the anchor")
-    print(f"\n{int(_revert.sum())} proposal(s) reverted by the plausibility gate")
+d.loc[_out, "proposed_value"] = d.loc[_out, "published"]
+d.loc[_out, "proposed_why"] = (
+    "no usable block reading -- the anchor's value is the only candidate")
 
 # Blank column for the reviewer to fill in. Pre-created so annotation happens in
 # place and the next run can read it back through the same content key.
 d["Corrected Value"] = ""
 
 RCOLS = (COLS[:COLS.index("final_weight")]
-         + ["final_says", "adjusted_by", "raw_shape"]
+         + ["final_says", "adjusted_by"]
          + COLS[COLS.index("final_weight"):COLS.index("review_step1")]
          + ["prior_verdict", "verdict_landed", "needs_review",
             "proposed_value", "proposed_why", "Corrected Value"]
@@ -720,9 +662,13 @@ d["adjusted_by"] = np.where(
     np.where(d.final_differs, "05 -- hand correction",
              np.where(d.published.round(1) != d.base.round(1), "04 -- snap", "")))
 
+# `disagreements' IS NO LONGER A QUEUE, and the sheet's meaning changed with the rule.
+# These are rows where the two readings differ by a decade -- but the block reading is
+# published on every one of them, so nothing here is awaiting a decision. Read it as
+# "a plausible alternative reading exists a decade away", which is exactly what the
+# published d_disputed flag says, laid out with the cell context behind it.
 dis = d[(d.anchor_says != d.block_says) & d.published.notna()]
 dis = dis.sort_values("x_from_median", ascending=False)
-gate = d[d.anchor_implausible]
 
 ref_new = pd.read_stata(DELIV/"nsu_reference_set.dta", convert_categoricals=False)
 
@@ -743,9 +689,13 @@ todo = todo.sort_values(["_order", "x_from_median"], ascending=[True, False])
 with pd.ExcelWriter(OUT) as w:
     todo[RCOLS].to_excel(w, sheet_name="to_review", index=False)
     dis[RCOLS].to_excel(w, sheet_name="disagreements", index=False)
-    gate[RCOLS].to_excel(w, sheet_name="gate_overrules", index=False)
     ref_new.to_excel(w, sheet_name="reference_set_now", index=False)
     allw[RCOLS].to_excel(w, sheet_name="all_weighings", index=False)
+    # `gate_overrules' IS GONE. It held the rows where the anchor was rejected as
+    # implausible and the block reading published instead. 03a_block_reading.do's
+    # misplaced-decimal repair removed the class of rows that populated it, and under
+    # STEP 3e-v-b the block reading is published whether or not the anchor is plausible,
+    # so the sheet described a contest that no longer takes place.
 
 print(f"\nprior verdicts matched to a current row : {int(d.prior_verdict.notna().sum())}")
 print(d.verdict_landed[d.verdict_landed.ne("")].value_counts().to_string())
@@ -767,10 +717,10 @@ print(f"  anchor closer : {int((da < db).sum()):,}")
 print(f"  block  closer : {int((db < da).sum()):,}")
 print("  (a region-wide anchor cannot see local variation -- see issue #28)")
 print()
-print(f"rows where the two rules disagree : {len(dis):,}")
-print(f"  anchor published                : {(dis.rule_used=='anchor').sum():,}")
-print(f"  block published (anchor rejected): {(dis.rule_used!='anchor').sum():,}")
-print(f"cells with a disagreement         : {dis.cell.nunique():,}")
+print(f"rows where the two readings disagree : {len(dis):,}")
+print("  which rule set the published weight, from the build's own snap_rule:")
+print(dis.snap_rule.astype(str).value_counts().to_string())
+print(f"cells with a disagreement            : {dis.cell.nunique():,}")
 print(f"all_weighings sheet               : {len(allw):,} rows, "
       f"{allw.cell.nunique():,} cells")
 print("  (that is every weighing reaching 04_unit_snap, BEFORE 07_cpi_factor drops")
@@ -781,3 +731,14 @@ print(f"\nfurthest from the cell median (check these first):")
 top = dis.head(12)[["cell","weight","block_says","anchor_says","published","cell_median"]]
 print(top.to_string(index=False))
 print(f"\nwrote {OUT}")
+
+# THE DEFERRED FAILURE. The workbook exists now, so a reviewer can go and look at the
+# unmatched keys -- but the run did not do what it says on the tin, and a caller must not
+# read a zero exit as "the ledger is current". Raised last, deliberately.
+if _unmatched:
+    raise SystemExit(
+        f"\nFAILED: {len(_unmatched)} prior verdict(s) match no row in this build, so "
+        f"{LEDGER} was NOT rewritten and is still the previous round's file.\n"
+        "The workbook above IS current -- use it to reconcile these keys, or remove the "
+        "verdicts deliberately, then re-run:\n"
+        + "\n".join(f"  {k}" for k in sorted(_unmatched)))

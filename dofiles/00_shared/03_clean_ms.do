@@ -441,6 +441,34 @@ if `n_nonnsu' > 0 {
 drop if _m_dropped == 3
 drop _m_dropped xw_cleaned_nsu_unit xw_harmonized_nsu_unit drop_reason
 
+* ---- THE GUARD THAT MAKES 03a's LITRE BRANCH SAFE ---------------------------------
+* 03a_block_reading.do reads a litre-ticked weight of 10 or more as MILLILITRES as typed,
+* so a genuine 20 L container would become 20 mL. Its own comment calls that "accidental
+* protection, not a guard": the branch is safe only because the one item sold in
+* multi-litre units -- drinking water in containers, whose readings run from a 500 mL
+* bottle to a 10 L gallon -- is removed by the exclusion immediately above.
+*
+* That is a dependency on the ORDER of two files, and nothing was checking it. Move this
+* exclusion below 03a, or add a new multi-litre item to the survey, and a gallon silently
+* publishes as 20 mL. Asserted here rather than in 03a because 03a reads only `id',
+* `weight' and `unit' -- that it consults no other column is what makes the fold test
+* built on w_block non-circular, and buying a guard by weakening it is a bad trade.
+*
+* The 15 litre-ticked rows currently at or above 10 are small ice cream and crackers
+* `putos' of 35-85 mL: the tick is wrong, the number is right, and reading them as
+* millilitres is correct. None is a container.
+count if unit == 3 & weight >= 10 & !missing(weight) ///
+	& strpos(lower(pull_item), "water") > 0
+if r(N) > 0 {
+	di as err "03_clean_ms.do: " r(N) " litre-ticked water row(s) of 10 or more survive"
+	di as err "to 03a_block_reading.do, which will read them as millilitres as typed."
+	di as err "A 10 L gallon would publish as 10 mL. Either the non-NSU exclusion above"
+	di as err "no longer removes them, or this file now runs after 03a. Fix the order."
+	list pull_province pull_municipal_city pull_item pull_nsu_unit weight ///
+		if unit == 3 & weight >= 10 & strpos(lower(pull_item), "water") > 0, noobs
+	exit 459
+}
+
 merge m:1 pull_province pull_municipal_city pull_item pull_nsu_unit ///
 	using "${btemp}\master_rename_ms", keep(1 3) gen(_m_rename)
 
