@@ -762,7 +762,8 @@ reported unconvertible, never imputed and never redirected to another point.
 
 **Rests on it.** 238 points in 210 cases, of which the live ones are the **199 on the size-based
 branch** — the 28 price-quantity and 11 conventional points are inert, because neither branch
-consults a price-file point. At household level it is **117 rows** refused.
+consults a price-file point. At household level it is **148 rows** refused, and **every one is on
+the size-based branch**, which is what "the 199 are the live ones" predicts.
 
 **Status: DECIDED.** Settled on **#23**, where three parts of the project had been treating a
 unique price three incompatible ways.
@@ -777,6 +778,42 @@ would answer a different question at a price still known to be atypical.
 **The refused point is not removed from matching**, and that is the load-bearing half. A household
 matches the *nearest* point, so deleting the unique price would push it onto the province median and
 convert it silently. Keeping the point and refusing it is what makes the household visible.
+
+### What "refused" declines to do, stated explicitly
+
+On the size-based branch nothing is weighed against a price point. The weights are **pooled and
+cut**, and `k_use = n_points_conv` — the number of points *with a weighing behind them*. An
+unconvertible unique price is therefore left out of the cut and receives **no moment at all**: not a
+tercile, not a median, nothing. It is not that no weighing was elicited against it; no weighing is
+elicited against any point on this branch.
+
+Worked example — ILOILO / CARLES / loaf bread / `large packs`, 3 points, 5 weighings:
+
+| point | source | in the cut? | `w_g` |
+| --: | :-- | :-- | --: |
+| ₱76.33 | mp25 + mp50 + prov median, merged | yes | 450 g |
+| **₱120.00** | **unique price** | **no** | — |
+| ₱180.00 | mp75 | yes | 635 g |
+
+`n_points = 3`, `n_points_conv = 2`. The weights are cut in two, and ₱120 — sitting *between* the
+two surviving points — gets nothing.
+
+**So the only way to serve such a household is linear extrapolation from a different point.** A
+matched size-based row converts by `CF_h = p_h / v_g` (`28_match_and_convert.do`: `cf_h = p_h /
+v_use` wherever `branch != 1`), which is linear in the household's own price. Giving the
+unique-price household a number means pairing its price with some *other* point's pesos-per-gram and
+extending the ray out to it.
+
+**That is declined, for a reason specific to this population.** The price file does not record a
+municipal price separately when it is within ₱20 of the province median, so every unique price that
+survives as its own point is already far from the centre — gap median ₱55, p75 ₱130, max ₱1,110. The
+extrapolation would therefore be the longest in the dataset, on the rows where it is least
+supported, with **A18**'s cap (`t = 5`) as the only thing bounding it.
+
+**And the base to extrapolate from is usually a single number.** Of the 177 size-based cases holding
+a unique price, **171 collapse to one convertible point** — so the case has no size structure left
+either, and the ray would be drawn from one pooled median. That is the real cost of this rule, and
+it is larger than the 148 refused household rows suggest.
 
 **No case is emptied.** A unique price always accompanies another point — 347 of 351 carry a
 province median, the other 4 a full quartile triple — asserted in the code rather than assumed.

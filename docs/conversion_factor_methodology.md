@@ -106,7 +106,7 @@ flowchart TD
     S1 -->|"mp25 / mp50 / mp75"| S3["Pool the S/M/L weights, cut into terciles:<br/>lowest third -> mp25, middle -> mp50, top -> mp75.<br/>CF_h = p_h · w_g / p_g"]
     S1 -->|"municipality median"| S2m["Median weight across sizes, within the case.<br/>One weight, paired with the municipal median price."]
     S1 -->|"province median"| S2p["Median weight across sizes AND municipalities,<br/>within the province. Paired with the province<br/>median price. Output row is still per municipality."]
-    S1 -->|"unique_mun_price"| SU["Never occurs alone: 350 cases carry a<br/>province median alongside it, 4 carry the<br/>full mp25/50/75 triple instead.<br/>See data_oddities.md."]
+    S1 -->|"unique_mun_price"| SU["EXCLUDED FROM THE CUT. k_use counts only<br/>points with a weighing, so this point gets<br/>no tercile and no median -- not even when it<br/>sits between two surviving points.<br/>Never occurs alone: 350 cases carry a province<br/>median alongside it, 4 the full triple.<br/>A household matching it is REFUSED (148 rows).<br/>See A16."]
 
     S3 --> PI["NO weight adjustment on this branch.<br/>w_psps = w_g. Grams carry no price round."]
     S2m --> PI

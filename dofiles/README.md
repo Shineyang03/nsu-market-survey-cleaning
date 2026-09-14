@@ -405,6 +405,17 @@ price types on its own.
 | `10_size_assignment.do` §2b-ii | **Outcome 1** | **Halts on duplicate quartile labels.** §2b's repair works for medians because they all map to `medium`, leaving `small` and `large` free; `mp25`/`mp50`/`mp75` already occupy all three rungs, so two `mp25` points at different prices have nowhere to go. Widen `PMERGE` or revisit the fold — both decisions above this file. Zero occurrences now; see A2 |
 | `20_case_price_points.do` §7 (A11) | Outcome 2 | **Refuses the tail.** A priced-but-unweighed spelling more than **2.0×** from its cell's weighed price is not converted; 304 household rows are refused on this |
 
+**A related refusal, easy to misread.** On the **size-based** branch nothing is weighed
+against a price point — the weights are pooled and cut, and `k_use` counts only points that
+have a weighing behind them. A `unique_mun_price` point therefore gets **no moment at all**,
+even when it sits between two surviving points, and the 148 households matching it are
+refused rather than converted. Serving them would mean extrapolating linearly from another
+point's pesos-per-gram (`CF_h = p_h / v_g`) out to a price the price file only recorded
+*because* it was more than ₱20 from the median — the longest rays in the dataset, on the
+rows least able to support them. **A16** carries the reasoning and a worked example; note
+that 171 of the 177 affected cases collapse to a single convertible point, so they lose
+their size structure too.
+
 **This matters for Outcome 1 — it is not an Outcome 2 problem only.** Without §2b, the two
 live cases published a single averaged row: at NEGROS OCCIDENTAL / VALLADOLID a 325 g group
 and a 780 g group became one 425 g `medium`, with nothing on the row saying two genuinely
