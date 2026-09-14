@@ -269,7 +269,7 @@ tab k_use, m
 * a household's grams can say how questioned the weight behind them was (#35). Summed
 * here, at the only grain where the weighings are still visible.
 collapse (median) w_g = corrected_weight (count) n_g = corrected_weight ///
-         (sum) n_disputed = d_disputed n_flagged = d_step1_flagged ///
+         (sum) n_disputed = d_disputed ///
                n_uncertain = d_any_uncertain ///
          (first) branch d_reclassified k_use n_points_conv, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
@@ -424,7 +424,6 @@ gen long   n_g = .
 * that does not exist. The append below would fill an absent column with missing anyway;
 * writing it explicitly is what makes the distinction deliberate rather than incidental.
 gen long   n_disputed  = .
-gen long   n_flagged   = .
 gen long   n_uncertain = .
 gen double v_g = .
 gen double cpi_factor_g = 1

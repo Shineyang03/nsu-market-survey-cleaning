@@ -78,7 +78,7 @@ use "${btemp}\branch_price_quantity_m", clear
 gen double w_use = w_g_m
 gen double v_use = v_g_m
 keep `keyvars' branch group_id psps_month p_g w_g w_use v_use n_g n_points ///
-     n_disputed n_flagged n_uncertain ///
+     n_disputed n_uncertain ///
      hetero_code infl_factor n_cpi_vals
 gen byte d_point_usable = 1
 gen byte d_reclassified = 0
@@ -89,7 +89,7 @@ use "${btemp}\branch_size_based", clear
 gen double w_use = w_g
 gen double v_use = v_g
 keep `keyvars' branch group_id p_g w_g w_use v_use n_g n_points ///
-     n_disputed n_flagged n_uncertain ///
+     n_disputed n_uncertain ///
      d_point_usable unusable_why d_reclassified k_use n_filled n_empty conv_rank
 tempfile lk_s
 save "`lk_s'"
@@ -98,7 +98,7 @@ use "${btemp}\branch_conventional", clear
 gen double w_use = w_g
 gen double v_use = .
 keep `keyvars' branch group_id p_g w_g w_use v_use n_g n_points d_reclassified ///
-     n_disputed n_flagged n_uncertain
+     n_disputed n_uncertain
 gen byte d_point_usable = 1
 tempfile lk_c
 save "`lk_c'"
@@ -148,7 +148,6 @@ assert branch == 3 if d_reclassified == 1
 * So: wherever there is a weight, there must be a count of how much of it was questioned.
 assert !missing(n_uncertain) if !missing(n_g)
 assert !missing(n_disputed)  if !missing(n_g)
-assert !missing(n_flagged)   if !missing(n_g)
 
 * And the converse. A row with no weighings behind it -- Branch S's unusable points --
 * must NOT carry a zero, which would read as "none of its weighings was questioned"
@@ -158,8 +157,11 @@ assert missing(n_uncertain) if missing(n_g)
 * Bounded by the weighings they count within, and the OR is between the max of its parts
 * and their sum. Re-stated here because the append is what could break it.
 assert n_uncertain <= n_g if !missing(n_g)
-assert n_uncertain >= max(n_disputed, n_flagged) if !missing(n_g)
-assert n_uncertain <= n_disputed + n_flagged if !missing(n_g)
+* n_uncertain counts exactly the disputed weighings since d_step1_flagged was retired in
+* 08_branch.do. Left as two bounds rather than one equality so a future third component
+* is caught here rather than silently absorbed.
+assert n_uncertain >= n_disputed if !missing(n_g)
+assert n_uncertain <= n_disputed if !missing(n_g)
 
 gen double share_uncertain = n_uncertain / n_g
 assert inrange(share_uncertain, 0, 1) if !missing(share_uncertain)
@@ -188,7 +190,6 @@ label var w_use "grams (or mL) per NSU this row converts at -- restated on Branc
 label var v_use "PHP per gram; a household receives p_h / v_use grams per NSU"
 label var branch "1 conventional, 2 price-quantity, 3 size-based (see 08_branch.do)"
 label var n_disputed      "weighings behind w_g where the two snap rules disagreed"
-label var n_flagged       "weighings behind w_g the anchor machinery distrusted"
 label var n_uncertain     "weighings behind w_g that are disputed or anchor-flagged"
 label var share_uncertain "n_uncertain / n_g; 1 = nothing behind this weight went unquestioned"
 def_hetero
@@ -220,7 +221,7 @@ use "${btemp}\branch_price_quantity", clear
 gen double w_use = w_g
 gen double v_use = v_g
 keep `keyvars' branch group_id p_g w_g w_use v_use n_g n_points hetero_code ///
-     n_disputed n_flagged n_uncertain
+     n_disputed n_uncertain
 gen byte d_point_usable = 1
 gen byte d_reclassified = 0
 tempfile nk_p
@@ -245,7 +246,6 @@ format share_uncertain %5.3f
 
 label var w_use "grams per NSU, NO inflation adjustment anywhere -- issue #11's variant"
 label var n_disputed      "weighings behind w_g where the two snap rules disagreed"
-label var n_flagged       "weighings behind w_g the anchor machinery distrusted"
 label var n_uncertain     "weighings behind w_g that are disputed or anchor-flagged"
 label var share_uncertain "n_uncertain / n_g; 1 = nothing behind this weight went unquestioned"
 label values branch branchlbl

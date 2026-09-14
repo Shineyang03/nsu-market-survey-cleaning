@@ -497,14 +497,21 @@ what the field actually did.
 
 | | weighings | share |
 |---|---|---|
-| **any of the three below** | **1,742** | 15.2% |
-| disputed — the rules disagreed and the block reading won | 607 | 5.3% |
-| the anchor machinery distrusted its own answer | 1,500 | 13.1% |
-| no defensible reading — weight is `.c` | 12 | 0.1% |
+| **either of the two below** | **950** | 8.4% |
+| disputed — the two readings differ by a decade | 942 | 8.3% |
+| no defensible reading — weight is `.c` | 8 | 0.1% |
 
-These are three different things needing different follow-up, so they are not summed into
-one error rate. A disputed row has two defensible readings; a flagged row has one the
-anchor is unsure of; an unusable row has none.
+These are two different things needing different follow-up, so they are not summed into
+one error rate. A disputed row has two defensible readings; an unusable row has none.
+
+**A third flag was retired, and the headline figure fell from 1,934 to 950 as a result.**
+`d_step1_flagged` said the anchor machinery distrusted its own answer — a low anchor, a
+sibling-reference disagreement, an ambiguous snap distance, a pool too small. Each is a
+statement about the *anchor's* confidence in a decade shift, and the anchor no longer
+performs one: the block reading is published wherever it is possible, so the anchor
+decides 5 rows. The flag covered 1,473 weighings and was 76% of the total, which meant
+the published uncertainty measure was dominated by a computation that does not run. The
+figure was inflated; the data did not get cleaner.
 
 `dofiles/90_diagnostics/report_weight_corrections.py` writes this per weighing, including
 which rule decided it and which pool refereed it, and the pipeline explorer carries the
@@ -1583,9 +1590,8 @@ published rows say so.
 
 | column | on | means |
 | :-- | :-- | :-- |
-| `n_disputed` | reference set, Outcome 2 lookup | weighings behind the estimate where the two snap rules disagreed |
-| `n_flagged` | reference set, Outcome 2 lookup | weighings the anchor machinery distrusted |
-| `n_uncertain` | reference set, Outcome 2 lookup | either of the above; the union, not the sum |
+| `n_disputed` | reference set, Outcome 2 lookup | weighings behind the estimate where the two snap readings differ |
+| `n_uncertain` | reference set, Outcome 2 lookup | disputed or unusable; the union, not the sum |
 | `share_uncertain` | all three outputs | `n_uncertain / n_g` |
 | `nu_used` | converted household rows | of `n_g_used`, how many were questioned — **at the fallback rung that actually supplied the weight**, not at the household's own cell |
 

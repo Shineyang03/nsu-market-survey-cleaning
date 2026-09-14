@@ -120,7 +120,7 @@ restore
 use "`refbody'", clear
 
 collapse (median) grams = corrected_weight (count) n_g = corrected_weight ///
-         (sum) n_disputed = d_disputed n_flagged = d_step1_flagged ///
+         (sum) n_disputed = d_disputed ///
                n_uncertain = d_any_uncertain ///
          (first) weighing_approach branch d_reclassified, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
@@ -223,7 +223,7 @@ preserve
 	* a weighing can sit in more than one rung, and re-reading is the only reading that
 	* cannot drift from the gram value beside it.
 	collapse (median) grams = corrected_weight (count) n_g = corrected_weight ///
-	         (sum) n_disputed = d_disputed n_flagged = d_step1_flagged ///
+	         (sum) n_disputed = d_disputed ///
 	               n_uncertain = d_any_uncertain ///
 	         (first) weighing_approach branch d_reclassified, ///
 	         by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
@@ -315,7 +315,6 @@ label var size_ord "size"
 gen double share_uncertain = n_uncertain / n_g
 
 label var n_disputed      "weighings behind this estimate where the two snap rules disagreed"
-label var n_flagged       "weighings behind this estimate the anchor machinery distrusted"
 label var n_uncertain     "weighings behind this estimate that are disputed or anchor-flagged"
 label var share_uncertain "n_uncertain / n_g; 1 = nothing behind this estimate went unquestioned"
 
@@ -429,15 +428,17 @@ assert inlist(size_ord, 2, 4) if d_reclassified == 1
 * would mean the collapse summed a different set of rows from the one it counted -- the
 * exact failure that makes a share meaningless while still printing a plausible number.
 assert n_disputed  <= n_g
-assert n_flagged   <= n_g
 assert n_uncertain <= n_g
 
 * n_uncertain is the OR of the parts, so it is at least as large as each and no larger
 * than their sum. Stated at the published grain as well as at the weighing grain in
 * 08_branch.do, because the collapse is what could break the relationship.
 assert n_uncertain >= n_disputed
-assert n_uncertain >= n_flagged
-assert n_uncertain <= n_disputed + n_flagged
+* n_uncertain now counts exactly the disputed weighings, since d_step1_flagged was
+* retired in 08_branch.do. Kept as two statements rather than one equality so that a
+* future third component is caught rather than silently absorbed.
+assert n_uncertain >= n_disputed
+assert n_uncertain <= n_disputed
 
 * The share is a reading of the two columns beside it and nothing else, and it is the
 * column a reader will actually filter on.

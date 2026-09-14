@@ -130,7 +130,7 @@ di as res "    #11  compare the two lookups' household grams; both are now built
 di as res ""
 di as res "  THE UNCERTAINTY IS CARRIED THROUGH (#35). Roughly one weighing in seven is"
 di as res "  disputed, anchor-flagged or unusable. 08_branch.do defines the four flags"
-di as res "  from build columns; the lookup carries n_disputed / n_flagged / n_uncertain"
+di as res "  from build columns; the lookup carries n_disputed / n_uncertain"
 di as res "  / share_uncertain, and every converted household row carries nu_used at the"
 di as res "  rung that actually supplied its weight. Nothing is dropped or down-weighted"
 di as res "  -- read share_uncertain against n_g and set your own tolerance. A20."

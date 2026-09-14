@@ -225,9 +225,9 @@ price-file row was a different problem, resolved by dropping an ambiguous label 
 It counts rows, and a row count is not the whole of what a reader needs.
 
 **The uncertainty attached to a weight is carried separately, and it is carried.** Roughly
-one weighing in seven is disputed, anchor-flagged or unusable. `08_branch.do` defines the
-four flags from build columns, and both deliverables publish them per row — the reference
-set and the Outcome 2 lookup as `n_disputed` / `n_flagged` / `n_uncertain` /
+one weighing in twelve is disputed or unusable. `08_branch.do` defines the
+three flags from build columns, and both deliverables publish them per row — the reference
+set and the Outcome 2 lookup as `n_disputed` / `n_uncertain` /
 `share_uncertain`, and every converted household row as `nu_used` at the fallback rung that
 supplied its weight. See A20 and issue #35. This ledger does not aggregate those counts,
 because a stage total would mix weighings that were questioned with weighings that were

@@ -227,7 +227,7 @@ already reads `${btemp}` or `${btables}` needed no edit at all.
 | `05_manual_corrections.do` | every hand-made weight/unit fix. §1–5 are one block per correction, each asserting its row count; **§6 applies the review ledger**, `reference/reviewed/snap_verdicts.csv`, which is where the bulk of the adjudicated decisions now live. See *Adjudicating a weight* below. |
 | `06_cpi_panel.do` | province × item-group × month CPI panel, plus the item crosswalk and the spec's validation report. Stata port of a retired Python step (`archive/06_cpi_panel.py`), verified against its output before the switch |
 | `07_cpi_factor.do` | drops 98 price-quantity rows whose recorded price was not the price handed over — 71 vendor-priced (a further 23 are rescued where they were the case's only rung) and 27 where the vendor gave no price at all. **The only place those rows are dropped, and both outcomes depend on it.** Builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |
-| `08_branch.do` | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`, and **owns the four uncertainty flags** (`d_unusable`, `d_disputed`, `d_step1_flagged`, `d_any_uncertain`) that both deliverables publish — see *The uncertainty is carried through* below. Wired into both masters. |
+| `08_branch.do` | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`, and **owns the three uncertainty flags** (`d_unusable`, `d_disputed`, `d_any_uncertain`) that both deliverables publish — a fourth, `d_step1_flagged`, was retired because it described the anchor's confidence in a decade shift the anchor no longer performs — see *The uncertainty is carried through* below. Wired into both masters. |
 
 **Two shared MODULES live in `00_shared/` alongside the steps.** Nothing runs them; they
 are imported, and they are where two decision rules are defined once so no caller can
@@ -527,8 +527,8 @@ neither can re-implement it differently.
 
 | output | columns |
 |---|---|
-| reference set | `n_disputed`, `n_flagged`, `n_uncertain`, `share_uncertain` |
-| `outcome2_lookup` (and the no-inflation variant) | the same four |
+| reference set | `n_disputed`, `n_uncertain`, `share_uncertain` |
+| `outcome2_lookup` (and the no-inflation variant) | the same three |
 | converted household rows | `nu_used`, `share_uncertain`, taken **at the fallback rung that supplied the weight** |
 
 That last row is the part that needed care. A household served by a province pool must

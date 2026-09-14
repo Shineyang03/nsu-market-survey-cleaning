@@ -1661,8 +1661,6 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
             unc.append("unusable (no defensible reading, weight is .c)")
         if int(getattr(row, 'd_disputed', 0) or 0) == 1:
             unc.append("disputed (the two snap rules gave different readings)")
-        if int(getattr(row, 'd_step1_flagged', 0) or 0) == 1:
-            unc.append("anchor-flagged (the snap distrusted its own answer)")
         rec["d_any_uncertain"] = int(getattr(row, 'd_any_uncertain', 0) or 0)
         if unc:
             notes.append("Weight questioned: " + "; ".join(unc)

@@ -156,4 +156,4 @@ applicable*, the same way you would read a blank `price_case_id` on an `MS & Pri
 | `conv_rank` | Which rung of the fallback ladder supplied this row. `0` is a same-cell match; `1`–`3` are borrowed rungs, widening from municipality to province to item. Blank where no weighing stands behind the row. |
 | `w_use`, `v_use` | The weight used, and the value per gram derived from it (`v = p_g / w_g`). `v_use` is what a household price is divided by to get grams. |
 | `d_point_usable`, `unusable_why` | Whether the price point can carry a conversion, and if not, why. 495 of 3,750 rows are unusable and say so rather than being dropped. |
-| `n_g`, `n_disputed`, `n_flagged`, `n_uncertain`, `share_uncertain` | How many weighings stand behind the row, and how many of them were questioned. `share_uncertain == 1` is the sharp signal — nothing behind the estimate went unquestioned. See A20. |
+| `n_g`, `n_disputed`, `n_uncertain`, `share_uncertain` | How many weighings stand behind the row, and how many of them were questioned. `share_uncertain == 1` is the sharp signal — nothing behind the estimate went unquestioned. See A20. |

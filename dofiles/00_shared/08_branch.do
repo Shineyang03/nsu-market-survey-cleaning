@@ -148,7 +148,8 @@ drop _conv_here _other_here _mixed_pair _case _conv_in_case _other_in_case
 *
 *   d_unusable        no interpretation of the reading was defensible, so the weight is .c
 *   d_disputed        the two snap rules disagreed and one had to be chosen
-*   d_step1_flagged   the anchor machinery distrusted its own answer
+*   (d_step1_flagged  RETIRED -- it flagged the anchor's confidence in a decade shift the
+*                     anchor no longer performs. See the note at the definitions below.)
 *
 * NOTHING IS DERIVED HERE. Each flag is read off a column the build already carries --
 * `corrected_weight', `snap_block' and `review_step1' -- so this block records a decision
@@ -187,29 +188,50 @@ gen byte d_unusable      = missing(corrected_weight)
 * Where either candidate is MISSING the readings cannot be shown to agree, so the row
 * stays disputed. Conservative on purpose: 5 rows, and the alternative is silently
 * declaring a comparison settled that was never made.
-gen byte d_disputed = (snap_block == 1) & !d_unusable & ///
+* THE `snap_block == 1' TERM IS GONE, and dropping it changed nothing on this vintage.
+* Since STEP 3e-v-b publishes the block reading wherever it is possible, `snap_block' is
+* 1 on every row and the term was a no-op. Removing it also makes the flag mean exactly
+* what its label says: if the two readings differ, the row is disputed, whichever rule
+* published. Measured across the change: 942 rows either way.
+gen byte d_disputed = !d_unusable & ///
 	(missing(w_step1) | missing(w_block) | reldif(w_step1, w_block) > 1e-9)
 
-gen byte d_step1_flagged = (review_step1 == 1)
-gen byte d_any_uncertain = d_unusable | d_disputed | d_step1_flagged
+* `d_step1_flagged' WAS RETIRED HERE, and this note is why it is not simply missing.
+*
+* It read `review_step1 == 1' -- STEP 1's own flag, raised when the ANCHOR's pool looked
+* untrustworthy: a low anchor, a sibling-reference disagreement, an ambiguous snap
+* distance, a pool too small. Every one of those is a statement about the anchor's
+* confidence in its own decade shift.
+*
+* The anchor no longer sets a published weight. STEP 3e-v-b publishes the block reading
+* wherever it is a possible reading, so on this vintage the anchor decides 5 rows -- the
+* ones with no block reading at all. A flag saying "the anchor was unsure" therefore
+* describes a rule that did not produce the number, on 1,473 weighings, and it was 76% of
+* `d_any_uncertain'. It propagated into `n_flagged', `n_uncertain', `nu_used' and the
+* published `share_uncertain', so the deliverables carried an uncertainty measure
+* dominated by a computation that no longer runs.
+*
+* `d_any_uncertain' falls from 1,934 to about 950 as a result. That is a real reduction in
+* a published figure and is meant: the figure was inflated, not the data cleaner.
+* `review_step1' still exists on the build for diagnostics -- it is a true fact about
+* STEP 1 -- but nothing published reads it.
+gen byte d_any_uncertain = d_unusable | d_disputed
 
 label var d_unusable      "1 = no defensible reading; weight is .c"
-label var d_disputed      "1 = the two snap rules disagreed and one had to be chosen"
-label var d_step1_flagged "1 = the anchor machinery distrusted its own answer"
-label var d_any_uncertain "1 = disputed, anchor-flagged or unusable; see #35"
+label var d_disputed      "1 = the two snap readings differ and one had to be chosen"
+label var d_any_uncertain "1 = disputed or unusable; see #35"
 
 * The source columns must exist and must be the ones these flags claim to read. A missing
-* column would make `snap_block == 1' silently false for every row and publish a table
+* column would make the comparison silently false for every row and publish a table
 * saying nothing was ever disputed -- which is the failure this whole block exists to
 * prevent, arriving as a clean build.
-confirm numeric variable corrected_weight snap_block review_step1
+confirm numeric variable corrected_weight w_step1 w_block
 
 * d_any_uncertain is an OR, so it must be at least as large as each part and no larger
 * than their sum. Cheap, and it catches a future edit that turns the OR into an AND.
 assert d_any_uncertain >= d_unusable
 assert d_any_uncertain >= d_disputed
-assert d_any_uncertain >= d_step1_flagged
-assert d_any_uncertain <= d_unusable + d_disputed + d_step1_flagged
+assert d_any_uncertain <= d_unusable + d_disputed
 
 * An unusable weighing cannot also be disputed: there was no published value to dispute.
 assert !(d_unusable == 1 & d_disputed == 1)
@@ -217,7 +239,7 @@ assert !(d_unusable == 1 & d_disputed == 1)
 qui count
 local n_all = r(N)
 di as res _n "08_branch.do -- uncertainty flags on `n_all' priced weighings:"
-foreach v in d_unusable d_disputed d_step1_flagged d_any_uncertain {
+foreach v in d_unusable d_disputed d_any_uncertain {
 	qui count if `v' == 1
 	di as res "  " %-18s "`v'" %8.0fc r(N) "   " %5.1f 100 * r(N) / `n_all' "%"
 }

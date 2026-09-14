@@ -885,11 +885,16 @@ here is whatever the sort seed chose. Determinism is the point, not accuracy.
 | flag | means | source column |
 | :-- | :-- | :-- |
 | `d_unusable` | no reading was defensible, so the weight is `.c` | `corrected_weight` missing |
-| `d_disputed` | the two snap rules disagreed and one had to be chosen | `snap_block == 1` |
-| `d_step1_flagged` | the anchor machinery distrusted its own answer | `review_step1 == 1` |
+| `d_disputed` | the two snap readings differ and one had to be chosen | `w_step1` vs `w_block` |
 
-**Where.** Defined once in `08_branch.do`. Published as `n_disputed`, `n_flagged`,
-`n_uncertain` and `share_uncertain` on the reference set; as the same four columns on the
+**A third flag, `d_step1_flagged`, was retired.** It read `review_step1 == 1` — the
+anchor's own flag, raised when its pool looked untrustworthy. The anchor no longer sets a
+published weight, so the flag described a computation that does not run, on 1,473
+weighings and 76% of `d_any_uncertain`. Retiring it takes the headline from 1,934 to 950.
+`review_step1` still exists on the build as a diagnostic; nothing published reads it.
+
+**Where.** Defined once in `08_branch.do`. Published as `n_disputed`, `n_uncertain` and
+`share_uncertain` on the reference set; as the same three columns on the
 Outcome 2 lookup; and as `nu_used` / `share_uncertain` on every converted PSPS household row,
 taken at the fallback rung that actually supplied the weight.
 
