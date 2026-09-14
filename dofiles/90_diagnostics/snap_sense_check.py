@@ -712,7 +712,7 @@ print("scored against the LOCAL cell median, "
       f"{len(sc):,} disputed rows in cells with >=3 agreeing rows:")
 print(f"  anchor closer : {int((da < db).sum()):,}")
 print(f"  block  closer : {int((db < da).sum()):,}")
-print("  (a national anchor cannot see local variation -- see issue #28)")
+print("  (a region-wide anchor cannot see local variation -- see issue #28)")
 print()
 print(f"rows where the two rules disagree : {len(dis):,}")
 print(f"  anchor published                : {(dis.rule_used=='anchor').sum():,}")

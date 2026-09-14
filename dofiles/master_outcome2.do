@@ -88,7 +88,7 @@ di as res _n ">>> 25_lookup.do"
 do "20_psps_retrofitting/25_lookup.do"
 
 * ---- the fallback ladder -------------------------------------------------------
-* MUST PRECEDE 28. 28 climbs cell -> province -> national for the households the price
+* MUST PRECEDE 28. 28 climbs cell -> province -> regional for the households the price
 * match cannot serve, and this is what writes those three schedules.
 di as res _n ">>> 30_fallback.do"
 do "20_psps_retrofitting/30_fallback.do"

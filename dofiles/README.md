@@ -377,10 +377,10 @@ resolve.
 | `24_inflate_to_psps_month.do` | `w_g_m`, `v_g_m` per interview month — **Branch P only**, crossed with the months of its own municipality |
 | `25_lookup.do` | appends the three branches, and builds #11's no-inflation variant as a second file |
 | `27_standard_units.do` | kg / L / stated-quantity answers convert from the unit's own name, with no market-survey input (#14) |
-| `28_match_and_convert.do` | the household join: nearest point, tie on `v`, `CF_h`, `grams_h`. Climbs cell → province → national for the households the price match cannot serve |
+| `28_match_and_convert.do` | the household join: nearest point, tie on `v`, `CF_h`, `grams_h`. Climbs cell → province → regional for the households the price match cannot serve |
 | `29_cap.do` | clamps `p_h/p_g` to `[1/t, t]` and flags, `t = 5` (A18) |
 | `31_psps_grams.do` | **the single household-level deliverable.** Appends `psps_converted_capped.dta` (35,448 NSU rows) and `psps_standard_units.dta` (52,489 standard-unit rows) — they share 23 columns and do not overlap — and adds the 22 `conv_path == 3` rows (reach the crosswalk join, judged not an NSU at all) that ship in neither, so the row count reconciles to 20a's own 87,959, not to 87,937. Publishes `psps_grams.dta` and a labeled `psps_grams.csv` |
-| `30_fallback.do` | the **weight ladder**, three ways. Per (cell × size): **L0** the cell's own rung → **L1** the cell pooled across sizes → **L2** province × item × unit → **L3** item × unit nationally → unconvertible. Per cell, for when the price match fails. And **L2 and L3 on their own keys**, which is the only reading that can serve a cell the market survey never visited — #30's actual population, one PSPS observation in six |
+| `30_fallback.do` | the **weight ladder**, three ways. Per (cell × size): **L0** the cell's own rung → **L1** the cell pooled across sizes → **L2** province × item × unit → **L3** item × unit regionally → unconvertible. Per cell, for when the price match fails. And **L2 and L3 on their own keys**, which is the only reading that can serve a cell the market survey never visited — #30's actual population, one PSPS observation in six |
 
 **#30 was the gate and it is now built.** Note that its cost argument was written against a 14×
 cross-municipality spread; the corrected figure is **6.7×**, so read it against that.

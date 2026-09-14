@@ -156,15 +156,15 @@ number rather than as rows that quietly convert to nothing.
 
 | route | rows |
 |---|---|
-| matched price point | 28,961 |
-| fallback: province pool | 5,410 |
-| fallback: national pool | 361 |
-| fallback: cell pooled (an emptied part of the cut) | 184 |
+| matched price point | 28,875 |
+| fallback: province pool | 5,412 |
+| fallback: regional pool | 365 |
+| fallback: empty size part (an emptied part of the cut) | 241 |
 | refused: A11 spelling gap | 304 |
-| refused: unique price (A16) | 117 |
-| refused: nothing anywhere | 111 |
+| refused: unique price (A16) | 148 |
+| refused: nothing anywhere | 103 |
 
-By rung: **L0** 28,961 · **L1** 110 · **L2** 5,484 · **L3** 361. From L1 down the
+By rung: **L0** 28,875 · **L1** 131 · **L2** 5,522 · **L3** 365. From L1 down the
 household's own price is not used at all — every household in the cell receives the same
 grams whatever it paid (A15).
 

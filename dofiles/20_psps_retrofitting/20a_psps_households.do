@@ -116,7 +116,9 @@ global municipal_map "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\08 
 * GANTANG IS THE ONE UNIT WHERE A1 ACTUALLY HOLDS. A1 says conventional units are
 * standard within a locality and reports that claim FALSIFIED -- camote tops `bundle'
 * varies 6.7x across municipalities. A 1.7% spread across 7 is a different animal, and it
-* is what licenses a single national constant here where A1 forbids one everywhere else.
+* is what licenses a single sample-wide constant here where A1 forbids one everywhere else.
+* SAMPLE-WIDE, not national: the 7 municipalities are all Western Visayas, so the evidence
+* cannot speak to gantang outside this region.
 *
 * `ganta' gets the same factor as `gantang'. They are one object: the crosswalk folds raw
 * `ganta' to harmonized `gantang' (reference/unit_fold_map.csv, `safe-fold', n=28), and

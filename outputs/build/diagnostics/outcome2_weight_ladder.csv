@@ -22,7 +22,7 @@ fresh fish,AKLAN,ALTAVAS,pieces or units,g,small,95,3,2,3,95,3,2,387.5,62,22,390
 loaf bread,AKLAN,ALTAVAS,large packs,g,large,640,4,0,3,640,4,0,640,43,0,640,411,6,640,4,0,the cell's own weighings,0,0
 loaf bread,AKLAN,ALTAVAS,medium packs,g,medium,450,4,0,3,450,4,0,450,51,0,450,352,0,450,4,0,the cell's own weighings,0,0
 loaf bread,AKLAN,ALTAVAS,small packs,g,small,360,3,0,3,360,3,0,360,33,0,370,259,2,360,3,0,the cell's own weighings,0,0
-pork,AKLAN,ALTAVAS,slice,g,small,160,1,1,3,160,1,1,160,1,1,425,4,4,425,4,4,item x unit (national),0,1
+pork,AKLAN,ALTAVAS,slice,g,small,160,1,1,3,160,1,1,160,1,1,425,4,4,425,4,4,item x unit (regional),0,1
 "prawns, lobster, shrimp",AKLAN,ALTAVAS,tumpok,g,medium,135,3,0,1,135,3,0,290,23,5,260,147,27,135,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,ALTAVAS,pieces or units,g,medium,70,3,0,2,70,3,0,65,28,3,65,33,7,70,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,ALTAVAS,putos,g,small,240,2,0,3,305,4,1,300,81,7,250,473,60,305,4,1,cell pooled across sizes,0,.25
@@ -103,7 +103,7 @@ carrot,AKLAN,BURUANGA,pieces or units,g,large,237.5,4,2,3,130,13,2,145,195,31,14
 chicken,AKLAN,BURUANGA,pieces or units,g,medium,600,3,3,3,600,3,3,385,45,23,380,108,50,600,3,3,the cell's own weighings,0,1
 chicken,AKLAN,BURUANGA,whole (chicken),g,medium,1045,4,0,3,1160,7,0,1265,83,1,1120,468,2,1045,4,0,the cell's own weighings,0,0
 chicken,AKLAN,BURUANGA,whole (chicken),g,large,1325,3,0,3,1160,7,0,1265,83,1,1120,468,2,1325,3,0,the cell's own weighings,0,0
-"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,pack,g,medium,98,1,1,2,98,1,1,98,1,1,300,63,4,300,63,4,item x unit (national),0,.0634920634920635
+"crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,pack,g,medium,98,1,1,2,98,1,1,98,1,1,300,63,4,300,63,4,item x unit (regional),0,.0634920634920635
 "crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,g,small,290,8,5,2,265,24,12,280,93,55,210,482,249,290,8,5,the cell's own weighings,0,.625
 "crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,g,medium,90,8,0,2,265,24,12,280,93,55,210,482,249,90,8,0,the cell's own weighings,0,0
 "crackers, cookies, buiscuits, chips/curls",AKLAN,BURUANGA,putos,g,large,300,8,7,2,265,24,12,280,93,55,210,482,249,300,8,7,the cell's own weighings,0,.875
@@ -270,7 +270,7 @@ mango,AKLAN,MALAY,pieces or units,g,medium,230,6,0,3,230,15,0,230,77,0,230,539,1
 mango,AKLAN,MALAY,pieces or units,g,large,295,4,0,3,230,15,0,230,77,0,230,539,1,295,4,0,the cell's own weighings,0,0
 "prawns, lobster, shrimp",AKLAN,MALAY,tumpok,g,small,210,3,0,3,265,5,1,290,23,5,260,147,27,265,5,1,cell pooled across sizes,0,.2
 "prawns, lobster, shrimp",AKLAN,MALAY,tumpok,g,medium,425,2,1,3,265,5,1,290,23,5,260,147,27,265,5,1,cell pooled across sizes,0,.2
-"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,bilog,g,medium,235,2,1,2,235,2,1,235,2,1,229,222,91,229,222,91,item x unit (national),0,.4099099099099099
+"preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,bilog,g,medium,235,2,1,2,235,2,1,235,2,1,229,222,91,229,222,91,item x unit (regional),0,.4099099099099099
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,g,small,275,7,0,2,330,14,0,300,81,7,250,473,60,275,7,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",AKLAN,MALAY,putos,g,medium,360,7,0,2,330,14,0,300,81,7,250,473,60,360,7,0,the cell's own weighings,0,0
 cabbage,AKLAN,MALINAO,pieces or units,g,small,410,3,0,3,655,9,0,722.5,226,14,655,1306,73,655,9,0,cell pooled across sizes,0,0
@@ -524,18 +524,18 @@ carrot,ANTIQUE,HAMTIC,pieces or units,g,medium,177.5,10,0,3,175,27,3,145,201,27,
 carrot,ANTIQUE,HAMTIC,pieces or units,g,large,230,8,3,3,175,27,3,145,201,27,140,1169,152,230,8,3,the cell's own weighings,0,.375
 chicken,ANTIQUE,HAMTIC,whole (chicken),g,medium,940,3,0,3,1150,5,0,1105,65,0,1120,468,2,1150,5,0,cell pooled across sizes,0,0
 chicken,ANTIQUE,HAMTIC,whole (chicken),g,large,1270,2,0,3,1150,5,0,1105,65,0,1120,468,2,1150,5,0,cell pooled across sizes,0,0
-"crackers, cookies, buiscuits, chips/curls",ANTIQUE,HAMTIC,bucket,g,medium,1400,1,0,3,1400,1,0,1400,1,0,1500,7,1,1500,7,1,item x unit (national),0,.1428571428571428
+"crackers, cookies, buiscuits, chips/curls",ANTIQUE,HAMTIC,bucket,g,medium,1400,1,0,3,1400,1,0,1400,1,0,1500,7,1,1500,7,1,item x unit (regional),0,.1428571428571428
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,HAMTIC,pack,g,small,220,5,1,3,280,15,3,300,25,3,300,63,4,220,5,1,the cell's own weighings,0,.2
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,HAMTIC,pack,g,medium,300,6,0,3,280,15,3,300,25,3,300,63,4,300,6,0,the cell's own weighings,0,0
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,HAMTIC,pack,g,large,500,4,2,3,280,15,3,300,25,3,300,63,4,500,4,2,the cell's own weighings,0,.5
-"drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,HAMTIC,pieces or units,g,medium,500,1,0,3,500,1,0,375,2,0,450,25,1,450,25,1,item x unit (national),0,.04
+"drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,HAMTIC,pieces or units,g,medium,500,1,0,3,500,1,0,375,2,0,450,25,1,450,25,1,item x unit (regional),0,.04
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,HAMTIC,pieces or units,mL,small,162.5,8,4,3,195,16,4,310,80,21,355,164,34,162.5,8,4,the cell's own weighings,0,.5
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,HAMTIC,pieces or units,mL,medium,235,4,0,3,195,16,4,310,80,21,355,164,34,235,4,0,the cell's own weighings,0,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,HAMTIC,pieces or units,mL,large,340,4,0,3,195,16,4,310,80,21,355,164,34,340,4,0,the cell's own weighings,0,0
 fresh fish,ANTIQUE,HAMTIC,pieces or units,g,small,450,4,0,3,685,12,7,490,87,45,390,685,213,450,4,0,the cell's own weighings,0,0
 fresh fish,ANTIQUE,HAMTIC,pieces or units,g,medium,700,5,4,3,685,12,7,490,87,45,390,685,213,700,5,4,the cell's own weighings,0,.8
 fresh fish,ANTIQUE,HAMTIC,pieces or units,g,large,850,3,3,3,685,12,7,490,87,45,390,685,213,850,3,3,the cell's own weighings,0,1
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,cone,mL,medium,105,2,0,2,105,2,0,105,2,0,110,25,2,110,25,2,item x unit (national),0,.08
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,cone,mL,medium,105,2,0,2,105,2,0,105,2,0,110,25,2,110,25,2,item x unit (regional),0,.08
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,pieces or units,g,small,80,1,0,3,80,1,0,90,9,0,60,94,12,90,9,0,province x item x unit,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,pieces or units,mL,small,115,1,0,3,115,1,0,110,33,0,100,166,4,110,33,0,province x item x unit,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,HAMTIC,putos,mL,medium,500,5,0,1,500,5,0,450,22,0,65,148,2,500,5,0,the cell's own weighings,0,0
@@ -642,7 +642,7 @@ chicken,ANTIQUE,PATNONGON,whole (chicken),g,large,1177.5,4,0,3,1177.5,4,0,1105,6
 fresh fish,ANTIQUE,PATNONGON,pieces or units,g,small,245,3,1,3,610,7,3,490,87,45,390,685,213,610,7,3,cell pooled across sizes,0,.4285714285714285
 fresh fish,ANTIQUE,PATNONGON,pieces or units,g,medium,717.5,2,1,3,610,7,3,490,87,45,390,685,213,610,7,3,cell pooled across sizes,0,.4285714285714285
 fresh fish,ANTIQUE,PATNONGON,pieces or units,g,large,2392.5,2,1,3,610,7,3,490,87,45,390,685,213,610,7,3,cell pooled across sizes,0,.4285714285714285
-fresh fish,ANTIQUE,PATNONGON,tumpok,g,medium,525,1,1,1,525,1,1,525,1,1,750,25,25,750,25,25,item x unit (national),0,1
+fresh fish,ANTIQUE,PATNONGON,tumpok,g,medium,525,1,1,1,525,1,1,525,1,1,750,25,25,750,25,25,item x unit (regional),0,1
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,PATNONGON,putos,g,medium,60,5,0,1,60,5,0,55.5,12,0,58,82,0,60,5,0,the cell's own weighings,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANTIQUE,PATNONGON,small cup,g,small,100,3,0,3,100,3,0,100,14,0,100,120,18,100,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ANTIQUE,PATNONGON,lipid/lapad,mL,medium,375,7,0,3,375,7,0,375,100,0,375,618,7,375,7,0,the cell's own weighings,0,0
@@ -700,7 +700,7 @@ chicken,ANTIQUE,SEBASTE,whole (chicken),g,medium,920,1,0,3,920,1,0,1105,65,0,112
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,SEBASTE,putos,g,small,25,5,5,3,55,13,6,125,105,52,210,482,249,25,5,5,the cell's own weighings,0,1
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,SEBASTE,putos,g,medium,62.5,4,1,3,55,13,6,125,105,52,210,482,249,62.5,4,1,the cell's own weighings,0,.25
 "crackers, cookies, buiscuits, chips/curls",ANTIQUE,SEBASTE,putos,g,large,99,4,0,3,55,13,6,125,105,52,210,482,249,99,4,0,the cell's own weighings,0,0
-"drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,SEBASTE,pieces or units,g,small,250,1,0,3,250,1,0,375,2,0,450,25,1,450,25,1,item x unit (national),0,.04
+"drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,SEBASTE,pieces or units,g,small,250,1,0,3,250,1,0,375,2,0,450,25,1,450,25,1,item x unit (regional),0,.04
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,SEBASTE,pieces or units,mL,small,182.5,4,1,3,320,12,2,310,80,21,355,164,34,182.5,4,1,the cell's own weighings,0,.25
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,SEBASTE,pieces or units,mL,medium,350,5,0,3,320,12,2,310,80,21,355,164,34,350,5,0,the cell's own weighings,0,0
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,SEBASTE,pieces or units,mL,large,500,3,1,3,320,12,2,310,80,21,355,164,34,500,3,1,the cell's own weighings,0,.3333333333333333
@@ -871,11 +871,11 @@ fresh fish,CAPIZ,CUARTERO,pieces or units,g,small,370,3,0,3,475,9,2,377.5,120,35
 fresh fish,CAPIZ,CUARTERO,pieces or units,g,medium,495,4,0,3,475,9,2,377.5,120,35,390,685,213,475,9,2,cell pooled across sizes,0,.2222222222222222
 fresh fish,CAPIZ,CUARTERO,pieces or units,g,large,797.5,2,2,3,475,9,2,377.5,120,35,390,685,213,475,9,2,cell pooled across sizes,0,.2222222222222222
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,cone,g,medium,100,1,0,2,100,1,0,105,4,0,107,14,2,105,4,0,province x item x unit,0,0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,cone,mL,medium,110,1,0,2,110,1,0,110,1,0,110,25,2,110,25,2,item x unit (national),0,.08
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,cone,mL,medium,110,1,0,2,110,1,0,110,1,0,110,25,2,110,25,2,item x unit (regional),0,.08
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,pieces or units,g,medium,395,1,1,2,395,1,1,47,6,3,60,94,12,47,6,3,province x item x unit,0,.5
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,putos,mL,medium,600,3,0,2,600,3,0,62.5,22,0,65,148,2,600,3,0,the cell's own weighings,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,tupperware,g,medium,1025,1,0,2,1025,1,0,1025,1,0,1025,1,0,,,,,1,
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,tupperware,mL,medium,1250,1,1,2,1250,1,1,1250,1,1,700,4,1,700,4,1,item x unit (national),0,.25
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,CUARTERO,tupperware,mL,medium,1250,1,1,2,1250,1,1,1250,1,1,700,4,1,700,4,1,item x unit (regional),0,.25
 "liquor (e.g, whisky, coconut wine)",CAPIZ,CUARTERO,lipid/lapad,mL,medium,375,4,0,3,375,4,0,375,103,3,375,618,7,375,4,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,CUARTERO,large packs,g,large,640,5,0,3,640,5,0,640,68,3,640,411,6,640,5,0,the cell's own weighings,0,0
 loaf bread,CAPIZ,CUARTERO,medium packs,g,medium,450,5,0,3,450,5,0,450,39,0,450,352,0,450,5,0,the cell's own weighings,0,0
@@ -1056,7 +1056,7 @@ mango,CAPIZ,JAMINDAN,pieces or units,g,medium,185,3,0,2,185,3,0,230,73,0,230,539
 "prawns, lobster, shrimp",CAPIZ,JAMINDAN,tumpok,g,medium,1000,1,0,1,1000,1,0,290,39,11,260,147,27,290,39,11,province x item x unit,0,.282051282051282
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,JAMINDAN,bilog,g,small,250,1,0,3,250,1,0,70,41,27,229,222,91,70,41,27,province x item x unit,0,.6585365853658537
 "preserved or processed meat (tocino, tapa, longaniza, etc)",CAPIZ,JAMINDAN,putos,g,medium,250,1,0,2,250,1,0,250,61,8,250,473,60,250,61,8,province x item x unit,0,.1311475409836066
-rice,CAPIZ,JAMINDAN,letse,g,conventional_nsu,430,1,1,1,430,1,1,430,1,1,425,3,3,425,3,3,item x unit (national),0,1
+rice,CAPIZ,JAMINDAN,letse,g,conventional_nsu,430,1,1,1,430,1,1,430,1,1,425,3,3,425,3,3,item x unit (regional),0,1
 cabbage,CAPIZ,MA-AYON,pack,g,medium,145,1,0,2,145,1,0,160,11,1,150,43,6,160,11,1,province x item x unit,0,.0909090909090909
 cabbage,CAPIZ,MA-AYON,pieces or units,g,small,580,3,0,3,700,9,0,695,169,9,655,1306,73,700,9,0,cell pooled across sizes,0,0
 cabbage,CAPIZ,MA-AYON,pieces or units,g,medium,705,4,0,3,700,9,0,695,169,9,655,1306,73,700,9,0,cell pooled across sizes,0,0
@@ -1079,7 +1079,7 @@ chicken,CAPIZ,MA-AYON,whole (chicken),g,large,1165,1,0,2,1080,3,0,1160,75,0,1120
 "crackers, cookies, buiscuits, chips/curls",CAPIZ,MA-AYON,putos,g,medium,330,1,1,3,300,6,4,287.5,54,37,210,482,249,300,6,4,cell pooled across sizes,0,.6666666666666666
 fresh fish,CAPIZ,MA-AYON,pieces or units,g,small,280,2,0,2,322.5,4,0,377.5,120,35,390,685,213,322.5,4,0,cell pooled across sizes,0,0
 fresh fish,CAPIZ,MA-AYON,pieces or units,g,medium,380,2,0,2,322.5,4,0,377.5,120,35,390,685,213,322.5,4,0,cell pooled across sizes,0,0
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,MA-AYON,putos,g,small,43,1,0,3,43,1,0,47.5,2,0,58,82,0,58,82,0,item x unit (national),0,0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,MA-AYON,putos,g,small,43,1,0,3,43,1,0,47.5,2,0,58,82,0,58,82,0,item x unit (regional),0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,MA-AYON,putos,mL,medium,70,1,0,3,70,1,0,62.5,22,0,65,148,2,62.5,22,0,province x item x unit,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,MA-AYON,small cup,mL,small,75,2,0,3,75,2,0,100,27,1,100,185,5,100,27,1,province x item x unit,0,.037037037037037
 "liquor (e.g, whisky, coconut wine)",CAPIZ,MA-AYON,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,103,3,375,618,7,375,6,0,the cell's own weighings,0,0
@@ -1105,7 +1105,7 @@ chicken,CAPIZ,MAMBUSAO,bilog,g,medium,1370,3,0,2,1272.5,6,0,1192.5,34,0,1095,230
 chicken,CAPIZ,MAMBUSAO,whole (chicken),g,small,1110,3,0,3,1195,9,0,1160,75,0,1120,468,2,1195,9,0,cell pooled across sizes,0,0
 chicken,CAPIZ,MAMBUSAO,whole (chicken),g,medium,1212.5,4,0,3,1195,9,0,1160,75,0,1120,468,2,1195,9,0,cell pooled across sizes,0,0
 chicken,CAPIZ,MAMBUSAO,whole (chicken),g,large,1430,2,0,3,1195,9,0,1160,75,0,1120,468,2,1195,9,0,cell pooled across sizes,0,0
-"crackers, cookies, buiscuits, chips/curls",CAPIZ,MAMBUSAO,bucket,g,medium,1500,1,0,2,1500,1,0,1500,1,0,1500,7,1,1500,7,1,item x unit (national),0,.1428571428571428
+"crackers, cookies, buiscuits, chips/curls",CAPIZ,MAMBUSAO,bucket,g,medium,1500,1,0,2,1500,1,0,1500,1,0,1500,7,1,1500,7,1,item x unit (regional),0,.1428571428571428
 "crackers, cookies, buiscuits, chips/curls",CAPIZ,MAMBUSAO,pieces or units,g,small,30,7,0,3,48,20,4,31.5,88,14,32,505,68,30,7,0,the cell's own weighings,0,0
 "crackers, cookies, buiscuits, chips/curls",CAPIZ,MAMBUSAO,pieces or units,g,medium,48,7,0,3,48,20,4,31.5,88,14,32,505,68,48,7,0,the cell's own weighings,0,0
 "crackers, cookies, buiscuits, chips/curls",CAPIZ,MAMBUSAO,pieces or units,g,large,90,6,4,3,48,20,4,31.5,88,14,32,505,68,90,6,4,the cell's own weighings,0,.6666666666666666
@@ -1115,7 +1115,7 @@ chicken,CAPIZ,MAMBUSAO,whole (chicken),g,large,1430,2,0,3,1195,9,0,1160,75,0,112
 fresh fish,CAPIZ,MAMBUSAO,pieces or units,g,small,145,3,1,3,370,9,2,377.5,120,35,390,685,213,370,9,2,cell pooled across sizes,0,.2222222222222222
 fresh fish,CAPIZ,MAMBUSAO,pieces or units,g,medium,395,4,0,3,370,9,2,377.5,120,35,390,685,213,370,9,2,cell pooled across sizes,0,.2222222222222222
 fresh fish,CAPIZ,MAMBUSAO,pieces or units,g,large,605,2,1,3,370,9,2,377.5,120,35,390,685,213,370,9,2,cell pooled across sizes,0,.2222222222222222
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,MAMBUSAO,bowl,g,small,560,1,1,3,560,1,1,560,1,1,720,3,3,720,3,3,item x unit (national),0,1
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,MAMBUSAO,bowl,g,small,560,1,1,3,560,1,1,560,1,1,720,3,3,720,3,3,item x unit (regional),0,1
 "liquor (e.g, whisky, coconut wine)",CAPIZ,MAMBUSAO,lipid/lapad,mL,medium,750,11,0,3,750,11,0,375,103,3,375,618,7,750,11,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",CAPIZ,MAMBUSAO,long-neck,mL,large,750,2,0,3,750,2,0,750,26,0,750,478,1,750,26,0,province x item x unit,0,0
 loaf bread,CAPIZ,MAMBUSAO,large packs,g,medium,475,6,0,3,500,9,0,640,68,3,640,411,6,475,6,0,the cell's own weighings,0,0
@@ -1312,7 +1312,7 @@ chicken,CAPIZ,SAPI-AN,whole (chicken),g,large,1490,1,0,3,1135,6,0,1160,75,0,1120
 fresh fish,CAPIZ,SAPI-AN,pieces or units,g,small,95,3,3,3,195,9,5,377.5,120,35,390,685,213,195,9,5,cell pooled across sizes,0,.5555555555555556
 fresh fish,CAPIZ,SAPI-AN,pieces or units,g,medium,220,4,0,3,195,9,5,377.5,120,35,390,685,213,195,9,5,cell pooled across sizes,0,.5555555555555556
 fresh fish,CAPIZ,SAPI-AN,pieces or units,g,large,762.5,2,2,3,195,9,5,377.5,120,35,390,685,213,195,9,5,cell pooled across sizes,0,.5555555555555556
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,SAPI-AN,putos,g,medium,52,1,0,2,52,1,0,47.5,2,0,58,82,0,58,82,0,item x unit (national),0,0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,SAPI-AN,putos,g,medium,52,1,0,2,52,1,0,47.5,2,0,58,82,0,58,82,0,item x unit (regional),0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,SAPI-AN,putos,mL,medium,65,3,0,2,65,3,0,62.5,22,0,65,148,2,65,3,0,the cell's own weighings,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CAPIZ,SAPI-AN,small cup,mL,small,100,3,0,3,100,3,0,100,27,1,100,185,5,100,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",CAPIZ,SAPI-AN,lipid/lapad,mL,medium,375,6,0,3,375,6,0,375,103,3,375,618,7,375,6,0,the cell's own weighings,0,0
@@ -1408,8 +1408,8 @@ fresh fish,ILOILO,AJUY,pieces or units,g,large,595,2,0,3,490,4,0,390,368,102,390
 fresh fish,ILOILO,AJUY,tumpok,g,small,412.5,2,2,3,627.5,6,6,750,24,24,750,25,25,627.5,6,6,cell pooled across sizes,0,1
 fresh fish,ILOILO,AJUY,tumpok,g,medium,695,3,3,3,627.5,6,6,750,24,24,750,25,25,627.5,6,6,cell pooled across sizes,0,1
 fresh fish,ILOILO,AJUY,tumpok,g,large,1080,1,1,3,627.5,6,6,750,24,24,750,25,25,627.5,6,6,cell pooled across sizes,0,1
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,AJUY,bowl,g,medium,720,1,1,3,815,2,2,815,2,2,720,3,3,720,3,3,item x unit (national),0,1
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,AJUY,bowl,g,large,910,1,1,3,815,2,2,815,2,2,720,3,3,720,3,3,item x unit (national),0,1
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,AJUY,bowl,g,medium,720,1,1,3,815,2,2,815,2,2,720,3,3,720,3,3,item x unit (regional),0,1
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,AJUY,bowl,g,large,910,1,1,3,815,2,2,815,2,2,720,3,3,720,3,3,item x unit (regional),0,1
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,AJUY,cone,g,medium,65,1,0,3,65,1,0,107,10,2,107,14,2,107,10,2,province x item x unit,0,.2
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,AJUY,putos,g,medium,65,1,0,3,65,1,0,60,52,0,58,82,0,60,52,0,province x item x unit,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,AJUY,small cup,g,small,60,1,0,3,65,3,0,100,71,15,100,120,18,65,3,0,cell pooled across sizes,0,0
@@ -1632,7 +1632,7 @@ mango,ILOILO,BAROTAC NUEVO,pieces or units,g,medium,280,3,0,2,280,3,0,230,289,0,
 "prawns, lobster, shrimp",ILOILO,BAROTAC NUEVO,tumpok,g,small,240,1,0,3,240,1,0,250,55,10,260,147,27,250,55,10,province x item x unit,0,.1818181818181818
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,BAROTAC NUEVO,putos,g,small,250,3,0,3,625,6,3,250,182,29,250,473,60,250,3,0,the cell's own weighings,0,0
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,BAROTAC NUEVO,putos,g,large,1000,3,3,3,625,6,3,250,182,29,250,473,60,1000,3,3,the cell's own weighings,0,1
-rice,ILOILO,BAROTAC NUEVO,letse,g,conventional_nsu,425,1,1,1,425,1,1,425,2,2,425,3,3,425,3,3,item x unit (national),0,1
+rice,ILOILO,BAROTAC NUEVO,letse,g,conventional_nsu,425,1,1,1,425,1,1,425,2,2,425,3,3,425,3,3,item x unit (regional),0,1
 beef,ILOILO,BAROTAC VIEJO,half,g,small,517.5,2,2,3,517.5,2,2,517.5,2,2,517.5,2,2,,,,,1,
 cabbage,ILOILO,BAROTAC VIEJO,pack,g,small,152.5,2,0,3,152.5,2,0,135,26,1,150,43,6,135,26,1,province x item x unit,0,.0384615384615385
 cabbage,ILOILO,BAROTAC VIEJO,pieces or units,g,small,450,3,0,3,645,9,0,660,543,32,655,1306,73,645,9,0,cell pooled across sizes,0,0
@@ -1710,7 +1710,7 @@ mango,ILOILO,BATAD,pieces or units,g,large,350,2,0,3,255,9,0,230,289,0,230,539,1
 "prawns, lobster, shrimp",ILOILO,BATAD,tumpok,g,large,505,1,1,3,260,5,1,250,55,10,260,147,27,260,5,1,cell pooled across sizes,0,.2
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,BATAD,bilog,g,large,70,2,2,3,70,2,2,250,116,33,229,222,91,250,116,33,province x item x unit,0,.2844827586206897
 "preserved or processed meat (tocino, tapa, longaniza, etc)",ILOILO,BATAD,pack,g,medium,250,8,1,3,250,8,1,250,70,12,250,85,12,250,8,1,the cell's own weighings,0,.125
-rice,ILOILO,BATAD,letse,g,conventional_nsu,425,1,1,1,425,1,1,425,2,2,425,3,3,425,3,3,item x unit (national),0,1
+rice,ILOILO,BATAD,letse,g,conventional_nsu,425,1,1,1,425,1,1,425,2,2,425,3,3,425,3,3,item x unit (regional),0,1
 cabbage,ILOILO,BINGAWAN,pieces or units,g,small,385,8,2,3,680,23,2,660,543,32,655,1306,73,385,8,2,the cell's own weighings,0,.25
 cabbage,ILOILO,BINGAWAN,pieces or units,g,medium,680,8,0,3,680,23,2,660,543,32,655,1306,73,680,8,0,the cell's own weighings,0,0
 cabbage,ILOILO,BINGAWAN,pieces or units,g,large,910,7,0,3,680,23,2,660,543,32,655,1306,73,910,7,0,the cell's own weighings,0,0
@@ -1808,7 +1808,7 @@ chicken,ILOILO,CALINOG,whole (chicken),g,large,1195,1,0,3,1032.5,6,1,1035,180,1,
 fresh fish,ILOILO,CALINOG,pieces or units,g,small,235,6,0,3,370,17,3,390,368,102,390,685,213,235,6,0,the cell's own weighings,0,0
 fresh fish,ILOILO,CALINOG,pieces or units,g,medium,377.5,6,0,3,370,17,3,390,368,102,390,685,213,377.5,6,0,the cell's own weighings,0,0
 fresh fish,ILOILO,CALINOG,pieces or units,g,large,635,5,3,3,370,17,3,390,368,102,390,685,213,635,5,3,the cell's own weighings,0,.6
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,CALINOG,pack,g,small,450,1,0,3,450,1,0,450,1,0,65,4,3,65,4,3,item x unit (national),0,.75
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,CALINOG,pack,g,small,450,1,0,3,450,1,0,450,1,0,65,4,3,65,4,3,item x unit (regional),0,.75
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,CALINOG,pack,mL,small,600,3,0,3,600,3,0,600,6,0,600,6,0,600,3,0,the cell's own weighings,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,CALINOG,putos,g,medium,120,1,0,3,120,1,0,60,52,0,58,82,0,60,52,0,province x item x unit,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,CALINOG,small cup,mL,small,100,3,0,3,100,3,0,100,75,2,100,185,5,100,3,0,the cell's own weighings,0,0
@@ -2200,7 +2200,7 @@ fresh fish,ILOILO,LEGANES,pieces or units,g,large,676,2,1,3,260,9,3,390,368,102,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,LEGANES,pieces or units,mL,medium,80,1,0,3,65,3,0,100,60,0,100,166,4,65,3,0,cell pooled across sizes,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,LEGANES,small cup,g,small,100,1,0,3,100,1,0,100,71,15,100,120,18,100,71,15,province x item x unit,0,.2112676056338028
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,LEGANES,small cup,mL,small,110,1,0,3,110,1,0,100,75,2,100,185,5,100,75,2,province x item x unit,0,.0266666666666667
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,LEGANES,tupperware,mL,medium,700,1,0,3,700,1,0,700,1,0,700,4,1,700,4,1,item x unit (national),0,.25
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,LEGANES,tupperware,mL,medium,700,1,0,3,700,1,0,700,1,0,700,4,1,700,4,1,item x unit (regional),0,.25
 "liquor (e.g, whisky, coconut wine)",ILOILO,LEGANES,lipid/lapad,mL,small,375,6,0,3,375,11,0,375,267,4,375,618,7,375,6,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",ILOILO,LEGANES,lipid/lapad,mL,medium,750,5,0,3,375,11,0,375,267,4,375,618,7,750,5,0,the cell's own weighings,0,0
 loaf bread,ILOILO,LEGANES,large packs,g,small,405,4,0,3,450,7,0,640,188,1,640,411,6,405,4,0,the cell's own weighings,0,0
@@ -2540,7 +2540,7 @@ mango,ILOILO,SAN DIONISIO,pieces or units,g,large,300,1,0,3,220,4,0,230,289,0,23
 cabbage,ILOILO,SAN ENRIQUE,pieces or units,g,small,675,5,0,3,815,13,1,660,543,32,655,1306,73,675,5,0,the cell's own weighings,0,0
 cabbage,ILOILO,SAN ENRIQUE,pieces or units,g,medium,860,4,0,3,815,13,1,660,543,32,655,1306,73,860,4,0,the cell's own weighings,0,0
 cabbage,ILOILO,SAN ENRIQUE,pieces or units,g,large,1090,4,1,3,815,13,1,660,543,32,655,1306,73,1090,4,1,the cell's own weighings,0,.25
-cabbage,ILOILO,SAN ENRIQUE,small packs,g,small,100,2,2,3,100,2,2,100,2,2,190,5,5,190,5,5,item x unit (national),0,1
+cabbage,ILOILO,SAN ENRIQUE,small packs,g,small,100,2,2,3,100,2,2,100,2,2,190,5,5,190,5,5,item x unit (regional),0,1
 camote,ILOILO,SAN ENRIQUE,bilog,g,small,75,3,1,3,112.5,8,4,140,296,116,140,509,195,112.5,8,4,cell pooled across sizes,0,.5
 camote,ILOILO,SAN ENRIQUE,bilog,g,medium,130,3,1,3,112.5,8,4,140,296,116,140,509,195,112.5,8,4,cell pooled across sizes,0,.5
 camote,ILOILO,SAN ENRIQUE,bilog,g,large,285,2,2,3,112.5,8,4,140,296,116,140,509,195,112.5,8,4,cell pooled across sizes,0,.5
@@ -2768,7 +2768,7 @@ chicken,ILOILO,TIGBAUAN,bilog,g,small,810,3,0,3,1132.5,8,0,1072.5,130,0,1095,230
 chicken,ILOILO,TIGBAUAN,bilog,g,medium,1150,3,0,3,1132.5,8,0,1072.5,130,0,1095,230,3,1132.5,8,0,cell pooled across sizes,0,0
 chicken,ILOILO,TIGBAUAN,bilog,g,large,1385,2,0,3,1132.5,8,0,1072.5,130,0,1095,230,3,1132.5,8,0,cell pooled across sizes,0,0
 chicken,ILOILO,TIGBAUAN,pieces or units,g,medium,670,4,3,2,670,4,3,395,13,6,380,108,50,670,4,3,the cell's own weighings,0,.75
-chicken,ILOILO,TIGBAUAN,slice,g,medium,122.5,2,0,2,122.5,2,0,122.5,2,0,225,11,0,225,11,0,item x unit (national),0,0
+chicken,ILOILO,TIGBAUAN,slice,g,medium,122.5,2,0,2,122.5,2,0,122.5,2,0,225,11,0,225,11,0,item x unit (regional),0,0
 chicken,ILOILO,TIGBAUAN,whole (chicken),g,small,1015,5,0,3,1015,9,0,1035,180,1,1120,468,2,1015,9,0,cell pooled across sizes,0,0
 chicken,ILOILO,TIGBAUAN,whole (chicken),g,medium,1127.5,2,0,3,1015,9,0,1035,180,1,1120,468,2,1015,9,0,cell pooled across sizes,0,0
 chicken,ILOILO,TIGBAUAN,whole (chicken),g,large,1297.5,2,0,3,1015,9,0,1035,180,1,1120,468,2,1015,9,0,cell pooled across sizes,0,0
@@ -2915,7 +2915,7 @@ chicken,NEGROS OCCIDENTAL,CANDONI,whole (chicken),g,medium,1125,1,0,2,1272.5,2,0
 chicken,NEGROS OCCIDENTAL,CANDONI,whole (chicken),g,large,1420,1,0,2,1272.5,2,0,1120,65,0,1120,468,2,1120,65,0,province x item x unit,0,0
 "drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,CANDONI,pieces or units,mL,medium,355,3,0,3,355,3,0,500,10,1,355,164,34,355,3,0,the cell's own weighings,0,0
 fresh fish,NEGROS OCCIDENTAL,CANDONI,pieces or units,g,medium,460,1,0,2,460,1,0,342.5,48,9,390,685,213,342.5,48,9,province x item x unit,0,.1875
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,CANDONI,cone,mL,medium,100,2,0,3,100,2,0,100,2,0,110,25,2,110,25,2,item x unit (national),0,.08
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,CANDONI,cone,mL,medium,100,2,0,3,100,2,0,100,2,0,110,25,2,110,25,2,item x unit (regional),0,.08
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,CANDONI,putos,mL,small,60,3,0,3,60,3,0,60,24,1,65,148,2,60,3,0,the cell's own weighings,0,0
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,CANDONI,small cup,mL,small,100,3,0,3,100,3,0,100,33,2,100,185,5,100,3,0,the cell's own weighings,0,0
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,CANDONI,lipid/lapad,mL,medium,375,4,0,2,375,4,0,375,72,0,375,618,7,375,4,0,the cell's own weighings,0,0
@@ -2933,7 +2933,7 @@ camote tops,NEGROS OCCIDENTAL,CAUAYAN,bugkos,g,small,127.5,2,0,3,242.5,6,1,305,7
 camote tops,NEGROS OCCIDENTAL,CAUAYAN,bugkos,g,medium,265,3,0,3,242.5,6,1,305,74,31,195,449,63,242.5,6,1,cell pooled across sizes,0,.1666666666666667
 camote tops,NEGROS OCCIDENTAL,CAUAYAN,bugkos,g,large,505,1,1,3,242.5,6,1,305,74,31,195,449,63,242.5,6,1,cell pooled across sizes,0,.1666666666666667
 carrot,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,g,medium,140,3,0,2,140,3,0,130,82,3,140,1169,152,140,3,0,the cell's own weighings,0,0
-chicken,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,g,medium,1362.5,2,2,2,1362.5,2,2,1362.5,2,2,380,108,50,380,108,50,item x unit (national),0,.462962962962963
+chicken,NEGROS OCCIDENTAL,CAUAYAN,pieces or units,g,medium,1362.5,2,2,2,1362.5,2,2,1362.5,2,2,380,108,50,380,108,50,item x unit (regional),0,.462962962962963
 chicken,NEGROS OCCIDENTAL,CAUAYAN,whole (chicken),g,small,862.5,2,0,2,1102.5,6,0,1120,65,0,1120,468,2,1102.5,6,0,cell pooled across sizes,0,0
 chicken,NEGROS OCCIDENTAL,CAUAYAN,whole (chicken),g,medium,1102.5,2,0,2,1102.5,6,0,1120,65,0,1120,468,2,1102.5,6,0,cell pooled across sizes,0,0
 chicken,NEGROS OCCIDENTAL,CAUAYAN,whole (chicken),g,large,1360,2,0,2,1102.5,6,0,1120,65,0,1120,468,2,1102.5,6,0,cell pooled across sizes,0,0
@@ -2991,8 +2991,8 @@ fresh fish,NEGROS OCCIDENTAL,HINIGARAN,pieces or units,g,medium,607.5,2,1,3,525,
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,HINIGARAN,pieces or units,mL,small,110,1,0,3,110,1,0,65,31,3,100,166,4,65,31,3,province x item x unit,0,.0967741935483871
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,HINIGARAN,putos,mL,small,49,1,0,3,49,1,0,60,24,1,65,148,2,60,24,1,province x item x unit,0,.0416666666666667
 "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,HINIGARAN,small cup,mL,small,110,2,0,3,110,2,0,100,33,2,100,185,5,100,33,2,province x item x unit,0,.0606060606060606
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,HINIGARAN,tupperware,mL,small,450,1,0,3,575,2,0,575,2,0,700,4,1,700,4,1,item x unit (national),0,.25
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,HINIGARAN,tupperware,mL,medium,700,1,0,3,575,2,0,575,2,0,700,4,1,700,4,1,item x unit (national),0,.25
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,HINIGARAN,tupperware,mL,small,450,1,0,3,575,2,0,575,2,0,700,4,1,700,4,1,item x unit (regional),0,.25
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NEGROS OCCIDENTAL,HINIGARAN,tupperware,mL,medium,700,1,0,3,575,2,0,575,2,0,700,4,1,700,4,1,item x unit (regional),0,.25
 "liquor (e.g, whisky, coconut wine)",NEGROS OCCIDENTAL,HINIGARAN,lipid/lapad,mL,medium,375,2,0,2,375,2,0,375,72,0,375,618,7,375,72,0,province x item x unit,0,0
 loaf bread,NEGROS OCCIDENTAL,HINIGARAN,large packs,g,large,415,1,0,3,415,1,0,640,65,2,640,411,6,640,65,2,province x item x unit,0,.0307692307692308
 loaf bread,NEGROS OCCIDENTAL,HINIGARAN,medium packs,g,medium,575,2,0,3,575,2,0,450,52,0,450,352,0,450,52,0,province x item x unit,0,0

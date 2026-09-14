@@ -29,8 +29,8 @@ stage,outcome 2,H3 path,H3.5,20_psps_retrofitting/20a_psps_hous,NSU label with n
 stage,outcome 2,H4 standard,H4,20_psps_retrofitting/27_standard_u,Standard-unit rows converted,52489,0,52489,household x item x slot,,"no market-survey input, no fallback and no cap -- the unit states its own size. Issue #14, and A17 for rice gantang"
 stage,outcome 2,H5 converted,H5,20_psps_retrofitting/28_match_and_,Non-standard-unit rows given grams,35448,555,34893,household x item x slot,see the route detail rows below,"a refused row is REPORTED, never imputed and never silently redirected to another price point"
 detail,outcome 2,H5 converted,,20_psps_retrofitting/28_match_and_,route: fallback: empty size part,,,241,household x item x slot,,conv_route
-detail,outcome 2,H5 converted,,20_psps_retrofitting/28_match_and_,route: fallback: national pool,,,365,household x item x slot,,conv_route
 detail,outcome 2,H5 converted,,20_psps_retrofitting/28_match_and_,route: fallback: province pool,,,5412,household x item x slot,,conv_route
+detail,outcome 2,H5 converted,,20_psps_retrofitting/28_match_and_,route: fallback: regional pool,,,365,household x item x slot,,conv_route
 detail,outcome 2,H5 converted,,20_psps_retrofitting/28_match_and_,route: matched price point,,,28875,household x item x slot,,conv_route
 detail,outcome 2,H5 converted,,20_psps_retrofitting/28_match_and_,route: refused: A11 spelling gap,,,304,household x item x slot,,conv_route
 detail,outcome 2,H5 converted,,20_psps_retrofitting/28_match_and_,route: refused: nothing anywhere,,,103,household x item x slot,,conv_route

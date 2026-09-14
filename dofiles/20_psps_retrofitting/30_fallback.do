@@ -128,7 +128,7 @@ save "`l2'"
 * THE WEAKEST RUNG BY A WIDE MARGIN, and flagged distinctly for it. Conventional units
 * vary up to 6.7x across municipalities (implicit_assumptions.md A1: camote tops `bundle'
 * 95 g to 635 g over 28 municipalities), and 41 of 106 conventional cases disperse beyond
-* 2x INSIDE one municipality. A national median for such a unit describes nowhere in
+* 2x INSIDE one municipality. A regional median for such a unit describes nowhere in
 * particular. It is offered because the alternative is no number at all, and the flag is
 * what lets a reader refuse it.
 use "`base'", clear
@@ -195,7 +195,7 @@ drop _cell_has_thin
 * naming, because it means the conventional branch reaches coarser rungs sooner than the
 * others. #28's reclassification is shrinking this population.
 
-* Cells no rung can serve: even the national item x unit pool is under THIN.
+* Cells no rung can serve: even the regional item x unit pool is under THIN.
 gen byte unconvertible = missing(fallback_level)
 
 * ONE definition, in 00_globals.do, shared with the Outcome 1 reference set. It had a
@@ -397,9 +397,9 @@ restore
 * So the L2 and L3 pools are also written out on THEIR OWN KEYS:
 *
 *   province schedule   province x item x harmonized unit x corrected unit
-*   national schedule   item x harmonized unit x corrected unit
+*   regional schedule   item x harmonized unit x corrected unit
 *
-* 28_match_and_convert.do climbs cell -> province -> national, which is the same ladder
+* 28_match_and_convert.do climbs cell -> province -> regional, which is the same ladder
 * read from the other end. The medians are the identical collapses computed in section 2 --
 * not recomputed -- so the two readings of L2 cannot disagree.
 *
@@ -416,7 +416,7 @@ foreach L in 2 3 {
 		}
 		else {
 			local lkey pull_item harmonized_nsu_unit corrected_unit
-			local lnm  "national"
+			local lnm  "regional"
 		}
 		keep `lkey' w_l`L' n_l`L' nu_l`L'
 		duplicates drop
@@ -454,9 +454,15 @@ foreach L in 2 3 {
 * visible, so it is worth restating here as well as at the collapse. It drops province
 * entirely, and A1 measures conventional units varying up to 6.7x between municipalities
 * -- camote tops `bundle' 95 g to 635 g over 28 of them -- with 41 of 106 conventional
-* cases dispersing beyond 2x INSIDE one municipality. A national median for such a unit
+* cases dispersing beyond 2x INSIDE one municipality. A regional median for such a unit
 * describes nowhere in particular. It is offered because the alternative is no number, and
 * `fallback_level' is what lets a reader refuse it.
+*
+* REGIONAL, NOT NATIONAL. The survey covers five provinces -- AKLAN, ANTIQUE, CAPIZ,
+* ILOILO and NEGROS OCCIDENTAL -- all Western Visayas (Region VI), with Guimaras the one
+* Region VI province absent. L3 is therefore the widest pool the data contains and still
+* says nothing about the Philippines outside this region. The label read "national" until
+* it was corrected, which invited exactly the generalization the data cannot support.
 
 di as res _n "30_fallback.do done -- ladder built, with nu_lN beside every rung's count."
 di as res "28_match_and_convert.do runs next and attaches it to PSPS household rows."

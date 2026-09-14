@@ -192,8 +192,15 @@ program define def_fallback_level
 		0 "the cell's own weighings" ///
 		1 "cell pooled across sizes" ///
 		2 "province x item x unit" ///
-		3 "item x unit (national)", replace
+		3 "item x unit (regional)", replace
 end
+
+* L3 IS REGIONAL, NOT NATIONAL, and the label said "national" until it was corrected.
+* The survey covers five provinces -- AKLAN, ANTIQUE, CAPIZ, ILOILO and NEGROS
+* OCCIDENTAL -- all of them Western Visayas (Region VI), with Guimaras the one Region VI
+* province absent. So the widest pool the ladder can reach is a regional median over five
+* of the region's six provinces, and it says nothing about the rest of the Philippines.
+* Calling it "national" invited a reader to generalize a figure the data cannot support.
 
 * ---- nsu_normalize ------------------------------------------------------------
 * THE authoritative string normalization on the Stata side. Its Python counterpart

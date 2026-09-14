@@ -236,7 +236,7 @@ local files_temp nsu_data_master nsu_weighings_cpi ref_10_sized ref_11_checked /
 	psps_households case_price_points case_spelling_gap ///
 	branch_size_based branch_price_quantity branch_price_quantity_m ///
 	branch_conventional outcome2_weight_ladder outcome2_cell_fallback ///
-	outcome2_fallback_province outcome2_fallback_national psps_converted ///
+	outcome2_fallback_province outcome2_fallback_regional psps_converted ///
 	standard_unit_factors psps_months
 
 local files_deliv nsu_reference_set outcome2_lookup outcome2_lookup_noinflation ///

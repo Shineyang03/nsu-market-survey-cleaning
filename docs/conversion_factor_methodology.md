@@ -1169,7 +1169,7 @@ A household in a PSPS case needs a conversion factor. Outcome 2 provides one whe
 
 Outcome 2's exposure is different: the PSPS asks for a quantity in an NSU, and that household needs a grams-per-unit figure whether or not the MS weighed that exact cell. The fallback exists to provide one, and `fallback_level` together with the weighing count at the rung used lets an analyst set their own confidence threshold rather than having one imposed.
 
-**Read from both ends.** `30_fallback.do` writes the ladder three ways, because a household can arrive at it from two directions. A cell the market survey *did* visit gets a per-cell answer. A cell it never visited — which is the larger exposure, one PSPS observation in six — cannot be served by any per-cell table, so the L2 and L3 pools are also written on their own keys (province × item × unit, and item × unit) and `28_match_and_convert.do` climbs cell → province → national. All three readings come from the same collapses, so they cannot disagree.
+**Read from both ends.** `30_fallback.do` writes the ladder three ways, because a household can arrive at it from two directions. A cell the market survey *did* visit gets a per-cell answer. A cell it never visited — which is the larger exposure, one PSPS observation in six — cannot be served by any per-cell table, so the L2 and L3 pools are also written on their own keys (province × item × unit, and item × unit) and `28_match_and_convert.do` climbs cell → province → regional. All three readings come from the same collapses, so they cannot disagree.
 
 ### The two ladders
 
@@ -1218,7 +1218,9 @@ entirely. Issue #31 records the singleton population and what each outcome does 
 
 **L1 → L2 transition: crossing into other municipalities.** There is no MS weighing for that case (prov × mun × item × nsu × unit). Look for the same item × nsu × unit in other municipalities of the same province; pool all weighings at that grain. The cell still emits one row per municipality, so every municipality gets its own row, but all municipalities in a province share the same $`w_g`$ and the same `fallback_level = 2`.
 
-**L2 → L3 transition: provincial boundary.** No province × item × nsu × unit weighing exists. Fall back to the national (item × nsu × unit) median — whatever was measured of that NSU anywhere in the data. This is the weakest rung. Conventional units vary up to **6.7×** across municipalities — camote tops `bundle` 95 g to 635 g over 28 municipalities — so a national median describes no municipality in particular and should be used sparingly. See `implicit_assumptions.md` A1, which also records that the spread is not only between municipalities: of 106 conventional cases with at least two weighings, 41 disperse beyond 2× *inside* one municipality.
+**L2 → L3 transition: provincial boundary.** No province × item × nsu × unit weighing exists. Fall back to the regional (item × nsu × unit) median — whatever was measured of that NSU anywhere in the data. This is the weakest rung. Conventional units vary up to **6.7×** across municipalities — camote tops `bundle` 95 g to 635 g over 28 municipalities — so a regional median describes no municipality in particular and should be used sparingly.
+
+**"Regional", not "national", and the distinction is not pedantic.** The survey covers five provinces — AKLAN, ANTIQUE, CAPIZ, ILOILO and NEGROS OCCIDENTAL — every one of them in Western Visayas (Region VI), with Guimaras the single Region VI province absent. L3 is therefore the widest pool the data contains, and it still says nothing about the Philippines outside this region. This rung was labelled `item x unit (national)` until the label was corrected, which invited exactly the generalization the data cannot support. See `implicit_assumptions.md` A1, which also records that the spread is not only between municipalities: of 106 conventional cases with at least two weighings, 41 disperse beyond 2× *inside* one municipality.
 
 **The conventional branch has no hetero levels** (`size_ord = 0`), so L1 is a no-op — hetero-groups do not exist to pool. A conventional case with no local weighing goes straight to L2.
 
@@ -1242,7 +1244,7 @@ What ships is the rung and the count behind it. That is enough for a reader to s
 own cut — keep L1 and drop L3, or require `n_g ≥ 5` — and every column it does not ship is
 one that would have implied a precision the estimator does not have.
 
-**Why L3 is flagged distinctly.** The same NSU varies widely across municipalities — prawns `tumpok` runs 95 g to 570 g over 17 of them — so a national median for such a unit describes no single municipality and is the least reliable rung. `fallback_level = 3` signals this unambiguously.
+**Why L3 is flagged distinctly.** The same NSU varies widely across municipalities — prawns `tumpok` runs 95 g to 570 g over 17 of them — so a regional median for such a unit describes no single municipality and is the least reliable rung. `fallback_level = 3` signals this unambiguously.
 
 ### Cost and resilience of the ladder
 
@@ -1283,7 +1285,7 @@ non-standard-unit household rows:
 | L0 — the matched price point in the cell's own weighings | 28,875 | 81.5% | 16,504,130 |
 | L1 — the cell pooled across sizes | 131 | 0.4% | 76,273 |
 | L2 — province × item × unit | 5,522 | 15.6% | 8,077,924 |
-| L3 — item × unit nationally | 365 | 1.0% | 2,630,487 |
+| L3 — item × unit regionally | 365 | 1.0% | 2,630,487 |
 | refused, and reported | 555 | 1.6% | 0 |
 
 **Two-fifths of the converted NSU grams come from a borrowed rung.** L2 and L3 together

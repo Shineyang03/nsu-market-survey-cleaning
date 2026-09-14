@@ -73,7 +73,7 @@ three units the within-municipality spread exceeds the between-municipality spre
 case is municipality-specific, so between-municipality variation never gets pooled. That
 is a side effect of the grain, not a stated constraint — **any future step that aggregates
 conventional units above the municipality silently averages a 6.7× spread.** A province
-fallback (#30) and a national reference list (#24) both do exactly that.
+fallback (#30) and a regional reference list (#24) both do exactly that.
 
 Within-municipality dispersion is not protected against at all.
 
@@ -690,7 +690,7 @@ cells that lack them. The gap is not quantified and should not be assumed small.
 Mitigated rather than resolved: no accuracy threshold is enforced. `fallback_level` and the
 weighing count at the rung used ship with every fallback weight so a reader can apply their own
 cut, and a pool that cannot clear `THIN` is refused outright rather than served weak. On the
-current build the province schedule offers 195 of 237 pools and the national one 74 of 94; the
+current build the province schedule offers 195 of 237 pools and the regional one 74 of 94; the
 rest are refused.
 
 **Checked by:** nothing.
@@ -711,7 +711,7 @@ rest are refused.
 
 **Where it reaches a household.** `28_match_and_convert.do` puts **5,955 of 35,448** non-standard-unit household rows (16.8%) on a fallback rung — 110 at L1, 5,484 at L2 and 361 at L3 — so this entry describes one row in six rather than an edge case. Those households' own prices are not used at all.
 
-L3 is flagged distinctly because the same NSU varies up to **6.7×** across municipalities — see A1, which supersedes an earlier 14× reading — so a national median describes no single municipality.
+L3 is flagged distinctly because the same NSU varies up to **6.7×** across municipalities — see A1, which supersedes an earlier 14× reading — so a regional median describes no single municipality. **L3 is regional, not national:** the five provinces surveyed — AKLAN, ANTIQUE, CAPIZ, ILOILO, NEGROS OCCIDENTAL — are all Western Visayas (Region VI), Guimaras excepted, so the widest pool available says nothing about the country beyond this region.
 
 **Checked by** nothing.
 
@@ -789,8 +789,9 @@ density. `docs/data_oddities.md` already treats ~2,250 g as the project's figure
 
 **It is the one unit where A1 holds.** A1 reports "conventional units are standard within a
 locality" as FALSIFIED, on a 6.7× spread for camote tops `bundle`. A 1.7% spread across 7
-municipalities is a different animal, and it is what licenses a single national constant here where
-A1 forbids one everywhere else.
+municipalities is a different animal, and it is what licenses a single sample-wide constant here
+where A1 forbids one everywhere else. **Sample-wide, not national** — those 7 municipalities are
+all Western Visayas, so the evidence says nothing about gantang elsewhere in the Philippines.
 
 **`ganta` takes the same factor.** The crosswalk folds raw `ganta` to harmonized `gantang`, and the
 fold pools nothing — all 14 crosswalk rows carry `n_cell_merged == 1`, because no raw `gantang`
@@ -922,7 +923,7 @@ Over the 34,916 converted household rows in `psps_converted_capped.dta`:
 | L0 the cell's own weighings | 28,961 | 4 | 0.120 | 0.121 |
 | L1 cell pooled across sizes | 110 | 6 | 0.080 | 0.103 |
 | L2 province × item × unit | 5,484 | 60 | 0.195 | 0.148 |
-| L3 item × unit nationally | 361 | 21 | 0.384 | 0.148 |
+| L3 item × unit regionally | 361 | 21 | 0.384 | 0.148 |
 
 **They answer different questions and both are correct.** The fourth column gives each
 *household row* equal weight and is the household-facing number: for a typical converted row

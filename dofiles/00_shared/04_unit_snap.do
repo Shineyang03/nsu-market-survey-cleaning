@@ -456,7 +456,7 @@ replace _rule = "whole number" if missing(_rule) & !missing(_pick_block)
 * THIS DEFAULTED TO THE ANCHOR AND NOW DEFAULTS TO THE BLOCK, decided on the second
 * manual review (issue #18). The reasoning: with no local evidence at all, the block
 * reading restates what the enumerator typed, while the anchor moves it by a decade on
-* the strength of a national item x unit pool that the review found runs low. Choosing
+* the strength of a regional item x unit pool that the review found runs low. Choosing
 * the anchor here is choosing to overrule the field on the weakest evidence available.
 * The plausibility bounds below still apply, so an implausible block reading is caught.
 replace _pick_block = 1 if missing(_pick_block)

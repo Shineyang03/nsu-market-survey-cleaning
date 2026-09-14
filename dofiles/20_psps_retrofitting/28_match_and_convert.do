@@ -333,7 +333,7 @@ assert d_no_price == missing(p_h)
 * needing any province, 5,741 PSPS observations between them.
 *
 * THE LADDER IS CLIMBED FROM THE OTHER END for them: the cell's own pooled weight if it
-* has one, then the province schedule, then the national one, then refusal. Each schedule
+* has one, then the province schedule, then the regional one, then refusal. Each schedule
 * is written by 30_fallback.do from the same collapses that built w_l2 and w_l3, so no
 * median is recomputed here and the two readings of L2 cannot drift apart.
 *
@@ -374,9 +374,9 @@ preserve
 	save "`rung2'"
 restore
 
-* ---- rung: the national schedule --------------------------------------------
+* ---- rung: the regional schedule --------------------------------------------
 preserve
-	use "${btemp}\outcome2_fallback_national", clear
+	use "${btemp}\outcome2_fallback_regional", clear
 	bysort pull_item harmonized_nsu_unit: egen double _best = max(fb_n_g)
 	bysort pull_item harmonized_nsu_unit: ///
 		egen byte _pick = min(cond(fb_n_g == _best, corrected_unit, .))
@@ -417,7 +417,7 @@ replace cf_h           = r3_g   if conv_route == "" & !missing(r3_g)
 replace n_g_used       = r3_n   if conv_route == "" & !missing(r3_g)
 replace nu_used        = r3_nu  if conv_route == "" & !missing(r3_g)
 replace fallback_level = r3_lvl if conv_route == "" & !missing(r3_g)
-replace conv_route     = "fallback: national pool"   if conv_route == "" & !missing(r3_g)
+replace conv_route     = "fallback: regional pool"   if conv_route == "" & !missing(r3_g)
 
 replace conv_route     = "refused: nothing anywhere" if conv_route == ""
 drop r1_* r2_* r3_*

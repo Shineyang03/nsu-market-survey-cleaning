@@ -210,7 +210,7 @@ GROUP_FILL={
     # which is EXACTLY the medium packs median (n=352); large is 640 g, small 370 g. The
     # case for folding was coverage rather than the median: its 424 household rows span
     # 57 cells and its 23 weighings cover 8 of them, so 375 rows were converting off a
-    # borrowed rung -- 116 pooling all 23 nationally. Folding raised same-cell coverage
+    # borrowed rung -- 116 pooling all 23 region-wide. Folding raised same-cell coverage
     # to 348 of 424 and moved 385 rows onto local weighings (n_g_used 4, 2, 3, 6 instead
     # of 16 and 23).
     #
