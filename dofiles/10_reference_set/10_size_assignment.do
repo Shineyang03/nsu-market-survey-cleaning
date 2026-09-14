@@ -221,7 +221,22 @@ replace size_ord = 2 if weighing_approach == 2 & inlist(item_nsu_hetero_type, 8,
 * a size-based case with two filled groups (#27 A5, the (1,3) shape): two observed points
 * with nothing identifying a middle are the ladder's ends. A reader sees two rungs whose
 * order is real and whose spacing is not claimed.
-egen byte _n_med = nvals(item_nsu_hetero_type) if weighing_approach == 2 & ///
+* KEYED ON DISTINCT PRICE, NOT DISTINCT LABEL, and that is what makes this rule cover
+* both shapes of the collision with one line. The fold can leave a cell holding two
+* different median LABELS (a municipality median and a province median), or the SAME
+* label twice at different prices -- two spellings that each brought their own
+* municipality median. Counting labels sees the first and is blind to the second, and
+* the second collapses just as silently into one averaged `medium'.
+*
+* The fold itself is not in question here. Harmonization has already decided these
+* spellings name one unit; this file is downstream of that and takes it as given. What
+* is left is two price points inside one cell, which is exactly what the price-rank rule
+* is for -- whether they arrived under one label or two makes no difference to the
+* ordering, because the ordering comes from `pull_price' either way.
+*
+* No change on this vintage: the two live cases carry two labels AND two prices, so
+* counting either fires. The difference is what happens to a case that has not appeared yet.
+egen byte _n_med = nvals(pull_price) if weighing_approach == 2 & ///
 	inlist(item_nsu_hetero_type, 8, 9), by(cell)
 egen double _med_price_min = min(pull_price) if weighing_approach == 2 & ///
 	inlist(item_nsu_hetero_type, 8, 9), by(cell)
@@ -252,44 +267,40 @@ if r(N) > 0 {
 drop _n_med _med_price_min _dup_med
 
 
-* --- 2b-ii. ONE LABEL, TWO PRICES: the collision 2b does NOT cover -------------------
-* 2b above fixes a cell holding two DIFFERENT price-point labels that both map to the same
-* size -- a municipality median and a province median, both `medium'. It does nothing about
-* the other shape: two weighings carrying the SAME label at DIFFERENT peso prices.
+* --- 2b-ii. THE QUARTILE LABELS HAVE NOWHERE TO GO --------------------------------------
+* 2b, now keyed on price, handles a cell holding two MEDIAN price points however they were
+* labelled. It works there because every median maps to `medium', so the `small' and
+* `large' rungs are free for the rule to move the two points onto.
 *
-* That can arise from exactly the same cause. `item_nsu_hetero_type' on this branch records
-* which price point a vendor was quoted, and the fold can pool two spellings that each have
-* their own municipality median. Both weighings would then read `municipality_median', both
-* would take size_ord = 2, and 12_publish_reference_set.do would collapse them into ONE
-* `medium' row averaging two genuinely different price levels -- with nothing on the row
-* saying so. That is the VALLADOLID defect one step over, and the size_ord mapping cannot
-* see it, because the mapping reads the LABEL and the difference is in the PRICE.
+* THE SAME REPAIR IS NOT AVAILABLE TO mp25 / mp50 / mp75. Those three already occupy all
+* three rungs. Two spellings that each brought their own mp25 at different prices give two
+* weighings both mapped to `small', and there is no free rung to promote the dearer one to
+* -- `medium' and `large' already mean mp50 and mp75, and moving an mp25 into one of them
+* would publish it as a size the price file says it is not.
+*
+* So this halts, and the reason is specific rather than general caution: the ladder is
+* full. Resolving it means either widening PMERGE so the two prices merge upstream, or
+* deciding the fold should not have pooled those spellings -- both decisions above this
+* file, which is why it stops here rather than guessing.
 *
 * MEASURED: 0 of 361 (cell x label) groups on this branch carry more than one distinct
-* price. It does not arise here, and the reason is thin -- only 3 price-quantity cells pool
-* more than one spelling at all, and those 3 happen to carry different labels. Nothing
-* about the pipeline prevents a fourth.
-*
-* So this halts rather than guesses. There is no ordering to apply: 2b could split by price
-* rank because the two labels were genuinely different points, but two weighings quoted the
-* SAME point at different prices are either a price-file disagreement between spellings or
-* a fold that should not have happened, and which it is decides what the right answer is.
-egen byte _onelbl_np = nvals(pull_price) if weighing_approach == 2, ///
-	by(cell item_nsu_hetero_type)
-count if _onelbl_np > 1 & !missing(_onelbl_np)
+* price, so neither this nor 2b's second shape arises today. The reason is thin -- only 3
+* price-quantity cells pool more than one spelling at all. See A2.
+egen byte _mp_np = nvals(pull_price) if weighing_approach == 2 & ///
+	inlist(item_nsu_hetero_type, 5, 6, 7), by(cell item_nsu_hetero_type)
+count if _mp_np > 1 & !missing(_mp_np)
 if r(N) > 0 {
-	di as err "10_size_assignment.do 2b-ii: " r(N) " price-quantity weighing(s) share a"
-	di as err "price-point LABEL within a cell but carry different peso prices."
-	di as err "They would collapse into one size_ord row averaging two price levels."
-	di as err "This is #21's collision in the shape sec 2b does not cover. Decide whether"
-	di as err "the fold should have pooled these spellings, or whether the two prices are"
-	di as err "a price-file disagreement; do not extend 2b's price-rank rule blindly."
+	di as err "10_size_assignment.do 2b-ii: " r(N) " weighing(s) share an mp25/mp50/mp75"
+	di as err "label within a cell but carry different peso prices. All three rungs are"
+	di as err "already taken, so 2b's price-rank repair has nowhere to move them and they"
+	di as err "would collapse into one size_ord row averaging two price levels."
+	di as err "Widen PMERGE so the prices merge upstream, or revisit the fold. See A2."
 	list pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
 		pull_nsu_unit item_nsu_hetero_type pull_price corrected_weight ///
-		if _onelbl_np > 1 & !missing(_onelbl_np), noobs abbrev(24)
+		if _mp_np > 1 & !missing(_mp_np), noobs abbrev(24)
 	exit 459
 }
-drop _onelbl_np
+drop _mp_np
 
 
 *-------------------------------------------------------------------------------

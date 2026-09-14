@@ -116,30 +116,40 @@ two run in **opposite directions by geography** — the province median is the d
 cabbage and the cheaper one for carrot — so no rule keyed on "municipality beats province" could
 have got both right. Only the price can.
 
-### The collision has a second shape, and §2b does not cover it
+### The collision has a second shape, and §2b covers it too
 
-§2b fixes a cell holding two **different** price-point labels that map to the same size. The
-other shape is two weighings carrying the **same** label at **different peso prices** — two
-spellings that each brought their own `municipality_median`, say. Both would read
-`municipality_median`, both would take `size_ord = 2`, and `12_publish_reference_set.do`
-would collapse them into one `medium` averaging two genuinely different price levels. The
-`size_ord` mapping cannot see it: the mapping reads the **label**, and the difference is in
-the **price**.
+The other shape is two weighings carrying the **same** label at **different peso prices** —
+two spellings that each brought their own `municipality_median`. Both read
+`municipality_median`, both take `size_ord = 2`, and `12_publish_reference_set.do` collapses
+them into one `medium` averaging two genuinely different price levels.
 
-**Status: GUARDED, not handled.** `10_size_assignment.do` §2b-ii halts if any (cell ×
-price-point label) group on the price-quantity branch carries more than one distinct price.
+**Status: HANDLED, by the same rule.** §2b counts **distinct prices**, not distinct labels,
+so it fires on either shape. The fold is not in question at this point: harmonization has
+already decided the spellings name one unit, and this file is downstream of that. What is
+left is two price points inside one cell, which is what the price-rank rule is for — whether
+they arrived under one label or two makes no difference, because the ordering comes from
+`pull_price` either way.
 
-It halts rather than applying §2b's price-rank rule, and that is the decision rather than a
-gap. §2b could order two labels because they were genuinely different points. Two weighings
-quoted at the **same** point for different prices are either a price-file disagreement
-between spellings or a fold that should not have happened — and which one it is decides what
-the right answer would be. A rule cannot tell them apart; a person looking at the case can.
+No change on this vintage: the two live cases carry two labels *and* two prices, so counting
+either fires. The difference is what happens to a case that has not appeared yet.
 
-**It does not arise on this vintage, and the reason is thin.** Only three price-quantity
-cells pool more than one spelling at all, and those three happen to carry different labels.
-Nothing in the pipeline prevents a fourth. The guard is what turns "absent in fact" into
-"absent and checked" — which is the whole point of this register, and the reason this
-paragraph exists rather than being rediscovered a fourth time.
+### The one shape that still halts: duplicate quartile labels
+
+The repair works for medians because every median maps to `medium`, leaving `small` and
+`large` free to move the two points onto. **`mp25` / `mp50` / `mp75` already occupy all three
+rungs.** Two spellings that each brought their own `mp25` at different prices give two
+weighings both mapped to `small`, and there is no free rung to promote the dearer one to —
+`medium` and `large` already mean `mp50` and `mp75`, and moving an `mp25` into one of them
+would publish it as a size the price file says it is not.
+
+**Status: GUARDED.** `10_size_assignment.do` §2b-ii halts on it. The reason is specific
+rather than general caution — the ladder is full. Resolving it means widening `PMERGE` so the
+two prices merge upstream, or revisiting the fold; both are decisions above this file.
+
+**Neither shape arises on this vintage, and the reason is thin.** Zero of 361 (cell × label)
+groups carry more than one price, because only three price-quantity cells pool more than one
+spelling at all. Nothing prevents a fourth. That is why this is written here rather than
+being rediscovered a fourth time.
 
 The alternative that was tried and reverted was dropping the province-median weighings as "already
 a fallback". That was wrong: the price type describes how a spelling's **price** was derived, not
