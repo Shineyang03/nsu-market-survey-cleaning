@@ -718,7 +718,7 @@ def c_underfilled_shapes(sized):
           # Moved by 4 weighings / 1 case when the ILOILO / DUEAS cabbage label
           # "2 kapinutos nga cabbage/20pesos" joined the AMBIGUOUS set in
           # 02_drop_non_nsu_labels.py. That drop is the resolution of issue #22.
-          "753 not-under-filled cases would be caught; 408 field-small, 155 field-large",
+          "751 not-under-filled cases would be caught; 406 field-small, 155 field-large",
           f"{len(ok1):,} not-under-filled cases would be caught;"
           f" {n_s} field-small, {n_l} field-large",
           "these have one label recorded AND one group filled, so they are correctly"
@@ -745,7 +745,7 @@ def c_thin_sensitivity():
     got = {t: int((ref.n_g < t).sum()) for t in (2, 3, 4, 5)}
     check("A3 rows flagged at THIN = 2 / 3 / 4 / 5",
           "implicit_assumptions.md / A3",
-          "270 / 518 / 1042 / 1474 of 2559",
+          "267 / 513 / 1037 / 1465 of 2550",
           f"{got[2]} / {got[3]} / {got[4]} / {got[5]} of {n}",
           note="A3's table is a claim about sensitivity; if these move, the argument for "
                "calling THIN = 3 badly placed has to be re-made on the new numbers.")
@@ -775,9 +775,15 @@ def c_reclassification_counts():
     rc = conv[conv.d_reclassified == 1]
     check("#28 field-conventional rows: always-conventional vs reclassified",
           "issue #28 / branch",
-          "24 always-conventional, 99 reclassified, 123 rows in total",
+          "22 always-conventional, 99 reclassified, 121 rows in total",
           f"{int((conv.d_reclassified == 0).sum())} always-conventional, "
-          f"{int(len(rc))} reclassified, {len(conv)} rows in total")
+          f"{int(len(rc))} reclassified, {len(conv)} rows in total",
+          note="WAS 24 / 99 / 123. The two that left are camote tops `2bond' and "
+               "`3bugkos' at AKLAN / MALINAO, both published size_ord = conventional_nsu "
+               "and both removed from Outcome 1 by A21 as counts rather than units. The "
+               "RECLASSIFIED count is untouched at 99, which is the part #28 asserts; "
+               "only the always-conventional side moved, and it moved for a reason "
+               "outside #28. If the reclassified figure ever changes, that IS #28 drifting.")
     check("#28 reclassified rows: published medium vs pooled across sizes",
           "issue #28 / branch",
           "99 medium, 0 pooled",
@@ -827,7 +833,7 @@ def c_modal_label_criterion(sized):
           # Rose again (64.0% -> 64.7%) when the referee became hetero-aware. The field
           # labels are a signal the snap never reads, so agreement improving is evidence
           # the rule picks better, not evidence of fitting to them.
-          "65.4% (3,651 of 5,582)",
+          "65.4% (3,647 of 5,578)",
           f"{per_row / len(full) * 100:.1f}% ({per_row:,} of {len(full):,})",
           "this is the number that justifies re-terciling in the first place -- the"
           " field label is wrong about a third of the time at row level")
@@ -838,7 +844,7 @@ def c_modal_label_criterion(sized):
     check("modal field label agrees with the tercile, per group",
           "methodology.md / assumption 7",
           # ROSE from 66.5%, same independence argument as the per-weighing figure above.
-          "78.5% (1,147 of 1,461)",
+          "78.5% (1,144 of 1,458)",
           f"{per_grp / len(g) * 100:.1f}% ({per_grp:,} of {len(g):,})",
           "aggregating recovers signal, which is what the naming criterion needs")
 
@@ -889,7 +895,7 @@ def c_reference_docs_row_totals():
     n_merged = int((xw.n_cell_merged > 1).sum())
     check("master_rename.md / data_dictionary.md: crosswalk totals",
           "master_rename.md / source table, data_dictionary.md / master rename sheet",
-          "2,927 rows: 1,985 MS & Price + 942 Price Only + 0 MS-only; 757 in-cell merged",
+          "2,927 rows: 1,985 MS & Price + 942 Price Only + 0 MS-only; 766 in-cell merged",
           f"{len(xw):,} rows: {src.get('MS & Price', 0):,} MS & Price"
           f" + {src.get('Price Only', 0):,} Price Only + {src.get('MS', 0)} MS-only;"
           f" {n_merged} in-cell merged",

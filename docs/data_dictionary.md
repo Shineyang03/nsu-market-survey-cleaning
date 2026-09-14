@@ -96,7 +96,7 @@ So for cabbage `binilog`: `in_MS_as = bilog` (the specific sibling in that cell)
 One row per **`(province, municipality, item, raw_nsu)`** observed in the raw `${data}` (MS) OR the
 price data — the union (2,927 rows: 1,985 MS & Price + 942 Price Only + 0 MS-only currently). Its purpose is to
 identify, **within each prov-mun-item cell**, the nsus that are the same referent but recorded with a
-different spelling/translation, and show what they all pool to. 757 rows are part of such an in-cell
+different spelling/translation, and show what they all pool to. 766 rows are part of such an in-cell
 merge.
 
 | column | definition |

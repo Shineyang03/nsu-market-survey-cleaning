@@ -132,12 +132,12 @@ about; three or more is not.
 
 **Status: ACCEPTED, with the sensitivity stated.**
 
-| threshold | rows flagged | share of 2,559 |
+| threshold | rows flagged | share of 2,550 |
 | --: | --: | --: |
-| 2 | 270 | 10.6% |
-| **3 (current)** | **518** | **20.3%** |
-| 4 | 1,042 | 40.7% |
-| 5 | 1,474 | 57.6% |
+| 2 | 267 | 10.5% |
+| **3 (current)** | **513** | **20.1%** |
+| 4 | 1,037 | 40.7% |
+| 5 | 1,465 | 57.5% |
 
 Moving the cut by one still roughly doubles or halves the flagged share, so the threshold
 sits on a steep part of the distribution and no substantive argument selects 3 over 2 or 4.
@@ -145,14 +145,22 @@ sits on a steep part of the distribution and no substantive argument selects 3 o
 **These figures changed when the fallback ladder landed, and the direction is worth
 understanding.** `THIN = 3` now does two jobs rather than one. It still flags a published
 row as resting on few weighings, but it *also* decides which cells collapse across their
-size rungs — see A15 and the L1 rule. So a cell with any thin rung publishes one pooled
-row instead of two or three per-rung rows, the denominator falls from 3,305 rows to 2,557,
-and the flagged share falls further because pooling raises `n_g` on the rows that survive.
+size rungs — see A15 and the L1 rule. So a cell with any thin rung **and at least two
+rungs** publishes one pooled row instead of two or three per-rung rows, the denominator
+falls, and the flagged share falls further because pooling raises `n_g` on the rows that
+survive.
 
-The flagged share therefore reads *lower* than before while the underlying evidence is
-unchanged. Do not read the fall from 38.3% to 20.3% as an improvement in coverage: 518 of
-the 962 collapsed cells are still thin after pooling, and the rest were thin at rung level
-before being pooled. `n_g` on every row is the quantity to reason from, not the share.
+The flagged share therefore reads *lower* than it did before the ladder landed, while the
+underlying evidence is unchanged. **Do not read that fall as an improvement in coverage.**
+Two counts make the point, and they must not be confused with each other:
+
+* **43 of the 486 pooled rows are still thin after pooling** — pooling two one-weighing
+  rungs gives `n_g = 2`, which clears nothing;
+* **470 thin rows were never pooled at all**, because their cell held a single rung and
+  there was nothing to pool.
+
+So the majority of thin rows are thin for a reason pooling cannot touch. `n_g` on every
+row is the quantity to reason from, not the share.
 
 **Why that is tolerable.** `n_g` is published on every row, so a user who disagrees with the
 cut can set their own. The flag is a convenience, not a filter — treat `d_thin` as one
@@ -213,7 +221,7 @@ surviving groups by rank. **97 cases** fill fewer groups than the field recorded
 | groups (1,3) filled — middle emptied | 14 | small + large |
 
 The rule fires only where `n_filled < k_sizes`. **Keyed on `n_filled` alone it would also
-catch 753 cases** that recorded one label and filled one group — overwriting 408 the field
+catch 751 cases** that recorded one label and filled one group — overwriting 406 the field
 called small and 155 it called large. That is why the (1,2) and (1,3) split matters and why
 the rule cannot read the filled-group count by itself.
 

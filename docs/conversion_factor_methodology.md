@@ -1131,8 +1131,8 @@ holding {S, M, L} *are* small and large. `10_size_assignment.do` §2d asserts th
 than relying on it.
 
 **It must be keyed on groups-filled < $`k`$, not on groups-filled alone.** Read as "1
-group filled → medium", the rule would also catch the 753 cases where the field recorded
-one label and one group filled — relabelling **408 cases the field called small** and
+group filled → medium", the rule would also catch the 751 cases where the field recorded
+one label and one group filled — relabelling **406 cases the field called small** and
 **155 it called large** to medium. That is the same defect the rank mechanism exists to
 prevent, mirrored: `verify_documented_claims.py` already asserts that a naive
 group-number-to-size map mislabels 449 of 1,565 cases.
@@ -1142,6 +1142,26 @@ field lookup for the third size returns nothing rather than an interpolated gues
 is deliberate — see assumption 7.
 
 ## Fallback ladder (Outcome 2): borrowing when cells lack data
+
+### What "thin" means, and what follows from it
+
+A case is **thin** when fewer than `THIN = 3` weighings stand behind it *at the grain the
+value is published on* — which is the heterogeneity group, not the cell. The threshold is
+arbitrary in the ordinary sense: three is a judgement about when a median stops describing
+anything, not a result. `THIN` has one definition, in `00_globals.do`, and A3 records its
+sensitivity.
+
+**The threshold warns; it does not filter.** `n_g` — the count of weighings behind the
+published value — appears on every row, and `d_thin` flags `n_g < 3`. No weight is changed
+and no row is dropped for being thin, so a reader who prefers a different cut can apply
+one. Treat `d_thin` as a convenience, not as a verdict.
+
+**Both outcomes meet thinness; they answer it differently, and the difference is the
+point.** Outcome 1 records what was weighed in a cell, so it pools within the cell and
+stops: a cell with no weighing is absent from the table rather than imputed. Outcome 2
+must produce a usable number for a household that exists, so it climbs to coarser grains
+until the count clears. The same evidence therefore gives opposite answers — a singleton is
+kept and flagged in Outcome 1, and may be carried past its own cell in Outcome 2.
 
 A household in a PSPS case needs a conversion factor. Outcome 2 provides one whenever possible, even when that case's own market-survey cell has no weighing or too few to sustain all hetero-groups. The fallback ladder climbs step by step across geographies, re-testing at each rung whether enough weighings exist to meet the count condition.
 
@@ -1166,35 +1186,19 @@ Both outcomes use `corrected_unit` as a key at every level — grams are never p
 
 Reason: the reference set publishes the *measured* weights for that cell. ANY thin rung collapses the WHOLE cell to L1, not just the thin rung — replacing only thin rungs leaves a published small at the cell's own median alongside medium at the pooled median, which can invert the size ordering (M > L). Outcome 1 validates this, so a non-monotonic result is caught before export.
 
-**It takes two rungs to pool, and a single-rung cell is deliberately excluded.** Both
-justifications above are statements about a *ladder*: there is no size distribution to be
-noise with three labels on it, and no second estimator to mix with, when a cell holds one
-rung. Collapsing it pools nothing — the median is taken over the same weighings either way
-and the published gram value is identical to the digit.
-
-What the collapse *did* do to those rows was rename them. `size_ord` was overwritten with
-4, *"pooled across sizes"*, and `fallback_level` with 1 — so a row whose cell recorded
-exactly one size announced a pooling that never happened **and lost the size it measured**.
-474 of the 962 collapsing cells were single-rung: 209 had published `small`, 97 `medium`,
-53 `large`, 108 were a price-quantity median and 7 conventional. The table could not tell a
-reader that 209 of its rows are the small the field went out and weighed.
-
-So the gate is `k_rungs >= 2`. The effects are label-only: no gram value moves, no row is
-added or removed, `n_g` and `d_thin` are untouched, and A3's sensitivity table does not
-shift. What changes is that `fallback_level == 1` and `size_ord == 4` now mean what they
-say.
+**It takes two rungs to pool** — the gate and its reasons are in *Cost and resilience of
+the ladder* below, with the counts.
 
 **Pooling does not rescue a thin cell**, and must not be read as if it did. A cell whose
 two rungs hold one weighing each pools to $`n_g = 2`$, is still thin, and carries
-`fallback_level = 1` **and** `d_thin = 1` — both published. In the current build 43 of the
-486 pooled rows are still flagged thin, and 470 thin rows were never pooled because their
-cell held one rung. The two flags are close to orthogonal: reading `pooled` as "this row is
-weak", or `thin` as "this row was pooled", is wrong in both directions.
+`fallback_level = 1` **and** `d_thin = 1` — both published. The two flags are close to
+orthogonal, and reading `pooled` as "this row is weak", or `thin` as "this row was
+pooled", is wrong in both directions.
 
 **Singletons** — a cell or rung resting on a single weighing — are the limiting case of
-thinness, not a separate rule. Outcome 1 keeps and flags them; it never replaces one with
-another cell's weight. Outcome 2's ladder may carry a household past its own cell entirely.
-Issue #31 records the singleton population and what each outcome does with it.
+thinness, not a separate rule. Outcome 1 keeps and flags them and never substitutes
+another cell's weight; Outcome 2's ladder may carry the household past its own cell
+entirely. Issue #31 records the singleton population and what each outcome does with it.
 
 **Outcome 2 (PSPS conversion factors): climbs until $`n_g \geq 3`$**
 
@@ -1242,30 +1246,62 @@ one that would have implied a precision the estimator does not have.
 
 ### Cost and resilience of the ladder
 
-On **Outcome 1's reference set** (2,559 rows over 1,995 cells):
+**These counts move with every rebuild. Recompute rather than quote them** — the whole
+distribution is one tabulation of `fallback_level` on `psps_grams.dta`, and the Outcome 1
+figures are a tabulation of `size_ord` and `d_thin` on `nsu_reference_set.dta`. The
+figures below describe the build of 11 September 2026 and are here to show the *shape*,
+not to be cited.
 
-| | |
+On **Outcome 1's reference set** — 2,550 rows over 1,986 cells:
+
+| | rows |
 |---|---|
-| cells with no thin rung — untouched, all L0 | 1,033 |
-| cells with a thin rung **and two or more rungs** → collapsed to one pooled row, `fallback_level = 1` | **488** |
-| cells with a thin rung but only **one** rung → keep their own size label, since nothing would be pooled | 474 |
-| published rows flagged `d_thin` | 518 |
+| collapsed to one pooled row, `fallback_level = 1`, `size_ord = "pooled across sizes"` | **486** |
+| flagged `d_thin` | 513 |
+| …of which pooled and still thin | 43 |
+| …of which thin and **never pooled**, because the cell held one rung | **470** |
 
-**The collapse requires two rungs.** A one-rung cell has no size ladder to lose and no
-second estimator to mix with, so collapsing it would pool nothing while overwriting the
-size the field measured — 474 rows, of which 209 had published `small`. The gate is
-`k_rungs ≥ 2`.
+**The collapse requires two rungs.** Both justifications for pooling are statements about
+a *ladder*: there is no size distribution to be noise with three labels on it, and no
+second estimator to mix with, when a cell holds one rung. Collapsing it pools nothing —
+the median is taken over the same weighings either way and the published gram value is
+identical to the digit.
 
-On **Outcome 2's household conversions**, fallback depth is the exposure. Of 35,448
+What the collapse *did* do to those rows was rename them: `size_ord` became 4, *"pooled
+across sizes"*, and `fallback_level` 1, so a row whose cell recorded exactly one size
+announced a pooling that never happened **and lost the size it measured**. 474 of the 962
+collapsing cells were single-rung — 209 had published `small`, 97 `medium`, 53 `large`,
+108 a price-quantity median and 7 conventional. The gate is `k_rungs ≥ 2`, and its effects
+are label-only: no gram value moves, no row is added or removed, `n_g` and `d_thin` are
+untouched, and A3's sensitivity table does not shift.
+
+On **Outcome 2's household conversions**, fallback depth *is* the exposure. Of 35,448
 non-standard-unit household rows:
 
-| rung | rows | share |
-|---|---|---|
-| L0 — the matched price point in the cell's own weighings | 28,961 | 82.9% |
-| L1 — the cell pooled across sizes | 110 | 0.3% |
-| L2 — province × item × unit | 5,484 | 15.7% |
-| L3 — item × unit nationally | 361 | 1.0% |
-| refused, and reported | 532 | 1.5% |
+| rung | rows | share | grams |
+|---|---|---|---|
+| L0 — the matched price point in the cell's own weighings | 28,875 | 81.5% | 16,504,130 |
+| L1 — the cell pooled across sizes | 131 | 0.4% | 76,273 |
+| L2 — province × item × unit | 5,522 | 15.6% | 8,077,924 |
+| L3 — item × unit nationally | 365 | 1.0% | 2,630,487 |
+| refused, and reported | 555 | 1.6% | 0 |
+
+**Two-fifths of the converted NSU grams come from a borrowed rung.** L2 and L3 together
+carry 10,708,411 of 27,288,814 NSU grams — **39.2%** — a weight taken from outside the
+household's own municipality. That is a far larger exposure than the row share (16.6%)
+suggests, because the cells the market survey never visited are not a random sample of
+consumption, and it is the single most useful number for judging how far to trust an
+aggregate built from these conversions.
+
+The 555 refusals divide by reason: 304 an A11 spelling gap, 148 a unique price, 103
+nothing anywhere. None is imputed; each keeps its row with no gram figure and a stated
+reason.
+
+**`fallback_level` and `conv_route` answer different questions, and pairing them wrongly
+is easy.** `fallback_level` is the rung that *supplied* the weight. `conv_route` is *why*
+the row left L0. They do not partition each other — `conv_route == "fallback: empty size
+part"` splits across L1 (131 rows) and L2 (110 rows), because a household whose own size
+rung was empty may be served either by its cell pooled or by the province pool.
 
 **One household row in six takes a borrowed weight**, and from L1 down its own price is
 not used at all: every household in the cell receives the same grams whatever it paid. The
@@ -1369,8 +1405,8 @@ thing.
 
    | | agreement with the field label |
    |---|---|
-   | per weighing — why re-terciling exists | **65.4%** (3,651 / 5,582) |
-   | per group, using the modal label — what the criterion assumes | **78.5%** (1,147 / 1,461) |
+   | per weighing — why re-terciling exists | **65.4%** (3,647 / 5,578) |
+   | per group, using the modal label — what the criterion assumes | **78.5%** (1,144 / 1,458) |
 
    Aggregating does recover signal, which is what the criterion needs. **But the
    disagreement is not symmetric.** 238 groups carry a modal label *below* their tercile
