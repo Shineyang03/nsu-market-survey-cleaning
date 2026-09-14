@@ -167,12 +167,12 @@ about; three or more is not.
 
 **Status: ACCEPTED, with the sensitivity stated.**
 
-| threshold | rows flagged | share of 2,552 |
+| threshold | rows flagged | share of 2,550 |
 | --: | --: | --: |
-| 2 | 267 | 10.5% |
-| **3 (current)** | **513** | **20.1%** |
-| 4 | 1,042 | 40.8% |
-| 5 | 1,471 | 57.6% |
+| 2 | 265 | 10.4% |
+| **3 (current)** | **511** | **20.0%** |
+| 4 | 1,040 | 40.8% |
+| 5 | 1,469 | 57.6% |
 
 Moving the cut by one still roughly doubles or halves the flagged share, so the threshold
 sits on a steep part of the distribution and no substantive argument selects 3 over 2 or 4.
@@ -984,17 +984,25 @@ figures reproduced, because the original entry quoted the fourth column without 
 
 ---
 
-## A21 — Nine labels are not reusable local units, and Outcome 1 excludes them
+## A21 — Eleven labels are not reusable local units, and Outcome 1 excludes them
 
 **Claims.** A reference book is only useful for a label that *names a unit another
-enumerator will hear again*. Nine harmonized labels do not, and so are excluded from
+enumerator will hear again*. Eleven harmonized labels do not, and so are excluded from
 Outcome 1 — not because the evidence behind them is weak, but because of what they are:
 
 | kind | labels |
 | :-- | :-- |
 | a count, not a unit | `1 order`, `1 serve`, `2 slice`, `2bond`, `3bugkos` |
 | an item, not a unit | `papaya, mango, banana` |
+| **a cut of meat, not a unit** | **`chicken wings`, `intestine`** |
 | a one-off phrasing | `pinutos / plastic`, `role`, `stick` |
+
+**The last two joined late, and how they were missed is the point.** Both carried a
+`notaunit` verdict in `90_diagnostics/harmonization_verdicts.py` — recorded during the
+#36 review and never applied — so beef `intestine` shipped at 2,060 g and chicken
+`chicken wings` at 15 g, one row each, as though they were units someone could look up.
+A verdict that exists and does not reach the build is the exact failure #36 was opened
+about, and it survived because nothing joined the verdict file to the exclusion list.
 
 **Rests on it.** The Outcome 1 deliverable only. `10_size_assignment.do` drops these
 before sizing; the weighings are written to

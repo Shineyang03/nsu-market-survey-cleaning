@@ -1,20 +1,22 @@
 id,pull_item,pull_province,pull_municipal_city,pull_nsu_unit,harmonized_nsu_unit,weighing_approach,corrected_weight,corrected_unit
+7226,beef,ILOILO,IGBARAS,intestine,intestine,"Price-quantity based (lower, median, higher price)",2060,g
 1121,camote tops,AKLAN,MALINAO,2bond,2bond,"Conventional NSU (eg. ganta, salmon, salop)",560,g
-1123,camote tops,AKLAN,MALINAO,2bond,2bond,"Conventional NSU (eg. ganta, salmon, salop)",460,g
 1120,camote tops,AKLAN,MALINAO,2bond,2bond,"Conventional NSU (eg. ganta, salmon, salop)",270,g
 1122,camote tops,AKLAN,MALINAO,2bond,2bond,"Conventional NSU (eg. ganta, salmon, salop)",290,g
+1123,camote tops,AKLAN,MALINAO,2bond,2bond,"Conventional NSU (eg. ganta, salmon, salop)",460,g
 1124,camote tops,AKLAN,MALINAO,3bugkos,3bugkos,"Conventional NSU (eg. ganta, salmon, salop)",670,g
-1125,camote tops,AKLAN,MALINAO,3bugkos,3bugkos,"Conventional NSU (eg. ganta, salmon, salop)",895,g
-1126,camote tops,AKLAN,MALINAO,3bugkos,3bugkos,"Conventional NSU (eg. ganta, salmon, salop)",470,g
 1127,camote tops,AKLAN,MALINAO,3bugkos,3bugkos,"Conventional NSU (eg. ganta, salmon, salop)",395,g
-4591,fresh fish,CAPIZ,PILAR,50 pesos per pinutos or plastic,pinutos / plastic,"Price-quantity based (lower, median, higher price)",345,g
-4588,fresh fish,CAPIZ,PILAR,50 pesos per pinutos or plastic,pinutos / plastic,"Price-quantity based (lower, median, higher price)",230,g
+1126,camote tops,AKLAN,MALINAO,3bugkos,3bugkos,"Conventional NSU (eg. ganta, salmon, salop)",470,g
+1125,camote tops,AKLAN,MALINAO,3bugkos,3bugkos,"Conventional NSU (eg. ganta, salmon, salop)",895,g
+3987,chicken,CAPIZ,JAMINDAN,chicken wings,chicken wings,"Price-quantity based (lower, median, higher price)",15,g
 4589,fresh fish,CAPIZ,PILAR,50 pesos per pinutos or plastic,pinutos / plastic,"Price-quantity based (lower, median, higher price)",350,g
 4590,fresh fish,CAPIZ,PILAR,50 pesos per pinutos or plastic,pinutos / plastic,"Price-quantity based (lower, median, higher price)",475,g
-4629,mango,CAPIZ,PILAR,"papaya, mango, banana","papaya, mango, banana","Size-based (small, medium, large)",745,g
-4631,mango,CAPIZ,PILAR,"papaya, mango, banana","papaya, mango, banana","Size-based (small, medium, large)",1290,g
+4588,fresh fish,CAPIZ,PILAR,50 pesos per pinutos or plastic,pinutos / plastic,"Price-quantity based (lower, median, higher price)",230,g
+4591,fresh fish,CAPIZ,PILAR,50 pesos per pinutos or plastic,pinutos / plastic,"Price-quantity based (lower, median, higher price)",345,g
 4628,mango,CAPIZ,PILAR,"papaya, mango, banana","papaya, mango, banana","Size-based (small, medium, large)",660,g
 4630,mango,CAPIZ,PILAR,"papaya, mango, banana","papaya, mango, banana","Size-based (small, medium, large)",660,g
+4631,mango,CAPIZ,PILAR,"papaya, mango, banana","papaya, mango, banana","Size-based (small, medium, large)",1290,g
+4629,mango,CAPIZ,PILAR,"papaya, mango, banana","papaya, mango, banana","Size-based (small, medium, large)",745,g
 4105,pork,CAPIZ,MA-AYON,1 order,1 order,"Size-based (small, medium, large)",1620,g
 4104,pork,CAPIZ,MA-AYON,1 order,1 order,"Size-based (small, medium, large)",1505,g
 8705,pork,ILOILO,OTON,1 serve,1 serve,"Size-based (small, medium, large)",515,g

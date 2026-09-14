@@ -80,7 +80,13 @@ drop if inlist(item_nsu_hetero_type, 10, 11)
 *
 *     Excluded rows are written out rather than vanishing, to
 *     ${btables}\refbook_excluded_not_a_unit.csv.
-local notaunit `" "1 order" "1 serve" "2 slice" "2bond" "3bugkos" "papaya, mango, banana" "pinutos / plastic" "role" "stick" "'
+* `intestine' and `chicken wings' JOINED THIS LIST LATE, and the reason is worth a line:
+* both carried a `notaunit' verdict in 90_diagnostics/harmonization_verdicts.py that was
+* recorded and never applied, so each shipped one row in the reference set -- beef
+* `intestine' at 2,060 g and chicken `chicken wings' at 15 g. Neither is a unit anyone can
+* be asked to look up; they are the CUT OF MEAT, entered where the unit belongs. A verdict
+* that exists and does not reach the build is the failure mode #36 was opened about.
+local notaunit `" "1 order" "1 serve" "2 slice" "2bond" "3bugkos" "chicken wings" "intestine" "papaya, mango, banana" "pinutos / plastic" "role" "stick" "'
 gen byte _notaunit = 0
 foreach u of local notaunit {
 	replace _notaunit = 1 if harmonized_nsu_unit == "`u'"
