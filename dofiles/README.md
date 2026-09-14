@@ -279,7 +279,8 @@ weight, the unit tick and `KGMAX` alone — would. `04_unit_snap.do` keeps that 
 on it is not circular.
 
 `w_block` is also the single definition of the block reading. It used to be computed in
-`04`, used, and dropped, so `snap_sense_check.py` and `compare_anchor_keying.py` each
+`04`, used, and dropped, so `snap_sense_check.py` and the since-deleted
+`compare_anchor_keying.py` each
 carried a hand-written copy of the rule, scraping `KGMAX` out of the do-file. Both copies
 checked that the *constant* still matched and neither checked the *branches*, so a change
 to STEP 3a's `weight>=10` would have left them computing a rule the pipeline no longer
@@ -560,9 +561,17 @@ are its own and are not needed downstream.
 
 ## Adjudicating a weight: the snap review loop
 
-`04_unit_snap.do` decides magnitude by rule, but some readings cannot be settled by rule —
-a raw `0.00125` might be 1 mL or 1,250 mL, and only the surrounding cell says which. Those
-go to a human, and the loop that does it is:
+> **This loop is now rarely needed, and that is a recent change.** The snap publishes the
+> **block reading** — the typed weight in canonical units — on 11,402 of 11,421 rows, and
+> the 19 exceptions are all existing hand decisions. The referee ladder in `04` decides
+> **nothing** on this vintage. Two changes did that: `03a_block_reading.do` repairs the
+> misplaced decimal that produced most of the genuinely unreadable rows, and STEP 3e-v-b
+> consults the ladder only where a block reading is impossible. What follows is still the
+> mechanism for overriding a weight, and the ledger still wins over any rule — there is
+> just much less for it to do. See *The block reading governs* in the methodology.
+
+`04_unit_snap.do` decides magnitude by rule. A reading it cannot settle goes to a human,
+and the loop that does it is:
 
 1. **`python dofiles/90_diagnostics/snap_sense_check.py`** writes
    `outputs/build/diagnostics/snap_sense_check.xlsx`. Open the **`to_review`**
@@ -581,6 +590,14 @@ Two properties worth knowing before you touch it:
   digits — not on `id`, because the earliest review workbooks predate the durable id
   registry and their ids now point elsewhere. Six significant digits because `weight` is a
   Stata float: 1265 stores as 1264.9999, and an exact float join drops such rows silently.
+- **A verdict that matches no row in the current build blocks the ledger write.** The
+  ledger is rebuilt from the rows the script is looking at, so a verdict whose row has
+  moved out of that set would simply be absent from the new file — warned about, then
+  deleted. It now raises instead, writes the workbook, and leaves the ledger alone. This
+  was not hypothetical: the misplaced-decimal repair moved two TIGBAUAN rows and a
+  regeneration took the ledger from 227 verdicts to 225. Both were still applied by `05`,
+  whose key is `item_nsu_hetero_type` and did not move, so the build stayed correct and
+  only the regeneration was wrong.
 - **The ledger is rewritten in full from the archive on every run, never appended.** That
   makes it idempotent. Do not hand-edit `snap_verdicts.csv` — the next run overwrites it.
   Across review rounds a later verdict overrides an earlier one on the same row, which is
@@ -588,6 +605,22 @@ Two properties worth knowing before you touch it:
 
 `verdict_landed` in the workbook says whether each past verdict actually reached the
 published value, so a decision cannot fall out of the build unnoticed.
+
+**What is left to adjudicate, and what the 227 existing verdicts now mean.** Five rows
+have no block reading at all — a zero or missing raw weight — and fall to the anchor;
+they are the only rows the ladder decides. Everything else publishes what the enumerator
+typed. Of the 227 verdicts already in the ledger, **200 chose the block reading**, which
+is what the rule now does unaided; they are no longer doing work but are kept, because a
+verdict that stops being needed is not a verdict that was wrong. The **21 that chose the
+anchor still override the rule** and are the reason the ledger is applied after `04`
+rather than folded into it.
+
+**Five verdicts now disagree with a block reading that has since changed.** The
+misplaced-decimal repair moved 41 rows; 12 carry a verdict; 7 of those 12 independently
+arrived at the same ×10⁶ reading the repair now produces, which is good corroboration.
+The other 5 were decided when the choice was between 2 mL and 183 mL — 1,830 mL was not on
+the table — and they still win. That leaves one raw pattern resolved two ways in the
+published file. Re-review those 5 or retire them; do not leave it implicit.
 
 ## Conventions worth keeping
 

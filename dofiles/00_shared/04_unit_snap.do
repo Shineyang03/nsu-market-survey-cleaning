@@ -301,30 +301,27 @@ if r(N) > 0 {
 * Two candidate weights exist for every row: `base_corr' from STEP 1's anchor snap,
 * and `w_block' from the STEP 3 blocks. This decides between them.
 *
-* THE RULES BELOW COME FROM A MANUAL REVIEW of every disputed row, recorded on issue
-* #18. They are not a guess at what looks right -- read that comment before changing
-* any threshold here. The governing findings were:
-*
-*   - proximity to a local median should be judged in ORDERS OF MAGNITUDE, not in
-*     absolute grams. A 255 g reading against a 152.5 g cell median is the same
-*     decade; a 25 g reading is a decade out, and the decade is what the snap gets
-*     wrong. Absolute distance can prefer the value that is 10x too small.
-*   - a raw weight recorded as 0.xxx repeatedly WITHIN one cell is what enumerators
-*     in that market wrote on purpose, not a one-off slip, so the block reading (which
-*     just restates the typed number in canonical units) is the better reading there.
-*   - the log-10 snap tends to UNDERESTIMATE, so more rows should move off STEP 1 than
-*     the plausibility bounds alone would move.
-*
-* PRECEDENCE, decided on review: the median comparison governs wherever a usable
-* median exists. The decimal-structure and whole-number readings fill the gaps -- they
-* are corroborating patterns, not overrides, and firing them against an explicit local
-* median would be substituting a heuristic for a measurement.
+* THE WHOLE OF THIS SECTION IS A FALLBACK NOW. 3e-v-b publishes the block reading on
+* every row where it is a possible reading, so what follows decides a row only when the
+* block reading is IMPOSSIBLE -- which, since 03a_block_reading.do gained the
+* misplaced-decimal repair, is no rows at all on this vintage. Read it as the path a
+* future vintage takes, not as the path this build took.
 *
 *   1. referee median exists  -> publish whichever candidate is closer in log10 terms
-*   2. no median, cell shows a shared sub-1 decimal structure  -> block
-*   3. no median, raw weight is a whole number                 -> block
-*   4. nothing fires                                           -> anchor
-*   5. plausibility floor/ceiling, applied LAST to all of the above
+*   2. THE BLOCK READING GOVERNS, unless it is outside the plausibility bounds  (3e-v-b)
+*   3. plausibility floor/ceiling, applied LAST to whatever survives
+*
+* WHAT USED TO BE HERE, and why it is gone. Three corroborating rules -- a shared sub-1
+* decimal structure, a whole number typed as-is, a final default -- plus a narrow
+* override letting a row's own cell overrule a province referee. All four could only set
+* the choice TO the block reading, which 3e-v-b now does unconditionally, so none of them
+* could change a published weight. See the note where they used to sit.
+*
+* THE ONE SURVIVING FINDING from the #18 review, because it still governs rule 1:
+* proximity to a local median is judged in ORDERS OF MAGNITUDE, not in absolute grams.
+* A 255 g reading against a 152.5 g cell median is the same decade; a 25 g reading is a
+* decade out, and the decade is what the snap gets wrong. Absolute distance can prefer
+* the value that is 10x too small.
 
 * ---- 3e-i. the referee pools, built only from rows where the two rules AGREE ------
 * Rows where anchor and block already agree carry no information about which rule is
@@ -453,74 +450,29 @@ replace _pick_block = (abs(log10(w_block/_ref_med)) < abs(log10(base_corr/_ref_m
      & !missing(w_block) & w_block > 0 & !missing(base_corr) & base_corr > 0
 gen str16 _rule = "log10 median" if !missing(_pick_block)
 
-* ---- 3e-ii-b. the row's OWN cell overrules a province referee ---------------------
-* Rule 1 scores the two candidates against whichever pool the ladder reached. Where a
-* cell is too thin to referee itself the ladder falls through to a PROVINCE pool, and
-* the anchor then wins on the strength of readings from other municipalities.
+* ---- 3e-ii-b to 3e-v: DELETED, and here is the proof they could not decide anything ---
+* Three corroborating rules used to sit here -- a shared sub-1 decimal structure in the
+* cell, a whole number typed as-is, and a final default. Each could only ever set
+* `_pick_block' to 1, never to 0: all three said "publish the block reading".
 *
-* THE REVIEW SAID THAT IS THE WRONG AUTHORITY. Every row where a province pool
-* published the anchor while the block reading sat closer to the row's own cell was
-* put to manual review (issue #18): 34 rows, and all 34 were adjudicated to the block
-* reading. Not one went the other way.
+* 3e-v-b below now sets `_pick_block = 1' on every row where the block reading is
+* possible. So on those rows the three rules were choosing an outcome that was about to
+* be chosen anyway, and on the rows where the block reading is IMPOSSIBLE they were
+* choosing a value the plausibility gate then rejects. Neither branch can reach the
+* published weight. They survived only in the `snap_rule' label, which recorded a rule
+* that agreed with the decision rather than one that made it -- 159 rows labelled
+* "whole number", "cell decimals" or "block default" whose weight came from block-governs.
 *
-* The reasoning, and it is #28's finding at row level: a province pool for a unit
-* whose local meaning varies -- preserved meat `bilog' runs 60-70 g in several
-* municipalities against a provincial median near 600 g -- describes none of the
-* municipalities in it. Where the row's OWN cell has an opinion, however thin, it is
-* about the same object; the province pool may not be.
+* WHAT HAPPENS NOW WHERE NO REFEREE EXISTS. `_pick_block' stays missing, 3e-v-b sets it
+* to 1 if the block reading is possible, and where it is not the row falls to the anchor
+* -- which is strictly better than the old default of publishing an impossible block
+* reading and relying on the gate to catch it.
 *
-* Deliberately NARROW. It fires only when the province pool published the anchor AND
-* the local cell prefers the block. Where the local cell agrees with the province, or
-* has no median at all, nothing changes. That is why this reproduces exactly the 34
-* rows reviewed and touches nothing else.
-* The flip is captured BEFORE _pick_block moves. Writing the label off the post-flip
-* value would also relabel rows rule 1 had already sent to the block, destroying the
-* provenance `snap_rule' exists to record.
-*
-* "region_hetero" IS DELIBERATELY ABSENT from the list below, and that is not an
-* oversight from when the rung was added. This rule overrules a referee using
-* `_cell_med', which is the HETERO-BLIND pooled cell -- the pool the regional hetero
-* rung exists to stop consulting. Letting a hetero-blind local median overrule a
-* hetero-correct regional one reintroduces exactly the bias the new rung removes.
-* The province rungs stay in scope because the 34 rows behind this rule were reviewed
-* by hand against them; nothing equivalent has been reviewed for the regional pool.
-gen byte _own_flip = (_pick_block == 0 ///
-    & inlist(_ref_src, "prov", "prov_hetero") ///
-    & !missing(_cell_med) & _cell_med > 0 ///
-    & !missing(w_block) & w_block > 0 & !missing(base_corr) & base_corr > 0 ///
-    & abs(log10(w_block/_cell_med)) < abs(log10(base_corr/_cell_med)))
-count if _own_flip
-di as result "3e-ii-b: own cell overrules a province referee on " r(N) " row(s)"
-replace _pick_block = 1     if _own_flip
-replace _rule = "own cell"  if _own_flip
-drop _own_flip
-
-* ---- 3e-iii. rule 2: a shared sub-1 decimal structure inside the cell -------------
-* Sub-1 decimals repeated within one cell are a market's recording convention, not a
-* slip. Requires at least two such rows in the cell -- a single 0.xxx reading is the
-* one-off this does NOT cover.
-gen byte _sub1 = (weight > 0 & weight < 1) & !missing(weight)
-egen long _cell_sub1 = total(_sub1), by(pull_province pull_municipal_city pull_item ${unitvar})
-replace _pick_block = 1 if missing(_pick_block) & _sub1 & _cell_sub1 >= 2
-replace _rule = "cell decimals" if missing(_rule) & !missing(_pick_block)
-
-* ---- 3e-iv. rule 3: a whole number was typed as-is --------------------------------
-replace _pick_block = 1 if missing(_pick_block) & !missing(weight) & weight == round(weight)
-replace _rule = "whole number" if missing(_rule) & !missing(_pick_block)
-
-* ---- 3e-v. default: the BLOCK reading ---------------------------------------------
-* Reached only when no pool anywhere on the ladder can referee AND neither the decimal
-* nor the whole-number pattern applies -- roughly two dozen rows, each in a corner of
-* the data with almost nothing to compare against.
-*
-* THIS DEFAULTED TO THE ANCHOR AND NOW DEFAULTS TO THE BLOCK, decided on the second
-* manual review (issue #18). The reasoning: with no local evidence at all, the block
-* reading restates what the enumerator typed, while the anchor moves it by a decade on
-* the strength of a regional item x unit pool that the review found runs low. Choosing
-* the anchor here is choosing to overrule the field on the weakest evidence available.
-* The plausibility bounds below still apply, so an implausible block reading is caught.
-replace _pick_block = 1 if missing(_pick_block)
-replace _rule = "block default" if missing(_rule)
+* THE 34 ROWS BEHIND THE DELETED "own cell" RULE ARE NOT LOST. That rule was adjudicated
+* by hand on issue #18 and every one of its rows was decided to the block reading; they
+* still publish the block reading, now because block-governs says so rather than because
+* a narrow override caught them. The review's conclusion survives; its machinery does not
+* need to.
 
 local WFLOOR = 10       // g/mL: below this a result is contaminated, not small
 local WCEIL  = 50000    // g/mL: 2x the largest real purchase (a 25 kg rice sack)
@@ -571,6 +523,14 @@ di as result "3e-v-b: block reading reinstated over the pool's answer on " r(N) 
 replace _rule = "block governs" if _block_ok & _pick_block == 0 & !missing(base_corr) ///
        & round(w_block,1) != round(base_corr,1)
 replace _pick_block = 1         if _block_ok
+
+* EVERY ROW MUST CARRY A RULE LABEL. With the corroborating rules deleted, a row with no
+* usable referee reaches here with `_rule' still empty -- it was those rules that used to
+* fill it. `encode' turns an empty string into a MISSING category, so snap_rule would
+* silently go blank on exactly the rows with the least evidence behind them.
+replace _rule = "block governs"            if _rule == "" & _block_ok
+replace _rule = "anchor (block impossible)" if _rule == "" & !_block_ok
+assert _rule != ""
 
 count if !_block_ok
 di as result "3e-v-b: block reading impossible, ladder decides on " r(N) " row(s)"
@@ -626,7 +586,7 @@ label var snap_block "1 = published the block reading, 0 = published the anchor 
 
 drop _agree _agreed _cell_med _cell_nagree _ph_med _ph_n _p_med _p_n ///
      _rh_med _rh_n _block_ok ///
-     _ref_med _ref_src _pick_block _sub1 _cell_sub1 _rule _chosen _other ///
+     _ref_med _ref_src _pick_block _rule _chosen _other ///
      _chosen_bad _other_ok
 
 tab flag_review, m
@@ -700,9 +660,10 @@ replace w_step1 = round(w_step1, 1)
 
 * w_block RIDES ALONG FOR THE SAME REASON, and keeping it retires three hand-written
 * copies of the rule above. It used to be computed here, used, and dropped -- so every
-* consumer that needed the block reading re-derived it: snap_sense_check.py and
-* compare_anchor_keying.py each carried their own version, scraping `KGMAX' out of this
-* file to do it. Those copies guarded the CONSTANT and not the branch structure, so
+* consumer that needed the block reading re-derived it: snap_sense_check.py and the
+* since-deleted compare_anchor_keying.py each carried their own version, scraping
+* `KGMAX' out of this file to do it. Those copies guarded the CONSTANT and not the
+* branch structure, so
 * changing `weight>=10' in STEP 3a would have left both of them silently computing a
 * rule the pipeline no longer used -- and snap_sense_check.py is what builds the review
 * workbook whose verdicts get frozen into the ledger.

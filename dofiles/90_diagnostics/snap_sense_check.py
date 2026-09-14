@@ -1,5 +1,31 @@
 r"""Every weight the anchor snap moved, laid out for a human to eyeball.
 
+READ THIS FIRST: MOST OF WHAT THIS SCRIPT WAS BUILT TO ADJUDICATE NO LONGER HAPPENS.
+It was written when 04_unit_snap.do chose between two candidates -- the anchor snap and
+the block reading -- on every disputed row, and the sheets below are organised around
+that contest. The pipeline no longer holds it. STEP 3e-v-b publishes the BLOCK READING
+wherever it is a possible reading for the item, so the referee ladder decides nothing on
+this vintage, and 03a_block_reading.do's misplaced-decimal repair removed the last class
+of rows where the block reading was impossible.
+
+What that means for the sheets:
+
+  to_review        still correct and still the sheet to open, but it is now nearly
+                   empty -- five rows have no block reading at all (zero or missing raw
+                   weight) and are the only ones a rule cannot settle.
+  disagreements    still populated -- 942 rows where the two readings differ by a decade
+                   -- but the difference no longer decides anything, because the block
+                   reading is published either way. Read it as "a plausible alternative
+                   reading exists", which is what d_disputed publishes.
+  gate_overrules   effectively empty; the repair upstream is what emptied it.
+
+STILL LOAD-BEARING, and the reason this file is not deleted: it is the only thing that
+writes reference/reviewed/snap_verdicts.csv, the ledger 05_manual_corrections.do applies
+AFTER the snap. A hand verdict still overrides the rule, and 21 of the 227 existing ones
+do. Deleting this script would orphan the ledger.
+
+--- original purpose, for context ---
+
 Issue #18 A1 replaced a fixed-factor magnitude rule with a snap toward each row's own
 item x unit cell anchor. That changes published weights, so this writes the changed
 rows out with enough context to judge them one by one -- what was typed, what each rule
@@ -23,7 +49,10 @@ A REVIEW ROUND SURVIVES A REGENERATION. Verdicts are read back from the newest
 reference/reviewed/snap_sense_check_REVIEWED_*.xlsx and matched on CONTENT -- cell,
 hetero_group, raw weight -- because ids in older workbooks predate the durable id
 registry. `verdict_landed' says whether each one actually reached the published value,
-and a verdict matching no current row raises a warning rather than disappearing.
+and a verdict matching no current row now REFUSES THE LEDGER WRITE rather than
+disappearing. It used only to warn, and the rewrite deleted it anyway -- which happened,
+twice, when an upstream repair moved two rows out of this script's working set. The
+workbook is still written when the guard fires; only the ledger is held back.
 
 Your annotated copy is archived into reference/reviewed/ AUTOMATICALLY before this
 regenerates, so a review pass cannot be lost by re-running. No manual copy needed.
@@ -484,6 +513,29 @@ if (_conf > 1).any():
         f"{int((_conf > 1).sum())} content key(s) carry conflicting verdicts across "
         "review rounds. Reconcile the reviewed workbooks before writing the ledger:\n"
         + _conf[_conf > 1].to_string())
+
+# AN UNMATCHED VERDICT MUST NOT BE WRITTEN AWAY, and warning about it is not enough.
+#
+# The ledger is rebuilt from `d`, the rows this script is looking at. A prior verdict
+# whose content key is not in `d` is therefore absent from `_out` and DELETED by the
+# rewrite -- the warning above fires, the file is written anyway, and a hand decision is
+# gone. That is the exact failure the "a review round survives a regeneration" promise
+# exists to prevent, and it was live: the misplaced-decimal repair in 03a moved two
+# TIGBAUAN drinks rows out of this script's working set, and a regeneration silently took
+# the ledger from 227 verdicts to 225. Both are still applied by 05, whose key is
+# `item_nsu_hetero_type' and did not move -- so the build was correct and only the
+# regeneration was wrong, which is the worst shape for a defect to have.
+#
+# The workbook above is still written; only the LEDGER write is refused, because that is
+# the artefact a build reads. Reconcile the listed keys -- or confirm the rows really are
+# gone and remove the verdicts deliberately -- then re-run.
+if _unmatched:
+    raise SystemExit(
+        f"REFUSING TO WRITE THE LEDGER: {len(_unmatched)} prior verdict(s) match no row "
+        "in this build, and rewriting would delete them.\n"
+        "  The workbook was written; the ledger was not.\n"
+        "  Reconcile these keys, or remove the verdicts deliberately, then re-run:\n"
+        + "\n".join(f"    {k}" for k in sorted(_unmatched)))
 
 _out.sort_values(_ck).to_csv(LEDGER, index=False, encoding="utf-8")
 print(f"\nwrote {LEDGER}: {len(_out)} verdict(s) on {_conf.size} content key(s)")
