@@ -256,30 +256,64 @@ replace  k_use = 1 if d_reclassified == 1
 * unique price). It passes because the 380 point has no weighing behind it, so
 * n_points_conv is 3 and the household matching 380 is refused rather than cut against.
 * A vintage that weighs that fourth point reaches this guard for real.
-qui count if k_use > 3
-if r(N) > 0 {
-	di as err "ERROR: " r(N) " weighing(s) in a case with more than 3 convertible points."
-	di as err "The cut below handles k_use of 1, 2 or 3; a 4 leaves grp missing."
-	di as err "Decide between adding a quartile branch and merging two points, knowing"
-	di as err "that four groups over this many weighings will mostly fall below THIN."
-	di as err "#21 sec 5.4 (ILOILO / CARLES chicken) is the case nearest to this: it has"
-	di as err "4 price points but only 3 with a weighing behind them."
-	exit 459
+* ---- THE CUT IS GENERAL IN k_use, as the methodology has always said it is ----------
+* "Cut the pooled weight distribution into as many parts as there are surviving points,
+* lowest weights to the lowest price" -- docs/conversion_factor_methodology.md, and A2 in
+* implicit_assumptions.md says the same. There is no special rule for any value of k.
+*
+* THIS USED TO BE THREE HARDCODED BRANCHES plus a guard that stopped the build above 3.
+* That guard was not implementing a decision: the documented rule is general, and the
+* methodology names ILOILO / CARLES chicken explicitly -- "its weights are cut into 4
+* parts and mapped onto the 4 surviving points. No special rule." The code refused to do
+* that. It never fired only because that case's fourth point has no weighing behind it,
+* so k_use came out 3.
+*
+* HOW IT WORKS. For a case cut into k parts the boundaries are the i/k quantiles for
+* i = 1..k-1, and a weighing's group is one plus the number of boundaries it sits above.
+* The comparison is `>' so ties fall to the LOWER group, which is the lower-inclusive
+* rule 10_size_assignment.do uses and A5 records as still untested.
+*
+* It reproduces the old branches exactly where k is 2 or 3 -- the boundaries are the
+* median, and the 33.333/66.667 percentiles -- so no published weight moves on a vintage
+* whose cases all cut three ways or fewer.
+*
+* THE GROUPS CAN STILL COME BACK EMPTY, and more easily the larger k is: weights are whole
+* grams, so vendors tie exactly on a boundary. Section 5 reports those, and the price
+* point they would have paired with is published as unconvertible rather than handed a
+* neighbouring group's weight.
+qui su k_use, meanonly
+local KMAX = r(max)
+di as txt "cutting into at most `KMAX' part(s)"
+
+gen int grp = 1
+forvalues k = 2/`KMAX' {
+	qui count if k_use == `k'
+	if r(N) > 0 {
+		forvalues i = 1/`=`k' - 1' {
+			* ROUNDED TO 4 DECIMALS ON PURPOSE. The three branches this replaced used
+			* the literals 33.3333, 66.6667 and 50. An unrounded 100/3 is 33.333333,
+			* and `egen pctile' interpolates, so the boundary lands microscopically
+			* differently and whole-gram weights sitting on it change group. Measured
+			* when this was first written unrounded: 289 household rows moved, by
+			* ratios of 0.84 to 0.99 -- a group median shifting, not a decade error,
+			* and exactly the kind of change that ships unnoticed. Rounding here makes
+			* k = 2 and k = 3 reproduce the old boundaries to the digit, so this
+			* generalisation is provably inert on any vintage that cuts three ways or
+			* fewer, and only k >= 4 is new behaviour.
+			local p = round(100 * `i' / `k', 0.0001)
+			tempvar cut
+			qui egen double `cut' = pctile(corrected_weight) if k_use == `k', ///
+				by(_scell) p(`p')
+			qui replace grp = grp + 1 if k_use == `k' & !missing(`cut') ///
+				& corrected_weight > `cut'
+			drop `cut'
+		}
+	}
 }
 
-egen double _p33 = pctile(corrected_weight), by(_scell) p(33.3333)
-egen double _p66 = pctile(corrected_weight), by(_scell) p(66.6667)
-egen double _p50 = pctile(corrected_weight), by(_scell) p(50)
-
-gen int grp = .
-replace grp = 1 if k_use == 3 & corrected_weight <= _p33
-replace grp = 2 if k_use == 3 & corrected_weight >  _p33 & corrected_weight <= _p66
-replace grp = 3 if k_use == 3 & corrected_weight >  _p66
-replace grp = 1 if k_use == 2 & corrected_weight <= _p50
-replace grp = 2 if k_use == 2 & corrected_weight >  _p50
-replace grp = 1 if k_use == 1
 assert !missing(grp)
-drop _p33 _p66 _p50 _scell
+assert inrange(grp, 1, k_use)
+drop _scell
 
 di as res _n "weighings by the number of parts their case is cut into:"
 tab k_use, m
