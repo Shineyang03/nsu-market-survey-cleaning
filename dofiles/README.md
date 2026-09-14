@@ -373,7 +373,7 @@ resolve.
 |---|---|
 | `20a_psps_households.do` | the household side of PSPS — one row per household × item × acquisition slot, keeping `hhid`, `subdate`, quantity and expenditure, normalized into the crosswalk's vocabulary. Classifies every unit label into exactly one of five conversion paths, asserted exhaustive and mutually exclusive. Also owns the **standard-unit gram table** (#14) and the month list `24` needs. `p_h` comes from the **purchased slot only** (A10) |
 | `20_case_price_points.do` | which price points a case gets: union on the peso value across weighed spellings, single-linkage merge within ₱20, merged point takes the mean (#21 §2). Owns the **`unique_mun_price` refusal** (A16) and builds A11's spelling-price gap flag |
-| `21_branch_size_based.do` | cuts each case's pooled weights into `n_points_conv` parts, lowest weights to the lowest price. The 99 reclassified cases are **never cut** (A12). Also emits the points that no group can serve, so a household can match one and be refused |
+| `21_branch_size_based.do` | cuts each case's pooled weights into `n_points_conv` parts, lowest weights to the lowest price. The 99 reclassified cases are **never cut** (A12). **It also writes out the price points that ended up with no weighing behind them** — 495 of them, either because the cut's upper part came back empty or because the price was a refused unique price. They stay in the lookup deliberately: a household matches the *nearest* price point, so deleting an empty one would slide that household onto the next point along and convert it at a weight belonging to a different size. Keeping it means the household matches the empty point and is refused, which is the honest outcome |
 | `22_branch_price_quantity.do` | `w_g` per case × `pull_price`. The price file is not read: every distinct peso amount is its own group, no merge (#21 §2 rows 5–6) |
 | `23_branch_conventional.do` | one weight per case, for the **24** cases whose (item, unit) pair is conventional everywhere it appears (#28). The other 99 join Branch S |
 | `24_inflate_to_psps_month.do` | `w_g_m`, `v_g_m` per interview month — **Branch P only**, crossed with the months of its own municipality |
@@ -386,6 +386,34 @@ resolve.
 
 **#30 was the gate and it is now built.** Note that its cost argument was written against a 14×
 cross-municipality spread; the corrected figure is **6.7×**, so read it against that.
+
+### Multiple price points inside one harmonized unit (#21) — which file does what
+
+Folding two `pull_nsu_unit` spellings into one `harmonized_nsu_unit` can pull their price
+points together into a single cell. The two spellings' MP25/MP50/MP75 need not line up, so
+a cell can arrive holding more points than the S/M/L ladder has rungs. **The collision is
+created by the fold, not by the field** — measured, no raw `pull_nsu_unit` ever carries two
+price types on its own.
+
+**It affects both outcomes, and each fixes it in a different file.** Read these four in order:
+
+| file | outcome | what it does about #21 |
+| :-- | :-- | :-- |
+| `20_case_price_points.do` §7 | both | **Merges the points first.** Single-linkage within **`PMERGE` = ₱20**, so points that are close in price become one. This is what stops a 6-point cell existing at all, and it runs before anything cuts or converts |
+| `21_branch_size_based.do` | Outcome 2 | **Guards the result.** After the merge no case has more than 3 convertible points; the file stops the build if one ever does, naming the ILOILO / CARLES chicken that used to |
+| `10_size_assignment.do` §2b | **Outcome 1** | **Orders the survivors.** Where a fold leaves a cell holding a municipality median *and* a province median, both of which map to `medium`, they publish as two rungs ordered by price — cheaper `small`, dearer `large` — instead of one averaged row |
+| `20_case_price_points.do` §7 (A11) | Outcome 2 | **Refuses the tail.** A priced-but-unweighed spelling more than **2.0×** from its cell's weighed price is not converted; 304 household rows are refused on this |
+
+**This matters for Outcome 1 — it is not an Outcome 2 problem only.** Without §2b, the two
+live cases published a single averaged row: at NEGROS OCCIDENTAL / VALLADOLID a 325 g group
+and a 780 g group became one 425 g `medium`, with nothing on the row saying two genuinely
+different quantities had been averaged. The ordering has to come from **price**, not
+geography — the province median is the dearer point for cabbage and the cheaper one for
+carrot, so no "municipality beats province" rule gets both right.
+
+**Inflation does not enter any of this.** The merge is step `20` and the CPI factor is
+applied at step `24`, so grouping is fixed before any price is restated. The ₱20 threshold
+is therefore in market-survey-period pesos.
 
 ### The hetero-blind pair: what the price/size matching is worth
 
