@@ -234,12 +234,36 @@ egen int _scell = group(pull_province pull_municipal_city pull_item harmonized_n
 gen int k_use = n_points_conv
 replace  k_use = 1 if d_reclassified == 1
 
+* WHY THIS STOPS THE BUILD, stated accurately. The cut below has branches for k_use of
+* 1, 2 and 3 only, so a 4 would leave `grp' missing and those rows silently unassigned.
+* This is an IMPLEMENTATION limit, not a methodological one -- the earlier message here
+* said "the S/M/L ladder has three rungs", which is not the reason: this file does not use
+* the field's S/M/L labels at all (see the note above), and four price points are no
+* harder to reason about than three.
+*
+* EXTENDING IT TO QUARTILES WOULD BE FOUR LINES, and is deliberately not done:
+*
+*   - nothing would exercise it. n_points_conv has never exceeded 3, so the new branch
+*     would ship untested against a population of zero.
+*   - a fourth rung buys resolution the data cannot support. The only live 4-point case,
+*     ILOILO / CARLES chicken, holds 10 weighings: cut three ways that is about 3 per
+*     group, already sitting on THIN; cut four ways it is 2.5, and most groups fall below
+*     the threshold. Each extra rung also leans harder on the assumption that a higher
+*     price point bought more grams.
+*
+* THE CARLES CASE IS WHY THIS LOOKS UNREACHABLE AND IS NOT. It has FOUR price points
+* after the PHP 20 merge -- 200 (mp25), 240 (mp50), 336.25 (mp75, two merged) and 380 (a
+* unique price). It passes because the 380 point has no weighing behind it, so
+* n_points_conv is 3 and the household matching 380 is refused rather than cut against.
+* A vintage that weighs that fourth point reaches this guard for real.
 qui count if k_use > 3
 if r(N) > 0 {
 	di as err "ERROR: " r(N) " weighing(s) in a case with more than 3 convertible points."
-	di as err "The S/M/L ladder has three rungs; a 4-point case needs a decision."
-	di as err "#21 sec 5.4 (ILOILO / CARLES chicken) is the case that used to do this;"
-	di as err "the PHP 20 merge now brings it to 3 or fewer."
+	di as err "The cut below handles k_use of 1, 2 or 3; a 4 leaves grp missing."
+	di as err "Decide between adding a quartile branch and merging two points, knowing"
+	di as err "that four groups over this many weighings will mostly fall below THIN."
+	di as err "#21 sec 5.4 (ILOILO / CARLES chicken) is the case nearest to this: it has"
+	di as err "4 price points but only 3 with a weighing behind them."
 	exit 459
 }
 

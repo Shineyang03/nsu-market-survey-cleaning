@@ -400,7 +400,7 @@ price types on its own.
 | file | outcome | what it does about #21 |
 | :-- | :-- | :-- |
 | `20_case_price_points.do` §7 | both | **Merges the points first.** Single-linkage within **`PMERGE` = ₱20**, so points that are close in price become one. This is what stops a 6-point cell existing at all, and it runs before anything cuts or converts |
-| `21_branch_size_based.do` | Outcome 2 | **Guards the result.** After the merge no case has more than 3 convertible points; the file stops the build if one ever does, naming the ILOILO / CARLES chicken that used to |
+| `21_branch_size_based.do` | Outcome 2 | **Guards the result.** The cut has branches for 1, 2 or 3 groups, so a 4-point case would leave rows unassigned; the file stops instead. An *implementation* limit, not a methodological one — see below |
 | `10_size_assignment.do` §2b | **Outcome 1** | **Orders the survivors.** Where a fold leaves a cell holding a municipality median *and* a province median, both of which map to `medium`, they publish as two rungs ordered by price — cheaper `small`, dearer `large` — instead of one averaged row |
 | `20_case_price_points.do` §7 (A11) | Outcome 2 | **Refuses the tail.** A priced-but-unweighed spelling more than **2.0×** from its cell's weighed price is not converted; 304 household rows are refused on this |
 
@@ -414,6 +414,25 @@ carrot, so no "municipality beats province" rule gets both right.
 **Inflation does not enter any of this.** The merge is step `20` and the CPI factor is
 applied at step `24`, so grouping is fixed before any price is restated. The ₱20 threshold
 is therefore in market-survey-period pesos.
+
+**Why a 4-point case stops the build instead of being cut into quartiles.** The cut in
+`21_branch_size_based.do` has branches for `k_use` of 1, 2 and 3; a 4 would leave `grp`
+missing and those rows silently unassigned, so the file exits. That is an implementation
+limit — this file does not use the field's S/M/L labels at all, and four price points are
+no harder to reason about than three. Adding a quartile branch would be about four lines.
+It is deliberately not done, for two reasons:
+
+- **Nothing would exercise it.** `n_points_conv` has never exceeded 3, so the branch would
+  ship untested.
+- **A fourth rung buys resolution the data cannot support.** The nearest live case, ILOILO
+  / CARLES chicken, holds 10 weighings; three ways that is about 3 per group, already on
+  `THIN`, and four ways it is 2.5, putting most groups below the threshold.
+
+That case is also why the guard looks unreachable and is not. It has **four** price points
+after the ₱20 merge — ₱200 (mp25), ₱240 (mp50), ₱336.25 (mp75, two merged) and ₱380 (a
+unique price). It passes only because ₱380 has no weighing behind it, so `n_points_conv`
+is 3 and the household matching ₱380 is refused rather than cut against. A vintage that
+weighs that fourth point reaches the guard for real.
 
 ### The hetero-blind pair: what the price/size matching is worth
 
