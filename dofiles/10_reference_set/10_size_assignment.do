@@ -252,6 +252,46 @@ if r(N) > 0 {
 drop _n_med _med_price_min _dup_med
 
 
+* --- 2b-ii. ONE LABEL, TWO PRICES: the collision 2b does NOT cover -------------------
+* 2b above fixes a cell holding two DIFFERENT price-point labels that both map to the same
+* size -- a municipality median and a province median, both `medium'. It does nothing about
+* the other shape: two weighings carrying the SAME label at DIFFERENT peso prices.
+*
+* That can arise from exactly the same cause. `item_nsu_hetero_type' on this branch records
+* which price point a vendor was quoted, and the fold can pool two spellings that each have
+* their own municipality median. Both weighings would then read `municipality_median', both
+* would take size_ord = 2, and 12_publish_reference_set.do would collapse them into ONE
+* `medium' row averaging two genuinely different price levels -- with nothing on the row
+* saying so. That is the VALLADOLID defect one step over, and the size_ord mapping cannot
+* see it, because the mapping reads the LABEL and the difference is in the PRICE.
+*
+* MEASURED: 0 of 361 (cell x label) groups on this branch carry more than one distinct
+* price. It does not arise here, and the reason is thin -- only 3 price-quantity cells pool
+* more than one spelling at all, and those 3 happen to carry different labels. Nothing
+* about the pipeline prevents a fourth.
+*
+* So this halts rather than guesses. There is no ordering to apply: 2b could split by price
+* rank because the two labels were genuinely different points, but two weighings quoted the
+* SAME point at different prices are either a price-file disagreement between spellings or
+* a fold that should not have happened, and which it is decides what the right answer is.
+egen byte _onelbl_np = nvals(pull_price) if weighing_approach == 2, ///
+	by(cell item_nsu_hetero_type)
+count if _onelbl_np > 1 & !missing(_onelbl_np)
+if r(N) > 0 {
+	di as err "10_size_assignment.do 2b-ii: " r(N) " price-quantity weighing(s) share a"
+	di as err "price-point LABEL within a cell but carry different peso prices."
+	di as err "They would collapse into one size_ord row averaging two price levels."
+	di as err "This is #21's collision in the shape sec 2b does not cover. Decide whether"
+	di as err "the fold should have pooled these spellings, or whether the two prices are"
+	di as err "a price-file disagreement; do not extend 2b's price-rank rule blindly."
+	list pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
+		pull_nsu_unit item_nsu_hetero_type pull_price corrected_weight ///
+		if _onelbl_np > 1 & !missing(_onelbl_np), noobs abbrev(24)
+	exit 459
+}
+drop _onelbl_np
+
+
 *-------------------------------------------------------------------------------
 * 2c. SIZE-BASED -- re-tercile the pooled weights
 *-------------------------------------------------------------------------------

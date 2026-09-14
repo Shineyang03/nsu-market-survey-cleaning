@@ -116,6 +116,31 @@ two run in **opposite directions by geography** — the province median is the d
 cabbage and the cheaper one for carrot — so no rule keyed on "municipality beats province" could
 have got both right. Only the price can.
 
+### The collision has a second shape, and §2b does not cover it
+
+§2b fixes a cell holding two **different** price-point labels that map to the same size. The
+other shape is two weighings carrying the **same** label at **different peso prices** — two
+spellings that each brought their own `municipality_median`, say. Both would read
+`municipality_median`, both would take `size_ord = 2`, and `12_publish_reference_set.do`
+would collapse them into one `medium` averaging two genuinely different price levels. The
+`size_ord` mapping cannot see it: the mapping reads the **label**, and the difference is in
+the **price**.
+
+**Status: GUARDED, not handled.** `10_size_assignment.do` §2b-ii halts if any (cell ×
+price-point label) group on the price-quantity branch carries more than one distinct price.
+
+It halts rather than applying §2b's price-rank rule, and that is the decision rather than a
+gap. §2b could order two labels because they were genuinely different points. Two weighings
+quoted at the **same** point for different prices are either a price-file disagreement
+between spellings or a fold that should not have happened — and which one it is decides what
+the right answer would be. A rule cannot tell them apart; a person looking at the case can.
+
+**It does not arise on this vintage, and the reason is thin.** Only three price-quantity
+cells pool more than one spelling at all, and those three happen to carry different labels.
+Nothing in the pipeline prevents a fourth. The guard is what turns "absent in fact" into
+"absent and checked" — which is the whole point of this register, and the reason this
+paragraph exists rather than being rediscovered a fourth time.
+
 The alternative that was tried and reverted was dropping the province-median weighings as "already
 a fallback". That was wrong: the price type describes how a spelling's **price** was derived, not
 where it was **weighed**, and all six weighings are genuine measurements taken in VALLADOLID.

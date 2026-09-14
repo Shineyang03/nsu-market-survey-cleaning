@@ -402,6 +402,7 @@ price types on its own.
 | `20_case_price_points.do` §7 | both | **Merges the points first.** Single-linkage within **`PMERGE` = ₱20**, so points that are close in price become one. This is what stops a 6-point cell existing at all, and it runs before anything cuts or converts |
 | `21_branch_size_based.do` | Outcome 2 | **Guards the result.** The cut has branches for 1, 2 or 3 groups, so a 4-point case would leave rows unassigned; the file stops instead. An *implementation* limit, not a methodological one — see below |
 | `10_size_assignment.do` §2b | **Outcome 1** | **Orders the survivors.** Where a fold leaves a cell holding a municipality median *and* a province median, both of which map to `medium`, they publish as two rungs ordered by price — cheaper `small`, dearer `large` — instead of one averaged row |
+| `10_size_assignment.do` §2b-ii | **Outcome 1** | **Halts on the shape §2b cannot fix** — two weighings with the *same* price-point label at *different* peso prices, which would collapse into one `size_ord` row averaging two price levels. It stops rather than guessing, because a price-file disagreement and a fold that should not have happened need opposite answers. Zero occurrences now; see A2 |
 | `20_case_price_points.do` §7 (A11) | Outcome 2 | **Refuses the tail.** A priced-but-unweighed spelling more than **2.0×** from its cell's weighed price is not converted; 304 household rows are refused on this |
 
 **This matters for Outcome 1 — it is not an Outcome 2 problem only.** Without §2b, the two
