@@ -40,7 +40,8 @@ with no script that writes it, the same orphan problem as #33. It is rebuilt her
 
 GRAIN. province x municipality x item x harmonized_nsu_unit -- WITHOUT corrected_unit,
 which exists only on the MS side, so a price-only spelling has no dimension to split on.
-65 of the 1,941 weighed cells span both g and mL; the coarser grain merges those.
+No weighed cell spans both g and mL (05_manual_corrections.do section 1c resolves a case
+answering in both to its own majority dimension), so this grain merges nothing.
 
 RUN
     python dofiles/90_diagnostics/scope_spelling_price_gap.py

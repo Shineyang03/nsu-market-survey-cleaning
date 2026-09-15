@@ -58,8 +58,8 @@ AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BANGA,putos,30
 AKLAN,"liquor (e.g, whisky, coconut wine)",BANGA,lipid/lapad,73.125,1,mL,0,2,2,1,,375,6,0,0,1,1,1,size-based,375,.195,,,,,0
 AKLAN,"liquor (e.g, whisky, coconut wine)",BANGA,lipid/lapad,225,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 AKLAN,"liquor (e.g, whisky, coconut wine)",BANGA,long-neck,300,1,mL,0,3,3,1,,750,7,0,0,1,1,2,size-based,750,.4,,,,,0
-AKLAN,"liquor (e.g, whisky, coconut wine)",BANGA,long-neck,440,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 AKLAN,"liquor (e.g, whisky, coconut wine)",BANGA,long-neck,550,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+AKLAN,"liquor (e.g, whisky, coconut wine)",BANGA,long-neck,440,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 AKLAN,loaf bread,BANGA,large packs,80,1,g,0,1,1,1,,640,4,0,0,1,1,0,size-based,640,.125,,,,,0
 AKLAN,loaf bread,BANGA,medium packs,60,1,g,0,1,1,1,,450,5,0,0,1,1,0,size-based,450,.1333333333333333,,,,,0
 AKLAN,loaf bread,BANGA,small packs,25,1,g,0,3,3,1,,360,2,0,0,1,1,2,size-based,360,.0694444444444444,,,,,0
@@ -88,8 +88,8 @@ AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BATAN,putos,30
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BATAN,putos,125,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BATAN,small cup,60,1,mL,0,1,1,1,,110,2,0,0,1,1,0,size-based,110,.5454545454545454,,,,,0
 AKLAN,"liquor (e.g, whisky, coconut wine)",BATAN,lipid/lapad,72.5,1,mL,0,3,3,1,,375,3,0,0,1,1,2,size-based,375,.1933333333333333,,,,,0
-AKLAN,"liquor (e.g, whisky, coconut wine)",BATAN,lipid/lapad,130,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 AKLAN,"liquor (e.g, whisky, coconut wine)",BATAN,lipid/lapad,168.75,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+AKLAN,"liquor (e.g, whisky, coconut wine)",BATAN,lipid/lapad,130,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 AKLAN,"liquor (e.g, whisky, coconut wine)",BATAN,long-neck,130,1,mL,0,2,2,1,,750,5,0,0,1,1,1,size-based,750,.1733333333333333,,,,,0
 AKLAN,"liquor (e.g, whisky, coconut wine)",BATAN,long-neck,249.5,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 AKLAN,loaf bread,BATAN,large packs,76.875,1,g,0,2,2,1,,620,3,0,0,1,2,0,size-based,620,.123991935483871,,,,,0
@@ -176,8 +176,8 @@ AKLAN,"crackers, cookies, buiscuits, chips/curls",LIBACAO,pieces or units,8,,g,0
 AKLAN,"crackers, cookies, buiscuits, chips/curls",LIBACAO,pieces or units,8,,g,0,,1,1,,30,9,0,0,1,,,price-quantity,32.01152572262873,.2499099877124836,municipality_median,1,2024m5,1.067050857420958,0
 AKLAN,"crackers, cookies, buiscuits, chips/curls",LIBACAO,putos,60,1,g,0,1,1,1,,300,9,0,0,1,1,0,size-based,300,.2,,,,,0
 AKLAN,fresh fish,LIBACAO,pieces or units,100,1,g,0,1,1,1,,562.5,6,1,1,1,1,0,size-based,562.5,.1777777777777778,,,,,.1666666666666667
-AKLAN,fresh fish,LIBACAO,pieces or units,135,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 AKLAN,fresh fish,LIBACAO,pieces or units,280,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+AKLAN,fresh fish,LIBACAO,pieces or units,135,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LIBACAO,putos,30,1,g,0,1,1,1,,51.5,4,0,0,1,1,0,size-based,51.5,.5825242718446602,,,,,0
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LIBACAO,putos,8,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LIBACAO,small cup,60,1,g,0,1,1,1,,350,3,2,2,1,1,0,size-based,350,.1714285714285714,,,,,.6666666666666666
@@ -211,8 +211,7 @@ AKLAN,"crackers, cookies, buiscuits, chips/curls",MADALAG,putos,60,,g,0,,1,1,,31
 AKLAN,"crackers, cookies, buiscuits, chips/curls",MADALAG,putos,60,,g,0,,1,1,,315,6,0,0,1,,,price-quantity,336.1210200876017,.1785071340803454,municipality_median,1,2024m5,1.067050857420958,0
 AKLAN,"crackers, cookies, buiscuits, chips/curls",MADALAG,putos,60,,g,0,,1,1,,315,6,0,0,1,,,price-quantity,336.1520012034646,.1784906821473405,municipality_median,1,2024m6,1.067149210169729,0
 AKLAN,fresh fish,MADALAG,pieces or units,115,1,g,0,1,1,1,,437.5,12,4,4,1,1,0,size-based,437.5,.2628571428571428,,,,,.3333333333333333
-AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MADALAG,pieces or units,30,1,g,0,1,1,1,,45,1,0,0,1,1,0,size-based,45,.6666666666666666,,,,,0
-AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MADALAG,pieces or units,30,1,mL,0,1,1,1,,100,2,0,0,1,1,0,size-based,100,.3,,,,,0
+AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MADALAG,pieces or units,30,1,mL,0,1,1,1,,100,3,0,0,1,1,0,size-based,100,.3,,,,,0
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MADALAG,putos,10,,mL,0,,1,1,,54,4,0,0,1,,,price-quantity,55.19227383864423,.1811847801240299,province_median,1,2023m12,1.022079145160078,0
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MADALAG,putos,10,,mL,0,,1,1,,54,4,0,0,1,,,price-quantity,55.19227383864423,.1811847801240299,province_median,1,2024m2,1.022079145160078,0
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MADALAG,putos,10,,mL,0,,1,1,,54,4,0,0,1,,,price-quantity,55.15117649416764,.1813197947111341,province_median,1,2024m3,1.021318083225327,0
@@ -251,8 +250,8 @@ AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MAKATO,pieces 
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MAKATO,small cup,30,1,g,0,1,1,1,,110,5,0,0,1,1,0,size-based,110,.2727272727272727,,,,,0
 AKLAN,"liquor (e.g, whisky, coconut wine)",MAKATO,lipid/lapad,80,1,mL,0,1,1,1,,375,9,0,0,1,1,0,size-based,375,.2133333333333333,,,,,0
 AKLAN,"liquor (e.g, whisky, coconut wine)",MAKATO,long-neck,130,1,mL,0,3,3,1,,750,9,0,0,1,1,2,size-based,750,.1733333333333333,,,,,0
-AKLAN,"liquor (e.g, whisky, coconut wine)",MAKATO,long-neck,190,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 AKLAN,"liquor (e.g, whisky, coconut wine)",MAKATO,long-neck,397.5,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+AKLAN,"liquor (e.g, whisky, coconut wine)",MAKATO,long-neck,190,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 AKLAN,loaf bread,MAKATO,large packs,112.5,1,g,0,2,2,1,,640,3,0,0,1,2,0,size-based,640,.17578125,,,,,0
 AKLAN,loaf bread,MAKATO,large packs,155,2,g,0,2,2,1,,705,2,0,0,2,2,0,size-based,705,.2198581560283688,,,,,0
 AKLAN,loaf bread,MAKATO,medium packs,58.75,1,g,0,2,2,1,,450,4,0,0,1,2,0,size-based,450,.1305555555555556,,,,,0
@@ -353,8 +352,8 @@ AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NABAS,pieces o
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NABAS,putos,30,1,mL,0,1,1,1,,650,4,4,4,1,1,0,size-based,650,.0461538461538462,,,,,1
 AKLAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",NABAS,putos,180,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 AKLAN,"liquor (e.g, whisky, coconut wine)",NABAS,lipid/lapad,80,1,mL,0,1,1,1,,375,3,0,0,1,1,0,size-based,375,.2133333333333333,,,,,0
-AKLAN,"liquor (e.g, whisky, coconut wine)",NABAS,lipid/lapad,260,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 AKLAN,"liquor (e.g, whisky, coconut wine)",NABAS,lipid/lapad,120,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+AKLAN,"liquor (e.g, whisky, coconut wine)",NABAS,lipid/lapad,260,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 AKLAN,"liquor (e.g, whisky, coconut wine)",NABAS,long-neck,300,1,mL,0,3,3,1,,750,6,0,0,1,2,1,size-based,750,.4,,,,,0
 AKLAN,"liquor (e.g, whisky, coconut wine)",NABAS,long-neck,360,2,mL,0,3,3,1,,1000,4,0,0,2,2,1,size-based,1000,.36,,,,,0
 AKLAN,"liquor (e.g, whisky, coconut wine)",NABAS,long-neck,420,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -388,8 +387,8 @@ AKLAN,loaf bread,NEW WASHINGTON,small packs,50,1,g,0,1,1,1,,392.5,2,0,0,1,1,0,si
 AKLAN,loaf bread,NEW WASHINGTON,small packs,100,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 AKLAN,"prawns, lobster, shrimp",NEW WASHINGTON,tumpok,60,1,g,1,1,1,1,,342.5,4,0,0,1,1,0,size-based,342.5,.1751824817518248,,,,,0
 AKLAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",NEW WASHINGTON,pieces or units,57.5,1,g,0,3,3,1,,70,1,0,0,1,1,2,size-based,70,.8214285714285714,,,,,0
-AKLAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",NEW WASHINGTON,pieces or units,90,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 AKLAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",NEW WASHINGTON,pieces or units,120,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+AKLAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",NEW WASHINGTON,pieces or units,90,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 AKLAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",NEW WASHINGTON,putos,120,1,g,0,1,1,1,,500,3,1,1,1,1,0,size-based,500,.24,,,,,.3333333333333333
 AKLAN,cabbage,TANGALAN,pieces or units,52.5,1,g,0,1,1,1,,732.5,20,0,0,1,1,0,size-based,732.5,.0716723549488055,,,,,0
 AKLAN,cabbage,TANGALAN,pieces or units,174,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
@@ -431,16 +430,13 @@ ANTIQUE,"crackers, cookies, buiscuits, chips/curls",BARBAZA,putos,79.5,1,g,0,3,3
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",BARBAZA,putos,100,2,g,0,3,3,1,,60,7,0,0,2,3,0,size-based,60,1.666666666666667,,,,,0
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",BARBAZA,putos,161.25,3,g,0,3,3,1,,310,2,0,0,3,3,0,size-based,310,.5201612903225806,,,,,0
 ANTIQUE,fresh fish,BARBAZA,pieces or units,70,1,g,0,1,1,1,,675,6,2,2,1,1,0,size-based,675,.1037037037037037,,,,,.3333333333333333
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BARBAZA,pieces or units,10,,g,0,,1,1,,90,1,0,0,1,,,price-quantity,85.60342094411381,.1168177613664353,province_median,1,2023m12,.9511491216012645,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BARBAZA,pieces or units,10,,g,0,,1,1,,90,1,0,0,1,,,price-quantity,85.60342094411381,.1168177613664353,province_median,1,2024m2,.9511491216012645,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BARBAZA,pieces or units,10,,g,0,,1,1,,90,1,0,0,1,,,price-quantity,85.60342094411381,.1168177613664353,province_median,1,2024m3,.9511491216012645,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BARBAZA,pieces or units,10,,mL,0,,1,1,,110,4,0,0,1,,,price-quantity,104.6264033761391,.0955781683907198,province_median,2,2023m12,.9511491216012645,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BARBAZA,pieces or units,10,,mL,0,,1,1,,110,4,0,0,1,,,price-quantity,104.6264033761391,.0955781683907198,province_median,2,2024m2,.9511491216012645,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BARBAZA,pieces or units,10,,mL,0,,1,1,,110,4,0,0,1,,,price-quantity,104.6264033761391,.0955781683907198,province_median,2,2024m3,.9511491216012645,0
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BARBAZA,pieces or units,10,,mL,0,,1,1,,110,5,0,0,1,,,price-quantity,104.6264033761391,.0955781683907198,province_median,2,2023m12,.9511491216012645,0
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BARBAZA,pieces or units,10,,mL,0,,1,1,,110,5,0,0,1,,,price-quantity,104.6264033761391,.0955781683907198,province_median,2,2024m2,.9511491216012645,0
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BARBAZA,pieces or units,10,,mL,0,,1,1,,110,5,0,0,1,,,price-quantity,104.6264033761391,.0955781683907198,province_median,2,2024m3,.9511491216012645,0
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BARBAZA,small cup,20,1,mL,0,1,1,1,,100,5,0,0,1,1,0,size-based,100,.2,,,,,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BARBAZA,lipid/lapad,63.75,1,mL,0,3,3,1,,375,4,0,0,1,1,2,size-based,375,.17,,,,,0
-ANTIQUE,"liquor (e.g, whisky, coconut wine)",BARBAZA,lipid/lapad,195,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BARBAZA,lipid/lapad,135,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ANTIQUE,"liquor (e.g, whisky, coconut wine)",BARBAZA,lipid/lapad,195,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BARBAZA,long-neck,140,,mL,0,,1,1,,750,7,0,0,1,,,price-quantity,894.198601433014,.1565647718254541,province_median,2,2023m12,1.192264801910685,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BARBAZA,long-neck,140,,mL,0,,1,1,,750,7,0,0,1,,,price-quantity,888.1039775491298,.1576391993945948,province_median,2,2024m2,1.184138636732173,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BARBAZA,long-neck,140,,mL,0,,1,1,,750,7,0,0,1,,,price-quantity,884.1092903001952,.158351463485316,province_median,2,2024m3,1.178812387066927,0
@@ -471,11 +467,10 @@ ANTIQUE,chicken,BELISON,whole (chicken),294.5,1,g,0,2,2,1,,995,3,0,0,1,2,0,size-
 ANTIQUE,chicken,BELISON,whole (chicken),400,2,g,0,2,2,1,,1185,3,0,0,2,2,0,size-based,1185,.3375527426160337,,,,,0
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BELISON,pieces or units,28.75,1,mL,0,2,2,1,,55,2,1,1,1,2,0,size-based,55,.5227272727272727,,,,,.5
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BELISON,pieces or units,85,2,mL,0,2,2,1,,125,2,0,0,2,2,0,size-based,125,.68,,,,,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BELISON,putos,45,1,g,0,1,1,1,,60.5,2,0,0,1,1,0,size-based,60.5,.7438016528925619,,,,,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BELISON,putos,45,1,mL,0,1,1,1,,385,2,1,1,1,1,0,size-based,385,.1168831168831169,,,,,.5
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BELISON,putos,45,1,g,0,1,1,1,,67.5,4,1,1,1,1,0,size-based,67.5,.6666666666666666,,,,,.25
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BELISON,small cup,40,1,mL,0,1,1,1,,100,4,0,0,1,1,0,size-based,100,.4,,,,,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BELISON,small cup,100,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BELISON,small cup,200,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BELISON,small cup,100,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BELISON,gin,35,,mL,0,,1,1,,350,3,0,0,1,,,price-quantity,415.9947776753086,.0841356715956615,province_median,2,2024m5,1.188556507643739,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BELISON,lipid/lapad,80,,mL,0,,1,1,,375,7,0,0,1,,,price-quantity,441.6337246214948,.1811455863534076,municipality_median,2,2024m5,1.177689932323986,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BELISON,long-neck,140,,mL,0,,1,1,,750,8,0,0,1,,,price-quantity,883.2674492429895,.1585023880592316,province_median,2,2024m5,1.177689932323986,0
@@ -483,8 +478,8 @@ ANTIQUE,loaf bread,BELISON,large packs,92.5,1,g,0,1,1,1,,640,4,0,0,1,1,0,size-ba
 ANTIQUE,loaf bread,BELISON,large packs,168,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,loaf bread,BELISON,medium packs,55,1,g,0,1,1,1,,450,5,0,0,1,1,0,size-based,450,.1222222222222222,,,,,0
 ANTIQUE,mango,BELISON,pieces or units,100,1,g,0,1,1,1,,260,11,0,0,1,1,0,size-based,260,.3846153846153846,,,,,0
-ANTIQUE,mango,BELISON,pieces or units,200,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,mango,BELISON,pieces or units,140,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ANTIQUE,mango,BELISON,pieces or units,200,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,"prawns, lobster, shrimp",BELISON,tumpok,100,1,g,0,1,1,1,,230,2,0,0,1,1,0,size-based,230,.4347826086956522,,,,,0
 ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",BELISON,bilog,45,1,g,0,1,1,1,,250,4,0,0,1,1,0,size-based,250,.18,,,,,0
 ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",BELISON,bilog,300,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
@@ -511,14 +506,12 @@ ANTIQUE,fresh fish,BUGASONG,pieces or units,70,1,g,0,1,1,1,,695,5,1,1,1,1,0,size
 ANTIQUE,fresh fish,BUGASONG,pieces or units,35,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,fresh fish,BUGASONG,pieces or units,450,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BUGASONG,pieces or units,20,1,mL,0,1,1,1,,100,3,0,0,1,1,0,size-based,100,.2,,,,,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BUGASONG,putos,45,1,g,0,1,1,1,,56,1,0,0,1,1,0,size-based,56,.8035714285714286,,,,,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BUGASONG,putos,15,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BUGASONG,putos,45,1,mL,0,1,1,1,,625,2,2,2,1,1,0,size-based,625,.072,,,,,1
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BUGASONG,putos,45,1,mL,0,1,1,1,,600,3,2,2,1,1,0,size-based,600,.075,,,,,.6666666666666666
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BUGASONG,putos,15,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BUGASONG,small cup,30,1,mL,0,1,1,1,,100,3,0,0,1,1,0,size-based,100,.3,,,,,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BUGASONG,lipid/lapad,80,1,mL,0,3,3,1,,375,6,0,0,1,1,2,size-based,375,.2133333333333333,,,,,0
-ANTIQUE,"liquor (e.g, whisky, coconut wine)",BUGASONG,lipid/lapad,240,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BUGASONG,lipid/lapad,155,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ANTIQUE,"liquor (e.g, whisky, coconut wine)",BUGASONG,lipid/lapad,240,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BUGASONG,long-neck,142.5,1,mL,0,2,2,1,,750,8,0,0,1,2,0,size-based,750,.19,,,,,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",BUGASONG,long-neck,315,2,mL,0,2,2,1,,1000,2,0,0,2,2,0,size-based,1000,.315,,,,,0
 ANTIQUE,loaf bread,BUGASONG,large packs,92.5,1,g,0,1,1,1,,660,2,0,0,1,1,0,size-based,660,.1401515151515151,,,,,0
@@ -576,8 +569,7 @@ ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HAMTIC,cone,
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HAMTIC,cone,5,,mL,0,,1,1,,105,2,0,0,1,,,price-quantity,99.87065776813277,.0500647548713294,province_median,1,2024m1,.9511491216012645,0
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HAMTIC,cone,5,,mL,0,,1,1,,105,2,0,0,1,,,price-quantity,99.87065776813277,.0500647548713294,province_median,1,2024m3,.9511491216012645,0
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HAMTIC,cone,5,,mL,0,,1,1,,105,2,0,0,1,,,price-quantity,99.39333827044567,.0503051822889295,province_median,1,2024m11,.9466032216232921,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HAMTIC,pieces or units,28,1,g,0,1,1,1,,80,1,0,0,1,1,0,size-based,80,.35,,,,,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HAMTIC,pieces or units,28,1,mL,0,1,1,1,,115,1,0,0,1,1,0,size-based,115,.2434782608695652,,,,,0
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HAMTIC,pieces or units,28,1,g,0,1,1,1,,97.5,2,0,0,1,1,0,size-based,97.5,.2871794871794872,,,,,0
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HAMTIC,putos,45,1,mL,1,1,1,1,,500,5,4,4,1,1,0,size-based,500,.09,,,,,.8
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HAMTIC,small cup,30,1,mL,0,1,1,1,,100,3,0,0,1,1,0,size-based,100,.3,,,,,0
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HAMTIC,small cup,150,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
@@ -618,8 +610,8 @@ ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LAUA-AN,smal
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LAUA-AN,small cup,10,,g,0,,1,1,,100,3,1,1,1,,,price-quantity,95.80666605617044,.104376870750696,municipality_median,2,2024m5,.9580666605617044,.3333333333333333
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LAUA-AN,small cup,10,,g,0,,1,1,,100,3,1,1,1,,,price-quantity,95.11491216012645,.1051359852297918,municipality_median,2,2024m6,.9511491216012645,.3333333333333333
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",LAUA-AN,lipid/lapad,80,1,mL,0,3,3,1,,375,7,0,0,1,1,2,size-based,375,.2133333333333333,,,,,0
-ANTIQUE,"liquor (e.g, whisky, coconut wine)",LAUA-AN,lipid/lapad,150,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",LAUA-AN,lipid/lapad,182.5,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ANTIQUE,"liquor (e.g, whisky, coconut wine)",LAUA-AN,lipid/lapad,150,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",LAUA-AN,long-neck,130,1,mL,0,1,1,1,,750,7,0,0,1,1,0,size-based,750,.1733333333333333,,,,,0
 ANTIQUE,loaf bread,LAUA-AN,large packs,80,1,g,0,1,1,1,,640,3,0,0,1,1,0,size-based,640,.125,,,,,0
 ANTIQUE,loaf bread,LAUA-AN,medium packs,65,1,g,0,1,1,1,,450,3,0,0,1,1,0,size-based,450,.1444444444444444,,,,,0
@@ -673,8 +665,8 @@ ANTIQUE,"liquor (e.g, whisky, coconut wine)",PANDAN,lipid/lapad,80,1,mL,0,1,1,1,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",PANDAN,long-neck,125.625,1,mL,0,2,2,1,,750,4,0,0,1,2,0,size-based,750,.1675,,,,,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",PANDAN,long-neck,195,2,mL,0,2,2,1,,1000,2,0,0,2,2,0,size-based,1000,.195,,,,,0
 ANTIQUE,loaf bread,PANDAN,small packs,17.5,1,g,0,3,3,1,,400,1,0,0,1,1,2,size-based,400,.04375,,,,,0
-ANTIQUE,loaf bread,PANDAN,small packs,45,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,loaf bread,PANDAN,small packs,75,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ANTIQUE,loaf bread,PANDAN,small packs,45,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"preserved or processed meat (tocino, tapa, longaniza, etc)",PANDAN,putos,82.5,2,g,1,1,3,1,,200,5,0,0,1,1,0,size-based,200,.4125,,,,,0
 ANTIQUE,cabbage,PATNONGON,pieces or units,50,1,g,0,1,1,1,,750,13,0,0,1,1,0,size-based,750,.0666666666666667,,,,,0
 ANTIQUE,cabbage,PATNONGON,pieces or units,90,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
@@ -699,8 +691,8 @@ ANTIQUE,fresh fish,PATNONGON,tumpok,300,1,g,1,1,1,1,,525,1,1,1,1,1,0,size-based,
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PATNONGON,putos,45,1,g,1,1,1,1,,60,5,0,0,1,1,0,size-based,60,.75,,,,,0
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PATNONGON,small cup,30,1,g,0,1,1,1,,100,3,0,0,1,1,0,size-based,100,.3,,,,,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",PATNONGON,lipid/lapad,85,1,mL,0,3,3,1,,375,7,0,0,1,1,2,size-based,375,.2266666666666667,,,,,0
-ANTIQUE,"liquor (e.g, whisky, coconut wine)",PATNONGON,lipid/lapad,165,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",PATNONGON,lipid/lapad,243.75,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ANTIQUE,"liquor (e.g, whisky, coconut wine)",PATNONGON,lipid/lapad,165,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",PATNONGON,long-neck,157.5,1,mL,0,2,2,1,,750,6,0,0,1,2,0,size-based,750,.21,,,,,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",PATNONGON,long-neck,230,2,mL,0,2,2,1,,1000,1,0,0,2,2,0,size-based,1000,.23,,,,,0
 ANTIQUE,loaf bread,PATNONGON,large packs,92.5,1,g,0,1,1,1,,640,3,0,0,1,1,0,size-based,640,.14453125,,,,,0
@@ -723,14 +715,10 @@ ANTIQUE,"crackers, cookies, buiscuits, chips/curls",SAN REMIGIO,putos,62.5,1,g,1
 ANTIQUE,"drinks at restaurant, hotel, cafe, or kiosk",SAN REMIGIO,pieces or units,150,1,mL,0,1,1,1,,355,1,0,0,1,1,0,size-based,355,.4225352112676056,,,,,0
 ANTIQUE,fresh fish,SAN REMIGIO,pieces or units,180,1,g,0,1,1,1,,195,9,4,4,1,1,0,size-based,195,.9230769230769231,,,,,.4444444444444444
 ANTIQUE,fresh fish,SAN REMIGIO,pieces or units,400,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,g,0,,1,1,,90,3,0,0,1,,,price-quantity,87.90507975387027,.1137590686226494,municipality_median,2,2024m1,.9767231083763362,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,g,0,,1,1,,90,3,0,0,1,,,price-quantity,87.90507975387027,.1137590686226494,municipality_median,2,2024m3,.9767231083763362,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,g,0,,1,1,,90,3,0,0,1,,,price-quantity,88.54439781684052,.1129376928022664,municipality_median,2,2024m5,.983826642409339,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,g,0,,1,1,,90,3,0,0,1,,,price-quantity,87.48494826129837,.1143053770819203,municipality_median,2,2024m11,.972054980681093,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,mL,0,,1,1,,100,1,0,0,1,,,price-quantity,95.11491216012645,.1051359852297918,municipality_median,1,2024m1,.9511491216012645,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,mL,0,,1,1,,100,1,0,0,1,,,price-quantity,95.11491216012645,.1051359852297918,municipality_median,1,2024m3,.9511491216012645,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,mL,0,,1,1,,100,1,0,0,1,,,price-quantity,95.80666605617044,.104376870750696,municipality_median,1,2024m5,.9580666605617044,0
-ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,mL,0,,1,1,,100,1,0,0,1,,,price-quantity,94.66032216232921,.1056408828067519,municipality_median,1,2024m11,.9466032216232921,0
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,g,0,,1,1,,95,4,0,0,1,,,price-quantity,91.57393092393603,.1092013840522615,municipality_median,2,2024m1,.9639361149888004,0
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,g,0,,1,1,,95,4,0,0,1,,,price-quantity,91.57393092393603,.1092013840522615,municipality_median,2,2024m3,.9639361149888004,0
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,g,0,,1,1,,95,4,0,0,1,,,price-quantity,92.23993189112456,.1084129161305486,municipality_median,2,2024m5,.9709466514855217,0
+ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,pieces or units,10,,g,0,,1,1,,95,4,0,0,1,,,price-quantity,91.13626460945829,.1097258050113476,municipality_median,2,2024m11,.9593291011521926,0
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,putos,52.5,1,mL,1,1,1,1,,60,1,0,0,1,1,0,size-based,60,.875,,,,,0
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,small cup,29.375,1,mL,0,2,2,1,,100,1,0,0,1,1,1,size-based,100,.29375,,,,,0
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN REMIGIO,small cup,87.5,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -759,8 +747,7 @@ ANTIQUE,chicken,SEBASTE,whole (chicken),290,,g,0,1,1,0,"unique price, no weighin
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",SEBASTE,pieces or units,48,1,g,1,1,1,1,,31,7,0,0,1,1,0,size-based,31,1.548387096774194,,,,,0
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",SEBASTE,putos,80.875,1,g,0,2,2,1,,26,7,5,5,1,2,0,size-based,26,3.110576923076923,,,,,.7142857142857143
 ANTIQUE,"crackers, cookies, buiscuits, chips/curls",SEBASTE,putos,180,2,g,0,2,2,1,,88,6,0,0,2,2,0,size-based,88,2.045454545454545,,,,,0
-ANTIQUE,"drinks at restaurant, hotel, cafe, or kiosk",SEBASTE,pieces or units,60,1,g,0,1,1,1,,250,1,0,0,1,1,0,size-based,250,.24,,,,,0
-ANTIQUE,"drinks at restaurant, hotel, cafe, or kiosk",SEBASTE,pieces or units,60,1,mL,0,1,1,1,,402.5,12,2,2,1,1,0,size-based,402.5,.1490683229813665,,,,,.1666666666666667
+ANTIQUE,"drinks at restaurant, hotel, cafe, or kiosk",SEBASTE,pieces or units,60,1,mL,0,1,1,1,,350,13,2,2,1,1,0,size-based,350,.1714285714285714,,,,,.1538461538461539
 ANTIQUE,fresh fish,SEBASTE,pieces or units,180,1,g,0,1,1,1,,275,3,1,1,1,1,0,size-based,275,.6545454545454545,,,,,.3333333333333333
 ANTIQUE,fresh fish,SEBASTE,pieces or units,50,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SEBASTE,pieces or units,15,,mL,0,,1,1,,100,3,0,0,1,,,price-quantity,95.11491216012645,.1577039778446877,municipality_median,1,2024m2,.9511491216012645,0
@@ -769,8 +756,8 @@ ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SEBASTE,piec
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SEBASTE,putos,45,1,mL,1,1,1,1,,60,4,1,1,1,1,0,size-based,60,.75,,,,,.25
 ANTIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SEBASTE,small cup,30,1,mL,0,1,1,1,,110,4,0,0,1,1,0,size-based,110,.2727272727272727,,,,,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",SEBASTE,lipid/lapad,72.5,1,mL,0,3,3,1,,375,5,0,0,1,1,2,size-based,375,.1933333333333333,,,,,0
-ANTIQUE,"liquor (e.g, whisky, coconut wine)",SEBASTE,lipid/lapad,140,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",SEBASTE,lipid/lapad,205,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ANTIQUE,"liquor (e.g, whisky, coconut wine)",SEBASTE,lipid/lapad,140,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",SEBASTE,long-neck,140,,mL,0,,1,1,,750,3,0,0,1,,,price-quantity,888.1039775491298,.1576391993945948,municipality_median,1,2024m2,1.184138636732173,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",SEBASTE,long-neck,140,,mL,0,,1,1,,750,3,0,0,1,,,price-quantity,884.1092903001952,.158351463485316,municipality_median,1,2024m3,1.178812387066927,0
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",SEBASTE,long-neck,140,,mL,0,,1,1,,750,3,0,0,1,,,price-quantity,883.2674492429895,.1585023880592316,municipality_median,1,2024m6,1.177689932323986,0
@@ -842,8 +829,8 @@ ANTIQUE,"liquor (e.g, whisky, coconut wine)",TIBIAO,lipid/lapad,78.75,1,mL,0,3,3
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",TIBIAO,lipid/lapad,225,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",TIBIAO,lipid/lapad,115,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",TIBIAO,long-neck,157.5,1,mL,0,1,1,1,,750,6,0,0,1,1,0,size-based,750,.21,,,,,0
-ANTIQUE,"liquor (e.g, whisky, coconut wine)",TIBIAO,long-neck,300,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,"liquor (e.g, whisky, coconut wine)",TIBIAO,long-neck,240,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ANTIQUE,"liquor (e.g, whisky, coconut wine)",TIBIAO,long-neck,300,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,loaf bread,TIBIAO,large packs,82.5,1,g,0,1,1,1,,680,3,0,0,1,1,0,size-based,680,.1213235294117647,,,,,0
 ANTIQUE,loaf bread,TIBIAO,large packs,290,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ANTIQUE,loaf bread,TIBIAO,medium packs,62.5,1,g,0,1,1,1,,500,3,0,0,1,1,0,size-based,500,.125,,,,,0
@@ -941,18 +928,12 @@ CAPIZ,"crackers, cookies, buiscuits, chips/curls",CUARTERO,putos,60,,g,0,,1,1,,2
 CAPIZ,"crackers, cookies, buiscuits, chips/curls",CUARTERO,putos,60,,g,0,,1,1,,290,4,0,0,1,,,price-quantity,321.410448087244,.186677192222804,municipality_median,1,2024m10,1.108311889956014,0
 CAPIZ,"crackers, cookies, buiscuits, chips/curls",CUARTERO,putos,60,,g,0,,1,1,,290,4,0,0,1,,,price-quantity,321.410448087244,.186677192222804,municipality_median,1,2024m11,1.108311889956014,0
 CAPIZ,fresh fish,CUARTERO,pieces or units,110,1,g,0,1,1,1,,475,9,0,0,1,1,0,size-based,475,.2315789473684211,,,,,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,100,1,0,0,1,,,price-quantity,100.2971067545279,.1495556600322653,province_median,1,2024m2,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,100,1,0,0,1,,,price-quantity,100.2971067545279,.1495556600322653,province_median,1,2024m3,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,100,1,0,0,1,,,price-quantity,100.2971067545279,.1495556600322653,province_median,1,2024m4,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,100,1,0,0,1,,,price-quantity,100.2971067545279,.1495556600322653,province_median,1,2024m6,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,100,1,0,0,1,,,price-quantity,100.0323343993794,.1499515140785623,province_median,1,2024m10,1.000323343993794,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,100,1,0,0,1,,,price-quantity,100.0323343993794,.1499515140785623,province_median,1,2024m11,1.000323343993794,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,mL,0,,1,1,,110,1,0,0,1,,,price-quantity,110.3268174299807,.135959690938423,province_median,1,2024m2,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,mL,0,,1,1,,110,1,0,0,1,,,price-quantity,110.3268174299807,.135959690938423,province_median,1,2024m3,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,mL,0,,1,1,,110,1,0,0,1,,,price-quantity,110.3268174299807,.135959690938423,province_median,1,2024m4,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,mL,0,,1,1,,110,1,0,0,1,,,price-quantity,110.3268174299807,.135959690938423,province_median,1,2024m6,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,mL,0,,1,1,,110,1,0,0,1,,,price-quantity,110.0355678393174,.1363195582532385,province_median,1,2024m10,1.000323343993794,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,mL,0,,1,1,,110,1,0,0,1,,,price-quantity,110.0355678393174,.1363195582532385,province_median,1,2024m11,1.000323343993794,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,105,2,0,0,1,,,price-quantity,105.3119620922543,.1424339619354908,province_median,1,2024m2,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,105,2,0,0,1,,,price-quantity,105.3119620922543,.1424339619354908,province_median,1,2024m3,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,105,2,0,0,1,,,price-quantity,105.3119620922543,.1424339619354908,province_median,1,2024m4,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,105,2,0,0,1,,,price-quantity,105.3119620922543,.1424339619354908,province_median,1,2024m6,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,105,2,0,0,1,,,price-quantity,105.0339511193484,.142810965789107,province_median,1,2024m10,1.000323343993794,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,cone,15,,g,0,,1,1,,105,2,0,0,1,,,price-quantity,105.0339511193484,.142810965789107,province_median,1,2024m11,1.000323343993794,0
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,pieces or units,10,,g,0,,1,1,,395,1,1,1,1,,,price-quantity,396.1735716803853,.0252414616088212,municipality_median,1,2024m2,1.002971067545279,1
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,pieces or units,10,,g,0,,1,1,,395,1,1,1,1,,,price-quantity,396.1735716803853,.0252414616088212,municipality_median,1,2024m3,1.002971067545279,1
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,pieces or units,10,,g,0,,1,1,,395,1,1,1,1,,,price-quantity,396.1735716803853,.0252414616088212,municipality_median,1,2024m4,1.002971067545279,1
@@ -965,24 +946,18 @@ CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,putos
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,putos,20,,mL,0,,1,1,,600,3,2,2,1,,,price-quantity,601.7826405271675,.0332345911182812,province_median,1,2024m6,1.002971067545279,.6666666666666666
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,putos,20,,mL,0,,1,1,,600,3,2,2,1,,,price-quantity,600.1940063962767,.033322558684125,province_median,1,2024m10,1.000323343993794,.6666666666666666
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,putos,20,,mL,0,,1,1,,600,3,2,2,1,,,price-quantity,600.1940063962767,.033322558684125,province_median,1,2024m11,1.000323343993794,.6666666666666666
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1025,1,0,0,1,,,price-quantity,1028.045344233911,.2285891389111047,province_median,1,2024m2,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1025,1,0,0,1,,,price-quantity,1028.045344233911,.2285891389111047,province_median,1,2024m3,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1025,1,0,0,1,,,price-quantity,1028.045344233911,.2285891389111047,province_median,1,2024m4,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1025,1,0,0,1,,,price-quantity,1028.045344233911,.2285891389111047,province_median,1,2024m6,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1025,1,0,0,1,,,price-quantity,1025.331427593639,.229194184120079,province_median,1,2024m10,1.000323343993794,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1025,1,0,0,1,,,price-quantity,1025.331427593639,.229194184120079,province_median,1,2024m11,1.000323343993794,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,mL,0,,1,1,,1250,1,0,0,1,,,price-quantity,1253.713834431599,.1874430939071059,province_median,1,2024m2,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,mL,0,,1,1,,1250,1,0,0,1,,,price-quantity,1253.713834431599,.1874430939071059,province_median,1,2024m3,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,mL,0,,1,1,,1250,1,0,0,1,,,price-quantity,1253.713834431599,.1874430939071059,province_median,1,2024m4,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,mL,0,,1,1,,1250,1,0,0,1,,,price-quantity,1253.713834431599,.1874430939071059,province_median,1,2024m6,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,mL,0,,1,1,,1250,1,0,0,1,,,price-quantity,1250.404179992243,.1879392309784648,province_median,1,2024m10,1.000323343993794,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,mL,0,,1,1,,1250,1,0,0,1,,,price-quantity,1250.404179992243,.1879392309784648,province_median,1,2024m11,1.000323343993794,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1137.5,2,0,0,1,,,price-quantity,1140.879589332755,.2059814218759405,province_median,1,2024m2,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1137.5,2,0,0,1,,,price-quantity,1140.879589332755,.2059814218759405,province_median,1,2024m3,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1137.5,2,0,0,1,,,price-quantity,1140.879589332755,.2059814218759405,province_median,1,2024m4,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1137.5,2,0,0,1,,,price-quantity,1140.879589332755,.2059814218759405,province_median,1,2024m6,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1137.5,2,0,0,1,,,price-quantity,1137.867803792941,.2065266274488624,province_median,1,2024m10,1.000323343993794,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CUARTERO,tupperware,235,,g,0,,1,1,,1137.5,2,0,0,1,,,price-quantity,1137.867803792941,.2065266274488624,province_median,1,2024m11,1.000323343993794,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",CUARTERO,lipid/lapad,65,1,mL,0,3,3,1,,375,4,0,0,1,1,2,size-based,375,.1733333333333333,,,,,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",CUARTERO,lipid/lapad,130,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 CAPIZ,"liquor (e.g, whisky, coconut wine)",CUARTERO,lipid/lapad,229.5,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 CAPIZ,loaf bread,CUARTERO,large packs,84,1,g,0,3,3,1,,640,5,0,0,1,1,2,size-based,640,.13125,,,,,0
-CAPIZ,loaf bread,CUARTERO,large packs,209,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 CAPIZ,loaf bread,CUARTERO,large packs,147.5,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+CAPIZ,loaf bread,CUARTERO,large packs,209,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 CAPIZ,loaf bread,CUARTERO,medium packs,62.5,1,g,0,2,2,1,,450,5,0,0,1,1,1,size-based,450,.1388888888888889,,,,,0
 CAPIZ,loaf bread,CUARTERO,medium packs,120,2,g,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 CAPIZ,loaf bread,CUARTERO,small packs,60,1,g,0,1,1,1,,220,2,0,0,1,1,0,size-based,220,.2727272727272727,,,,,0
@@ -1020,8 +995,8 @@ CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DAO,small cup,
 CAPIZ,"liquor (e.g, whisky, coconut wine)",DAO,lipid/lapad,68.75,1,mL,0,2,2,1,,375,2,0,0,1,2,0,size-based,375,.1833333333333333,,,,,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",DAO,lipid/lapad,130,2,mL,0,2,2,1,,750,1,0,0,2,2,0,size-based,750,.1733333333333333,,,,,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",DAO,long-neck,192.5,1,mL,0,3,3,1,,750,3,0,0,1,1,2,size-based,750,.2566666666666667,,,,,0
-CAPIZ,"liquor (e.g, whisky, coconut wine)",DAO,long-neck,270,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 CAPIZ,"liquor (e.g, whisky, coconut wine)",DAO,long-neck,315,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+CAPIZ,"liquor (e.g, whisky, coconut wine)",DAO,long-neck,270,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 CAPIZ,loaf bread,DAO,large packs,84.5,1,g,0,2,2,1,,640,1,0,0,1,1,1,size-based,640,.13203125,,,,,0
 CAPIZ,loaf bread,DAO,large packs,145,2,g,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 CAPIZ,loaf bread,DAO,medium packs,65,1,g,0,1,1,1,,545,2,0,0,1,1,0,size-based,545,.1192660550458716,,,,,0
@@ -1252,12 +1227,9 @@ CAPIZ,fresh fish,MA-AYON,pieces or units,87.5,,g,0,,2,1,,380,2,0,0,2,,,price-qua
 CAPIZ,fresh fish,MA-AYON,pieces or units,87.5,,g,0,,2,1,,380,2,0,0,2,,,price-quantity,390.4302081744663,.224111757154047,mp50_price,1,2024m6,1.027447916248595,0
 CAPIZ,fresh fish,MA-AYON,pieces or units,87.5,,g,0,,2,1,,380,2,0,0,2,,,price-quantity,393.0222414965896,.2226337106694235,mp50_price,1,2024m11,1.034269056569973,0
 CAPIZ,fresh fish,MA-AYON,pieces or units,87.5,,g,0,,2,1,,380,2,0,0,2,,,price-quantity,396.1390249919848,.2208820501887448,mp50_price,1,2024m12,1.04247111839996,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MA-AYON,putos,30,1,g,0,3,3,1,,43,1,0,0,1,1,2,size-based,43,.6976744186046512,,,,,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MA-AYON,putos,65,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MA-AYON,putos,30,1,g,0,3,3,1,,43,1,0,0,1,2,1,size-based,43,.6976744186046512,,,,,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MA-AYON,putos,65,2,g,0,3,3,1,,70,1,0,0,2,2,1,size-based,70,.9285714285714286,,,,,0
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MA-AYON,putos,108.75,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MA-AYON,putos,30,1,mL,0,3,3,1,,70,1,0,0,1,1,2,size-based,70,.4285714285714285,,,,,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MA-AYON,putos,65,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MA-AYON,putos,108.75,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MA-AYON,small cup,30,1,mL,0,1,1,1,,75,2,0,0,1,1,0,size-based,75,.4,,,,,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",MA-AYON,lipid/lapad,80,1,mL,0,3,3,1,,375,6,0,0,1,1,2,size-based,375,.2133333333333333,,,,,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",MA-AYON,lipid/lapad,195,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -1356,8 +1328,8 @@ CAPIZ,"liquor (e.g, whisky, coconut wine)",PANAY,long-neck,300,2,mL,0,2,2,0,this
 CAPIZ,loaf bread,PANAY,medium packs,60,1,g,0,1,1,1,,447.5,4,0,0,1,1,0,size-based,447.5,.1340782122905028,,,,,0
 CAPIZ,loaf bread,PANAY,small packs,45,1,g,0,1,1,1,,220,4,0,0,1,1,0,size-based,220,.2045454545454546,,,,,0
 CAPIZ,mango,PANAY,pieces or units,75,1,g,0,1,1,1,,222.5,12,0,0,1,1,0,size-based,222.5,.3370786516853932,,,,,0
-CAPIZ,mango,PANAY,pieces or units,230,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 CAPIZ,mango,PANAY,pieces or units,125,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+CAPIZ,mango,PANAY,pieces or units,230,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 CAPIZ,"prawns, lobster, shrimp",PANAY,cup,20,1,g,0,1,1,1,,147.5,2,1,1,1,1,0,size-based,147.5,.1355932203389831,,,,,.5
 CAPIZ,"prawns, lobster, shrimp",PANAY,tumpok,50,1,g,0,1,1,1,,400,9,1,1,1,1,0,size-based,400,.125,,,,,.1111111111111111
 CAPIZ,"preserved or processed meat (tocino, tapa, longaniza, etc)",PANAY,bilog,43.5,1,g,0,3,3,1,,50,1,1,1,1,2,1,size-based,50,.87,,,,,1
@@ -1386,10 +1358,8 @@ CAPIZ,"crackers, cookies, buiscuits, chips/curls",PANITAN,putos,62.5,1,g,0,2,2,1
 CAPIZ,"crackers, cookies, buiscuits, chips/curls",PANITAN,putos,114,2,g,0,2,2,1,,300,4,0,0,2,2,0,size-based,300,.38,,,,,0
 CAPIZ,fresh fish,PANITAN,pieces or units,107.5,1,g,0,2,2,1,,130,4,0,0,1,2,0,size-based,130,.8269230769230769,,,,,0
 CAPIZ,fresh fish,PANITAN,pieces or units,147.5,2,g,0,2,2,1,,590,4,1,1,2,2,0,size-based,590,.25,,,,,.25
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PANITAN,pieces or units,25,1,g,0,1,1,1,,49,1,0,0,1,1,0,size-based,49,.5102040816326531,,,,,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PANITAN,pieces or units,25,1,mL,0,1,1,1,,105,6,3,3,1,1,0,size-based,105,.2380952380952381,,,,,.5
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PANITAN,small cup,30,1,g,0,1,1,1,,100,5,1,1,1,1,0,size-based,100,.3,,,,,.2
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PANITAN,small cup,30,1,mL,0,1,1,1,,112.5,2,0,0,1,1,0,size-based,112.5,.2666666666666667,,,,,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PANITAN,pieces or units,25,1,mL,0,1,1,1,,60,7,3,3,1,1,0,size-based,60,.4166666666666667,,,,,.4285714285714285
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PANITAN,small cup,30,1,g,0,1,1,1,,100,7,1,1,1,1,0,size-based,100,.3,,,,,.1428571428571428
 CAPIZ,"liquor (e.g, whisky, coconut wine)",PANITAN,lipid/lapad,65.5,1,mL,0,3,3,1,,375,10,0,0,1,2,1,size-based,375,.1746666666666667,,,,,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",PANITAN,lipid/lapad,140,2,mL,0,3,3,1,,750,6,0,0,2,2,1,size-based,750,.1866666666666667,,,,,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",PANITAN,lipid/lapad,180,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -1438,8 +1408,8 @@ CAPIZ,camote tops,PONTEVEDRA,bugkos,20,1,g,1,1,1,1,,150,5,0,0,1,1,0,size-based,1
 CAPIZ,carrot,PONTEVEDRA,pieces or units,52.5,1,g,0,2,2,1,,115,7,0,0,1,2,0,size-based,115,.4565217391304348,,,,,0
 CAPIZ,carrot,PONTEVEDRA,pieces or units,90,2,g,0,2,2,1,,225,7,0,0,2,2,0,size-based,225,.4,,,,,0
 CAPIZ,chicken,PONTEVEDRA,bilog,250,1,g,0,1,1,1,,1315,10,0,0,1,1,0,size-based,1315,.1901140684410646,,,,,0
-CAPIZ,chicken,PONTEVEDRA,bilog,1200,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 CAPIZ,chicken,PONTEVEDRA,bilog,210,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+CAPIZ,chicken,PONTEVEDRA,bilog,1200,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 CAPIZ,fresh fish,PONTEVEDRA,pieces or units,110,1,g,0,1,1,1,,555,7,0,0,1,1,0,size-based,555,.1981981981981982,,,,,0
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,57.5,1,mL,0,2,2,1,,48,1,0,0,1,1,1,size-based,48,1.197916666666667,,,,,0
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,95,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -1502,14 +1472,10 @@ CAPIZ,"crackers, cookies, buiscuits, chips/curls",SAPI-AN,pieces or units,124,2,
 CAPIZ,fresh fish,SAPI-AN,pieces or units,110,1,g,0,1,1,1,,195,9,1,1,1,1,0,size-based,195,.5641025641025641,,,,,.1111111111111111
 CAPIZ,fresh fish,SAPI-AN,pieces or units,50,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 CAPIZ,fresh fish,SAPI-AN,pieces or units,85,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,g,0,,1,1,,52,1,0,0,1,,,price-quantity,52.22333021893238,.3829705979330567,province_median,1,2024m1,1.004294811902546,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,g,0,,1,1,,52,1,0,0,1,,,price-quantity,52.15449551235452,.3834760513647829,province_median,1,2024m3,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,g,0,,1,1,,52,1,0,0,1,,,price-quantity,52.15449551235452,.3834760513647829,province_median,1,2024m5,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,g,0,,1,1,,52,1,0,0,1,,,price-quantity,52.01681388767731,.3844910617399034,province_median,1,2024m11,1.000323343993794,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,mL,0,,1,1,,65,3,0,0,1,,,price-quantity,65.27916277366546,.3063764783464454,province_median,1,2024m1,1.004294811902546,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,mL,0,,1,1,,65,3,0,0,1,,,price-quantity,65.19311939044314,.3067808410918264,province_median,1,2024m3,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,mL,0,,1,1,,65,3,0,0,1,,,price-quantity,65.19311939044314,.3067808410918264,province_median,1,2024m5,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,mL,0,,1,1,,65,3,0,0,1,,,price-quantity,65.02101735959664,.3075928493919227,province_median,1,2024m11,1.000323343993794,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,mL,0,,1,1,,62.5,4,0,0,1,,,price-quantity,62.76842574390911,.3186315374803032,province_median,1,2024m1,1.004294811902546,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,mL,0,,1,1,,62.5,4,0,0,1,,,price-quantity,62.68569172157995,.3190520747354993,province_median,1,2024m3,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,mL,0,,1,1,,62.5,4,0,0,1,,,price-quantity,62.68569172157995,.3190520747354993,province_median,1,2024m5,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,putos,20,,mL,0,,1,1,,62.5,4,0,0,1,,,price-quantity,62.52020899961215,.3198965633675996,province_median,1,2024m11,1.000323343993794,0
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,small cup,20,1,mL,0,2,2,1,,87.5,2,0,0,1,2,0,size-based,87.5,.2285714285714286,,,,,0
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAPI-AN,small cup,70,2,mL,0,2,2,1,,120,1,0,0,2,2,0,size-based,120,.5833333333333334,,,,,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",SAPI-AN,lipid/lapad,455,1,mL,0,1,1,1,,375,6,0,0,1,1,0,size-based,375,1.213333333333333,,,,,0
@@ -1589,27 +1555,16 @@ CAPIZ,fresh fish,SIGMA,pack,50,,g,0,,1,1,,580,3,3,3,1,,,price-quantity,599.87605
 CAPIZ,fresh fish,SIGMA,pieces or units,95,1,g,0,3,3,1,,115,3,0,0,1,3,0,size-based,115,.8260869565217391,,,,,0
 CAPIZ,fresh fish,SIGMA,pieces or units,120,2,g,0,3,3,1,,312.5,4,0,0,2,3,0,size-based,312.5,.384,,,,,0
 CAPIZ,fresh fish,SIGMA,pieces or units,145,3,g,0,3,3,1,,770,2,1,1,3,3,0,size-based,770,.1883116883116883,,,,,.5
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,242.5,2,1,1,1,,,price-quantity,243.5414918863673,.0513259564240179,municipality_median,1,2024m1,1.004294811902546,.5
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,242.5,2,1,1,1,,,price-quantity,243.2204838797302,.0513936976055895,municipality_median,1,2024m2,1.002971067545279,.5
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,242.5,2,1,1,1,,,price-quantity,243.2204838797302,.0513936976055895,municipality_median,1,2024m4,1.002971067545279,.5
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,242.5,2,1,1,1,,,price-quantity,243.2204838797302,.0513936976055895,municipality_median,1,2024m5,1.002971067545279,.5
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,242.5,2,1,1,1,,,price-quantity,243.2204838797302,.0513936976055895,municipality_median,1,2024m6,1.002971067545279,.5
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,242.5,2,1,1,1,,,price-quantity,242.5784109184951,.0515297299239046,municipality_median,1,2024m10,1.000323343993794,.5
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,242.5,2,1,1,1,,,price-quantity,242.5784109184951,.0515297299239046,municipality_median,1,2024m11,1.000323343993794,.5
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,mL,0,,1,1,,35,1,0,0,1,,,price-quantity,35.1503184165891,.3556155552235526,municipality_median,1,2024m1,1.004294811902546,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,mL,0,,1,1,,35,1,0,0,1,,,price-quantity,35.10398736408477,.356084904838727,municipality_median,1,2024m2,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,mL,0,,1,1,,35,1,0,0,1,,,price-quantity,35.10398736408477,.356084904838727,municipality_median,1,2024m4,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,mL,0,,1,1,,35,1,0,0,1,,,price-quantity,35.10398736408477,.356084904838727,municipality_median,1,2024m5,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,mL,0,,1,1,,35,1,0,0,1,,,price-quantity,35.10398736408477,.356084904838727,municipality_median,1,2024m6,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,mL,0,,1,1,,35,1,0,0,1,,,price-quantity,35.0113170397828,.3570274144727674,municipality_median,1,2024m10,1.000323343993794,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,mL,0,,1,1,,35,1,0,0,1,,,price-quantity,35.0113170397828,.3570274144727674,municipality_median,1,2024m11,1.000323343993794,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,small cup,40,1,g,0,2,2,1,,100,1,0,0,1,2,0,size-based,100,.4,,,,,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,small cup,73.75,2,g,0,2,2,1,,110,1,0,0,2,2,0,size-based,110,.6704545454545454,,,,,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,small cup,40,1,mL,0,2,2,1,,67.5,2,1,1,1,2,0,size-based,67.5,.5925925925925926,,,,,.5
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,small cup,73.75,2,mL,0,2,2,1,,120,1,0,0,2,2,0,size-based,120,.6145833333333334,,,,,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,tub,270,1,g,0,1,1,1,,700,1,0,0,1,1,0,size-based,700,.3857142857142857,,,,,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,tub,420,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,tub,270,1,mL,0,1,1,1,,1125,6,0,0,1,1,0,size-based,1125,.24,,,,,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,35,3,1,1,1,,,price-quantity,35.1503184165891,.3556155552235526,municipality_median,1,2024m1,1.004294811902546,.3333333333333333
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,35,3,1,1,1,,,price-quantity,35.10398736408477,.356084904838727,municipality_median,1,2024m2,1.002971067545279,.3333333333333333
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,35,3,1,1,1,,,price-quantity,35.10398736408477,.356084904838727,municipality_median,1,2024m4,1.002971067545279,.3333333333333333
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,35,3,1,1,1,,,price-quantity,35.10398736408477,.356084904838727,municipality_median,1,2024m5,1.002971067545279,.3333333333333333
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,35,3,1,1,1,,,price-quantity,35.10398736408477,.356084904838727,municipality_median,1,2024m6,1.002971067545279,.3333333333333333
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,35,3,1,1,1,,,price-quantity,35.0113170397828,.3570274144727674,municipality_median,1,2024m10,1.000323343993794,.3333333333333333
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,pieces or units,12.5,,g,0,,1,1,,35,3,1,1,1,,,price-quantity,35.0113170397828,.3570274144727674,municipality_median,1,2024m11,1.000323343993794,.3333333333333333
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,small cup,40,1,mL,0,2,2,1,,100,3,1,1,1,2,0,size-based,100,.4,,,,,.3333333333333333
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,small cup,73.75,2,mL,0,2,2,1,,115,2,0,0,2,2,0,size-based,115,.6413043478260869,,,,,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,tub,270,1,mL,0,1,1,1,,1000,7,0,0,1,1,0,size-based,1000,.27,,,,,0
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SIGMA,tub,420,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 CAPIZ,"liquor (e.g, whisky, coconut wine)",SIGMA,lipid/lapad,70,,mL,0,,1,1,,375,1,0,0,1,,,price-quantity,426.9910317882201,.1639378693900034,municipality_median,1,2024m1,1.138642751435254,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",SIGMA,lipid/lapad,70,,mL,0,,1,1,,375,1,0,0,1,,,price-quantity,424.9736456524648,.1647160964358826,municipality_median,1,2024m2,1.133263055073239,0
@@ -1679,16 +1634,11 @@ CAPIZ,"crackers, cookies, buiscuits, chips/curls",TAPAZ,putos,60,,g,0,,1,1,,310,
 CAPIZ,"crackers, cookies, buiscuits, chips/curls",TAPAZ,putos,60,,g,0,,1,1,,310,2,0,0,1,,,price-quantity,343.5766858863643,.1746335024019779,municipality_median,1,2024m11,1.108311889956014,0
 CAPIZ,fresh fish,TAPAZ,pieces or units,110,1,g,0,1,1,1,,280,9,2,2,1,1,0,size-based,280,.3928571428571428,,,,,.2222222222222222
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,cone,40,1,g,0,1,1,1,,110,3,0,0,1,1,0,size-based,110,.3636363636363636,,,,,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,g,0,,1,1,,42.5,2,0,0,1,,,price-quantity,43.31160510867377,.2308850012579505,municipality_median,1,2023m12,1.019096590792324,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,g,0,,1,1,,42.5,2,0,0,1,,,price-quantity,42.62627037067437,.2345971137761025,municipality_median,1,2024m2,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,g,0,,1,1,,42.5,2,0,0,1,,,price-quantity,42.62627037067437,.2345971137761025,municipality_median,1,2024m3,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,g,0,,1,1,,42.5,2,0,0,1,,,price-quantity,42.62627037067437,.2345971137761025,municipality_median,1,2024m6,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,g,0,,1,1,,42.5,2,0,0,1,,,price-quantity,42.51374211973626,.2352180612997056,municipality_median,1,2024m11,1.000323343993794,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,mL,0,,1,1,,60,1,0,0,1,,,price-quantity,61.14579544753945,.1635435425577149,municipality_median,1,2023m12,1.019096590792324,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,mL,0,,1,1,,60,1,0,0,1,,,price-quantity,60.17826405271676,.1661729555914059,municipality_median,1,2024m2,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,mL,0,,1,1,,60,1,0,0,1,,,price-quantity,60.17826405271676,.1661729555914059,municipality_median,1,2024m3,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,mL,0,,1,1,,60,1,0,0,1,,,price-quantity,60.17826405271676,.1661729555914059,municipality_median,1,2024m6,1.002971067545279,0
-CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,mL,0,,1,1,,60,1,0,0,1,,,price-quantity,60.01940063962766,.1666127934206248,municipality_median,1,2024m11,1.000323343993794,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,g,0,,1,1,,50,3,0,0,1,,,price-quantity,50.95482953961621,.1962522510692579,municipality_median,1,2023m12,1.019096590792324,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,g,0,,1,1,,50,3,0,0,1,,,price-quantity,50.14855337726396,.1994075467096871,municipality_median,1,2024m2,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,g,0,,1,1,,50,3,0,0,1,,,price-quantity,50.14855337726396,.1994075467096871,municipality_median,1,2024m3,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,g,0,,1,1,,50,3,0,0,1,,,price-quantity,50.14855337726396,.1994075467096871,municipality_median,1,2024m6,1.002971067545279,0
+CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,pieces or units,10,,g,0,,1,1,,50,3,0,0,1,,,price-quantity,50.01616719968972,.1999353521047498,municipality_median,1,2024m11,1.000323343993794,0
 CAPIZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TAPAZ,small cup,20,1,g,0,1,1,1,,100,5,0,0,1,1,0,size-based,100,.2,,,,,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",TAPAZ,lipid/lapad,70,1,mL,0,3,3,1,,375,7,0,0,1,2,1,size-based,375,.1866666666666667,,,,,0
 CAPIZ,"liquor (e.g, whisky, coconut wine)",TAPAZ,lipid/lapad,130,2,mL,0,3,3,1,,750,6,0,0,2,2,1,size-based,750,.1733333333333333,,,,,0
@@ -1731,8 +1681,8 @@ ILOILO,carrot,AJUY,pack,20,,g,0,,1,1,,130,1,0,0,1,,,price-quantity,134.346120824
 ILOILO,carrot,AJUY,pack,20,,g,0,,1,1,,130,1,0,0,1,,,price-quantity,118.6746325354316,.1685280128761198,province_median,1,2024m12,.912881788734089,0
 ILOILO,carrot,AJUY,pieces or units,30,1,g,0,1,1,1,,127.5,4,0,0,1,1,0,size-based,127.5,.2352941176470588,,,,,0
 ILOILO,chicken,AJUY,whole (chicken),200,1,g,0,3,3,1,,625,1,0,0,1,1,2,size-based,625,.32,,,,,0
-ILOILO,chicken,AJUY,whole (chicken),300,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,chicken,AJUY,whole (chicken),250,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,chicken,AJUY,whole (chicken),300,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"crackers, cookies, buiscuits, chips/curls",AJUY,pieces or units,53,1,g,0,1,1,1,,50,3,1,1,1,1,0,size-based,50,1.06,,,,,.3333333333333333
 ILOILO,"crackers, cookies, buiscuits, chips/curls",AJUY,putos,63,1,g,0,2,2,1,,280,2,0,0,1,2,0,size-based,280,.225,,,,,0
 ILOILO,"crackers, cookies, buiscuits, chips/curls",AJUY,putos,164,2,g,0,2,2,1,,360,1,0,0,2,2,0,size-based,360,.4555555555555555,,,,,0
@@ -1748,8 +1698,8 @@ ILOILO,fresh fish,AJUY,tumpok,350,,g,0,1,1,0,"unique price, no weighing behind i
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AJUY,bowl,40,1,g,0,1,1,1,,815,2,0,0,1,1,0,size-based,815,.049079754601227,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AJUY,cone,40,1,g,0,1,1,1,,65,1,0,0,1,1,0,size-based,65,.6153846153846154,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AJUY,putos,48,1,g,0,1,1,1,,65,1,0,0,1,1,0,size-based,65,.7384615384615385,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AJUY,putos,100,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AJUY,putos,300,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AJUY,putos,100,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",AJUY,small cup,25,1,g,0,1,1,1,,65,3,0,0,1,1,0,size-based,65,.3846153846153846,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",AJUY,lipid/lapad,80,1,mL,0,3,3,1,,670,1,0,0,1,2,1,size-based,670,.1194029850746269,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",AJUY,lipid/lapad,140,2,mL,0,3,3,1,,675,1,0,0,2,2,1,size-based,675,.2074074074074074,,,,,0
@@ -1794,16 +1744,11 @@ ILOILO,"crackers, cookies, buiscuits, chips/curls",ALIMODIAN,pieces or units,49.
 ILOILO,"crackers, cookies, buiscuits, chips/curls",ALIMODIAN,pieces or units,84,3,g,0,3,3,1,,82.5,2,0,0,3,3,0,size-based,82.5,1.018181818181818,,,,,0
 ILOILO,"crackers, cookies, buiscuits, chips/curls",ALIMODIAN,putos,60,1,g,0,1,1,1,,60,21,6,6,1,1,0,size-based,60,1,,,,,.2857142857142857
 ILOILO,fresh fish,ALIMODIAN,pieces or units,100,1,g,0,1,1,1,,170,13,4,4,1,1,0,size-based,170,.5882352941176471,,,,,.3076923076923077
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,pieces or units,23.75,1,g,0,3,3,1,,45,1,0,0,1,2,1,size-based,45,.5277777777777778,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,pieces or units,50,2,g,0,3,3,1,,85,2,0,0,2,2,1,size-based,85,.5882352941176471,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,pieces or units,100,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,pieces or units,23.75,1,mL,0,3,3,1,,68.5,2,0,0,1,3,0,size-based,68.5,.3467153284671533,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,pieces or units,50,2,mL,0,3,3,1,,600,1,1,1,2,3,0,size-based,600,.0833333333333333,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,pieces or units,100,3,mL,0,3,3,1,,700,1,1,1,3,3,0,size-based,700,.1428571428571428,,,,,1
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,pieces or units,23.75,1,mL,0,3,3,1,,85,5,0,0,1,2,1,size-based,85,.2794117647058824,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,pieces or units,100,3,mL,0,3,3,1,,650,2,2,2,3,2,1,size-based,650,.1538461538461539,,,,,1
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,pieces or units,50,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,putos,32.66666666666666,1,mL,0,1,1,1,,60,3,0,0,1,1,0,size-based,60,.5444444444444444,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,small cup,35,1,g,0,1,1,1,,105,2,0,0,1,1,0,size-based,105,.3333333333333333,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,small cup,100,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,small cup,35,1,mL,0,1,1,1,,100,5,0,0,1,1,0,size-based,100,.35,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,small cup,35,1,mL,0,1,1,1,,100,7,0,0,1,1,0,size-based,100,.35,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ALIMODIAN,small cup,100,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",ALIMODIAN,lipid/lapad,82.5,1,mL,0,2,2,1,,375,9,0,0,1,1,1,size-based,375,.22,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",ALIMODIAN,lipid/lapad,162.5,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -1829,10 +1774,8 @@ ILOILO,"crackers, cookies, buiscuits, chips/curls",ANILAO,pieces or units,48,2,g
 ILOILO,"crackers, cookies, buiscuits, chips/curls",ANILAO,pieces or units,78,3,g,0,3,3,1,,315,2,2,2,3,3,0,size-based,315,.2476190476190476,,,,,1
 ILOILO,fresh fish,ANILAO,pack,150,1,g,0,1,1,1,,430,5,5,5,1,1,0,size-based,430,.3488372093023256,,,,,1
 ILOILO,fresh fish,ANILAO,pieces or units,100,1,g,0,1,1,1,,340,7,0,0,1,1,0,size-based,340,.2941176470588235,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANILAO,pieces or units,42,1,g,0,1,1,1,,65,3,1,1,1,1,0,size-based,65,.6461538461538462,,,,,.3333333333333333
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANILAO,pieces or units,42,1,mL,0,1,1,1,,272.5,2,1,1,1,1,0,size-based,272.5,.1541284403669725,,,,,.5
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANILAO,small cup,40,1,g,0,1,1,1,,100,3,0,0,1,1,0,size-based,100,.4,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANILAO,small cup,40,1,mL,0,1,1,1,,750,5,4,4,1,1,0,size-based,750,.0533333333333333,,,,,.8
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANILAO,pieces or units,42,1,g,0,1,1,1,,65,5,2,2,1,1,0,size-based,65,.6461538461538462,,,,,.4
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ANILAO,small cup,40,1,mL,0,1,1,1,,290,8,4,4,1,1,0,size-based,290,.1379310344827586,,,,,.5
 ILOILO,"liquor (e.g, whisky, coconut wine)",ANILAO,lipid/lapad,131.25,1,mL,0,3,3,1,,375,5,0,0,1,2,1,size-based,375,.35,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",ANILAO,lipid/lapad,172.5,2,mL,0,3,3,1,,750,5,0,0,2,2,1,size-based,750,.23,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",ANILAO,lipid/lapad,202.5,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -1858,8 +1801,8 @@ ILOILO,"crackers, cookies, buiscuits, chips/curls",BADIANGAN,putos,60,1,g,0,3,3,
 ILOILO,"crackers, cookies, buiscuits, chips/curls",BADIANGAN,putos,92.5,2,g,0,3,3,1,,275,2,0,0,2,3,0,size-based,275,.3363636363636364,,,,,0
 ILOILO,"crackers, cookies, buiscuits, chips/curls",BADIANGAN,putos,152.5,3,g,0,3,3,1,,310,1,0,0,3,3,0,size-based,310,.4919354838709677,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BADIANGAN,pieces or units,25,1,g,0,3,3,1,,90,1,1,1,1,1,2,size-based,90,.2777777777777778,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BADIANGAN,pieces or units,75,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BADIANGAN,pieces or units,50,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BADIANGAN,pieces or units,75,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BADIANGAN,putos,55,1,g,0,1,1,1,,54,2,0,0,1,1,0,size-based,54,1.018518518518519,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BADIANGAN,small cup,25,1,g,0,1,1,1,,75,3,0,0,1,1,0,size-based,75,.3333333333333333,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",BADIANGAN,junior lapad,406,1,mL,0,1,1,1,,250,3,0,0,1,1,0,size-based,250,1.624,,,,,0
@@ -1882,8 +1825,8 @@ ILOILO,pork,BADIANGAN,slice,50,,g,0,,1,1,,445,3,3,3,1,,,price-quantity,442.18911
 ILOILO,pork,BADIANGAN,slice,50,,g,0,,1,1,,445,3,3,3,1,,,price-quantity,454.0091650872378,.1101299353513987,province_median,2,2024m11,1.020245314802782,1
 ILOILO,pork,BADIANGAN,slice,50,,g,0,,1,1,,445,3,3,3,1,,,price-quantity,443.3300890023027,.112782780236106,province_median,2,2024m12,.9962473910164106,1
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BADIANGAN,putos,60,1,g,0,3,3,1,,200,4,0,0,1,1,2,size-based,200,.3,,,,,0
-ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BADIANGAN,putos,100,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BADIANGAN,putos,150,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BADIANGAN,putos,100,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,cabbage,BALASAN,pieces or units,45,1,g,0,1,1,1,,660,8,0,0,1,1,0,size-based,660,.0681818181818182,,,,,0
 ILOILO,camote,BALASAN,bilog,30,1,g,0,1,1,1,,190,3,1,1,1,1,0,size-based,190,.1578947368421053,,,,,.3333333333333333
 ILOILO,camote tops,BALASAN,bugkos,20,1,g,0,1,1,1,,155,3,0,0,1,1,0,size-based,155,.1290322580645161,,,,,0
@@ -1909,8 +1852,8 @@ ILOILO,loaf bread,BALASAN,large packs,225,,g,0,1,1,0,"unique price, no weighing 
 ILOILO,loaf bread,BALASAN,medium packs,57.5,1,g,0,1,1,1,,545,4,0,0,1,1,0,size-based,545,.1055045871559633,,,,,0
 ILOILO,loaf bread,BALASAN,small packs,70,1,g,0,1,1,1,,220,2,0,0,1,1,0,size-based,220,.3181818181818182,,,,,0
 ILOILO,mango,BALASAN,pieces or units,80,1,g,0,1,1,1,,215,4,0,0,1,1,0,size-based,215,.3720930232558139,,,,,0
-ILOILO,mango,BALASAN,pieces or units,50,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,mango,BALASAN,pieces or units,160,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ILOILO,mango,BALASAN,pieces or units,50,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"prawns, lobster, shrimp",BALASAN,tumpok,42.5,1,g,0,2,2,1,,185,1,0,0,1,2,0,size-based,185,.2297297297297297,,,,,0
 ILOILO,"prawns, lobster, shrimp",BALASAN,tumpok,100,2,g,0,2,2,1,,385,1,0,0,2,2,0,size-based,385,.2597402597402597,,,,,0
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BALASAN,bilog,42.5,1,g,0,1,1,1,,250,5,2,2,1,1,0,size-based,250,.17,,,,,.4
@@ -1930,8 +1873,7 @@ ILOILO,"crackers, cookies, buiscuits, chips/curls",BANATE,putos,288.75,3,g,0,3,3
 ILOILO,fresh fish,BANATE,pack,175,1,g,0,3,3,1,,565,2,2,2,1,3,0,size-based,565,.3097345132743363,,,,,1
 ILOILO,fresh fish,BANATE,pack,300,2,g,0,3,3,1,,837.5,2,2,2,2,3,0,size-based,837.5,.3582089552238806,,,,,1
 ILOILO,fresh fish,BANATE,pack,325,3,g,0,3,3,1,,895,1,1,1,3,3,0,size-based,895,.3631284916201117,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BANATE,putos,30,1,g,0,1,1,1,,365,2,2,2,1,1,0,size-based,365,.0821917808219178,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BANATE,putos,30,1,mL,0,1,1,1,,142.5,2,1,1,1,1,0,size-based,142.5,.2105263157894737,,,,,.5
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BANATE,putos,30,1,g,0,1,1,1,,282.5,4,3,3,1,1,0,size-based,282.5,.1061946902654867,,,,,.75
 ILOILO,"liquor (e.g, whisky, coconut wine)",BANATE,lipid/lapad,80,1,mL,0,3,3,1,,375,6,0,0,1,1,2,size-based,375,.2133333333333333,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",BANATE,lipid/lapad,243.75,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",BANATE,lipid/lapad,165,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -1972,8 +1914,8 @@ ILOILO,"liquor (e.g, whisky, coconut wine)",BAROTAC NUEVO,lipid/lapad,240,2,mL,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",BAROTAC NUEVO,long-neck,180,1,mL,0,1,1,1,,750,3,0,0,1,1,0,size-based,750,.24,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",BAROTAC NUEVO,long-neck,147.5,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,BAROTAC NUEVO,large packs,79.5,1,g,0,3,3,1,,640,1,0,0,1,1,2,size-based,640,.12421875,,,,,0
-ILOILO,loaf bread,BAROTAC NUEVO,large packs,117.5,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,BAROTAC NUEVO,large packs,162.5,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,loaf bread,BAROTAC NUEVO,large packs,117.5,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,BAROTAC NUEVO,medium packs,62.625,1,g,0,2,2,1,,475,2,0,0,1,2,0,size-based,475,.1318421052631579,,,,,0
 ILOILO,loaf bread,BAROTAC NUEVO,medium packs,104.5,2,g,0,2,2,1,,640,1,0,0,2,2,0,size-based,640,.16328125,,,,,0
 ILOILO,loaf bread,BAROTAC NUEVO,small packs,58.75,1,g,0,3,3,1,,220,1,0,0,1,2,1,size-based,220,.2670454545454545,,,,,0
@@ -2010,8 +1952,7 @@ ILOILO,"crackers, cookies, buiscuits, chips/curls",BAROTAC VIEJO,pieces or units
 ILOILO,fresh fish,BAROTAC VIEJO,pieces or units,100,1,g,0,1,1,1,,365,5,0,0,1,1,0,size-based,365,.273972602739726,,,,,0
 ILOILO,fresh fish,BAROTAC VIEJO,pieces or units,20,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,fresh fish,BAROTAC VIEJO,tumpok,300,1,g,0,1,1,1,,882.5,6,6,6,1,1,0,size-based,882.5,.339943342776204,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BAROTAC VIEJO,pieces or units,35,1,g,0,1,1,1,,85,1,0,0,1,1,0,size-based,85,.4117647058823529,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BAROTAC VIEJO,pieces or units,35,1,mL,0,1,1,1,,650,4,4,4,1,1,0,size-based,650,.0538461538461538,,,,,1
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BAROTAC VIEJO,pieces or units,35,1,mL,0,1,1,1,,600,5,4,4,1,1,0,size-based,600,.0583333333333333,,,,,.8
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BAROTAC VIEJO,putos,15,1,mL,0,2,2,1,,450,1,1,1,1,1,1,size-based,450,.0333333333333333,,,,,1
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BAROTAC VIEJO,putos,73.5,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BAROTAC VIEJO,small cup,20,1,mL,0,1,1,1,,120,4,1,1,1,1,0,size-based,120,.1666666666666667,,,,,.25
@@ -2055,8 +1996,8 @@ ILOILO,fresh fish,BATAD,pieces or units,187.5,2,g,0,2,2,1,,525,4,0,0,2,2,0,size-
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BATAD,pieces or units,20,1,mL,0,1,1,1,,575,2,2,2,1,1,0,size-based,575,.0347826086956522,,,,,1
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",BATAD,small cup,50,1,mL,0,1,1,1,,110,2,0,0,1,1,0,size-based,110,.4545454545454545,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",BATAD,lipid/lapad,80,1,mL,0,3,3,1,,375,6,0,0,1,1,2,size-based,375,.2133333333333333,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",BATAD,lipid/lapad,232.5,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",BATAD,lipid/lapad,150,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",BATAD,lipid/lapad,232.5,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,BATAD,large packs,52.5,1,g,0,3,3,1,,640,4,0,0,1,1,2,size-based,640,.08203125,,,,,0
 ILOILO,loaf bread,BATAD,large packs,101.25,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,BATAD,large packs,75,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -2066,8 +2007,8 @@ ILOILO,loaf bread,BATAD,small packs,50,1,g,0,1,1,1,,220,1,0,0,1,1,0,size-based,2
 ILOILO,mango,BATAD,pieces or units,80,1,g,0,1,1,1,,255,9,0,0,1,1,0,size-based,255,.3137254901960784,,,,,0
 ILOILO,"prawns, lobster, shrimp",BATAD,tumpok,60,1,g,0,1,1,1,,260,5,0,0,1,1,0,size-based,260,.2307692307692308,,,,,0
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BATAD,bilog,30,1,g,0,3,3,1,,70,2,0,0,1,1,2,size-based,70,.4285714285714285,,,,,0
-ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BATAD,bilog,107.25,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BATAD,bilog,52.5,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BATAD,bilog,107.25,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BATAD,pack,90,1,g,0,1,1,1,,250,8,1,1,1,1,0,size-based,250,.36,,,,,.125
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BATAD,pack,500,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,rice,BATAD,letse,,,g,0,,1,1,,425,1,0,0,1,,,conventional,425,,,,,,0
@@ -2093,8 +2034,8 @@ ILOILO,loaf bread,BINGAWAN,medium packs,68,1,g,0,1,1,1,,475,4,0,0,1,1,0,size-bas
 ILOILO,loaf bread,BINGAWAN,small packs,50,1,g,0,1,1,1,,350,3,0,0,1,1,0,size-based,350,.1428571428571428,,,,,0
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BINGAWAN,bilog,50,1,g,0,1,1,1,,260,1,0,0,1,1,0,size-based,260,.1923076923076923,,,,,0
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BINGAWAN,putos,60,1,g,0,3,3,1,,200,1,0,0,1,1,2,size-based,200,.3,,,,,0
-ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BINGAWAN,putos,90,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BINGAWAN,putos,125,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",BINGAWAN,putos,90,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,cabbage,CABATUAN,pieces or units,30,1,g,0,3,3,1,,270,7,2,2,1,3,0,size-based,270,.1111111111111111,,,,,.2857142857142857
 ILOILO,cabbage,CABATUAN,pieces or units,60,2,g,0,3,3,1,,600,8,0,0,2,3,0,size-based,600,.1,,,,,0
 ILOILO,cabbage,CABATUAN,pieces or units,90,3,g,0,3,3,1,,875,6,0,0,3,3,0,size-based,875,.1028571428571429,,,,,0
@@ -2148,16 +2089,15 @@ ILOILO,chicken,CALINOG,whole (chicken),500,3,g,0,3,3,1,,1195,1,0,0,3,3,0,size-ba
 ILOILO,fresh fish,CALINOG,pieces or units,50,1,g,0,3,3,1,,235,6,0,0,1,3,0,size-based,235,.2127659574468085,,,,,0
 ILOILO,fresh fish,CALINOG,pieces or units,100,2,g,0,3,3,1,,377.5,6,0,0,2,3,0,size-based,377.5,.2649006622516556,,,,,0
 ILOILO,fresh fish,CALINOG,pieces or units,200,3,g,0,3,3,1,,635,5,2,2,3,3,0,size-based,635,.3149606299212598,,,,,.4
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CALINOG,pack,25,1,g,0,1,1,1,,450,1,0,0,1,1,0,size-based,450,.0555555555555556,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CALINOG,pack,25,1,mL,0,1,1,1,,600,3,0,0,1,1,0,size-based,600,.0416666666666667,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CALINOG,pack,25,1,mL,0,1,1,1,,525,4,0,0,1,1,0,size-based,525,.0476190476190476,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CALINOG,putos,35,1,g,0,1,1,1,,120,1,0,0,1,1,0,size-based,120,.2916666666666667,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CALINOG,small cup,30,1,mL,0,1,1,1,,100,3,0,0,1,1,0,size-based,100,.3,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",CALINOG,lipid/lapad,75,1,mL,0,3,3,1,,375,9,0,0,1,1,2,size-based,375,.2,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",CALINOG,lipid/lapad,150,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",CALINOG,lipid/lapad,255,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",CALINOG,lipid/lapad,150,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",CALINOG,long-neck,180,1,mL,0,1,1,1,,750,10,0,0,1,1,0,size-based,750,.24,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",CALINOG,long-neck,150,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",CALINOG,long-neck,840,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",CALINOG,long-neck,150,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,CALINOG,large packs,81,1,g,0,1,1,1,,640,6,0,0,1,1,0,size-based,640,.1265625,,,,,0
 ILOILO,loaf bread,CALINOG,medium packs,66.5,1,g,0,1,1,1,,450,7,0,0,1,1,0,size-based,450,.1477777777777778,,,,,0
 ILOILO,mango,CALINOG,pieces or units,48,1,g,0,1,1,1,,250,15,0,0,1,1,0,size-based,250,.192,,,,,0
@@ -2184,10 +2124,8 @@ ILOILO,fresh fish,CARLES,pack,150,1,g,0,1,1,1,,775,3,3,3,1,1,0,size-based,775,.1
 ILOILO,fresh fish,CARLES,pieces or units,125,1,g,0,3,3,1,,85,3,2,2,1,3,0,size-based,85,1.470588235294118,,,,,.6666666666666666
 ILOILO,fresh fish,CARLES,pieces or units,210,2,g,0,3,3,1,,385,4,0,0,2,3,0,size-based,385,.5454545454545454,,,,,0
 ILOILO,fresh fish,CARLES,pieces or units,275,3,g,0,3,3,1,,672.5,2,0,0,3,3,0,size-based,672.5,.4089219330855018,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CARLES,pieces or units,23.75,1,g,0,2,2,1,,30,1,0,0,1,2,0,size-based,30,.7916666666666666,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CARLES,pieces or units,73,2,g,0,2,2,1,,100,1,0,0,2,2,0,size-based,100,.73,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CARLES,pieces or units,23.75,1,mL,0,2,2,1,,480,1,1,1,1,1,1,size-based,480,.0494791666666667,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CARLES,pieces or units,73,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CARLES,pieces or units,23.75,1,g,0,2,2,1,,65,2,0,0,1,2,0,size-based,65,.3653846153846154,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CARLES,pieces or units,73,2,g,0,2,2,1,,480,1,1,1,2,2,0,size-based,480,.1520833333333333,,,,,1
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CARLES,small cup,25,1,g,0,2,2,1,,67.5,4,0,0,1,2,0,size-based,67.5,.3703703703703703,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CARLES,small cup,67.5,2,g,0,2,2,1,,380,4,2,2,2,2,0,size-based,380,.1776315789473684,,,,,.5
 ILOILO,"liquor (e.g, whisky, coconut wine)",CARLES,lipid/lapad,130,1,mL,0,3,3,1,,375,4,0,0,1,1,2,size-based,375,.3466666666666667,,,,,0
@@ -2224,8 +2162,7 @@ ILOILO,fresh fish,CONCEPCION,pieces or units,350,3,g,0,3,3,1,,530,3,0,0,3,3,0,si
 ILOILO,fresh fish,CONCEPCION,tumpok,50,1,g,0,1,1,1,,775,12,12,12,1,1,0,size-based,775,.0645161290322581,,,,,1
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CONCEPCION,pieces or units,40,1,mL,0,1,1,1,,85,2,0,0,1,1,0,size-based,85,.4705882352941176,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CONCEPCION,pieces or units,100,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CONCEPCION,putos,48,1,g,0,1,1,1,,55,3,0,0,1,1,0,size-based,55,.8727272727272727,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CONCEPCION,putos,48,1,mL,0,1,1,1,,45,7,0,0,1,1,0,size-based,45,1.066666666666667,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CONCEPCION,putos,48,1,mL,0,1,1,1,,45,10,0,0,1,1,0,size-based,45,1.066666666666667,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",CONCEPCION,small cup,40,1,mL,0,1,1,1,,100,2,0,0,1,1,0,size-based,100,.4,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",CONCEPCION,lipid/lapad,80,1,mL,0,3,3,1,,375,7,0,0,1,3,0,size-based,375,.2133333333333333,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",CONCEPCION,lipid/lapad,160,2,mL,0,3,3,1,,750,7,0,0,2,3,0,size-based,750,.2133333333333333,,,,,0
@@ -2253,10 +2190,8 @@ ILOILO,"crackers, cookies, buiscuits, chips/curls",DINGLE,putos,100,2,g,0,2,2,1,
 ILOILO,fresh fish,DINGLE,pieces or units,105,1,g,0,2,2,1,,115,5,1,1,1,2,0,size-based,115,.9130434782608695,,,,,.2
 ILOILO,fresh fish,DINGLE,pieces or units,150,2,g,0,2,2,1,,460,4,0,0,2,2,0,size-based,460,.3260869565217391,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DINGLE,cone,5,1,mL,0,1,1,1,,110,5,0,0,1,1,0,size-based,110,.0454545454545455,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DINGLE,putos,32.5,1,g,0,2,2,1,,50,1,0,0,1,1,1,size-based,50,.65,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DINGLE,putos,100,2,g,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DINGLE,putos,32.5,1,mL,0,2,2,1,,55,2,0,0,1,2,0,size-based,55,.5909090909090909,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DINGLE,putos,100,2,mL,0,2,2,1,,85,1,0,0,2,2,0,size-based,85,1.176470588235294,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DINGLE,putos,32.5,1,mL,0,2,2,1,,47.5,2,0,0,1,2,0,size-based,47.5,.6842105263157895,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DINGLE,putos,100,2,mL,0,2,2,1,,75,2,0,0,2,2,0,size-based,75,1.333333333333333,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DINGLE,small cup,35,1,mL,0,1,1,1,,140,2,0,0,1,1,0,size-based,140,.25,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",DINGLE,lipid/lapad,80,1,mL,0,3,3,1,,375,5,0,0,1,1,2,size-based,375,.2133333333333333,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",DINGLE,lipid/lapad,150,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -2286,8 +2221,7 @@ ILOILO,fresh fish,DUEAS,pieces or units,180,2,g,0,3,3,1,,542.5,4,0,0,2,3,0,size-
 ILOILO,fresh fish,DUEAS,pieces or units,210,3,g,0,3,3,1,,690,2,0,0,3,3,0,size-based,690,.3043478260869565,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DUEAS,pieces or units,35,1,mL,0,2,2,1,,110,2,0,0,1,2,0,size-based,110,.3181818181818182,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DUEAS,pieces or units,100,2,mL,0,2,2,1,,400,1,1,1,2,2,0,size-based,400,.25,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DUEAS,putos,32.5,1,g,0,1,1,1,,350,1,1,1,1,1,0,size-based,350,.0928571428571429,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DUEAS,putos,32.5,1,mL,0,1,1,1,,550,4,4,4,1,1,0,size-based,550,.0590909090909091,,,,,1
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DUEAS,putos,32.5,1,mL,0,1,1,1,,550,5,5,5,1,1,0,size-based,550,.0590909090909091,,,,,1
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",DUEAS,small cup,90,1,mL,0,1,1,1,,120,5,1,1,1,1,0,size-based,120,.75,,,,,.2
 ILOILO,"liquor (e.g, whisky, coconut wine)",DUEAS,lipid/lapad,75,1,mL,0,3,3,1,,375,8,0,0,1,1,2,size-based,375,.2,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",DUEAS,lipid/lapad,240,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -2304,8 +2238,8 @@ ILOILO,mango,DUEAS,pieces or units,37.5,1,g,0,3,3,1,,207.5,4,0,0,1,3,0,size-base
 ILOILO,mango,DUEAS,pieces or units,80,2,g,0,3,3,1,,275,5,0,0,2,3,0,size-based,275,.2909090909090909,,,,,0
 ILOILO,mango,DUEAS,pieces or units,112.5,3,g,0,3,3,1,,340,3,0,0,3,3,0,size-based,340,.3308823529411765,,,,,0
 ILOILO,"prawns, lobster, shrimp",DUEAS,tumpok,60,1,g,0,1,1,1,,230,1,0,0,1,1,0,size-based,230,.2608695652173913,,,,,0
-ILOILO,"prawns, lobster, shrimp",DUEAS,tumpok,100,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"prawns, lobster, shrimp",DUEAS,tumpok,200,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ILOILO,"prawns, lobster, shrimp",DUEAS,tumpok,100,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",DUEAS,bilog,45,1,g,0,1,1,1,,250,5,0,0,1,1,0,size-based,250,.18,,,,,0
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",DUEAS,putos,50,1,g,0,3,3,1,,195,2,0,0,1,2,1,size-based,195,.2564102564102564,,,,,0
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",DUEAS,putos,80,2,g,0,3,3,1,,250,3,0,0,2,2,1,size-based,250,.32,,,,,0
@@ -2351,8 +2285,8 @@ ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ESTANCIA,piec
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ESTANCIA,small cup,20,1,mL,0,2,2,1,,100,3,0,0,1,1,1,size-based,100,.2,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ESTANCIA,small cup,56,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",ESTANCIA,lipid/lapad,85,1,mL,0,3,3,1,,375,7,0,0,1,1,2,size-based,375,.2266666666666667,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",ESTANCIA,lipid/lapad,160,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",ESTANCIA,lipid/lapad,240,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",ESTANCIA,lipid/lapad,160,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,ESTANCIA,large packs,85,1,g,0,1,1,1,,640,3,0,0,1,1,0,size-based,640,.1328125,,,,,0
 ILOILO,loaf bread,ESTANCIA,medium packs,65,1,g,0,1,1,1,,450,3,0,0,1,1,0,size-based,450,.1444444444444444,,,,,0
 ILOILO,loaf bread,ESTANCIA,small packs,50,1,g,0,1,1,1,,220,1,0,0,1,1,0,size-based,220,.2272727272727273,,,,,0
@@ -2413,11 +2347,11 @@ ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",IGBARAS,small
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",IGBARAS,small cup,105,2,mL,0,2,2,1,,120,1,0,0,2,2,0,size-based,120,.875,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",IGBARAS,junior lapad,350,1,mL,0,1,1,1,,250,6,0,0,1,1,0,size-based,250,1.4,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",IGBARAS,lipid/lapad,75,1,mL,0,3,3,1,,375,7,0,0,1,1,2,size-based,375,.2,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",IGBARAS,lipid/lapad,195,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",IGBARAS,lipid/lapad,120,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",IGBARAS,lipid/lapad,195,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",IGBARAS,long-neck,155,1,mL,0,3,3,1,,750,7,0,0,1,1,2,size-based,750,.2066666666666667,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",IGBARAS,long-neck,270,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",IGBARAS,long-neck,240,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",IGBARAS,long-neck,270,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,IGBARAS,large packs,80,1,g,0,1,1,1,,607.5,4,0,0,1,1,0,size-based,607.5,.1316872427983539,,,,,0
 ILOILO,loaf bread,IGBARAS,medium packs,65,1,g,0,2,2,1,,450,3,0,0,1,2,0,size-based,450,.1444444444444444,,,,,0
 ILOILO,loaf bread,IGBARAS,medium packs,115,2,g,0,2,2,1,,457.5,2,0,0,2,2,0,size-based,457.5,.2513661202185792,,,,,0
@@ -2485,8 +2419,8 @@ ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LAMBUNAO,smal
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LAMBUNAO,small cup,48,2,g,0,3,3,1,,110,1,0,0,2,3,0,size-based,110,.4363636363636363,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LAMBUNAO,small cup,71.25,3,g,0,3,3,1,,375,2,2,2,3,3,0,size-based,375,.19,,,,,1
 ILOILO,"liquor (e.g, whisky, coconut wine)",LAMBUNAO,lipid/lapad,75,1,mL,0,3,3,1,,375,5,0,0,1,1,2,size-based,375,.2,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",LAMBUNAO,lipid/lapad,160,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",LAMBUNAO,lipid/lapad,206.25,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",LAMBUNAO,lipid/lapad,160,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",LAMBUNAO,long-neck,210,1,mL,0,2,2,1,,750,5,0,0,1,1,1,size-based,750,.28,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",LAMBUNAO,long-neck,318.75,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,LAMBUNAO,large packs,80,1,g,0,3,3,1,,640,2,0,0,1,3,0,size-based,640,.125,,,,,0
@@ -2516,12 +2450,9 @@ ILOILO,"crackers, cookies, buiscuits, chips/curls",LEGANES,putos,173,3,g,0,3,3,1
 ILOILO,fresh fish,LEGANES,pieces or units,70,1,g,0,3,3,1,,150,3,0,0,1,3,0,size-based,150,.4666666666666667,,,,,0
 ILOILO,fresh fish,LEGANES,pieces or units,100,2,g,0,3,3,1,,337.5,4,0,0,2,3,0,size-based,337.5,.2962962962962963,,,,,0
 ILOILO,fresh fish,LEGANES,pieces or units,122.5,3,g,0,3,3,1,,861,2,1,1,3,3,0,size-based,861,.1422764227642276,,,,,.5
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LEGANES,pieces or units,40,1,g,0,1,1,1,,48,1,0,0,1,1,0,size-based,48,.8333333333333334,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LEGANES,pieces or units,40,1,mL,0,1,1,1,,65,3,0,0,1,1,0,size-based,65,.6153846153846154,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LEGANES,small cup,36.25,1,g,0,2,2,1,,100,1,0,0,1,1,1,size-based,100,.3625,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LEGANES,small cup,72.5,2,g,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LEGANES,small cup,36.25,1,mL,0,2,2,1,,110,1,0,0,1,1,1,size-based,110,.3295454545454545,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LEGANES,small cup,72.5,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LEGANES,pieces or units,40,1,mL,0,1,1,1,,56.5,4,0,0,1,1,0,size-based,56.5,.7079646017699115,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LEGANES,small cup,36.25,1,g,0,2,2,1,,100,1,0,0,1,2,0,size-based,100,.3625,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LEGANES,small cup,72.5,2,g,0,2,2,1,,110,1,0,0,2,2,0,size-based,110,.6590909090909091,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",LEGANES,tupperware,160,1,mL,0,1,1,1,,700,1,0,0,1,1,0,size-based,700,.2285714285714286,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",LEGANES,lipid/lapad,73.75,1,mL,0,2,2,1,,375,6,0,0,1,2,0,size-based,375,.1966666666666667,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",LEGANES,lipid/lapad,157.5,2,mL,0,2,2,1,,750,5,0,0,2,2,0,size-based,750,.21,,,,,0
@@ -2529,8 +2460,8 @@ ILOILO,loaf bread,LEGANES,large packs,71.5,1,g,0,3,3,1,,405,4,0,0,1,2,1,size-bas
 ILOILO,loaf bread,LEGANES,large packs,104,2,g,0,3,3,1,,640,3,0,0,2,2,1,size-based,640,.1625,,,,,0
 ILOILO,loaf bread,LEGANES,large packs,137.5,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"prawns, lobster, shrimp",LEGANES,tumpok,60,1,g,0,1,1,1,,235,3,0,0,1,1,0,size-based,235,.2553191489361702,,,,,0
-ILOILO,"prawns, lobster, shrimp",LEGANES,tumpok,100,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"prawns, lobster, shrimp",LEGANES,tumpok,200,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ILOILO,"prawns, lobster, shrimp",LEGANES,tumpok,100,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",LEGANES,bilog,50,1,g,0,2,2,1,,67.5,2,0,0,1,2,0,size-based,67.5,.7407407407407407,,,,,0
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",LEGANES,bilog,92.5,2,g,0,2,2,1,,75,1,0,0,2,2,0,size-based,75,1.233333333333333,,,,,0
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",LEGANES,putos,55,1,g,0,3,3,1,,215,4,0,0,1,3,0,size-based,215,.2558139534883721,,,,,0
@@ -2648,8 +2579,8 @@ ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MIAGAO,small 
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MIAGAO,small cup,70,2,g,0,3,3,1,,195,2,0,0,2,2,1,size-based,195,.358974358974359,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MIAGAO,small cup,110,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",MIAGAO,lipid/lapad,80,1,mL,0,3,3,1,,375,3,0,0,1,1,2,size-based,375,.2133333333333333,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",MIAGAO,lipid/lapad,120,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",MIAGAO,lipid/lapad,170,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",MIAGAO,lipid/lapad,120,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",MIAGAO,long-neck,157.5,1,mL,0,2,2,1,,750,3,0,0,1,2,0,size-based,750,.21,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",MIAGAO,long-neck,210,2,mL,0,2,2,1,,1000,2,0,0,2,2,0,size-based,1000,.21,,,,,0
 ILOILO,loaf bread,MIAGAO,large packs,78.75,1,g,0,3,3,1,,660,2,0,0,1,1,2,size-based,660,.1193181818181818,,,,,0
@@ -2677,8 +2608,8 @@ ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MINA,pack,25,
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MINA,pieces or units,50,1,mL,0,1,1,1,,120,2,0,0,1,1,0,size-based,120,.4166666666666667,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MINA,small cup,30,1,mL,0,1,1,1,,110,4,0,0,1,1,0,size-based,110,.2727272727272727,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",MINA,lipid/lapad,75.375,1,mL,0,3,3,1,,375,5,0,0,1,1,2,size-based,375,.201,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",MINA,lipid/lapad,200,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",MINA,lipid/lapad,145,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",MINA,lipid/lapad,200,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",MINA,long-neck,180,1,mL,0,1,1,1,,750,6,0,0,1,1,0,size-based,750,.24,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",MINA,long-neck,150,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,MINA,large packs,76,1,g,0,2,2,1,,610,2,0,0,1,2,0,size-based,610,.1245901639344262,,,,,0
@@ -2743,12 +2674,9 @@ ILOILO,"crackers, cookies, buiscuits, chips/curls",OTON,putos,120,2,g,0,3,3,1,,9
 ILOILO,"crackers, cookies, buiscuits, chips/curls",OTON,putos,180,3,g,0,3,3,1,,170,2,0,0,3,3,0,size-based,170,1.058823529411765,,,,,0
 ILOILO,fresh fish,OTON,pieces or units,85,1,g,0,1,1,1,,120,15,7,7,1,1,0,size-based,120,.7083333333333334,,,,,.4666666666666667
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",OTON,pieces or units,43,1,g,0,2,2,1,,45,3,0,0,1,2,0,size-based,45,.9555555555555556,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",OTON,pieces or units,90,2,g,0,2,2,1,,105,2,0,0,2,2,0,size-based,105,.8571428571428571,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",OTON,pieces or units,43,1,mL,0,2,2,1,,100,1,0,0,1,1,1,size-based,100,.43,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",OTON,pieces or units,90,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",OTON,pieces or units,90,2,g,0,2,2,1,,100,3,0,0,2,2,0,size-based,100,.9,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",OTON,putos,40,1,mL,0,1,1,1,,60,1,0,0,1,1,0,size-based,60,.6666666666666666,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",OTON,small cup,50,1,g,0,1,1,1,,160,7,1,1,1,1,0,size-based,160,.3125,,,,,.1428571428571428
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",OTON,small cup,50,1,mL,0,1,1,1,,100,1,0,0,1,1,0,size-based,100,.5,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",OTON,small cup,50,1,g,0,1,1,1,,130,8,1,1,1,1,0,size-based,130,.3846153846153846,,,,,.125
 ILOILO,"liquor (e.g, whisky, coconut wine)",OTON,lipid/lapad,77.5,1,mL,0,2,2,1,,375,8,0,0,1,1,1,size-based,375,.2066666666666667,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",OTON,lipid/lapad,160,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",OTON,long-neck,180,1,mL,0,1,1,1,,750,8,0,0,1,1,0,size-based,750,.24,,,,,0
@@ -2784,22 +2712,17 @@ ILOILO,"crackers, cookies, buiscuits, chips/curls",POTOTAN,putos,118.5,2,g,0,2,2
 ILOILO,fresh fish,POTOTAN,pieces or units,55,1,g,0,3,3,1,,227.5,4,0,0,1,3,0,size-based,227.5,.2417582417582418,,,,,0
 ILOILO,fresh fish,POTOTAN,pieces or units,85,2,g,0,3,3,1,,500,5,1,1,2,3,0,size-based,500,.17,,,,,.2
 ILOILO,fresh fish,POTOTAN,pieces or units,130,3,g,0,3,3,1,,1775,3,3,3,3,3,0,size-based,1775,.0732394366197183,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,cone,224,1,g,0,1,1,1,,110,2,0,0,1,1,0,size-based,110,2.036363636363636,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,cone,224,1,mL,0,1,1,1,,110,5,0,0,1,1,0,size-based,110,2.036363636363636,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,pieces or units,15,1,g,0,3,3,1,,60,1,0,0,1,1,2,size-based,60,.25,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,pieces or units,45,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,pieces or units,80,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,pieces or units,15,1,mL,0,3,3,1,,62.5,2,0,0,1,3,0,size-based,62.5,.24,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,pieces or units,45,2,mL,0,3,3,1,,70,2,0,0,2,3,0,size-based,70,.6428571428571429,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,cone,224,1,mL,0,1,1,1,,110,7,0,0,1,1,0,size-based,110,2.036363636363636,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,pieces or units,15,1,mL,0,3,3,1,,60,2,0,0,1,3,0,size-based,60,.25,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,pieces or units,45,2,mL,0,3,3,1,,70,3,0,0,2,3,0,size-based,70,.6428571428571429,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,pieces or units,80,3,mL,0,3,3,1,,85,1,0,0,3,3,0,size-based,85,.9411764705882353,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,small cup,25,1,g,0,1,1,1,,95,2,0,0,1,1,0,size-based,95,.2631578947368421,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,small cup,25,1,mL,0,1,1,1,,105,8,1,1,1,1,0,size-based,105,.2380952380952381,,,,,.125
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",POTOTAN,small cup,25,1,mL,0,1,1,1,,100,10,1,1,1,1,0,size-based,100,.25,,,,,.1
 ILOILO,"liquor (e.g, whisky, coconut wine)",POTOTAN,lipid/lapad,77.75,1,mL,0,3,3,1,,375,9,0,0,1,1,2,size-based,375,.2073333333333333,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",POTOTAN,lipid/lapad,102.5,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",POTOTAN,lipid/lapad,236.25,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",POTOTAN,long-neck,180,1,mL,0,1,1,1,,750,9,0,0,1,1,0,size-based,750,.24,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",POTOTAN,long-neck,900,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",POTOTAN,long-neck,375,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",POTOTAN,long-neck,900,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,POTOTAN,large packs,82.625,1,g,0,2,2,1,,640,7,0,0,1,2,0,size-based,640,.1291015625,,,,,0
 ILOILO,loaf bread,POTOTAN,large packs,151,2,g,0,2,2,1,,655,1,0,0,2,2,0,size-based,655,.2305343511450382,,,,,0
 ILOILO,loaf bread,POTOTAN,medium packs,65,1,g,0,1,1,1,,450,8,0,0,1,1,0,size-based,450,.1444444444444444,,,,,0
@@ -2901,8 +2824,8 @@ ILOILO,chicken,SAN JOAQUIN,bilog,200,1,g,0,3,3,1,,917.5,2,0,0,1,3,0,size-based,9
 ILOILO,chicken,SAN JOAQUIN,bilog,250,2,g,0,3,3,1,,1275,3,0,0,2,3,0,size-based,1275,.196078431372549,,,,,0
 ILOILO,chicken,SAN JOAQUIN,bilog,360,3,g,0,3,3,1,,1440,1,0,0,3,3,0,size-based,1440,.25,,,,,0
 ILOILO,chicken,SAN JOAQUIN,pieces or units,225,1,g,0,3,3,1,,590,1,0,0,1,1,2,size-based,590,.3813559322033898,,,,,0
-ILOILO,chicken,SAN JOAQUIN,pieces or units,250,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,chicken,SAN JOAQUIN,pieces or units,325,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,chicken,SAN JOAQUIN,pieces or units,250,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"crackers, cookies, buiscuits, chips/curls",SAN JOAQUIN,pieces or units,45.75,1,g,0,2,2,1,,28,5,0,0,1,2,0,size-based,28,1.633928571428571,,,,,0
 ILOILO,"crackers, cookies, buiscuits, chips/curls",SAN JOAQUIN,pieces or units,126,2,g,0,2,2,1,,31.5,4,0,0,2,2,0,size-based,31.5,4,,,,,0
 ILOILO,"crackers, cookies, buiscuits, chips/curls",SAN JOAQUIN,putos,62.25,1,g,0,2,2,1,,30,5,4,4,1,2,0,size-based,30,2.075,,,,,.8
@@ -2945,8 +2868,8 @@ ILOILO,fresh fish,SAN MIGUEL,pieces or units,100,1,g,0,1,1,1,,620,8,0,0,1,1,0,si
 ILOILO,fresh fish,SAN MIGUEL,pieces or units,480,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN MIGUEL,pieces or units,60,1,g,0,1,1,1,,52.5,8,0,0,1,1,0,size-based,52.5,1.142857142857143,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",SAN MIGUEL,lipid/lapad,76.25,1,mL,0,3,3,1,,375,9,0,0,1,1,2,size-based,375,.2033333333333333,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",SAN MIGUEL,lipid/lapad,198,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",SAN MIGUEL,lipid/lapad,315,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",SAN MIGUEL,lipid/lapad,198,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,SAN MIGUEL,large packs,170,1,g,0,1,1,1,,640,8,0,0,1,1,0,size-based,640,.265625,,,,,0
 ILOILO,loaf bread,SAN MIGUEL,small packs,50.5,1,g,0,2,2,1,,420,5,0,0,1,1,1,size-based,420,.1202380952380952,,,,,0
 ILOILO,loaf bread,SAN MIGUEL,small packs,195,2,g,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -2979,17 +2902,15 @@ ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN RAFAEL,co
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN RAFAEL,cone,10,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN RAFAEL,pieces or units,24.5,1,g,0,2,2,1,,43,1,0,0,1,1,1,size-based,43,.5697674418604651,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN RAFAEL,pieces or units,57.5,2,g,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN RAFAEL,putos,48,1,g,0,1,1,1,,270,3,2,2,1,1,0,size-based,270,.1777777777777778,,,,,.6666666666666666
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN RAFAEL,putos,48,1,g,0,1,1,1,,175,4,2,2,1,1,0,size-based,175,.2742857142857143,,,,,.5
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN RAFAEL,putos,20,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN RAFAEL,putos,48,1,mL,0,1,1,1,,80,1,0,0,1,1,0,size-based,80,.6,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN RAFAEL,putos,20,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SAN RAFAEL,small cup,40,1,g,0,1,1,1,,32,1,0,0,1,1,0,size-based,32,1.25,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",SAN RAFAEL,lipid/lapad,80,1,mL,0,3,3,1,,375,2,0,0,1,2,1,size-based,375,.2133333333333333,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",SAN RAFAEL,lipid/lapad,160,2,mL,0,3,3,1,,680,3,0,0,2,2,1,size-based,680,.2352941176470588,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",SAN RAFAEL,lipid/lapad,225,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,SAN RAFAEL,large packs,84.16666666666667,1,g,0,2,2,1,,675,3,0,0,1,1,1,size-based,675,.1246913580246914,,,,,0
-ILOILO,loaf bread,SAN RAFAEL,large packs,230,2,g,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,SAN RAFAEL,large packs,595,,g,0,2,2,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ILOILO,loaf bread,SAN RAFAEL,large packs,230,2,g,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,SAN RAFAEL,medium packs,66.5,1,g,0,1,1,1,,385,2,0,0,1,1,0,size-based,385,.1727272727272727,,,,,0
 ILOILO,loaf bread,SAN RAFAEL,small packs,50,1,g,0,1,1,1,,345,6,0,0,1,1,0,size-based,345,.1449275362318841,,,,,0
 ILOILO,"preserved or processed meat (tocino, tapa, longaniza, etc)",SAN RAFAEL,bilog,50,1,g,0,1,1,1,,205,3,0,0,1,1,0,size-based,205,.2439024390243902,,,,,0
@@ -3049,13 +2970,9 @@ ILOILO,fresh fish,SARA,pieces or units,100,,g,0,,2,1,,405,7,0,0,2,,,price-quanti
 ILOILO,fresh fish,SARA,pieces or units,100,,g,0,,2,1,,405,7,0,0,2,,,price-quantity,482.3646032576531,.2073120608864109,mp75_price,1,2024m5,1.191023711747291,0
 ILOILO,fresh fish,SARA,pieces or units,100,,g,0,,2,1,,405,7,0,0,2,,,price-quantity,490.5759418302086,.2038420384557109,mp75_price,1,2024m6,1.211298621802984,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,pieces or units,28.75,1,g,0,2,2,1,,35,3,1,1,1,2,0,size-based,35,.8214285714285714,,,,,.3333333333333333
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,pieces or units,71.25,2,g,0,2,2,1,,62.5,2,0,0,2,2,0,size-based,62.5,1.14,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,pieces or units,28.75,1,mL,0,2,2,1,,600,1,1,1,1,1,1,size-based,600,.0479166666666667,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,pieces or units,71.25,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,small cup,25,1,g,0,2,2,1,,140,4,0,0,1,2,0,size-based,140,.1785714285714286,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,small cup,65,2,g,0,2,2,1,,425,1,1,1,2,2,0,size-based,425,.1529411764705882,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,small cup,25,1,mL,0,2,2,1,,100,1,0,0,1,1,1,size-based,100,.25,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,small cup,65,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,pieces or units,71.25,2,g,0,2,2,1,,65,3,1,1,2,2,0,size-based,65,1.096153846153846,,,,,.3333333333333333
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,small cup,25,1,g,0,2,2,1,,60,3,0,0,1,2,0,size-based,60,.4166666666666667,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",SARA,small cup,65,2,g,0,2,2,1,,220,3,1,1,2,2,0,size-based,220,.2954545454545455,,,,,.3333333333333333
 ILOILO,"liquor (e.g, whisky, coconut wine)",SARA,lipid/lapad,77.5,1,mL,0,2,2,1,,375,6,1,1,1,1,1,size-based,375,.2066666666666667,,,,,.1666666666666667
 ILOILO,"liquor (e.g, whisky, coconut wine)",SARA,lipid/lapad,150,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",SARA,long-neck,180,1,mL,0,1,1,1,,750,4,0,0,1,1,0,size-based,750,.24,,,,,0
@@ -3164,28 +3081,20 @@ ILOILO,fresh fish,TIGBAUAN,pieces or units,107.5,,g,0,,3,1,,425,3,0,0,3,,,price-
 ILOILO,fresh fish,TIGBAUAN,pieces or units,107.5,,g,0,,3,1,,425,3,0,0,3,,,price-quantity,491.7423432314818,.2186104196225292,mp75_price,1,2024m4,1.157040807603486,0
 ILOILO,fresh fish,TIGBAUAN,pieces or units,107.5,,g,0,,3,1,,425,3,0,0,3,,,price-quantity,506.1850774925989,.2123729141374615,mp75_price,1,2024m5,1.191023711747291,0
 ILOILO,fresh fish,TIGBAUAN,pieces or units,107.5,,g,0,,3,1,,425,3,0,0,3,,,price-quantity,514.8019142662683,.2088181823356592,mp75_price,1,2024m6,1.211298621802984,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,gallons,500,1,g,0,1,1,1,,515,2,0,0,1,1,0,size-based,515,.970873786407767,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,gallons,500,1,mL,0,1,1,1,,950,1,0,0,1,1,0,size-based,950,.5263157894736842,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,pieces or units,51.25,1,g,0,3,3,1,,50,3,0,0,1,3,0,size-based,50,1.025,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,pieces or units,90,2,g,0,3,3,1,,82.5,4,1,1,2,3,0,size-based,82.5,1.090909090909091,,,,,.25
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,pieces or units,125.25,3,g,0,3,3,1,,505,2,2,2,3,3,0,size-based,505,.248019801980198,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,pieces or units,51.25,1,mL,0,3,3,1,,85,1,0,0,1,2,1,size-based,85,.6029411764705882,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,pieces or units,90,2,mL,0,3,3,1,,110,1,0,0,2,2,1,size-based,110,.8181818181818182,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,pieces or units,125.25,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,gallons,500,1,g,0,1,1,1,,545,3,0,0,1,1,0,size-based,545,.9174311926605505,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,pieces or units,51.25,1,g,0,3,3,1,,50,4,0,0,1,3,0,size-based,50,1.025,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,pieces or units,90,2,g,0,3,3,1,,87.5,4,0,0,2,3,0,size-based,87.5,1.028571428571428,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,pieces or units,125.25,3,g,0,3,3,1,,490,3,3,3,3,3,0,size-based,490,.2556122448979592,,,,,1
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,plastic cup,77.5,1,g,0,1,1,1,,485,1,0,0,1,1,0,size-based,485,.1597938144329897,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,putos,30.875,1,g,0,2,2,1,,57.5,2,0,0,1,2,0,size-based,57.5,.5369565217391304,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,putos,87.5,2,g,0,2,2,1,,277.5,2,1,1,2,2,0,size-based,277.5,.3153153153153153,,,,,.5
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,putos,30.875,1,mL,0,2,2,1,,65,1,0,0,1,2,0,size-based,65,.475,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,putos,87.5,2,mL,0,2,2,1,,85,1,0,0,2,2,0,size-based,85,1.029411764705882,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,small cup,42.5,1,g,0,2,2,1,,277.5,2,1,1,1,2,0,size-based,277.5,.1531531531531531,,,,,.5
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,small cup,89.5,2,g,0,2,2,1,,490,1,1,1,2,2,0,size-based,490,.1826530612244898,,,,,1
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,small cup,42.5,1,mL,0,2,2,1,,120,1,0,0,1,2,0,size-based,120,.3541666666666667,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,small cup,89.5,2,mL,0,2,2,1,,180,1,0,0,2,2,0,size-based,180,.4972222222222222,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,putos,30.875,1,g,0,2,2,1,,60,3,0,0,1,2,0,size-based,60,.5145833333333333,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,putos,87.5,2,g,0,2,2,1,,85,3,1,1,2,2,0,size-based,85,1.029411764705882,,,,,.3333333333333333
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,small cup,42.5,1,g,0,2,2,1,,120,3,0,0,1,2,0,size-based,120,.3541666666666667,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TIGBAUAN,small cup,89.5,2,g,0,2,2,1,,487.5,2,2,2,2,2,0,size-based,487.5,.1835897435897436,,,,,1
 ILOILO,"liquor (e.g, whisky, coconut wine)",TIGBAUAN,lipid/lapad,80,1,mL,0,2,2,1,,677.5,6,0,0,1,2,0,size-based,677.5,.1180811808118081,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",TIGBAUAN,lipid/lapad,160,2,mL,0,2,2,1,,690,3,0,0,2,2,0,size-based,690,.2318840579710145,,,,,0
 ILOILO,"liquor (e.g, whisky, coconut wine)",TIGBAUAN,long-neck,180,1,mL,0,1,1,1,,1225,9,0,0,1,1,0,size-based,1225,.1469387755102041,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",TIGBAUAN,long-neck,450,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",TIGBAUAN,long-neck,300,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",TIGBAUAN,long-neck,450,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,TIGBAUAN,large packs,92.375,1,g,0,2,2,1,,560,4,0,0,1,2,0,size-based,560,.1649553571428571,,,,,0
 ILOILO,loaf bread,TIGBAUAN,large packs,157.5,2,g,0,2,2,1,,670,4,0,0,2,2,0,size-based,670,.2350746268656717,,,,,0
 ILOILO,loaf bread,TIGBAUAN,medium packs,75,1,g,0,2,2,1,,475,3,0,0,1,2,0,size-based,475,.1578947368421053,,,,,0
@@ -3221,16 +3130,14 @@ ILOILO,"drinks at restaurant, hotel, cafe, or kiosk",TUBUNGAN,pieces or units,15
 ILOILO,fresh fish,TUBUNGAN,pieces or units,100,1,g,0,1,1,1,,285,12,3,3,1,1,0,size-based,285,.3508771929824561,,,,,.25
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TUBUNGAN,gallons,500,1,mL,0,1,1,1,,950,2,0,0,1,1,0,size-based,950,.5263157894736842,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TUBUNGAN,pieces or units,40,1,mL,0,1,1,1,,110,9,0,0,1,1,0,size-based,110,.3636363636363636,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TUBUNGAN,putos,48,1,g,0,1,1,1,,60,1,0,0,1,1,0,size-based,60,.8,,,,,0
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TUBUNGAN,putos,125,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
-ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TUBUNGAN,putos,48,1,mL,0,1,1,1,,57.5,8,0,0,1,1,0,size-based,57.5,.8347826086956521,,,,,0
+ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TUBUNGAN,putos,48,1,mL,0,1,1,1,,60,9,0,0,1,1,0,size-based,60,.8,,,,,0
 ILOILO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TUBUNGAN,putos,125,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",TUBUNGAN,lipid/lapad,85,1,mL,0,3,3,1,,375,9,0,0,1,1,2,size-based,375,.2266666666666667,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",TUBUNGAN,lipid/lapad,210,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",TUBUNGAN,lipid/lapad,160,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",TUBUNGAN,lipid/lapad,210,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",TUBUNGAN,long-neck,167.5,1,mL,0,3,3,1,,750,9,0,0,1,1,2,size-based,750,.2233333333333333,,,,,0
-ILOILO,"liquor (e.g, whisky, coconut wine)",TUBUNGAN,long-neck,190,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,"liquor (e.g, whisky, coconut wine)",TUBUNGAN,long-neck,245,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+ILOILO,"liquor (e.g, whisky, coconut wine)",TUBUNGAN,long-neck,190,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 ILOILO,loaf bread,TUBUNGAN,large packs,68.75,1,g,0,3,3,1,,700,3,0,0,1,2,1,size-based,700,.0982142857142857,,,,,0
 ILOILO,loaf bread,TUBUNGAN,large packs,120,2,g,0,3,3,1,,720,2,0,0,2,2,1,size-based,720,.1666666666666667,,,,,0
 ILOILO,loaf bread,TUBUNGAN,large packs,280,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
@@ -3374,12 +3281,9 @@ NEGROS OCCIDENTAL,chicken,ENRIQUE B. MAGALONA (SARAVIA),whole (chicken),218.5,1,
 NEGROS OCCIDENTAL,chicken,ENRIQUE B. MAGALONA (SARAVIA),whole (chicken),280,2,g,0,2,2,1,,1515,1,0,0,2,2,0,size-based,1515,.1848184818481848,,,,,0
 NEGROS OCCIDENTAL,fresh fish,ENRIQUE B. MAGALONA (SARAVIA),pieces or units,160,1,g,0,1,1,1,,155,9,1,1,1,1,0,size-based,155,1.032258064516129,,,,,.1111111111111111
 NEGROS OCCIDENTAL,fresh fish,ENRIQUE B. MAGALONA (SARAVIA),pieces or units,600,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ENRIQUE B. MAGALONA (SARAVIA),pieces or units,40,1,g,0,1,1,1,,45,1,0,0,1,1,0,size-based,45,.8888888888888888,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ENRIQUE B. MAGALONA (SARAVIA),pieces or units,40,1,mL,0,1,1,1,,60,2,0,0,1,1,0,size-based,60,.6666666666666666,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ENRIQUE B. MAGALONA (SARAVIA),pieces or units,40,1,mL,0,1,1,1,,60,3,0,0,1,1,0,size-based,60,.6666666666666666,,,,,0
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ENRIQUE B. MAGALONA (SARAVIA),putos,12.5,,g,0,,1,1,,43,1,0,0,1,,,price-quantity,40.07525807555746,.3119131504139696,province_median,1,2024m10,.9319827459431967,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ENRIQUE B. MAGALONA (SARAVIA),putos,12.5,,mL,0,,1,1,,60,1,0,0,1,,,price-quantity,55.91896475659181,.2235377577966781,province_median,1,2024m10,.9319827459431967,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ENRIQUE B. MAGALONA (SARAVIA),small cup,48,1,g,0,1,1,1,,100,1,0,0,1,1,0,size-based,100,.48,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ENRIQUE B. MAGALONA (SARAVIA),small cup,48,1,mL,0,1,1,1,,100,2,0,0,1,1,0,size-based,100,.48,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ENRIQUE B. MAGALONA (SARAVIA),small cup,48,1,mL,0,1,1,1,,100,3,0,0,1,1,0,size-based,100,.48,,,,,0
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",ENRIQUE B. MAGALONA (SARAVIA),lipid/lapad,80,,mL,0,,1,1,,375,1,0,0,1,,,price-quantity,402.9166656670965,.1985522238638268,municipality_median,1,2024m10,1.074444441778924,0
 NEGROS OCCIDENTAL,loaf bread,ENRIQUE B. MAGALONA (SARAVIA),large packs,84.5,1,g,0,1,1,1,,450,9,0,0,1,1,0,size-based,450,.1877777777777778,,,,,0
 NEGROS OCCIDENTAL,loaf bread,ENRIQUE B. MAGALONA (SARAVIA),medium packs,70,1,g,0,1,1,1,,400,2,0,0,1,1,0,size-based,400,.175,,,,,0
@@ -3394,14 +3298,12 @@ NEGROS OCCIDENTAL,carrot,HINIGARAN,pieces or units,15.83333301544189,,g,0,,1,1,,
 NEGROS OCCIDENTAL,chicken,HINIGARAN,bilog,150,,g,0,,2,1,,855,3,0,0,1,,,price-quantity,800.4086840928867,.1874042635731731,mp25_price,1,2024m12,.9361505077109785,0
 NEGROS OCCIDENTAL,chicken,HINIGARAN,bilog,235,,g,0,,2,1,,1090,3,0,0,2,,,price-quantity,1020.404053404967,.2303009275745554,mp50_price,1,2024m12,.9361505077109785,0
 NEGROS OCCIDENTAL,chicken,HINIGARAN,whole (chicken),200,1,g,0,3,3,1,,1055,1,0,0,1,1,2,size-based,1055,.1895734597156398,,,,,0
-NEGROS OCCIDENTAL,chicken,HINIGARAN,whole (chicken),362.5,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 NEGROS OCCIDENTAL,chicken,HINIGARAN,whole (chicken),275,2,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+NEGROS OCCIDENTAL,chicken,HINIGARAN,whole (chicken),362.5,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 NEGROS OCCIDENTAL,fresh fish,HINIGARAN,pieces or units,160,1,g,0,1,1,1,,525,3,0,0,1,1,0,size-based,525,.3047619047619048,,,,,0
 NEGROS OCCIDENTAL,fresh fish,HINIGARAN,pieces or units,110,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINIGARAN,pieces or units,27.5,1,g,0,2,2,1,,43,1,0,0,1,1,1,size-based,43,.6395348837209303,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINIGARAN,pieces or units,70,2,g,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINIGARAN,pieces or units,27.5,1,mL,0,2,2,1,,110,1,0,0,1,1,1,size-based,110,.25,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINIGARAN,pieces or units,70,2,mL,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINIGARAN,pieces or units,27.5,1,g,0,2,2,1,,43,1,0,0,1,2,0,size-based,43,.6395348837209303,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINIGARAN,pieces or units,70,2,g,0,2,2,1,,110,1,0,0,2,2,0,size-based,110,.6363636363636364,,,,,0
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINIGARAN,putos,38,1,mL,0,1,1,1,,49,1,0,0,1,1,0,size-based,49,.7755102040816326,,,,,0
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINIGARAN,putos,100,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINIGARAN,putos,70,,mL,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
@@ -3427,12 +3329,9 @@ NEGROS OCCIDENTAL,chicken,HINOBA-AN (ASIA),bilog,225,,g,0,,3,1,,1052.5,2,0,0,2,,
 NEGROS OCCIDENTAL,chicken,HINOBA-AN (ASIA),bilog,257.5,,g,0,,3,1,,1135,1,0,0,3,,,price-quantity,1058.939533894159,.2431678030312703,mp75_price,1,2024m12,.9329863734750298,0
 NEGROS OCCIDENTAL,chicken,HINOBA-AN (ASIA),whole (chicken),150,,g,0,,2,1,,945,2,0,0,1,,,price-quantity,881.6721229339032,.1701312722702985,unique_mun_price6,1,2024m12,.9329863734750298,0
 NEGROS OCCIDENTAL,chicken,HINOBA-AN (ASIA),whole (chicken),180,,g,0,,2,1,,1047.5,2,0,0,2,,,price-quantity,977.3032262150938,.1841802985723327,unique_mun_price7,1,2024m12,.9329863734750298,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINOBA-AN (ASIA),pieces or units,40,1,g,0,1,1,1,,71,2,0,0,1,1,0,size-based,71,.5633802816901409,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINOBA-AN (ASIA),pieces or units,40,1,mL,0,1,1,1,,115,1,0,0,1,1,0,size-based,115,.3478260869565217,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINOBA-AN (ASIA),putos,40,1,g,0,1,1,1,,63,3,0,0,1,1,0,size-based,63,.6349206349206349,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINOBA-AN (ASIA),putos,40,1,mL,0,1,1,1,,60,1,0,0,1,1,0,size-based,60,.6666666666666666,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINOBA-AN (ASIA),small cup,30,1,g,0,1,1,1,,100,2,0,0,1,1,0,size-based,100,.3,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINOBA-AN (ASIA),small cup,30,1,mL,0,1,1,1,,100,1,0,0,1,1,0,size-based,100,.3,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINOBA-AN (ASIA),pieces or units,40,1,g,0,1,1,1,,110,3,0,0,1,1,0,size-based,110,.3636363636363636,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINOBA-AN (ASIA),putos,40,1,g,0,1,1,1,,61.5,4,0,0,1,1,0,size-based,61.5,.6504065040650406,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",HINOBA-AN (ASIA),small cup,30,1,g,0,1,1,1,,100,3,0,0,1,1,0,size-based,100,.3,,,,,0
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",HINOBA-AN (ASIA),lipid/lapad,80,,mL,0,,1,1,,375,2,0,0,1,,,price-quantity,401.313889572254,.1993452060312917,municipality_median,1,2024m12,1.070170372192677,0
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",HINOBA-AN (ASIA),long-neck,157.5,,mL,0,,1,1,,750,2,0,0,1,,,price-quantity,802.6277791445079,.1962304371870527,province_median,1,2024m12,1.070170372192677,0
 NEGROS OCCIDENTAL,loaf bread,HINOBA-AN (ASIA),large packs,90,1,g,0,2,2,1,,640,6,0,0,1,1,1,size-based,640,.140625,,,,,0
@@ -3452,10 +3351,8 @@ NEGROS OCCIDENTAL,chicken,ILOG,bilog,310,,g,0,,3,1,,1580,3,0,0,3,,,price-quantit
 NEGROS OCCIDENTAL,chicken,ILOG,whole (chicken),250,1,g,0,3,3,1,,1070,3,0,0,1,3,0,size-based,1070,.2336448598130841,,,,,0
 NEGROS OCCIDENTAL,chicken,ILOG,whole (chicken),345,2,g,0,3,3,1,,1115,2,0,0,2,3,0,size-based,1115,.3094170403587444,,,,,0
 NEGROS OCCIDENTAL,chicken,ILOG,whole (chicken),485,3,g,0,3,3,1,,1245,2,0,0,3,3,0,size-based,1245,.3895582329317269,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOG,pieces or units,40,1,g,0,1,1,1,,110,3,0,0,1,1,0,size-based,110,.3636363636363636,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOG,pieces or units,40,1,mL,0,1,1,1,,35,1,0,0,1,1,0,size-based,35,1.142857142857143,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOG,putos,38,1,g,0,1,1,1,,45,3,0,0,1,1,0,size-based,45,.8444444444444444,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOG,putos,38,1,mL,0,1,1,1,,92,1,0,0,1,1,0,size-based,92,.4130434782608696,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOG,pieces or units,40,1,g,0,1,1,1,,105,4,0,0,1,1,0,size-based,105,.3809523809523809,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOG,putos,38,1,g,0,1,1,1,,52.5,4,0,0,1,1,0,size-based,52.5,.7238095238095238,,,,,0
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOG,small cup,25,1,g,0,1,1,1,,100,5,0,0,1,1,0,size-based,100,.25,,,,,0
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",ILOG,lipid/lapad,82.5,,mL,0,,1,1,,375,1,0,0,1,,,price-quantity,396.7496120004981,.2079397118601251,municipality_median,1,2024m12,1.057998965334662,0
 NEGROS OCCIDENTAL,loaf bread,ILOG,large packs,90,1,g,0,1,1,1,,640,3,0,0,1,1,0,size-based,640,.140625,,,,,0
@@ -3520,10 +3417,8 @@ NEGROS OCCIDENTAL,carrot,MANAPLA,pieces or units,15,,g,0,,1,1,,125,4,0,0,1,,,pri
 NEGROS OCCIDENTAL,chicken,MANAPLA,whole (chicken),250,,g,0,,1,1,,1217.5,4,0,0,1,,,price-quantity,1144.735434035925,.218391073226929,province_median,1,2024m10,.9402344427399794,0
 NEGROS OCCIDENTAL,fresh fish,MANAPLA,pieces or units,160,1,g,0,1,1,1,,580,9,0,0,1,1,0,size-based,580,.2758620689655172,,,,,0
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MANAPLA,putos,50,1,mL,0,1,1,1,,60,4,0,0,1,1,0,size-based,60,.8333333333333334,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MANAPLA,small cup,65,1,g,0,2,2,1,,200,1,0,0,1,1,1,size-based,200,.325,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MANAPLA,small cup,100,2,g,0,2,2,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MANAPLA,small cup,65,1,mL,0,2,2,1,,120,3,0,0,1,2,0,size-based,120,.5416666666666666,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MANAPLA,small cup,100,2,mL,0,2,2,1,,135,1,0,0,2,2,0,size-based,135,.7407407407407407,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",MANAPLA,small cup,100,2,mL,0,2,2,1,,167.5,2,0,0,2,2,0,size-based,167.5,.5970149253731343,,,,,0
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",MANAPLA,lipid/lapad,75,,mL,0,,1,1,,375,6,0,0,1,,,price-quantity,402.9166656670965,.1861427098723376,municipality_median,1,2024m10,1.074444441778924,0
 NEGROS OCCIDENTAL,loaf bread,MANAPLA,large packs,90,1,g,0,1,1,1,,640,5,0,0,1,1,0,size-based,640,.140625,,,,,0
 NEGROS OCCIDENTAL,loaf bread,MANAPLA,large packs,120,,g,0,1,1,0,"unique price, no weighing behind it",,,,,,,,size-based,,,,,,,
@@ -3579,16 +3474,11 @@ NEGROS OCCIDENTAL,chicken,PONTEVEDRA,whole (chicken),250,1,g,0,2,2,1,,915,5,0,0,
 NEGROS OCCIDENTAL,chicken,PONTEVEDRA,whole (chicken),295,2,g,0,2,2,1,,1302.5,4,0,0,2,2,0,size-based,1302.5,.2264875239923225,,,,,0
 NEGROS OCCIDENTAL,fresh fish,PONTEVEDRA,pieces or units,47.5,,g,0,,2,1,,205,3,0,0,1,,,price-quantity,243.063730419425,.1954219986586856,mp25_price,1,2024m12,1.185676733753293,0
 NEGROS OCCIDENTAL,fresh fish,PONTEVEDRA,pieces or units,80,,g,0,,2,1,,410,3,1,1,2,,,price-quantity,486.12746083885,.1645658936073142,mp50_price,1,2024m12,1.185676733753293,.3333333333333333
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,53.25,1,g,0,3,3,1,,70,1,0,0,1,2,1,size-based,70,.7607142857142857,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,78,2,g,0,3,3,1,,100,1,0,0,2,2,1,size-based,100,.78,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,106.25,3,g,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,53.25,1,mL,0,3,3,1,,35,1,0,0,1,2,1,size-based,35,1.521428571428571,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,78,2,mL,0,3,3,1,,60,1,0,0,2,2,1,size-based,60,1.3,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,106.25,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,putos,30,1,g,0,1,1,1,,47.5,2,0,0,1,1,0,size-based,47.5,.631578947368421,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,putos,30,1,mL,0,1,1,1,,60,1,0,0,1,1,0,size-based,60,.5,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,small cup,40,1,g,0,1,1,1,,250,4,2,2,1,1,0,size-based,250,.16,,,,,.5
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,small cup,40,1,mL,0,1,1,1,,400,3,2,2,1,1,0,size-based,400,.1,,,,,.6666666666666666
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,53.25,1,g,0,3,3,1,,47.5,2,0,0,1,3,0,size-based,47.5,1.121052631578947,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,78,2,g,0,3,3,1,,70,1,0,0,2,3,0,size-based,70,1.114285714285714,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,pieces or units,106.25,3,g,0,3,3,1,,100,1,0,0,3,3,0,size-based,100,1.0625,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,putos,30,1,g,0,1,1,1,,60,3,0,0,1,1,0,size-based,60,.5,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PONTEVEDRA,small cup,40,1,g,0,1,1,1,,400,7,4,4,1,1,0,size-based,400,.1,,,,,.5714285714285714
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",PONTEVEDRA,lipid/lapad,80,1,mL,0,2,2,1,,375,4,0,0,1,2,0,size-based,375,.2133333333333333,,,,,0
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",PONTEVEDRA,lipid/lapad,150,2,mL,0,2,2,1,,750,4,0,0,2,2,0,size-based,750,.2,,,,,0
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",PONTEVEDRA,long-neck,157.5,,mL,0,,1,1,,750,2,0,0,1,,,price-quantity,793.4992240009962,.198487906775574,province_median,1,2024m12,1.057998965334662,0
@@ -3606,11 +3496,10 @@ NEGROS OCCIDENTAL,camote tops,PULUPANDAN,bugkos,20,1,g,0,1,1,1,,215.5,2,0,0,1,1,
 NEGROS OCCIDENTAL,carrot,PULUPANDAN,pieces or units,16.66666603088379,,g,0,,1,1,,137.5,4,0,0,1,,,price-quantity,140.5919407783568,.1185463828055321,municipality_median,1,2024m10,1.022486842024413,0
 NEGROS OCCIDENTAL,chicken,PULUPANDAN,bilog,250,,g,0,,1,1,,1117.5,2,0,0,1,,,price-quantity,1050.711989761927,.2379338985716206,province_median,1,2024m10,.9402344427399794,0
 NEGROS OCCIDENTAL,fresh fish,PULUPANDAN,pieces or units,100,,g,0,,1,1,,507.5,2,0,0,1,,,price-quantity,595.510878157998,.1679230450152558,province_median,1,2024m10,1.17342044957241,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PULUPANDAN,pieces or units,35,1,g,0,1,1,1,,65,1,0,0,1,1,0,size-based,65,.5384615384615384,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PULUPANDAN,pieces or units,35,1,mL,0,1,1,1,,75,2,0,0,1,1,0,size-based,75,.4666666666666667,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PULUPANDAN,pieces or units,35,1,mL,0,1,1,1,,65,3,0,0,1,1,0,size-based,65,.5384615384615384,,,,,0
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PULUPANDAN,small cup,30,1,mL,0,3,3,1,,100,1,0,0,1,1,2,size-based,100,.3,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PULUPANDAN,small cup,60,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PULUPANDAN,small cup,105,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",PULUPANDAN,small cup,60,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",PULUPANDAN,lipid/lapad,65,,mL,0,,1,1,,375,3,0,0,1,,,price-quantity,402.9166656670965,.1613236818893592,municipality_median,1,2024m10,1.074444441778924,0
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",PULUPANDAN,long-neck,120,,mL,0,,1,1,,750,3,0,0,1,,,price-quantity,805.8333313341931,.1489141678978701,unique_mun_price6,1,2024m10,1.074444441778924,0
 NEGROS OCCIDENTAL,loaf bread,PULUPANDAN,large packs,92.5,1,g,0,1,1,1,,640,6,0,0,1,1,0,size-based,640,.14453125,,,,,0
@@ -3693,8 +3582,8 @@ NEGROS OCCIDENTAL,chicken,TOBOSO,whole (chicken),220,,g,0,,1,1,,902.5,2,0,0,1,,,
 NEGROS OCCIDENTAL,chicken,TOBOSO,whole (chicken),220,,g,0,,1,1,,902.5,2,0,0,1,,,price-quantity,861.6243023383596,.2553317024635246,unique_mun_price6,1,2024m11,.9547083682419497,0
 NEGROS OCCIDENTAL,chicken,TOBOSO,whole (chicken),220,,g,0,,1,1,,902.5,2,0,0,1,,,price-quantity,842.0202020612144,.2612763915419765,unique_mun_price6,1,2024m12,.9329863734750298,0
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TOBOSO,pieces or units,60,1,mL,0,3,3,1,,110,2,0,0,1,1,2,size-based,110,.5454545454545454,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TOBOSO,pieces or units,82.5,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TOBOSO,pieces or units,108.75,3,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TOBOSO,pieces or units,82.5,2,mL,0,3,3,0,this part of the cut came back empty,,,,,,,,size-based,,,,,,,
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TOBOSO,putos,38,1,mL,0,1,1,1,,725,2,2,2,1,1,0,size-based,725,.0524137931034483,,,,,1
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",TOBOSO,small cup,34,1,mL,0,1,1,1,,450,1,1,1,1,1,0,size-based,450,.0755555555555556,,,,,1
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",TOBOSO,lipid/lapad,85,,mL,0,,1,1,,375,4,0,0,1,,,price-quantity,407.5518901128577,.2085623991989391,municipality_median,1,2024m10,1.086805040300954,0
@@ -3731,8 +3620,7 @@ NEGROS OCCIDENTAL,chicken,VALLADOLID,bilog,45,,g,0,,1,1,,217.5,2,2,2,1,,,price-q
 NEGROS OCCIDENTAL,chicken,VALLADOLID,bilog,45,,g,0,,1,1,,217.5,2,2,2,1,,,price-quantity,208.353292094598,.2159793087385861,unique_mun_price6,1,2024m11,.9579461705498759,1
 NEGROS OCCIDENTAL,chicken,VALLADOLID,whole (chicken),350,,g,0,,1,1,,1602.5,2,0,0,1,,,price-quantity,1506.725694490817,.2322917842841188,unique_mun_price6,1,2024m10,.9402344427399794,0
 NEGROS OCCIDENTAL,chicken,VALLADOLID,whole (chicken),350,,g,0,,1,1,,1602.5,2,0,0,1,,,price-quantity,1535.108738306176,.2279968781795787,unique_mun_price6,1,2024m11,.9579461705498759,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",VALLADOLID,pieces or units,30,1,g,0,1,1,1,,43,3,0,0,1,1,0,size-based,43,.6976744186046512,,,,,0
-NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",VALLADOLID,pieces or units,30,1,mL,0,1,1,1,,32,1,0,0,1,1,0,size-based,32,.9375,,,,,0
+NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",VALLADOLID,pieces or units,30,1,g,0,1,1,1,,39,4,0,0,1,1,0,size-based,39,.7692307692307693,,,,,0
 NEGROS OCCIDENTAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",VALLADOLID,small cup,25,1,mL,0,1,1,1,,100,1,0,0,1,1,0,size-based,100,.25,,,,,0
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",VALLADOLID,lipid/lapad,70,,mL,0,,1,1,,375,2,0,0,1,,,price-quantity,402.9166656670965,.1737331958808484,municipality_median,1,2024m10,1.074444441778924,0
 NEGROS OCCIDENTAL,"liquor (e.g, whisky, coconut wine)",VALLADOLID,lipid/lapad,70,,mL,0,,1,1,,375,2,0,0,1,,,price-quantity,401.2216028777082,.1744671759893644,municipality_median,1,2024m11,1.069924274340555,0

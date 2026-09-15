@@ -7,9 +7,10 @@
 *
 * A CASE HERE IS prov x mun x item x harmonized_nsu_unit -- WITHOUT corrected_unit, and
 * that is forced rather than chosen. `corrected_unit' (g vs mL) exists only on the market
-* survey side; a price row has no dimension to split on. 65 of 1,941 weighed cells span
-* both g and mL, so those cells' two sub-cells share one set of points. The branch builds
-* join on this coarser key deliberately; see the note in section 6.
+* survey side; a price row has no dimension to split on. Since 05_manual_corrections.do
+* section 1c, no weighed cell spans both g and mL -- a case answering in both takes its
+* own majority dimension -- so the coarser key costs nothing here. It is still the right
+* key: the price side could never have supplied a dimension to join on.
 *
 * ==============================================================================
 * THE MERGE RULE (issue #21 sec 2, settled there)

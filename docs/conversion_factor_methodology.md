@@ -1198,11 +1198,11 @@ holding {S, M, L} *are* small and large. `10_size_assignment.do` §2d asserts th
 than relying on it.
 
 **It must be keyed on groups-filled < $`k`$, not on groups-filled alone.** Read as "1
-group filled → medium", the rule would also catch the 751 cases where the field recorded
-one label and one group filled — relabelling **406 cases the field called small** and
+group filled → medium", the rule would also catch the 698 cases where the field recorded
+one label and one group filled — relabelling **362 cases the field called small** and
 **155 it called large** to medium. That is the same defect the rank mechanism exists to
 prevent, mirrored: `verify_documented_claims.py` already asserts that a naive
-group-number-to-size map mislabels 449 of 1,565 cases.
+group-number-to-size map mislabels 437 of 1,508 cases.
 
 **A missing size stays missing.** A case that filled two groups publishes two rows, so a
 field lookup for the third size returns nothing rather than an interpolated guess. That
@@ -1474,12 +1474,12 @@ thing.
 
    | | agreement with the field label |
    |---|---|
-   | per weighing — why re-terciling exists | **68.4%** (3,838 / 5,609) |
-   | per group, using the modal label — what the criterion assumes | **82.0%** (1,203 / 1,467) |
+   | per weighing — why re-terciling exists | **68.4%** (3,871 / 5,657) |
+   | per group, using the modal label — what the criterion assumes | **82.0%** (1,215 / 1,482) |
 
    Aggregating does recover signal, which is what the criterion needs. **But the
-   disagreement is not symmetric.** 195 groups carry a modal label *below* their tercile
-   position against 69 above — mean signed error **−0.097**. So the modal field label runs systematically *low*, and a
+   disagreement is not symmetric.** 196 groups carry a modal label *below* their tercile
+   position against 71 above — mean signed error **−0.096**. So the modal field label runs systematically *low*, and a
    criterion built on it is biased toward the *lower* of two candidate names.
 
    **These three figures have improved at every review round, always for the same reason**, and it is

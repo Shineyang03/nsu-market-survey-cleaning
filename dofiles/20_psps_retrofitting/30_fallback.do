@@ -472,11 +472,11 @@ foreach L in 2 3 {
 * answers a question on its own: what does a household get if the price/size matching is
 * removed entirely?
 *
-* THE KEY IS FIVE COLUMNS, NOT FOUR. `corrected_unit' has to stay in it. 65 of the cells
-* hold both a gram reading and a millilitre one, and pooling those would add grams to
-* millilitres. A household reports no dimension, so 28_match_and_convert.do picks one per
-* cell when it serves a row -- but the LOOKUP publishes both sub-cells, because which one
-* is right is a property of the item and not of this table.
+* THE KEY IS FIVE COLUMNS, NOT FOUR. `corrected_unit' has to stay in it. No CELL spans
+* both dimensions any more -- 05_manual_corrections.do section 1c resolves those -- but
+* the rungs above the cell still do: 20 of 212 province groups and 8 of 84 national ones
+* mix grams and millilitres, because they pool municipalities that resolved differently.
+* Dropping the column would add grams to millilitres at exactly those rungs.
 *
 * THE LADDER STILL CLIMBS. `fb_level' says how far: 1 means the cell's own weighings
 * pooled across hetero-groups, 2 the province, 3 the region. A cell too thin to serve

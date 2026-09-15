@@ -30,10 +30,14 @@
 *
 * 1. A HOUSEHOLD HAS NO DIMENSION. The lookup is keyed with `corrected_unit' because a
 *    gram must never be pooled with a millilitre. A household reporting "2 pieces of ice
-*    cream" says nothing about which. 65 of 1,941 weighed cells hold both, and section 2
-*    picks the sub-cell with more weighings behind it. This changes a LABEL and almost
-*    never a number: the project treats a millilitre and a gram as the same reading at the
-*    precision recorded, because the items measured by volume are near water density.
+*    cream" says nothing about which, so section 1 picks one dimension per case.
+*
+*    AT CELL GRAIN THAT PICK IS NOW VACUOUS. 05_manual_corrections.do section 1c gives
+*    every case a single dimension, so section 1 finds one sub-cell and selects it. The
+*    code stays as the guard that it is -- its `assert _n_dim == 1' is what would catch a
+*    mixed cell reappearing. The pick still BINDS at the fallback rungs in section 6,
+*    where 20 of 212 province groups and 8 of 84 national groups do span both dimensions,
+*    because pooling across municipalities mixes cells that resolved differently.
 *
 * 2. A THIRD OF THE ROWS HAVE NO PRICE. 11,809 of 35,448 -- own production (10,187) and
 *    gifts (1,606) carry an imputed VALUE, not a price the household faced, so 20a leaves

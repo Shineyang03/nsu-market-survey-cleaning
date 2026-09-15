@@ -201,7 +201,7 @@ def c_pull_price_preload(d):
           # Moved by the 16 MS weighings behind the five non-unit labels dropped in
           # 02_drop_non_nsu_labels.py EXACT -- they had reached the published reference
           # set as harmonized units. See that file for the per-label counts.
-          "1,097 of 1,097 matched rows agree; 98.5% coverage",
+          "1,096 of 1,096 matched rows agree; 98.5% coverage",
           f"{agree:,} of {int(matched.sum()):,} matched rows agree;"
           f" {100 * matched.mean():.1f}% coverage",
           "join is on province + municipality + item + raw unit + hetero-group;"
@@ -661,7 +661,7 @@ def c_label_rank_is_load_bearing(d):
           # Moved by 4 weighings / 1 case when the ILOILO / DUEAS cabbage label
           # "2 kapinutos nga cabbage/20pesos" joined the AMBIGUOUS set in
           # 02_drop_non_nsu_labels.py. That drop is the resolution of issue #22.
-          "449 of 1,565 size-based cases would be mislabelled by a naive grp->S/M/L map",
+          "437 of 1,508 size-based cases would be mislabelled by a naive grp->S/M/L map",
           f"{bad:,} of {len(lab):,} size-based cases would be mislabelled"
           " by a naive grp->S/M/L map",
           "disagreeing label sets: "
@@ -686,7 +686,7 @@ def c_underfilled_shapes(sized):
           # Moved by the STEP 3e adjudication (issue #18, from the manual review of
           # snap_sense_check.xlsx). The rules adopt the block reading on 431 rows where
           # the old plausibility gate moved only 42.
-          "94 cases fill fewer groups than the field recorded labels",
+          "87 cases fill fewer groups than the field recorded labels",
           f"{len(under):,} cases fill fewer groups than the field recorded labels",
           "must equal the count 11_size_checks.do sec 3 prints and"
           " ref_underfilled_sizes.xlsx holds")
@@ -701,7 +701,7 @@ def c_underfilled_shapes(sized):
           # Moved by the STEP 3e adjudication (issue #18, from the manual review of
           # snap_sense_check.xlsx). The rules adopt the block reading on 431 rows where
           # the old plausibility gate moved only 42.
-          "31 with one group filled; 48 filled (1,2); 15 filled (1,3)",
+          "29 with one group filled; 44 filled (1,2); 14 filled (1,3)",
           f"{len(shape1)} with one group filled; {g12} filled (1,2); {g13} filled (1,3)",
           "the (1,2) and (1,3) split is why the rule cannot be keyed on the number of"
           " filled groups alone -- 'small + large' is right for (1,3) and wrong for (1,2)")
@@ -718,7 +718,7 @@ def c_underfilled_shapes(sized):
           # Moved by 4 weighings / 1 case when the ILOILO / DUEAS cabbage label
           # "2 kapinutos nga cabbage/20pesos" joined the AMBIGUOUS set in
           # 02_drop_non_nsu_labels.py. That drop is the resolution of issue #22.
-          "751 not-under-filled cases would be caught; 406 field-small, 155 field-large",
+          "698 not-under-filled cases would be caught; 362 field-small, 155 field-large",
           f"{len(ok1):,} not-under-filled cases would be caught;"
           f" {n_s} field-small, {n_l} field-large",
           "these have one label recorded AND one group filled, so they are correctly"
@@ -745,7 +745,7 @@ def c_thin_sensitivity():
     got = {t: int((ref.n_g < t).sum()) for t in (2, 3, 4, 5)}
     check("A3 rows flagged at THIN = 2 / 3 / 4 / 5",
           "implicit_assumptions.md / A3",
-          "265 / 511 / 1040 / 1469 of 2550",
+          "210 / 434 / 967 / 1400 of 2490",
           f"{got[2]} / {got[3]} / {got[4]} / {got[5]} of {n}",
           note="A3's table is a claim about sensitivity; if these move, the argument for "
                "calling THIN = 3 badly placed has to be re-made on the new numbers.")
@@ -833,7 +833,7 @@ def c_modal_label_criterion(sized):
           # Rose again (64.0% -> 64.7%) when the referee became hetero-aware. The field
           # labels are a signal the snap never reads, so agreement improving is evidence
           # the rule picks better, not evidence of fitting to them.
-          "68.4% (3,838 of 5,609)",
+          "68.4% (3,871 of 5,657)",
           f"{per_row / len(full) * 100:.1f}% ({per_row:,} of {len(full):,})",
           "this is the number that justifies re-terciling in the first place -- the"
           " field label is wrong about a third of the time at row level")
@@ -844,7 +844,7 @@ def c_modal_label_criterion(sized):
     check("modal field label agrees with the tercile, per group",
           "methodology.md / assumption 7",
           # ROSE from 66.5%, same independence argument as the per-weighing figure above.
-          "82.0% (1,203 of 1,467)",
+          "82.0% (1,215 of 1,482)",
           f"{per_grp / len(g) * 100:.1f}% ({per_grp:,} of {len(g):,})",
           "aggregating recovers signal, which is what the naming criterion needs")
 
@@ -857,7 +857,7 @@ def c_modal_label_criterion(sized):
           # with the review's finding that the log-10 snap tends to underestimate: adopting
           # the block reading on 431 rows removes part of that downward pull. Still not
           # symmetric, so the caveat below stands.
-          "mean signed error -0.097; 195 groups below their tercile, 69 above",
+          "mean signed error -0.096; 196 groups below their tercile, 71 above",
           f"mean signed error {err.mean():+.3f};"
           f" {below} groups below their tercile, {above} above",
           "NOT symmetric. The modal field label runs systematically low, so a criterion"

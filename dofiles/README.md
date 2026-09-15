@@ -502,10 +502,14 @@ Two asymmetries are deliberate and asserted in `28_match_and_convert.do` §6b:
   behind it — an obstacle only the price match faces. 148 rows are legitimately served in
   the blind file and refused in the headline one.
 
-The five-column key is not optional: 65 cells hold both a gram and a millilitre reading,
-and `corrected_unit` is what keeps those apart. The ladder still climbs — 1,473 cells
-serve themselves, 474 borrow their province, 25 the region, 14 get nothing — so both files
-cover the same cells.
+The five-column key is not optional. No *cell* holds both a gram and a millilitre reading
+any more — `05_manual_corrections.do` §1c resolves those — but 20 of 212 province groups
+and 8 of 84 national ones still do, because they pool municipalities that resolved
+differently, and `corrected_unit` is what keeps them apart at those rungs. The ladder
+still climbs: of 1,919 cells, 1,485 serve themselves, 404 borrow their province, 19 the
+region, 11 get nothing — so both files cover the same cells.
+
+> The comparison table above predates §1c and its figures have not been re-derived.
 
 **Not build steps, and still open:** #20 (approach A vs B, needs `psps_converted_capped.dta`),
 #11 (compare the two lookups' household grams — both are built).

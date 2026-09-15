@@ -1,6 +1,5 @@
 pull_item,pull_province,pull_municipal_city,harmonized_nsu_unit,corrected_unit,n_weighings
-"drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,HAMTIC,pieces or units,g,1
-"drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,HAMTIC,pieces or units,mL,16
+"drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,HAMTIC,pieces or units,mL,17
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,SIBALOM,pieces or units,mL,4
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,TOBIAS FORNIER,pieces or units,mL,12
 "drinks at restaurant, hotel, cafe, or kiosk",ANTIQUE,VALDERRAMA,pieces or units,mL,20
@@ -19,24 +18,18 @@ pull_item,pull_province,pull_municipal_city,harmonized_nsu_unit,corrected_unit,n
 "drinks at restaurant, hotel, cafe, or kiosk",ILOILO,LAMBUNAO,pieces or units,g,1
 "drinks at restaurant, hotel, cafe, or kiosk",ILOILO,LEGANES,pieces or units,mL,1
 "drinks at restaurant, hotel, cafe, or kiosk",ILOILO,LEMERY,pieces or units,g,1
-"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,MIAGAO,pieces or units,g,1
-"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,MIAGAO,pieces or units,mL,2
-"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,MINA,pieces or units,g,1
-"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,MINA,pieces or units,mL,7
+"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,MIAGAO,pieces or units,mL,3
+"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,MINA,pieces or units,mL,8
 "drinks at restaurant, hotel, cafe, or kiosk",ILOILO,NEW LUCENA,pieces or units,g,1
-"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,OTON,pieces or units,g,1
-"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,OTON,pieces or units,mL,4
+"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,OTON,pieces or units,mL,5
 "drinks at restaurant, hotel, cafe, or kiosk",ILOILO,SAN JOAQUIN,pieces or units,mL,8
-"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,TIGBAUAN,pieces or units,g,4
-"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,TIGBAUAN,pieces or units,mL,3
+"drinks at restaurant, hotel, cafe, or kiosk",ILOILO,TIGBAUAN,pieces or units,g,7
 "drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,CALATRAVA,pieces or units,mL,2
 "drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,CAUAYAN,pieces or units,g,1
 "drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,HINIGARAN,pieces or units,mL,1
 "drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,HINOBA-AN (ASIA),pieces or units,g,2
 "drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,LA CASTELLANA,pieces or units,mL,1
 "drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,MANAPLA,pieces or units,g,2
-"drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),pieces or units,g,2
-"drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),pieces or units,mL,1
+"drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),pieces or units,g,3
 "drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,PULUPANDAN,pieces or units,mL,1
-"drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,TOBOSO,pieces or units,g,1
-"drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,TOBOSO,pieces or units,mL,1
+"drinks at restaurant, hotel, cafe, or kiosk",NEGROS OCCIDENTAL,TOBOSO,pieces or units,g,2

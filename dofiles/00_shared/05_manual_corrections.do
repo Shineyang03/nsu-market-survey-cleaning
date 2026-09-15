@@ -85,6 +85,59 @@ replace corrected_unit = 2 if diagnostics == "mL" & corrected_unit != 2 & !mi(co
 
 
 ********************************************************************************
+**# 1c. Case-level dimension, where the item carries no verdict
+********************************************************************************
+* Two items are sold both by weight and by volume, so neither can take an item-level
+* verdict: ice cream and restaurant drinks. Their weighings keep whatever dimension
+* the enumerator recorded -- EXCEPT where a single case holds both, which cannot be
+* right. One municipality's vendors of one harmonized unit are selling one kind of
+* object; it is not half grams and half millilitres. Such a case takes its own
+* MAJORITY dimension and every weighing in it is relabelled to that.
+*
+* THE CASE IS prov x mun x item x harmonized_nsu_unit, with NO hetero group in the
+* key. The dimension is a property of how an item is sold, not of the size sold, so
+* a small and a large in one municipality must answer in the same dimension.
+*
+* RELABEL ONLY, NEVER RESCALE -- one gram per millilitre, the same convention
+* section 1 applies to the item-level verdicts. No corrected_weight moves here.
+*
+* A TIE GOES TO GRAMS, matching the tie rule in 20_psps_retrofitting/28. 11 of the
+* 65 cases are tied. Nothing in the data favours either dimension in a tie; what
+* matters is that the choice is a function of the counts rather than of row order.
+*
+* WHAT THIS DOES NOT DO. It makes a case answer in one dimension. It does not make
+* the readings inside it agree: a case holding 85 and 600 still holds 85 and 600
+* afterwards, now both labelled the same. Weights that disagree by an order of
+* magnitude within one case are a separate and unresolved question -- A23 in
+* docs/implicit_assumptions.md has the measurement and why no rule is applied to it.
+local _dimcase pull_province pull_municipal_city pull_item harmonized_nsu_unit
+
+gen byte _isg  = (corrected_unit == 1)
+gen byte _ismL = (corrected_unit == 2)
+bysort `_dimcase': egen int _cg  = total(_isg)
+bysort `_dimcase': egen int _cmL = total(_ismL)
+
+* Unverdicted items only: an item-level verdict already made every case uniform.
+gen byte _dual = (diagnostics == "") & _cg > 0 & _cmL > 0 & !mi(corrected_unit)
+gen byte _maj  = cond(_cmL > _cg, 2, 1)
+
+count if _dual & corrected_unit != _maj
+_chk "1c. case-majority dimension (unverdicted items)" 89
+
+replace corrected_unit = _maj if _dual & corrected_unit != _maj
+
+* No case may still hold both dimensions once this has run.
+tempvar g2 mL2 cg2 cmL2
+qui gen byte `g2'  = (corrected_unit == 1)
+qui gen byte `mL2' = (corrected_unit == 2)
+bysort `_dimcase': egen int `cg2'  = total(`g2')
+bysort `_dimcase': egen int `cmL2' = total(`mL2')
+assert !(`cg2' > 0 & `cmL2' > 0)
+
+drop _isg _ismL _cg _cmL _dual _maj
+
+
+********************************************************************************
 **# 2. Decimal-point slips -- RETIRED, now handled by the snap
 ********************************************************************************
 * This section used to hold four blocks (ILOILO liquor, BADIANGAN whole chicken,

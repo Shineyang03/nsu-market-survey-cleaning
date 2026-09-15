@@ -505,10 +505,17 @@ forvalues j = 1/3 {
 *              direction and now over 352 rows at once.
 *
 * The four counts below must reconcile against each other and against the crosstab:
-*     31 collapsed to one group  +  48 small+medium  +  15 small+large  =  94
-* and in the crosstab (k=2, filled=1) + (k=3, filled=1) = 31, while
-* 48 + 15 = 63 (k=3, filled=2). If one moves and the others do not, the tie rule
+*     29 collapsed to one group  +  44 small+medium  +  14 small+large  =  87
+* and in the crosstab (k=2, filled=1) + (k=3, filled=1) = 29, while
+* 44 + 14 = 58 (k=3, filled=2). If one moves and the others do not, the tie rule
 * changed rather than the weights.
+*
+* ALL FOUR MOVED TOGETHER when 05_manual_corrections.do section 1c was added, and that
+* is the signature of a CELL-COUNT change rather than a weight change. `cell' is keyed
+* on corrected_unit, so a case that answered in both dimensions used to produce TWO
+* cells, each cut on half the weighings and each far more likely to leave a group
+* empty. 1c gives such a case one dimension, the two cells become one, and the pooled
+* cut fills better: 94 -> 87 under-filled. Nothing here changed a weight.
 *
 * SMALL+LARGE NOW MOVES, 14 -> 17 -> 15, and it held at 14 for the whole history
 * above. It was unmoved by the anchor snap, the 3e rules and all three review rounds,
@@ -529,16 +536,16 @@ egen byte tag_cell_sz = tag(cell) if weighing_approach == 3
 tab k_sizes n_filled if tag_cell_sz, m
 count if tag_cell_sz & n_filled < k_sizes
 di as txt "under-filled size-based cases: " r(N)
-assert r(N) == 94
+assert r(N) == 87
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 1
 di as txt "  ... collapsed to a single group: " r(N)
-assert r(N) == 31
+assert r(N) == 29
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g2
 di as txt "  ... two groups, small+medium filled: " r(N)
-assert r(N) == 48
+assert r(N) == 44
 count if tag_cell_sz & n_filled < k_sizes & n_filled == 2 & fill_g1 & fill_g3
 di as txt "  ... two groups, small+large filled: " r(N)
-assert r(N) == 15
+assert r(N) == 14
 
 * the two-group shapes must ALREADY be right, or the claim above is wrong
 assert size_ord == 1 if weighing_approach == 3 & n_filled < k_sizes & n_filled == 2 & grp == 1

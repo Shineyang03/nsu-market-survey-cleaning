@@ -35,10 +35,18 @@
 *
 * Weights pool at province x municipality x item x harmonized unit x CORRECTED_UNIT.
 * Price points have no dimension -- a price row cannot say whether it bought grams or
-* millilitres -- so they exist at that key WITHOUT corrected_unit. 65 of 1,941 weighed
-* cells span both g and mL, and in those the two sub-cells are cut against the SAME price
-* points. Each sub-cell is cut on its own weights, so no gram is ever pooled with a
-* millilitre; what is shared is the ladder they are cut into.
+* millilitres -- so they exist at that key WITHOUT corrected_unit.
+*
+* THIS USED TO SPLIT CELLS. 65 of 1,941 weighed cells held both g and mL, and each
+* sub-cell was cut separately against the same price points -- so k price points became
+* 2k rungs while the cell's weighings were divided between them, halving the support
+* behind every rung. 05_manual_corrections.do section 1c removed that: a case answering
+* in both dimensions now takes its own majority dimension, and NO cell spans both. The
+* cut therefore sees the cell's full set of weighings.
+*
+* corrected_unit stays in `_scell' regardless. It costs nothing now and it is the
+* guarantee that a gram is never pooled with a millilitre if a future vintage
+* reintroduces a mixed cell.
 *
 * ==============================================================================
 * THE RECLASSIFIED CASES ARE NEVER CUT. A12, decided on #28.

@@ -167,12 +167,12 @@ about; three or more is not.
 
 **Status: ACCEPTED, with the sensitivity stated.**
 
-| threshold | rows flagged | share of 2,550 |
+| threshold | rows flagged | share of 2,490 |
 | --: | --: | --: |
-| 2 | 265 | 10.4% |
-| **3 (current)** | **511** | **20.0%** |
-| 4 | 1,040 | 40.8% |
-| 5 | 1,469 | 57.6% |
+| 2 | 210 | 8.4% |
+| **3 (current)** | **434** | **17.4%** |
+| 4 | 967 | 38.8% |
+| 5 | 1,400 | 56.2% |
 
 Moving the cut by one still roughly doubles or halves the flagged share, so the threshold
 sits on a steep part of the distribution and no substantive argument selects 3 over 2 or 4.
@@ -247,16 +247,16 @@ grams, so ties on a cut are common and the direction of the rule genuinely bites
 
 Ties go to the **smaller** weight — the conservative reading. What changed is how
 under-filled cases are *named*: `10_reference_set/10_size_assignment.do` §2d no longer names
-surviving groups by rank. **94 cases** fill fewer groups than the field recorded labels:
+surviving groups by rank. **87 cases** fill fewer groups than the field recorded labels:
 
 | shape | cases | published as |
 | :-- | --: | :-- |
-| one group filled, `k ≥ 2` | 31 | **medium** |
-| groups (1,2) filled — top emptied | 48 | small + medium |
-| groups (1,3) filled — middle emptied | 15 | small + large |
+| one group filled, `k ≥ 2` | 29 | **medium** |
+| groups (1,2) filled — top emptied | 44 | small + medium |
+| groups (1,3) filled — middle emptied | 14 | small + large |
 
 The rule fires only where `n_filled < k_sizes`. **Keyed on `n_filled` alone it would also
-catch 751 cases** that recorded one label and filled one group — overwriting 406 the field
+catch 698 cases** that recorded one label and filled one group — overwriting 362 the field
 called small and 155 it called large. That is why the (1,2) and (1,3) split matters and why
 the rule cannot read the filled-group count by itself.
 
@@ -935,7 +935,10 @@ unit is served by the sub-cell with more weighings behind it; grams break a tie.
 
 **Where.** `28_match_and_convert.do` section 1, and again at each fallback rung in section 6.
 
-**Rests on it.** **65 of 1,941** weighed cells span both dimensions.
+**Rests on it.** **Nothing, at cell grain.** A23 gives every case a single dimension, so section
+1 now finds one sub-cell and selects it; the code remains as the guard that would catch a mixed
+cell reappearing. The rule still BINDS above the cell, where pooling municipalities re-mixes
+dimensions: **20 of 212** province groups and **8 of 84** national groups span both.
 
 **Status: ACCEPTED, and nearly weightless.** The lookup is keyed with `corrected_unit` because a
 gram must never be pooled with a millilitre in a *median*. But a household reporting "2 pieces of
@@ -1097,6 +1100,65 @@ to carve out that fold or assert against the shape is a live question, not a set
 
 **Checked by** nothing. Deliberately: a check here would be the first step of the rule
 this entry declines to build.
+
+---
+
+## A23 — A case answers in one dimension: the case's own majority, at 1 g per mL
+
+**Claims.** Grams and millilitres are resolved in two stages.
+
+1. **Item-level verdicts**, where an item is only ever sold one way. Four items are forced
+   to grams (chicken; crackers/cookies; loaf bread; preserved meat) and two to millilitres
+   (liquor; mineral and spring water). Every weighing of those items takes the verdict
+   whatever the enumerator ticked.
+2. **Case-level majority**, for the two items genuinely sold both ways — ice cream and
+   restaurant drinks — which therefore carry no item verdict. Their weighings keep the
+   dimension recorded in the field, *unless* one case holds both. Such a case takes the
+   dimension used by more of its weighings, and every weighing in it is relabelled to that.
+   A tie goes to grams.
+
+**The case is `pull_province × pull_municipal_city × pull_item × harmonized_nsu_unit`**, with
+no hetero group in the key. The dimension is a property of how an item is sold, not of the
+size sold, so a small and a large in one municipality must answer the same way.
+
+**Neither stage rescales.** A millilitre becomes a gram at 1 g per mL — the conversion the
+project already applies wherever a litre becomes a millilitre and is then reported as grams.
+
+**Where.** `05_manual_corrections.do` sections 1 and 1c.
+
+**Rests on it.** Every downstream key that carries `corrected_unit`: the Outcome 1 `cell`, the
+size-based cut in `21_branch_size_based.do`, and the dimension pick in `28` (see A19).
+
+**Status: ACCEPTED.** The density claim is testable and passes where it can be tested. Liquor's
+dual-dimension cases record the same physical object twice — `375 g` beside `0.375 L`, `750 g`
+beside `0.75 L` — and after the verdict the two groups have identical median weights, with means
+2.7% apart. Where an item really is measured both ways, one gram per millilitre reproduces the
+field's own readings.
+
+**What the case-majority stage fixes, and what it does not.** It fixes a *split*: a case holding
+both dimensions used to produce two Outcome 1 cells and two sets of Outcome 2 rungs, each cut on
+half the weighings, so a rung could rest on a single reading while the other half of the evidence
+sat in a parallel cell that no household ever saw. It does not make a case's readings agree. A
+case holding 85 and 600 still holds 85 and 600, now both labelled the same.
+
+**The disagreement it leaves is real and unresolved.** Within a single case and hetero group,
+weighings recorded as `0.07` and `0.7` sit side by side under the same tick, and the pattern is
+indifferent to which unit was ticked — of the high-decimal weighings that sit beside low-decimal
+ones in the same case, more are gram-ticked than litre-ticked. It spans twelve items, not only
+the two that lack a verdict. No rule is applied to it: the candidate rules all need a threshold
+on "how much larger is too large", every such threshold separates the clean cases from the
+plausible ones arbitrarily, and a wrong one silently rescales genuine size variation. It is
+recorded here so a reader knows the published weights contain it.
+
+**Checked by** `05_manual_corrections.do` itself. Each stage asserts the number of rows it
+relabels, so a stage that stops matching halts the build rather than passing as a no-op; and
+section 1c asserts its own post-condition — that no case still holds both dimensions.
+
+**What would overturn it.** An item sold both ways whose two dimensions are *not* near water
+density, where relabelling would import a real error. Ice cream is the candidate: aerated product
+runs nearer 0.5 g/mL than 1.0. It is not acted on because the observed gaps run to 12× and in both
+directions, which no density explains — but an item whose g and mL readings differed by a stable
+factor near a known density would be a different case and would deserve a real conversion.
 The count excluded prints on every run, and `n_g` over the published rows plus the 23
 excluded weighings reconciles to the pre-exclusion total.
 

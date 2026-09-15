@@ -25,7 +25,7 @@ AKLAN,BANGA,chicken,pieces or units,g,270,cell pooled across sizes,7,1,.14285714
 AKLAN,BANGA,chicken,whole (chicken),g,1272.5,cell pooled across sizes,10,0,0,0
 AKLAN,BANGA,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,29,cell pooled across sizes,6,0,0,0
 AKLAN,BANGA,"crackers, cookies, buiscuits, chips/curls",putos,g,310,cell pooled across sizes,4,0,0,0
-AKLAN,BANGA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,75,province x item x unit,5,0,0,0
+AKLAN,BANGA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,80,province x item x unit,4,0,0,0
 AKLAN,BANGA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,55,province x item x unit,7,0,0,0
 AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,7,0,0,0
@@ -42,7 +42,7 @@ AKLAN,BATAN,chicken,whole (chicken),g,1607.5,cell pooled across sizes,6,0,0,0
 AKLAN,BATAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,48,cell pooled across sizes,5,0,0,0
 AKLAN,BATAN,"crackers, cookies, buiscuits, chips/curls",putos,g,290,cell pooled across sizes,6,1,.1666666666666667,0
 AKLAN,BATAN,fresh fish,pieces or units,g,130,cell pooled across sizes,9,2,.2222222222222222,0
-AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,25,0,0,0
+AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,26,0,0,0
 AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,600,province x item x unit,20,12,.6,0
 AKLAN,BATAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,12,0,0,0
 AKLAN,BATAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,3,0,0,0
@@ -82,7 +82,7 @@ AKLAN,IBAJAY,chicken,whole (chicken),g,1445,cell pooled across sizes,7,0,0,0
 AKLAN,IBAJAY,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,40,cell pooled across sizes,14,0,0,0
 AKLAN,IBAJAY,"crackers, cookies, buiscuits, chips/curls",putos,g,270,province x item x unit,93,21,.2258064516129032,0
 AKLAN,IBAJAY,fresh fish,pieces or units,g,325,cell pooled across sizes,14,4,.2857142857142857,0
-AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,25,0,0,0
+AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,26,0,0,0
 AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,600,cell pooled across sizes,3,3,1,0
 AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,3,0,0,0
 AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
@@ -119,8 +119,7 @@ AKLAN,MADALAG,chicken,whole (chicken),g,1250,cell pooled across sizes,4,0,0,0
 AKLAN,MADALAG,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,31.5,cell pooled across sizes,8,0,0,0
 AKLAN,MADALAG,"crackers, cookies, buiscuits, chips/curls",putos,g,315,cell pooled across sizes,6,0,0,0
 AKLAN,MADALAG,fresh fish,pieces or units,g,437.5,cell pooled across sizes,12,4,.3333333333333333,0
-AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,75,province x item x unit,5,0,0,0
-AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,25,0,0,0
+AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,100,cell pooled across sizes,3,0,0,0
 AKLAN,MADALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,54,cell pooled across sizes,4,0,0,0
 AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,5,0,0,0
@@ -205,7 +204,7 @@ AKLAN,NEW WASHINGTON,carrot,pieces or units,g,150,cell pooled across sizes,21,2,
 AKLAN,NEW WASHINGTON,chicken,whole (chicken),g,1540,cell pooled across sizes,6,0,0,0
 AKLAN,NEW WASHINGTON,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,50,cell pooled across sizes,16,2,.125,0
 AKLAN,NEW WASHINGTON,"crackers, cookies, buiscuits, chips/curls",putos,g,270,province x item x unit,93,21,.2258064516129032,0
-AKLAN,NEW WASHINGTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,25,0,0,0
+AKLAN,NEW WASHINGTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,26,0,0,0
 AKLAN,NEW WASHINGTON,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,76,0,0,0
 AKLAN,NEW WASHINGTON,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,7,0,0,0
 AKLAN,NEW WASHINGTON,loaf bread,large packs,g,640,cell pooled across sizes,4,0,0,0
@@ -236,8 +235,7 @@ ANTIQUE,BARBAZA,chicken,whole (chicken),g,1305,cell pooled across sizes,3,0,0,0
 ANTIQUE,BARBAZA,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,32,cell pooled across sizes,7,0,0,0
 ANTIQUE,BARBAZA,"crackers, cookies, buiscuits, chips/curls",putos,g,55,cell pooled across sizes,14,5,.3571428571428572,0
 ANTIQUE,BARBAZA,fresh fish,pieces or units,g,675,cell pooled across sizes,6,2,.3333333333333333,0
-ANTIQUE,BARBAZA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,90,province x item x unit,9,1,.1111111111111111,0
-ANTIQUE,BARBAZA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,cell pooled across sizes,4,0,0,0
+ANTIQUE,BARBAZA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,cell pooled across sizes,5,0,0,0
 ANTIQUE,BARBAZA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,5,0,0,0
 ANTIQUE,BARBAZA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,4,0,0,0
 ANTIQUE,BARBAZA,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,7,0,0,0
@@ -254,8 +252,7 @@ ANTIQUE,BELISON,carrot,pieces or units,g,125,cell pooled across sizes,15,0,0,0
 ANTIQUE,BELISON,chicken,pieces or units,g,522.5,cell pooled across sizes,4,2,.5,0
 ANTIQUE,BELISON,chicken,whole (chicken),g,1077.5,cell pooled across sizes,6,0,0,0
 ANTIQUE,BELISON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,105,cell pooled across sizes,4,1,.25,0
-ANTIQUE,BELISON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,55.5,province x item x unit,12,0,0,0
-ANTIQUE,BELISON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,475,province x item x unit,22,13,.5909090909090909,0
+ANTIQUE,BELISON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,67.5,cell pooled across sizes,4,1,.25,0
 ANTIQUE,BELISON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,4,0,0,0
 ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",gin,mL,350,cell pooled across sizes,3,0,0,0
 ANTIQUE,BELISON,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,7,0,0,0
@@ -278,8 +275,7 @@ ANTIQUE,BUGASONG,"crackers, cookies, buiscuits, chips/curls",putos,g,280,cell po
 ANTIQUE,BUGASONG,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,cell pooled across sizes,15,3,.2,0
 ANTIQUE,BUGASONG,fresh fish,pieces or units,g,695,cell pooled across sizes,5,1,.2,0
 ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,100,cell pooled across sizes,3,0,0,0
-ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,55.5,province x item x unit,12,0,0,0
-ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,475,province x item x unit,22,13,.5909090909090909,0
+ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,600,cell pooled across sizes,3,2,.6666666666666666,0
 ANTIQUE,BUGASONG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,3,0,0,0
 ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,10,0,0,0
@@ -315,12 +311,10 @@ ANTIQUE,HAMTIC,carrot,pieces or units,g,175,cell pooled across sizes,27,0,0,0
 ANTIQUE,HAMTIC,chicken,whole (chicken),g,1150,cell pooled across sizes,5,0,0,0
 ANTIQUE,HAMTIC,"crackers, cookies, buiscuits, chips/curls",bucket,g,1500,item x unit (regional),7,0,0,0
 ANTIQUE,HAMTIC,"crackers, cookies, buiscuits, chips/curls",pack,g,60,cell pooled across sizes,15,8,.5333333333333333,0
-ANTIQUE,HAMTIC,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,450,item x unit (regional),25,0,0,0
-ANTIQUE,HAMTIC,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,340,cell pooled across sizes,16,6,.375,0
+ANTIQUE,HAMTIC,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,350,cell pooled across sizes,17,6,.3529411764705883,0
 ANTIQUE,HAMTIC,fresh fish,pieces or units,g,685,cell pooled across sizes,12,1,.0833333333333333,0
-ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,mL,110,item x unit (regional),25,0,0,0
-ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,90,province x item x unit,9,1,.1111111111111111,0
-ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,33,1,.0303030303030303,0
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,mL,110,item x unit (regional),26,0,0,0
+ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,92.5,province x item x unit,10,1,.1,0
 ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,500,cell pooled across sizes,5,4,.8,0
 ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,3,0,0,0
 ANTIQUE,HAMTIC,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,8,0,0,0
@@ -340,7 +334,7 @@ ANTIQUE,LAUA-AN,chicken,whole (chicken),g,1055,cell pooled across sizes,5,0,0,0
 ANTIQUE,LAUA-AN,"crackers, cookies, buiscuits, chips/curls",pack,g,300,cell pooled across sizes,7,0,0,0
 ANTIQUE,LAUA-AN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,26,cell pooled across sizes,7,0,0,0
 ANTIQUE,LAUA-AN,fresh fish,pieces or units,g,1047.5,cell pooled across sizes,6,3,.5,0
-ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,55.5,province x item x unit,12,0,0,0
+ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,56,province x item x unit,13,1,.0769230769230769,0
 ANTIQUE,LAUA-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,3,1,.3333333333333333,0
 ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,7,0,0,0
 ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,7,0,0,0
@@ -358,7 +352,7 @@ ANTIQUE,LIBERTAD,chicken,whole (chicken),g,1115,cell pooled across sizes,9,0,0,0
 ANTIQUE,LIBERTAD,"crackers, cookies, buiscuits, chips/curls",pack,g,300,cell pooled across sizes,3,0,0,0
 ANTIQUE,LIBERTAD,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,25,cell pooled across sizes,3,0,0,0
 ANTIQUE,LIBERTAD,fresh fish,pieces or units,g,615,cell pooled across sizes,7,3,.4285714285714285,0
-ANTIQUE,LIBERTAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,90,province x item x unit,9,1,.1111111111111111,0
+ANTIQUE,LIBERTAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,92.5,province x item x unit,10,1,.1,0
 ANTIQUE,LIBERTAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,3,0,0,0
 ANTIQUE,LIBERTAD,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,4,0,0,0
 ANTIQUE,LIBERTAD,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,4,0,0,0
@@ -373,8 +367,8 @@ ANTIQUE,PANDAN,carrot,pieces or units,g,155,cell pooled across sizes,13,1,.07692
 ANTIQUE,PANDAN,chicken,whole (chicken),g,1297.5,cell pooled across sizes,4,0,0,0
 ANTIQUE,PANDAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,30,cell pooled across sizes,8,0,0,0
 ANTIQUE,PANDAN,"crackers, cookies, buiscuits, chips/curls",putos,g,300,cell pooled across sizes,9,1,.1111111111111111,0
-ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,90,province x item x unit,9,1,.1111111111111111,0
-ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,55.5,province x item x unit,12,0,0,0
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,92.5,province x item x unit,10,1,.1,0
+ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,56,province x item x unit,13,1,.0769230769230769,0
 ANTIQUE,PANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,14,1,.0714285714285714,0
 ANTIQUE,PANDAN,"liquor (e.g, whisky, coconut wine)",glass,mL,,,,,,1
 ANTIQUE,PANDAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
@@ -411,11 +405,10 @@ ANTIQUE,SAN REMIGIO,chicken,bilog,g,890,cell pooled across sizes,4,0,0,0
 ANTIQUE,SAN REMIGIO,chicken,pieces or units,g,210,cell pooled across sizes,3,0,0,0
 ANTIQUE,SAN REMIGIO,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,30,cell pooled across sizes,9,0,0,0
 ANTIQUE,SAN REMIGIO,"crackers, cookies, buiscuits, chips/curls",putos,g,30,cell pooled across sizes,9,5,.5555555555555556,0
-ANTIQUE,SAN REMIGIO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,province x item x unit,80,14,.175,0
+ANTIQUE,SAN REMIGIO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,province x item x unit,82,14,.1707317073170732,0
 ANTIQUE,SAN REMIGIO,fresh fish,pieces or units,g,195,cell pooled across sizes,9,4,.4444444444444444,0
-ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,90,cell pooled across sizes,3,0,0,0
-ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,33,1,.0303030303030303,0
-ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,475,province x item x unit,22,13,.5909090909090909,0
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,95,cell pooled across sizes,4,0,0,0
+ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,450,province x item x unit,21,12,.5714285714285714,0
 ANTIQUE,SAN REMIGIO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,38,1,.0263157894736842,0
 ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,8,0,0,0
 ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,8,0,0,0
@@ -431,8 +424,7 @@ ANTIQUE,SEBASTE,carrot,pieces or units,g,115,cell pooled across sizes,15,0,0,0
 ANTIQUE,SEBASTE,chicken,whole (chicken),g,1105,province x item x unit,65,0,0,0
 ANTIQUE,SEBASTE,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,31,cell pooled across sizes,7,0,0,0
 ANTIQUE,SEBASTE,"crackers, cookies, buiscuits, chips/curls",putos,g,55,cell pooled across sizes,13,5,.3846153846153846,0
-ANTIQUE,SEBASTE,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,450,item x unit (regional),25,0,0,0
-ANTIQUE,SEBASTE,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,402.5,cell pooled across sizes,12,2,.1666666666666667,0
+ANTIQUE,SEBASTE,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,350,cell pooled across sizes,13,2,.1538461538461539,0
 ANTIQUE,SEBASTE,fresh fish,pieces or units,g,275,cell pooled across sizes,3,1,.3333333333333333,0
 ANTIQUE,SEBASTE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,100,cell pooled across sizes,3,0,0,0
 ANTIQUE,SEBASTE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,cell pooled across sizes,4,1,.25,0
@@ -475,7 +467,7 @@ ANTIQUE,TIBIAO,chicken,pieces or units,g,410,province x item x unit,40,4,.1,0
 ANTIQUE,TIBIAO,chicken,whole (chicken),g,1105,province x item x unit,65,0,0,0
 ANTIQUE,TIBIAO,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,36,cell pooled across sizes,6,0,0,0
 ANTIQUE,TIBIAO,"crackers, cookies, buiscuits, chips/curls",putos,g,300,cell pooled across sizes,6,0,0,0
-ANTIQUE,TIBIAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,90,province x item x unit,9,1,.1111111111111111,0
+ANTIQUE,TIBIAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,92.5,province x item x unit,10,1,.1,0
 ANTIQUE,TIBIAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,3,0,0,0
 ANTIQUE,TIBIAO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 ANTIQUE,TIBIAO,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,6,0,0,0
@@ -532,12 +524,10 @@ CAPIZ,CUARTERO,chicken,whole (chicken),g,1180,cell pooled across sizes,9,0,0,0
 CAPIZ,CUARTERO,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,29,cell pooled across sizes,4,0,0,0
 CAPIZ,CUARTERO,"crackers, cookies, buiscuits, chips/curls",putos,g,290,cell pooled across sizes,4,0,0,0
 CAPIZ,CUARTERO,fresh fish,pieces or units,g,475,cell pooled across sizes,9,0,0,0
-CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,g,105,province x item x unit,4,0,0,0
-CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,mL,110,item x unit (regional),25,0,0,0
-CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,49.5,province x item x unit,6,2,.3333333333333333,0
+CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,g,110,province x item x unit,5,0,0,0
+CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,50,province x item x unit,7,2,.2857142857142857,0
 CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,600,cell pooled across sizes,3,2,.6666666666666666,0
 CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tupperware,g,,,,,,1
-CAPIZ,CUARTERO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tupperware,mL,700,item x unit (regional),4,0,0,0
 CAPIZ,CUARTERO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,4,0,0,0
 CAPIZ,CUARTERO,loaf bread,large packs,g,640,cell pooled across sizes,5,0,0,0
 CAPIZ,CUARTERO,loaf bread,medium packs,g,450,cell pooled across sizes,5,0,0,0
@@ -555,8 +545,8 @@ CAPIZ,DAO,chicken,bilog,g,1192.5,province x item x unit,34,0,0,0
 CAPIZ,DAO,chicken,whole (chicken),g,1097.5,cell pooled across sizes,4,0,0,0
 CAPIZ,DAO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,486.5,cell pooled across sizes,4,0,0,0
 CAPIZ,DAO,fresh fish,pieces or units,g,375,cell pooled across sizes,6,0,0,0
-CAPIZ,DAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,17,3,.1764705882352941,0
-CAPIZ,DAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,62.5,province x item x unit,22,4,.1818181818181818,0
+CAPIZ,DAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,75,province x item x unit,16,3,.1875,0
+CAPIZ,DAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,22,4,.1818181818181818,0
 CAPIZ,DAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,27,1,.037037037037037,0
 CAPIZ,DAO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,3,0,0,0
 CAPIZ,DAO,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,3,0,0,0
@@ -577,8 +567,8 @@ CAPIZ,DUMALAG,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,31,c
 CAPIZ,DUMALAG,"crackers, cookies, buiscuits, chips/curls",putos,g,310,cell pooled across sizes,4,1,.25,0
 CAPIZ,DUMALAG,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,473,province x item x unit,9,0,0,0
 CAPIZ,DUMALAG,fresh fish,pieces or units,g,722.5,cell pooled across sizes,4,1,.25,0
-CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,17,3,.1764705882352941,0
-CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,62.5,province x item x unit,22,4,.1818181818181818,0
+CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,75,province x item x unit,16,3,.1875,0
+CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,22,4,.1818181818181818,0
 CAPIZ,DUMALAG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,27,1,.037037037037037,0
 CAPIZ,DUMALAG,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,5,0,0,0
 CAPIZ,DUMALAG,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,province x item x unit,26,0,0,0
@@ -597,8 +587,8 @@ CAPIZ,DUMARAO,carrot,pieces or units,g,135,cell pooled across sizes,5,0,0,0
 CAPIZ,DUMARAO,chicken,bilog,g,1192.5,province x item x unit,34,0,0,0
 CAPIZ,DUMARAO,fresh fish,pack,g,680,province x item x unit,4,4,1,0
 CAPIZ,DUMARAO,fresh fish,pieces or units,g,372.5,province x item x unit,120,12,.1,0
-CAPIZ,DUMARAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,17,3,.1764705882352941,0
-CAPIZ,DUMARAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,62.5,province x item x unit,22,4,.1818181818181818,0
+CAPIZ,DUMARAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,75,province x item x unit,16,3,.1875,0
+CAPIZ,DUMARAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,22,4,.1818181818181818,0
 CAPIZ,DUMARAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,3,0,0,0
 CAPIZ,DUMARAO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,3,0,0,0
 CAPIZ,DUMARAO,loaf bread,large packs,g,640,province x item x unit,68,3,.0441176470588235,0
@@ -616,7 +606,7 @@ CAPIZ,IVISAN,chicken,whole (chicken),g,1145,cell pooled across sizes,9,0,0,0
 CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,32,province x item x unit,88,7,.0795454545454545,0
 CAPIZ,IVISAN,"crackers, cookies, buiscuits, chips/curls",putos,g,250,cell pooled across sizes,3,0,0,0
 CAPIZ,IVISAN,fresh fish,pieces or units,g,490,cell pooled across sizes,15,0,0,0
-CAPIZ,IVISAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,62.5,province x item x unit,22,4,.1818181818181818,0
+CAPIZ,IVISAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,22,4,.1818181818181818,0
 CAPIZ,IVISAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,27,1,.037037037037037,0
 CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,600,cell pooled across sizes,12,0,0,0
 CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,4,0,0,0
@@ -632,14 +622,13 @@ CAPIZ,JAMINDAN,camote tops,bugkos,g,210,province x item x unit,51,5,.09803921568
 CAPIZ,JAMINDAN,camote tops,bundle,g,170,province x item x unit,7,0,0,0
 CAPIZ,JAMINDAN,carrot,pieces or units,g,145,cell pooled across sizes,3,0,0,0
 CAPIZ,JAMINDAN,chicken,bilog,g,1192.5,province x item x unit,34,0,0,0
-CAPIZ,JAMINDAN,chicken,chicken wings,g,,,,,,1
 CAPIZ,JAMINDAN,chicken,whole (chicken),g,1160,province x item x unit,75,0,0,0
 CAPIZ,JAMINDAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,32,province x item x unit,88,7,.0795454545454545,0
 CAPIZ,JAMINDAN,"crackers, cookies, buiscuits, chips/curls",putos,g,280,province x item x unit,54,7,.1296296296296296,0
 CAPIZ,JAMINDAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,473,province x item x unit,9,0,0,0
 CAPIZ,JAMINDAN,fresh fish,pieces or units,g,390,cell pooled across sizes,5,0,0,0
-CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,17,3,.1764705882352941,0
-CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,62.5,province x item x unit,22,4,.1818181818181818,0
+CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,75,province x item x unit,16,3,.1875,0
+CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,22,4,.1818181818181818,0
 CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,27,1,.037037037037037,0
 CAPIZ,JAMINDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,mL,1000,cell pooled across sizes,3,0,0,0
 CAPIZ,JAMINDAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,103,0,0,0
@@ -664,8 +653,7 @@ CAPIZ,MA-AYON,"crackers, cookies, buiscuits, chips/curls",big can,g,1400,cell po
 CAPIZ,MA-AYON,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,48,cell pooled across sizes,5,0,0,0
 CAPIZ,MA-AYON,"crackers, cookies, buiscuits, chips/curls",putos,g,300,cell pooled across sizes,6,0,0,0
 CAPIZ,MA-AYON,fresh fish,pieces or units,g,322.5,cell pooled across sizes,4,0,0,0
-CAPIZ,MA-AYON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,58,item x unit (regional),82,11,.1341463414634146,0
-CAPIZ,MA-AYON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,62.5,province x item x unit,22,4,.1818181818181818,0
+CAPIZ,MA-AYON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,item x unit (regional),85,12,.1411764705882353,0
 CAPIZ,MA-AYON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,27,1,.037037037037037,0
 CAPIZ,MA-AYON,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 CAPIZ,MA-AYON,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,6,0,0,0
@@ -704,7 +692,7 @@ CAPIZ,PANAY,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,30,cel
 CAPIZ,PANAY,"crackers, cookies, buiscuits, chips/curls",putos,g,300,cell pooled across sizes,3,1,.3333333333333333,0
 CAPIZ,PANAY,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,435,province x item x unit,3,0,0,0
 CAPIZ,PANAY,fresh fish,pieces or units,g,375,cell pooled across sizes,9,0,0,0
-CAPIZ,PANAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,62.5,province x item x unit,22,4,.1818181818181818,0
+CAPIZ,PANAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,22,4,.1818181818181818,0
 CAPIZ,PANAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,27,1,.037037037037037,0
 CAPIZ,PANAY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,103,0,0,0
 CAPIZ,PANAY,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,province x item x unit,26,0,0,0
@@ -726,10 +714,8 @@ CAPIZ,PANITAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,40,c
 CAPIZ,PANITAN,"crackers, cookies, buiscuits, chips/curls",putos,g,250,cell pooled across sizes,10,0,0,0
 CAPIZ,PANITAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,473,province x item x unit,9,0,0,0
 CAPIZ,PANITAN,fresh fish,pieces or units,g,225,cell pooled across sizes,8,1,.125,0
-CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,49.5,province x item x unit,6,2,.3333333333333333,0
-CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,105,cell pooled across sizes,6,3,.5,0
-CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,5,1,.2,0
-CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,27,1,.037037037037037,0
+CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,60,cell pooled across sizes,7,3,.4285714285714285,0
+CAPIZ,PANITAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,7,1,.1428571428571428,0
 CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,16,0,0,0
 CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,province x item x unit,26,0,0,0
 CAPIZ,PANITAN,loaf bread,small packs,g,500,cell pooled across sizes,10,0,0,0
@@ -743,7 +729,7 @@ CAPIZ,PILAR,chicken,whole (chicken),g,1185,cell pooled across sizes,9,0,0,0
 CAPIZ,PILAR,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,28,cell pooled across sizes,15,2,.1333333333333333,0
 CAPIZ,PILAR,"crackers, cookies, buiscuits, chips/curls",putos,g,42,cell pooled across sizes,7,3,.4285714285714285,0
 CAPIZ,PILAR,fresh fish,pieces or units,g,122.5,cell pooled across sizes,14,5,.3571428571428572,0
-CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,17,3,.1764705882352941,0
+CAPIZ,PILAR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,75,province x item x unit,16,3,.1875,0
 CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,11,0,0,0
 CAPIZ,PILAR,loaf bread,large packs,g,450,cell pooled across sizes,10,3,.3,0
 CAPIZ,PILAR,"prawns, lobster, shrimp",tumpok,g,400,cell pooled across sizes,3,0,0,0
@@ -755,7 +741,7 @@ CAPIZ,PONTEVEDRA,camote tops,bugkos,g,150,cell pooled across sizes,5,0,0,0
 CAPIZ,PONTEVEDRA,carrot,pieces or units,g,132.5,cell pooled across sizes,14,0,0,0
 CAPIZ,PONTEVEDRA,chicken,bilog,g,1315,cell pooled across sizes,10,0,0,0
 CAPIZ,PONTEVEDRA,fresh fish,pieces or units,g,555,cell pooled across sizes,7,0,0,0
-CAPIZ,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,17,3,.1764705882352941,0
+CAPIZ,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,75,province x item x unit,16,3,.1875,0
 CAPIZ,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,cell pooled across sizes,5,0,0,0
 CAPIZ,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,110,cell pooled across sizes,5,0,0,0
 CAPIZ,PONTEVEDRA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,3,0,0,0
@@ -772,8 +758,8 @@ CAPIZ,PRESIDENT ROXAS,carrot,pieces or units,g,190,cell pooled across sizes,9,1,
 CAPIZ,PRESIDENT ROXAS,chicken,bilog,g,1192.5,province x item x unit,34,0,0,0
 CAPIZ,PRESIDENT ROXAS,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,473,province x item x unit,9,0,0,0
 CAPIZ,PRESIDENT ROXAS,fresh fish,pieces or units,g,372.5,province x item x unit,120,12,.1,0
-CAPIZ,PRESIDENT ROXAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,17,3,.1764705882352941,0
-CAPIZ,PRESIDENT ROXAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,62.5,province x item x unit,22,4,.1818181818181818,0
+CAPIZ,PRESIDENT ROXAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,75,province x item x unit,16,3,.1875,0
+CAPIZ,PRESIDENT ROXAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,22,4,.1818181818181818,0
 CAPIZ,PRESIDENT ROXAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,27,1,.037037037037037,0
 CAPIZ,PRESIDENT ROXAS,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 CAPIZ,PRESIDENT ROXAS,loaf bread,large packs,g,600,cell pooled across sizes,3,0,0,0
@@ -792,8 +778,7 @@ CAPIZ,SAPI-AN,"crackers, cookies, buiscuits, chips/curls",pack,g,250,cell pooled
 CAPIZ,SAPI-AN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,27.5,cell pooled across sizes,6,0,0,0
 CAPIZ,SAPI-AN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,435,province x item x unit,3,0,0,0
 CAPIZ,SAPI-AN,fresh fish,pieces or units,g,195,cell pooled across sizes,9,1,.1111111111111111,0
-CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,58,item x unit (regional),82,11,.1341463414634146,0
-CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,65,cell pooled across sizes,3,0,0,0
+CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,62.5,cell pooled across sizes,4,0,0,0
 CAPIZ,SAPI-AN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,3,0,0,0
 CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,5,0,0,0
@@ -815,12 +800,9 @@ CAPIZ,SIGMA,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,32,pro
 CAPIZ,SIGMA,"crackers, cookies, buiscuits, chips/curls",putos,g,280,province x item x unit,54,7,.1296296296296296,0
 CAPIZ,SIGMA,fresh fish,pack,g,580,cell pooled across sizes,3,3,1,0
 CAPIZ,SIGMA,fresh fish,pieces or units,g,300,cell pooled across sizes,9,1,.1111111111111111,0
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,49.5,province x item x unit,6,2,.3333333333333333,0
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,17,3,.1764705882352941,0
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,12,1,.0833333333333333,0
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,3,1,.3333333333333333,0
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,g,,,,,,1
-CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,mL,1125,cell pooled across sizes,6,0,0,0
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,35,cell pooled across sizes,3,1,.3333333333333333,0
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,5,1,.2,0
+CAPIZ,SIGMA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tub,mL,1000,cell pooled across sizes,7,0,0,0
 CAPIZ,SIGMA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,103,0,0,0
 CAPIZ,SIGMA,loaf bread,large packs,g,450,cell pooled across sizes,13,0,0,0
 CAPIZ,SIGMA,mango,pieces or units,g,230,province x item x unit,73,0,0,0
@@ -836,8 +818,7 @@ CAPIZ,TAPAZ,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,28,cel
 CAPIZ,TAPAZ,"crackers, cookies, buiscuits, chips/curls",putos,g,280,province x item x unit,54,7,.1296296296296296,0
 CAPIZ,TAPAZ,fresh fish,pieces or units,g,280,cell pooled across sizes,9,2,.2222222222222222,0
 CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,g,110,cell pooled across sizes,3,0,0,0
-CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,49.5,province x item x unit,6,2,.3333333333333333,0
-CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,17,3,.1764705882352941,0
+CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,50,cell pooled across sizes,3,0,0,0
 CAPIZ,TAPAZ,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,5,0,0,0
 CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,13,0,0,0
 CAPIZ,TAPAZ,loaf bread,large packs,g,545,cell pooled across sizes,10,0,0,0
@@ -857,8 +838,8 @@ ILOILO,AJUY,fresh fish,pack,g,620,province x item x unit,25,25,1,0
 ILOILO,AJUY,fresh fish,pieces or units,g,490,cell pooled across sizes,4,0,0,0
 ILOILO,AJUY,fresh fish,tumpok,g,627.5,cell pooled across sizes,6,6,1,0
 ILOILO,AJUY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bowl,g,720,item x unit (regional),3,0,0,0
-ILOILO,AJUY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,g,107,province x item x unit,10,4,.4,0
-ILOILO,AJUY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,52,11,.2115384615384615,0
+ILOILO,AJUY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,g,89.5,province x item x unit,8,4,.5,0
+ILOILO,AJUY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,65,province x item x unit,51,11,.2156862745098039,0
 ILOILO,AJUY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,65,cell pooled across sizes,3,0,0,0
 ILOILO,AJUY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,267,2,.0074906367041199,0
 ILOILO,AJUY,"liquor (e.g, whisky, coconut wine)",long-neck,mL,1200,cell pooled across sizes,3,0,0,0
@@ -878,13 +859,11 @@ ILOILO,ALIMODIAN,chicken,bilog,g,960,cell pooled across sizes,7,0,0,0
 ILOILO,ALIMODIAN,chicken,pieces or units,g,247.5,cell pooled across sizes,8,1,.125,0
 ILOILO,ALIMODIAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,32,cell pooled across sizes,11,0,0,0
 ILOILO,ALIMODIAN,"crackers, cookies, buiscuits, chips/curls",putos,g,60,cell pooled across sizes,21,6,.2857142857142857,0
-ILOILO,ALIMODIAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,province x item x unit,65,8,.1230769230769231,0
+ILOILO,ALIMODIAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,province x item x unit,65,6,.0923076923076923,0
 ILOILO,ALIMODIAN,fresh fish,pieces or units,g,170,cell pooled across sizes,13,4,.3076923076923077,0
-ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,85,cell pooled across sizes,3,0,0,0
-ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,342.5,cell pooled across sizes,4,2,.5,0
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,85,cell pooled across sizes,7,2,.2857142857142857,0
 ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,cell pooled across sizes,3,0,0,0
-ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,71,13,.1830985915492958,0
-ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,5,0,0,0
+ILOILO,ALIMODIAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,7,0,0,0
 ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,9,0,0,0
 ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,9,0,0,0
 ILOILO,ALIMODIAN,loaf bread,large packs,g,640,cell pooled across sizes,7,0,0,0
@@ -900,10 +879,8 @@ ILOILO,ANILAO,chicken,bilog,g,1120,cell pooled across sizes,11,0,0,0
 ILOILO,ANILAO,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,90,cell pooled across sizes,9,5,.5555555555555556,0
 ILOILO,ANILAO,fresh fish,pack,g,430,cell pooled across sizes,5,5,1,0
 ILOILO,ANILAO,fresh fish,pieces or units,g,340,cell pooled across sizes,7,0,0,0
-ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,65,cell pooled across sizes,3,1,.3333333333333333,0
-ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,60,14,.2333333333333333,0
-ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,3,0,0,0
-ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,750,cell pooled across sizes,5,4,.8,0
+ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,65,cell pooled across sizes,5,2,.4,0
+ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,290,cell pooled across sizes,8,4,.5,0
 ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,562.5,cell pooled across sizes,10,0,0,0
 ILOILO,ANILAO,loaf bread,small packs,g,480,cell pooled across sizes,9,0,0,0
 ILOILO,ANILAO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,g,275,cell pooled across sizes,6,0,0,0
@@ -916,8 +893,8 @@ ILOILO,BADIANGAN,carrot,pieces or units,g,152.5,cell pooled across sizes,10,0,0,
 ILOILO,BADIANGAN,chicken,whole (chicken),g,980,cell pooled across sizes,3,0,0,0
 ILOILO,BADIANGAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,30,cell pooled across sizes,5,0,0,0
 ILOILO,BADIANGAN,"crackers, cookies, buiscuits, chips/curls",putos,g,250,cell pooled across sizes,5,1,.2,0
-ILOILO,BADIANGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,60,province x item x unit,59,9,.1525423728813559,0
-ILOILO,BADIANGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,52,11,.2115384615384615,0
+ILOILO,BADIANGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,62.5,province x item x unit,60,12,.2,0
+ILOILO,BADIANGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,65,province x item x unit,51,11,.2156862745098039,0
 ILOILO,BADIANGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,75,cell pooled across sizes,3,0,0,0
 ILOILO,BADIANGAN,"liquor (e.g, whisky, coconut wine)",junior lapad,mL,250,cell pooled across sizes,3,0,0,0
 ILOILO,BADIANGAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,3,0,0,0
@@ -935,8 +912,8 @@ ILOILO,BALASAN,chicken,bilog,g,1295,cell pooled across sizes,3,0,0,0
 ILOILO,BALASAN,"crackers, cookies, buiscuits, chips/curls",pack,g,302.5,province x item x unit,32,6,.1875,0
 ILOILO,BALASAN,"crackers, cookies, buiscuits, chips/curls",putos,g,90,province x item x unit,230,63,.2739130434782608,0
 ILOILO,BALASAN,fresh fish,pieces or units,g,475,cell pooled across sizes,5,0,0,0
-ILOILO,BALASAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,65,province x item x unit,60,16,.2666666666666667,0
-ILOILO,BALASAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
+ILOILO,BALASAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,61,16,.2622950819672131,0
+ILOILO,BALASAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,77,9,.1168831168831169,0
 ILOILO,BALASAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,5,0,0,0
 ILOILO,BALASAN,loaf bread,large packs,g,640,province x item x unit,188,0,0,0
 ILOILO,BALASAN,loaf bread,medium packs,g,545,cell pooled across sizes,4,0,0,0
@@ -954,8 +931,7 @@ ILOILO,BANATE,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,200,
 ILOILO,BANATE,"crackers, cookies, buiscuits, chips/curls",putos,g,320,cell pooled across sizes,10,1,.1,0
 ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,cell pooled across sizes,16,4,.25,0
 ILOILO,BANATE,fresh fish,pack,g,795,cell pooled across sizes,5,5,1,0
-ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,52,11,.2115384615384615,0
-ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,65,province x item x unit,60,16,.2666666666666667,0
+ILOILO,BANATE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,282.5,cell pooled across sizes,4,3,.75,0
 ILOILO,BANATE,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 ILOILO,BANATE,loaf bread,large packs,g,450,cell pooled across sizes,7,0,0,0
 ILOILO,BANATE,"prawns, lobster, shrimp",tumpok,g,260,cell pooled across sizes,3,0,0,0
@@ -971,9 +947,9 @@ ILOILO,BAROTAC NUEVO,"crackers, cookies, buiscuits, chips/curls",pieces or units
 ILOILO,BAROTAC NUEVO,"crackers, cookies, buiscuits, chips/curls",putos,g,400,cell pooled across sizes,3,2,.6666666666666666,0
 ILOILO,BAROTAC NUEVO,fresh fish,pack,g,620,province x item x unit,25,25,1,0
 ILOILO,BAROTAC NUEVO,fresh fish,pieces or units,g,595,cell pooled across sizes,6,1,.1666666666666667,0
-ILOILO,BAROTAC NUEVO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,60,14,.2333333333333333,0
-ILOILO,BAROTAC NUEVO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,65,province x item x unit,60,16,.2666666666666667,0
-ILOILO,BAROTAC NUEVO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
+ILOILO,BAROTAC NUEVO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,100,province x item x unit,59,11,.1864406779661017,0
+ILOILO,BAROTAC NUEVO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,61,16,.2622950819672131,0
+ILOILO,BAROTAC NUEVO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,77,9,.1168831168831169,0
 ILOILO,BAROTAC NUEVO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,4,0,0,0
 ILOILO,BAROTAC NUEVO,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,3,0,0,0
 ILOILO,BAROTAC NUEVO,loaf bread,large packs,g,640,province x item x unit,188,0,0,0
@@ -994,9 +970,8 @@ ILOILO,BAROTAC VIEJO,chicken,bilog,g,1102.5,cell pooled across sizes,8,0,0,0
 ILOILO,BAROTAC VIEJO,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,30,cell pooled across sizes,5,2,.4,0
 ILOILO,BAROTAC VIEJO,fresh fish,pieces or units,g,365,cell pooled across sizes,5,0,0,0
 ILOILO,BAROTAC VIEJO,fresh fish,tumpok,g,882.5,cell pooled across sizes,6,6,1,0
-ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,60,province x item x unit,59,9,.1525423728813559,0
-ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,650,cell pooled across sizes,4,4,1,0
-ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,65,province x item x unit,60,16,.2666666666666667,0
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,600,cell pooled across sizes,5,4,.8,0
+ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,61,16,.2622950819672131,0
 ILOILO,BAROTAC VIEJO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,120,cell pooled across sizes,4,1,.25,0
 ILOILO,BAROTAC VIEJO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,5,0,0,0
 ILOILO,BAROTAC VIEJO,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,province x item x unit,185,0,0,0
@@ -1014,10 +989,10 @@ ILOILO,BATAD,carrot,pieces or units,g,117.5,cell pooled across sizes,18,1,.05555
 ILOILO,BATAD,chicken,whole (chicken),g,1062.5,cell pooled across sizes,8,0,0,0
 ILOILO,BATAD,"crackers, cookies, buiscuits, chips/curls",pack,g,30,cell pooled across sizes,7,5,.7142857142857143,0
 ILOILO,BATAD,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,27.5,cell pooled across sizes,8,0,0,0
-ILOILO,BATAD,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,437.5,province x item x unit,12,0,0,0
+ILOILO,BATAD,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,422.5,province x item x unit,12,2,.1666666666666667,0
 ILOILO,BATAD,fresh fish,pieces or units,g,490,cell pooled across sizes,9,0,0,0
-ILOILO,BATAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,60,14,.2333333333333333,0
-ILOILO,BATAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
+ILOILO,BATAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,100,province x item x unit,59,11,.1864406779661017,0
+ILOILO,BATAD,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,77,9,.1168831168831169,0
 ILOILO,BATAD,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 ILOILO,BATAD,loaf bread,large packs,g,640,cell pooled across sizes,4,0,0,0
 ILOILO,BATAD,loaf bread,medium packs,g,450,cell pooled across sizes,5,0,0,0
@@ -1036,9 +1011,9 @@ ILOILO,BINGAWAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,35
 ILOILO,BINGAWAN,"crackers, cookies, buiscuits, chips/curls",putos,g,81.5,cell pooled across sizes,16,5,.3125,0
 ILOILO,BINGAWAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,322.5,cell pooled across sizes,8,0,0,0
 ILOILO,BINGAWAN,fresh fish,pieces or units,g,425,cell pooled across sizes,6,0,0,0
-ILOILO,BINGAWAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,60,province x item x unit,59,9,.1525423728813559,0
-ILOILO,BINGAWAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,65,province x item x unit,60,16,.2666666666666667,0
-ILOILO,BINGAWAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
+ILOILO,BINGAWAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,62.5,province x item x unit,60,12,.2,0
+ILOILO,BINGAWAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,61,16,.2622950819672131,0
+ILOILO,BINGAWAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,77,9,.1168831168831169,0
 ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,5,0,0,0
 ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,8,0,0,0
 ILOILO,BINGAWAN,loaf bread,large packs,g,700,cell pooled across sizes,5,0,0,0
@@ -1058,8 +1033,8 @@ ILOILO,CABATUAN,"crackers, cookies, buiscuits, chips/curls",pack,g,335,cell pool
 ILOILO,CABATUAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,35,cell pooled across sizes,5,1,.2,0
 ILOILO,CABATUAN,"crackers, cookies, buiscuits, chips/curls",putos,g,90,province x item x unit,230,63,.2739130434782608,0
 ILOILO,CABATUAN,fresh fish,pieces or units,g,530,cell pooled across sizes,7,0,0,0
-ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,60,province x item x unit,59,9,.1525423728813559,0
-ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,52,11,.2115384615384615,0
+ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,62.5,province x item x unit,60,12,.2,0
+ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,65,province x item x unit,51,11,.2156862745098039,0
 ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,290,cell pooled across sizes,4,2,.5,0
 ILOILO,CABATUAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,580,cell pooled across sizes,6,0,0,0
 ILOILO,CABATUAN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,province x item x unit,185,0,0,0
@@ -1077,9 +1052,8 @@ ILOILO,CALINOG,camote tops,bundle,g,495,cell pooled across sizes,3,1,.3333333333
 ILOILO,CALINOG,carrot,pieces or units,g,110,cell pooled across sizes,23,0,0,0
 ILOILO,CALINOG,chicken,whole (chicken),g,1032.5,cell pooled across sizes,6,0,0,0
 ILOILO,CALINOG,fresh fish,pieces or units,g,370,cell pooled across sizes,17,2,.1176470588235294,0
-ILOILO,CALINOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pack,g,65,item x unit (regional),4,3,.75,0
-ILOILO,CALINOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pack,mL,600,cell pooled across sizes,3,0,0,0
-ILOILO,CALINOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,52,11,.2115384615384615,0
+ILOILO,CALINOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pack,mL,525,cell pooled across sizes,4,0,0,0
+ILOILO,CALINOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,65,province x item x unit,51,11,.2156862745098039,0
 ILOILO,CALINOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,3,0,0,0
 ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,9,0,0,0
 ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,10,0,0,0
@@ -1099,8 +1073,7 @@ ILOILO,CARLES,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,42.5
 ILOILO,CARLES,"crackers, cookies, buiscuits, chips/curls",putos,g,295,cell pooled across sizes,10,2,.2,0
 ILOILO,CARLES,fresh fish,pack,g,775,cell pooled across sizes,3,3,1,0
 ILOILO,CARLES,fresh fish,pieces or units,g,355,cell pooled across sizes,9,2,.2222222222222222,0
-ILOILO,CARLES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,60,province x item x unit,59,9,.1525423728813559,0
-ILOILO,CARLES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,60,14,.2333333333333333,0
+ILOILO,CARLES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,100,cell pooled across sizes,3,1,.3333333333333333,0
 ILOILO,CARLES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,87.5,cell pooled across sizes,8,2,.25,0
 ILOILO,CARLES,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,4,0,0,0
 ILOILO,CARLES,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,4,0,0,0
@@ -1118,10 +1091,9 @@ ILOILO,CONCEPCION,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,
 ILOILO,CONCEPCION,"crackers, cookies, buiscuits, chips/curls",putos,g,275,cell pooled across sizes,9,1,.1111111111111111,0
 ILOILO,CONCEPCION,fresh fish,pieces or units,g,367.5,cell pooled across sizes,10,0,0,0
 ILOILO,CONCEPCION,fresh fish,tumpok,g,775,cell pooled across sizes,12,12,1,0
-ILOILO,CONCEPCION,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,60,14,.2333333333333333,0
-ILOILO,CONCEPCION,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,55,cell pooled across sizes,3,0,0,0
-ILOILO,CONCEPCION,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,45,cell pooled across sizes,7,0,0,0
-ILOILO,CONCEPCION,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
+ILOILO,CONCEPCION,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,100,province x item x unit,59,11,.1864406779661017,0
+ILOILO,CONCEPCION,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,45,cell pooled across sizes,10,0,0,0
+ILOILO,CONCEPCION,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,77,9,.1168831168831169,0
 ILOILO,CONCEPCION,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,750,cell pooled across sizes,15,0,0,0
 ILOILO,CONCEPCION,loaf bread,large packs,g,665,cell pooled across sizes,7,0,0,0
 ILOILO,CONCEPCION,loaf bread,medium packs,g,480,cell pooled across sizes,3,0,0,0
@@ -1139,9 +1111,8 @@ ILOILO,DINGLE,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,28,c
 ILOILO,DINGLE,"crackers, cookies, buiscuits, chips/curls",putos,g,65,cell pooled across sizes,7,2,.2857142857142857,0
 ILOILO,DINGLE,fresh fish,pieces or units,g,195,cell pooled across sizes,9,1,.1111111111111111,0
 ILOILO,DINGLE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,mL,110,cell pooled across sizes,5,0,0,0
-ILOILO,DINGLE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,52,11,.2115384615384615,0
-ILOILO,DINGLE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,65,cell pooled across sizes,3,0,0,0
-ILOILO,DINGLE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
+ILOILO,DINGLE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,57.5,cell pooled across sizes,4,0,0,0
+ILOILO,DINGLE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,77,9,.1168831168831169,0
 ILOILO,DINGLE,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,5,0,0,0
 ILOILO,DINGLE,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,6,0,0,0
 ILOILO,DINGLE,loaf bread,large packs,g,640,cell pooled across sizes,4,0,0,0
@@ -1158,8 +1129,7 @@ ILOILO,DUEAS,"crackers, cookies, buiscuits, chips/curls",bucket,g,1500,cell pool
 ILOILO,DUEAS,"crackers, cookies, buiscuits, chips/curls",putos,g,40,cell pooled across sizes,20,9,.45,0
 ILOILO,DUEAS,fresh fish,pieces or units,g,520,cell pooled across sizes,9,1,.1111111111111111,0
 ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,cell pooled across sizes,3,1,.3333333333333333,0
-ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,52,11,.2115384615384615,0
-ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,550,cell pooled across sizes,4,4,1,0
+ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,550,cell pooled across sizes,5,5,1,0
 ILOILO,DUEAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,120,cell pooled across sizes,5,1,.2,0
 ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,8,0,0,0
 ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,10,0,0,0
@@ -1175,9 +1145,9 @@ ILOILO,DUEAS,rice,gantang,g,2230,cell pooled across sizes,7,1,.1428571428571428,
 ILOILO,DUMANGAS,cabbage,pieces or units,g,705,cell pooled across sizes,6,0,0,0
 ILOILO,DUMANGAS,camote tops,bugkos,g,170,province x item x unit,218,14,.0642201834862385,0
 ILOILO,DUMANGAS,carrot,pieces or units,g,145,cell pooled across sizes,6,0,0,0
-ILOILO,DUMANGAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,mL,110,province x item x unit,20,0,0,0
+ILOILO,DUMANGAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,mL,110,province x item x unit,22,0,0,0
 ILOILO,DUMANGAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,54,cell pooled across sizes,4,0,0,0
-ILOILO,DUMANGAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
+ILOILO,DUMANGAS,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,77,9,.1168831168831169,0
 ILOILO,DUMANGAS,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,267,2,.0074906367041199,0
 ILOILO,DUMANGAS,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,province x item x unit,185,0,0,0
 ILOILO,DUMANGAS,loaf bread,large packs,g,640,province x item x unit,188,0,0,0
@@ -1211,13 +1181,12 @@ ILOILO,GUIMBAL,chicken,bilog,g,200,cell pooled across sizes,6,6,1,0
 ILOILO,GUIMBAL,chicken,whole (chicken),g,1180,cell pooled across sizes,12,0,0,0
 ILOILO,GUIMBAL,fresh fish,pieces or units,g,565,cell pooled across sizes,11,1,.0909090909090909,0
 ILOILO,GUIMBAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,110,cell pooled across sizes,3,0,0,0
-ILOILO,GUIMBAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,71,13,.1830985915492958,0
+ILOILO,GUIMBAL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,69,13,.1884057971014493,0
 ILOILO,GUIMBAL,loaf bread,large packs,g,645,cell pooled across sizes,7,0,0,0
 ILOILO,GUIMBAL,loaf bread,medium packs,g,465,cell pooled across sizes,5,0,0,0
 ILOILO,GUIMBAL,loaf bread,small packs,g,450,cell pooled across sizes,5,0,0,0
 ILOILO,GUIMBAL,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,g,325,cell pooled across sizes,15,0,0,0
 ILOILO,GUIMBAL,rice,salmon,g,377.5,cell pooled across sizes,4,0,0,0
-ILOILO,IGBARAS,beef,intestine,g,,,,,,1
 ILOILO,IGBARAS,cabbage,pieces or units,g,595,cell pooled across sizes,3,0,0,0
 ILOILO,IGBARAS,camote,bilog,g,140,cell pooled across sizes,7,2,.2857142857142857,0
 ILOILO,IGBARAS,camote tops,bugkos,g,105,cell pooled across sizes,3,0,0,0
@@ -1268,7 +1237,7 @@ ILOILO,LAMBUNAO,carrot,pieces or units,g,132.5,cell pooled across sizes,20,0,0,0
 ILOILO,LAMBUNAO,chicken,whole (chicken),g,990,cell pooled across sizes,7,0,0,0
 ILOILO,LAMBUNAO,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,31,cell pooled across sizes,4,0,0,0
 ILOILO,LAMBUNAO,"crackers, cookies, buiscuits, chips/curls",putos,g,320,cell pooled across sizes,5,1,.2,0
-ILOILO,LAMBUNAO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,437.5,province x item x unit,12,0,0,0
+ILOILO,LAMBUNAO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,422.5,province x item x unit,12,2,.1666666666666667,0
 ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,52.5,cell pooled across sizes,12,0,0,0
 ILOILO,LAMBUNAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,8,2,.25,0
 ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,5,0,0,0
@@ -1286,13 +1255,11 @@ ILOILO,LEGANES,carrot,pieces or units,g,175,cell pooled across sizes,9,0,0,0
 ILOILO,LEGANES,chicken,bilog,g,1095,cell pooled across sizes,9,0,0,0
 ILOILO,LEGANES,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,42,cell pooled across sizes,9,0,0,0
 ILOILO,LEGANES,"crackers, cookies, buiscuits, chips/curls",putos,g,280,cell pooled across sizes,6,2,.3333333333333333,0
-ILOILO,LEGANES,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,province x item x unit,65,8,.1230769230769231,0
+ILOILO,LEGANES,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,province x item x unit,65,6,.0923076923076923,0
 ILOILO,LEGANES,fresh fish,pieces or units,g,275,cell pooled across sizes,9,1,.1111111111111111,0
-ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,60,province x item x unit,59,9,.1525423728813559,0
-ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,cell pooled across sizes,3,0,0,0
-ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,71,13,.1830985915492958,0
-ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
-ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tupperware,mL,700,item x unit (regional),4,0,0,0
+ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,56.5,cell pooled across sizes,4,0,0,0
+ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,69,13,.1884057971014493,0
+ILOILO,LEGANES,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tupperware,mL,700,item x unit (regional),3,0,0,0
 ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,11,0,0,0
 ILOILO,LEGANES,loaf bread,large packs,g,450,cell pooled across sizes,7,0,0,0
 ILOILO,LEGANES,"prawns, lobster, shrimp",tumpok,g,235,cell pooled across sizes,3,0,0,0
@@ -1306,10 +1273,10 @@ ILOILO,LEMERY,chicken,whole (chicken),g,1280,cell pooled across sizes,3,0,0,0
 ILOILO,LEMERY,"crackers, cookies, buiscuits, chips/curls",bucket,g,1500,province x item x unit,5,0,0,0
 ILOILO,LEMERY,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,90,cell pooled across sizes,3,1,.3333333333333333,0
 ILOILO,LEMERY,"crackers, cookies, buiscuits, chips/curls",putos,g,285,cell pooled across sizes,3,0,0,0
-ILOILO,LEMERY,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,437.5,province x item x unit,12,0,0,0
+ILOILO,LEMERY,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,422.5,province x item x unit,12,2,.1666666666666667,0
 ILOILO,LEMERY,fresh fish,pack,g,620,province x item x unit,25,25,1,0
 ILOILO,LEMERY,fresh fish,pieces or units,g,232.5,cell pooled across sizes,6,0,0,0
-ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,52,11,.2115384615384615,0
+ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,65,province x item x unit,51,11,.2156862745098039,0
 ILOILO,LEMERY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,57.5,cell pooled across sizes,4,0,0,0
 ILOILO,LEMERY,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,267,2,.0074906367041199,0
 ILOILO,LEMERY,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,province x item x unit,185,0,0,0
@@ -1359,8 +1326,7 @@ ILOILO,MIAGAO,camote tops,bugkos,g,125,cell pooled across sizes,7,0,0,0
 ILOILO,MIAGAO,carrot,pieces or units,g,147.5,cell pooled across sizes,14,1,.0714285714285714,0
 ILOILO,MIAGAO,chicken,whole (chicken),g,1000,cell pooled across sizes,15,0,0,0
 ILOILO,MIAGAO,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,82.5,cell pooled across sizes,12,6,.5,0
-ILOILO,MIAGAO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,437.5,province x item x unit,12,0,0,0
-ILOILO,MIAGAO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,province x item x unit,65,8,.1230769230769231,0
+ILOILO,MIAGAO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,335,cell pooled across sizes,3,0,0,0
 ILOILO,MIAGAO,fresh fish,pieces or units,g,677.5,cell pooled across sizes,10,3,.3,0
 ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,55,cell pooled across sizes,3,0,0,0
 ILOILO,MIAGAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,185,cell pooled across sizes,4,0,0,0
@@ -1379,11 +1345,10 @@ ILOILO,MINA,carrot,pieces or units,g,142.5,cell pooled across sizes,14,0,0,0
 ILOILO,MINA,chicken,whole (chicken),g,1145,cell pooled across sizes,4,0,0,0
 ILOILO,MINA,"crackers, cookies, buiscuits, chips/curls",pack,g,420,cell pooled across sizes,3,0,0,0
 ILOILO,MINA,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,60,cell pooled across sizes,12,2,.1666666666666667,0
-ILOILO,MINA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,437.5,province x item x unit,12,0,0,0
-ILOILO,MINA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,800,cell pooled across sizes,7,2,.2857142857142857,0
+ILOILO,MINA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,617.5,cell pooled across sizes,8,2,.25,0
 ILOILO,MINA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",container,mL,950,cell pooled across sizes,3,0,0,0
 ILOILO,MINA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pack,mL,700,cell pooled across sizes,3,0,0,0
-ILOILO,MINA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,60,14,.2333333333333333,0
+ILOILO,MINA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,100,province x item x unit,59,11,.1864406779661017,0
 ILOILO,MINA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,110,cell pooled across sizes,4,0,0,0
 ILOILO,MINA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,5,0,0,0
 ILOILO,MINA,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,6,0,0,0
@@ -1402,7 +1367,7 @@ ILOILO,NEW LUCENA,carrot,pieces or units,g,95,cell pooled across sizes,9,0,0,0
 ILOILO,NEW LUCENA,chicken,whole (chicken),g,845,cell pooled across sizes,5,0,0,0
 ILOILO,NEW LUCENA,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,30,cell pooled across sizes,9,0,0,0
 ILOILO,NEW LUCENA,"crackers, cookies, buiscuits, chips/curls",putos,g,280,cell pooled across sizes,9,0,0,0
-ILOILO,NEW LUCENA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,437.5,province x item x unit,12,0,0,0
+ILOILO,NEW LUCENA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,422.5,province x item x unit,12,2,.1666666666666667,0
 ILOILO,NEW LUCENA,fresh fish,pieces or units,g,485,cell pooled across sizes,7,1,.1428571428571428,0
 ILOILO,NEW LUCENA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,57.5,cell pooled across sizes,4,0,0,0
 ILOILO,NEW LUCENA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,6,1,.1666666666666667,0
@@ -1424,14 +1389,11 @@ ILOILO,OTON,carrot,pieces or units,g,110,cell pooled across sizes,14,2,.14285714
 ILOILO,OTON,chicken,bilog,g,900,cell pooled across sizes,9,0,0,0
 ILOILO,OTON,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,32.5,cell pooled across sizes,8,0,0,0
 ILOILO,OTON,"crackers, cookies, buiscuits, chips/curls",putos,g,85,cell pooled across sizes,9,3,.3333333333333333,0
-ILOILO,OTON,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,437.5,province x item x unit,12,0,0,0
-ILOILO,OTON,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,297.5,cell pooled across sizes,4,0,0,0
+ILOILO,OTON,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,cell pooled across sizes,5,0,0,0
 ILOILO,OTON,fresh fish,pieces or units,g,120,cell pooled across sizes,15,7,.4666666666666667,0
-ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,50,cell pooled across sizes,5,0,0,0
-ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,60,14,.2333333333333333,0
-ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,65,province x item x unit,60,16,.2666666666666667,0
-ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,160,cell pooled across sizes,7,1,.1428571428571428,0
-ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
+ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,55,cell pooled across sizes,6,0,0,0
+ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,61,16,.2622950819672131,0
+ILOILO,OTON,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,130,cell pooled across sizes,8,1,.125,0
 ILOILO,OTON,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,8,0,0,0
 ILOILO,OTON,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,8,0,0,0
 ILOILO,OTON,loaf bread,large packs,g,650,cell pooled across sizes,6,0,0,0
@@ -1451,12 +1413,9 @@ ILOILO,POTOTAN,chicken,whole (chicken),g,885,cell pooled across sizes,10,0,0,0
 ILOILO,POTOTAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,31,cell pooled across sizes,10,0,0,0
 ILOILO,POTOTAN,"crackers, cookies, buiscuits, chips/curls",putos,g,60,cell pooled across sizes,15,6,.4,0
 ILOILO,POTOTAN,fresh fish,pieces or units,g,492.5,cell pooled across sizes,12,4,.3333333333333333,0
-ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,g,107,province x item x unit,10,4,.4,0
-ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,mL,110,cell pooled across sizes,5,0,0,0
-ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,60,province x item x unit,59,9,.1525423728813559,0
-ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,70,cell pooled across sizes,5,0,0,0
-ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,71,13,.1830985915492958,0
-ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,105,cell pooled across sizes,8,1,.125,0
+ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,mL,110,cell pooled across sizes,7,0,0,0
+ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,67.5,cell pooled across sizes,6,0,0,0
+ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,10,1,.1,0
 ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,9,0,0,0
 ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,9,0,0,0
 ILOILO,POTOTAN,loaf bread,large packs,g,640,cell pooled across sizes,8,0,0,0
@@ -1493,12 +1452,12 @@ ILOILO,SAN ENRIQUE,carrot,pieces or units,g,170,cell pooled across sizes,9,0,0,0
 ILOILO,SAN ENRIQUE,chicken,whole (chicken),g,1025,cell pooled across sizes,4,0,0,0
 ILOILO,SAN ENRIQUE,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,32,cell pooled across sizes,7,0,0,0
 ILOILO,SAN ENRIQUE,"crackers, cookies, buiscuits, chips/curls",putos,g,308,cell pooled across sizes,7,0,0,0
-ILOILO,SAN ENRIQUE,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,437.5,province x item x unit,12,0,0,0
+ILOILO,SAN ENRIQUE,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,422.5,province x item x unit,12,2,.1666666666666667,0
 ILOILO,SAN ENRIQUE,fresh fish,pack,g,620,province x item x unit,25,25,1,0
 ILOILO,SAN ENRIQUE,fresh fish,pieces or units,g,340,cell pooled across sizes,3,0,0,0
-ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,60,province x item x unit,59,9,.1525423728813559,0
-ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,52,11,.2115384615384615,0
-ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,71,13,.1830985915492958,0
+ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,62.5,province x item x unit,60,12,.2,0
+ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,65,province x item x unit,51,11,.2156862745098039,0
+ILOILO,SAN ENRIQUE,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,69,13,.1884057971014493,0
 ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,8,0,0,0
 ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,6,0,0,0
 ILOILO,SAN ENRIQUE,loaf bread,large packs,g,640,cell pooled across sizes,3,0,0,0
@@ -1554,10 +1513,9 @@ ILOILO,SAN RAFAEL,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,
 ILOILO,SAN RAFAEL,"crackers, cookies, buiscuits, chips/curls",putos,g,90,province x item x unit,230,63,.2739130434782608,0
 ILOILO,SAN RAFAEL,fresh fish,pieces or units,g,545,cell pooled across sizes,9,0,0,0
 ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,g,104,cell pooled across sizes,7,4,.5714285714285714,0
-ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,60,province x item x unit,59,9,.1525423728813559,0
-ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,270,cell pooled across sizes,3,2,.6666666666666666,0
-ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,65,province x item x unit,60,16,.2666666666666667,0
-ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,71,13,.1830985915492958,0
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,62.5,province x item x unit,60,12,.2,0
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,175,cell pooled across sizes,4,2,.5,0
+ILOILO,SAN RAFAEL,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,69,13,.1884057971014493,0
 ILOILO,SAN RAFAEL,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,680,cell pooled across sizes,5,0,0,0
 ILOILO,SAN RAFAEL,loaf bread,large packs,g,675,cell pooled across sizes,3,0,0,0
 ILOILO,SAN RAFAEL,loaf bread,medium packs,g,450,province x item x unit,160,0,0,0
@@ -1587,10 +1545,8 @@ ILOILO,SARA,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,45,cel
 ILOILO,SARA,"crackers, cookies, buiscuits, chips/curls",putos,g,42.5,cell pooled across sizes,6,3,.5,0
 ILOILO,SARA,fresh fish,pack,g,530,cell pooled across sizes,7,7,1,0
 ILOILO,SARA,fresh fish,pieces or units,g,217.5,cell pooled across sizes,14,0,0,0
-ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,50,cell pooled across sizes,5,1,.2,0
-ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,60,14,.2333333333333333,0
-ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,220,cell pooled across sizes,5,1,.2,0
-ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
+ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,55,cell pooled across sizes,6,2,.3333333333333333,0
+ILOILO,SARA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,160,cell pooled across sizes,6,1,.1666666666666667,0
 ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,1,.1666666666666667,0
 ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,4,0,0,0
 ILOILO,SARA,loaf bread,large packs,g,622.5,cell pooled across sizes,4,0,0,0
@@ -1616,18 +1572,13 @@ ILOILO,TIGBAUAN,chicken,whole (chicken),g,1015,cell pooled across sizes,9,0,0,0
 ILOILO,TIGBAUAN,"crackers, cookies, buiscuits, chips/curls",pack,g,320,cell pooled across sizes,7,0,0,0
 ILOILO,TIGBAUAN,"crackers, cookies, buiscuits, chips/curls",pieces or units,g,35,cell pooled across sizes,9,0,0,0
 ILOILO,TIGBAUAN,"crackers, cookies, buiscuits, chips/curls",putos,g,60,cell pooled across sizes,9,3,.3333333333333333,0
-ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,575,cell pooled across sizes,4,0,0,0
-ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,184,cell pooled across sizes,3,2,.6666666666666666,0
+ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,450,cell pooled across sizes,7,2,.2857142857142857,0
 ILOILO,TIGBAUAN,fresh fish,pieces or units,g,295,cell pooled across sizes,9,1,.1111111111111111,0
-ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gallons,g,,,,,,1
-ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gallons,mL,950,province x item x unit,3,0,0,0
-ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,75,cell pooled across sizes,9,3,.3333333333333333,0
-ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,province x item x unit,60,14,.2333333333333333,0
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gallons,g,545,cell pooled across sizes,3,0,0,0
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,85,cell pooled across sizes,11,3,.2727272727272727,0
 ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",plastic cup,g,,,,,,1
-ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,65,cell pooled across sizes,4,1,.25,0
-ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,65,province x item x unit,60,16,.2666666666666667,0
-ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,485,cell pooled across sizes,3,2,.6666666666666666,0
-ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,75,9,.12,0
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,67.5,cell pooled across sizes,6,1,.1666666666666667,0
+ILOILO,TIGBAUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,180,cell pooled across sizes,5,2,.4,0
 ILOILO,TIGBAUAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,680,cell pooled across sizes,9,0,0,0
 ILOILO,TIGBAUAN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,1225,cell pooled across sizes,9,0,0,0
 ILOILO,TIGBAUAN,loaf bread,large packs,g,667.5,cell pooled across sizes,8,0,0,0
@@ -1645,10 +1596,9 @@ ILOILO,TUBUNGAN,carrot,pieces or units,g,145,cell pooled across sizes,4,0,0,0
 ILOILO,TUBUNGAN,chicken,bilog,g,1090,cell pooled across sizes,3,0,0,0
 ILOILO,TUBUNGAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,cell pooled across sizes,3,0,0,0
 ILOILO,TUBUNGAN,fresh fish,pieces or units,g,285,cell pooled across sizes,12,3,.25,0
-ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gallons,mL,950,province x item x unit,3,0,0,0
+ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gallons,mL,,,,,,1
 ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,cell pooled across sizes,9,0,0,0
-ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,52,11,.2115384615384615,0
-ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,57.5,cell pooled across sizes,8,0,0,0
+ILOILO,TUBUNGAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,cell pooled across sizes,9,0,0,0
 ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,9,0,0,0
 ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,9,0,0,0
 ILOILO,TUBUNGAN,loaf bread,large packs,g,700,cell pooled across sizes,5,0,0,0
@@ -1690,7 +1640,7 @@ NEGROS OCCIDENTAL,CALATRAVA,cabbage,pieces or units,g,495,cell pooled across siz
 NEGROS OCCIDENTAL,CALATRAVA,camote tops,bundle,g,252.5,cell pooled across sizes,4,0,0,0
 NEGROS OCCIDENTAL,CALATRAVA,carrot,pieces or units,g,85,cell pooled across sizes,6,0,0,0
 NEGROS OCCIDENTAL,CALATRAVA,chicken,whole (chicken),g,1150,cell pooled across sizes,3,0,0,0
-NEGROS OCCIDENTAL,CALATRAVA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,province x item x unit,10,0,0,0
+NEGROS OCCIDENTAL,CALATRAVA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,province x item x unit,8,0,0,0
 NEGROS OCCIDENTAL,CALATRAVA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,CALATRAVA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,5,0,0,0
 NEGROS OCCIDENTAL,CALATRAVA,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,5,0,0,0
@@ -1706,7 +1656,7 @@ NEGROS OCCIDENTAL,CANDONI,chicken,bilog,g,1095,province x item x unit,55,3,.0545
 NEGROS OCCIDENTAL,CANDONI,chicken,whole (chicken),g,1120,province x item x unit,65,0,0,0
 NEGROS OCCIDENTAL,CANDONI,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,355,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,CANDONI,fresh fish,pieces or units,g,342.5,province x item x unit,48,2,.0416666666666667,0
-NEGROS OCCIDENTAL,CANDONI,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,mL,110,item x unit (regional),25,0,0,0
+NEGROS OCCIDENTAL,CANDONI,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",cone,mL,110,item x unit (regional),26,0,0,0
 NEGROS OCCIDENTAL,CANDONI,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,CANDONI,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,CANDONI,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,4,0,0,0
@@ -1723,8 +1673,8 @@ NEGROS OCCIDENTAL,CAUAYAN,camote tops,bugkos,g,242.5,cell pooled across sizes,6,
 NEGROS OCCIDENTAL,CAUAYAN,carrot,pieces or units,g,140,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,CAUAYAN,chicken,pieces or units,g,380,item x unit (regional),108,17,.1574074074074074,0
 NEGROS OCCIDENTAL,CAUAYAN,chicken,whole (chicken),g,1102.5,cell pooled across sizes,6,0,0,0
-NEGROS OCCIDENTAL,CAUAYAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,550,province x item x unit,8,0,0,0
-NEGROS OCCIDENTAL,CAUAYAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
+NEGROS OCCIDENTAL,CAUAYAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,500,province x item x unit,10,0,0,0
+NEGROS OCCIDENTAL,CAUAYAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,27,0,0,0
 NEGROS OCCIDENTAL,CAUAYAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,CAUAYAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,5,0,0,0
 NEGROS OCCIDENTAL,CAUAYAN,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,5,0,0,0
@@ -1740,12 +1690,9 @@ NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),carrot,pieces or units,g,140,cel
 NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),chicken,bilog,g,1050,cell pooled across sizes,8,0,0,0
 NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),chicken,whole (chicken),g,1190,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),fresh fish,pieces or units,g,155,cell pooled across sizes,9,1,.1111111111111111,0
-NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,70,province x item x unit,15,2,.1333333333333333,0
-NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
-NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,45,province x item x unit,9,0,0,0
-NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,24,2,.0833333333333333,0
-NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,13,2,.1538461538461539,0
-NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,33,4,.1212121212121212,0
+NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,60,cell pooled across sizes,3,0,0,0
+NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,province x item x unit,12,0,0,0
+NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,72,0,0,0
 NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),loaf bread,large packs,g,450,cell pooled across sizes,9,0,0,0
 NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),loaf bread,medium packs,g,450,province x item x unit,52,0,0,0
@@ -1759,13 +1706,12 @@ NEGROS OCCIDENTAL,HINIGARAN,camote tops,bugkos,g,317.5,province x item x unit,74
 NEGROS OCCIDENTAL,HINIGARAN,carrot,pieces or units,g,140,cell pooled across sizes,5,0,0,0
 NEGROS OCCIDENTAL,HINIGARAN,chicken,bilog,g,950,cell pooled across sizes,6,0,0,0
 NEGROS OCCIDENTAL,HINIGARAN,chicken,whole (chicken),g,1120,province x item x unit,65,0,0,0
-NEGROS OCCIDENTAL,HINIGARAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,province x item x unit,10,0,0,0
+NEGROS OCCIDENTAL,HINIGARAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,province x item x unit,8,0,0,0
 NEGROS OCCIDENTAL,HINIGARAN,fresh fish,pieces or units,g,525,cell pooled across sizes,3,0,0,0
-NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,70,province x item x unit,15,2,.1333333333333333,0
-NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
-NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,24,2,.0833333333333333,0
-NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,33,4,.1212121212121212,0
-NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tupperware,mL,700,item x unit (regional),4,0,0,0
+NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,70,province x item x unit,19,2,.1052631578947368,0
+NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,20,2,.1,0
+NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,31,2,.0645161290322581,0
+NEGROS OCCIDENTAL,HINIGARAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",tupperware,mL,700,item x unit (regional),3,0,0,0
 NEGROS OCCIDENTAL,HINIGARAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,72,0,0,0
 NEGROS OCCIDENTAL,HINIGARAN,loaf bread,large packs,g,640,province x item x unit,65,0,0,0
 NEGROS OCCIDENTAL,HINIGARAN,loaf bread,medium packs,g,450,province x item x unit,52,0,0,0
@@ -1779,13 +1725,10 @@ NEGROS OCCIDENTAL,HINOBA-AN (ASIA),camote tops,bugkos,g,290,cell pooled across s
 NEGROS OCCIDENTAL,HINOBA-AN (ASIA),camote tops,bundle,g,290,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,HINOBA-AN (ASIA),carrot,pieces or units,g,105,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,HINOBA-AN (ASIA),chicken,bilog,g,1052.5,cell pooled across sizes,4,0,0,0
-NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,550,province x item x unit,8,0,0,0
-NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,70,province x item x unit,15,2,.1333333333333333,0
-NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
-NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,63,cell pooled across sizes,3,0,0,0
-NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,24,2,.0833333333333333,0
-NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,13,2,.1538461538461539,0
-NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,33,4,.1212121212121212,0
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,500,province x item x unit,10,0,0,0
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,110,cell pooled across sizes,3,0,0,0
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,61.5,cell pooled across sizes,4,0,0,0
+NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,72,0,0,0
 NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,province x item x unit,45,0,0,0
 NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,large packs,g,640,cell pooled across sizes,6,0,0,0
@@ -1799,10 +1742,8 @@ NEGROS OCCIDENTAL,ILOG,camote tops,bundle,g,270,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,ILOG,carrot,pieces or units,g,100,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,ILOG,chicken,bilog,g,1300,cell pooled across sizes,9,0,0,0
 NEGROS OCCIDENTAL,ILOG,chicken,whole (chicken),g,1115,cell pooled across sizes,7,0,0,0
-NEGROS OCCIDENTAL,ILOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,110,cell pooled across sizes,3,0,0,0
-NEGROS OCCIDENTAL,ILOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
-NEGROS OCCIDENTAL,ILOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,45,cell pooled across sizes,3,0,0,0
-NEGROS OCCIDENTAL,ILOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,24,2,.0833333333333333,0
+NEGROS OCCIDENTAL,ILOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,105,cell pooled across sizes,4,0,0,0
+NEGROS OCCIDENTAL,ILOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,52.5,cell pooled across sizes,4,0,0,0
 NEGROS OCCIDENTAL,ILOG,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,cell pooled across sizes,5,0,0,0
 NEGROS OCCIDENTAL,ILOG,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,72,0,0,0
 NEGROS OCCIDENTAL,ILOG,loaf bread,large packs,g,640,cell pooled across sizes,3,0,0,0
@@ -1831,10 +1772,10 @@ NEGROS OCCIDENTAL,LA CASTELLANA,camote,bilog,g,140,cell pooled across sizes,3,0,
 NEGROS OCCIDENTAL,LA CASTELLANA,camote tops,bugkos,g,317.5,province x item x unit,74,20,.2702702702702703,0
 NEGROS OCCIDENTAL,LA CASTELLANA,carrot,pieces or units,g,175,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,LA CASTELLANA,chicken,bilog,g,1247.5,cell pooled across sizes,4,1,.25,0
-NEGROS OCCIDENTAL,LA CASTELLANA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,province x item x unit,10,0,0,0
+NEGROS OCCIDENTAL,LA CASTELLANA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,province x item x unit,8,0,0,0
 NEGROS OCCIDENTAL,LA CASTELLANA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,110,cell pooled across sizes,3,0,0,0
-NEGROS OCCIDENTAL,LA CASTELLANA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,24,2,.0833333333333333,0
-NEGROS OCCIDENTAL,LA CASTELLANA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,33,4,.1212121212121212,0
+NEGROS OCCIDENTAL,LA CASTELLANA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,20,2,.1,0
+NEGROS OCCIDENTAL,LA CASTELLANA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,31,2,.0645161290322581,0
 NEGROS OCCIDENTAL,LA CASTELLANA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,4,0,0,0
 NEGROS OCCIDENTAL,LA CASTELLANA,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,6,0,0,0
 NEGROS OCCIDENTAL,LA CASTELLANA,loaf bread,large packs,g,640,province x item x unit,65,0,0,0
@@ -1846,11 +1787,10 @@ NEGROS OCCIDENTAL,MANAPLA,cabbage,pieces or units,g,510,cell pooled across sizes
 NEGROS OCCIDENTAL,MANAPLA,camote tops,bugkos,g,270,cell pooled across sizes,9,2,.2222222222222222,0
 NEGROS OCCIDENTAL,MANAPLA,carrot,pieces or units,g,125,cell pooled across sizes,4,0,0,0
 NEGROS OCCIDENTAL,MANAPLA,chicken,whole (chicken),g,1217.5,cell pooled across sizes,4,0,0,0
-NEGROS OCCIDENTAL,MANAPLA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,550,province x item x unit,8,0,0,0
+NEGROS OCCIDENTAL,MANAPLA,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,500,province x item x unit,10,0,0,0
 NEGROS OCCIDENTAL,MANAPLA,fresh fish,pieces or units,g,580,cell pooled across sizes,9,0,0,0
 NEGROS OCCIDENTAL,MANAPLA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,cell pooled across sizes,4,0,0,0
-NEGROS OCCIDENTAL,MANAPLA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,100,province x item x unit,13,2,.1538461538461539,0
-NEGROS OCCIDENTAL,MANAPLA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,120,cell pooled across sizes,4,0,0,0
+NEGROS OCCIDENTAL,MANAPLA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,120,cell pooled across sizes,5,0,0,0
 NEGROS OCCIDENTAL,MANAPLA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 NEGROS OCCIDENTAL,MANAPLA,loaf bread,large packs,g,640,cell pooled across sizes,5,0,0,0
 NEGROS OCCIDENTAL,MANAPLA,loaf bread,medium packs,g,450,cell pooled across sizes,6,0,0,0
@@ -1865,9 +1805,8 @@ NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),camote tops,bugkos,g,540,cell pooled
 NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),carrot,pieces or units,g,150,cell pooled across sizes,5,0,0,0
 NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),chicken,bilog,g,220,cell pooled across sizes,3,2,.6666666666666666,0
 NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),chicken,whole (chicken),g,1120,province x item x unit,65,0,0,0
-NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,550,province x item x unit,8,0,0,0
-NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,province x item x unit,10,0,0,0
-NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,70,province x item x unit,15,2,.1333333333333333,0
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,480,cell pooled across sizes,3,0,0,0
+NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,70,province x item x unit,19,2,.1052631578947368,0
 NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,6,0,0,0
 NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,6,0,0,0
@@ -1879,8 +1818,8 @@ NEGROS OCCIDENTAL,MURCIA,cabbage,pieces or units,g,405,cell pooled across sizes,
 NEGROS OCCIDENTAL,MURCIA,camote tops,bugkos,g,320,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,MURCIA,carrot,pieces or units,g,150,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,MURCIA,chicken,bilog,g,1160,cell pooled across sizes,4,0,0,0
-NEGROS OCCIDENTAL,MURCIA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
-NEGROS OCCIDENTAL,MURCIA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,24,2,.0833333333333333,0
+NEGROS OCCIDENTAL,MURCIA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,27,0,0,0
+NEGROS OCCIDENTAL,MURCIA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,20,2,.1,0
 NEGROS OCCIDENTAL,MURCIA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,72,0,0,0
 NEGROS OCCIDENTAL,MURCIA,loaf bread,large packs,g,640,province x item x unit,65,0,0,0
 NEGROS OCCIDENTAL,MURCIA,loaf bread,medium packs,g,450,province x item x unit,52,0,0,0
@@ -1893,12 +1832,9 @@ NEGROS OCCIDENTAL,PONTEVEDRA,carrot,pieces or units,g,135,cell pooled across siz
 NEGROS OCCIDENTAL,PONTEVEDRA,chicken,bilog,g,985,cell pooled across sizes,6,0,0,0
 NEGROS OCCIDENTAL,PONTEVEDRA,chicken,whole (chicken),g,1230,cell pooled across sizes,9,0,0,0
 NEGROS OCCIDENTAL,PONTEVEDRA,fresh fish,pieces or units,g,280,cell pooled across sizes,6,1,.1666666666666667,0
-NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,70,province x item x unit,15,2,.1333333333333333,0
-NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
-NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,45,province x item x unit,9,0,0,0
-NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,24,2,.0833333333333333,0
-NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,250,cell pooled across sizes,4,2,.5,0
-NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,400,cell pooled across sizes,3,2,.6666666666666666,0
+NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,65,cell pooled across sizes,4,0,0,0
+NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,g,60,cell pooled across sizes,3,0,0,0
+NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,g,400,cell pooled across sizes,7,4,.5714285714285714,0
 NEGROS OCCIDENTAL,PONTEVEDRA,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,545,cell pooled across sizes,8,0,0,0
 NEGROS OCCIDENTAL,PONTEVEDRA,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,province x item x unit,45,0,0,0
 NEGROS OCCIDENTAL,PONTEVEDRA,loaf bread,large packs,g,620,cell pooled across sizes,4,0,0,0
@@ -1912,11 +1848,10 @@ NEGROS OCCIDENTAL,PULUPANDAN,camote,bilog,g,100,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,PULUPANDAN,camote tops,bugkos,g,317.5,province x item x unit,74,20,.2702702702702703,0
 NEGROS OCCIDENTAL,PULUPANDAN,carrot,pieces or units,g,137.5,cell pooled across sizes,4,0,0,0
 NEGROS OCCIDENTAL,PULUPANDAN,chicken,bilog,g,1095,province x item x unit,55,3,.0545454545454545,0
-NEGROS OCCIDENTAL,PULUPANDAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,province x item x unit,10,0,0,0
+NEGROS OCCIDENTAL,PULUPANDAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,province x item x unit,8,0,0,0
 NEGROS OCCIDENTAL,PULUPANDAN,fresh fish,pieces or units,g,342.5,province x item x unit,48,2,.0416666666666667,0
-NEGROS OCCIDENTAL,PULUPANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,70,province x item x unit,15,2,.1333333333333333,0
-NEGROS OCCIDENTAL,PULUPANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
-NEGROS OCCIDENTAL,PULUPANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,33,4,.1212121212121212,0
+NEGROS OCCIDENTAL,PULUPANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,cell pooled across sizes,3,0,0,0
+NEGROS OCCIDENTAL,PULUPANDAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,31,2,.0645161290322581,0
 NEGROS OCCIDENTAL,PULUPANDAN,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,PULUPANDAN,loaf bread,large packs,g,640,cell pooled across sizes,6,0,0,0
 NEGROS OCCIDENTAL,PULUPANDAN,loaf bread,medium packs,g,450,province x item x unit,52,0,0,0
@@ -1928,8 +1863,8 @@ NEGROS OCCIDENTAL,SALVADOR BENEDICTO,cabbage,pieces or units,g,520,cell pooled a
 NEGROS OCCIDENTAL,SALVADOR BENEDICTO,camote tops,bugkos,g,310,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,SALVADOR BENEDICTO,carrot,pieces or units,g,80,cell pooled across sizes,4,0,0,0
 NEGROS OCCIDENTAL,SALVADOR BENEDICTO,chicken,bilog,g,1095,province x item x unit,55,3,.0545454545454545,0
-NEGROS OCCIDENTAL,SALVADOR BENEDICTO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
-NEGROS OCCIDENTAL,SALVADOR BENEDICTO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,33,4,.1212121212121212,0
+NEGROS OCCIDENTAL,SALVADOR BENEDICTO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,27,0,0,0
+NEGROS OCCIDENTAL,SALVADOR BENEDICTO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,31,2,.0645161290322581,0
 NEGROS OCCIDENTAL,SALVADOR BENEDICTO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,72,0,0,0
 NEGROS OCCIDENTAL,SALVADOR BENEDICTO,loaf bread,large packs,g,640,province x item x unit,65,0,0,0
 NEGROS OCCIDENTAL,SALVADOR BENEDICTO,loaf bread,medium packs,g,450,province x item x unit,52,0,0,0
@@ -1956,11 +1891,10 @@ NEGROS OCCIDENTAL,SAN ENRIQUE,"preserved or processed meat (tocino, tapa, longan
 NEGROS OCCIDENTAL,TOBOSO,cabbage,pieces or units,g,555,cell pooled across sizes,9,0,0,0
 NEGROS OCCIDENTAL,TOBOSO,carrot,pieces or units,g,105,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,TOBOSO,chicken,bilog,g,1107.5,cell pooled across sizes,4,0,0,0
-NEGROS OCCIDENTAL,TOBOSO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,550,province x item x unit,8,0,0,0
-NEGROS OCCIDENTAL,TOBOSO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,mL,500,province x item x unit,10,0,0,0
-NEGROS OCCIDENTAL,TOBOSO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
-NEGROS OCCIDENTAL,TOBOSO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,24,2,.0833333333333333,0
-NEGROS OCCIDENTAL,TOBOSO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,33,4,.1212121212121212,0
+NEGROS OCCIDENTAL,TOBOSO,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,g,500,province x item x unit,10,0,0,0
+NEGROS OCCIDENTAL,TOBOSO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,27,0,0,0
+NEGROS OCCIDENTAL,TOBOSO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,mL,60,province x item x unit,20,2,.1,0
+NEGROS OCCIDENTAL,TOBOSO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,31,2,.0645161290322581,0
 NEGROS OCCIDENTAL,TOBOSO,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,cell pooled across sizes,4,0,0,0
 NEGROS OCCIDENTAL,TOBOSO,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,cell pooled across sizes,5,0,0,0
 NEGROS OCCIDENTAL,TOBOSO,loaf bread,large packs,g,640,province x item x unit,65,0,0,0
@@ -1973,9 +1907,8 @@ NEGROS OCCIDENTAL,VALLADOLID,cabbage,pieces or units,g,425,cell pooled across si
 NEGROS OCCIDENTAL,VALLADOLID,camote,bilog,g,95,cell pooled across sizes,3,0,0,0
 NEGROS OCCIDENTAL,VALLADOLID,camote tops,bugkos,g,535,cell pooled across sizes,3,2,.6666666666666666,0
 NEGROS OCCIDENTAL,VALLADOLID,carrot,pieces or units,g,137.5,cell pooled across sizes,6,0,0,0
-NEGROS OCCIDENTAL,VALLADOLID,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,43,cell pooled across sizes,3,0,0,0
-NEGROS OCCIDENTAL,VALLADOLID,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,mL,65,province x item x unit,31,0,0,0
-NEGROS OCCIDENTAL,VALLADOLID,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,33,4,.1212121212121212,0
+NEGROS OCCIDENTAL,VALLADOLID,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,g,39,cell pooled across sizes,4,0,0,0
+NEGROS OCCIDENTAL,VALLADOLID,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",small cup,mL,100,province x item x unit,31,2,.0645161290322581,0
 NEGROS OCCIDENTAL,VALLADOLID,"liquor (e.g, whisky, coconut wine)",lipid/lapad,mL,375,province x item x unit,72,0,0,0
 NEGROS OCCIDENTAL,VALLADOLID,"liquor (e.g, whisky, coconut wine)",long-neck,mL,750,province x item x unit,45,0,0,0
 NEGROS OCCIDENTAL,VALLADOLID,loaf bread,large packs,g,640,province x item x unit,65,0,0,0
