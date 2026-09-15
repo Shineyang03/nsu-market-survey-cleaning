@@ -1155,10 +1155,18 @@ relabels, so a stage that stops matching halts the build rather than passing as 
 section 1c asserts its own post-condition — that no case still holds both dimensions.
 
 **What would overturn it.** An item sold both ways whose two dimensions are *not* near water
-density, where relabelling would import a real error. Ice cream is the candidate: aerated product
-runs nearer 0.5 g/mL than 1.0. It is not acted on because the observed gaps run to 12× and in both
-directions, which no density explains — but an item whose g and mL readings differed by a stable
-factor near a known density would be a different case and would deserve a real conversion.
+density, where relabelling would import a real error. Ice cream is the candidate: commercial
+aerated product runs from **0.54 g/mL** — the US regulatory floor of 4.5 lb per gallon, i.e. the
+maximum permitted overrun — up to **0.92** for premium low-overrun product, and Philippine
+*sorbetes* is a churned, air-incorporating, street-vended dessert that sits at the low end. At
+0.55 a real conversion would move 79 ice cream weighings by up to 1.8×.
+
+**Deliberately parked, pending #38.** Applying a density presupposes the millilitre readings are
+*volumes*. The evidence says they may not be: the instrument offered no millilitre option, 172 of
+176 litre-ticked rows in dual-dimension cells carried a raw value below 1, and liquor's dual cases
+put the same number under both ticks. If field officers weighed everything and chose "Litres" for
+liquids, a density conversion would import error rather than remove it. A photograph showing the
+item on a scale or in a measuring vessel settles it; nothing in the collected data does.
 The count excluded prints on every run, and `n_g` over the published rows plus the 23
 excluded weighings reconciles to the pre-exclusion total.
 
