@@ -475,7 +475,7 @@ per province × municipality × item × harmonized unit × `corrected_unit`, and
 household in a cell gets it whatever it paid and whatever size it bought.
 
 They exist because matching a household to its own size rung by price is the most
-consequential thing Outcome 2 does — it resolves 81,377 household rows — and the build
+consequential thing Outcome 2 does — it resolves 81,378 household rows — and the build
 otherwise has no way to say how much it moves. The variant is identical in every other
 respect, so **a difference between the two files is the price/size matching and nothing
 else.** Read them as a robustness object, not a better answer: this is A15's cost applied
@@ -484,9 +484,9 @@ universally, and nothing downstream should prefer the blind file without saying 
 | | headline | hetero-blind |
 |---|---|---|
 | converted NSU rows | 34,893 | 35,019 |
-| rung: L0 / L1 / L2 / L3 | 81,377 / 118 / 5,522 / 365 | — / 23,791 / 10,823 / 405 |
-| **total grams over comparable rows** | 27,349,919 | **34,496,233 (126.1%)** |
-| rows larger / smaller / identical | — | 20,598 / 6,155 / 8,118 |
+| rung: L0 / L1 / L2 / L3 | 81,378 / 118 / 5,521 / 365 | — / 24,229 / 10,388 / 402 |
+| **total grams over comparable rows** (34,871) | 27,275,222 | **34,489,168 (126.4%)** |
+| rows larger / smaller / identical | — | 20,696 / 6,136 / 8,119 |
 
 **Going blind raises household grams by about a quarter**, median row ratio 1.154. The
 matching is therefore pulling households toward *smaller* units on balance — which is
@@ -509,7 +509,11 @@ differently, and `corrected_unit` is what keeps them apart at those rungs. The l
 still climbs: of 1,919 cells, 1,485 serve themselves, 404 borrow their province, 19 the
 region, 11 get nothing — so both files cover the same cells.
 
-> The comparison table above predates §1c and its figures have not been re-derived.
+`corrected_unit` is no longer a *discriminating* key at cell grain — §1c leaves at most one
+dimension per case, so `outcome2_lookup_heteroblind` is uniquely identified by the four
+case columns alone. It stays in the schema for two reasons: it is the only thing that tells
+a reader whether a published `85` means grams or millilitres, and it is a real key at the
+rungs above the cell.
 
 **Not build steps, and still open:** #20 (approach A vs B, needs `psps_converted_capped.dta`),
 #11 (compare the two lookups' household grams — both are built).
