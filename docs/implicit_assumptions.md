@@ -1060,6 +1060,43 @@ decision from this one.
 
 **Checked by** `10_size_assignment.do` itself, which `exit 459`s if any listed label
 matches no weighing — so a respelling or an upstream fold cannot silently empty the list.
+
+---
+
+## A22 — Thin *prices* are not adjusted for, only thin *weights*
+
+**Claims.** `THIN`, `d_thin`, `n_uncertain` and the whole L0→L3 fallback ladder react to
+`n_g`, the number of market-survey **weighings** behind `w_g`. Nothing reacts to how many
+**price observations** stand behind `p_g`. The pipeline does not read
+`pn_unique_price` / `mn_unique_price` from the price file at all.
+
+**Rests on it.** Every conversion. `CF_h = p_h / v_g` with `v_g = p_g / w_g`, so the
+arithmetic is exactly as sensitive to `p_g` as to `w_g` — a factor-of-seven error in
+either moves a household's grams by seven. The project flags, counts and falls back on
+one of them and is blind to the other, **by design**.
+
+**The exposure is not small.** 263 of 1,184 `province median` price rows — 22.2% — rest on
+a single price observation (`pn_unique_price == 1`), which is the same order as the
+weight-side thinness the project does flag (`d_thin`, 20.0% of published rows). Their
+prices are the fat tail: max ₱6,000 against ₱930 for province medians built on more than
+one observation.
+
+**Status: ACCEPTED, deliberately.** This project **reads** the price file; it does not
+correct it — the same position taken on #6, where 31 genuine departures from the price
+file's own point-selection protocol were left in place. A price is the number a household
+faced; how the price file arrived at it is that file's business. Importing a price-side
+thinness measure would invite a fallback rule for prices, and no such rule has been
+designed or agreed.
+
+**What this does NOT excuse.** A thin price is the price file's; **two different province
+medians for one harmonized unit inside one province is ours.** That arises when a fold
+pools two raw spellings the price file priced separately — ILOILO / POTOTAN ice cream
+`cone` is the live case, where `ice cream in cone` (₱224, one observation) folds into
+`cone` (₱32.5, four observations). A16's guard is within-cell and does not see it. Whether
+to carve out that fold or assert against the shape is a live question, not a settled one.
+
+**Checked by** nothing. Deliberately: a check here would be the first step of the rule
+this entry declines to build.
 The count excluded prints on every run, and `n_g` over the published rows plus the 23
 excluded weighings reconciles to the pre-exclusion total.
 
