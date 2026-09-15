@@ -35,7 +35,29 @@ BLUE_RAMP = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf",
              "#1c5cab", "#184f95", "#104281", "#0d366b"]
 CMAP = LinearSegmentedColormap.from_list("blueramp", BLUE_RAMP)
 
-# ---- field windows, measured from the data (see field_windows.do) --------------
+# ---- field windows -------------------------------------------------------------
+# These are HARDCODED, and fig2's percentages are measured over MED -> MED, so a
+# wrong value here is a wrong published number, not a cosmetic label. Each one is
+# sourced below. Re-derive all four against a new data vintage before trusting a
+# rebuilt figure; the two range assertions named here will halt a build whose
+# fielding window moved, but nothing guards the two medians.
+#
+#   PSPS_MIN/MAX  enforced by 20_psps_retrofitting/20a_psps_households.do:331 --
+#                 the build errors out if any psps_month falls outside
+#                 2023m12-2025m1. Window also stated in
+#                 docs/conversion_factor_methodology.md.
+#   PSPS_MED      median of psps_month in outputs/build/intermediate/
+#                 psps_households.dta. 2024m5 at the row grain (87,959 rows) and
+#                 at the household grain (15,086 hhid) alike. Fielding is bimodal
+#                 -- an early block through 2024m7 and a late one from 2024m10 --
+#                 so the median sits in the trough between them by construction.
+#   MS_MIN/MAX    enforced by 00_shared/07_cpi_factor.do:270 --
+#                 assert inlist(m_ms, tm(2026m3), tm(2026m4), tm(2026m5)).
+#   MS_MED        m_ms in outputs/build/intermediate/nsu_weighings_cpi.dta: mean
+#                 794.85, median 2026m4, and modal 2026m4 (5,891 of 11,334) -- all
+#                 three agree. It is also REF, the anchor 07_cpi_factor.do and
+#                 24_inflate_to_psps_month.do build cpi_factor against.
+#
 # Stata monthly date: 0 = 1960m1
 def sm(y, m): return (y - 1960) * 12 + (m - 1)
 def ym(s):    return (1960 + s // 12, s % 12 + 1)
@@ -43,9 +65,9 @@ def lbl(s):
     y, m = ym(s); return f"{y}m{m}"
 
 PSPS_MIN, PSPS_MAX = sm(2023, 12), sm(2025, 1)
-PSPS_MED           = sm(2024, 5)      # median of 53,910 PSPS obs
+PSPS_MED           = sm(2024, 5)
 MS_MIN,  MS_MAX    = sm(2026, 3), sm(2026, 5)
-MS_MED             = sm(2026, 4)      # mean 794.85 ~ 2026m4
+MS_MED             = sm(2026, 4)      # == 795; mean m_ms is 794.85
 
 # ---- inputs -------------------------------------------------------------------
 xw = list(csv.DictReader(open(DATA / "cons_name_to_coicop_crosswalk.csv",
