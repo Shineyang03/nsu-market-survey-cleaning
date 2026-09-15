@@ -2,8 +2,8 @@
 * 06_cpi_panel.do
 *
 * Builds the CPI level panel and the item crosswalk specified in
-* docs/inflation_adjustment_spec.md. Stata port of 06_cpi_panel.py, written to
-* reproduce that script's three artifacts byte for byte.
+* docs/inflation_adjustment_spec.md. Stata port of dofiles/archive/06_cpi_panel.py,
+* written to reproduce that script's three artifacts byte for byte.
 *
 * WHY THIS IS A DO-FILE
 * Project policy (CLAUDE.md, "Build objects in Stata. Python only where Stata
@@ -20,15 +20,17 @@
 *   cpi_item_crosswalk.csv    (province, cons_name) -> item_group, normalized
 *   cpi_panel_validation.txt  the spec section 8 validation report
 *
-* WHERE IT WRITES, AND WHY NOT ${tables}
-* Output goes to ${output}/temp/_cpi_port/. 06_cpi_panel.py still owns the
-* published copies under ${tables}, which 07_cpi_factor.do reads. Pointing both
-* implementations at the same three filenames would destroy the only evidence
-* that they agree. Switching the pipeline over is a separate decision, and it is
-* FOUR edits, not one: point ${cpiout} at ${tables}; retire 06_cpi_panel.py;
-* replace the `python ... 06_cpi_panel.py' line in dofiles/README.md (the run
-* order block, and the step table that names the .py); and update the step
-* listing in master_outcome1.do / master_outcome2.do, which also name the .py.
+* WHERE IT WRITES
+* Output goes to ${tables} -- this file owns the published copies that
+* 07_cpi_factor.do reads. THE SWITCHOVER IS DONE: 06_cpi_panel.py is retired to
+* dofiles/archive/, dofiles/README.md names this do-file in the run order, and
+* master_outcome1.do / master_outcome2.do name it in their step listings.
+*
+* While the port was being validated ${cpiout} pointed at ${output}/temp/_cpi_port/
+* instead, so the two implementations could be diffed without overwriting each
+* other's output. That comparison and its one residual difference -- a single
+* cpi_ma3 value 1 ULP apart from the Python's -- are in dofiles/archive/README.md.
+* The _cpi_port folder is that frozen comparison copy; nothing reads it.
 *
 * CALLED BY   nothing. Run it on its own, from the dofiles/ folder:
 *     "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\06_cpi_panel.do
