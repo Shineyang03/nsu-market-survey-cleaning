@@ -121,7 +121,7 @@ global municipal_map "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\08 
 * cannot speak to gantang outside this region.
 *
 * `ganta' gets the same factor as `gantang'. They are one object: the crosswalk folds raw
-* `ganta' to harmonized `gantang' (reference/unit_fold_map.csv, `safe-fold', n=28), and
+* `ganta' to harmonized `gantang' (outputs/tables/unit_fold_map.csv, `safe-fold', n=28), and
 * the fold pools nothing -- all 14 crosswalk rows carry n_cell_merged == 1, because no raw
 * `gantang' label exists on our side at all. Only 18 PSPS rows spell it `ganta'; giving
 * them a different factor from the other 11,647 would be incoherent.

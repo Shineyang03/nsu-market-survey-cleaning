@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NSU harmonization crosswalk — composition</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif; font-size:11pt; color:#000; max-width:900px; margin:28px auto; padding:0 18px; line-height:1.45}
+  h2{font-size:13pt; margin:26px 0 8px}
+  p{margin:8px 0}
+  table{border-collapse:collapse; width:100%; margin:6px 0 4px; font-size:10.5pt}
+  th,td{border:1px solid #999; padding:5px 8px; vertical-align:top; text-align:left}
+  th{background:#efefef; font-weight:bold}
+  td.n,th.n{text-align:right; white-space:nowrap}
+  tr.tot td{font-weight:bold; background:#f7f7f7}
+  .note{font-size:10pt; color:#444}
+</style>
+</head>
+<body>
+
+<h2>Composition of the NSU harmonization crosswalk</h2>
+
+<p><b>Unit of observation.</b> One row is <b>one raw NSU spelling (<i>pull_nsu_unit</i>) recorded in one cell</b>,
+where a cell is <b>province &times; municipality &times; item</b>. A spelling used in twelve municipalities is
+therefore twelve rows. Source: <i>master_nsu_rename</i>, the crosswalk built by
+<i>01_build_crosswalk.py</i> and read by <i>03_clean_ms.do</i>.</p>
+
+<h2>Table 1. Composition</h2>
+
+<table>
+<thead>
+<tr>
+  <th>Source</th>
+  <th>Reason absent from Market Survey</th>
+  <th class="n">n</th>
+  <th class="n">% of rows</th>
+  <th class="n">Cells affected</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>MS &amp; Price</td><td><i>not applicable</i></td><td class="n">1,985</td><td class="n">67.8%</td><td class="n">&mdash;</td></tr>
+<tr><td>Price Only</td><td>harmonizable</td><td class="n">306</td><td class="n">10.5%</td><td class="n">213</td></tr>
+<tr><td>Price Only</td><td>empty/uncommon</td><td class="n">575</td><td class="n">19.6%</td><td class="n">438</td></tr>
+<tr><td>Price Only</td><td>nonsensical (recoverable)</td><td class="n">7</td><td class="n">0.2%</td><td class="n">6</td></tr>
+<tr><td>Price Only</td><td>nonsensical (unmappable)</td><td class="n">54</td><td class="n">1.8%</td><td class="n">49</td></tr>
+<tr class="tot"><td>Total</td><td></td><td class="n">2,927</td><td class="n">100.0%</td><td class="n">1,330</td></tr>
+</tbody>
+</table>
+
+<p class="note">The four reason categories apply only to the 942 <i>Price Only</i> rows; they are blank on
+<i>MS &amp; Price</i> rows by construction, not missing. A third defined value of <i>source</i>
+&mdash; <i>MS</i>, meaning weighed but absent from the price file &mdash; occurs zero times.</p>
+
+<h2>Table 2. What each category means</h2>
+
+<table>
+<thead>
+<tr><th style="width:30%">Term</th><th>Definition</th></tr>
+</thead>
+<tbody>
+<tr><td>MS &amp; Price</td><td>The spelling was weighed in the market survey <b>and</b> appears in the price file for that cell.</td></tr>
+<tr><td>Price Only</td><td>The spelling appears in the price file for that cell but was <b>never weighed</b> there.</td></tr>
+<tr><td>harmonizable</td><td>The same physical object is already present in that cell under a different spelling, so the gap is apparent rather than real.</td></tr>
+<tr><td>empty/uncommon</td><td>A genuine unit, but that cell holds no weighing of it. This is a real coverage gap.</td></tr>
+<tr><td>nonsensical (recoverable)</td><td>Not a unit as written &mdash; a quantity-prefixed string &mdash; but a base unit can be extracted from it.</td></tr>
+<tr><td>nonsensical (unmappable)</td><td>Not a unit, and no base unit can be recovered.</td></tr>
+</tbody>
+</table>
+
+<h2>Table 3. Scope</h2>
+
+<table>
+<thead>
+<tr><th style="width:70%">Measure</th><th class="n">n</th></tr>
+</thead>
+<tbody>
+<tr><td>Rows (cell &times; raw spelling)</td><td class="n">2,927</td></tr>
+<tr><td>Distinct cells (province &times; municipality &times; item)</td><td class="n">1,330</td></tr>
+<tr><td>Distinct raw spellings (<i>pull_nsu_unit</i>)</td><td class="n">419</td></tr>
+<tr><td>Distinct harmonized units (<i>harmonized_nsu_unit</i>)</td><td class="n">157</td></tr>
+<tr><td>Items</td><td class="n">60</td></tr>
+<tr><td>Rows whose spelling pools with another in the same cell</td><td class="n">766</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;of which MS &amp; Price</td><td class="n">355</td></tr>
+<tr><td>&nbsp;&nbsp;&nbsp;of which Price Only</td><td class="n">411</td></tr>
+</tbody>
+</table>
+
+</body>
+</html>

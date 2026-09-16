@@ -62,8 +62,11 @@ python dofiles/90_diagnostics/verify_reproducibility.py             # after
 It compares `.dta`/`.xlsx`/`.csv` outputs on **values**, not bytes — those formats embed
 a creation timestamp, so byte comparison always reports a difference. Clear `tables/` as
 well as `temp/` before a rebuild: a stale output that nothing overwrites compares SAME
-and reads as reproduced. `--reference` byte-compares the frozen crosswalk set in
-`reference/` (plain CSV, no timestamp) — see `reference/README.md`.
+and reads as reproduced. There was a second mode, `--reference`, byte-comparing the
+crosswalk against frozen pre-split copies in `reference/`; it is retired and those copies
+are gone — the baseline had drifted behind the live build on intended changes and reported
+a failure on every run. `reference/README.md` has the reasoning. The single confirmed
+crosswalk is `outputs/tables/master_nsu_rename.csv`.
 
 **The Stata chain is verified reproducible** as of `a0868d1`: cleared `temp/*.dta`, `tables/*.xlsx` and the ported step's own output, rebuilt from raw (`00b_price_ms_cases.do` then `master_outcome1.do`), and all 25 watched outputs matched value-for-value. `snap_sense_check.xlsx` reports MISSING until you re-run its Python producer -- it is a diagnostic, not a chain output.
 
