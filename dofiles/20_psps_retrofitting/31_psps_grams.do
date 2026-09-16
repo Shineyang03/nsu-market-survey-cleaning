@@ -268,6 +268,13 @@ gen double share_uncertain = nu_used / n_g_used
 format share_uncertain %5.3f
 label var share_uncertain "nu_used / n_g_used; missing where no weighing stands behind cf_h"
 
+* ---- d_thin: the same flag Outcome 1 publishes, on the count used here ---------
+* Published, never acted on. A household whose matched rung rests on one or two weighings
+* is converted at that rung and MARKED -- it is not sent up the ladder, which exists for
+* weights that are absent rather than few (#31, decided 2026-09-16). Missing wherever
+* n_g_used is: conv_path 1 and 3 carry no weighing count, and nor does a refused row.
+gen_d_thin n_g_used
+
 label var hh_row               "row id; same id space as hh_row in psps_households.dta"
 label var hhid                 "household identifier"
 label var psps_item_code       "PSPS item code"
@@ -396,7 +403,7 @@ assert missing(d_converted_blind)  if conv_path != 2
 order hh_row hhid psps_item_code slot source ///
       pull_province pull_municipal_city pull_item pull_nsu_unit harmonized_nsu_unit ///
       q_h p_h cf_h grams_h conv_path conv_route d_converted fallback_level d_cap ///
-      d_no_price n_g_used nu_used share_uncertain ///
+      d_no_price n_g_used nu_used share_uncertain d_thin ///
       cf_h_blind grams_h_blind dim_blind fallback_level_blind conv_route_blind ///
       n_g_used_blind nu_used_blind d_converted_blind
 
@@ -488,6 +495,12 @@ preserve
 	replace n_g_used        = n_g_used_blind        if conv_path == 2
 	replace nu_used         = nu_used_blind         if conv_path == 2
 	replace share_uncertain = nu_used / n_g_used    if conv_path == 2
+	* d_thin has to be recomputed from the BLIND count, not carried over from the
+	* headline one -- the two describe different rungs. Zero throughout on this file
+	* by construction, since the blind ladder is gated at every rung; asserted below.
+	replace d_thin          = n_g_used < ${THIN}    if conv_path == 2 & !missing(n_g_used)
+	replace d_thin          = .                     if conv_path == 2 &  missing(n_g_used)
+	assert d_thin == 0 if conv_path == 2 & !missing(d_thin)
 
 	drop cf_h_blind grams_h_blind dim_blind fallback_level_blind ///
 	     conv_route_blind n_g_used_blind nu_used_blind d_converted_blind ///

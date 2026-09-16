@@ -6,18 +6,29 @@
 * weighing of its own, Outcome 2 uses it. Where the cell is thin or absent, this file
 * decides what weight the household gets instead -- or that it gets none.
 *
-* THE LADDER (issue #30, settled there). Each rung is tried in turn and the first that
-* clears THIN wins:
+* THE LADDER (issue #30, settled there). From L1 down, each rung is tried in turn and the
+* first that clears THIN wins:
 *
-*   L0  prov x mun x item x nsu x unit x hetero    n_g >= 3; the price selects the rung
+*   L0  prov x mun x item x nsu x unit x hetero    the price selects the rung; NO THIN test
 *   L1  prov x mun x item x nsu x unit            pool across hetero -- NO price match
 *   L2  prov x item x nsu x unit                  no usable weighing in the cell
 *   L3  item x nsu x unit                         still nothing
 *   --  unconvertible                             nothing anywhere; reported, never imputed
 *
-* RE-TESTED AT EVERY RUNG. Reaching L1 does not end the climb: a cell whose two rungs
-* hold one weighing each pools to n_g = 2, is still thin, and continues to L2. The ladder
-* stops at the first rung with n_g >= 3, or falls off the bottom.
+* L0 IS NOT GATED ON THIN, and this header said it was until 2026-09-16. A household whose
+* matched rung rests on one or two weighings is converted AT THAT RUNG and marked d_thin --
+* it is not sent up the ladder. The ladder is for weights that are ABSENT, not for weights
+* that are FEW (#31, decided there; A3 has the comparison and what the alternative cost).
+* 28_match_and_convert.do sets fallback_level = 0 for any usable matched point, and 7,077
+* of the 28,889 rows at L0 carry n_g_used < 3.
+*
+* THE ONE PLACE A THIN TEST DOES GATE L0 is the (cell x size) record written in section 4,
+* which answers "what would each rung resolve to" for inspection. Nothing consumes it. The
+* table that 28 DOES consume is outcome2_cell_fallback, built in section 5, and that one is
+* L1-down by construction because L0 is precisely the thing that failed.
+*
+* RE-TESTED AT EVERY RUNG FROM L1 DOWN. Reaching L1 does not end the climb: a cell whose
+* two rungs hold one weighing each pools to n_g = 2, is still thin, and continues to L2.
 *
 * IGNORING WITHIN-NSU HETEROGENEITY IS THE COST, and it is accepted rather than
 * incidental. From L1 down a household that bought the cheap version and one that bought
@@ -505,12 +516,20 @@ preserve
 	format share_uncertain %5.3f
 	label var share_uncertain "nu_used / n_g_used; 1 = nothing behind this factor went unquestioned"
 
+	* d_thin ships here for schema parity with the headline pair, and it is ZERO on every
+	* row BY CONSTRUCTION: this ladder is gated at every rung and has no L0, so nothing
+	* below THIN can reach it. Asserted rather than assumed -- that is the cleanest
+	* statement of what the blind variant is, and a future change letting a thin value in
+	* should fail here rather than pass quietly. (#31, 2026-09-16.)
+	gen_d_thin n_g_used
+	assert d_thin == 0 if !missing(d_thin)
+
 	isid pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
 	assert inlist(fallback_level, 1, 2, 3) if !d_unconvertible
 	assert missing(cf_blind) == (d_unconvertible == 1)
 
 	order pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit ///
-	      cf_blind fallback_level n_g_used nu_used share_uncertain d_unconvertible
+	      cf_blind fallback_level n_g_used nu_used share_uncertain d_thin d_unconvertible
 	compress
 	sort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
 	save "${bdeliv}\outcome2_lookup_heteroblind", replace

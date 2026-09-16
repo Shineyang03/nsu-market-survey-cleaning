@@ -1133,7 +1133,7 @@ group empties.
 
 ### What "medium" means in the published file
 
-`size_ord = 2` is published as **medium** on **913 of the 2,559** reference-set rows, and
+`size_ord = 2` is published as **medium** on **889 of the 2,490** reference-set rows, and
 the label does not mean the same thing on all of them. The decision (issue #21 §3) is to
 keep the single name and state the composition here rather than split it into two labels
 the field cannot act on.
@@ -1267,17 +1267,25 @@ thinness, not a separate rule. Outcome 1 keeps and flags them and never substitu
 another cell's weight; Outcome 2's ladder may carry the household past its own cell
 entirely. Issue #31 records the singleton population and what each outcome does with it.
 
-**Outcome 2 (PSPS conversion factors): climbs until $`n_g \geq 3`$**
+**Outcome 2 (PSPS conversion factors): climbs when a weight is ABSENT, not when it is thin**
 
 | level | grain | condition |
 |---|---|---|
-| L0 | prov × mun × item × nsu × unit × hetero | $`n_g \geq 3`$ on the rung; the household's price selects it |
-| L1 | prov × mun × item × nsu × unit | any rung thin — pool across hetero, NO price match |
+| L0 | prov × mun × item × nsu × unit × hetero | the household's price selects the rung; **no thinness test** |
+| L1 | prov × mun × item × nsu × unit | the cell built no usable rung — pool across hetero, NO price match |
 | L2 | prov × item × nsu × unit | no MS weighing at the cell grain |
 | L3 | item × nsu × unit | still nothing anywhere |
-| — | unconvertible | nothing anywhere (80 cases, 82 PSPS observations) — reported, never imputed |
+| — | unconvertible | nothing anywhere — reported, never imputed |
 
-**Re-test at every level.** Reaching L1 does not end it: a cell whose two rungs hold one weighing each pools to $`n_g = 2`$ and continues to L2.
+**L0 is not gated on `THIN`, and this table said it was until 2026-09-16.** A household
+whose matched rung rests on one or two weighings is converted *at that rung* and marked
+`d_thin`; it is not sent up the ladder. **7,077 of the 28,889 rows at L0 carry
+`n_g_used < 3`.** Thinness warns, it does not reroute — the same rule Outcome 1 applies, and
+the decision is recorded on #31 with the measured cost of the alternative (gating L0 would
+move 7,077 rows to pooled weights and raise total published grams by 6.7%).
+
+**Re-test at every level from L1 down.** Reaching L1 does not end it: a cell whose two rungs
+hold one weighing each pools to $`n_g = 2`$ and continues to L2.
 
 ### How the fallback works at each level
 
@@ -1318,17 +1326,17 @@ one that would have implied a precision the estimator does not have.
 **These counts move with every rebuild. Recompute rather than quote them** — the whole
 distribution is one tabulation of `fallback_level` on `psps_grams.dta`, and the Outcome 1
 figures are a tabulation of `size_ord` and `d_thin` on `nsu_reference_set.dta`. The
-figures below describe the build of 14 September 2026 and are here to show the *shape*,
+figures below describe the build of 16 September 2026 and are here to show the *shape*,
 not to be cited.
 
-On **Outcome 1's reference set** — 2,552 rows over 1,986 cells:
+On **Outcome 1's reference set** — 2,490 rows over 1,919 cells:
 
 | | rows |
 |---|---|
-| collapsed to one pooled row, `fallback_level = 1`, `size_ord = "pooled across sizes"` | **488** |
-| flagged `d_thin` | 513 |
-| …of which pooled and still thin | 43 |
-| …of which thin and **never pooled**, because the cell held one rung | **470** |
+| collapsed to one pooled row, `fallback_level = 1`, `size_ord = "pooled across sizes"` | **482** |
+| flagged `d_thin` | 434 |
+| …of which pooled and still thin | 37 |
+| …of which thin and **never pooled**, because the cell held one rung | **397** |
 
 **The collapse requires two rungs.** Both justifications for pooling are statements about
 a *ladder*: there is no size distribution to be noise with three labels on it, and no

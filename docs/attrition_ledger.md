@@ -27,10 +27,10 @@ Three record types, and keeping them apart is the point of the file.
 | `aggregation` | the **unit of observation changes**. `rows_dropped` is deliberately empty |
 | `detail` | a named figure or case worth following, with its current status |
 
-**Aggregation is not attrition.** 11,290 weighings becoming 2,559 reference-set rows is
-not a 77% loss; it is a change of grain from a weighing to a (case × size) group, and each
+**Aggregation is not attrition.** 11,264 weighings becoming 2,490 reference-set rows is
+not a 78% loss; it is a change of grain from a weighing to a (case × size) group, and each
 group publishes one row holding its median. The weighings sum back exactly — `n_g` over
-the published rows totals 11,290. Subtracting across an aggregation row produces a
+the published rows totals 11,264. Subtracting across an aggregation row produces a
 loss that never happened.
 
 **Every row states its `grain`.** Counts at different grains must not be differenced. A
@@ -76,10 +76,10 @@ drop leaves against a stated reason rather than by falling out of a join.
 ## Outcome 1
 
 ```
-   11,335   priced weighings
-      -45   stage 3   Outcome 1's own exclusions
-   11,290   entering the collapse
- ->  2,559  published reference-set rows        (AGGREGATION, not attrition)
+   11,334   priced weighings
+      -70   stage 3   Outcome 1's own exclusions (8 + 33 + 29)
+   11,264   entering the collapse
+ ->  2,490  published reference-set rows        (AGGREGATION, not attrition)
 ```
 
 | step | drops | reason |
@@ -101,21 +101,21 @@ and slices on `branch` rather than on the field's size labels.
 
 | branch | weighings | groups | grain |
 |---|---|---|---|
-| size-based | 10,141 | 2,633 | case × group |
-| price-quantity | 1,114 | 368 → **1,093** after crossing with interview months | case × price point × month |
+| size-based | 10,141 | 2,557 | case × group |
+| price-quantity | 1,113 | 360 → **1,057** after crossing with interview months | case × price point × month |
 | conventional | 80 | 24 | case |
-| | | **3,750** lookup rows | |
+| | | **3,638** lookup rows | |
 
 `branch` is not `weighing_approach`: 99 field-conventional cases whose (item, unit) pair
 mixes approaches elsewhere are processed as size-based (issue #28, A12). That is why Branch
 C is 80 weighings and 24 cases rather than 468 and 123.
 
-**495 of Branch S's 2,633 rows are price points that carry no weight** — an emptied part of
+**466 of Branch S's 2,557 rows are price points that carry no weight** — an emptied part of
 the cut, or a refused unique price (A16). They are in the table on purpose: a household
 matches the *nearest* point, so removing them would push it onto the next point along and
 convert it at a weight belonging to a different rung.
 
-Issue #11's no-inflation variant is a second lookup of 3,025 rows. It drops the month
+Issue #11's no-inflation variant is a second lookup of 2,941 rows. It drops the month
 dimension rather than setting the factor to 1, because without a restatement nothing
 month-specific is left on any branch.
 
@@ -164,11 +164,12 @@ number rather than as rows that quietly convert to nothing.
 | refused: unique price (A16) | 148 |
 | refused: nothing anywhere | 103 |
 
-By rung: **L0** 28,875 · **L1** 131 · **L2** 5,522 · **L3** 365. From L1 down the
+By rung: **L0** 28,889 · **L1** 118 · **L2** 5,521 · **L3** 365. From L1 down the
 household's own price is not used at all — every household in the cell receives the same
-grams whatever it paid (A15).
+grams whatever it paid (A15). L0 carries no thinness test: 7,077 of its rows rest on fewer
+than three weighings and are published with `d_thin = 1` rather than rerouted (#31, A3).
 
-**1,283 rows had their price ratio clamped** (A18). Clamped and kept, never dropped:
+**1,418 rows had their price ratio clamped** (A18). Clamped and kept, never dropped:
 `d_cap` marks them and `r_h_raw` keeps the uncapped ratio.
 
 A refused row is **reported, never imputed and never silently redirected** to another

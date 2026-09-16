@@ -165,6 +165,41 @@ about; three or more is not.
 
 **Rests on it.** The `d_thin` flag only. No weight changes, nothing is dropped.
 
+**PUBLISH, NEVER SUBSTITUTE — and it is symmetric across the two outcomes.** Decided
+2026-09-16 on **#31**. A thin value is published and flagged in Outcome 1 *and* Outcome 2.
+Thinness does not send a row up the fallback ladder: the ladder exists for weights that are
+**absent**, not for weights that are **few**. A single weighing of a `bilog` in one
+municipality is a noisy reading of the right object; the province median is a precise
+reading of a different one, and A1 measures the same unit varying up to 6.7× between
+municipalities inside one province.
+
+The alternative was simulated before it was rejected. Gating L0 on `n_g >= 3` would move
+7,077 household rows off their own cell — 2,209 to L1, 4,807 to L2, 34 to L3, 27 refused —
+nearly doubling L2, and would **raise total published grams by 6.7%**, because the pooled
+replacements run larger than the thin rungs they displace (median ratio 1.23, and 2,390
+rows moving by more than 2×). That is a larger shift than the entire CPI adjustment, bought
+by discarding local measurements. #31 has the full comparison.
+
+**`d_thin` now ships on every deliverable**, defined once by `gen_d_thin` in
+`00_globals.do` and read off whichever count stands behind that file's published value. It
+is missing, not zero, where nothing is published.
+
+| deliverable | count it reads | `d_thin = 1` |
+| :-- | :-- | --: |
+| `nsu_reference_set` | `n_g` | 434 of 2,490 (17.4%) |
+| `outcome2_lookup` | `n_g` | 1,162 of 3,172 usable (36.6%) |
+| `outcome2_lookup_noinflation` | `n_g` | 859 of 2,475 usable (34.7%) |
+| `psps_grams` | `n_g_used` | 7,077 of 34,893 converted (20.3%) |
+| `outcome2_lookup_heteroblind` | `n_g_used` | **0** — gated at every rung |
+| `psps_grams_heteroblind` | `n_g_used` | **0** — same |
+
+Outcome 2's lookup reads twice as thin as Outcome 1's reference set. That is a difference of
+grain, not of evidence: Outcome 1 publishes one row per cell × size after re-terciling,
+Outcome 2 one row per price point, and a case with three points cuts the same weighings
+three ways. **The hetero-blind pair is 0% thin by construction**, which is the sharpest
+statement of what that variant is for — no published value there rests on fewer than three
+weighings, at the cost of ignoring the price/size match entirely.
+
 **Status: ACCEPTED, with the sensitivity stated.**
 
 | threshold | rows flagged | share of 2,490 |
@@ -1070,7 +1105,7 @@ size, wrong branch in a mixed cell. This is the first time the pipeline asks whe
 label denotes a unit at all, and the judgement is editorial rather than measured.
 
 **It does not weaken A3.** Thinness still never drops a row. Several of these rest on
-four weighings, and 267 published rows still sit on a single weighing. They are excluded
+four weighings, and 210 published rows still sit on a single weighing. They are excluded
 for their kind, not their thinness, and the two rules must not be conflated: a future
 reader tempted to extend this list "because the cell is thin" would be making a different
 decision from this one.

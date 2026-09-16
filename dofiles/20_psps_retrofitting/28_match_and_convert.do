@@ -133,7 +133,12 @@ label var lk_month "the month THIS LOOKUP ROW was restated to (Branch P only)"
 * recomputes it from nu_used and n_g_used, which are filled per route.
 *
 * The counts themselves are kept: n_uncertain is what a matched row's nu_used reads from.
-drop share_uncertain
+*
+* `d_thin' IS DROPPED FOR THE SAME REASON. On the lookup it reads the matched POINT's n_g;
+* on a household row the question is whether the weight the row was actually given is thin,
+* which for a fallback row is a different rung's count. 31_psps_grams.do regenerates it
+* from n_g_used, once, after every route has filled that column.
+drop share_uncertain d_thin
 tempfile lkj
 save "`lkj'"
 

@@ -903,6 +903,57 @@ def c_reference_docs_row_totals():
           " count as well as with the file, which is what an unchecked figure does")
 
 
+def c_d_thin_on_every_deliverable():
+    """d_thin ships on all six deliverables, and reads what A3 says it reads.
+
+    Decided 2026-09-16 on #31: a thin value is PUBLISHED and FLAGGED in both outcomes,
+    never rerouted to a pooled weight. Before that the flag existed on nsu_reference_set
+    alone, so a reader of outcome2_lookup or psps_grams had to derive it themselves with
+    nothing saying which count to use.
+
+    The shares are checked, not just the presence, because the figures previously recorded
+    on #31 drifted by hundreds of rows across two rebuilds with nothing watching them --
+    which is the failure this whole file exists to prevent.
+    """
+    d = DC + r"\outputs\build\deliverables"
+    rd = lambda f: pd.read_stata(f"{d}\\{f}.dta", convert_categoricals=False)
+
+    missing = [f for f in ("nsu_reference_set", "outcome2_lookup",
+                           "outcome2_lookup_noinflation", "outcome2_lookup_heteroblind",
+                           "psps_grams", "psps_grams_heteroblind")
+               if "d_thin" not in rd(f).columns]
+    check("d_thin ships on every deliverable",
+          "implicit_assumptions.md / A3, data_dictionary.md",
+          "present on all 6",
+          "present on all 6" if not missing else f"MISSING from {', '.join(missing)}",
+          "the flag is the whole apparatus for thinness; a file without it forces a"
+          " reader to guess which count to threshold")
+
+    ref, lk = rd("nsu_reference_set"), rd("outcome2_lookup")
+    pg = rd("psps_grams")
+    check("d_thin counts, by deliverable",
+          "implicit_assumptions.md / A3 table",
+          "O1 434/2,490 | lookup 1,162/3,172 | psps_grams 7,077/34,893",
+          f"O1 {int(ref.d_thin.sum()):,}/{len(ref):,}"
+          f" | lookup {int((lk.d_thin == 1).sum()):,}/{int(lk.d_thin.notna().sum()):,}"
+          f" | psps_grams {int((pg.d_thin == 1).sum()):,}"
+          f"/{int(pg.d_thin.notna().sum()):,}",
+          "Outcome 2's lookup reads twice as thin as Outcome 1 because it publishes one"
+          " row per price point, not one per cell x size -- a grain difference, not"
+          " weaker evidence")
+
+    # The hetero-blind pair is gated at every rung and has no L0, so nothing below THIN
+    # can reach it. Stated in A3 as "0 by construction"; if that ever stops holding, the
+    # blind variant has quietly become something else.
+    hb, gb = rd("outcome2_lookup_heteroblind"), rd("psps_grams_heteroblind")
+    check("the hetero-blind pair carries no thin row",
+          "implicit_assumptions.md / A3",
+          "0 and 0",
+          f"{int((hb.d_thin == 1).sum())} and {int((gb.d_thin == 1).sum())}",
+          "this is what the blind variant IS: no published value rests on fewer than"
+          " THIN weighings, bought by ignoring the price/size match entirely")
+
+
 def main():
     head("INPUTS")
     prelim = pd.read_stata(PRELIM, convert_categoricals=False)
@@ -918,6 +969,7 @@ def main():
     head("BUILD HYGIENE")
     c_no_corrupt_source_files()
     c_reference_docs_row_totals()
+    c_d_thin_on_every_deliverable()
 
     head("CLAIMS ABOUT IDENTIFICATION AND VOCABULARY")
     c_harmonization_uniqueness(rest)

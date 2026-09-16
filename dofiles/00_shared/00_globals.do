@@ -195,6 +195,44 @@ program define def_fallback_level
 		3 "item x unit (regional)", replace
 end
 
+* ---- gen_d_thin ---------------------------------------------------------------
+* THE THIN FLAG, defined ONCE for every deliverable. Decided 2026-09-16 on #31.
+*
+* THE RULE IS: PUBLISH, NEVER SUBSTITUTE. A value resting on fewer than THIN weighings
+* is published and flagged in BOTH outcomes. Thinness does not send a row up the fallback
+* ladder and does not drop it. The ladder is for weights that are ABSENT, not for weights
+* that are FEW -- a single weighing of a `bilog' in one municipality is a noisy reading of
+* the right object, and the province median is a precise reading of a different one (#28
+* measures the same unit varying up to 6.7x between municipalities in one province).
+*
+* WHY IT IS A PROGRAM. It was published on nsu_reference_set alone, so a reader of
+* outcome2_lookup or psps_grams had to derive it from n_g themselves, with nothing saying
+* which count to use. Writing it out in each of the four producers would be four copies
+* free to drift -- the defect that gave the block reading three implementations. Called
+* with the name of whichever count stands behind the published value in that file:
+*
+*     gen_d_thin n_g            25_lookup.do, 30_fallback.do
+*     gen_d_thin n_g_used       31_psps_grams.do, and the blind pair
+*
+* MISSING, NOT ZERO, WHERE NOTHING IS PUBLISHED. An unusable price point and an
+* unconverted household have no count, and `n_g < 3' would read 0 there -- "not thin"
+* about a row that carries no value at all. Outcome 1 has no such rows, so this is the
+* one place the flag has to say more than `n_g < THIN'.
+capture program drop gen_d_thin
+program define gen_d_thin
+	args cnt
+	confirm numeric variable `cnt'
+	capture confirm variable d_thin
+	if !_rc {
+		di as error "gen_d_thin: d_thin already exists -- refusing to overwrite it"
+		exit 110
+	}
+	gen byte d_thin = `cnt' < ${THIN} if !missing(`cnt')
+	label var d_thin "1 = fewer than ${THIN} weighings behind the estimate; treat as uncertain"
+	assert d_thin == (`cnt' < ${THIN}) if !missing(`cnt')
+	assert missing(d_thin) if missing(`cnt')
+end
+
 * L3 IS REGIONAL, NOT NATIONAL, and the label said "national" until it was corrected.
 * The survey covers five provinces -- AKLAN, ANTIQUE, CAPIZ, ILOILO and NEGROS
 * OCCIDENTAL -- all of them Western Visayas (Region VI), with Guimaras the one Region VI

@@ -192,6 +192,12 @@ label var branch "1 conventional, 2 price-quantity, 3 size-based (see 08_branch.
 label var n_disputed      "weighings behind w_g where the two snap rules disagreed"
 label var n_uncertain     "weighings behind w_g that are disputed or anchor-flagged"
 label var share_uncertain "n_uncertain / n_g; 1 = nothing behind this weight went unquestioned"
+
+* THE THIN FLAG, on the count that stands behind w_g. Published rather than acted on:
+* a thin point is kept and marked, never sent up the ladder (#31, 2026-09-16). Missing on
+* an unusable point, which has no weight to be thin about. One definition, in 00_globals.
+gen_d_thin n_g
+
 def_hetero
 label values hetero_code hetero
 label define branchlbl 1 "conventional" 2 "price-quantity" 3 "size-based", replace
@@ -248,10 +254,12 @@ label var w_use "grams per NSU, NO inflation adjustment anywhere -- issue #11's 
 label var n_disputed      "weighings behind w_g where the two snap rules disagreed"
 label var n_uncertain     "weighings behind w_g that are disputed or anchor-flagged"
 label var share_uncertain "n_uncertain / n_g; 1 = nothing behind this weight went unquestioned"
+gen_d_thin n_g
 label values branch branchlbl
 compress
 sort `keyvars' branch group_id
 save "${bdeliv}\outcome2_lookup_noinflation", replace
+export delimited using "${bdeliv}\outcome2_lookup_noinflation.csv", replace
 
 qui count
 di as res _n "{hline 78}"
