@@ -198,7 +198,11 @@ flowchart LR
 
     subgraph T0["1 - WHERE EVERY ROW STARTS"]
         direction TB
-        Y["EVERY CLEANED WEIGHING<br/>11,334 weighings, forming 1,946 cases"]
+        P["EVERY PSPS FOOD CONSUMPTION ROW<br/>87,959 rows -- one per household,<br/>item, and way it was acquired"]
+        SU["IT REPORTS A STANDARD UNIT<br/>kilos, litres, a stated container size,<br/>or a gantang of rice. The name already<br/>gives the size, so no market survey<br/>is needed<br/>52,489 rows -- 60 percent"]:::alt
+        Y["IT REPORTS A LOCAL UNIT<br/>35,448 rows. These need a conversion<br/>factor, built from the 11,334<br/>market-survey weighings that form<br/>1,946 cases"]
+        P --> SU
+        P --> Y
     end
 
     subgraph T1["2 - HOW THE FIELD MEASURED THIS UNIT"]
@@ -243,25 +247,28 @@ flowchart LR
     Y --> H --> H2 --> H3 --> M1
     Y --> FB
     M3 --> OUT2
+    SU --> OUT2
 
+    click P "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#31-the-household-side" "3.1 The household side"
+    click SU "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#32-standard-units-the-60-that-never-touches-the-market-survey" "3.2 Standard units"
     click Y "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#stage-1--shared-cleaning-from-a-raw-weighing-to-a-clean-weight" "Stage 1 - shared cleaning"
-    click E "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
-    click F "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
-    click G "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
+    click E "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#34-the-three-branches" "3.3 The three branches"
+    click F "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#34-the-three-branches" "3.3 The three branches"
+    click G "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#34-the-three-branches" "3.3 The three branches"
     click H "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#a6-cases-conventional-in-one-market-and-sized-in-another" "Appendix A.6 - the 99 reclassified cases"
-    click E2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#32-the-price-ladder" "3.2 The price ladder"
-    click F2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
-    click G2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
+    click E2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-price-ladder" "3.2 The price ladder"
+    click F2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#34-the-three-branches" "3.3 The three branches"
+    click G2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#34-the-three-branches" "3.3 The three branches"
     click H2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#a6-cases-conventional-in-one-market-and-sized-in-another" "Appendix A.6 - the 99 reclassified cases"
-    click E3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
-    click F3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#34-inflation" "3.4 Inflation"
-    click G3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
+    click E3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#34-the-three-branches" "3.3 The three branches"
+    click F3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#35-inflation" "3.4 Inflation"
+    click G3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#34-the-three-branches" "3.3 The three branches"
     click H3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#a6-cases-conventional-in-one-market-and-sized-in-another" "Appendix A.6 - the 99 reclassified cases"
-    click M1 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#37-the-household-join" "3.7 The household join"
-    click M2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#37-the-household-join" "3.7 The household join"
-    click M3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#38-the-cap" "3.8 The cap"
-    click FB "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#36-the-fallback-ladder" "3.6 The fallback ladder"
-    click OUT2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#39-the-single-deliverable" "3.9 The single deliverable"
+    click M1 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#38-the-household-join" "3.7 The household join"
+    click M2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#38-the-household-join" "3.7 The household join"
+    click M3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#39-the-cap" "3.8 The cap"
+    click FB "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#37-the-fallback-ladder" "3.6 The fallback ladder"
+    click OUT2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#310-the-single-deliverable" "3.9 The single deliverable"
 ```
 
 **Four things the two diagrams make visible.**
@@ -697,7 +704,48 @@ exhaustive and mutually exclusive:
 value, not a faced price. The resulting factor is applied to every slot regardless (A10;
 assumption 1 below).
 
-## 3.2 The price ladder
+## 3.2 Standard units: the 60% that never touches the market survey
+
+**Decision: where the unit names its own size, convert from the name and do not look at the
+market survey at all.** A household reporting 2 kilos, 3 litres, or 4 one-litre bottles has
+already told us the quantity; a measured conversion factor would add noise, not information.
+
+*Universe: 87,959 household rows.* **52,489 of them — 59.7% — convert this way.** They carry
+no price point, no fallback rung, no cap, and none of the uncertainty columns, because there
+is no weighing behind them to have questioned. Every figure elsewhere in this document about
+conversion factors, thin evidence or borrowed weights describes the *other* 35,448 rows.
+
+**One entry in that table is a measurement, not a definition, and it is the largest single
+non-metric unit in PSPS.** A rice **gantang** (salop) is treated as a standard unit at
+**2,250 g**, covering **11,665 household rows** — about a third of what would otherwise be
+the market-survey conversion population.
+
+| | one gantang of rice |
+| :-- | :-- |
+| traditional figure | 3 litres, quoted at about 2.5 kg |
+| **this survey's own weighings** | **2,237.5 – 2,275 g**, over 7 municipalities and 28 weighings — a spread of **1.7%** |
+
+The traditional figure's *volume* half is solid and its *density* half is loose — 3 litres of
+milled rice is 2.25 kg at a bulk density of 0.75 kg/L and 2.5 kg at 0.83 — which is where the
+10% gap sits. A direct measurement of the object in the provinces concerned beats a rounded
+density, so 2,250 g is used.
+
+**This is the one unit where "conventional units are standard locally" actually holds.** That
+claim is falsified in general — camote tops `bundle` runs 95 g to 635 g across municipalities
+of one province, a 6.7× spread — and a 1.7% spread across seven municipalities is a different
+animal. It is what licenses a single sample-wide constant here and forbids one everywhere
+else. **Sample-wide, not national**: those seven municipalities are all in Western Visayas.
+
+**Two consequences worth knowing.**
+
+- **The two deliverables disagree slightly on rice, by construction.** Outcome 1 publishes
+  the measured 2,237.5–2,275 g for those seven cells; Outcome 2 converts at a flat 2,250 g
+  everywhere.
+- **`gantang` had been excluded from the market-survey population by an undocumented edit**
+  before this was written down, which silently removed a third of the population from every
+  figure about market-survey coverage. It is now a stated decision rather than a side effect.
+
+## 3.3 The price ladder
 
 **Decision: within a case, take the union of price points across weighed spellings, merge
 points within ₱20 single-linkage, and let a merged point take the mean of its members.**
@@ -736,7 +784,7 @@ full combination tables at both grains are in **Appendix C.1**.
 
 **The merge, the refusals and the one four-point case are in Appendix C.**
 
-## 3.3 The three branches
+## 3.4 The three branches
 
 Each is built independently and `25` appends them.
 
@@ -760,7 +808,7 @@ why $`(1+\pi)`$ lands on $`w_g`$ and never on $`p_g`$.
 
 The 99 reclassified cases are **never cut** into groups (A12, Appendix A.6).
 
-## 3.4 Inflation
+## 3.5 Inflation
 
 **Decision: restate the weight, on the price-quantity branch only.**
 
@@ -801,7 +849,7 @@ COICOP food CPI, anchor pair PSPS 2024m5 → MS 2026m4, 75 of 80 province × gro
 only. The bookkeeping argument for putting it on the weight rather than the price is in
 **Appendix D**.
 
-## 3.5 The lookup
+## 3.6 The lookup
 
 The deliverable is one row per **case × PSPS interview month × price point**, carrying the
 price per NSU and $`v_g`$.
@@ -823,7 +871,7 @@ value and carry missing). **The lookup reads twice as thin as Outcome 1 because 
 publishes one row per price point rather than one per cell × size** — a grain difference,
 not weaker evidence.
 
-## 3.6 The fallback ladder
+## 3.7 The fallback ladder
 
 **Decision: climb when a weight is ABSENT. Never climb because it is few.**
 
@@ -857,17 +905,30 @@ answer. A cell it never visited — the larger exposure — cannot be served by 
 table, so L2 and L3 are also written on their own keys and `28` climbs cell → province →
 regional. All three readings come from the same collapses, so they cannot disagree.
 
+**How accurate a borrowed weight is cannot be measured from this data, and that is not a
+gap that can be closed.** The natural test is leave-one-municipality-out: hold a
+municipality back, estimate from the rest of its province, and compare the prediction to
+what was actually weighed there. **That test can only run where the answer is known — on
+cells that do have their own weighings — and the cells the ladder actually serves are by
+construction the ones nobody weighed.** Using the first population's accuracy for the second
+assumes they behave alike, and there is a plausible reason they do not: a cell with no local
+weighing is more likely to hold a rarer unit in a thinner market, so borrowing may do worse
+there than any harness can show. **The gap is unquantified and should not be assumed small.**
+
+It is mitigated rather than resolved. No accuracy threshold is enforced; instead the rung and
+the weighing count ship with every borrowed weight so a reader can set their own cut, and a
+pool that cannot clear `THIN` is **refused outright rather than served weak**. On the current
+build that leaves **191 province pools and 70 regional pools** available to borrow from.
+
 **What ships on a fallback row is the rung and the count behind it, and deliberately
 nothing else.** An earlier design published four ray-fit statistics; they belonged to a
 fallback that borrowed a price–weight *slope*. This ladder borrows a **median weight** at a
 coarser grain, so there is no slope to qualify. Every column not shipped is one that would
 have implied a precision the estimator does not have.
 
-## 3.7 The household join
+## 3.8 The household join
 
-`27` converts the standard-unit rows from the unit's own name, with no market-survey input.
-`28` does the NSU join: **match the household to the nearest price point, tie on $`v`$,
-divide.**
+**Match the household to the nearest price point, tie on $`v`$, divide.**
 
 ```math
 g(h) = \arg\min_{g} \; \lvert\, p_h - p_g \,\rvert
@@ -895,7 +956,7 @@ are grams per NSU unit. What differs is *whose* unit: $`w_g`$ is grams in the
 hetero-group's unit as weighed at the market; $`\widehat{CF}_h`$ is grams in the
 household's unit, inferred from what it paid.
 
-## 3.8 The cap
+## 3.9 The cap
 
 **Decision: clamp the price ratio, not the output, at $`t = 5`$; keep the row and flag
 it.**
@@ -943,7 +1004,7 @@ fifth of the bottom price point" is more often a quantity misreport than a real 
 Where that is the pattern the flag is the useful output and the clamp is cosmetic. Two
 rejected alternatives are in **Appendix C.4**.
 
-## 3.9 The single deliverable
+## 3.10 The single deliverable
 
 `psps_grams.dta` / `.csv` appends the NSU rows and the standard-unit rows — they share 23
 columns and never overlap — and adds the 22 `conv_path == 3` rows that ship in neither, so
@@ -1194,6 +1255,32 @@ assumes the *quantity* schedule did not move at all.
    **What would settle it** is evidence independent of the field labels: the reference
    photographs the guidebook recommends.
 
+8. **A thin *price* is nobody's problem here, though a thin *weight* is.** *(all branches
+   that use a price — load-bearing, and deliberately one-sided)*
+
+   The conversion is $`\widehat{CF}_h = p_h \cdot w_g / p_g`$, so it is **exactly as
+   sensitive to the price as to the weight**: a factor-of-seven error in either moves a
+   household's grams by seven. This project counts, flags and falls back on the weighings
+   behind $`w_g`$ — `n_g`, `d_thin`, the whole L0→L3 ladder — and is **blind to how many
+   price observations stand behind $`p_g`$**. It does not read the price file's own
+   observation counts at all.
+
+   **The exposure is the same order as the one that is flagged.** 263 of 1,184
+   province-median price rows — **22.2%** — rest on a *single* price observation, against
+   the 20.3% of converted household rows carrying `d_thin`. Those prices are also the fat
+   tail: up to ₱6,000, against ₱930 for province medians built on more than one observation.
+
+   **The position is deliberate: this project reads the price file, it does not correct
+   it.** A price is the number a household faced, and how the price file arrived at it is
+   that file's business. Importing a price-side thinness measure would invite a fallback
+   rule for prices, and no such rule has been designed or agreed.
+
+   **What it does not excuse.** A thin price is the price file's. **Two different province
+   medians for one unit inside one province is ours**, and arises when merging two
+   spellings pools prices the price file had kept apart — ILOILO / POTOTAN ice cream is the
+   live case, where a ₱224 price resting on one observation folds together with a ₱32.50
+   price resting on four. Whether to undo that fold or assert against the shape is open.
+
 ---
 
 # Appendix A — exceptions in the shared cleaning
@@ -1227,6 +1314,16 @@ This is what catches a **contaminated pool** — where a whole cell shares one r
 error, the median encodes that error and a pool-based rule reproduces it faithfully. Two
 beer "case" rows reaching 1.2 million g and thirty-eight fresh-fish rows falling to 4–9 g
 are caught here.
+
+**One band of readings is assumed rather than checked.** A weight ticked *litres* at 10 or
+more is treated as already being millilitres — the same premise the grams rule uses.
+**67 rows sit in that band, ranging 35 to 7,680**, and every one of them is read as
+millilitres, so a genuine 10-litre reading there would be **silently divided by a
+thousand**. Nothing in the data distinguishes the two cases. The band is protected partly by
+accident: the mineral-water cell that held real litre readings was removed upstream by the
+non-unit exclusion. **Check the range, not just the count** — a stable count with a moved
+range is what this failure would look like, which is why the verification script prints
+both.
 
 ## A.3 The anchor snap and its referee ladder — retained, and deciding nothing
 
@@ -1344,11 +1441,21 @@ real density gap would show first — provides the precedent.
 the non-obvious decimal corrections should all be checked against the field photographs.
 Tracked on its own issue.
 
-After §1c, **no cell holds both dimensions**. `corrected_unit` is therefore no longer a
-*discriminating* key at cell grain — but it stays in the schema, because it is the only
-thing telling a reader whether a published `85` means grams or millilitres, and because 20
-of 212 province groups and 8 of 84 regional ones still hold both, since they pool
-municipalities that resolved differently.
+After this rule runs, **no cell holds both dimensions**. The dimension column is therefore
+no longer a *discriminating* key at cell grain — but it stays in the published schema,
+because it is the only thing telling a reader whether a published `85` means grams or
+millilitres, and because **20 of 212 province groups and 8 of 84 regional ones still hold
+both**, since they pool municipalities that resolved differently.
+
+**A household has no dimension of its own, so it inherits the cell's.** A PSPS household
+reporting "2 pieces of ice cream" says nothing about whether that is grams or millilitres,
+and something must be chosen. The rule is the sub-cell with more weighings behind it, with
+grams breaking a tie. At cell grain this now decides nothing — there is only one sub-cell to
+find — but it still binds at the province and regional rungs, where pooling municipalities
+re-mixes dimensions. **The choice moves a label and almost never a number**, because this
+project treats a millilitre and a gram as the same reading at the precision recorded. The
+reason to have a rule at all is that the alternative is row order, and row order is whatever
+the sort seed chose: determinism is the point, not accuracy.
 
 ## A.6 Cases conventional in one market and sized in another
 

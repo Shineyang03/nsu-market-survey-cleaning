@@ -760,8 +760,9 @@ cells that lack them. The gap is not quantified and should not be assumed small.
 Mitigated rather than resolved: no accuracy threshold is enforced. `fallback_level` and the
 weighing count at the rung used ship with every fallback weight so a reader can apply their own
 cut, and a pool that cannot clear `THIN` is refused outright rather than served weak. On the
-current build the province schedule offers 195 of 237 pools and the regional one 74 of 94; the
-rest are refused.
+current build the province schedule publishes **191** pools and the regional one **70**; pools
+that cannot clear `THIN` are absent rather than served weak. (This read 195 and 74 before the
+dual-dimension merge of 2026-09-15 and the rebuilds after it.)
 
 **Checked by:** nothing.
 
