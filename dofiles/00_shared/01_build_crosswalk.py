@@ -44,6 +44,9 @@ import pandas as pd, re, os, difflib
 from collections import defaultdict
 
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
+# Every external input the pipeline reads. Mirrors ${inputs} in 00_shared/00_globals.do,
+# which is the Stata side's single home for the same paths.
+INPUTS = BOX + r"\Data Cleaning\inputs"
 
 # ---- --outdir: build the crosswalk somewhere else, and touch nothing live ------------
 # The question this exists for is "would the harmonization differ if an upstream input
@@ -95,8 +98,7 @@ from nsu_fold_rule import (CELL_MIX, FOLD, FORCE_JUNK, GENERIC_CLEAN, GRP, KEEP_
 # Verified against the frozen reference crosswalk in reference/: 2,001 distinct tuples,
 # matching its 2,001 MS-source rows exactly, with nothing on either side of the
 # difference.
-_raw = pd.read_stata(BOX + r"\NSU Market Survey Launch\data"
-                           r"\PSPS NSU Market Survey Launch.dta",
+_raw = pd.read_stata(INPUTS + r"\PSPS NSU Market Survey Launch.dta",
                      convert_categoricals=False)
 ms_rows = sorted(set(zip(_raw.pull_province.map(ng), _raw.pull_municipal_city,
                          _raw.pull_item.map(ni), _raw.pull_nsu_unit.map(nz))))
@@ -168,7 +170,7 @@ def classify(P,C,I,U):
     return 1,'nonsensical','',f"no MS referent for item ({src}); cell has {sorted(cell)[:4]}",''
 
 # ================= diagnose price-only cases =================
-pr=pd.read_csv(BOX+r'\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv', dtype=str).rename(columns={'Unit_lbl':'unit_lbl'})
+pr=pd.read_csv(INPUTS+r'\NSU_prices_from_Makayla.csv', dtype=str).rename(columns={'Unit_lbl':'unit_lbl'})
 pr.province=pr.province.map(ng); pr.pull_municipal_city=pr.pull_municipal_city.map(ng); pr.cons_name=pr.cons_name.map(ni); pr.unit_lbl=pr.unit_lbl.map(nz)
 for c in ['mn_item_unit_pairs','pn_item_unit_pairs']: pr[c]=pd.to_numeric(pr[c],errors='coerce')
 mn_map=pr.groupby(['province','pull_municipal_city','cons_name','unit_lbl'])['mn_item_unit_pairs'].max().to_dict()

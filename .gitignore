@@ -18,6 +18,17 @@ Desktop.ini
 # Data files stay in Box, not git
 *.dta
 
+# The two inputs that are not ours to publish. Everything else in inputs/ IS tracked, so
+# a clone carries the CPI panel's sources and can rebuild everything downstream of the
+# crosswalk; these two have to be placed by hand before a rebuild from raw.
+#   - the raw market survey is already covered by *.dta above, named here so the rule is
+#     legible rather than incidental
+#   - the price file comes from a collaborator's NSU_Price.R and carries PSPS price
+#     percentiles
+# README.md, "Inputs", says which globals point at these and what a clone can still run.
+inputs/PSPS NSU Market Survey Launch.dta
+inputs/NSU_prices*.csv
+
 # Box Drive sync tombstones, left behind when a file is deleted on the synced drive
 *0000000000*
 

@@ -49,7 +49,7 @@ import pandas as pd
 BOX = Path(r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey")
 DC = BOX / "Data Cleaning"
 RESTATED = DC / "outputs" / "build" / "intermediate" / "nsu_weighings_cpi.dta"
-PRICE = BOX / "NSU Market Survey Launch" / "data" / "NSU_prices_from_Makayla.csv"
+PRICE = DC / "inputs" / "NSU_prices_from_Makayla.csv"
 OUT = DC / "outputs" / "tables" / "case_lookup.xlsx"
 
 CASE = ["pull_province", "pull_municipal_city", "pull_item",

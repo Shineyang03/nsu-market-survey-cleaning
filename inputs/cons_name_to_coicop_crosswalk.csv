@@ -1,0 +1,96 @@
+﻿province,cons_name,item_group
+AKLAN,Beef,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+AKLAN,Beer,02.1.3.0 - Beer (ND)
+AKLAN,Cabbage,"01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND)"
+AKLAN,Camote,"01.1.7.5 - Tubers, plantains and cooking bananas (ND)"
+AKLAN,Camote tops,"01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND)"
+AKLAN,Carrot,"01.1.7.4 - Other vegetables, fresh or chilled (ND)"
+AKLAN,Chicken,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+AKLAN,"Crackers, Cookies, Buiscuits, Chips/Curls",01.1.1.3 - Bread and bakery products (ND)
+AKLAN,"Drinks at restaurant, hotel, café, or kiosk","11.1.1 - Restaurants, café and the like (S)"
+AKLAN,Fresh Fish,"01.1.3.1 - Fish, live, fresh, chilled or frozen (ND)"
+AKLAN,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)","01.1.8.6 - Ice, ice cream and sorbet (ND)"
+AKLAN,"Liquor (e.g, whisky, coconut wine)",02.1.1.0 - Spirits and liquors (ND)
+AKLAN,Loaf Bread,01.1.1.3 - Bread and bakery products (ND)
+AKLAN,Mango,01.1.6 - Fruits and nuts (ND)
+AKLAN,"Mineral or spring water, all drinking water sold in containers",01.2.5.0 - Water (ND)
+AKLAN,Pork,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+AKLAN,"Prawns, Lobster, shrimp","01.1.3.4 - Other seafood, live, fresh, chilled or frozen (ND)"
+AKLAN,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc)",01.1.2 - Meat and other parts of slaughtered land animals (ND)
+AKLAN,Rice,01.1.1.12 - Rice
+ANTIQUE,Beef,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+ANTIQUE,Beer,02.1.3.0 - Beer (ND)
+ANTIQUE,Cabbage,"01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND)"
+ANTIQUE,Camote,"01.1.7.5 - Tubers, plantains and cooking bananas (ND)"
+ANTIQUE,Camote tops,"01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND)"
+ANTIQUE,Carrot,"01.1.7.4 - Other vegetables, fresh or chilled (ND)"
+ANTIQUE,Chicken,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+ANTIQUE,"Crackers, Cookies, Buiscuits, Chips/Curls",01.1.1.3 - Bread and bakery products (ND)
+ANTIQUE,"Drinks at restaurant, hotel, café, or kiosk","11.1.1 - Restaurants, café and the like (S)"
+ANTIQUE,Fresh Fish,"01.1.3.1 - Fish, live, fresh, chilled or frozen (ND)"
+ANTIQUE,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)","01.1.8.6 - Ice, ice cream and sorbet (ND)"
+ANTIQUE,"Liquor (e.g, whisky, coconut wine)",02.1.1.0 - Spirits and liquors (ND)
+ANTIQUE,Loaf Bread,01.1.1.3 - Bread and bakery products (ND)
+ANTIQUE,Mango,01.1.6 - Fruits and nuts (ND)
+ANTIQUE,"Mineral or spring water, all drinking water sold in containers",01.2.5.0 - Water (ND)
+ANTIQUE,Pork,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+ANTIQUE,"Prawns, Lobster, shrimp","01.1.3.4 - Other seafood, live, fresh, chilled or frozen (ND)"
+ANTIQUE,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc)",01.1.2 - Meat and other parts of slaughtered land animals (ND)
+ANTIQUE,Rice,01.1.1.12 - Rice
+CAPIZ,Beef,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+CAPIZ,Beer,02.1.3.0 - Beer (ND)
+CAPIZ,Cabbage,"01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND)"
+CAPIZ,Camote,"01.1.7.5 - Tubers, plantains and cooking bananas (ND)"
+CAPIZ,Camote tops,"01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND)"
+CAPIZ,Carrot,"01.1.7.4 - Other vegetables, fresh or chilled (ND)"
+CAPIZ,Chicken,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+CAPIZ,"Crackers, Cookies, Buiscuits, Chips/Curls",01.1.1.3 - Bread and bakery products (ND)
+CAPIZ,"Drinks at restaurant, hotel, café, or kiosk","11.1.1 - Restaurants, café and the like (S)"
+CAPIZ,Fresh Fish,"01.1.3.1 - Fish, live, fresh, chilled or frozen (ND)"
+CAPIZ,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)","01.1.8.6 - Ice, ice cream and sorbet (ND)"
+CAPIZ,"Liquor (e.g, whisky, coconut wine)",02.1.1.0 - Spirits and liquors (ND)
+CAPIZ,Loaf Bread,01.1.1.3 - Bread and bakery products (ND)
+CAPIZ,Mango,01.1.6 - Fruits and nuts (ND)
+CAPIZ,"Mineral or spring water, all drinking water sold in containers",01.2.5.0 - Water (ND)
+CAPIZ,Pork,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+CAPIZ,"Prawns, Lobster, shrimp","01.1.3.4 - Other seafood, live, fresh, chilled or frozen (ND)"
+CAPIZ,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc)",01.1.2 - Meat and other parts of slaughtered land animals (ND)
+CAPIZ,Rice,01.1.1.12 - Rice
+ILOILO,Beef,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+ILOILO,Beer,02.1.3.0 - Beer (ND)
+ILOILO,Cabbage,"01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND)"
+ILOILO,Camote,"01.1.7.5 - Tubers, plantains and cooking bananas (ND)"
+ILOILO,Camote tops,"01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND)"
+ILOILO,Carrot,"01.1.7.4 - Other vegetables, fresh or chilled (ND)"
+ILOILO,Chicken,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+ILOILO,"Crackers, Cookies, Buiscuits, Chips/Curls",01.1.1.3 - Bread and bakery products (ND)
+ILOILO,"Drinks at restaurant, hotel, café, or kiosk","11.1.1 - Restaurants, café and the like (S)"
+ILOILO,Fresh Fish,"01.1.3.1 - Fish, live, fresh, chilled or frozen (ND)"
+ILOILO,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)","01.1.8 - Sugar, confectionery and desserts (ND)"
+ILOILO,"Liquor (e.g, whisky, coconut wine)",02.1.1.0 - Spirits and liquors (ND)
+ILOILO,Loaf Bread,01.1.1.3 - Bread and bakery products (ND)
+ILOILO,Mango,01.1.6 - Fruits and nuts (ND)
+ILOILO,"Mineral or spring water, all drinking water sold in containers",01.2.5.0 - Water (ND)
+ILOILO,Pork,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+ILOILO,"Prawns, Lobster, shrimp","01.1.3.4 - Other seafood, live, fresh, chilled or frozen (ND)"
+ILOILO,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc)",01.1.2 - Meat and other parts of slaughtered land animals (ND)
+ILOILO,Rice,01.1.1.12 - Rice
+NEGROS OCCIDENTAL,Beef,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+NEGROS OCCIDENTAL,Beer,02.1.3.0 - Beer (ND)
+NEGROS OCCIDENTAL,Cabbage,"01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND)"
+NEGROS OCCIDENTAL,Camote,"01.1.7.5 - Tubers, plantains and cooking bananas (ND)"
+NEGROS OCCIDENTAL,Camote tops,"01.1.7.1 - Leafy or stem vegetables, fresh or chilled (ND)"
+NEGROS OCCIDENTAL,Carrot,"01.1.7.4 - Other vegetables, fresh or chilled (ND)"
+NEGROS OCCIDENTAL,Chicken,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+NEGROS OCCIDENTAL,"Crackers, Cookies, Buiscuits, Chips/Curls",01.1.1.3 - Bread and bakery products (ND)
+NEGROS OCCIDENTAL,"Drinks at restaurant, hotel, café, or kiosk","11.1.1 - Restaurants, café and the like (S)"
+NEGROS OCCIDENTAL,Fresh Fish,"01.1.3.1 - Fish, live, fresh, chilled or frozen (ND)"
+NEGROS OCCIDENTAL,"Ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)","01.1.8.6 - Ice, ice cream and sorbet (ND)"
+NEGROS OCCIDENTAL,"Liquor (e.g, whisky, coconut wine)",02.1.1.0 - Spirits and liquors (ND)
+NEGROS OCCIDENTAL,Loaf Bread,01.1.1.3 - Bread and bakery products (ND)
+NEGROS OCCIDENTAL,Mango,01.1.6 - Fruits and nuts (ND)
+NEGROS OCCIDENTAL,"Mineral or spring water, all drinking water sold in containers",01.2.5.0 - Water (ND)
+NEGROS OCCIDENTAL,Pork,"01.1.2.2 - Meat, fresh, chilled or frozen (ND)"
+NEGROS OCCIDENTAL,"Prawns, Lobster, shrimp","01.1.3.4 - Other seafood, live, fresh, chilled or frozen (ND)"
+NEGROS OCCIDENTAL,"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc)",01.1.2 - Meat and other parts of slaughtered land animals (ND)
+NEGROS OCCIDENTAL,Rice,01.1.1.12 - Rice

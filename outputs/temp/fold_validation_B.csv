@@ -2,6 +2,6 @@ item,harm_A,harm_B,verdict,p,size_ctrl_ratio,n_strata,med_A_med_g,med_B_med_g
 chicken,bilog,pieces or units,DIFFER,4.2921905049038859e-15,3.6800000000000002,9,1045,502
 "preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,pieces or units,insufficient,,1,2,250,225
 camote,bilog,binilog,DIFFER,.0043391015666818626,1.6100000000000001,3,180,150
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,pack,DIFFER,.00010525970647927199,.12,3,65,
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,pack,DIFFER,.00045917508839010056,.46999999999999997,2,65,
 "crackers, cookies, buiscuits, chips/curls",putos,pack,DIFFER,.000038221286734717518,.39000000000000001,6,78,135
 camote tops,bundle,bugkos,DIFFER,.011336670741485833,1.25,7,640,302

@@ -68,10 +68,8 @@ MANIFEST = DC / "outputs" / "tables" / "build_manifest.json"
 # Hand-maintained inputs and headline outputs. Inputs are things a human edits or a
 # collaborator supplies; outputs are what the project publishes or the next step consumes.
 INPUTS = {
-    "raw market survey": BOX / "NSU Market Survey Launch" / "data"
-                             / "PSPS NSU Market Survey Launch.dta",
-    "price file (from the R script)": BOX / "NSU Market Survey Launch" / "data"
-                                          / "NSU_prices_from_Makayla.csv",
+    "raw market survey": DC / "inputs" / "PSPS NSU Market Survey Launch.dta",
+    "price file (from the R script)": DC / "inputs" / "NSU_prices_from_Makayla.csv",
     "official translation groups": DC / "outputs" / "tables"
                                       / "price_ms_unit_harmonization_crosswalk.xlsx",
     "hand rename": DC / "outputs" / "tables" / "nsu_rename_crosswalk.xlsx",

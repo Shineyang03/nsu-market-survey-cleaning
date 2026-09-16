@@ -52,8 +52,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "00_shared"))
 from nsu_normalize import nz, ni, ng
 
-SRC = (Path(r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel"
-             r"\14 NSU Market Survey\NSU Market Survey Launch\data")
+SRC = (Path(__file__).resolve().parents[2] / "inputs"
        / "NSU_prices_from_Makayla.csv")
 QUARTILE = {"mp25_price", "mp50_price", "mp75_price"}
 

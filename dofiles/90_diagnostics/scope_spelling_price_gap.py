@@ -70,7 +70,7 @@ DC = str(_HERE.parents[2])
 OUT = DC + r"\outputs\tables"
 
 XW = OUT + r"\master_nsu_rename.csv"
-PRICE = BOX + r"\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
+PRICE = DC + r"\inputs\NSU_prices_from_Makayla.csv"
 MS = DC + r"\outputs\build\intermediate\nsu_weighings_cpi.dta"
 
 KEY = ["province", "pull_municipal_city", "cons_name"]

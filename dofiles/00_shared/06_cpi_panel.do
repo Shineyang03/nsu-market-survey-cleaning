@@ -35,8 +35,8 @@
 * CALLED BY   nothing. Run it on its own, from the dofiles/ folder:
 *     "C:\Program Files\StataNow19\StataSE-64.exe" -e do 00_shared\06_cpi_panel.do
 *
-* READS   NSU Market Survey Launch\data\fp_cpi_byprov_byitem_psa_2023_26.csv
-*         NSU Market Survey Launch\data\cons_name_to_coicop_crosswalk.csv
+* READS   ${cpifile}   inputs\fp_cpi_byprov_byitem_psa_2023_26.csv
+*         ${cwfile}    inputs\cons_name_to_coicop_crosswalk.csv
 *
 ********************************************************************************
 * FOUR CONVENTIONS THAT LOOK LIKE FUSS AND ARE NOT
@@ -94,11 +94,13 @@ set more off
 do "00_shared/00_globals.do"
 
 * ---- where things live --------------------------------------------------------
-global cpifile "${root}\NSU Market Survey Launch\data\fp_cpi_byprov_byitem_psa_2023_26.csv"
-global cwfile  "${root}\NSU Market Survey Launch\data\cons_name_to_coicop_crosswalk.csv"
+* ${cpifile} and ${cwfile} are defined in 00_globals.do, with every other input path.
+* They were defined here until the inputs moved into the project folder, which meant
+* this step's two inputs were the only ones a reader could not find by opening the
+* globals.
 
 * Spec section 3.1 pins the vintage by hash. Three files with this stem sit in
-* that folder and they differ by up to 930 rows, so the hash is the only thing
+* ${inputs} and they differ by up to 930 rows, so the hash is the only thing
 * that says which one was read.
 global cpisha  "62e938ef119b91dd0e9d5b6badff4eeb17108151d921591dcbfabec9cba0a4be"
 

@@ -43,8 +43,29 @@ global proj    "${root}\Data Cleaning"
 global dofiles "${proj}\dofiles"
 
 * ---- raw inputs ---------------------------------------------------------------
-global data      "${root}\NSU Market Survey Launch\data\PSPS NSU Market Survey Launch.dta"
-global pricedata "${root}\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
+* EVERY external file the build reads lives in ${inputs}, and every path to one is
+* defined HERE.
+*
+* They used to sit beside the survey instrument in "NSU Market Survey Launch\data",
+* one folder ABOVE the project root. That put them outside the repository, so a fresh
+* clone had the code and the documentation and none of the data they read, with no
+* single place to look for what was missing -- 06_cpi_panel.do defined two further
+* input paths of its own, and eleven diagnostics hardcoded the old folder. Moving them
+* in makes the project self-contained.
+*
+* TWO OF THE FIVE ARE GITIGNORED. The raw survey and the price file are not ours to
+* publish, so they are present on a build machine and absent from a clone; the CPI
+* panel's two inputs are tracked. .gitignore says which, and ../README.md says what a
+* reader without them can still run.
+global inputs "${proj}\inputs"
+
+global data      "${inputs}\PSPS NSU Market Survey Launch.dta"
+global pricedata "${inputs}\NSU_prices_from_Makayla.csv"
+
+* Read by 06_cpi_panel.do, which used to define both itself against ${root}. An input
+* path defined next to the step that reads it is an input path no other step can find.
+global cpifile "${inputs}\fp_cpi_byprov_byitem_psa_2023_26.csv"
+global cwfile  "${inputs}\cons_name_to_coicop_crosswalk.csv"
 
 * The PSPS household consumption file, for Outcome 2. Note 2_publication_data --
 * an earlier version of the extraction do-file read 3_publication_data, which does

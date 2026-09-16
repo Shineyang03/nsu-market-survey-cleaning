@@ -38,8 +38,8 @@ import pandas as pd
 
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey"
 DC = BOX + r"\Data Cleaning"
-RAW = BOX + r"\NSU Market Survey Launch\data\PSPS NSU Market Survey Launch.dta"
-PRICE = BOX + r"\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv"
+RAW = DC + r"\inputs\PSPS NSU Market Survey Launch.dta"
+PRICE = DC + r"\inputs\NSU_prices_from_Makayla.csv"
 RESTATED = DC + r"\outputs\build\intermediate\nsu_weighings_cpi.dta"
 XW = DC + r"\outputs\tables\master_nsu_rename.csv"
 OUT = DC + r"\outputs\tables"

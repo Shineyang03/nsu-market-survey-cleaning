@@ -59,7 +59,7 @@ pd.set_option("display.max_columns", None)
 # -----------------------------------------------------------------------------
 HERE = Path(__file__).resolve().parent          # dofiles/90_diagnostics
 ROOT = HERE.parent.parent                       # "Data Cleaning"
-RAW_PATH = ROOT.parent / "NSU Market Survey Launch" / "data" / "PSPS NSU Market Survey Launch.dta"
+RAW_PATH = ROOT / "inputs" / "PSPS NSU Market Survey Launch.dta"
 CLEAN_PATH = ROOT / "outputs" / "build" / "intermediate" / "nsu_data_master.dta"
 
 OUT_DIR = ROOT / "outputs" / "build" / "summary"

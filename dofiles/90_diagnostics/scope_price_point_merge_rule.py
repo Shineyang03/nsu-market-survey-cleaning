@@ -103,7 +103,7 @@ def main():
     for c, f in [("province", ng), ("pull_municipal_city", ng), ("cons_name", ni),
                  ("pull_nsu_unit", nz), ("harmonized_nsu_unit", nz)]:
         xw[c] = xw[c].map(f)
-    pr = pd.read_csv(BOX + r"\NSU Market Survey Launch\data\NSU_prices_from_Makayla.csv",
+    pr = pd.read_csv(DC + r"\inputs\NSU_prices_from_Makayla.csv",
                      encoding="utf-8-sig", dtype=str)
     pr["prov"] = pr.province.map(ng); pr["mun"] = pr.pull_municipal_city.map(ng)
     pr["item"] = pr.cons_name.map(ni); pr["raw"] = pr.Unit_lbl.map(nz)

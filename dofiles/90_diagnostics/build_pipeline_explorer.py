@@ -17,8 +17,8 @@ A spreadsheet is the wrong shape for either question -- both are about a PATH
 through stages, which is what a Sankey diagram plus a per-row drill-down are for.
 
 WHAT THIS READS (build outputs only -- nothing here is written by this script)
-  raw MS            NSU Market Survey Launch/data/PSPS NSU Market Survey Launch.dta
-  price file        NSU Market Survey Launch/data/NSU_prices_from_Makayla.csv
+  raw MS            Data Cleaning/inputs/PSPS NSU Market Survey Launch.dta
+  price file        Data Cleaning/inputs/NSU_prices_from_Makayla.csv
   arrival stage      outputs/build/intermediate/prelim_nsu_data.dta
   weight/unit stage   outputs/build/intermediate/standard_weight_unit_correction.dta
   restated stage     outputs/build/intermediate/nsu_weighings_cpi.dta
@@ -278,10 +278,10 @@ def stata_pctile(values, p):
 
 BOX = Path(r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey")
 DC = BOX / "Data Cleaning"
-LAUNCH = BOX / "NSU Market Survey Launch"
+# The raw inputs moved into Data Cleaning/inputs; nothing here reads the launch folder.
 
-RAW_PATH = LAUNCH / "data" / "PSPS NSU Market Survey Launch.dta"
-PRICE_PATH = LAUNCH / "data" / "NSU_prices_from_Makayla.csv"
+RAW_PATH = DC / "inputs" / "PSPS NSU Market Survey Launch.dta"
+PRICE_PATH = DC / "inputs" / "NSU_prices_from_Makayla.csv"
 PRELIM_PATH = DC / "outputs" / "build" / "intermediate" / "prelim_nsu_data.dta"
 WTUNIT_PATH = DC / "outputs" / "build" / "intermediate" / "standard_weight_unit_correction.dta"
 RESTATED_PATH = DC / "outputs" / "build" / "intermediate" / "nsu_weighings_cpi.dta"
