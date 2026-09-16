@@ -1045,14 +1045,14 @@ inside a table whose purpose is to be reusable — see #35.
 Outcome 2 ladder look more questioned — but by how much depends on the aggregation, and the
 two readings differ enough that quoting one without naming it is misleading.
 
-Over the 34,916 converted household rows in `psps_converted_capped.dta`:
+Over the 34,893 converted household rows in `psps_converted_capped.dta`:
 
 | rung | rows | median `n_g_used` | mean of the row's `share_uncertain` | pooled `Σ nu_used / Σ n_g_used` |
 | :-- | --: | --: | --: | --: |
-| L0 the cell's own weighings | 28,961 | 4 | 0.120 | 0.121 |
-| L1 cell pooled across sizes | 110 | 6 | 0.080 | 0.103 |
-| L2 province × item × unit | 5,484 | 60 | 0.195 | 0.148 |
-| L3 item × unit regionally | 361 | 21 | 0.384 | 0.148 |
+| L0 the cell's own weighings | 28,889 | 4 | 0.069 | 0.071 |
+| L1 cell pooled across sizes | 118 | 5 | 0.033 | 0.042 |
+| **L2 province × item × unit** | 5,521 | 60 | **0.144** | **0.116** |
+| L3 item × unit regionally | 365 | 21 | 0.031 | 0.072 |
 
 **They answer different questions and both are correct.** The fourth column gives each
 *household row* equal weight and is the household-facing number: for a typical converted row
@@ -1060,11 +1060,18 @@ at that rung, this is the share of the weighings behind its own figure that was 
 The fifth pools every weighing used at the rung, so a few large clean pools dominate — and
 L2/L3 draw on large pools, median 60 and 21 weighings against L0's 4.
 
-**So the gradient is real but modest, not steep.** Per household row it looks like a
-three-fold rise from L0 to L3; pooled over weighings it is 0.121 to 0.148. A claim that the
-ladder's weakest rung is also dramatically the most questioned does not survive the second
-weighting, and should not be made. What does survive: the coarser rungs are not *cleaner*
-than L0, so borrowing buys coverage without buying better provenance.
+**There is no monotone gradient, and the earlier version of this entry claimed one.** It
+recorded a three-fold rise from L0 to L3 and concluded that the coarser rungs are never
+*cleaner* than L0. Neither statement survives on the current build: **L2 is about twice as
+questioned as L0 on either weighting, and L3 is slightly cleaner than L0 per household
+row** (0.031 against 0.069), because its 21-weighing pools happen to carry few questioned
+readings. Fallback depth is not a proxy for provenance, and the useful statement is the
+narrow one — **borrowing from the province pool is the exposure worth watching**.
+
+Most of the old gradient was `d_step1_flagged`, retired on 2026-09-14 because it flagged
+the anchor's confidence in a decade shift the anchor no longer performs. It loaded most
+heavily on the rungs drawing from the largest pools, which is exactly where the apparent
+gradient came from.
 
 **Checked by** nothing yet, which is why both columns are stated with their formulas rather
 than as bare figures — recompute them from `psps_converted_capped.dta` rather than trusting

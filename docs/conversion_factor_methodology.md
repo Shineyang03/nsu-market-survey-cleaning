@@ -122,171 +122,242 @@ which market type their vendor belonged to, so a market-type row could not be lo
 
 ### How a weight is obtained, end to end
 
-Read left to right. The pipeline is one linear chain of shared cleaning, which then splits
-by **outcome**, then by **branch**, then by **how the hetero-groups are decided** — and each
-lane ends in the weight that lane publishes.
+Read left to right. Each **column** asks one question, named in the band across the top of
+it. Each **row** is one kind of case, and follows the same four questions to the weight it
+ends up publishing. **Click any box to jump to the section that explains it.**
+
+The four kinds of case in column 2 are set by how the field measured that unit, and they do
+not overlap: 1,511 + 313 + 24 + 99 = 1,946 cases, plus one case that was measured two ways.
+
+**Outcome 1 — the reference set.**
 
 ```mermaid
 flowchart LR
-    RAW["RAW INPUT<br/>PSPS NSU Market Survey<br/>Launch.dta<br/>11,433 weighings"]
+    classDef out fill:#e6f5ea,stroke:#3d8a58,color:#10301c
 
-    subgraph SHARED["SHARED CLEANING - 00_shared - both outcomes"]
-        direction LR
-        K1["03a - BLOCK READING<br/>the typed weight in g/mL,<br/>decimal drift repaired"]
-        K2["03 - HARMONIZATION<br/>raw label to cleaned<br/>to harmonized_nsu_unit"]
-        K3["04 - MAGNITUDE<br/>publish the block reading<br/>11,402 of 11,421"]
-        K4["05 - HAND VERDICTS<br/>plus the g/mL dimension,<br/>by case majority"]
-        K5["07 - ATTRITION<br/>plus cpi_factor"]
-        K6["08 - BRANCH<br/>plus the uncertainty flags"]
-        K1 --> K2 --> K3 --> K4 --> K5 --> K6
+    subgraph S0["1 - WHERE EVERY ROW STARTS"]
+        direction TB
+        Z["EVERY CLEANED WEIGHING<br/>11,334 weighings, forming 1,946 cases<br/> <br/>A WEIGHING is one vendor's unit,<br/>put on a scale once<br/>A CASE is every weighing of one local<br/>unit name, one item, one municipality<br/>A GROUP is a split of a case by size"]
     end
 
-    W["ONE CLEAN WEIGHT<br/>PER WEIGHING<br/>11,334 weighings<br/>1,946 cases"]
-
-    RAW --> K1
-    K6 --> W
-
-    subgraph O1["OUTCOME 1 - 10_reference_set - grams by size"]
-        direction LR
-        A1["BRANCH<br/>size-based<br/>1,610 cases"] --> A2["HETERO-GROUPS<br/>k = how many of S/M/L<br/>the FIELD recorded"] --> A3["WEIGHT<br/>re-tercile the pooled weights<br/>into k groups; publish<br/>each group's median"]
-        B1["BRANCH<br/>price-quantity<br/>313 cases"] --> B2["HETERO-GROUPS<br/>read off the price rung:<br/>mp25=S mp50=M mp75=L,<br/>ANY median = M"] --> B3["WEIGHT<br/>median within<br/>case x label"]
-        C1["BRANCH<br/>conventional<br/>24 cases"] --> C2["HETERO-GROUPS<br/>none, size_ord = 0"] --> C3["WEIGHT<br/>the case median"]
-        D1["CARVE-OUT<br/>reclassified<br/>99 cases"] --> D2["HETERO-GROUPS<br/>one, NEVER terciled<br/>A12"] --> D3["WEIGHT<br/>the case median,<br/>published as MEDIUM"]
+    subgraph S1["2 - HOW THE FIELD MEASURED THIS UNIT"]
+        direction TB
+        A["SIZE-BASED<br/>the enumerator asked for a small,<br/>a medium and a large<br/>1,511 cases"]
+        B["PRICE-QUANTITY<br/>the enumerator spent a set peso amount<br/>and weighed what came back<br/>313 cases"]
+        C["CONVENTIONAL<br/>the unit is standard locally,<br/>so there is no size to resolve<br/>24 cases"]
+        D["CONVENTIONAL HERE ONLY<br/>standard in this market, but the same<br/>item and unit is sized elsewhere<br/>99 cases"]
     end
 
-    subgraph O2["OUTCOME 2 - 20_psps_retrofitting - grams per household"]
-        direction LR
-        E1["BRANCH<br/>size-based<br/>1,610 cases"] --> E2["HETERO-GROUPS<br/>n = CONVERTIBLE price points<br/>the price file holds<br/>1 / 2 / 3"] --> E3["WEIGHT<br/>cut the pooled weights into n parts,<br/>lowest weight to lowest price;<br/>group median. NO inflation"]
-        F1["BRANCH<br/>price-quantity<br/>313 cases"] --> F2["HETERO-GROUPS<br/>every distinct pull_price<br/>is its own group.<br/>No merge"] --> F3["WEIGHT<br/>what that peso amount bought,<br/>restated to the household month:<br/>w_g x 1+pi"]
-        G1["BRANCH<br/>conventional<br/>24 cases"] --> G2["HETERO-GROUPS<br/>none"] --> G3["WEIGHT<br/>the case median"]
-        H1["CARVE-OUT<br/>reclassified<br/>99 cases"] --> H2["HETERO-GROUPS<br/>one, NEVER terciled<br/>A12"] --> H3["WEIGHT<br/>case median, matched to the<br/>mp50 or municipality median"]
+    subgraph S2["3 - HOW MANY SIZES THE CASE PUBLISHES"]
+        direction TB
+        A2["As many as the field recorded size<br/>labels for -- three, two, or one"]
+        B2["One per price level printed on the form.<br/>Low, middle and high become small,<br/>medium and large; a lone median<br/>becomes medium"]
+        C2["One. There is no size to resolve"]
+        D2["One, always. These cases are<br/>never split by size"]
     end
 
-    subgraph APPLY["APPLYING IT TO A HOUSEHOLD - 28, 29"]
-        direction LR
-        X1["MATCH<br/>nearest price point;<br/>ties go to the higher v_g<br/>28,889 rows"] --> X2["DIVIDE<br/>CF_h = p_h / v_g"]
-        Y1["NO USABLE WEIGHT IN THE CELL<br/>FALLBACK LADDER - 30<br/>L1 pooled, L2 province,<br/>L3 regional, else refuse<br/>6,004 borrowed, 555 refused"] --> Y2["DIVIDE at the borrowed weight.<br/>The household's own price<br/>is NOT used"]
-        X2 --> X3["CAP - 29<br/>clamp p_h / p_g to 1/5 .. 5<br/>1,418 rows flagged d_cap"]
-        Y2 --> X3
+    subgraph S3["4 - WHICH WEIGHT IS PUBLISHED"]
+        direction TB
+        A3["Pool the case's weighings, cut them into<br/>that many equal parts by weight, and<br/>publish the middle value of each part"]
+        B3["Publish the middle value of the<br/>weighings bought at each price level"]
+        C3["Publish the middle value<br/>of the whole case"]
+        D3["Publish the middle value of the whole<br/>case, and label it medium"]
     end
 
-    W --> A1
-    W --> B1
-    W --> C1
-    W --> D1
-    W --> E1
-    W --> F1
-    W --> G1
-    W --> H1
+    OUT["THE REFERENCE SET<br/>2,490 rows<br/>grams by size, per case"]:::out
 
-    A3 --> OUT1
-    B3 --> OUT1
-    C3 --> OUT1
-    D3 --> OUT1
+    Z --> A --> A2 --> A3 --> OUT
+    Z --> B --> B2 --> B3 --> OUT
+    Z --> C --> C2 --> C3 --> OUT
+    Z --> D --> D2 --> D3 --> OUT
 
-    E3 --> X1
-    F3 --> X1
-    G3 --> X1
-    H3 --> X1
-
-    W --> Y1
-
-    X3 --> OUT2
-
-    OUT1["nsu_reference_set<br/>2,490 rows<br/>grams by size"]
-    OUT2["psps_grams<br/>87,959 rows<br/>grams per household row"]
+    click Z "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#stage-1--shared-cleaning-from-a-raw-weighing-to-a-clean-weight" "Stage 1 - shared cleaning"
+    click A "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#14-attrition-and-how-each-case-is-routed" "How a case is routed"
+    click B "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#14-attrition-and-how-each-case-is-routed" "How a case is routed"
+    click C "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#14-attrition-and-how-each-case-is-routed" "How a case is routed"
+    click D "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#a6-cases-conventional-in-one-market-and-sized-in-another" "Appendix A.6 - the 99 reclassified cases"
+    click A2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#22-how-many-sizes-a-case-gets" "2.2 How many sizes a case gets"
+    click B2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#22-how-many-sizes-a-case-gets" "2.2 How many sizes a case gets"
+    click C2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#22-how-many-sizes-a-case-gets" "2.2 How many sizes a case gets"
+    click D2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#a6-cases-conventional-in-one-market-and-sized-in-another" "Appendix A.6 - the 99 reclassified cases"
+    click A3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#21-the-decision-re-tercile-do-not-trust-the-field-label" "2.1 Why the sizes are re-cut"
+    click B3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#what-medium-means-here" "What medium means here"
+    click C3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#24-what-the-published-file-contains" "2.4 What the published file contains"
+    click D3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#a6-cases-conventional-in-one-market-and-sized-in-another" "Appendix A.6 - the 99 reclassified cases"
+    click OUT "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#24-what-the-published-file-contains" "2.4 What the published file contains"
 ```
 
-**Four things the lanes make visible.**
+**Outcome 2 — household grams.** Columns 2 to 4 ask the same three questions of the same
+case, and answer them differently, because the groups are decided by the prices on file
+rather than by the field's size labels.
 
-- **The two outcomes read the same weights and cut them on different evidence** — Outcome 1
-  on the field's size labels, Outcome 2 on the price file's point structure. Neither counts
-  weighings. That is why the same case can yield three sizes in one and one weight in the
-  other.
-- **Inflation is a branch property, not a global step.** Only lane F carries $`(1+\pi)`$,
-  and it lands on the weight, never on a price, so every $`p_g`$ in the system stays PSPS
-  round.
-- **The hetero-group is a different observable in every lane** — a weight tercile, a price
-  rung, or nothing at all. Never assume it means "size".
-- **Only Outcome 2 has a fallback lane, and it is entered from the weighings, not from a
-  branch.** A household reaches it because its *cell* produced no usable weight, whatever
-  branch that cell would have been. Outcome 1 has no such lane: it stops where the
-  measurements stop, so a cell the market survey never visited is absent from it rather
-  than imputed.
+```mermaid
+flowchart LR
+    classDef out fill:#e6f5ea,stroke:#3d8a58,color:#10301c
+    classDef alt fill:#fbeee6,stroke:#b9762c,color:#3d2a11
 
-Two details the diagram cannot hold. A **province median is a property of the price, never
-of the output key** — every municipality in that province receives the same $`w_g`$ and
-$`p_g`$, but each still gets its own output row. And a **`unique_mun_price` point is
-excluded from the cut entirely**, so it receives no weight even when it sits between two
-surviving points, and a household matching it is refused (Appendix C.2).
+    subgraph T0["1 - WHERE EVERY ROW STARTS"]
+        direction TB
+        Y["EVERY CLEANED WEIGHING<br/>11,334 weighings, forming 1,946 cases"]
+    end
+
+    subgraph T1["2 - HOW THE FIELD MEASURED THIS UNIT"]
+        direction TB
+        E["SIZE-BASED<br/>1,511 cases"]
+        F["PRICE-QUANTITY<br/>313 cases"]
+        G["CONVENTIONAL<br/>24 cases"]
+        H["CONVENTIONAL HERE ONLY<br/>99 cases"]
+    end
+
+    subgraph T2["3 - HOW MANY PRICE GROUPS THE CASE SUPPORTS"]
+        direction TB
+        E2["As many price levels as have a weighing<br/>behind them -- one, two or three.<br/>Prices within 20 pesos of each other<br/>are treated as one level"]
+        F2["One per distinct peso amount the<br/>enumerator was sent to spend.<br/>Amounts are never merged: the<br/>money bought a specific quantity"]
+        G2["One"]
+        H2["One, always"]
+    end
+
+    subgraph T3["4 - WHICH WEIGHT STANDS BEHIND EACH GROUP"]
+        direction TB
+        E3["Pool the case's weighings and cut them<br/>into that many parts, lightest part to<br/>the cheapest price level.<br/>No inflation adjustment"]
+        F3["The weight that peso amount actually<br/>bought, scaled for price change between<br/>the market survey and the household's<br/>own interview month"]
+        G3["The middle value of the whole case"]
+        H3["The middle value of the whole case"]
+    end
+
+    subgraph T4["5 - TURNING THAT INTO ONE HOUSEHOLD'S GRAMS"]
+        direction TB
+        M1["MATCH the household to the price<br/>level nearest what it actually paid<br/>28,889 rows"]
+        M2["DIVIDE what it paid per unit by the<br/>group's pesos-per-gram. Paying more<br/>than the group's price yields<br/>proportionally more grams"]
+        M3["CAP the stretch at five times, up or<br/>down, and flag every row it binds on<br/>1,418 rows"]
+        FB["IF THE CASE HAS NO WEIGHT AT ALL,<br/>borrow one: first the same case pooled,<br/>then the province, then the region.<br/>The household's own price is then not<br/>used. 6,004 borrowed, 555 refused"]:::alt
+        M1 --> M2 --> M3
+        FB --> M3
+    end
+
+    OUT2["HOUSEHOLD GRAMS<br/>87,959 rows<br/>one per household, item and<br/>way it was acquired"]:::out
+
+    Y --> E --> E2 --> E3 --> M1
+    Y --> F --> F2 --> F3 --> M1
+    Y --> G --> G2 --> G3 --> M1
+    Y --> H --> H2 --> H3 --> M1
+    Y --> FB
+    M3 --> OUT2
+
+    click Y "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#stage-1--shared-cleaning-from-a-raw-weighing-to-a-clean-weight" "Stage 1 - shared cleaning"
+    click E "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
+    click F "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
+    click G "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
+    click H "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#a6-cases-conventional-in-one-market-and-sized-in-another" "Appendix A.6 - the 99 reclassified cases"
+    click E2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#32-the-price-ladder" "3.2 The price ladder"
+    click F2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
+    click G2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
+    click H2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#a6-cases-conventional-in-one-market-and-sized-in-another" "Appendix A.6 - the 99 reclassified cases"
+    click E3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
+    click F3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#34-inflation" "3.4 Inflation"
+    click G3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#33-the-three-branches" "3.3 The three branches"
+    click H3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#a6-cases-conventional-in-one-market-and-sized-in-another" "Appendix A.6 - the 99 reclassified cases"
+    click M1 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#37-the-household-join" "3.7 The household join"
+    click M2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#37-the-household-join" "3.7 The household join"
+    click M3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#38-the-cap" "3.8 The cap"
+    click FB "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#36-the-fallback-ladder" "3.6 The fallback ladder"
+    click OUT2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#39-the-single-deliverable" "3.9 The single deliverable"
+```
+
+**Four things the two diagrams make visible.**
+
+- **Column 2 is identical in both, and column 3 is not.** The same case, measured the same
+  way, is split into groups on different evidence — the field's size labels for the
+  reference set, the prices on file for household grams. **Neither counts weighings.** That
+  is why one case can publish three sizes in the reference set and rest on a single weight
+  for households.
+- **Inflation touches one row of one diagram.** Only the price-quantity row of Outcome 2
+  carries it, and it is applied to the weight, never to a price — so every price in the
+  system stays on the household's own footing.
+- **A "group" is a different thing in every row.** A third of a weight distribution, a
+  price level, or the whole case. Never read it as "size".
+- **Only Outcome 2 can borrow, and it borrows because a case has no weight at all — never
+  because it has few.** The reference set has no such path: it stops where the measurements
+  stop, so a place the market survey never visited is simply absent from it.
+
+Two details the diagrams cannot hold. Where a case's only price is a **province-wide
+median**, every municipality in that province receives the same weight and the same price,
+but each still gets its own output row — the province median is a property of the price,
+never of the output key. And a price level recorded **because it was unusually far from the
+others** is dropped from the cut entirely, so it gets no weight even when it sits between
+two surviving levels, and a household matching it is refused rather than converted
+([Appendix C.2](#c2-the-unique_mun_price-refusal)).
 
 ---
 
-# Stage 1 — shared cleaning (`dofiles/00_shared/`)
+# Stage 1 — shared cleaning: from a raw weighing to a clean weight
 
 Everything here runs before both outcomes. It turns a raw survey row into one clean,
 inflation-framed weight per weighing, on a pooling key that is comparable across vendors,
 markets and municipalities.
 
+*Built by `dofiles/00_shared/`.*
+
 **Universe at the end of this stage: 11,334 weighings over 1,946 cases.**
 
 ## What the field fixed, and what cleaning can change
 
-A **field** fact can only be recorded and worked around. A **desk** rule is ours to
-change. The order is load-bearing: the standard-quantity drop must precede the magnitude
-correction, and the name merge must follow key normalization.
+Column 1 is **fixed at collection** — cleaning can only record it and work around it.
+Column 2 is **ours to change**. **Click any box to jump to the section that explains it.**
 
 ```mermaid
-flowchart TB
-    subgraph FIELD["STAGE 0 - FIELD. Fixed at collection; cleaning only records it"]
+flowchart LR
+    classDef out fill:#e6f5ea,stroke:#3d8a58,color:#10301c
+
+    subgraph P1["1 - WHAT THE ENUMERATOR WROTE DOWN, AND CANNOT BE UNDONE"]
         direction TB
-        F1["Instrument fixed the weighing approach per item x NSU.<br/>weighing_approach - exactly one per case, verified"]
-        F2["Vendor and enumerator judged small / medium / large LOCALLY.<br/>No cross-market standard, so a small in one market<br/>can outweigh a large in another.<br/>item_nsu_hetero_type"]
-        F3["MP25/50/75 peso amounts were printed on the form<br/>from PSPS-round prices, so the money handed over<br/>was already PSPS-frame when it was spent."]
-        F4["NSU name written as free text.<br/>pull_nsu_unit - spelling, dialect and descriptor variation"]
-        F5["Scale read in whichever unit was handy.<br/>weight plus unit, where 1=kg, 2=g, 3=L.<br/>Order-of-magnitude slips enter here."]
-        F6["Some NSU names state a STANDARD quantity,<br/>e.g. 1/2 sack of rice (25kls.) - not an NSU at all"]
+        N1["WHAT CLEANING ACTS ON<br/> <br/>A LOCAL UNIT NAME, as free text, so spelling,<br/>dialect and added descriptions vary by market<br/> <br/>A NUMBER, AND A TICK saying whether it is<br/>kilograms, grams or litres. The two can<br/>contradict each other<br/> <br/>SOMETIMES A NAME THAT ALREADY STATES A<br/>QUANTITY, such as half a sack of rice, 25kg<br/>-- not a local unit at all"]
+        N4["WHAT PASSES STRAIGHT THROUGH<br/> <br/>A SIZE JUDGEMENT of small, medium or large,<br/>made against that one market, so a small in<br/>one place can outweigh a large in another<br/> <br/>SOMETIMES A PESO AMOUNT printed on the<br/>form, which the enumerator handed over<br/>before weighing whatever came back"]
     end
 
-    subgraph UP["STAGE 1 - UPSTREAM. NSU vocabulary, built once for BOTH sources"]
+    subgraph P2["2 - WHAT CLEANING DOES, IN THIS ORDER"]
         direction TB
-        U1["cleaned_nsu_unit: spelling and vocabulary map.<br/>Exact match, then descriptor-reduced, then fuzzy,<br/>then heuristic. Reference only - never pooled on."]
-        U2["harmonized_nsu_unit: the POOLING KEY.<br/>Translation-group fold, item-conditioned but<br/>cell-independent, minus separations that MS<br/>weights showed are different referents."]
-        U3["PRICE SIDE mapped onto the SAME key,<br/>so price-file NSU strings and MS NSU strings<br/>become joinable. Source flagged per case."]
-        U1 --> U2 --> U3
+        S1["READ THE NUMBER AS TYPED<br/>Convert kilograms to grams and litres to<br/>millilitres, and repair misplaced decimal points"]
+        S2["GIVE EVERY SPELLING OF A UNIT ONE NAME<br/>so the same unit pools across markets, and the<br/>price file and the weighings can be joined"]
+        S3["REMOVE LABELS THAT ARE NOT LOCAL UNITS<br/>before anything is pooled, so a stated standard<br/>quantity never contaminates a group of weighings"]
+        S4["SETTLE THE MAGNITUDE<br/>Publish the number as typed unless it cannot be a<br/>real reading for that item. 99.8 percent are<br/>published exactly as typed"]
+        S5["APPLY HAND DECISIONS, AND SETTLE WHETHER<br/>A CASE IS IN GRAMS OR MILLILITRES<br/>where different vendors recorded it both ways"]
+        S6["DROP WEIGHINGS WHOSE PRICE WAS NOT THE<br/>ONE HANDED OVER -- 99 of them, the only<br/>place in the pipeline they are removed"]
+        S1 --> S2 --> S3 --> S4 --> S5 --> S6
     end
 
-    subgraph DESK["STAGE 2 - DESK. 03_clean_ms.do, in this order"]
+    subgraph P3["3 - WHAT BOTH OUTCOMES THEN READ"]
         direction TB
-        D1["Parse comments into obs_type / item_nsu_hetero_type.<br/>BEFORE normalization - the comment strings are case-sensitive."]
-        D2["Normalize the merge keys, then merge the rename sheet.<br/>ASCII-drop, casefold, trim, collapse whitespace, uppercase geo.<br/>Same rule applied to both sides, so the merge must come second."]
-        D3["DROP the standard-quantity labels.<br/>Before the magnitude step, so they never pollute a pool."]
-        D4["Rebuild identifiers on harmonized_nsu_unit,<br/>not on the cleaned or raw label."]
-        D5["Canonicalize dimension, then fix magnitude.<br/>kg to g and L to mL, then the BLOCK READING is<br/>published unless it is impossible.<br/>corrected_weight, corrected_unit"]
-        D6["Resolve items recorded in BOTH mass and volume.<br/>One verdict per item; unverdicted items take<br/>their dimension from the case majority."]
-        D1 --> D2 --> D3 --> D4 --> D5 --> D6
+        W["ONE CLEAN WEIGHT PER WEIGHING<br/>11,334 weighings, forming 1,946 cases<br/> <br/>Each carries how the field measured it,<br/>whether it is grams or millilitres, and how<br/>much of the evidence behind it was questioned"]:::out
     end
 
-    subgraph PEND["STAGE 3 - BUILT. Sizes, and the price round"]
-        direction TB
-        P1["RE-TERCILE the sizes (Outcome 1).<br/>Replaces the field S/M/L labels with terciles of<br/>the pooled weight distribution within the case.<br/>10_reference_set/10_size_assignment.do"]
-        P2["Join pi on province x COICOP group x month pair,<br/>for the price-quantity branch only.<br/>24_inflate_to_psps_month.do"]
-    end
+    N1 --> S1
+    N4 --> W
+    S6 --> W
 
-    F4 --> U1
-    F6 --> D3
-    F5 --> D5
-    U3 --> D2
-    F1 --> D1
-    D6 --> P1
-    F2 --> P1
-    F3 --> P2
+    click N1 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#11-names-one-vocabulary-built-once-for-both-sources" "1.1 Names"
+    click N4 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#21-the-decision-re-tercile-do-not-trust-the-field-label" "2.1 Why the sizes are re-cut"
+    click S1 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#12-the-weight-dimension-then-magnitude" "1.2 The weight"
+    click S2 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#11-names-one-vocabulary-built-once-for-both-sources" "1.1 Names"
+    click S3 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#a1-non-nsu-labels-removed-before-anything-pools" "Appendix A.1"
+    click S4 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#12-the-weight-dimension-then-magnitude" "1.2 The weight"
+    click S5 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#13-dimension-grams-or-millilitres" "1.3 Grams or millilitres"
+    click S6 "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#14-attrition-and-how-each-case-is-routed" "1.4 Attrition and routing"
+    click W "https://github.com/Shineyang03/nsu-market-survey-cleaning/blob/main/docs/conversion_factor_methodology.md#14-attrition-and-how-each-case-is-routed" "1.4 Attrition and routing"
 ```
 
-**The size labels are the one field judgement cleaning overrides outright.** Everything
-else in the desk stage repairs a recording error or a naming inconsistency. Re-terciling
-discards a substantive field judgement, which is why it needs the guidebook citation it
-gets in Stage 2.
+**Two of the five field inputs pass straight through, and one of them is later
+overruled.** The peso amount and the size judgement are not cleaned at all — they are
+carried into the two outcomes as recorded. The **size judgement is then discarded and
+re-derived from the weights** in the reference set, which is the one substantive field
+judgement this pipeline overrides; everything in column 2 repairs a recording error or a
+naming inconsistency instead.
+
+**The order in column 2 is load-bearing, not presentational.** Reading the number as typed
+must come before the units are renamed, or the evidence used to test whether two spellings
+mean the same thing would already have been nudged toward agreeing. Removing the non-unit
+labels must come before the magnitude is settled, or a stated standard quantity sits in the
+pool of neighbours the magnitude is judged against.
 
 ## 1.1 Names: one vocabulary, built once for both sources
 
@@ -405,12 +476,15 @@ Some items were recorded in both, across different vendors in one case. One verd
 item resolves the verdicted items; the rest take the **case majority** at 1 g per mL.
 **Appendix A.5** has the rule, the counts and the open check against the field photos.
 
-## 1.4 Attrition, then `branch`
+## 1.4 Attrition, and how each case is routed
 
-`07_cpi_factor.do` drops the 98 price-quantity rows whose recorded price was not the price
-handed over, and builds `cpi_factor`. **It is the only place those rows are dropped and
-both outcomes depend on it.** `attrition_ledger.md` accounts for every row that does not
-reach a deliverable.
+`07_cpi_factor.do` drops the **99** price-quantity rows whose recorded price was not the
+price handed over — 72 where the vendor gave a replacement price and the case keeps a
+preloaded rung, 27 where the vendor gave no price at all — and builds `cpi_factor`. A
+further **22 vendor-priced rows are rescued** rather than dropped, where they were the
+case's only rung: losing a case entirely is worse than the problem the drop solves.
+**It is the only place those rows are dropped and both outcomes depend on it.**
+`attrition_ledger.md` accounts for every row that does not reach a deliverable.
 
 `08_branch.do` then derives **`branch`** and owns the three uncertainty flags both
 deliverables publish. *Universe: 11,334 weighings, 1,946 cases.* One case carries two
@@ -440,10 +514,12 @@ origin of every price-frame question in Outcome 2.
 
 ---
 
-# Stage 2 — Outcome 1, the reference set (`dofiles/10_reference_set/`)
+# Stage 2 — Outcome 1: the reference set
 
 **What it publishes: grams by size for each case.** A respondent reports 1 mango; the
 enumerator asks the size and logs the answer directly in grams.
+
+*Built by `dofiles/10_reference_set/`.*
 
 ## 2.1 The decision: re-tercile, do not trust the field label
 
@@ -589,12 +665,14 @@ Valladolid cases are in **Appendix B**.
 
 ---
 
-# Stage 3 — Outcome 2, PSPS retro-fitting (`dofiles/20_psps_retrofitting/`)
+# Stage 3 — Outcome 2: converting PSPS households
 
 **What it publishes: grams for every PSPS food consumption row**, with the reason where it
 cannot.
 
-## 3.1 The household side (`20a`)
+*Built by `dofiles/20_psps_retrofitting/`. Each section below names the step that owns it.*
+
+## 3.1 The household side
 
 *Universe: the PSPS consumption file. Unit of observation: household × item ×
 acquisition slot.* 245,051 raw rows → 129,094 food rows (`item_type == 1`) → **87,959**
@@ -619,7 +697,7 @@ exhaustive and mutually exclusive:
 value, not a faced price. The resulting factor is applied to every slot regardless (A10;
 assumption 1 below).
 
-## 3.2 The price ladder (`20`)
+## 3.2 The price ladder
 
 **Decision: within a case, take the union of price points across weighed spellings, merge
 points within ₱20 single-linkage, and let a merged point take the mean of its members.**
@@ -658,7 +736,7 @@ full combination tables at both grains are in **Appendix C.1**.
 
 **The merge, the refusals and the one four-point case are in Appendix C.**
 
-## 3.3 The three branches (`21`, `22`, `23`)
+## 3.3 The three branches
 
 Each is built independently and `25` appends them.
 
@@ -682,7 +760,7 @@ why $`(1+\pi)`$ lands on $`w_g`$ and never on $`p_g`$.
 
 The 99 reclassified cases are **never cut** into groups (A12, Appendix A.6).
 
-## 3.4 Inflation (`24`)
+## 3.4 Inflation
 
 **Decision: restate the weight, on the price-quantity branch only.**
 
@@ -723,7 +801,7 @@ COICOP food CPI, anchor pair PSPS 2024m5 → MS 2026m4, 75 of 80 province × gro
 only. The bookkeeping argument for putting it on the weight rather than the price is in
 **Appendix D**.
 
-## 3.5 The lookup (`25`)
+## 3.5 The lookup
 
 The deliverable is one row per **case × PSPS interview month × price point**, carrying the
 price per NSU and $`v_g`$.
@@ -745,7 +823,7 @@ value and carry missing). **The lookup reads twice as thin as Outcome 1 because 
 publishes one row per price point rather than one per cell × size** — a grain difference,
 not weaker evidence.
 
-## 3.6 The fallback ladder (`30`)
+## 3.6 The fallback ladder
 
 **Decision: climb when a weight is ABSENT. Never climb because it is few.**
 
@@ -785,7 +863,7 @@ fallback that borrowed a price–weight *slope*. This ladder borrows a **median 
 coarser grain, so there is no slope to qualify. Every column not shipped is one that would
 have implied a precision the estimator does not have.
 
-## 3.7 The household join (`27`, `28`)
+## 3.7 The household join
 
 `27` converts the standard-unit rows from the unit's own name, with no market-survey input.
 `28` does the NSU join: **match the household to the nearest price point, tie on $`v`$,
@@ -817,7 +895,7 @@ are grams per NSU unit. What differs is *whose* unit: $`w_g`$ is grams in the
 hetero-group's unit as weighed at the market; $`\widehat{CF}_h`$ is grams in the
 household's unit, inferred from what it paid.
 
-## 3.8 The cap (`29`)
+## 3.8 The cap
 
 **Decision: clamp the price ratio, not the output, at $`t = 5`$; keep the row and flag
 it.**
@@ -865,7 +943,7 @@ fifth of the bottom price point" is more often a quantity misreport than a real 
 Where that is the pattern the flag is the useful output and the clamp is cosmetic. Two
 rejected alternatives are in **Appendix C.4**.
 
-## 3.9 The single deliverable (`31`)
+## 3.9 The single deliverable
 
 `psps_grams.dta` / `.csv` appends the NSU rows and the standard-unit rows — they share 23
 columns and never overlap — and adds the 22 `conv_path == 3` rows that ship in neither, so
@@ -986,12 +1064,25 @@ pool inherits the uncertainty of the pool it got, not of its own cell. The ladde
 `nu_l0`…`nu_l3` and `30_fallback.do` picks `nu_used` in the same `replace` as `grams_used`,
 with an assertion per rung that the two came from the same place.
 
-**The coarser rungs are not cleaner than L0 — but name the aggregation before quoting a
-figure.** Averaging each household row's `share_uncertain` gives L0 0.120, L2 0.195, L3
-0.384. Pooling the weighings themselves (`Σ nu_used / Σ n_g_used`) gives 0.121, 0.148,
-0.148. They differ because L2 and L3 borrow from much larger pools — median 60 and 21
-weighings against L0's 4. Both are correct; A20 states both. What holds under either is the
-weaker claim: **borrowing buys coverage without buying better provenance.**
+**Only one borrowed rung is more questioned than L0, and it is not the one you would
+expect.** *Universe: 34,893 converted NSU household rows.*
+
+| rung | rows | median `n_g_used` | mean of the row's `share_uncertain` | pooled `Σ nu_used / Σ n_g_used` |
+| :-- | --: | --: | --: | --: |
+| L0 the cell's own weighings | 28,889 | 4 | 0.069 | 0.071 |
+| L1 cell pooled across sizes | 118 | 5 | 0.033 | 0.042 |
+| **L2 province × item × unit** | 5,521 | 60 | **0.144** | **0.116** |
+| L3 item × unit, regionally | 365 | 21 | 0.031 | 0.072 |
+
+**L2 is roughly twice as questioned as L0 on either reading. L3 is not** — it draws on
+21-weighing pools that happen to be clean, so the weakest rung by construction is not the
+most doubted one in practice. Do not read fallback depth as a proxy for provenance.
+
+**Name the aggregation before quoting a figure.** The two columns answer different
+questions and both are correct. The fourth gives each *household row* equal weight and is
+the household-facing number. The fifth pools every weighing used at the rung, so large
+clean pools dominate — which is why L3 moves from 0.031 to 0.072 between them. A20 states
+both.
 
 **Nothing is dropped or down-weighted.** These columns let a reader apply a tolerance; the
 build applies none. A20 says why the three kinds of doubt are not weighted against each
@@ -1259,7 +1350,7 @@ thing telling a reader whether a published `85` means grams or millilitres, and 
 of 212 province groups and 8 of 84 regional ones still hold both, since they pool
 municipalities that resolved differently.
 
-## A.6 `branch` vs `weighing_approach`: the 99 reclassified cases
+## A.6 Cases conventional in one market and sized in another
 
 A case that is conventional **in the field** but whose (item, harmonized unit) pair uses
 another approach elsewhere is processed as **size-based** — 99 cases, 388 weighings (issue

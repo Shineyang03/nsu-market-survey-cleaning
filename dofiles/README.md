@@ -226,7 +226,7 @@ already reads `${btemp}` or `${btables}` needed no edit at all.
 | `04_unit_snap.do` | magnitude correction — kg→g, L→mL, decimal slips. Merges `w_block` in rather than recomputing it |
 | `05_manual_corrections.do` | every hand-made weight/unit fix. §1–5 are one block per correction, each asserting its row count; **§6 applies the review ledger**, `reference/reviewed/snap_verdicts.csv`, which is where the bulk of the adjudicated decisions now live. See *Adjudicating a weight* below. |
 | `06_cpi_panel.do` | province × item-group × month CPI panel, plus the item crosswalk and the spec's validation report. Stata port of a retired Python step (`archive/06_cpi_panel.py`), verified against its output before the switch |
-| `07_cpi_factor.do` | drops 98 price-quantity rows whose recorded price was not the price handed over — 71 vendor-priced (a further 23 are rescued where they were the case's only rung) and 27 where the vendor gave no price at all. **The only place those rows are dropped, and both outcomes depend on it.** Builds `cpi_factor`. Output: `nsu_weighings_cpi.dta` |
+| `07_cpi_factor.do` | drops 99 price-quantity rows whose recorded price was not the price handed over — 72 vendor-priced (a further 22 are rescued where they were the case's only rung) and 27 where the vendor gave no price at all. **The only place those rows are dropped, and both outcomes depend on it.** Builds `cpi_factor`. Output: `nsu_weighings_cpi.dta`, 11,334 weighings |
 | `08_branch.do` | derives `branch`, the variable the build slices on. Equals `weighing_approach`, except a conventional case whose (item, harmonized unit) pair mixes approaches elsewhere becomes size-based — 99 cases, 388 weighings. Also sets `d_reclassified`, and **owns the three uncertainty flags** (`d_unusable`, `d_disputed`, `d_any_uncertain`) that both deliverables publish — a fourth, `d_step1_flagged`, was retired because it described the anchor's confidence in a decade shift the anchor no longer performs — see *The uncertainty is carried through* below. Wired into both masters. |
 
 **Two shared MODULES live in `00_shared/` alongside the steps.** Nothing runs them; they
@@ -328,6 +328,8 @@ crosswalk came from corrected weights — a loop, and the reason `nsu_fold_rule.
 forbidden from reading a build output. Measured: re-keying to the raw label moves **17 of
 11,335** corrected weights and 34 of 3,305 published rows, and scored against the typed
 number the two keyings split 9–7. So it breaks the loop without improving the weights.
+(That measurement predates several rebuilds; the restated file now holds 11,334 weighings.
+Re-run `measure_anchor_keying.do` before quoting the split.)
 
 **Steps 03 → 04 → 05 must stay in that order.** `04`'s anchor is a median over
 whatever rows it is given, so the exclusion in `03` has to happen first. Running it
@@ -350,10 +352,10 @@ later is what once turned a 10 L gallon into 10 mL.
 | household × item × slot rows | 87,959 |
 | already in a standard unit (`27`, #14) | 52,489 |
 | needing an NSU conversion | 35,448 |
-| **converted** | **34,916 (98.5%)** |
-| …at the matched price point | 28,961 |
-| …on a fallback rung | 5,955 (L1 110, L2 5,484, L3 361) |
-| refused | 532 — A11 spelling gap 304, unique price 117, nothing anywhere 111 |
+| **converted** | **34,893 (98.4%)** |
+| …at the matched price point | 28,889 |
+| …on a fallback rung | 6,004 (L1 118, L2 5,521, L3 365) |
+| refused | 555 — A11 spelling gap 304, unique price 148, nothing anywhere 103 |
 
 `26_psps_extract.do` was archived: it did vocabulary discovery — which NSU labels PSPS
 households use — that job is finished and now lives in the crosswalk, and it dropped
@@ -382,7 +384,7 @@ resolve.
 | `28_match_and_convert.do` | the household join: nearest point, tie on `v`, `CF_h`, `grams_h`. Climbs cell → province → regional for the households the price match cannot serve. **§6b** builds the hetero-blind counterfactual from the same rung tempfiles — `cf_h_blind`, `grams_h_blind`, `fallback_level_blind` — so no median is recomputed |
 | `29_cap.do` | clamps `p_h/p_g` to `[1/t, t]` and flags, `t = 5` (A18) |
 | `31_psps_grams.do` | **the single household-level deliverable.** Appends `psps_converted_capped.dta` (35,448 NSU rows) and `psps_standard_units.dta` (52,489 standard-unit rows) — they share 23 columns and do not overlap — and adds the 22 `conv_path == 3` rows (reach the crosswalk join, judged not an NSU at all) that ship in neither, so the row count reconciles to 20a's own 87,959, not to 87,937. Publishes `psps_grams.dta` and a labeled `psps_grams.csv`, and **§6b** the hetero-blind drop-in `psps_grams_heteroblind.dta`/`.csv`, where `grams_h` *is* the blind number so no column has to be renamed to run the counterfactual. The labeled-CSV writer is the `_labeled_csv` program, defined once and called for both |
-| `30_fallback.do` | the **weight ladder**, three ways. Per (cell × size): **L0** the cell's own rung → **L1** the cell pooled across sizes → **L2** province × item × unit → **L3** item × unit regionally → unconvertible. Per cell, for when the price match fails. And **L2 and L3 on their own keys**, which is the only reading that can serve a cell the market survey never visited — #30's actual population, one PSPS observation in six. Also publishes the cell-grain ladder as `outcome2_lookup_heteroblind.dta`/`.csv` — 1,986 rows on the five-column key — since it answers a question on its own |
+| `30_fallback.do` | the **weight ladder**, three ways. Per (cell × size): **L0** the cell's own rung → **L1** the cell pooled across sizes → **L2** province × item × unit → **L3** item × unit regionally → unconvertible. Per cell, for when the price match fails. And **L2 and L3 on their own keys**, which is the only reading that can serve a cell the market survey never visited — #30's actual population, one PSPS observation in six. Also publishes the cell-grain ladder as `outcome2_lookup_heteroblind.dta`/`.csv` — 1,919 rows on the five-column key — since it answers a question on its own |
 
 **#30 was the gate and it is now built.** Note that its cost argument was written against a 14×
 cross-municipality spread; the corrected figure is **6.7×**, so read it against that.
@@ -605,8 +607,11 @@ Two things the sense check has established, worth knowing before reading it:
   on labels that do not pin down a quantity in the first place — `pieces or units`,
   `small packs` — which is a limit of the fallback ladder rather than a defect in it.
 
-**The uncertainty is carried through (#35).** Roughly one weighing in seven is disputed,
-anchor-flagged or unusable, and both deliverables now say so per published row.
+**The uncertainty is carried through (#35).** Roughly one weighing in twelve — 950 of
+11,433, 8.3% — is disputed or unusable, and both deliverables say so per published row.
+(It read "one in seven" while `d_step1_flagged` was counted; that flag was retired on
+2026-09-14 because it described the anchor's confidence in a shift the anchor no longer
+performs.)
 
 `08_branch.do` owns the definition — four flags read off `corrected_weight`, `snap_block`
 and `review_step1`, all of which the build already carries. It is defined there because
@@ -626,20 +631,21 @@ inherit the uncertainty of the pool it got, not of its own cell — so the ladde
 from one rung printed beside a weight from another is the mislabel class closed in
 `12_publish_reference_set.do` section 5c.
 
-**Read the counts, not a dummy.** 27.7% of reference-set rows rest on at least one
-questioned weighing but only 7.6% rest entirely on them, and the median row sits on four
-weighings. `share_uncertain == 1` is the signal worth acting on.
+**Read the counts, not a dummy.** 448 of 2,490 reference-set rows (18.0%) rest on at least
+one questioned weighing but only 86 (3.5%) rest entirely on them, and the median row sits
+on four weighings. `share_uncertain == 1` is the signal worth acting on.
 
 **Nothing is dropped or down-weighted.** The columns let a reader apply a tolerance; the
 build applies none. A20 says why the three kinds of doubt are not weighted against each
 other.
 
-**The coarser fallback rungs are not cleaner than L0, but do not overstate the gradient.**
-Per household row the mean `share_uncertain` runs L0 0.120 → L2 0.195 → L3 0.384; pooled
-over the weighings themselves it runs 0.121 → 0.148 → 0.148, because L2 and L3 draw on much
-larger pools (median 60 and 21 weighings against L0's 4). Both are correct and they answer
-different questions — A20 states both with their formulas. Quote neither without naming the
-aggregation.
+**Only L2 is more questioned than L0, and there is no monotone gradient.** Per household
+row the mean `share_uncertain` runs L0 0.069, L1 0.033, **L2 0.144**, L3 0.031; pooled over
+the weighings themselves it runs 0.071, 0.042, **0.116**, 0.072. L3 is the weakest rung by
+construction and is *not* the most doubted one — its 21-weighing pools happen to be clean.
+Both readings are correct and answer different questions — A20 states both with their
+formulas. Quote neither without naming the aggregation, and do not read fallback depth as a
+proxy for provenance.
 
 `90_diagnostics/report_weight_corrections.py` still writes
 `weight_correction_report.csv`, which the pipeline explorer reads — but it now **reads**

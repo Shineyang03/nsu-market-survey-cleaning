@@ -66,7 +66,7 @@ handling.
 `NSU Market Survey Launch/data/nsu_long_data_description.pdf`, "the enumerator does
 not enter this" — and it is per-NSU. It is verified to be exactly the value the
 enumerator was sent to spend: `pull_price` matches the SurveyCTO case-file preload
-in **1,105 of 1,105** matched rows, at 98.5% coverage. (The denominator is
+in **1,096 of 1,096** matched rows, at 98.5% coverage. (The denominator is
 stage-dependent — it is counted on the restated file, after attrition. What matters is
 that agreement is exact on every row that matches: re-run
 `dofiles/90_diagnostics/verify_documented_claims.py` to confirm it still is.)

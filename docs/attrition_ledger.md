@@ -48,15 +48,15 @@ Both outcomes read the same weighings up to this point.
    11,495   raw weighings
       -62   stage 1   03_clean_ms.do
    11,433   arrival
-      -98   stage 2   07_cpi_factor.do          <- both outcomes read this file
-   11,335   priced weighings
+      -99   stage 2   07_cpi_factor.do          <- both outcomes read this file
+   11,334   priced weighings
 ```
 
 | stage | step | drops | reason |
 |---|---|---|---|
 | 1 | 1a | 4 | comment-flagged data-entry errors and other hand-identified drops |
 | 1 | 1b | 58 | labels that are not non-standard units — standard quantity 31, ambiguous quantity 22, not a unit 5 |
-| 2 | 2 | 98 | price-quantity weighings whose recorded price was not the amount handed over |
+| 2 | 2 | 99 | price-quantity weighings whose recorded price was not the amount handed over — 72 vendor-priced where the case keeps a preloaded rung, 27 where the vendor gave no price at all. A further **22 vendor-priced rows are rescued**, where they were the case's only rung |
 
 **Stage 1b is dropped before the magnitude snap**, so a non-unit label never pollutes an
 anchor pool. The rule belongs to `02_drop_non_nsu_labels.py`; the rows and their reasons
@@ -141,7 +141,7 @@ mutually exclusive**:
 | path | rows | outcome |
 |---|---|---|
 | standard unit — converted from the unit's own name | 52,489 | all converted (#14) |
-| **non-standard unit — needs the market survey** | **35,448** | **34,916 converted, 532 refused** |
+| **non-standard unit — needs the market survey** | **35,448** | **34,893 converted, 555 refused** |
 | not an NSU at all | 22 | unconvertible by definition |
 | no unit given by the respondent | 0 | — |
 | NSU label with no crosswalk row in this cell | 0 | — |
@@ -156,10 +156,10 @@ number rather than as rows that quietly convert to nothing.
 
 | route | rows |
 |---|---|
-| matched price point | 28,875 |
+| matched price point | 28,889 |
 | fallback: province pool | 5,412 |
 | fallback: regional pool | 365 |
-| fallback: empty size part (an emptied part of the cut) | 241 |
+| fallback: empty size part (an emptied part of the cut) | 227 |
 | refused: A11 spelling gap | 304 |
 | refused: unique price (A16) | 148 |
 | refused: nothing anywhere | 103 |
