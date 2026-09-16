@@ -884,32 +884,46 @@ to `[1/5, 5]` and the row is flagged.
 
 **Where.** `20_psps_retrofitting/29_cap.do`.
 
-**Rests on it.** **1,283 of 19,242** household rows that carry a ratio at all (6.7%). Rows are
+**Rests on it.** **1,418 of 28,776** household rows that carry a ratio at all (4.9%). Rows are
 clamped and kept, never dropped: `d_cap` marks them and `r_h_raw` keeps the uncapped ratio.
+
+**A ratio reaches every acquisition mode, not just purchases.** `p_h = e_h / q_h` is computed
+wherever a unit value is computable at all (**A10**), so own production and gifts carry one too. The
+rows without a ratio are excluded structurally — a fallback rung ignores the household's price by
+design (A15), the conventional branch has no price point, a refused row has no grams, and some rows
+have no computable unit value.
+
+| acquisition route | rows | carry a ratio | clamped |
+| :-- | --: | --: | --: |
+| purchased | 23,655 | 19,257 | 1,283 |
+| own production | 10,187 | 8,228 | 81 |
+| gift | 1,606 | 1,291 | 54 |
+| **total** | **35,448** | **28,776** | **1,418** |
 
 **Status: SET FROM THE DISTRIBUTION, and it is a judgement on a continuous one.** Decided under
 **#19**, which is explicit that choosing 2 or 3 in advance would be a number with no evidence.
 
-**The distribution it answers to** (19,242 rows):
+**The distribution it answers to** (28,776 rows):
 
-| | | | | | | | |
-| :-- | --: | --: | --: | --: | --: | --: | --: |
-| | min | p1 | p5 | p25 | median | p99 | max |
-| `p_h / p_g` | 0.0017 | 0.100 | 0.167 | 0.500 | **0.875** | 2.000 | 16.0 |
+| | | | | | | | | |
+| :-- | --: | --: | --: | --: | --: | --: | --: | --: |
+| | min | p1 | p5 | p25 | median | p95 | p99 | max |
+| `p_h / p_g` | 0.0017 | 0.100 | 0.200 | 0.500 | **0.791** | 1.250 | 2.000 | 16.0 |
 
 **The binding side is the LOW tail, which is the opposite of what #19 was written about.** That
 issue describes a household paying ten times the matched point being handed ten times the grams. In
 this data that tail barely exists — p99 is 2.0. What does exist is the other end: a minimum ratio of
-0.0017 assigns a third of a gram on a 200 g unit. The cap is symmetric, so it repairs those, and the
-**total grams rise by 1.09%** rather than falling.
+0.0017 assigns a third of a gram on a 200 g unit. Of the 1,418 clamped rows, **1,399 are clamped up
+and 19 down**, so the cap repairs implausibly small units and **total published grams rise by
+1.23%** rather than falling.
 
 **The tail is worst where the price evidence is thinnest**, exactly as #19 predicted:
 
 | price points in the case | rows | median | p99 | max |
 | --: | --: | --: | --: | --: |
-| 1 | 9,310 | 0.778 | 2.500 | **16.0** |
-| 2 | 4,340 | 0.909 | 1.667 | 4.95 |
-| 3 | 5,592 | 0.938 | 1.412 | 2.95 |
+| 1 | 17,479 | 0.500 | 2.000 | **16.0** |
+| 2 | 4,837 | 0.914 | 1.667 | 4.95 |
+| 3 | 6,460 | 0.938 | 1.429 | 2.95 |
 
 A one-point case has no ladder to bracket a household, so it matches that point however far its
 spend lies from it. That the median moves toward 1 and the tail shortens as the ladder gets richer
@@ -919,11 +933,11 @@ is the first empirical support the matching step has.
 
 | `t` | rows clamped | share |
 | --: | --: | --: |
-| 1.5 | 6,821 | 35.5% |
-| 2 | 3,828 | 19.9% |
-| 3 | 2,441 | 12.7% |
-| **5 (current)** | **1,283** | **6.7%** |
-| 10 | 158 | 0.8% |
+| 1.5 | 12,936 | 45.0% |
+| 2 | 4,978 | 17.3% |
+| 3 | 2,814 | 9.8% |
+| **5 (current)** | **1,418** | **4.9%** |
+| 10 | 189 | 0.7% |
 
 **Checked by** the bound assertion in `29_cap.do`, which fails if any row leaves
 `[w_g/t, w_g·t]`.

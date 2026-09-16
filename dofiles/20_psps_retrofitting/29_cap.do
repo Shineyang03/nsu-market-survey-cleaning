@@ -41,12 +41,20 @@
 *   fallback rows        no price entered the estimate -- from L1 down the household's
 *                        price is ignored by design (A15), so there is no ratio to clamp
 *   conventional rows    the branch has no price point at all
-*   no-faced-price rows  own production and gifts have no p_h (A10); 28 converts them at
-*                        the group's own weight, which is r_h = 1 by construction
+*   refused rows         no grams were produced, so nothing is scaled
+*   no computable value  d_no_price == 1: e_h or q_h is absent, so p_h cannot be formed
 *   standard-unit rows   27 converts them from the unit's own name; no market survey, no
 *                        ratio. They are not in this file's input at all.
 *
-* So the cap reaches only the rows where a household price was actually divided by a
+* THE EXCLUSION IS NOT ABOUT HOW THE FOOD WAS ACQUIRED. An earlier version of this header
+* said own production and gifts carry no p_h and convert at r_h = 1 by construction. That
+* described a rule A10 has since reversed: p_h = e_h / q_h is now computed wherever a unit
+* value is computable, whatever the acquisition mode, because what licenses the ratio is
+* that a reported value tracks the size of the unit -- not that it was a price anyone was
+* quoted. On the current build 8,228 own-production and 1,291 gift rows carry a ratio, and
+* 81 and 54 of those are clamped.
+*
+* So the cap reaches only the rows where a household unit value was actually divided by a
 * group price, and section 1 counts them.
 *
 * ==============================================================================
