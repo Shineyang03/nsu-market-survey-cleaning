@@ -1315,15 +1315,27 @@ error, the median encodes that error and a pool-based rule reproduces it faithfu
 beer "case" rows reaching 1.2 million g and thirty-eight fresh-fish rows falling to 4–9 g
 are caught here.
 
-**One band of readings is assumed rather than checked.** A weight ticked *litres* at 10 or
-more is treated as already being millilitres — the same premise the grams rule uses.
-**67 rows sit in that band, ranging 35 to 7,680**, and every one of them is read as
-millilitres, so a genuine 10-litre reading there would be **silently divided by a
-thousand**. Nothing in the data distinguishes the two cases. The band is protected partly by
-accident: the mineral-water cell that held real litre readings was removed upstream by the
-non-unit exclusion. **Check the range, not just the count** — a stable count with a moved
-range is what this failure would look like, which is why the verification script prints
-both.
+**One band of readings needs a guard of its own.** A weight ticked *litres* at 10 or more is
+treated as already being millilitres — the same premise the grams rule uses. **67 rows sit in
+that band, ranging 35 to 7,680**, and every one is read as millilitres, so a genuine 10-litre
+reading there would be **silently divided by a thousand**: 20 mL is inside the plausibility
+bounds, inside every pool, and indistinguishable from a sachet.
+
+**On this vintage the rule is right on all 67** — a 750 ticked litres for a long-neck bottle
+is 750 mL, and a 7,680 for a beer case is millilitres. The strongest evidence is that the
+band's values coincide with the same item's unambiguous sub-10 readings: ice cream is typed
+both as `0.045` and as `45`, and both mean 45 mL. No genuine litre reading in the raw file
+reaches 10 at all; the largest is 6.0 L.
+
+**What used to protect the band was an accident, and no longer is.** The mineral-water cell
+that held the real litre readings leaves the build later, at the non-unit exclusion, for
+reasons unrelated to this rule — so a vintage that kept it would walk straight into the
+failure. **The build now halts** if any band reading, read as millilitres, lands more than
+1.5 decades below its own item's median. The item supplies that scale for free: its sub-10
+readings are unambiguous, so they say what a millilitre reading of that item looks like. The
+nearest real row sits a factor of ten above the threshold and a hypothetical 20-litre entry
+a factor of ten below it, so nothing fires today. **Check the range, not just the count** — a
+stable count with a moved range is what this failure looks like from outside.
 
 ## A.3 The anchor snap and its referee ladder — retained, and deciding nothing
 

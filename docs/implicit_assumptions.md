@@ -356,18 +356,48 @@ claims in `verify_documented_claims.py`.
 
 **Claims.** A weight ticked "litres" at 10 or more is already millilitres.
 
-**Where.** `00_shared/04_unit_snap.do`, the `unit == 3` block.
+**Where.** `00_shared/03a_block_reading.do`, the `unit == 3` branch.
 
-**Status: REVIEWED AND ACCEPTED.** Raised as #18 item 1; you accepted the block as it
-stands.
+**Status: ACCEPTED, AND NOW GUARDED.** Raised as #18 item 1 and accepted as it stands; the
+protection was upgraded on 2026-09-16 from accidental to deliberate.
 
 It belongs in the register because of what it assumes: **that no genuine litre reading of
-10 L or more exists in the data.** **67 rows** sit in the exposed band, ranging 35 to 7,680.
-Every one is treated as already-mL, so a true litre value there would be silently divided by
-a thousand.
+10 L or more exists in the data.** **67 rows** sit in the exposed band, ranging 35 to 7,680 —
+40 liquor, 22 ice cream, 2 crackers, 2 beer, 1 preserved meat. Every one is read as
+millilitres, so a true litre value there would be **silently** divided by a thousand: 20 mL
+is inside the plausibility bounds, inside every pool, and indistinguishable from a sachet.
 
-It is protected in part by accident — the mineral-water cell that held real litre readings
-was removed by the standard-quantity exclusion upstream.
+**On this vintage the rule is right on all 67.** A 750 ticked litres for a `long-neck` is a
+750 mL bottle; a 7,680 for a beer `case` is millilitres. The strongest evidence is that the
+band's values *coincide* with the same item's unambiguous sub-10 rows: ice cream is typed
+both as `0.045` and as `45`, and both mean 45 mL. In the raw file **no genuine litre reading
+reaches 10 at all** — the largest is 6.0 L, mineral water.
+
+**What used to protect it was an accident, and no longer is.** The mineral-water cell that
+held the real litre readings leaves the build later, at the non-NSU exclusion, for reasons
+unrelated to this rule. A vintage that keeps it — or that adds bulk cooking oil — walks
+straight into the failure.
+
+**The guard, and why it is keyed on the item rather than on the number.** Nothing about the
+number 20 says whether it is 20 L or 20 mL; packaging sizes and bulk volumes overlap in this
+band. The item's own scale is the discriminator, and the item supplies it: its sub-10 litre
+rows are unambiguous, so their converted values say what a millilitre reading of that item
+looks like. The build **halts** if any band row reads as millilitres more than **1.5 decades
+below its own item's median**. Measured:
+
+| item | median of its sub-10 rows | lowest band row | ratio |
+| :-- | --: | --: | --: |
+| liquor | 375 mL | 335 mL | 0.893 |
+| crackers | 215 mL | 85 mL | 0.395 |
+| ice cream | 100 mL | 35 mL | 0.350 |
+| preserved meat | 458 mL | 150 mL | 0.328 |
+| **threshold** | | | **0.0316** |
+| *a 20 L mineral-water entry would be* | *6,800 mL* | *(20 mL)* | ***0.0029*** |
+
+**The nearest real row sits a factor of ten above the threshold and the counter-example a
+factor of ten below it**, which is what makes the constant safe rather than lucky. Nothing
+fires today. An item with no sub-10 rows has no scale to be judged against — beer is the only
+one — and is reported rather than tested.
 
 **Check the range, not just the count.** The claim in `verify_documented_claims.py` prints
 both, because a stable count with a moved range is the failure this would show up as.

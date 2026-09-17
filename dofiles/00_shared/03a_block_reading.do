@@ -117,10 +117,10 @@ di as txt "03a: " r(N) " row(s) have no usable weight (zero, negative or missing
 gen double w_block = .
 replace w_block = cond(weight>=10, weight, weight*1000) if unit==2 & _usable
 
-* --- litres. Same premise in the volume dimension. A genuine 20 L reading would
-*   become 20 mL here; safe only because the one cell with real litre readings
-*   (mineral water) is removed upstream by the non-NSU exclusion. Accidental
-*   protection, not a guard -- reviewed and accepted, see issue #18 B2.
+* --- litres. Same premise in the volume dimension: a litre tick at 10 or above is
+*   read as ALREADY millilitres. A genuine 20 L reading would become 20 mL here --
+*   silently divided by a thousand, with no error and nothing downstream able to tell.
+*   The band is guarded below; see the LITRE BAND GUARD after the decimal repair.
 replace w_block = cond(weight>=10, weight, weight*1000) if unit==3 & _usable
 
 * --- THE MISPLACED DECIMAL: a sub-0.01 litre entry is not a reading -----------------
@@ -163,6 +163,76 @@ if r(N) > 0 {
 count if _usable & weight < float(0.01) & unit == 3
 di as txt "03a misplaced decimal (sub-0.01 litres, read x10^6): " r(N) " row(s) matched"
 replace w_block = weight * 1000000 if unit==3 & weight < float(0.01) & _usable
+
+* ============ LITRE BAND GUARD ======================================================
+* THE CLAIM: no litre-ticked reading at 10 or above is a GENUINE litre reading.
+*
+* WHY IT NEEDS A GUARD AT ALL. The litre branch above reads such a row as millilitres.
+* If one is ever a real litre entry the published weight is a thousandth of the truth,
+* and nothing else in the pipeline can notice: 20 mL is inside the plausibility bounds,
+* inside every pool, and indistinguishable from a sachet. The failure is SILENT, which
+* is the only kind worth a tripwire.
+*
+* THIS USED TO BE PROTECTED BY ACCIDENT. The one cell that held real litre readings --
+* mineral water -- leaves the build later, at the non-NSU exclusion, for reasons that
+* have nothing to do with this rule. A vintage that keeps it, or that adds bulk cooking
+* oil, walks straight into the failure. Accidental protection is not protection.
+*
+* THE TEST, and why it is keyed on the item rather than on the number. There is no way
+* to tell a real 20 L entry from a real 20 mL entry by looking at 20: packaging sizes
+* and bulk volumes overlap in this band (ice cream is typed both as 0.045 and as 45,
+* meaning 45 mL both times). What DOES separate them is the item's own scale, and the
+* item supplies it for free -- its sub-10 litre rows are unambiguous, so their converted
+* values say what a millilitre reading of that item looks like. A genuine litre entry
+* read as millilitres lands orders of magnitude BELOW that; a real millilitre entry
+* lands beside it.
+*
+* THE CONSTANT. 1.5 decades below the item's own median. Measured on this vintage the
+* margin is wide in both directions, which is what makes the threshold safe rather than
+* lucky:
+*
+*     item                      median of its <10 rows      lowest >=10 row      ratio
+*     liquor                              375 mL                   335 mL        0.893
+*     crackers                            215 mL                    85 mL        0.395
+*     ice cream                           100 mL                    35 mL        0.350
+*     preserved meat                      458 mL                   150 mL        0.328
+*     ---- threshold 1/10^1.5 ------------------------------------------------- 0.0316
+*     a 20 L mineral-water entry         6,800 mL                (20 mL)         0.0029
+*
+* The nearest real row sits a factor of ten ABOVE the threshold and the counter-example
+* a factor of ten below it. Nothing fires today; see docs/implicit_assumptions.md A7.
+*
+* An item with NO sub-10 litre rows has no scale to be judged against -- beer is the
+* only one -- so it is reported rather than tested. Reported, not silently skipped.
+local LITDEC = 10^1.5
+
+tempvar lhi llo lomed nlo lrat
+gen byte `lhi' = (unit == 3 & _usable & weight >= 10)
+gen byte `llo' = (unit == 3 & _usable & weight <  10)
+egen double `lomed' = median(cond(`llo', w_block, .)), by(pull_item)
+egen int    `nlo'   = total(`llo'), by(pull_item)
+gen double  `lrat'  = w_block / `lomed' if `lhi' & `nlo' > 0 & `lomed' > 0
+
+* THE COUNT HERE IS 68 AND THE PUBLISHED FIGURE IS 67, and they are both right. 03a runs
+* BEFORE the non-NSU exclusion, so one row that later leaves the build is still present.
+* verify_documented_claims.py measures the band on the restated file, after that exclusion.
+count if `lhi'
+di as txt "03a litre band (tick = L, typed >= 10, read as mL): " r(N) " row(s)"
+count if `lhi' & `nlo' == 0
+di as txt "03a litre band with no same-item baseline to test against: " r(N) " row(s)"
+
+count if `lhi' & `nlo' > 0 & `lrat' < 1/`LITDEC'
+if r(N) > 0 {
+	di as err "03a_block_reading.do: " r(N) " litre-ticked row(s) at 10 or above read"
+	di as err "as millilitres more than 1.5 decades below their own item's scale."
+	di as err "That is what a GENUINE litre reading looks like here. Adjudicate them"
+	di as err "before this build is used -- see docs/implicit_assumptions.md A7."
+	list pull_item pull_nsu_unit weight w_block `lomed' `lrat' ///
+		if `lhi' & `nlo' > 0 & `lrat' < 1/`LITDEC', noobs abbrev(16)
+	exit 459
+}
+di as txt "03a litre band guard: no row reads as a genuine litre entry"
+* ====================================================================================
 
 * --- unit==1 (kg) sub-1 entries are true kg -> grams via x1000 -----------------
 replace w_block = weight*1000 if unit==1 & weight<1 & _usable
