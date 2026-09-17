@@ -743,8 +743,7 @@ def classify_stage3(restated, refset):
     # weighing's panel can show what the row it landed in actually says about itself.
     # Read from the published file, never recomputed here -- this tool's rule is that a
     # diagnostic reads the quantity the pipeline computed.
-    pub = refset_key[CASE_COLS + ['size_ord', 'n_g', 'grams',
-                                  'n_uncertain', 'share_uncertain', 'd_size_nonmono']]
+    pub = refset_key[CASE_COLS + ['size_ord', 'n_g', 'grams', 'd_size_nonmono']]
     check = mine.merge(pub, on=CASE_COLS + ['size_ord'], how='left',
                         indicator=True)
     matched = check._merge == 'both'
@@ -755,7 +754,7 @@ def classify_stage3(restated, refset):
         f"({n_match / max(len(check), 1):.1%})")
 
     pub_lookup = pub.set_index(CASE_COLS + ['size_ord'])[
-        ['grams', 'n_g', 'n_uncertain', 'share_uncertain', 'd_size_nonmono']]
+        ['grams', 'n_g', 'd_size_nonmono']]
     return r, eligible, pub_lookup
 
 
@@ -1469,16 +1468,11 @@ def load_outcome2():
                              else int(g.fallback_level.max())),
             "grams_total": (None if g.grams_h.isna().all() else float(g.grams_h.sum())),
             "routes": {str(a): int(b) for a, b in routes.items()},
-            # How questioned the weights this case's households were given are (#35).
-            # POOLED, not the mean of the per-row shares: at this grain the question is
-            # "of all the weighings behind this case's converted rows, how many were
-            # questioned", and A20 records that the two weightings differ enough that
-            # the choice has to be stated. nu_used is already taken at the rung each row
-            # actually used, so no rung mixing happens here.
+            # How much evidence stands behind the weights this case's households were
+            # given. n_g_used is already taken at the rung each row actually used, so no
+            # rung mixing happens here.
             "n_g_used_total": (None if g.n_g_used.isna().all()
                                else int(g.n_g_used.sum())),
-            "nu_used_total": (None if g.nu_used.isna().all()
-                              else int(g.nu_used.sum())),
         })
     log(f"  cases with at least one PSPS NSU row: {len(cases):,}")
 
@@ -1641,8 +1635,6 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
                     rec["terminal"] = "outcome1_reference_row"
                     rec["outcome1_grams"] = nn(pub_row.grams)
                     rec["outcome1_n"] = nn(pub_row.n_g)
-                    rec["outcome1_n_unc"] = nn(pub_row.n_uncertain)
-                    rec["outcome1_share_unc"] = nn(pub_row.share_uncertain)
                     rec["outcome1_nonmono"] = int(pub_row.d_size_nonmono)
                 else:
                     rec["terminal"] = "outcome1_reference_row_unverified"
@@ -1651,17 +1643,13 @@ def build_payload(raw, master, stage1_dropped, restated_full, eligible, pub_look
                                                "row was found in the published output -- treat "
                                                "the size label as unverified")
 
-        # ---- was THIS weighing's own weight questioned (#35) -------------------------
-        # The four flags come from 08_branch.do, which owns their definition. Shown per
-        # weighing as well as per published row, because the published row's count says
-        # how many of its weighings were questioned and this says whether the one in front
-        # of you is one of them.
+        # ---- does THIS weighing have a defensible reading at all? --------------------
+        # The uncertainty flags were retired on 2026-09-17 (see 00_shared/08_branch.do),
+        # so only the one fact that is not a verdict survives here: a weight of .c means
+        # no reading could be defended and the row publishes nothing.
         unc = []
-        if int(getattr(row, 'd_unusable', 0) or 0) == 1:
-            unc.append("unusable (no defensible reading, weight is .c)")
-        if int(getattr(row, 'd_disputed', 0) or 0) == 1:
-            unc.append("disputed (the two snap rules gave different readings)")
-        rec["d_any_uncertain"] = int(getattr(row, 'd_any_uncertain', 0) or 0)
+        if pd.isna(getattr(row, 'corrected_weight', None)):
+            unc.append("no defensible reading, weight is .c")
         if unc:
             notes.append("Weight questioned: " + "; ".join(unc)
                          + ". It still ships -- see A20; nothing is dropped or "
@@ -3003,17 +2991,15 @@ function renderSingletonFlag(caseKey, caseWeighings) {
 // The lookup is keyed on the 5-key case (it carries corrected_unit) while a case here is
 // the 4-key one, so a case spanning grams and millilitres shows both sub-cells' rows. The
 // dimension column is displayed rather than collapsed, because that IS the distinction.
-// The "questioned" cell for one lookup row. MISSING and ZERO are drawn differently on
-// purpose: a refused point has no weighings behind it at all, so a 0 there would claim
-// none of them was questioned about a set that does not exist -- which is exactly the
-// distinction 25_lookup.do asserts (missing where n_g is missing, never zero).
+// The evidence cell for one lookup row. MISSING and a real count are drawn differently
+// on purpose: a refused point has no weighings behind it at all, so a 0 there would be a
+// real count of none -- which is exactly the distinction 25_lookup.do asserts (missing
+// where the point is unusable, never zero).
 function qcell(r) {
-  if (r.n_uncertain == null || r.n_g == null) return '<span style="color:var(--muted)">n/a</span>';
-  if (r.n_uncertain === 0) return '<span style="color:var(--ok)">0</span>';
-  const pct = Math.round(100 * r.n_uncertain / r.n_g);
-  const col = r.n_uncertain >= r.n_g ? 'var(--drop)' : 'var(--warn)';
-  return `<span style="color:${col}" title="${r.n_uncertain} of ${r.n_g} weighings">`
-    + `${r.n_uncertain} <span style="color:var(--muted)">(${pct}%)</span></span>`;
+  if (r.n_g == null) return '<span style="color:var(--muted)">n/a</span>';
+  const col = r.n_g < 3 ? 'var(--warn)' : 'var(--ok)';
+  return `<span style="color:${col}" title="${r.n_g} weighing(s) behind this point">`
+    + `${r.n_g}</span>`;
 }
 
 function renderOutcome2Built(caseKey) {
@@ -3069,14 +3055,11 @@ function renderOutcome2Built(caseKey) {
       ['deepest fallback rung used', hh.max_fallback == null ? '&mdash;' : 'L' + hh.max_fallback],
       ['total grams', hh.grams_total == null ? '&mdash;' : Math.round(hh.grams_total).toLocaleString()],
       // Pooled over the weighings behind this case's converted rows, at whichever rung
-      // each row used. A20 says why the aggregation has to be named: the per-row mean
-      // and the pooled figure differ, and quoting one unlabelled is how two readers
-      // reach opposite conclusions from the same column.
-      ['weighings behind those grams, questioned',
-       (hh.nu_used_total == null || !hh.n_g_used_total) ? '&mdash;'
-         : `${hh.nu_used_total.toLocaleString()} of ${hh.n_g_used_total.toLocaleString()}`
-           + ` <span style="color:var(--muted)">(${Math.round(100 * hh.nu_used_total / hh.n_g_used_total)}%,`
-           + ` pooled at the rung used)</span>`],
+      // each row used.
+      ['weighings behind those grams',
+       !hh.n_g_used_total ? '&mdash;'
+         : `${hh.n_g_used_total.toLocaleString()}`
+           + ` <span style="color:var(--muted)">(pooled at the rung used)</span>`],
       ['routes', routes],
     ].map(([k, v]) => `<div class="pathstep"><div class="stage">${k}</div><div class="val">${v}</div></div>`).join('');
   } else {

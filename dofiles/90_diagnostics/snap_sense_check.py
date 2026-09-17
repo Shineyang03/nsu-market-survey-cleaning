@@ -16,7 +16,8 @@ What that means for the sheets:
   disagreements    still populated -- 942 rows where the two readings differ by a decade
                    -- but the difference no longer decides anything, because the block
                    reading is published either way. Read it as "a plausible alternative
-                   reading exists", which is what d_disputed publishes.
+                   reading exists". Nothing publishes that any more -- the flag that
+                   did (d_disputed) was retired on 2026-09-17; see 00_shared/08_branch.do.
   gate_overrules   effectively empty; the repair upstream is what emptied it.
 
 STILL LOAD-BEARING, and the reason this file is not deleted: it is the only thing that

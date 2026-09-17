@@ -554,6 +554,23 @@ replace _chosen = _other          if _chosen_bad & _other_ok
 
 replace corrected_weight = _chosen if !missing(_chosen)
 replace corrected_weight = _other  if missing(_chosen) & !missing(_other)
+
+* NO TYPED WEIGHT MEANS NO PUBLISHED WEIGHT -- 2026-09-17.
+*
+* A row whose raw `weight' is missing, zero or negative has no reading to correct. It
+* gets no block reading in 03a, so every branch above falls through to the anchor, and
+* the anchor would hand it the median of its pool's decade -- a number invented for a
+* row where the enumerator recorded nothing. That is imputation, and this pipeline does
+* not impute a weight anywhere else: a cell with no weighing is absent from Outcome 1
+* and reported unconvertible in Outcome 2.
+*
+* So these rows stay MISSING and are accounted for as attrition instead. The count is
+* printed rather than asserted, because a vintage with more of them is a fieldwork fact,
+* not a build failure.
+count if !(weight > 0 & weight < .) & !missing(corrected_weight)
+di as result "3e-vii: clearing " r(N) " weight(s) the anchor would have invented (no typed reading)"
+replace corrected_weight = . if !(weight > 0 & weight < .)
+
 replace flag_review = 0 if !missing(corrected_weight) & !missing(weight)
 
 * what each rule decided, for the log and for the report on issue #18

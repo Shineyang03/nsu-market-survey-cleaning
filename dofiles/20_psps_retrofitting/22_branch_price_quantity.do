@@ -99,10 +99,9 @@ bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
 bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
        corrected_unit pull_price: egen byte n_cpi_vals = nvals(cpi_factor)
 
-* The uncertainty counts ride with n_g through to the lookup and on to the household (#35).
+* n_g rides through to the lookup and on to the household, so a published factor can say
+* how much evidence stands behind it.
 collapse (median) w_g = corrected_weight (count) n_g = corrected_weight ///
-         (sum) n_disputed = d_disputed ///
-               n_uncertain = d_any_uncertain ///
          (median) cpi_factor_g = cpi_factor ///
          (min) hetero_code = item_nsu_hetero_type ///
          (max) n_ms_months n_cpi_vals ///

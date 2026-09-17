@@ -140,114 +140,63 @@ assert branch == weighing_approach if !d_reclassified
 drop _conv_here _other_here _mixed_pair _case _conv_in_case _other_in_case
 
 ********************************************************************************
-* THE UNCERTAINTY FLAGS -- defined here, once, because both outcomes read this file
+* THE UNCERTAINTY FLAGS ARE RETIRED -- 2026-09-17. This block is the record of why,
+* because "the columns are simply gone" is the one explanation a future reader cannot
+* reconstruct from the code.
 *
-* WHY HERE. A published conversion factor should say whether the weight behind it was
-* questioned. Three different things get conflated if they are not separated, and they
-* need different follow-up:
+* WHAT WENT. d_unusable, d_disputed, d_any_uncertain, and everything built on them:
+* n_disputed, n_uncertain, share_uncertain, nu_used and the per-rung nu_l0..nu_l3.
+* Issue #35 asked for weight uncertainty to be carried through to both deliverables;
+* it was, and this retires it. Read #35 with this note.
 *
-*   d_unusable        no interpretation of the reading was defensible, so the weight is .c
-*   d_disputed        the two snap rules disagreed and one had to be chosen
-*   (d_step1_flagged  RETIRED -- it flagged the anchor's confidence in a decade shift the
-*                     anchor no longer performs. See the note at the definitions below.)
+* WHY. d_disputed fired when the two candidate readings differed -- which, because the
+* anchor only ever moves the decimal point, means "the typed reading sits in a different
+* DECADE from its pool's median". That is a statement about DISPERSION, and this project
+* has already ruled that dispersion is not evidence against a reading:
 *
-* NOTHING IS DERIVED HERE. Each flag is read off a column the build already carries --
-* `corrected_weight', `snap_block' and `review_step1' -- so this block records a decision
-* made upstream rather than re-deciding it. `snap_block == 1' means the published value is
-* not STEP 1's answer, which is exactly what "the rules disagreed" means; recomputing the
-* block rule here would put a second copy of it in the pipeline.
+*     04_unit_snap.do publishes the block reading -- the number the enumerator typed --
+*     on 11,402 of 11,421 rows, precisely because "it differs from its neighbours" does
+*     not impeach a NON-STANDARD unit, whose defining property is that it varies from
+*     vendor to vendor.
 *
-* WHY NOT READ THE DIAGNOSTIC'S CSV. `weight_correction_report.csv' publishes these same
-* three flags, and reading it would be shorter. It is forbidden: a build step that reads a
-* diagnostic output is the orphan-input defect of #33, and it would make the build
-* unreproducible from the raw files alone. The direction is the other way round -- the
-* diagnostic reads these columns.
+* So the build published the typed reading on the grounds that differing from neighbours
+* proves nothing, and then flagged it as doubtful for differing from neighbours. The flag
+* contradicted the rule that produced the number it was describing.
 *
-* THIS IS THE ONLY DEFINITION. 08 is the last step both masters share, so both deliverables
-* inherit the same four variables and neither can re-implement them differently. That is
-* the consolidation #32 forced on the string normalizers, applied before the duplication
-* has a chance to appear.
+* The label was also false on its face. "The two snap rules disagreed and one had to be
+* chosen" describes a contest that no longer takes place: the block reading is published
+* wherever it is possible, the anchor decides 5 rows, and nothing is weighed up. This is
+* the same defect that retired d_step1_flagged -- a flag describing a computation that
+* does not run.
 *
-* WHAT THE FLAGS DO NOT SAY. That a weight was questioned, not by how much it could be
-* wrong. There is no interval here and none is implied. See #35 and A20.
+* WHY THE WHOLE APPARATUS AND NOT JUST d_disputed. d_unusable contributed NOTHING to any
+* published row and could not: an unusable weighing has no weight, so it never stands
+* behind an estimate. Measured before removal, on nsu_reference_set: 448 of 2,490 rows
+* carried a questioned weighing and d_disputed explained 448 of them; of 926 questioned
+* weighings, 926 were disputed; rows whose uncertainty was not disputed-driven: 0.
+* Dropping d_disputed therefore left four columns that were identically zero on every
+* row of all six deliverables, which is worse than no column at all.
+*
+* WHAT SURVIVES, and it is the part that was always doing the work. n_g / n_g_used still
+* say HOW MUCH evidence stands behind a published value, and d_thin still flags fewer
+* than THIN weighings. Those describe the quantity of evidence, not a verdict on it, and
+* nothing about the block-reading decision undermines them.
+*
+* corrected_weight, w_step1, w_block and review_step1 all remain on the build. A reader
+* who wants the old flag can rebuild it in one line -- reldif(w_step1, w_block) > 1e-9 --
+* and 90_diagnostics/report_weight_corrections.py still reports the comparison per
+* weighing. What is gone is the claim that the comparison measures doubt.
 ********************************************************************************
 
-gen byte d_unusable      = missing(corrected_weight)
-
-* `d_disputed' REQUIRES THE TWO READINGS TO ACTUALLY DIFFER, not merely that the block
-* rule was the one that decided.
-*
-* `snap_block == 1' records which code path chose the published value. It does NOT record
-* that the two candidates disagreed: STEP 3e compares w_block against w_step1 on every row
-* it touches, including rows where the two round to the identical gram value, so the block
-* rule can "win" a contest with nothing at stake. 125 of the 644 rows at snap_block == 1
-* -- 19.4% -- have w_step1 == w_block exactly, and on 122 of those the published weight is
-* that same number. Calling them disputed labels the path travelled rather than the fact
-* about the row, which is the mislabel class closed in 12_publish_reference_set.do sec 5c.
-*
-* Where either candidate is MISSING the readings cannot be shown to agree, so the row
-* stays disputed. Conservative on purpose: 5 rows, and the alternative is silently
-* declaring a comparison settled that was never made.
-* THE `snap_block == 1' TERM IS GONE, and dropping it changed nothing on this vintage.
-* Since STEP 3e-v-b publishes the block reading wherever it is possible, `snap_block' is
-* 1 on every row and the term was a no-op. Removing it also makes the flag mean exactly
-* what its label says: if the two readings differ, the row is disputed, whichever rule
-* published. Measured across the change: 942 rows either way.
-gen byte d_disputed = !d_unusable & ///
-	(missing(w_step1) | missing(w_block) | reldif(w_step1, w_block) > 1e-9)
-
-* `d_step1_flagged' WAS RETIRED HERE, and this note is why it is not simply missing.
-*
-* It read `review_step1 == 1' -- STEP 1's own flag, raised when the ANCHOR's pool looked
-* untrustworthy: a low anchor, a sibling-reference disagreement, an ambiguous snap
-* distance, a pool too small. Every one of those is a statement about the anchor's
-* confidence in its own decade shift.
-*
-* The anchor no longer sets a published weight. STEP 3e-v-b publishes the block reading
-* wherever it is a possible reading, so on this vintage the anchor decides 5 rows -- the
-* ones with no block reading at all. A flag saying "the anchor was unsure" therefore
-* describes a rule that did not produce the number, on 1,473 weighings, and it was 76% of
-* `d_any_uncertain'. It propagated into `n_flagged', `n_uncertain', `nu_used' and the
-* published `share_uncertain', so the deliverables carried an uncertainty measure
-* dominated by a computation that no longer runs.
-*
-* `d_any_uncertain' falls from 1,934 to about 950 as a result. That is a real reduction in
-* a published figure and is meant: the figure was inflated, not the data cleaner.
-* `review_step1' still exists on the build for diagnostics -- it is a true fact about
-* STEP 1 -- but nothing published reads it.
-gen byte d_any_uncertain = d_unusable | d_disputed
-
-label var d_unusable      "1 = no defensible reading; weight is .c"
-label var d_disputed      "1 = the two snap readings differ and one had to be chosen"
-label var d_any_uncertain "1 = disputed or unusable; see #35"
-
-* The source columns must exist and must be the ones these flags claim to read. A missing
-* column would make the comparison silently false for every row and publish a table
-* saying nothing was ever disputed -- which is the failure this whole block exists to
-* prevent, arriving as a clean build.
+* The two readings are still carried, and still compared by the diagnostic. This confirm
+* is kept so that a vintage which stops producing them fails here, where the reason is
+* written down, rather than somewhere downstream that no longer mentions them.
 confirm numeric variable corrected_weight w_step1 w_block
 
-* d_any_uncertain is an OR, so it must be at least as large as each part and no larger
-* than their sum. Cheap, and it catches a future edit that turns the OR into an AND.
-assert d_any_uncertain >= d_unusable
-assert d_any_uncertain >= d_disputed
-assert d_any_uncertain <= d_unusable + d_disputed
-
-* An unusable weighing cannot also be disputed: there was no published value to dispute.
-assert !(d_unusable == 1 & d_disputed == 1)
-
-qui count
-local n_all = r(N)
-di as res _n "08_branch.do -- uncertainty flags on `n_all' priced weighings:"
-foreach v in d_unusable d_disputed d_any_uncertain {
-	qui count if `v' == 1
-	di as res "  " %-18s "`v'" %8.0fc r(N) "   " %5.1f 100 * r(N) / `n_all' "%"
-}
-
-* Read against branch, because a branch carrying disproportionate uncertainty would change
-* how the three Outcome 2 branch builds should be read.
-di as res _n "share uncertain by branch:"
-table branch, statistic(frequency) statistic(mean d_any_uncertain) nformat(%9.3f)
+qui count if missing(corrected_weight)
+di as res _n "08_branch.do: " r(N) " weighing(s) carry no defensible reading (weight is .c)."
+di as res "  The uncertainty flags are retired -- see the note above. n_g and d_thin carry"
+di as res "  how much evidence stands behind a published value; nothing now grades it."
 
 save "${btemp}\nsu_weighings_cpi", replace
-di as txt "08_branch.do: wrote branch, d_reclassified and the four uncertainty flags"
+di as txt "08_branch.do: wrote branch and d_reclassified"

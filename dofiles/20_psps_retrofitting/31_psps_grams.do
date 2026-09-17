@@ -52,20 +52,17 @@
 *                  matching how 28 leaves it missing on "refused: A11 spelling gap"
 *                  and "refused: unique price" -- no rung ever fired, so there is no
 *                  rung to name. Verified against the live build in section 2.
-*   n_g_used, nu_used, share_uncertain   DO NOT EXIST on psps_standard_units.dta at
-*                  all, and per docs/implicit_assumptions.md A20 and the task this
-*                  file was written against, THEY MUST STAY MISSING THERE, NOT ZERO:
-*                  a standard-unit row's grams come from a stated container size, not
-*                  a market-survey weighing, so there is no weighing to have
-*                  questioned. A zero would assert something about an empty set.
-*                  Left absent through section 2 and asserted missing in section 5.
+*   n_g_used       DOES NOT EXIST on psps_standard_units.dta at all, and MUST STAY
+*                  MISSING THERE, NOT ZERO: a standard-unit row's grams come from a
+*                  stated container size, not a market-survey weighing, so there is
+*                  no weighing to count. A zero would assert something about an empty
+*                  set. Left absent through section 2 and asserted missing in section 5.
 *   d_no_price     EXISTS on psps_converted_capped.dta already, but it is NOT carried
 *                  from there -- see the note in section 1. It is recomputed once,
 *                  after the append, from p_h alone, which every source carries.
-*   share_uncertain likewise is recomputed once after the append from nu_used and
-*                  n_g_used, rather than carried from psps_converted_capped.dta,
-*                  so ONE formula produces it regardless of which source a row
-*                  came from.
+*   d_thin         likewise is regenerated once after the append from n_g_used, rather
+*                  than carried from psps_converted_capped.dta, so ONE definition
+*                  produces it regardless of which source a row came from.
 *
 * ==============================================================================
 * A HAZARD FOUND IN THE UPSTREAM BUILD, NOT INTRODUCED HERE, AND WORKED AROUND
@@ -123,9 +120,9 @@ di as res _n "NSU rows (market-survey branch, conv_path 2): `n_nsu'"
 keep hh_row hhid psps_item_code slot source ///
      pull_province pull_municipal_city pull_item pull_nsu_unit harmonized_nsu_unit ///
      q_h p_h cf_h grams_h conv_path conv_route d_converted fallback_level d_cap ///
-     n_g_used nu_used ///
+     n_g_used ///
      cf_h_blind grams_h_blind dim_blind fallback_level_blind conv_route_blind ///
-     n_g_used_blind nu_used_blind d_converted_blind
+     n_g_used_blind d_converted_blind
 
 isid `keyvars'
 tempfile nsu
@@ -159,9 +156,8 @@ gen byte conv_path = 1
 assert fallback_level == 0
 assert d_cap == 0
 
-* n_g_used, nu_used and share_uncertain are left ABSENT here -- not generated and
-* not zeroed. See the header note and A20: no weighing stands behind a stated
-* container size, so there is nothing for these three to count.
+* n_g_used is left ABSENT here -- not generated and not zeroed. See the header note:
+* no weighing stands behind a stated container size, so there is nothing to count.
 
 keep hh_row hhid psps_item_code slot source ///
      pull_province pull_municipal_city pull_item pull_nsu_unit harmonized_nsu_unit ///
@@ -215,8 +211,8 @@ gen byte fallback_level = .
 
 gen str48 conv_route = "refused: not an NSU (" + drop_reason + ")"
 
-* n_g_used / nu_used are left ABSENT, same reasoning as section 2: nothing was ever
-* weighed for a label that is not an NSU.
+* n_g_used is left ABSENT, same reasoning as section 2: nothing was ever weighed for a
+* label that is not an NSU.
 
 keep hh_row hhid psps_item_code slot source ///
      pull_province pull_municipal_city pull_item pull_nsu_unit harmonized_nsu_unit ///
@@ -261,13 +257,6 @@ isid hh_row
 gen byte d_no_price = missing(p_h)
 label var d_no_price "1 = no computable unit value on this row (e_h or q_h absent)"
 
-* ---- share_uncertain: ONE formula, applied uniformly --------------------------
-* Missing wherever either input is missing -- which is every conv_path 1 and 3 row,
-* and every refused conv_path 2 row -- by ordinary division, with no `if' needed.
-gen double share_uncertain = nu_used / n_g_used
-format share_uncertain %5.3f
-label var share_uncertain "nu_used / n_g_used; missing where no weighing stands behind cf_h"
-
 * ---- d_thin: the same flag Outcome 1 publishes, on the count used here ---------
 * Published, never acted on. A household whose matched rung rests on one or two weighings
 * is converted at that rung and MARKED -- it is not sent up the ladder, which exists for
@@ -295,7 +284,6 @@ label var d_converted          "1 = this row has a gram figure"
 label var fallback_level       "0 matched or standard-unit; 1-3 a borrowed rung; missing if unconverted"
 label var d_cap                "1 = the household price ratio was clamped to t=5 (conv_path 2 only)"
 label var n_g_used             "weighings behind cf_h, at the level used; missing off conv_path 2"
-label var nu_used              "of n_g_used, disputed or anchor-flagged (#35); missing off conv_path 2"
 
 * ---- value labels: RESET, not inherited ---------------------------------------
 * conv_path and fallback_level each arrive from a different source per row, and the
@@ -350,21 +338,13 @@ assert  missing(grams_h) if d_converted == 0
 * --- grams_h == q_h * cf_h wherever both exist -------------------------------
 assert reldif(grams_h, q_h * cf_h) < 1e-9 if !missing(grams_h) & !missing(cf_h)
 
-* --- nu_used <= n_g_used wherever both exist ---------------------------------
-assert nu_used <= n_g_used if !missing(nu_used) & !missing(n_g_used)
-
-* --- the uncertainty columns are missing on every standard-unit row ----------
-* conv_path == 1 is exactly the standard-unit population (section 2's own filter),
-* so this is the direct restatement of the header note and A20: a stated container
-* size has no weighing behind it to have questioned.
+* --- the evidence count is missing on every standard-unit row ----------------
+* conv_path == 1 is exactly the standard-unit population (section 2's own filter):
+* a stated container size has no market-survey weighing behind it to count.
 assert missing(n_g_used)        if conv_path == 1
-assert missing(nu_used)         if conv_path == 1
-assert missing(share_uncertain) if conv_path == 1
 
 * --- the same holds for conv_path == 3: nothing was ever weighed -------------
 assert missing(n_g_used)        if conv_path == 3
-assert missing(nu_used)         if conv_path == 3
-assert missing(share_uncertain) if conv_path == 3
 assert missing(fallback_level)  if conv_path == 3
 assert d_cap == 0               if conv_path == 3
 
@@ -403,9 +383,9 @@ assert missing(d_converted_blind)  if conv_path != 2
 order hh_row hhid psps_item_code slot source ///
       pull_province pull_municipal_city pull_item pull_nsu_unit harmonized_nsu_unit ///
       q_h p_h cf_h grams_h conv_path conv_route d_converted fallback_level d_cap ///
-      d_no_price n_g_used nu_used share_uncertain d_thin ///
+      d_no_price n_g_used d_thin ///
       cf_h_blind grams_h_blind dim_blind fallback_level_blind conv_route_blind ///
-      n_g_used_blind nu_used_blind d_converted_blind
+      n_g_used_blind d_converted_blind
 
 compress
 sort hh_row
@@ -493,8 +473,6 @@ preserve
 	replace fallback_level  = fallback_level_blind  if conv_path == 2
 	replace d_converted     = d_converted_blind     if conv_path == 2
 	replace n_g_used        = n_g_used_blind        if conv_path == 2
-	replace nu_used         = nu_used_blind         if conv_path == 2
-	replace share_uncertain = nu_used / n_g_used    if conv_path == 2
 	* d_thin has to be recomputed from the BLIND count, not carried over from the
 	* headline one -- the two describe different rungs. Zero throughout on this file
 	* by construction, since the blind ladder is gated at every rung; asserted below.
@@ -503,7 +481,7 @@ preserve
 	assert d_thin == 0 if conv_path == 2 & !missing(d_thin)
 
 	drop cf_h_blind grams_h_blind dim_blind fallback_level_blind ///
-	     conv_route_blind n_g_used_blind nu_used_blind d_converted_blind ///
+	     conv_route_blind n_g_used_blind d_converted_blind ///
 	     d_cap p_h
 
 	label var cf_h    "grams (or mL) in one unit of this NSU -- CELL POOLED across hetero-groups"
@@ -553,22 +531,16 @@ tab d_converted, m
 qui su grams_h if d_converted == 1
 di as res _n "total grams over converted rows: " %18.0fc r(sum)
 
-* Reported for conv_path == 2 only -- the market-survey branch is the only
-* population where n_g_used/nu_used are ever populated (A20's own aggregation
-* rule: state which population a share is computed over, do not mix them). Both
-* readings are printed, as A20 itself insists on: "resting on at least one" and
-* "resting entirely on" are different claims and neither should be quoted alone.
+* Reported for conv_path == 2 only -- the market-survey branch is the only population
+* where n_g_used is ever populated. State which population a count is over; do not mix
+* the standard-unit rows in, since nothing was weighed for them.
 qui count if conv_path == 2 & d_converted == 1
 local n_nsu_conv = r(N)
-qui count if conv_path == 2 & d_converted == 1 & share_uncertain > 0
-local n_nsu_some = r(N)
-qui count if conv_path == 2 & d_converted == 1 & share_uncertain == 1
-local n_nsu_allu = r(N)
+qui count if conv_path == 2 & d_converted == 1 & d_thin == 1
+local n_nsu_thin = r(N)
 di as res _n "of the `n_nsu_conv' converted market-survey rows (conv_path 2):"
-di as res "  resting on AT LEAST ONE questioned weighing: " %8.0fc `n_nsu_some' ///
-	"  (" %5.1f 100 * `n_nsu_some' / `n_nsu_conv' "%)"
-di as res "  resting ENTIRELY on questioned weighings:     " %8.0fc `n_nsu_allu' ///
-	"  (" %5.1f 100 * `n_nsu_allu' / `n_nsu_conv' "%)"
+di as res "  resting on fewer than ${THIN} weighings (d_thin): " %8.0fc `n_nsu_thin' ///
+	"  (" %5.1f 100 * `n_nsu_thin' / `n_nsu_conv' "%)"
 
 di as res _n "{hline 78}"
 di as res "  This is now the single household-level PSPS grams artefact."

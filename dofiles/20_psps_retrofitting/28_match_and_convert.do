@@ -125,20 +125,11 @@ use "${bdeliv}\outcome2_lookup", clear
 rename psps_month lk_month
 label var lk_month "the month THIS LOOKUP ROW was restated to (Branch P only)"
 
-* `share_uncertain' IS DROPPED, not renamed, and the distinction matters. On the lookup it
-* describes the GROUP's weighings. On a household row the question is how questioned the
-* weight THIS ROW WAS ACTUALLY GIVEN is -- which for a matched row is the same number, but
-* for a fallback row is a different rung's entirely. Carrying the group's share onto a row
-* served by a province pool would describe weighings the row never received. Section 7
-* recomputes it from nu_used and n_g_used, which are filled per route.
-*
-* The counts themselves are kept: n_uncertain is what a matched row's nu_used reads from.
-*
-* `d_thin' IS DROPPED FOR THE SAME REASON. On the lookup it reads the matched POINT's n_g;
-* on a household row the question is whether the weight the row was actually given is thin,
+* `d_thin' IS DROPPED, not carried. On the lookup it reads the matched POINT's n_g; on a
+* household row the question is whether the weight the row was actually given is thin,
 * which for a fallback row is a different rung's count. 31_psps_grams.do regenerates it
 * from n_g_used, once, after every route has filled that column.
-drop share_uncertain d_thin
+drop d_thin
 tempfile lkj
 save "`lkj'"
 
@@ -273,15 +264,14 @@ isid hh_row
 * reader can drop it.
 
 merge m:1 `coarse' corrected_unit using "${btemp}\outcome2_cell_fallback", ///
-	keep(1 3) nogen keepusing(fb_grams fb_n_g fb_nu fb_level fb_unconvertible)
+	keep(1 3) nogen keepusing(fb_grams fb_n_g fb_level fb_unconvertible)
 
 gen str28 conv_route = ""
 gen double cf_h = .
+* n_g_used is filled on the SAME line as cf_h at every route below, so the two can only
+* ever describe the same set of weighings. A row's evidence count must come from wherever
+* its weight came from -- the matched group, the cell pool, or a borrowed rung.
 gen long   n_g_used = .
-* nu_used is filled on the SAME line as n_g_used at every route below, so the two can only
-* ever describe the same set of weighings. A row's uncertainty must come from wherever its
-* weight came from -- the matched group, the cell pool, or a borrowed rung (#35).
-gen long   nu_used = .
 gen byte   fallback_level = .
 
 * --- 1. the ordinary path -----------------------------------------------------
@@ -290,7 +280,6 @@ replace cf_h = p_h / v_use  if conv_route == "matched price point" & d_no_price 
 replace cf_h = w_use        if conv_route == "matched price point" & d_no_price == 1
 replace cf_h = w_use        if conv_route == "matched price point" & branch == 1
 replace n_g_used = n_g      if conv_route == "matched price point"
-replace nu_used  = n_uncertain if conv_route == "matched price point"
 replace fallback_level = 0  if conv_route == "matched price point"
 
 * --- 2. A11 refusal -----------------------------------------------------------
@@ -305,7 +294,6 @@ replace conv_route = "fallback: empty size part" ///
 	if conv_route == "" & unusable_why == "this part of the cut came back empty"
 replace cf_h           = fb_grams if conv_route == "fallback: empty size part"
 replace n_g_used       = fb_n_g   if conv_route == "fallback: empty size part"
-replace nu_used        = fb_nu    if conv_route == "fallback: empty size part"
 replace fallback_level = fb_level if conv_route == "fallback: empty size part"
 replace conv_route     = "refused: nothing anywhere" ///
 	if conv_route == "fallback: empty size part" & fb_unconvertible == 1
@@ -360,8 +348,8 @@ preserve
 	* Not `_n' -- that is Stata's observation-number system variable and an invalid varname.
 	bysort `coarse': gen byte _ndim = _N
 	assert _ndim == 1
-	keep `coarse' corrected_unit fb_grams fb_n_g fb_nu fb_level
-	rename (corrected_unit fb_grams fb_n_g fb_nu fb_level) (r1_dim r1_g r1_n r1_nu r1_lvl)
+	keep `coarse' corrected_unit fb_grams fb_n_g fb_level
+	rename (corrected_unit fb_grams fb_n_g fb_level) (r1_dim r1_g r1_n r1_lvl)
 	isid `coarse'
 	tempfile rung1
 	save "`rung1'"
@@ -376,8 +364,8 @@ preserve
 	keep if corrected_unit == _pick
 	bysort pull_province pull_item harmonized_nsu_unit: gen byte _ndim = _N
 	assert _ndim == 1
-	keep pull_province pull_item harmonized_nsu_unit corrected_unit fb_grams fb_n_g fb_nu fb_level
-	rename (corrected_unit fb_grams fb_n_g fb_nu fb_level) (r2_dim r2_g r2_n r2_nu r2_lvl)
+	keep pull_province pull_item harmonized_nsu_unit corrected_unit fb_grams fb_n_g fb_level
+	rename (corrected_unit fb_grams fb_n_g fb_level) (r2_dim r2_g r2_n r2_lvl)
 	isid pull_province pull_item harmonized_nsu_unit
 	tempfile rung2
 	save "`rung2'"
@@ -392,39 +380,36 @@ preserve
 	keep if corrected_unit == _pick
 	bysort pull_item harmonized_nsu_unit: gen byte _ndim = _N
 	assert _ndim == 1
-	keep pull_item harmonized_nsu_unit corrected_unit fb_grams fb_n_g fb_nu fb_level
-	rename (corrected_unit fb_grams fb_n_g fb_nu fb_level) (r3_dim r3_g r3_n r3_nu r3_lvl)
+	keep pull_item harmonized_nsu_unit corrected_unit fb_grams fb_n_g fb_level
+	rename (corrected_unit fb_grams fb_n_g fb_level) (r3_dim r3_g r3_n r3_lvl)
 	isid pull_item harmonized_nsu_unit
 	tempfile rung3
 	save "`rung3'"
 restore
 
-merge m:1 `coarse' using "`rung1'", keep(1 3) nogen keepusing(r1_dim r1_g r1_n r1_nu r1_lvl)
+merge m:1 `coarse' using "`rung1'", keep(1 3) nogen keepusing(r1_dim r1_g r1_n r1_lvl)
 merge m:1 pull_province pull_item harmonized_nsu_unit using "`rung2'", ///
-	keep(1 3) nogen keepusing(r2_dim r2_g r2_n r2_nu r2_lvl)
+	keep(1 3) nogen keepusing(r2_dim r2_g r2_n r2_lvl)
 merge m:1 pull_item harmonized_nsu_unit using "`rung3'", ///
-	keep(1 3) nogen keepusing(r3_dim r3_g r3_n r3_nu r3_lvl)
+	keep(1 3) nogen keepusing(r3_dim r3_g r3_n r3_lvl)
 
 * FINEST RUNG FIRST, and each `if' requires conv_route still empty so an earlier rung
 * cannot be overwritten by a coarser one.
 replace corrected_unit = r1_dim if conv_route == "" & !missing(r1_g)
 replace cf_h           = r1_g   if conv_route == "" & !missing(r1_g)
 replace n_g_used       = r1_n   if conv_route == "" & !missing(r1_g)
-replace nu_used        = r1_nu  if conv_route == "" & !missing(r1_g)
 replace fallback_level = r1_lvl if conv_route == "" & !missing(r1_g)
 replace conv_route     = "fallback: cell pooled"     if conv_route == "" & !missing(r1_g)
 
 replace corrected_unit = r2_dim if conv_route == "" & !missing(r2_g)
 replace cf_h           = r2_g   if conv_route == "" & !missing(r2_g)
 replace n_g_used       = r2_n   if conv_route == "" & !missing(r2_g)
-replace nu_used        = r2_nu  if conv_route == "" & !missing(r2_g)
 replace fallback_level = r2_lvl if conv_route == "" & !missing(r2_g)
 replace conv_route     = "fallback: province pool"   if conv_route == "" & !missing(r2_g)
 
 replace corrected_unit = r3_dim if conv_route == "" & !missing(r3_g)
 replace cf_h           = r3_g   if conv_route == "" & !missing(r3_g)
 replace n_g_used       = r3_n   if conv_route == "" & !missing(r3_g)
-replace nu_used        = r3_nu  if conv_route == "" & !missing(r3_g)
 replace fallback_level = r3_lvl if conv_route == "" & !missing(r3_g)
 replace conv_route     = "fallback: regional pool"   if conv_route == "" & !missing(r3_g)
 
@@ -463,7 +448,6 @@ gen double cf_h_blind          = .
 gen byte   dim_blind           = .
 gen byte   fallback_level_blind = .
 gen long   n_g_used_blind      = .
-gen long   nu_used_blind       = .
 gen str28  conv_route_blind    = ""
 
 * ---- A11 SURVIVES GOING BLIND, and this guard must come first ---------------------
@@ -484,21 +468,18 @@ replace conv_route_blind = "refused: A11 spelling gap" if d_spelling_gap == 1
 replace dim_blind            = r1_dim if conv_route_blind == "" & !missing(r1_g)
 replace cf_h_blind           = r1_g   if conv_route_blind == "" & !missing(r1_g)
 replace n_g_used_blind       = r1_n   if conv_route_blind == "" & !missing(r1_g)
-replace nu_used_blind        = r1_nu  if conv_route_blind == "" & !missing(r1_g)
 replace fallback_level_blind = r1_lvl if conv_route_blind == "" & !missing(r1_g)
 replace conv_route_blind     = "blind: cell pooled"     if conv_route_blind == "" & !missing(r1_g)
 
 replace dim_blind            = r2_dim if conv_route_blind == "" & !missing(r2_g)
 replace cf_h_blind           = r2_g   if conv_route_blind == "" & !missing(r2_g)
 replace n_g_used_blind       = r2_n   if conv_route_blind == "" & !missing(r2_g)
-replace nu_used_blind        = r2_nu  if conv_route_blind == "" & !missing(r2_g)
 replace fallback_level_blind = r2_lvl if conv_route_blind == "" & !missing(r2_g)
 replace conv_route_blind     = "blind: province pool"   if conv_route_blind == "" & !missing(r2_g)
 
 replace dim_blind            = r3_dim if conv_route_blind == "" & !missing(r3_g)
 replace cf_h_blind           = r3_g   if conv_route_blind == "" & !missing(r3_g)
 replace n_g_used_blind       = r3_n   if conv_route_blind == "" & !missing(r3_g)
-replace nu_used_blind        = r3_nu  if conv_route_blind == "" & !missing(r3_g)
 replace fallback_level_blind = r3_lvl if conv_route_blind == "" & !missing(r3_g)
 replace conv_route_blind     = "blind: regional pool"   if conv_route_blind == "" & !missing(r3_g)
 
@@ -543,7 +524,6 @@ label var dim_blind            "hetero-blind: dimension of cf_h_blind (1 = g, 2 
 label var fallback_level_blind "hetero-blind rung: 1 cell pooled, 2 province, 3 regional (never 0)"
 label var conv_route_blind     "hetero-blind: how this row got its grams, or why it did not"
 label var n_g_used_blind       "hetero-blind: weighings behind cf_h_blind"
-label var nu_used_blind        "hetero-blind: of n_g_used_blind, how many were disputed or anchor-flagged"
 label var d_converted_blind    "1 = the hetero-blind ladder produced grams for this row"
 
 gen byte d_converted = !missing(grams_h)
@@ -557,31 +537,21 @@ assert !missing(grams_h) if strpos(conv_route, "refused") == 0
 assert missing(grams_h)  if strpos(conv_route, "refused") > 0
 assert grams_h > 0 if !missing(grams_h)
 
-* ---- the uncertainty carried onto the household row (#35) --------------------------
-* EVERY CONVERTED ROW MUST KNOW how questioned the weight it was given is. A converted row
-* with nothing here would be a gram figure whose provenance stops at the number, which is
-* the gap this whole change closes -- and it would arrive as a clean build, since a
-* missing count reads as "not questioned" in every summary downstream.
-assert !missing(nu_used) if d_converted == 1
+* ---- the evidence count carried onto the household row -----------------------------
+* EVERY CONVERTED ROW MUST KNOW how much evidence the weight it was given rests on. A
+* converted row with nothing here would be a gram figure whose provenance stops at the
+* number -- and it would arrive as a clean build, since a missing count reads as "no
+* value published" in every summary downstream.
 assert !missing(n_g_used) if d_converted == 1
 
 * A refused row has no weight, so it must carry no count either. Zero would assert
 * something about a set of weighings the row never received.
-assert missing(nu_used) if d_converted == 0
-
-* Subset of the weighings it counts within, at whichever level supplied them.
-assert nu_used <= n_g_used if !missing(nu_used)
-
-gen double share_uncertain = nu_used / n_g_used
-format share_uncertain %5.3f
+assert missing(n_g_used) if d_converted == 0
 
 label var cf_h        "grams (or mL) in one unit of the NSU this household reported"
 label var grams_h     "q_h * cf_h -- total grams for this household x item x slot"
 label var conv_route  "how this row got its grams, or why it did not"
 label var n_g_used    "weighings behind cf_h, at the level actually used"
-label var nu_used     "of n_g_used, how many were disputed or anchor-flagged (#35)"
-label var share_uncertain ///
-	"nu_used / n_g_used; 1 = nothing behind this row's weight went unquestioned"
 label var d_no_price  "1 = no computable unit value (e_h or q_h absent); converted at the group's own weight"
 label var d_converted "1 = this row has a gram figure"
 label var fallback_level "0 = the matched group; 1-3 = a borrowed rung (see fallback_lbl)"
@@ -595,14 +565,9 @@ di as res _n "converted:"
 tab d_converted, m
 di as res _n "by fallback level, converted rows only:"
 tab fallback_level if d_converted, m
-di as res _n "how questioned the weight behind each converted row is (#35):"
+di as res _n "weighings behind the weight each converted row was given:"
 table fallback_level if d_converted, statistic(frequency) ///
-	statistic(mean share_uncertain) nformat(%9.3f)
-qui count if d_converted == 1 & share_uncertain == 1
-local n_all_u = r(N)
-qui count if d_converted == 1
-di as res "  rows whose weight rests ENTIRELY on questioned weighings: " ///
-	%8.0fc `n_all_u' "  of " %8.0fc r(N)
+	statistic(mean n_g_used) nformat(%9.2f)
 di as res _n "rows converted with no faced price (A10):"
 tab d_no_price if d_converted, m
 qui su grams_h if d_converted

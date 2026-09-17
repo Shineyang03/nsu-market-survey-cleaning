@@ -8,25 +8,28 @@ that nothing else in the project answered:
      straight unit conversion of the raw reading. A kg row published in grams is NOT a
      correction -- kg to g is a conversion, and every mass row gets one.
 
-  2. How many are UNCERTAIN, and in what way? Two different things get conflated if
-     they are not separated, and they need different follow-up:
-       disputed        the two readings differ and one had to be chosen
-       unusable        no interpretation was defensible, so the weight is .c
+  2. On how many do the two candidate readings DISAGREE, and on how many is there no
+     reading at all?
+       readings_differ  the typed reading and the pool-anchored reading are not the
+                        same number -- which, since the anchor only moves the decimal
+                        point, means the typed number sits in a different DECADE from
+                        its pool's median
+       no_reading       nothing defensible could be read, so the weight is .c
 
-     A THIRD, `step1_flagged', WAS RETIRED. It said the anchor machinery distrusted its
-     own answer -- true, but the anchor no longer sets a published weight, so it
-     described a computation that does not run. See 08_branch.do.
+     NEITHER IS PUBLISHED, AND THAT IS DELIBERATE. Both were carried into the
+     deliverables until 2026-09-17 as `disputed' / `unusable', aggregated into
+     n_uncertain and share_uncertain. They were retired because the pipeline publishes
+     the TYPED reading precisely on the grounds that differing from neighbours does not
+     impeach a non-standard unit -- so flagging the row as doubtful for differing from
+     its neighbours contradicted the rule that produced the number. 08_branch.do carries
+     the full reasoning.
 
-     THESE ARE THE BUILD'S FLAGS, read from nsu_weighings_cpi.dta. `08_branch.do' owns
-     their definition, because both deliverables now publish them (#35): the reference
-     set carries n_disputed / n_uncertain / share_uncertain per published
-     row, and every converted PSPS household row carries nu_used at the rung that
-     supplied its weight. This script no longer derives them, so it cannot disagree
-     with what shipped.
+     They are still reported HERE, because a difference between two readings is a real
+     fact about the row and someone will want the list. A diagnostic may describe it; a
+     deliverable should not grade a weight on it.
 
 WHY BOTH NUMBERS MATTER TOGETHER. The corrected count on its own reads as a defect rate.
-It is not: most corrections are decimal slips the pipeline is meant to repair. The
-uncertain count is the part a reader should discount, and it is much smaller.
+It is not: most corrections are unit-tick errors the pipeline is meant to repair.
 
 OUTPUT  outputs/build/summary/weight_correction_report.csv
         one row per weighing, with the flags below -- built long so the pipeline
@@ -57,7 +60,7 @@ d = pre[["id", "pull_province", "pull_municipal_city", "pull_item",
          "harmonized_nsu_unit", "unit", "weight"]].merge(
     mas[["id", "corrected_weight", "corrected_unit", "weighing_approach",
          "item_nsu_hetero_type", "snap_rule", "snap_referee", "snap_block",
-         "review_step1", "cleaning_notes"]],
+         "review_step1", "w_block", "cleaning_notes"]],
     on="id", validate="1:1")
 d = d.merge(snap[["id", "w_step1"]], on="id", validate="1:1", suffixes=("", "_snap"))
 
@@ -82,37 +85,39 @@ d.loc[~d.magnitude_corrected, "decades_moved"] = 0.0
 d["decades_moved"] = d.decades_moved.replace([np.inf, -np.inf], np.nan).round(2)
 
 # ---- 2. the three kinds of uncertainty --------------------------------------------
-# READ FROM THE BUILD, NOT DERIVED HERE. `08_branch.do' defines these four flags and
-# writes them into nsu_weighings_cpi.dta, because both deliverables now publish them
-# (#35). This script used to derive its own copy from snap_block and review_step1 --
-# correct at the time and free to drift the moment either definition moved, which is the
-# duplication #32 forced out of the string normalizers.
+# DERIVED HERE, DELIBERATELY, AND ONLY HERE -- 2026-09-17.
 #
-# So the direction is: the build decides, this report describes. A diagnostic reads the
-# quantity the pipeline computed; it never recomputes it.
-_flags = ["d_unusable", "d_disputed", "d_any_uncertain"]
-fl = pd.read_stata(T / "nsu_weighings_cpi.dta", columns=["id"] + _flags)
-d = d.merge(fl, on="id", how="left", validate="1:1")
+# These used to be read off d_unusable / d_disputed / d_any_uncertain in
+# nsu_weighings_cpi.dta, because both deliverables published them. Those columns are
+# retired (see 00_shared/08_branch.do for why), so this report computes the comparison
+# itself from the two readings the build still carries.
+#
+# THE RENAME IS THE POINT, not cosmetic. `readings_differ' is a FACT about the row: the
+# typed reading and the pool-anchored reading are not the same number. The old name
+# `disputed' asserted more than that -- it implied a contest in which one answer had to
+# be chosen, and the pipeline no longer holds one: the typed reading is published wherever
+# it is possible. A diagnostic may report the difference; nothing should publish it as a
+# verdict on the weight.
+#
+# This is not the duplication #32 forced out of the normalizers. There is no second
+# definition to drift from any more -- the build has none.
+_ref = pd.read_stata(T / "nsu_weighings_cpi.dta", columns=["id"])
+d = d.merge(_ref.assign(_in_build=True), on="id", how="left", validate="1:1")
 
 # A weighing missing from nsu_weighings_cpi was dropped at stage 2 and never reached
-# either deliverable, so it has no published flag to report. Left as NA rather than
-# filled: a False here would say "not questioned" about a row nothing ever judged.
-d = d.rename(columns={"d_unusable": "unusable", "d_disputed": "disputed",
-                      "d_any_uncertain": "any_uncertainty"})
-for c in ["unusable", "disputed", "any_uncertainty"]:
+# either deliverable. Left as NA rather than filled: a False would say "the readings
+# agree" about a row nothing ever compared.
+_seen = d["_in_build"].fillna(False).astype(bool)
+d["no_reading"] = pd.NA
+d["readings_differ"] = pd.NA
+d.loc[_seen, "no_reading"] = d.loc[_seen, "published"].isna()
+d.loc[_seen, "readings_differ"] = (
+    d.loc[_seen, "w_step1"].notna() & d.loc[_seen, "w_block"].notna()
+    & (d.loc[_seen, "w_step1"] != d.loc[_seen, "w_block"])
+) | (d.loc[_seen, "w_step1"].isna() != d.loc[_seen, "w_block"].isna())
+for c in ["no_reading", "readings_differ"]:
     d[c] = d[c].astype("boolean")
-
-# The one cross-check worth keeping, and it is a check rather than a second definition:
-# `unusable' means the published weight is missing, which this script can see directly
-# from the column it already read. If the build's flag and the published value disagree,
-# one of them is wrong and the report must not paper over it.
-_seen = d.unusable.notna()
-_mismatch = int((d.loc[_seen, "unusable"].astype(bool) != d.loc[_seen, "published"].isna()).sum())
-if _mismatch:
-    raise SystemExit(
-        f"{_mismatch} row(s) where the build's d_unusable disagrees with whether "
-        "corrected_weight is missing. 08_branch.do and this report cannot both be right; "
-        "fix the build before quoting either number.")
+d = d.drop(columns=["_in_build"])
 
 # `branch' is ADDED, not substituted. The subject of this report is the weight correction,
 # which happens upstream of branching and is unaffected by it -- so weighing_approach, the
@@ -145,7 +150,7 @@ cols = ["id", "pull_province", "pull_municipal_city", "pull_item",
         "harmonized_nsu_unit", "weighing_approach", "item_nsu_hetero_type",
         "unit", "weight", "raw_canonical", "published", "corrected_unit",
         "magnitude_corrected", "decades_moved", "snap_rule", "snap_referee",
-        "snap_block", "disputed", "unusable", "any_uncertainty",
+        "snap_block", "readings_differ", "no_reading",
         "cleaning_notes"]
 d[cols].to_csv(OUT / "weight_correction_report.csv", index=False,
                encoding="utf-8-sig")
@@ -173,10 +178,15 @@ rows = [
         & ~d.decades_moved.between(2.5, 3.5)
         & ~d.decades_moved.between(-3.5, -2.5)
         & ~d.decades_moved.abs().between(0.5, 1.5)).sum())),
-    ("uncertain -- either of the two below", int(d.any_uncertainty.sum())),
-    ("  disputed: the two readings differ, block published",
-     int(d.disputed.sum())),
-    ("  unusable: no defensible reading, weight is .c", int(d.unusable.sum())),
+    # NOT an error rate, and not published anywhere. The two readings differing means
+    # the typed number sits in a different decade from its pool's median -- which for a
+    # NON-STANDARD unit is partly the thing being measured. Reported because it is a real
+    # feature of the data and someone will want to look at those rows; retired as a
+    # published verdict on 2026-09-17 (see 00_shared/08_branch.do).
+    ("the two readings differ (typed vs pool-anchored)",
+     int(d.readings_differ.fillna(False).sum())),
+    ("no defensible reading at all, weight is .c",
+     int(d.no_reading.fillna(False).sum())),
 ]
 s = pd.DataFrame(rows, columns=["measure", "weighings"])
 s["share_of_all"] = (s.weighings / n * 100).round(1)

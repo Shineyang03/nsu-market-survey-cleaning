@@ -79,12 +79,8 @@ local THIN = ${THIN}    // ONE definition, in 00_globals.do -- do not retype the
 * would inherit Outcome 1's stopping rule, which is not Outcome 2's.
 use "${btemp}\ref_11_checked", clear
 
-* d_any_uncertain IS KEPT so every rung below can count it. Section 2 collapses this base
-* four times, at four grains, and a flag absent here cannot be recovered afterwards -- the
-* rung medians are all that survive. This is the `w_block' lesson: if the build discards
-* something a later step needs, the fix is to keep it, not to re-derive it (#35).
 keep pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
-	corrected_unit size_ord corrected_weight weighing_approach d_any_uncertain
+	corrected_unit size_ord corrected_weight weighing_approach
 drop if missing(corrected_weight) | corrected_weight <= 0
 drop if missing(corrected_unit)
 
@@ -104,15 +100,14 @@ tempfile base
 save "`base'"
 
 * ---- L0: the cell's own hetero rung -----------------------------------------
-* `nu_lN' IS COMPUTED AT EVERY RUNG, alongside that rung's own median and count, and for
-* the same reason: a household served by a borrowed weight must be told how questioned
-* THE WEIGHINGS IT ACTUALLY GOT were, not how questioned its own cell's were. Carrying a
-* single cell-level count and reporting it beside a province median would attach a number
-* to a row it does not describe -- the mislabel class closed in
-* 12_publish_reference_set.do section 5c. Section 3 picks nu_used with the same selector
-* it uses for grams_used, so the three columns cannot come from different rungs.
+* `n_lN' IS COMPUTED AT EVERY RUNG, alongside that rung's own median, and for a reason:
+* a household served by a borrowed weight must be told how much evidence THE WEIGHINGS IT
+* ACTUALLY GOT rest on, not how much its own cell held. Carrying a single cell-level count
+* and reporting it beside a province median would attach a number to a row it does not
+* describe -- the mislabel class closed in 12_publish_reference_set.do section 5c.
+* Section 3 picks n_g_used with the same selector it uses for grams_used, so the two
+* columns cannot come from different rungs.
 collapse (median) w_l0 = corrected_weight (count) n_l0 = corrected_weight ///
-         (sum) nu_l0 = d_any_uncertain ///
          (first) weighing_approach, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
             corrected_unit size_ord)
@@ -121,16 +116,14 @@ save "`l0'"
 
 * ---- L1: the cell, pooled across hetero -------------------------------------
 use "`base'", clear
-collapse (median) w_l1 = corrected_weight (count) n_l1 = corrected_weight ///
-         (sum) nu_l1 = d_any_uncertain, ///
+collapse (median) w_l1 = corrected_weight (count) n_l1 = corrected_weight, ///
          by(pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit)
 tempfile l1
 save "`l1'"
 
 * ---- L2: the province, dropping municipality --------------------------------
 use "`base'", clear
-collapse (median) w_l2 = corrected_weight (count) n_l2 = corrected_weight ///
-         (sum) nu_l2 = d_any_uncertain, ///
+collapse (median) w_l2 = corrected_weight (count) n_l2 = corrected_weight, ///
          by(pull_province pull_item harmonized_nsu_unit corrected_unit)
 tempfile l2
 save "`l2'"
@@ -143,8 +136,7 @@ save "`l2'"
 * particular. It is offered because the alternative is no number at all, and the flag is
 * what lets a reader refuse it.
 use "`base'", clear
-collapse (median) w_l3 = corrected_weight (count) n_l3 = corrected_weight ///
-         (sum) nu_l3 = d_any_uncertain, ///
+collapse (median) w_l3 = corrected_weight (count) n_l3 = corrected_weight, ///
          by(pull_item harmonized_nsu_unit corrected_unit)
 tempfile l3
 save "`l3'"
@@ -180,23 +172,20 @@ bysort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected
 * with no thin rung anywhere.
 gen double grams_used   = .
 gen long   n_g_used     = .
-gen long   nu_used      = .
 gen byte   fallback_level = .
 
 replace fallback_level = 0 if n_l0 >= `THIN' & _cell_has_thin == 0
 replace grams_used     = w_l0 if fallback_level == 0
 replace n_g_used       = n_l0 if fallback_level == 0
-replace nu_used        = nu_l0 if fallback_level == 0
 
-* nu_used moves in the SAME replace as grams_used and under the same condition, which is
-* the whole point: the three columns describe one rung or they describe nothing. Adding a
-* separate loop for it, or filling it afterwards from the level code, is how a count from
-* L0 ends up printed beside a weight from L2 (#35).
+* n_g_used moves in the SAME replace as grams_used and under the same condition, which is
+* the whole point: the two columns describe one rung or they describe nothing. Filling the
+* count afterwards from the level code is how a count from L0 ends up printed beside a
+* weight from L2.
 foreach L in 1 2 3 {
 	replace fallback_level = `L' if missing(fallback_level) & n_l`L' >= `THIN'
 	replace grams_used     = w_l`L'  if fallback_level == `L' & missing(grams_used)
 	replace n_g_used       = n_l`L'  if fallback_level == `L' & missing(n_g_used)
-	replace nu_used        = nu_l`L' if fallback_level == `L' & missing(nu_used)
 }
 drop _cell_has_thin
 
@@ -217,14 +206,7 @@ label values fallback_level fallback_lbl
 label var fallback_level "rung of the ladder that supplied the weight; 0 = the cell's own"
 label var grams_used     "weight this cell x size resolves to, in g or mL"
 label var n_g_used       "weighings behind grams_used, AT THE RUNG USED"
-label var nu_used        "of n_g_used, how many were disputed or anchor-flagged (#35)"
 label var unconvertible  "1 = no rung reached THIN; report as unconvertible, do not impute"
-
-* The share a reader will filter on, at the rung that actually supplied the weight.
-gen double share_uncertain_used = nu_used / n_g_used
-label var share_uncertain_used ///
-	"nu_used / n_g_used; 1 = nothing behind the borrowed weight went unquestioned"
-format share_uncertain_used %5.3f
 
 ********************************************************************************
 **# 3b. LABEL INVARIANTS -- every rung label must be true of the row carrying it
@@ -257,16 +239,7 @@ if r(N) > 0 {
 forvalues L = 0/3 {
 	assert n_g_used == n_l`L' & grams_used == w_l`L' if fallback_level == `L'
 	assert n_g_used >= `THIN'                        if fallback_level == `L'
-	* The uncertainty count must come from the SAME rung as the weight beside it. This is
-	* the assertion that makes nu_used's claim checkable rather than merely intended: an
-	* L2 weight reported with L0's count would publish a plausible number describing a
-	* different set of weighings.
-	assert nu_used == nu_l`L'                        if fallback_level == `L'
 }
-
-* Bounded by the count it is a subset of, at whichever rung was used.
-assert nu_used <= n_g_used if !missing(nu_used)
-assert inrange(share_uncertain_used, 0, 1) if !missing(share_uncertain_used)
 
 * The ladder is ordered finest to coarsest, so a row at level L must have FAILED every
 * finer rung. Without this, a bug in the `foreach' order could publish a coarse rung while
@@ -299,13 +272,13 @@ count if unconvertible
 di as res "  " r(N)
 
 * A weight that fell off the bottom must carry nothing, or a downstream join will read a
-* stale value as if it were an estimate. nu_used included: a 0 there would say none of
-* the weighings behind the estimate was questioned, about an estimate that does not exist.
-assert missing(grams_used) & missing(n_g_used) & missing(nu_used) if unconvertible
+* stale value as if it were an estimate. n_g_used included: a 0 there would read as a real
+* count of no weighings, about an estimate that does not exist.
+assert missing(grams_used) & missing(n_g_used) if unconvertible
 
-di as res _n "how questioned the weight was, by the rung that supplied it (#35):"
+di as res _n "weighings behind the weight, by the rung that supplied it:"
 table fallback_level if !unconvertible, statistic(frequency) ///
-	statistic(mean share_uncertain_used) nformat(%9.3f)
+	statistic(mean n_g_used) nformat(%9.2f)
 
 sort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit size_ord
 save "${btemp}\outcome2_weight_ladder", replace
@@ -344,7 +317,7 @@ restore
 
 preserve
 	keep pull_province pull_municipal_city pull_item harmonized_nsu_unit ///
-	     corrected_unit w_l1 n_l1 nu_l1 w_l2 n_l2 nu_l2 w_l3 n_l3 nu_l3
+	     corrected_unit w_l1 n_l1 w_l2 n_l2 w_l3 n_l3
 	duplicates drop
 
 	* One row per cell. w_l1/n_l1 and below are constant within a cell by construction --
@@ -355,13 +328,11 @@ preserve
 
 	gen double fb_grams  = .
 	gen long   fb_n_g    = .
-	gen long   fb_nu     = .
 	gen byte   fb_level  = .
 	foreach L in 1 2 3 {
 		replace fb_level = `L' if missing(fb_level) & n_l`L' >= `THIN'
 		replace fb_grams = w_l`L'  if fb_level == `L' & missing(fb_grams)
 		replace fb_n_g   = n_l`L'  if fb_level == `L' & missing(fb_n_g)
-		replace fb_nu    = nu_l`L' if fb_level == `L' & missing(fb_nu)
 	}
 	gen byte fb_unconvertible = missing(fb_level)
 
@@ -370,14 +341,12 @@ preserve
 	label var fb_level  "coarsest-first rung serving this cell when the price match fails"
 	label var fb_grams  "grams (or mL) that rung resolves to"
 	label var fb_n_g    "weighings behind fb_grams, AT THE RUNG USED"
-	label var fb_nu     "of fb_n_g, how many were disputed or anchor-flagged (#35)"
 	label var fb_unconvertible "1 = no rung from L1 down clears THIN; report, do not impute"
 
-	assert missing(fb_grams) & missing(fb_n_g) & missing(fb_nu) if fb_unconvertible
+	assert missing(fb_grams) & missing(fb_n_g) if fb_unconvertible
 	assert fb_n_g >= `THIN' if !fb_unconvertible
-	assert fb_nu <= fb_n_g if !fb_unconvertible
 	forvalues L = 1/3 {
-		assert fb_nu == nu_l`L' & fb_n_g == n_l`L' if fb_level == `L'
+		assert fb_n_g == n_l`L' if fb_level == `L'
 	}
 
 	di as res _n "cell-level fallback rung:"
@@ -386,7 +355,7 @@ preserve
 	di as res "  cells no rung from L1 down can serve: " r(N)
 
 	keep pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit ///
-	     fb_grams fb_n_g fb_nu fb_level fb_unconvertible
+	     fb_grams fb_n_g fb_level fb_unconvertible
 	compress
 	sort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
 	save "${btemp}\outcome2_cell_fallback", replace
@@ -429,13 +398,12 @@ foreach L in 2 3 {
 			local lkey pull_item harmonized_nsu_unit corrected_unit
 			local lnm  "regional"
 		}
-		keep `lkey' w_l`L' n_l`L' nu_l`L'
+		keep `lkey' w_l`L' n_l`L'
 		duplicates drop
 		isid `lkey'
 
 		rename w_l`L'  fb_grams
 		rename n_l`L'  fb_n_g
-		rename nu_l`L' fb_nu
 		gen byte fb_level = `L'
 
 		* Only a pool clearing THIN is offered. Below that the honest answer is nothing;
@@ -450,9 +418,8 @@ foreach L in 2 3 {
 		label values fb_level fallback_lbl
 		label var fb_grams "median grams (or mL) in this pool"
 		label var fb_n_g   "weighings behind it"
-		label var fb_nu    "of fb_n_g, how many were disputed or anchor-flagged (#35)"
 		label var fb_level "the rung this schedule is"
-		assert fb_nu <= fb_n_g
+		assert fb_n_g >= `THIN'
 
 		compress
 		sort `lkey'
@@ -502,19 +469,14 @@ foreach L in 2 3 {
 preserve
 	use "${btemp}\outcome2_cell_fallback", clear
 
-	rename (fb_grams fb_n_g fb_nu fb_level fb_unconvertible) ///
-	       (cf_blind n_g_used nu_used fallback_level d_unconvertible)
+	rename (fb_grams fb_n_g fb_level fb_unconvertible) ///
+	       (cf_blind n_g_used fallback_level d_unconvertible)
 
 	label var cf_blind       "grams (or mL) in one unit of this NSU, pooled across hetero-groups"
 	label var n_g_used       "weighings behind cf_blind, at the rung actually used"
-	label var nu_used        "of n_g_used, how many were disputed or anchor-flagged (#35)"
 	label var fallback_level "rung: 1 cell pooled, 2 province, 3 regional (never 0 -- L0 IS the hetero match)"
 	label var d_unconvertible "1 = no rung from L1 down clears THIN; reported, never imputed"
 	label var corrected_unit "dimension of cf_blind: 1 = g, 2 = mL -- part of the key, never pooled over"
-
-	gen double share_uncertain = nu_used / n_g_used
-	format share_uncertain %5.3f
-	label var share_uncertain "nu_used / n_g_used; 1 = nothing behind this factor went unquestioned"
 
 	* d_thin ships here for schema parity with the headline pair, and it is ZERO on every
 	* row BY CONSTRUCTION: this ladder is gated at every rung and has no L0, so nothing
@@ -529,7 +491,7 @@ preserve
 	assert missing(cf_blind) == (d_unconvertible == 1)
 
 	order pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit ///
-	      cf_blind fallback_level n_g_used nu_used share_uncertain d_thin d_unconvertible
+	      cf_blind fallback_level n_g_used d_thin d_unconvertible
 	compress
 	sort pull_province pull_municipal_city pull_item harmonized_nsu_unit corrected_unit
 	save "${bdeliv}\outcome2_lookup_heteroblind", replace

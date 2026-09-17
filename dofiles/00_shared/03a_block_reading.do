@@ -244,29 +244,17 @@ count if inrange(weight,1,`KGMAX') & unit==1 & _usable
 di as txt "03a kg-plausibility: " r(N) " row(s) matched"
 replace w_block = weight*1000 if inrange(weight,1,`KGMAX') & unit==1 & _usable
 
-* --- THE GAP KGMAX SITS IN MUST STAY EMPTY -------------------------------------
-* `KGMAX' = 30 separates "believe the kg tick" from "this number is already grams". It is
-* defensible today because the data leaves it a wide berth: the kg-ticked readings run
-* ... 25, 25, 25 | nothing at all | 65, 115, 190, 250, 350 ... so the threshold falls in a
-* genuine gap and no row is near enough to be decided by the exact value 30.
-*
-* THAT IS A PROPERTY OF THIS VINTAGE, NOT OF THE RULE. A 35 kg entry would be the first
-* row the threshold ever actually adjudicated, and the answer is not obvious -- a 35 kg
-* sack is a real thing to buy, and so is 35 g mis-ticked. Deciding it silently, by which
-* side of a constant it fell on, is the wrong way for that to happen.
-count if _usable & unit == 1 & inrange(weight, 30, 50)
-if r(N) > 0 {
-	di as err "03a_block_reading.do: " r(N) " kg-ticked row(s) in [30, 50)."
-	di as err "That band has always been empty, which is why KGMAX = 30 was never"
-	di as err "load-bearing. It is now. Decide whether these are bulk kg purchases or"
-	di as err "gram readings mis-ticked as kg, and move or justify KGMAX deliberately."
-	di as err "See docs/implicit_assumptions.md."
-	exit 459
-}
-
 * --- unit==1 (kg) but far too big for kg: grams mis-ticked as kg ---------------
 *   A cabbage does not weigh 1,180 kg. Above `KGMAX' the typed number is already grams
 *   and the UNIT tick is the error, so take the reading as it stands.
+*
+*   ONE THRESHOLD, NO INTERMEDIATE BAND. This rule used to halt the build on a kg-ticked
+*   reading in [30, 50) so that the first row the threshold ever actually adjudicated
+*   would be decided by a person. Simplified on 2026-09-17: `KGMAX' alone separates
+*   "believe the kg tick" from "this number is already grams", and a reading above it is
+*   read as grams whichever side of 50 it falls. The field photographs are what will
+*   establish whether that reads the object correctly -- see docs/implicit_assumptions.md
+*   A6 and the methodology's weight section.
 count if weight > `KGMAX' & unit==1 & _usable
 di as txt "03a kg-implausibility (read as grams): " r(N) " row(s) matched"
 replace w_block = weight if weight > `KGMAX' & unit==1 & _usable

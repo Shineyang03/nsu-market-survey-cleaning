@@ -6,6 +6,5 @@ weighings in the built dataset,11433,100.0
     ... /1000: a gram number ticked as kilograms (or mL as L),153,1.3
 "    ... one decade, either way: a decimal slip",5,0.0
     ... any other distance,23,0.2
-uncertain -- either of the two below,950,8.3
-"  disputed: the two readings differ, block published",942,8.2
-"  unusable: no defensible reading, weight is .c",8,0.1
+the two readings differ (typed vs pool-anchored),944,8.3
+"no defensible reading at all, weight is .c",8,0.1

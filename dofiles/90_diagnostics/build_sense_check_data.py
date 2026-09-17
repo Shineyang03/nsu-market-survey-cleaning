@@ -131,7 +131,7 @@ def main() -> None:
     lk["why"] = lk.unusable_why.map(_s)
 
     keep = CASE + ["dim", "br", "rg", "pl", "why", "p_g", "w_g", "n_g",
-                   "n_uncertain", "d_point_usable"]
+                   "d_point_usable"]
     rows = lk[keep].drop_duplicates().reset_index(drop=True)
     print(f"  rows after dropping the month dimension: {len(rows):,}")
 
@@ -149,7 +149,6 @@ def main() -> None:
     col["p"] = [_n(v) for v in rows.p_g]
     col["w"] = [_n(v) for v in rows.w_g]
     col["n"] = [_n(v) for v in rows.n_g]
-    col["nu"] = [_n(v) for v in rows.n_uncertain]
     col["ok"] = [int(v) if pd.notna(v) else 0 for v in rows.d_point_usable]
 
     # ---- the hetero-blind factor, one per case x dimension ----------------------
@@ -161,8 +160,7 @@ def main() -> None:
             continue
         k = "|".join([r.pull_province, r.pull_municipal_city, r.pull_item,
                       r.harmonized_nsu_unit, DIM.get(r.corrected_unit, "")])
-        blind[k] = [_n(r.cf_blind), _n(r.n_g_used), _n(r.nu_used),
-                    _n(r.fallback_level)]
+        blind[k] = [_n(r.cf_blind), _n(r.n_g_used), _n(r.fallback_level)]
     print(f"  hetero-blind factors carried: {len(blind):,}")
 
     payload = {"dict": out_dict, "n": len(rows), "col": col, "blind": blind}
