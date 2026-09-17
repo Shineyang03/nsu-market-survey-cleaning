@@ -1,8 +1,8 @@
-item,harmonized,label_ref,label_other,verdict,p,size_ctrl_ratio,n_strata,med_ref_med_g,med_other_med_g,strata_level
-cabbage,pieces or units,bilog,binilog,agree,.22493885963171814,.96999999999999997,10,668,755,prov
-carrot,pieces or units,bilog,binilog,agree,.24020444060765805,.77000000000000002,9,150,170,prov
-"crackers, cookies, buiscuits, chips/curls",pieces or units,bilog,binilog,insufficient,,,0,48,55,prov
-"crackers, cookies, buiscuits, chips/curls",pieces or units,bilog,pieces or units,agree,.20679193746312985,.62,3,48,98,prov
-fresh fish,pieces or units,bilog,binilog,agree,.94425628069568102,.93999999999999995,3,380,542,prov
-"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,bilog,binilog,agree,.97292758342532804,1,4,85,140,prov
-mango,pieces or units,bilog,binilog,sig-but-small,.022820505289424302,1.0900000000000001,3,240,230,prov
+item,harmonized,label_ref,label_other,verdict,p,p_tost_lo,p_tost_hi,p_nil_norm,size_ctrl_ratio,ratio_hl,ratio_p25,ratio_p75,n_strata,n_A,n_B,med_A_med_g,med_B_med_g,strata_level,gated
+cabbage,pieces or units,bilog,binilog,equivalent,.22247775222477753,.000099990000999900015,.000099990000999900015,.22493885963171814,.96575342465753422,.96385542168674754,.8823529411764709,1.0629494324025364,10,613,162,668,755,prov,0
+carrot,pieces or units,bilog,binilog,equivalent,.23847615238476153,.000099990000999900015,.000099990000999900015,.24020444060765805,.76923076923076927,.95454545454545436,.72817974888887893,1.024695076595959,9,787,131,150,170,prov,0
+"crackers, cookies, buiscuits, chips/curls",pieces or units,bilog,binilog,inconclusive,,,,,,,,,0,0,0,48,55,prov,1
+"crackers, cookies, buiscuits, chips/curls",pieces or units,bilog,pieces or units,inconclusive,.20897910208979101,.18588141185881413,.00029997000299970003,.20679193746312985,.61538461538461542,.87500000000000011,.38575837490522985,1,3,217,10,48,98,prov,0
+fresh fish,pieces or units,bilog,binilog,inconclusive,.94550544945505455,.058294170582941708,.021097890210978902,.94425628069568102,.93939393939393945,1.003154574132493,.6928203230275507,1.1482758620689657,3,50,37,380,542,prov,0
+"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,bilog,binilog,equivalent,.97430256974302565,.000099990000999900015,.000099990000999900015,.97292758342532804,1,1.0000000000000004,.89318751307774413,1,4,58,32,85,140,prov,0
+mango,pieces or units,bilog,binilog,equivalent-though-distinguishable,.021097890210978902,.000099990000999900015,.00089991000899910004,.022820505289424302,1.0909090909090908,1.0967741935483877,1.0669301387385286,1.1568149890393356,3,27,55,240,230,prov,0

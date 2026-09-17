@@ -91,12 +91,12 @@ XW_KEY = ["province", "pull_municipal_city", "cons_name", "pull_nsu_unit"]
 
 # ---- folds knowingly kept despite failing their own weight test ---------------------
 # A check that is permanently red is a check people learn to ignore. These are folds
-# where the weight test says DIFFER but the fold stands anyway, as a recorded decision
-# rather than an oversight -- so they report as ACK, not FAIL.
+# where the weight test says `different' but the fold stands anyway, as a recorded
+# decision rather than an oversight -- so they report as ACK, not FAIL.
 #
 # THE RECORDED FIGURES ARE PART OF THE ACKNOWLEDGEMENT. If the verdict stops being
-# DIFFER, or the size-controlled ratio moves by more than RATIO_TOL, the decision was
-# made about different evidence and the check fails again so it can be re-made. An
+# `different', or the size-controlled ratio moves by more than RATIO_TOL, the decision
+# was made about different evidence and the check fails again so it can be re-made. An
 # acknowledgement is not a mute button.
 #
 # Keyed on (item substring, label_ref, label_other) as validate_folds.do reports them.
@@ -108,17 +108,39 @@ RATIO_TOL = 0.15
 # weight test at p=0.043 with a size-controlled ratio of 0.62. It was acknowledged on the
 # grounds that 3 strata is thin evidence on which to flip a harmonization.
 #
-# It was not thin evidence. It was the WRONG evidence. The test read corrected_weight --
-# the published weight, which 04_unit_snap.do snaps toward the median of a pool keyed on
-# harmonized_nsu_unit. So the fold under test helped produce the number judging it. On the
-# block reading, which is a function of the raw weight, the unit tick and KGMAX alone, the
-# same comparison gives p=0.220 on an IDENTICAL ratio of 0.62: the fold passes.
-# validate_folds.do now defaults to that reading, and Panel A has no DIFFER rows at all.
+# It was not thin evidence. It was the WRONG evidence. The test read the published
+# weight, which 04_unit_snap.do snaps toward the median of a pool keyed on
+# harmonized_nsu_unit -- so the fold under test helped produce the number judging it.
+# Reading the block reading instead, a function of the raw weight, the unit tick and
+# KGMAX alone, the same comparison gives p=0.220 on an IDENTICAL ratio of 0.62.
+#
+# That pair now reports `inconclusive' -- the test cannot resolve it on 3 strata with 10
+# observations on one label -- which keeps the labels apart rather than folding them, so
+# it needs no acknowledgement.
 #
 # Keep this dict for the case it was built for -- a fold genuinely kept against its own
 # evidence -- but do not put one here to quiet a red check before establishing that the
 # test is measuring the right thing. That is what happened last time.
 ACKNOWLEDGED = {}
+
+# The verdict vocabulary validate_folds.do writes. Folding is licensed only by positive
+# evidence of equivalence, so only the first two of these permit a fold.
+#
+#   equivalent                          the labels agree within the margin
+#   equivalent-though-distinguishable   they differ detectably, but by less than the
+#                                       margin -- still a fold
+#   different                           they differ by more than the margin
+#   inconclusive                        the test could not resolve it, EITHER because
+#                                       the count gate blocked it (gated=1) or because
+#                                       it ran and the evidence was too weak
+#   absent                              no rows matched the specification at all
+#
+# `inconclusive' IS NOT A PASS. It is the outcome the old two-way rule spelled `agree'
+# and folded on, which is the defect the equivalence framing exists to fix. It is
+# reported here as a warning rather than a failure because it is an absence of evidence
+# on an enumerated, photograph-reviewable list -- not a contradiction.
+FOLD_OK   = {"equivalent", "equivalent-though-distinguishable"}
+FOLD_BAD  = {"different"}
 
 _fail = []
 _warn = []
@@ -270,10 +292,40 @@ def check_folds():
         bad("validate_folds.do wrote no fold_validation_A.csv")
         return
     a = pd.read_csv(A)
-    susp = a[a.verdict.eq("DIFFER")
-             & ((a.size_ctrl_ratio > 1.25) | (a.size_ctrl_ratio < 0.80))]
+
+    # Panel C is the SAME question one layer up -- raw spellings within one cleaned
+    # label -- and a wrong fold there is just as wrong. Check both, labelled, so a
+    # failure names the layer it came from.
+    C = DC / "outputs" / "temp" / "fold_validation_C.csv"
+    if C.exists():
+        c = pd.read_csv(C).rename(columns={"cleaned_label": "harmonized",
+                                           "spell_ref":     "label_ref",
+                                           "spell_other":   "label_other"})
+        c["_layer"] = "spelling"
+        a["_layer"] = "translation"
+        a = pd.concat([a, c], ignore_index=True)
+    else:
+        warn("validate_folds.do wrote no fold_validation_C.csv -- the spelling-layer "
+             "folds are unchecked")
+        a["_layer"] = "translation"
+
+    susp = a[a.verdict.isin(FOLD_BAD)]
+
+    # An unresolved fold is not a passing fold. It stands on the official translation
+    # alone, which is exactly what the photograph review is for -- so it is surfaced
+    # with its count rather than absorbed into the OK line.
+    unres = a[a.verdict.eq("inconclusive")]
+    if len(unres):
+        warn(f"{len(unres)} of {len(a)} folds are UNVALIDATED (verdict "
+             f"`inconclusive'): the test could not establish that the pooled labels "
+             f"weigh the same, so the fold rests on the official translation alone. "
+             f"These belong in the photograph review (issue #38). "
+             + "; ".join(f"{r.item[:24]}/{r.label_other}" for r in unres.itertuples()))
+
     if not len(susp):
-        ok(f"no folded group contradicts its weight test ({len(a)} pairs tested)")
+        ok(f"no folded group contradicts its weight test "
+           f"({len(a)} pairs tested, {len(a[a.verdict.isin(FOLD_OK)])} confirmed "
+           f"equivalent, {len(unres)} unresolved)")
     else:
         print("    docs/master_rename.md sec 6: a group is kept folded only where the")
         print("    test CONFIRMS the members weigh the same. These contradict that.")

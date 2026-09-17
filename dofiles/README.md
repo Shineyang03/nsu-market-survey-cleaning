@@ -94,7 +94,7 @@ needs which `.dta`. It is about what a piece of evidence is allowed to have seen
 ```
 03    raw MS prep — comments, obs_type → item_nsu_hetero_type      no folds applied yet
 03a   00_shared/03a_block_reading.do → w_block                     reads weight, unit only
-───── everything the fold test reads is complete at this line ─────────────────────────
+───── w_block is complete at this line, independent of any fold decision ──────────────
 03    merge master_nsu_rename → harmonized_nsu_unit
 04    00_shared/04_unit_snap.do → published corrected_weight        pools on ${unitvar}
 05    00_shared/05_manual_corrections.do
@@ -106,13 +106,23 @@ taken literally — a pure function of `weight`, `unit` and `KGMAX`. It used to 
 depended on that merge, but its position meant a reader had to trace `04` to establish
 as much.
 
-That matters because of what reads it. `validate_folds.do` asks whether two raw labels
-folded into one `harmonized_nsu_unit` actually weigh the same. **The published weight
-cannot answer that**: `04` snaps it toward the median of a pool keyed on
-`harmonized_nsu_unit`, so two labels folded together are snapped toward one median,
-nudging the test toward "they weigh the same" — which is what justified folding them.
+That mattered because of what read it. `validate_folds.do` asks whether two raw labels
+folded into one `harmonized_nsu_unit` actually weigh the same, and it used to test
+`w_block` rather than the published weight for exactly this reason: `04` snaps the
+published weight toward the median of a pool keyed on `harmonized_nsu_unit`, so two
+labels folded together were snapped toward one median, nudging the test toward "they
+weigh the same" — which is what justified folding them in the first place.
 
-Measured on the current build, all three candidate inputs:
+That circularity is no longer live. Since `04_unit_snap.do` began publishing the block
+reading wherever it is a possible reading, `corrected_weight` and `w_block` are the same
+number on 9,735 of the 9,752 size-weighings the fold test reads; 15 differ and 2 are
+missing, and the 15 are hand verdicts from the review ledger — a person looking at the
+row and deciding, which is better evidence than the typed number, not worse. **The fold
+test now runs on `corrected_weight`, the published weight**, changed 2026-09-17.
+Re-check that 9,735 figure if the snap is ever changed to move weights again: if the two
+columns diverge materially, the circularity returns and this choice needs revisiting.
+
+Measured when the choice between the three candidate inputs was live, before the switch:
 
 | test input | crackers `bilog`/`pieces or units` | fresh fish `bilog`/`binilog` |
 | :-- | :-- | :-- |
@@ -128,9 +138,11 @@ input with no grouping bias in either direction. The carve-outs themselves (`cam
 pieces, `putos` for ice cream and crackers) hold identically under all three, so nothing
 rests on the choice except which folds look suspect.
 
-So: run the fold test with `--weight=block`, and keep `03a` above the merge. `04` merges
-`w_block` in rather than recomputing it, and `KGMAX` lives in `03a` with the computation
-it belongs to.
+So: run the fold test as `90_diagnostics/validate_folds.do` — it reads `corrected_weight`
+now, not `w_block` — and keep `03a` above the merge regardless. `04` merges `w_block` in
+rather than recomputing it, and `KGMAX` lives in `03a` with the computation it belongs
+to; both of those still hold even though the fold test itself no longer needs `w_block`
+directly.
 
 Seeding the registry later — which is where it started — left a fresh clone needing two
 passes to converge, the same circularity issue #33 was about.
@@ -271,12 +283,21 @@ a carve-out        (frozen in nsu_fold_rule.py / the crosswalks)
 
 Nothing re-runs by itself, so a snap change cannot silently move a fold. What it can do
 is leave a frozen carve-out contradicting the evidence that justified it — which has
-already happened once, to the crackers `bilog` fold. **Re-keying the anchor does not
-close this loop**, because the test still reads corrected weights. Testing folds on the
-*block reading* instead — the typed number in canonical units, a function of the raw
-weight, the unit tick and `KGMAX` alone — would. `04_unit_snap.do` keeps that reading as
-**`w_block`** for exactly this purpose; it reads no harmonized unit, so a fold test built
-on it is not circular.
+already happened once, to the crackers `bilog` fold.
+
+**The loop is currently slack, and the reason is measurable.** It would bite if the snap
+still moved weights, because the test would then be reading a number the fold under test
+helped produce. It no longer does: `corrected_weight` and `w_block` are the **same number
+on 9,735 of the 9,752** size-weighings the fold test reads — 15 differ, 2 are missing, and
+the 15 are hand verdicts from the review ledger, which is better evidence than the typed
+number, not worse. So `validate_folds.do` reads the published weight, and gains
+`05_manual_corrections.do`'s dimension resolution along with it.
+
+**Re-check that 9,735 before trusting this.** It is the whole basis for reading the
+published weight. If the snap is ever changed to move weights again, the two columns
+diverge, the circularity is live, and the test has to go back to `w_block` — which
+`03a_block_reading.do` still computes, above the merge, for exactly that reason. It reads
+no harmonized unit, so a fold test built on it is not circular under any snap.
 
 `w_block` is also the single definition of the block reading. It used to be computed in
 `04`, used, and dropped, so `snap_sense_check.py` and the since-deleted

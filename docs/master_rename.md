@@ -155,13 +155,49 @@ variants are different referents:
 `bilog` and `whole (chicken)` are both whole-bird-scale but are recorded as separate units and kept
 separate; `bilog` is not merged into either the pieces group or `whole (chicken)`.
 
-**Fold policy — when the weight evidence is weak, do not fold.** Translation-group folding
-(`bilog`/`binilog`/`piraso` → `pieces or units`, etc.) is validated against the size-stratified weight
-test in `validate_folds.do` (comparing labels within province × size × measurement-unit). A group is kept
-folded only where the test *confirms* the members weigh the same; where it shows a difference, or the data
-are too thin to be confident, the labels are kept separate. A few size-descriptor groups (`whole
-(chicken)`, `small cup`, `small packs`) fold on the official-translation basis alone because too few
-observations co-occur to test them.
+**Fold policy — folding requires positive evidence of agreement.** Folding is validated against the
+stratified weight test in `validate_folds.do`, which compares labels within province × municipality ×
+size × measurement-unit (falling back to province where that is too thin). A group stays folded only
+where the test *confirms* the members weigh the same, within ±25%; where it shows a difference, **or
+where it cannot resolve the question either way**, the labels are kept separate.
+
+The asymmetry is deliberate and is the point. The test's null is *"the labels differ by more than
+±25%"*, so a fold has to be earned. Under the opposite convention — testing for a difference and
+folding when none is found — thin data produces large p-values and the worst-measured pairs get
+pooled most readily. `00_shared/nsu_rank_test.do` documents the construction; A24 in
+`docs/implicit_assumptions.md` records the margin.
+
+**Both fold layers are tested.** Panel A covers the translation fold (`cleaned_nsu_unit` →
+`harmonized_nsu_unit`); Panel C covers the raw-spelling fold (`pull_nsu_unit` → `cleaned_nsu_unit`),
+which is where the language variants live and which no earlier version of the test could see.
+
+Results on the current build — 18 fold pairs testable, 11 confirmed equivalent, 7 unresolved, none
+contradicted:
+
+| fold | pairs confirmed | pairs unresolved |
+| :-- | :-- | :-- |
+| cabbage, carrot, ice cream, mango → `pieces or units` | 4 | — |
+| crackers, fresh fish → `pieces or units` | — | 3 |
+| ice cream `small cup` | `gamay nga cup` / `small cup (translate)` / `gmay nga cup` | `maisot nga tasa` |
+| loaf bread `large packs` | `large` / `dalagku nga putos` / `daragkul nga putos` | `mabahoe nga putos` |
+| loaf bread `medium packs` | `medium` / `medium nga putos` | `kasarangan nga putos` |
+| loaf bread `small packs` | `small` / `gagmay nga putos` | `maisot nga putos` |
+| liquor `lipid / lapad` | `lipid / lapad` / `lapad` | — |
+
+So `small cup` and `small packs` are no longer untested: their principal spellings are confirmed
+equivalent at a ratio of 1.00 and 0.95 respectively. Each retains one thin spelling the test could not
+reach, held back by a single usable stratum rather than by a failed comparison. `whole (chicken)` folds
+on the official-translation basis alone, with no testable pair at either layer.
+
+**An unresolved fold stands, but on the crosswalk alone.** The seven are listed in
+`outputs/temp/fold_validation_A.csv` and `_C.csv` with verdict `inconclusive`, and are the subject of
+the photograph review (issue #38). `verify_pipeline.py` check 3 warns on each one by name, so the list
+cannot quietly grow.
+
+**All six documented separations above are upheld by the same test** — four confirmed `different`
+(chicken 3.74×, crackers `putos`/`pack` 0.27×, ice cream `putos`/`pack` 0.56×, camote 1.33×) and two
+unresolved (camote tops, preserved meat), which under this rule also keeps them apart. No separation
+in the table is contradicted by the weight evidence.
 
 ---
 

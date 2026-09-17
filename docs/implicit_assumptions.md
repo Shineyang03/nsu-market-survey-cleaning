@@ -1265,6 +1265,79 @@ one cell, not because the phrase is meaningless.
 
 ---
 
+## A24 — Two labels may be pooled when their weights agree within ±25%
+
+**Claims.** `harmonized_nsu_unit` pools labels that name the same object. Two labels count
+as the same object when a stratified rank test can show their weights lie within
+**[0.80, 1.25]** of one another. Outside that band, or where the test cannot establish it,
+the labels stay separate.
+
+**The margin is the assumption.** ±25% is not derived from this survey. It is the FDA/EMA
+bioequivalence acceptance range, adopted because it is a pre-specified, conventional,
+log-symmetric band (ln 0.80 = −0.223, ln 1.25 = +0.223) rather than one chosen after
+seeing which folds it would pass. A reader should judge it by what it permits: a published
+conversion factor may blend two objects differing by up to a quarter of their weight, and a
+household quantity converted through that factor inherits the same tolerance. Nothing
+downstream widens it — the cap in A18 and the fallback ladder act on different quantities —
+so ±25% is the ceiling on how wrong a fold can make a gram figure without the test noticing.
+
+**The direction of the test is also an assumption, and the more consequential one.** The
+null is *"the labels differ by more than the margin"*, so folding requires positive evidence
+of agreement and thin data keeps labels apart. The alternative convention — testing for a
+difference and folding when none is found — makes the worst-measured pairs the most likely
+to be pooled, because a large p-value is failure to reject rather than evidence of
+agreement. In thin strata that failure can be structural: the attainable p-values are a
+finite set, and a pair can exist whose p cannot fall below 0.05 under any data at all.
+
+**Where.** `00_shared/nsu_rank_test.do` holds the margin, the test and the verdict rule;
+`90_diagnostics/validate_folds.do` chooses which labels are compared. α = 0.05 per
+one-sided test, so the equivalent confidence interval is 90%, not 95%.
+
+**Rests on it.** Every pooled gram figure, in both outcomes — `harmonized_nsu_unit` is the
+key each one aggregates over.
+
+**Status: ACCEPTED, and the margin is load-bearing — it is not a formality.** Re-running
+every fold pair at ±15%, ±25% and ±35% changes **four of the eighteen** verdicts. *Universe:
+the 18 testable fold pairs. Unit: one pair.*
+
+| item | pair | ratio | ±15% | **±25%** | ±35% |
+| :-- | :-- | ---: | :-- | :-- | :-- |
+| mango | `bilog` / `binilog` | 1.10 | **different** | equivalent* | equivalent* |
+| ice cream | `gamay nga cup` / `gmay nga cup` | 1.00 | **inconclusive** | equivalent | equivalent |
+| crackers | `bilog` / `pieces or units` | 0.88 | inconclusive | inconclusive | **equivalent** |
+| fresh fish | `bilog` / `binilog` | 1.00 | inconclusive | inconclusive | **equivalent** |
+
+\* *equivalent-though-distinguishable.* The other fourteen pairs return the same verdict at
+all three margins.
+
+Read the two ends separately, because they fail differently:
+
+- **Tightening to ±15% would unfold mango**, whose labels really do sit 10% apart. That is
+  the margin doing its job — at ±15% a 10% gap is close enough to the edge that the test
+  cannot clear it — not a malfunction.
+- **Loosening to ±35% would fold crackers and fresh fish**, both currently unresolved. Note
+  what that means: at ±35% a pair with only three usable strata acquires enough room to pass.
+  Widening the band buys folds by lowering the bar, not by adding evidence.
+
+So the margin should be re-derived from what a weight error costs downstream, and fixed
+before a rerun rather than after seeing these rows. It is recorded here at ±25% so that any
+future change is visibly a change.
+
+**The exposure is the unresolved pairs, not the margin.** Seven of the eighteen testable
+fold pairs return `inconclusive`, four of them because only one usable stratum exists. Those
+folds stand on the crosswalk alone. They are enumerated in
+`outputs/temp/fold_validation_A.csv` and `_C.csv` and are the subject of issue #38.
+
+**Checked by.** `verify_pipeline.py` check 3 re-runs the test and fails if any fold pools
+labels the test calls `different`; it warns, with the list, on every `inconclusive` fold.
+
+**What would overturn it.** A photograph review showing that two labels the test called
+equivalent are visibly different objects — which would mean the location-shift assumption
+behind a rank test is failing, most likely because one label is used loosely and the other
+precisely. The test compares centres and is blind to spread.
+
+---
+
 Add an entry when you write a threshold, a tie rule, a fallback, or a normalizer choice that
 could reasonably have gone another way. The test is: *would a reader of this line know that
 a decision was made here?* If not, it belongs in the register.

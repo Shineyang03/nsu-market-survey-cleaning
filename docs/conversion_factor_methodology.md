@@ -413,6 +413,162 @@ The authoritative implementations are `nsu_normalize.py` and the `nsu_normalize`
 in `00_globals.do`, which must agree character for character. **Import or call those;
 never write a third copy**, including in a throwaway diagnostic.
 
+### Validating the folds: do pooled labels actually weigh the same?
+
+**Decision: a fold requires positive evidence that the labels agree. Absence of evidence
+keeps them apart.**
+
+Pooling two labels asserts they name one object. If they do not, every gram figure built
+on that pool is a blend of two things. `90_diagnostics/validate_folds.do` tests the
+assertion against the weighings; `00_shared/nsu_rank_test.do` holds the statistics.
+
+**Both fold layers are tested, and they are different questions.**
+
+| layer | folds | what it pools | tested by |
+| :-- | :-- | :-- | :-- |
+| spelling | `pull_nsu_unit` → `cleaned_nsu_unit` | `large`, `dalagku nga putos`, `daragkul nga putos` → one label | Panel C |
+| translation | `cleaned_nsu_unit` → `harmonized_nsu_unit` | `bilog`, `binilog` → `pieces or units` | Panel A |
+
+The spelling layer matters as much as the translation layer, because these are **not
+typos — they are translations**. `dalagku nga putos`, `daragkul nga putos` and `mabahoe
+nga putos` are three languages' way of saying a large pack, and nothing but the
+crosswalk asserts they are the same size.
+
+*Universe: `master_nsu_rename.csv` joined to the 9,750 matched size-weighings. Unit of
+observation: one fold, meaning one (item, target label) group pooling two or more source
+labels.* A fold is **testable** when at least two of its members each carry ≥10
+size-weighings.
+
+| layer | folds | testable | pairs tested |
+| ---: | ---: | ---: | ---: |
+| translation | 19 | 6 | 7 |
+| spelling | 18 | 5 | 11 |
+
+**16 of the 19 translation folds contain at least one label with zero market-survey
+weighings** — the price-side vocabulary (`tibuok na manok`, `buong (manok)`, `malaking
+packs`, `maliit na packs`, `gagmay nga pakete`, `maliit na tasa`, `can o lata`). No
+weight exists for those labels, so no weight test can ever reach them; they rest on the
+official translation alone. That is a property of the data, not a gap to be closed.
+
+#### The test
+
+A **van Elteren stratified rank test** — a stratified Wilcoxon rank-sum with design-free
+weights `1/(n_h+1)` — on log weights, comparing two labels within strata of **province ×
+municipality × size × measurement-unit**, falling back to **province × size ×
+measurement-unit** where the finer stratification cannot run.
+
+- The **market** is the right stratum: it controls for the local price and supply
+  conditions one municipality shares, which is exactly the vendor-to-vendor variation a
+  non-standard unit carries.
+- **Measurement-unit** (grams vs millilitres) is a stratum because a gram cannot be
+  rank-compared with a millilitre.
+- **Item is not a stratum, because it is a constant.** Every test compares two labels
+  *within one item*, fixed before the test runs. Item cannot vary inside a stratum, so
+  adding it would create no cells.
+- The fallback fires **only when the count thresholds blocked the test entirely** — never
+  on a verdict of `inconclusive`. Coarser strata have more power, so retrying an
+  unresolved pair until one resolves would be fishing for a fold.
+
+#### Why the null is reversed
+
+The obvious test asks "is there a difference?" and folds when the answer is no. That
+cannot work, because a large p-value is **failure to reject**, not evidence of agreement
+— so the worst-measured pairs become the most likely to be pooled. The incentive points
+the wrong way, and not only in theory: in a thin stratum the attainable p-values are a
+finite set, and a configuration can exist where p **cannot fall below 0.05 under any
+data**. Such a pair would be folded automatically, forever, whatever was weighed.
+
+So the null is inverted, in the standard two-one-sided-tests form:
+
+> **H₀: the labels differ by more than ±25%.** Folding requires **rejecting** it.
+
+Thin data now fails to reject, and the labels stay separate. Two one-sided tests are run,
+one against each edge of the band, and equivalence is declared only if both reject at
+α = 0.05. Work is done on log weights because the band is symmetric only there:
+ln 0.80 = −0.223, ln 1.25 = +0.223.
+
+p-values come from permuting the label assignment **within** each stratum (10,000 draws,
+seed recorded, computed as `(1 + count) / (1 + draws)`). The normal approximation is
+unreliable in exactly the thin strata this test lives in, and it errs
+anti-conservatively — which, under the reversed null, would declare equivalence too
+readily. It is still reported alongside, as `p_nil_norm`, so the two can be compared.
+
+#### The three-way verdict
+
+| TOST | "do they differ at all" | verdict | action |
+| :-- | :-- | :-- | :-- |
+| rejects | does not reject | `equivalent` | fold |
+| rejects | rejects | `equivalent-though-distinguishable` | fold |
+| fails | rejects | `different` | keep apart |
+| fails | fails | `inconclusive` | **keep apart**, and review the photograph |
+
+**`inconclusive` is not a pass.** It is the outcome a two-way rule would call "agree" and
+fold on. Keeping it visible as its own verdict is the point of the design: it names the
+folds that rest on the crosswalk alone, so the photograph review knows where to look.
+
+#### Results
+
+*Universe: the 9,750 matched size-weighings. Unit: one label pair.* `ratio` is the
+Hodges–Lehmann estimate of A ÷ B.
+
+**Fold pairs — 18 tested, 11 confirmed equivalent, 7 unresolved, none contradicted.**
+
+| layer | item | pair | verdict | ratio |
+| :-- | :-- | :-- | :-- | ---: |
+| translation | cabbage | `bilog` / `binilog` | equivalent | 0.96 |
+| translation | carrot | `bilog` / `binilog` | equivalent | 0.96 |
+| translation | ice cream | `bilog` / `binilog` | equivalent | 1.00 |
+| translation | mango | `bilog` / `binilog` | equivalent-though-distinguishable | 1.10 |
+| translation | crackers | `bilog` / `binilog` | inconclusive (never ran) | — |
+| translation | crackers | `bilog` / `pieces or units` | inconclusive | 0.88 |
+| translation | fresh fish | `bilog` / `binilog` | inconclusive | 1.00 |
+| spelling | ice cream | `gamay nga cup` / `small cup (translate)` | equivalent | 1.00 |
+| spelling | ice cream | `gamay nga cup` / `gmay nga cup` | equivalent | 1.00 |
+| spelling | ice cream | `gamay nga cup` / `maisot nga tasa` | inconclusive (never ran) | — |
+| spelling | liquor | `lipid / lapad` / `lapad` | equivalent | 1.00 |
+| spelling | loaf bread | `large` / `dalagku nga putos` | equivalent | 1.00 |
+| spelling | loaf bread | `large` / `daragkul nga putos` | equivalent | 1.00 |
+| spelling | loaf bread | `large` / `mabahoe nga putos` | inconclusive (never ran) | — |
+| spelling | loaf bread | `medium` / `medium nga putos` | equivalent | 1.00 |
+| spelling | loaf bread | `medium` / `kasarangan nga putos` | inconclusive (never ran) | — |
+| spelling | loaf bread | `small` / `gagmay nga putos` | equivalent-though-distinguishable | 0.95 |
+| spelling | loaf bread | `small` / `maisot nga putos` | inconclusive (never ran) | — |
+
+Every translation fold the data can test holds, and so does every spelling fold. The
+seven unresolved pairs are unresolved for want of data, not because they failed: four of
+them never ran at all, blocked by a single usable stratum.
+
+**Documented separations — all six upheld.** These are the pairs `master_rename.md` §6
+deliberately keeps apart; the test should say they differ.
+
+| item | pair | verdict | ratio |
+| :-- | :-- | :-- | ---: |
+| chicken | `bilog` / `pieces or units` | different | 3.74 |
+| crackers | `putos` / `pack` | different | 0.27 |
+| ice cream | `putos` / `pack` | different | 0.56 |
+| camote | `bilog` / `binilog` | different | 1.33 |
+| camote tops | `bundle` / `bugkos` | inconclusive | 1.07 |
+| preserved meat | `bilog` / `pieces or units` | inconclusive (never ran) | — |
+
+No separation is contradicted. Four are positively confirmed; two are unresolved, which
+under this rule keeps them apart — the same action the documentation already records.
+
+#### Two assumptions this test makes
+
+**It cannot see dispersion.** A rank statistic is a statement about location only if the
+two distributions differ by a shift. Two labels can share a centre and differ in spread —
+one used loosely by vendors, the other precisely — and the test reads that as agreement.
+For a non-standard unit, whose defining property is vendor-to-vendor variation, that is a
+live possibility rather than a formality.
+
+**It presumes the difference is the same in every market.** Pooling strata assumes a
+common effect; under real heterogeneity a verdict can be narrow around an average that
+describes no single market. The per-stratum ratio quartiles are reported (`ratio_p25`,
+`ratio_p75`) so a reader can see when that bites.
+
+Neither assumption is testable at these sample sizes. Both are reasons the photograph
+review exists.
+
 ## 1.2 The weight: dimension, then magnitude
 
 Every weighing arrives as a number read off a scale and a **unit tick** (`1 = kg`,

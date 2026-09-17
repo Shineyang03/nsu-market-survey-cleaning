@@ -1,0 +1,98 @@
+id,pull_province,pull_municipal_city,market_name,store_stall_name,vendor_id,pull_item,pull_nsu_unit,hetero_type,corrected_weight,corrected_unit,pool_median,ratio_to_pool_median,snap_rule,flag_reason,queue_tier,abs_log10_ratio
+3987,CAPIZ,JAMINDAN,Jamindan,Daday,KR3LSOY2,chicken,chicken wings,province_median,15,g,950,.02,block governs,decade_outlier,1: decade outlier,1.802
+4151,CAPIZ,MAMBUSAO,roadside,Ginwin store,BIDPGGU2,"crackers, cookies, buiscuits, chips/curls",balde,province_median,1500,g,30,50,log10 median,decade_outlier,1: decade outlier,1.699
+6829,ILOILO,DUEAS,Duenas road,Dry goods traiding,QKLB5AMA,"crackers, cookies, buiscuits, chips/curls",balde,small_size,1500,g,32,46.88,block governs,decade_outlier,1: decade outlier,1.671
+6830,ILOILO,DUEAS,Duenas road,Dry goods traiding,QKLB5AMA,"crackers, cookies, buiscuits, chips/curls",balde,medium_size,2400,g,60,40,block governs,decade_outlier,1: decade outlier,1.602
+6828,ILOILO,DUEAS,Duenas Public Market,6 grandchildren store,7LH7TGBE,"crackers, cookies, buiscuits, chips/curls",balde,small_size,1100,g,32,34.38,block governs,decade_outlier,1: decade outlier,1.536
+9609,ILOILO,SANTA BARBARA,Zone1Arroyo St.Sta Barbara,Froilyn Variety Store Wholesale and Retail,HD6724N4,chicken,whole (chicken),large_size,50,g,1265,.04,block governs,decade_outlier,1: decade outlier,1.403
+2237,ANTIQUE,HAMTIC,Poblacion 2 hamtic Antique,Double-k  Minimart,GQV0OFNP,"crackers, cookies, buiscuits, chips/curls",balde,medium_size,1400,g,60,23.33,block governs,decade_outlier,1: decade outlier,1.368
+4055,CAPIZ,MA-AYON,Roadside,Joseph Store,1LL9IML0,"crackers, cookies, buiscuits, chips/curls",big can,medium_size,1400,g,60,23.33,block governs,decade_outlier,1: decade outlier,1.368
+4056,CAPIZ,MA-AYON,Maayon Public market,Cerdy Store,6WR11XGA,"crackers, cookies, buiscuits, chips/curls",big can,medium_size,1400,g,60,23.33,block governs,decade_outlier,1: decade outlier,1.368
+4058,CAPIZ,MA-AYON,Roadside,Toto Miel Store,957RIBPA,"crackers, cookies, buiscuits, chips/curls",big can,medium_size,1400,g,60,23.33,block governs,decade_outlier,1: decade outlier,1.368
+4057,CAPIZ,MA-AYON,Maayon Public market,Cerdy Store,6WR11XGA,"crackers, cookies, buiscuits, chips/curls",big can,large_size,2200,g,100,22,block governs,decade_outlier,1: decade outlier,1.342
+10269,ILOILO,ZARRAGA,Zarraga Public Market,Jason Fried Chicken,9CHJR0M5,chicken,pieces of fried chicken,province_median,45,g,950,.05,block governs,decade_outlier,1: decade outlier,1.325
+8709,ILOILO,OTON,Oton public market,Mary ann Fish Stall,MF7VSTGX,"prawns, lobster, shrimp",pieces,small_size,10,g,205,.05,block governs,decade_outlier,1: decade outlier,1.312
+10270,ILOILO,ZARRAGA,Zarraga Talipapa,Mylyn Store,Q9KU7S7D,chicken,pieces of fried chicken,province_median,50,g,950,.05,block governs,decade_outlier,1: decade outlier,1.279
+10272,ILOILO,ZARRAGA,Zarraga Public Market,Rea Fried Chicken,VYF3ITB8,chicken,pieces of fried chicken,province_median,50,g,950,.05,block governs,decade_outlier,1: decade outlier,1.279
+4059,CAPIZ,MA-AYON,Maayon Public market,Jocelyn Store,X6LKPSUD,"crackers, cookies, buiscuits, chips/curls",big can,large_size,1500,g,100,15,block governs,decade_outlier,1: decade outlier,1.176
+7836,ILOILO,LEMERY,Lemery public market,Boy Dionson Store,ZJ80ARE1,"crackers, cookies, buiscuits, chips/curls",bucket,large_size,1500,g,100,15,block governs,decade_outlier,1: decade outlier,1.176
+9297,ILOILO,SAN MIGUEL,Sitio Tuburan Brgy.Igtambo San Miguel,Red Ficus Store,NRTPTBMV,cabbage,bilog,small_size,30,g,440,.07,block governs,decade_outlier,1: decade outlier,1.166
+10271,ILOILO,ZARRAGA,Zarraga Talipapa,Ameerahs Store,VXJIIIKU,chicken,pieces of fried chicken,province_median,65,g,950,.07,block governs,decade_outlier,1: decade outlier,1.165
+8707,ILOILO,OTON,Oton public market,Eduardo stall,3XTNOFP9,"prawns, lobster, shrimp",pieces,small_size,15,g,205,.07,block governs,decade_outlier,1: decade outlier,1.136
+8708,ILOILO,OTON,Oton public market,Ramil stall,B9XS2NY9,"prawns, lobster, shrimp",pieces,small_size,15,g,205,.07,block governs,decade_outlier,1: decade outlier,1.136
+8831,ILOILO,POTOTAN,Pototan New Public Market,Nick and Bingbing Fish Stall,UZ3PLIXU,fresh fish,bilog,medium_size,5550,g,415,13.37,block governs,decade_outlier,1: decade outlier,1.126
+5181,ILOILO,ALIMODIAN,Alimodian public market,Algallar dressed chicken and frozen products,S8IGRMKW,chicken,binilog,small_size,60,g,800,.08,block governs,decade_outlier,1: decade outlier,1.125
+6202,ILOILO,CABATUAN,Cabatuan Public Market,Loleng Ice Candy,Q8MK9FO9,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,small_size,950,g,75,12.67,block governs,decade_outlier,1: decade outlier,1.103
+9950,ILOILO,TIGBAUAN,Tigbauan public market,Ojaldon Rice Retailer,7NNRS9WH,chicken,pieces or units,province_median,75,g,950,.08,log10 median,decade_outlier,1: decade outlier,1.103
+9461,ILOILO,SAN RAFAEL,San Rafael Public Market,Princess Store,C3H0GG4M,"crackers, cookies, buiscuits, chips/curls",bilog,small_size,400,g,32,12.5,block governs,decade_outlier,1: decade outlier,1.097
+2251,ANTIQUE,HAMTIC,Hamtic Public Market,Pagunsan Variety Store,PH4XJX7G,"crackers, cookies, buiscuits, chips/curls",packs,small_size,380,g,32,11.88,log10 median,decade_outlier,1: decade outlier,1.075
+6463,ILOILO,CARLES,Carles Public market,AJV Sari Sari Store,D53OJ7CU,"crackers, cookies, buiscuits, chips/curls",packs,small_size,380,g,32,11.88,log10 median,decade_outlier,1: decade outlier,1.075
+8139,ILOILO,MAASIN,Maasin Public Market,Salcedo Marketing,2YNCX3I1,rice,sack of rice,conventional_nsu,25000,g,2145,11.66,block governs,decade_outlier,1: decade outlier,1.067
+8140,ILOILO,MAASIN,Maasin Public Market,MJJ Rice and Poultry Supply,MZB1GPE7,rice,sack of rice,conventional_nsu,25000,g,2145,11.66,block governs,decade_outlier,1: decade outlier,1.067
+8141,ILOILO,MAASIN,Maasin Public Market,Piojo Sari  Sari Store,OWW9Z29C,rice,sack of rice,conventional_nsu,25000,g,2145,11.66,block governs,decade_outlier,1: decade outlier,1.067
+474,AKLAN,IBAJAY,Ibajay Public Market,Tormis Frozen Products,8X2S6S3F,chicken,binilog,small_size,70,g,800,.09,log10 median,decade_outlier,1: decade outlier,1.058
+2479,ANTIQUE,LIBERTAD,Union Nipa Libertad Talipapa,Gensam Store,15FJUVCG,"crackers, cookies, buiscuits, chips/curls",bilog,municipality_median,22,g,250,.09,log10 median,decade_outlier,1: decade outlier,1.056
+5011,CAPIZ,TAPAZ,Tapaz Public Market,Satonero Store,YUNAR424,"crackers, cookies, buiscuits, chips/curls",bilog,municipality_median,22,g,250,.09,log10 median,decade_outlier,1: decade outlier,1.056
+8364,ILOILO,MINA,Mina Public Market,C& J variety Store,XEHO59WU,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",container,medium_size,1250,mL,110,11.36,block governs,decade_outlier,1: decade outlier,1.056
+786,AKLAN,MADALAG,Madalag public market,Imaysay meat stall,KZ11176E,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,small_size,20,g,225,.09,log10 median,decade_outlier,1: decade outlier,1.051
+787,AKLAN,MADALAG,Madalag public market,Namayan dressed chicken,T7DP97XH,"preserved or processed meat (tocino, tapa, longaniza, etc)",binilog,small_size,20,g,225,.09,log10 median,decade_outlier,1: decade outlier,1.051
+8716,ILOILO,OTON,San nicolas oton roadside,Enzo store,CPKZW9ZW,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,small_size,20,g,225,.09,block governs,decade_outlier,1: decade outlier,1.051
+9981,ILOILO,TIGBAUAN,Tigbauan public market,Rapid grocery store,FRODLEQC,"crackers, cookies, buiscuits, chips/curls",packs,small_size,360,g,32,11.25,log10 median,decade_outlier,1: decade outlier,1.051
+6192,ILOILO,CABATUAN,Roadside,Riza Gene Store,Y9LG1KVC,"crackers, cookies, buiscuits, chips/curls",packs,small_size,355,g,32,11.09,log10 median,decade_outlier,1: decade outlier,1.045
+2391,ANTIQUE,LAUA-AN,Laua-an Public Market,Dalumpines Store,V08F0JZR,"crackers, cookies, buiscuits, chips/curls",packs,small_size,352,g,32,11,log10 median,decade_outlier,1: decade outlier,1.041
+4839,CAPIZ,SAPI-AN,Sapi-an Public market,Marves Store,B6F86RWZ,"crackers, cookies, buiscuits, chips/curls",packs,province_median,330,g,30,11,log10 median,decade_outlier,1: decade outlier,1.041
+4840,CAPIZ,SAPI-AN,Sapi-an Roadside,J and J  Store,NW6ZV47P,"crackers, cookies, buiscuits, chips/curls",packs,province_median,330,g,30,11,log10 median,decade_outlier,1: decade outlier,1.041
+8090,ILOILO,MAASIN,Tubang Maasin Roadside,June Ve-geil Store,4XQL3ZYB,"crackers, cookies, buiscuits, chips/curls",packs,small_size,352,g,32,11,log10 median,decade_outlier,1: decade outlier,1.041
+9064,ILOILO,SAN ENRIQUE,San Enrique Roadside,JE Store,DK04LQAX,"crackers, cookies, buiscuits, chips/curls",putos,small_size,352,g,32,11,log10 median,decade_outlier,1: decade outlier,1.041
+2238,ANTIQUE,HAMTIC,Poblacion 2 hamtic Antique,Marfil Sari-sari store,04KBS79H,"crackers, cookies, buiscuits, chips/curls",packs,small_size,350,g,32,10.94,log10 median,decade_outlier,1: decade outlier,1.039
+4886,CAPIZ,SAPI-AN,Sapi-an Public market,May Ann Frozen Foods,40U1WGR5,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,large_size,50,g,545,.09,log10 median,decade_outlier,1: decade outlier,1.037
+11472,NEGROS OCCIDENTAL,VALLADOLID,Valladolid Public Market,Norma Store,OAPFCKIR,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",bilog,large_size,45,g,485,.09,log10 median,decade_outlier,1: decade outlier,1.033
+3923,CAPIZ,IVISAN,Ivisan Public market,Ian Store,GG4UF30A,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,province_median,700,mL,68,10.37,block governs,decade_outlier,1: decade outlier,1.016
+640,AKLAN,LIBACAO,Libacao Public Market,Mary Vianney Sari-Sari Store,XQU02Q9W,"crackers, cookies, buiscuits, chips/curls",putos,small_size,330,g,32,10.31,log10 median,decade_outlier,1: decade outlier,1.013
+641,AKLAN,LIBACAO,Sitio Cabanbana Julita Libacao Roadside,Papa Jums Store,Y6BD8IX6,"crackers, cookies, buiscuits, chips/curls",putos,small_size,330,g,32,10.31,log10 median,decade_outlier,1: decade outlier,1.013
+2483,ANTIQUE,LIBERTAD,Union Nipa Libertad Talipapa,Gensam Store,LB22XHB8,"crackers, cookies, buiscuits, chips/curls",packs,small_size,330,g,32,10.31,log10 median,decade_outlier,1: decade outlier,1.013
+3195,ANTIQUE,TIBIAO,Tibiao Public Market,Angela Dela Cruz Variety Store,SJMHRAQP,"crackers, cookies, buiscuits, chips/curls",putos,small_size,330,g,32,10.31,log10 median,decade_outlier,1: decade outlier,1.013
+5353,ILOILO,ANILAO,anilao Public Market,Jia Store,Q7GWKGKZ,"crackers, cookies, buiscuits, chips/curls",bilog,small_size,330,g,32,10.31,block governs,decade_outlier,1: decade outlier,1.013
+5617,ILOILO,BANATE,roadside,mam bekay store,ICZVCAOS,"crackers, cookies, buiscuits, chips/curls",putos,small_size,330,g,32,10.31,log10 median,decade_outlier,1: decade outlier,1.013
+7636,ILOILO,LAMBUNAO,Poblacion Lambunao Roadside,Manny Store,DTH99XGD,"crackers, cookies, buiscuits, chips/curls",putos,small_size,330,g,32,10.31,log10 median,decade_outlier,1: decade outlier,1.013
+8096,ILOILO,MAASIN,Maasin Public Market,Piojo Sari  Sari Store,XXSUMM0X,"crackers, cookies, buiscuits, chips/curls",packs,small_size,330,g,32,10.31,log10 median,decade_outlier,1: decade outlier,1.013
+9359,ILOILO,SAN MIGUEL,Sitio Tuburan San Miguel Roadside,ENS Store,XC166ZDL,"crackers, cookies, buiscuits, chips/curls",putos,small_size,330,g,32,10.31,log10 median,decade_outlier,1: decade outlier,1.013
+7280,ILOILO,IGBARAS,Igbaras public market,Domingo stall,A6BVHG6I,fresh fish,bilog,small_size,25,g,258,.1,block governs,decade_outlier,1: decade outlier,1.013
+7542,ILOILO,JANIUAY,Jibolo talipapa,Yanyan Stall,8XOSLRFE,"prawns, lobster, shrimp",pack,small_size,20,g,205,.1,log10 median,decade_outlier,1: decade outlier,1.011
+9979,ILOILO,TIGBAUAN,Roadside Tigbauan,Change store,724N7GG9,"crackers, cookies, buiscuits, chips/curls",packs,small_size,325,g,32,10.16,log10 median,decade_outlier,1: decade outlier,1.007
+9980,ILOILO,TIGBAUAN,Roadside Tigbauan,Diane fruits and vegetable stand,E1TM17Y3,"crackers, cookies, buiscuits, chips/curls",packs,small_size,325,g,32,10.16,log10 median,decade_outlier,1: decade outlier,1.007
+636,AKLAN,LIBACAO,Paghari-on St.Poblacion Libacao Talipapa,Zaulda Vegetable and Fruit Stand,ELZRR45B,"crackers, cookies, buiscuits, chips/curls",putos,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+1618,ANTIQUE,BARBAZA,Brgy.palma barbaza public market,Tijada store,5PP1E9JA,"crackers, cookies, buiscuits, chips/curls",putos,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+2247,ANTIQUE,HAMTIC,Hamtic Public Market,AJS Variety Store,EGGGCCZH,"crackers, cookies, buiscuits, chips/curls",packs,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+2385,ANTIQUE,LAUA-AN,Poblacion Laua-an Roadside,DSV Store,0DE2MMHS,"crackers, cookies, buiscuits, chips/curls",packs,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+2565,ANTIQUE,PANDAN,Nauring Pandan Roadside,J - Lights Grocery,ANQB7EYX,"crackers, cookies, buiscuits, chips/curls",putos,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+2567,ANTIQUE,PANDAN,Pandan Public Market,Bugasong Enterprise 3,IQWI7DN7,"crackers, cookies, buiscuits, chips/curls",putos,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+3197,ANTIQUE,TIBIAO,San Francisco Sur Tibiao Roadside,Lim Lab Store,WS4JZNYL,"crackers, cookies, buiscuits, chips/curls",putos,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+5621,ILOILO,BANATE,banate Public Market,Viola Store,XC8GIFPN,"crackers, cookies, buiscuits, chips/curls",putos,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+7634,ILOILO,LAMBUNAO,Poblacion Lambunao Roadside,Susan Store,2L1787H0,"crackers, cookies, buiscuits, chips/curls",putos,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+7637,ILOILO,LAMBUNAO,Cubay Roadside,Reymon Store,IGVQQCSL,"crackers, cookies, buiscuits, chips/curls",putos,medium_size,600,g,60,10,block governs,decade_outlier,1: decade outlier,1
+8091,ILOILO,MAASIN,Tubang Maasin Roadside,Jasper  Store,575XVVH7,"crackers, cookies, buiscuits, chips/curls",packs,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+9065,ILOILO,SAN ENRIQUE,Sitio Agutayan Talipapa,Alarba Store,GF9VFYHD,"crackers, cookies, buiscuits, chips/curls",putos,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+9067,ILOILO,SAN ENRIQUE,Sitio Agutayan Talipapa,Padios Store,TLPMBNKC,"crackers, cookies, buiscuits, chips/curls",putos,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+9982,ILOILO,TIGBAUAN,Tigbauan public market,John minimart,UE7TYDNN,"crackers, cookies, buiscuits, chips/curls",packs,small_size,320,g,32,10,log10 median,decade_outlier,1: decade outlier,1
+130,AKLAN,BANGA,Libas Banga Talipapa,Dante Store,0SL1DT1O,"crackers, cookies, buiscuits, chips/curls",binilog,municipality_median,25,g,250,.1,log10 median,decade_outlier,1: decade outlier,1
+132,AKLAN,BANGA,Libas Banga Roadside,I and L Sari Sari Store,CFO7T1Z9,"crackers, cookies, buiscuits, chips/curls",binilog,municipality_median,25,g,250,.1,log10 median,decade_outlier,1: decade outlier,1
+626,AKLAN,LIBACAO,Libacao Public Market,Honeybee Buzz Grocery,CEQHQ0JS,"crackers, cookies, buiscuits, chips/curls",binilog,municipality_median,25,g,250,.1,log10 median,decade_outlier,1: decade outlier,1
+683,AKLAN,LIBACAO,Paghari-on St.Poblacion Libacao Talipapa,Escalona Meat Shop,74IAXEAJ,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,municipality_median,25,g,250,.1,block governs,decade_outlier,1: decade outlier,1
+834,AKLAN,MAKATO,Poblacion Makato Talipapa,DJIV Convenience Store,69CCSY3K,"crackers, cookies, buiscuits, chips/curls",binilog,municipality_median,25,g,250,.1,log10 median,decade_outlier,1: decade outlier,1
+838,AKLAN,MAKATO,Tugas Makato Roadside,Janice Store,J1EK0GUC,"crackers, cookies, buiscuits, chips/curls",binilog,municipality_median,25,g,250,.1,log10 median,decade_outlier,1: decade outlier,1
+1262,AKLAN,NABAS,"Toledo Street,  Aklan",Brillantes Store,5EIDHZ11,chicken,binilog,small_size,80,g,800,.1,log10 median,decade_outlier,1: decade outlier,1
+1758,ANTIQUE,BELISON,Brgy.concepcion belison roadside,7eleven,JK05IZ6G,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",binilog,small_size,10,mL,100,.1,block governs,decade_outlier,1: decade outlier,1
+2481,ANTIQUE,LIBERTAD,Zaldivar St.Libertad Roadside,Cahilig Store,SY1N51M3,"crackers, cookies, buiscuits, chips/curls",bilog,municipality_median,25,g,250,.1,log10 median,decade_outlier,1: decade outlier,1
+2932,ANTIQUE,SEBASTE,Sebaste roadside,Herman consumer goods trading,TBJ49E7B,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",putos,conventional_nsu,45,mL,450,.1,log10 median,decade_outlier,1: decade outlier,1
+3565,CAPIZ,CUARTERO,Quartero Public market,Whalid Store,9O7PX6YW,"crackers, cookies, buiscuits, chips/curls",bilog,municipality_median,25,g,250,.1,log10 median,decade_outlier,1: decade outlier,1
+5006,CAPIZ,TAPAZ,Tapaz Public Market,Gahum Store,2W51LRRT,"crackers, cookies, buiscuits, chips/curls",bilog,municipality_median,25,g,250,.1,log10 median,decade_outlier,1: decade outlier,1
+5184,ILOILO,ALIMODIAN,Alimodian public market,Bonbon dressed chicken and frozen products,YC8TXXBC,chicken,binilog,small_size,80,g,800,.1,log10 median,decade_outlier,1: decade outlier,1
+4462,CAPIZ,PANITAN,Panit-an Public Market,Marilou Isdaan,9P7H06QZ,fresh fish,bilog,small_size,.c,,,,anchor (block impossible),anchor_set; missing_weight,2: anchor-set,
+4999,CAPIZ,TAPAZ,Tapaz Public Market,Mercado Store,DK21T330,chicken,whole (chicken),mp75_price,.c,,,,anchor (block impossible),anchor_set; missing_weight,2: anchor-set,
+5001,CAPIZ,TAPAZ,Tapaz Public Market,Muzo Wet and Dry Goods,HPW442D7,chicken,whole (chicken),mp50_price,.c,,,,anchor (block impossible),anchor_set; missing_weight,2: anchor-set,
+5004,CAPIZ,TAPAZ,Tapaz Public Market,Jovjov Store,KXT6ZUI8,chicken,whole (chicken),mp50_price,.c,,,,anchor (block impossible),anchor_set; missing_weight,2: anchor-set,
+5005,CAPIZ,TAPAZ,Tapaz Public Market,Jovjov Store,KXT6ZUI8,chicken,whole (chicken),mp75_price,.c,,,,anchor (block impossible),anchor_set; missing_weight,2: anchor-set,
+4349,CAPIZ,PANAY,Panay roadside,Alas Store,KXHXIWAI,"mineral or spring water, all drinking water sold in containers",distilled water,medium_size,.c,,,,block governs,missing_weight,3: nothing published,
+4352,CAPIZ,PANAY,Panay Public Market,Aljean Store,M4GD0APX,"prawns, lobster, shrimp",cup,small_size,.c,,,,block governs,missing_weight,3: nothing published,
+4526,CAPIZ,PANITAN,Panitan Public Market,Loida Frozen Goods,PLBKICO1,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,mp50_price,.c,g,250,,log10 median,missing_weight,3: nothing published,
