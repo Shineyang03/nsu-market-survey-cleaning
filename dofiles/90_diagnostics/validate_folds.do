@@ -268,7 +268,8 @@ end
 *    validate_folds.py through `raw=raw[raw.harm.notna()]`
 ********************************************************************************
 use "${btemp}/nsu_weighings_cpi.dta", clear
-keep pull_province pull_municipal_city pull_item pull_nsu_unit item_nsu_hetero_type corrected_unit w_block
+keep pull_province pull_municipal_city pull_item pull_nsu_unit item_nsu_hetero_type ///
+     corrected_unit corrected_weight w_block
 
 * item_nsu_hetero_type / corrected_unit are Stata-labelled numerics on this build
 * (pandas reads them back as category dtype) -- decode to the plain strings the
@@ -280,8 +281,26 @@ drop item_nsu_hetero_type corrected_unit
 * SIZES filter: obs_type in {small,medium,large}_size -- physical weighings only.
 keep if inlist(size,"small_size","medium_size","large_size")
 
-* w = w_block, keep w>0 & not missing
-gen double w = w_block
+* ---- w = corrected_weight -- THE PUBLISHED WEIGHT, changed 2026-09-17 ---------
+* This test used to run on `w_block', the typed reading, to avoid a circularity: the
+* magnitude snap pooled its anchor on `harmonized_nsu_unit', so two labels already
+* folded together were snapped toward one median, biasing this exact test toward "they
+* weigh the same". That was a real effect -- crackers bilog/pieces-or-units read DIFFER
+* on the published weight and agree on the block reading, at an identical ratio.
+*
+* IT IS NO LONGER A REAL EFFECT, because the snap no longer moves the weights. Since
+* 04_unit_snap.do began publishing the block reading wherever it is a possible reading,
+* the two columns are the SAME NUMBER on 9,735 of the 9,752 size-weighings this test
+* reads; 15 differ and 2 are missing. The 15 are hand verdicts from the review ledger --
+* a person looking at that row and deciding -- which is better evidence than the typed
+* number, not worse.
+*
+* So the test now reads what the pipeline actually published. That also means it sees
+* 05_manual_corrections.do's dimension resolution and its hand-set weights, which the
+* block reading predates. Re-check the 9,735 figure if the snap is ever changed to move
+* weights again: if the two columns diverge materially, the circularity is back and this
+* decision has to be revisited.
+gen double w = corrected_weight
 keep if !missing(w) & w>0
 
 * ---- normalize the join/strata keys with THE program, not a new one -----------
@@ -297,7 +316,7 @@ nsu_normalize, item(I) unit(U) mun(C) province(P)
 gen str100 dim    = dim0
 gen str100 _dummy = dim0
 nsu_normalize, item(_dummy) unit(dim)
-drop _dummy dim0 pull_province pull_municipal_city pull_item pull_nsu_unit w_block
+drop _dummy dim0 pull_province pull_municipal_city pull_item pull_nsu_unit w_block corrected_weight
 
 order P C I U dim size w
 save "`outdir'/_matched_raw.dta", replace
@@ -401,16 +420,36 @@ forvalues i = 1/`NPAIRS' {
 tempname postA
 postfile `postA' str100 item str100 harmonized str100 label_ref str100 label_other ///
 	str100 verdict double p double size_ctrl_ratio long n_strata ///
-	double med_ref_med_g double med_other_med_g using "`outdir'/_resultsA.dta", replace
+	double med_ref_med_g double med_other_med_g str20 strata_level ///
+	using "`outdir'/_resultsA.dta", replace
 
 forvalues i = 1/`NPAIRS' {
 	use "`outdir'/_matched.dta", clear
 	keep if I=="`Ai_`i''" & harm=="`Hi_`i''" & inlist(cleaned, "`Ri_`i''", "`Oi_`i''")
 
 	gen byte isA = (cleaned=="`Ri_`i''")
-	egen long stratum = group(P size dim)
 
+	* ---- STRATA: the finest that can carry the test, then one fallback ------------
+	* A stratum must hold things that are comparable APART from the label being tested,
+	* so the ideal is the market: province x municipality x size x dimension, with item
+	* and harmonized unit already fixed by the `keep' above. That controls for the local
+	* price and supply conditions a single municipality shares, which is exactly the
+	* vendor-to-vendor variation a non-standard unit carries.
+	*
+	* IT IS OFTEN TOO THIN TO RUN. Municipality-level strata hold a median of 12
+	* weighings across all labels, and the test needs BOTH labels present in at least
+	* MIN_STRATA strata with at least MIN_LABEL_N observations each. So the municipality
+	* stratification is TRIED FIRST and the province one is used only where it comes back
+	* `insufficient'. Which one produced a verdict is recorded per row -- a verdict from
+	* the coarser strata is a weaker claim and the CSV says so rather than hiding it.
+	*
+	* ITEM IS NOT A STRATUM BECAUSE IT IS A CONSTANT. Every test compares two labels
+	* WITHIN one (item, harmonized unit) pair -- that is the `keep' immediately above --
+	* so item cannot vary inside a stratum and adding it would create no new cells.
+	capture drop stratum
+	egen long stratum = group(P C size dim)
 	mata: nsu_van_elteren(`MIN_LABEL_N', `MIN_STRATA', `RATIO_HI', `RATIO_LO')
+
 	* p MUST be a Stata SCALAR, not a local macro. `local x = r(p)' converts the
 	* double to text using a default ~13-significant-digit format on assignment --
 	* verified directly: a double holding 4.292190504903875e-15 round-trips through
@@ -421,6 +460,18 @@ forvalues i = 1/`NPAIRS' {
 	local ratio_i   = r(ratio)
 	local nstr_i    = r(nstr)
 	local verdict_i = "`r(verdict)'"
+	local strata_i  = "prov x mun"
+
+	if "`verdict_i'" == "insufficient" {
+		capture drop stratum
+		egen long stratum = group(P size dim)
+		mata: nsu_van_elteren(`MIN_LABEL_N', `MIN_STRATA', `RATIO_HI', `RATIO_LO')
+		scalar p_i      = r(p)
+		local ratio_i   = r(ratio)
+		local nstr_i    = r(nstr)
+		local verdict_i = "`r(verdict)'"
+		local strata_i  = "prov"
+	}
 
 	gen byte _fref = (cleaned=="`Ri_`i''" & size=="medium_size")
 	gen byte _foth = (cleaned=="`Oi_`i''" & size=="medium_size")
@@ -433,10 +484,11 @@ forvalues i = 1/`NPAIRS' {
 	local medoth_r = r(medoth_r)
 	local ratio_r  = r(ratio_r)
 
-	di as txt "  `Ai_`i'' | `Hi_`i'' | `Ri_`i'' vs `Oi_`i'' -> `verdict_i'  p=" p_i "  ratio=`ratio_r'  nstr=`nstr_i'"
+	di as txt "  `Ai_`i'' | `Hi_`i'' | `Ri_`i'' vs `Oi_`i'' -> `verdict_i'  p=" p_i "  ratio=`ratio_r'  nstr=`nstr_i'  strata=`strata_i'"
 
 	post `postA' (`"`Ai_`i''"') (`"`Hi_`i''"') (`"`Ri_`i''"') (`"`Oi_`i''"') ///
-		(`"`verdict_i'"') (p_i) (`ratio_r') (`nstr_i') (`medref_r') (`medoth_r')
+		(`"`verdict_i'"') (p_i) (`ratio_r') (`nstr_i') (`medref_r') (`medoth_r') ///
+		(`"`strata_i'"')
 }
 postclose `postA'
 
@@ -476,7 +528,7 @@ di as res _n "===== (B) SPLIT VALIDATION: `NSPLITS' documented keep-separate pai
 tempname postB
 postfile `postB' str100 item str100 harm_A str100 harm_B str100 verdict double p ///
 	double size_ctrl_ratio long n_strata double med_A_med_g double med_B_med_g ///
-	using "`outdir'/_resultsB.dta", replace
+	str20 strata_level using "`outdir'/_resultsB.dta", replace
 
 forvalues i = 1/`NSPLITS' {
 	use "`outdir'/_matched.dta", clear
@@ -491,7 +543,7 @@ forvalues i = 1/`NSPLITS' {
 		if `"`itf`i''"' == "" local itemlabel "any"
 		else                  local itemlabel "`itf`i''"
 		di as txt "  spec `i' (`itemlabel', `ha`i'', `hb`i'') -> absent (no matching rows at all)"
-		post `postB' (`"`itemlabel'"') (`"`ha`i''"') (`"`hb`i''"') ("absent") (.) (.) (0) (.) (.)
+		post `postB' (`"`itemlabel'"') (`"`ha`i''"') (`"`hb`i''"') ("absent") (.) (.) (0) (.) (.) ("")
 	}
 	else {
 		save "`outdir'/_splitsubset.dta", replace
@@ -522,8 +574,11 @@ forvalues i = 1/`NSPLITS' {
 			keep if I=="`itemq'"
 
 			gen byte isA = (harm=="`ha`i''")
-			egen long stratum = group(P size dim)
 
+			* Same two-stage stratification as Panel A: the market first, the
+			* province only where the market is too thin to carry the test.
+			capture drop stratum
+			egen long stratum = group(P C size dim)
 			mata: nsu_van_elteren(`MIN_LABEL_N', `MIN_STRATA', `RATIO_HI', `RATIO_LO')
 			* p as a SCALAR, not a local -- see the comment at the Panel A loop:
 			* a local macro's default numeric-to-text conversion silently drops
@@ -533,6 +588,18 @@ forvalues i = 1/`NSPLITS' {
 			local ratio_i   = r(ratio)
 			local nstr_i    = r(nstr)
 			local verdict_i = "`r(verdict)'"
+			local strata_i  = "prov x mun"
+
+			if "`verdict_i'" == "insufficient" {
+				capture drop stratum
+				egen long stratum = group(P size dim)
+				mata: nsu_van_elteren(`MIN_LABEL_N', `MIN_STRATA', `RATIO_HI', `RATIO_LO')
+				scalar p_i      = r(p)
+				local ratio_i   = r(ratio)
+				local nstr_i    = r(nstr)
+				local verdict_i = "`r(verdict)'"
+				local strata_i  = "prov"
+			}
 
 			gen byte _fA = (harm=="`ha`i''" & size=="medium_size")
 			gen byte _fB = (harm=="`hb`i''" & size=="medium_size")
@@ -548,7 +615,7 @@ forvalues i = 1/`NSPLITS' {
 			di as txt "  `itemq' | `ha`i'' vs `hb`i'' -> `verdict_i'  p=" p_i "  ratio=`ratio_r'  nstr=`nstr_i'"
 
 			post `postB' (`"`itemq'"') (`"`ha`i''"') (`"`hb`i''"') (`"`verdict_i'"') ///
-				(p_i) (`ratio_r') (`nstr_i') (`medA_r') (`medB_r')
+				(p_i) (`ratio_r') (`nstr_i') (`medA_r') (`medB_r') (`"`strata_i'"')
 		}
 	}
 }
@@ -578,7 +645,7 @@ nsu_csvquote label_other label_other_q
 
 local N = _N
 file open fhA using "`outdir'/fold_validation_A.csv", write text replace
-file write fhA "item,harmonized,label_ref,label_other,verdict,p,size_ctrl_ratio,n_strata,med_ref_med_g,med_other_med_g" _n
+file write fhA "item,harmonized,label_ref,label_other,verdict,p,size_ctrl_ratio,n_strata,med_ref_med_g,med_other_med_g,strata_level" _n
 forvalues i = 1/`N' {
 	local it = item_q[`i']
 	local hm = harmonized_q[`i']
@@ -613,8 +680,11 @@ forvalues i = 1/`N' {
 	if `mo'>=.  local mo_s ""
 	else        local mo_s = string(`mo', "%30.17g")
 
+	local sl = strata_level[`i']
+
 	file write fhA `"`it'"' "," `"`hm'"' "," `"`lr'"' "," `"`lo'"' "," ///
-		"`vd'" "," `"`pp_s'"' "," `"`rr_s'"' "," (`ns') "," `"`mr_s'"' "," `"`mo_s'"' _n
+		"`vd'" "," `"`pp_s'"' "," `"`rr_s'"' "," (`ns') "," `"`mr_s'"' "," `"`mo_s'"' ///
+		"," "`sl'" _n
 }
 file close fhA
 di as res _n "wrote `outdir'/fold_validation_A.csv (`N' rows)"
@@ -627,7 +697,7 @@ nsu_csvquote harm_B harm_B_q
 
 local N = _N
 file open fhB using "`outdir'/fold_validation_B.csv", write text replace
-file write fhB "item,harm_A,harm_B,verdict,p,size_ctrl_ratio,n_strata,med_A_med_g,med_B_med_g" _n
+file write fhB "item,harm_A,harm_B,verdict,p,size_ctrl_ratio,n_strata,med_A_med_g,med_B_med_g,strata_level" _n
 forvalues i = 1/`N' {
 	local it = item_q[`i']
 	local ha = harm_A_q[`i']
@@ -651,8 +721,11 @@ forvalues i = 1/`N' {
 	if `mb'>=.  local mb_s ""
 	else        local mb_s = string(`mb', "%30.17g")
 
+	local sl = strata_level[`i']
+
 	file write fhB `"`it'"' "," `"`ha'"' "," `"`hb'"' "," ///
-		"`vd'" "," `"`pp_s'"' "," `"`rr_s'"' "," (`ns') "," `"`ma_s'"' "," `"`mb_s'"' _n
+		"`vd'" "," `"`pp_s'"' "," `"`rr_s'"' "," (`ns') "," `"`ma_s'"' "," `"`mb_s'"' ///
+		"," "`sl'" _n
 }
 file close fhB
 di as res "wrote `outdir'/fold_validation_B.csv (`N' rows)"
