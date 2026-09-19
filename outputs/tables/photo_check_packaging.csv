@@ -1,0 +1,938 @@
+id,pull_province,pull_municipal_city,pull_item,pull_nsu_unit,harmonized_nsu_unit,size,dim,corrected_weight,flat_group,nobs,nven,check_reason,vendor_id,market_name,store_stall_name
+6002,ILOILO,BINGAWAN,camote,bilog,bilog,medium_size,g,90,1484,3,3,"flat group: 3+ vendors, one identical value",UDFRO601,Bingawan Public Market,Titing Vegetable stall
+6004,ILOILO,BINGAWAN,camote,bilog,bilog,medium_size,g,90,1484,3,3,"flat group: 3+ vendors, one identical value",UI4W1MYH,Bingawan Public Market,Paloma vegetable stall
+6006,ILOILO,BINGAWAN,camote,bilog,bilog,medium_size,g,90,1484,3,3,"flat group: 3+ vendors, one identical value",WTQY4CLD,Bingawan Public Market,Cortel vegetable stall
+6675,ILOILO,DINGLE,camote tops,bugkos,bugkos,small_size,g,175,1687,3,3,"flat group: 3+ vendors, one identical value",E1HTTIJM,Public market,Ging ging stall
+6676,ILOILO,DINGLE,camote tops,bugkos,bugkos,small_size,g,175,1687,3,3,"flat group: 3+ vendors, one identical value",HSR99KNR,Public market,Arphen and lorlen
+6677,ILOILO,DINGLE,camote tops,bugkos,bugkos,small_size,g,175,1687,3,3,"flat group: 3+ vendors, one identical value",P1TC02DI,Public market,Delia stand
+3033,ANTIQUE,SIBALOM,"crackers, cookies, buiscuits, chips/curls",putos,putos,large_size,g,90,630,3,3,"flat group: 3+ vendors, one identical value",0XBBUUIO,Sibalom roadside,Mina store
+3037,ANTIQUE,SIBALOM,"crackers, cookies, buiscuits, chips/curls",putos,putos,large_size,g,90,630,3,3,"flat group: 3+ vendors, one identical value",30WTWFP0,Sibalom public market,Catmons sarisari store
+3046,ANTIQUE,SIBALOM,"crackers, cookies, buiscuits, chips/curls",putos,putos,large_size,g,90,630,3,3,"flat group: 3+ vendors, one identical value",WRCXWDZD,Sibalom roadside,Jomilyn store
+4055,CAPIZ,MA-AYON,"crackers, cookies, buiscuits, chips/curls",big can,big can,medium_size,g,1400,904,3,3,"flat group: 3+ vendors, one identical value",1LL9IML0,Roadside,Joseph Store
+4056,CAPIZ,MA-AYON,"crackers, cookies, buiscuits, chips/curls",big can,big can,medium_size,g,1400,904,3,3,"flat group: 3+ vendors, one identical value",6WR11XGA,Maayon Public market,Cerdy Store
+4058,CAPIZ,MA-AYON,"crackers, cookies, buiscuits, chips/curls",big can,big can,medium_size,g,1400,904,3,3,"flat group: 3+ vendors, one identical value",957RIBPA,Roadside,Toto Miel Store
+4060,CAPIZ,MA-AYON,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,medium_size,g,48,905,3,3,"flat group: 3+ vendors, one identical value",8N63BYTW,Maayon Public market,Jocelyn Store
+4063,CAPIZ,MA-AYON,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,medium_size,g,48,905,3,3,"flat group: 3+ vendors, one identical value",MZU0KMYI,Maayon Public market,Cerdy Store
+4064,CAPIZ,MA-AYON,"crackers, cookies, buiscuits, chips/curls",bilog,pieces or units,medium_size,g,48,905,3,3,"flat group: 3+ vendors, one identical value",Q1Z057D5,Roadside,Joseph Store
+8808,ILOILO,POTOTAN,"crackers, cookies, buiscuits, chips/curls",putos,putos,large_size,g,90,2252,4,4,"flat group: 3+ vendors, one identical value",270NDSGR,Pototan old market,Caloy store
+8816,ILOILO,POTOTAN,"crackers, cookies, buiscuits, chips/curls",putos,putos,large_size,g,90,2252,4,4,"flat group: 3+ vendors, one identical value",E23UNX9P,Pototan old market,Sema store
+8819,ILOILO,POTOTAN,"crackers, cookies, buiscuits, chips/curls",putos,putos,large_size,g,90,2252,4,4,"flat group: 3+ vendors, one identical value",OEIQG7H4,Katuogan talipapa,Nj variety store
+8820,ILOILO,POTOTAN,"crackers, cookies, buiscuits, chips/curls",putos,putos,large_size,g,90,2252,4,4,"flat group: 3+ vendors, one identical value",S5VIH2FL,Katuogan talipapa,Angela store
+5622,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,small_size,mL,190,1358,6,6,"flat group: 3+ vendors, one identical value",6NC8A7AF,banate Public Market,Janine Store
+5623,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,medium_size,mL,355,1357,6,6,"flat group: 3+ vendors, one identical value",6NC8A7AF,banate Public Market,Janine Store
+5625,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,small_size,mL,190,1358,6,6,"flat group: 3+ vendors, one identical value",6PSHNIML,roadside,mam bekay store
+5626,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,medium_size,mL,355,1357,6,6,"flat group: 3+ vendors, one identical value",6PSHNIML,roadside,mam bekay store
+5628,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,small_size,mL,190,1358,6,6,"flat group: 3+ vendors, one identical value",HW12HBLR,roadside,Boys coffee store
+5629,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,medium_size,mL,355,1357,6,6,"flat group: 3+ vendors, one identical value",HW12HBLR,roadside,Boys coffee store
+5630,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,small_size,mL,190,1358,6,6,"flat group: 3+ vendors, one identical value",L00PPJVH,banate Public Market,Rapid Sari Sari Store
+5631,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,medium_size,mL,355,1357,6,6,"flat group: 3+ vendors, one identical value",L00PPJVH,banate Public Market,Rapid Sari Sari Store
+5632,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,small_size,mL,190,1358,6,6,"flat group: 3+ vendors, one identical value",N8BXLF4O,roadside,Ariana Store
+5633,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,medium_size,mL,355,1357,6,6,"flat group: 3+ vendors, one identical value",N8BXLF4O,roadside,Ariana Store
+5635,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,small_size,mL,190,1358,6,6,"flat group: 3+ vendors, one identical value",RE85WKOR,Banate Public Market,New Banate Nonoy Store
+5636,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,medium_size,mL,355,1357,6,6,"flat group: 3+ vendors, one identical value",RE85WKOR,Banate Public Market,New Banate Nonoy Store
+5624,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,large_size,mL,1500,1356,4,4,"flat group: 3+ vendors, one identical value",6NC8A7AF,banate Public Market,Janine Store
+5627,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,large_size,mL,1500,1356,4,4,"flat group: 3+ vendors, one identical value",6PSHNIML,roadside,mam bekay store
+5634,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,large_size,mL,1500,1356,4,4,"flat group: 3+ vendors, one identical value",N8BXLF4O,roadside,Ariana Store
+5637,ILOILO,BANATE,"drinks at restaurant, hotel, cafe, or kiosk",pieces,pieces or units,large_size,mL,1500,1356,4,4,"flat group: 3+ vendors, one identical value",RE85WKOR,Banate Public Market,New Banate Nonoy Store
+520,AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,127,3,3,"flat group: 3+ vendors, one identical value",M458SO7K,"Purok 1 , Ibajay",Carolinca Store
+521,AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,127,3,3,"flat group: 3+ vendors, one identical value",W6O18T8M,"Purok 1 , Ibajay",RRK Variety Store
+522,AKLAN,IBAJAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,127,3,3,"flat group: 3+ vendors, one identical value",ZULTJ0DA,Ibajay Public Market,Doris Poultry Supply
+2287,ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,479,3,3,"flat group: 3+ vendors, one identical value",791XFVXH,Poblacion 2 hamtic Antique,Double-k  Minimart
+2288,ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,479,3,3,"flat group: 3+ vendors, one identical value",JYQIOL4X,Poblacion 2 hamtic Antique,Julie's bakeshop
+2289,ANTIQUE,HAMTIC,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gmay nga cup,small cup,small_size,mL,100,479,3,3,"flat group: 3+ vendors, one identical value",R04XETKQ,Hamtic Public Market,Niknik Variety Store
+5376,ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,1271,4,4,"flat group: 3+ vendors, one identical value",BLIB7168,Roadside,JBA sarisari store
+5377,ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,1271,4,4,"flat group: 3+ vendors, one identical value",S6YYD7DL,anilao Public Market,Segura Store
+5380,ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,1271,4,4,"flat group: 3+ vendors, one identical value",VO04ZTYT,Roadside,Rolando Store
+5381,ILOILO,ANILAO,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,1271,4,4,"flat group: 3+ vendors, one identical value",WK86RQPH,anilao Public Market,Segura Store 2
+7051,ILOILO,ESTANCIA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,1794,3,3,"flat group: 3+ vendors, one identical value",HC6UQMIS,Estancia Wet Market,Pabi Store
+7052,ILOILO,ESTANCIA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,1794,3,3,"flat group: 3+ vendors, one identical value",SDTEGA4S,Estancia Public Market,Lucille's Variety Store
+7053,ILOILO,ESTANCIA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,1794,3,3,"flat group: 3+ vendors, one identical value",XZ9ICZWO,roadside,May May Store
+7487,ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,1894,3,3,"flat group: 3+ vendors, one identical value",91QT4R0W,Janiuay Public Market,RR store
+7488,ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,1894,3,3,"flat group: 3+ vendors, one identical value",L8OT24SO,Janiuay Public Market,Mama's store
+7489,ILOILO,JANIUAY,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,1894,3,3,"flat group: 3+ vendors, one identical value",R1CJU899,Jibolo talipapa,2JC Stall
+8483,ILOILO,NEW LUCENA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2170,5,5,"flat group: 3+ vendors, one identical value",8U7MCE6B,Wari Wari New Lucena Roadside,Lyden Store
+8484,ILOILO,NEW LUCENA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2170,5,5,"flat group: 3+ vendors, one identical value",A3D07R79,New Lucena Public Market,Apostol Grocery Store
+8485,ILOILO,NEW LUCENA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2170,5,5,"flat group: 3+ vendors, one identical value",SZOR5PRP,Wari Wari New Lucena Talipapa,The Good Shepherd Sari Sari Store
+8486,ILOILO,NEW LUCENA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2170,5,5,"flat group: 3+ vendors, one identical value",WZYCES6U,Wari Wari New Lucena Roadside,S & N  Mini Store
+8487,ILOILO,NEW LUCENA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2170,5,5,"flat group: 3+ vendors, one identical value",XM0LZER6,Wari Wari New Lucena Talipapa,Julia Store
+8850,ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ice cream in cone,cone,medium_size,mL,110,2258,3,3,"flat group: 3+ vendors, one identical value",213NYVMB,Pototan old market,JJ gadget and acessories
+8852,ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ice cream in cone,cone,medium_size,mL,110,2258,3,3,"flat group: 3+ vendors, one identical value",50OJX7Y4,Talipapa,6/11 store
+8856,ILOILO,POTOTAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ice cream in cone,cone,medium_size,mL,110,2258,3,3,"flat group: 3+ vendors, one identical value",M3WQUWPR,Pototan old market,Igang SLP Variety store
+10583,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,2665,3,3,"flat group: 3+ vendors, one identical value",6JKBN09V,EB Magqlona Public Market,Casey Store
+10584,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,2665,3,3,"flat group: 3+ vendors, one identical value",BVU1263H,EB Magqlona Public Market,Rachel Store
+10585,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,mL,100,2665,3,3,"flat group: 3+ vendors, one identical value",D3V44T1F,EB Magqlona Public Market,D Nativity Store
+10711,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2696,3,3,"flat group: 3+ vendors, one identical value",CUPJSIXA,Roadside,Mars Store
+10712,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2696,3,3,"flat group: 3+ vendors, one identical value",OHDWCKRO,Hinobaan Public Narket,Kons Store
+10713,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2696,3,3,"flat group: 3+ vendors, one identical value",Z7DQWVJG,Hinobaan Public Narket,Mekayla Store
+11160,NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2794,3,3,"flat group: 3+ vendors, one identical value",7GPELXHQ,Pontevedra Public Market,Stella Mia Store
+11163,NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2794,3,3,"flat group: 3+ vendors, one identical value",ACX89GHK,Pontevedra Public Market,MedSure Pharmacy
+11166,NEGROS OCCIDENTAL,PONTEVEDRA,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",gamay nga cup,small cup,small_size,g,100,2794,3,3,"flat group: 3+ vendors, one identical value",IYZPOBWS,Pontevedra Public Market,AJT pharmacy
+40,AKLAN,ALTAVAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,17,3,3,"flat group: 3+ vendors, one identical value",6VIPFDEN,Poblacion Altavas Talipapa,Murayan Corner
+41,AKLAN,ALTAVAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,17,3,3,"flat group: 3+ vendors, one identical value",VT42IAOO,Gen.St.Poblacion Altavas Roadside,Czen Gaming and Cafe
+42,AKLAN,ALTAVAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,17,3,3,"flat group: 3+ vendors, one identical value",XD7YOLJL,Altavas Public Market,MJ Store
+147,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,37,7,7,"flat group: 3+ vendors, one identical value",2MW0IK32,Banga Public Market,Remelyn's Store
+148,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,37,7,7,"flat group: 3+ vendors, one identical value",3G9A47TL,Brgy.Mambog Banga Roadside,I and L Sari Sari Store
+149,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,37,7,7,"flat group: 3+ vendors, one identical value",944SN9D9,Libas Banga Roadside,Dionesio Store
+150,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,37,7,7,"flat group: 3+ vendors, one identical value",F1POFNIB,Banga Public Market,Abayon Grocery Commercial
+151,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,37,7,7,"flat group: 3+ vendors, one identical value",JI6145KK,Banga Public Market,Daki Store
+152,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,37,7,7,"flat group: 3+ vendors, one identical value",M240JV0I,Libas Banga Talipapa,Dante Store
+153,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,37,7,7,"flat group: 3+ vendors, one identical value",M6462FRM,Libas Banga Roadside,PJ Store
+141,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,36,6,6,"flat group: 3+ vendors, one identical value",BV16TOKK,Banga Public Market,Remelyn's Store
+142,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,36,6,6,"flat group: 3+ vendors, one identical value",FERBYJB2,Libas Banga Roadside,I and L Sari Sari Store
+143,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,36,6,6,"flat group: 3+ vendors, one identical value",IVNW1BC2,Libas Banga Roadside,PJ Store
+144,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,36,6,6,"flat group: 3+ vendors, one identical value",W9GF3B39,Libas Banga Roadside,Dionesio Store
+145,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,36,6,6,"flat group: 3+ vendors, one identical value",XAJZ6LW2,Libas Banga Talipapa,Dante Store
+146,AKLAN,BANGA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,36,6,6,"flat group: 3+ vendors, one identical value",ZTRR8X8N,Banga Public Market,Daki Store
+251,AKLAN,BATAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,66,3,3,"flat group: 3+ vendors, one identical value",5ZC6HA4L,"Os-rox Street, Batan",Abe's Store
+252,AKLAN,BATAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,66,3,3,"flat group: 3+ vendors, one identical value",CVIP89V4,"Os-rox Street, Batan","Jacinto, Enterprise"
+253,AKLAN,BATAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,66,3,3,"flat group: 3+ vendors, one identical value",LC7QJI7M,"Os-rox Street, Batan",JGV Store
+399,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,98,9,9,"flat group: 3+ vendors, one identical value",7J9LEHWZ,Buruanga Public Market,Samantha Mae Store
+400,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,98,9,9,"flat group: 3+ vendors, one identical value",D4VTFEES,Pasadero St.Poblacion Roadside,Abby Variety Store
+401,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,98,9,9,"flat group: 3+ vendors, one identical value",GI804AC1,Pasadero St.Poblacion Roadside,Japis Store
+402,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,98,9,9,"flat group: 3+ vendors, one identical value",J1LTAASE,Alegria Buruanga Talipapa,Dak Dak Mini Store
+403,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,98,9,9,"flat group: 3+ vendors, one identical value",JNR4FJQU,Buruanga Public Market,Abby Variety Store
+404,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,98,9,9,"flat group: 3+ vendors, one identical value",KE7VT61P,Alegria Buruanga Roadside,Aileen's Sari-Sari Store
+405,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,98,9,9,"flat group: 3+ vendors, one identical value",LZK1VG7K,Pasadero St.Poblacion Roadside,Alex Store
+406,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,98,9,9,"flat group: 3+ vendors, one identical value",VH2FR6CZ,Brgy.Tigum Buruanga Talipapa,Pamana Association Variety Store
+407,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,98,9,9,"flat group: 3+ vendors, one identical value",WW80S68I,Brgy.Tigum Buruanga Talipapa,Quecon Convenient Store
+390,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,96,8,8,"flat group: 3+ vendors, one identical value",2HOE0HBX,Pasadero St.Poblacion Roadside,Alex Store
+391,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,96,8,8,"flat group: 3+ vendors, one identical value",6495FTWN,Pasadero St.Poblacion Roadside,Chloe Cleo Store
+392,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,96,8,8,"flat group: 3+ vendors, one identical value",AN4GNO8Y,Brgy.Tigum Buruanga Talipapa,Quecon Convenient Store
+393,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,96,8,8,"flat group: 3+ vendors, one identical value",CRB6CP4C,Pasadero St.Poblacion Roadside,Abby Variety Store
+395,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,96,8,8,"flat group: 3+ vendors, one identical value",MUYLJDTD,Buruanga Public Market,Abby Variety Store
+396,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,96,8,8,"flat group: 3+ vendors, one identical value",R5H9HC1G,Pasadero St.Poblacion Roadside,Aileen's Sari-Sari Store
+397,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,96,8,8,"flat group: 3+ vendors, one identical value",UPL1PJ23,Buruanga Public Market,Samantha Mae Store
+398,AKLAN,BURUANGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,96,8,8,"flat group: 3+ vendors, one identical value",YFUGLZYQ,Alegria Buruanga Talipapa,Pamana Association Variety Store
+526,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,128,6,6,"flat group: 3+ vendors, one identical value",2AL6P28N,Ibajay Public Market,Magsangkay Store
+527,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,128,6,6,"flat group: 3+ vendors, one identical value",2QPC9JIA,Ibajay Public Market,Mahilway Store
+528,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,128,6,6,"flat group: 3+ vendors, one identical value",6EYPDVJ2,"Purok 1 , Ibajay",Swerteanity store
+529,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,128,6,6,"flat group: 3+ vendors, one identical value",SUGOLQ3X,"Ibajay, Purok 1",RRK Variety Store
+530,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,128,6,6,"flat group: 3+ vendors, one identical value",T7H3IJQ4,"Purok 1 , Ibajay",Ishaan Variety Store
+531,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,128,6,6,"flat group: 3+ vendors, one identical value",UB1W89Q6,Ibajay Public Market,Amigos Variety store
+532,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,130,5,5,"flat group: 3+ vendors, one identical value",CHZUEOYR,Ibajay Public Market,Mahilway Store
+533,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,130,5,5,"flat group: 3+ vendors, one identical value",GR6J55BR,"Purok 1 , Ibajay",Swerteanity store
+534,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,130,5,5,"flat group: 3+ vendors, one identical value",GVCZONIB,"Ibajay, Bypass Road",Ishaan Variety Store
+536,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,130,5,5,"flat group: 3+ vendors, one identical value",KK05SJI3,Ibajay Public Market,Magsangkay Store
+538,AKLAN,IBAJAY,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,130,5,5,"flat group: 3+ vendors, one identical value",MMBYLPBR,"Ibajay, bypass road",Mai-Mai Store
+661,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,161,7,7,"flat group: 3+ vendors, one identical value",0XLSUYVQ,Sitio Cabanbana Julita Libacao Roadside,Messiah Store
+662,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,161,7,7,"flat group: 3+ vendors, one identical value",5GNT5X0H,Paghari-on St.Poblacion Libacao Talipapa,Zaulda Vegetable and Fruit Stand
+663,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,161,7,7,"flat group: 3+ vendors, one identical value",5NZX3NFH,Sitio Cabanbana Julita Libacao Roadside,Papa Jums Store
+664,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,161,7,7,"flat group: 3+ vendors, one identical value",BVPONAPE,Libacao Public Market,Mary Vianney Sari-Sari Store
+665,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,161,7,7,"flat group: 3+ vendors, one identical value",CHUF9P91,Libacao Public Market,Honeybee Buzz Grocery
+666,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,161,7,7,"flat group: 3+ vendors, one identical value",M9RXAIH0,Libacao Public Market,B.N.Nacuray Store
+667,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,161,7,7,"flat group: 3+ vendors, one identical value",ZAKP1YVE,Paghari-on St.Poblacion Libacao Talipapa,Escalona Meat Shop
+656,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,160,5,5,"flat group: 3+ vendors, one identical value",6B79EB2P,Libacao Public Market,Mary Vianney Sari-Sari Store
+657,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,160,5,5,"flat group: 3+ vendors, one identical value",HWJ7T4GC,Sitio Cabanbana Julita Libacao Roadside,B.N.Nacuray Store
+658,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,160,5,5,"flat group: 3+ vendors, one identical value",QR1FWH6E,Sitio Cabanbana Julita Libacao Roadside,Messiah Store
+659,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,160,5,5,"flat group: 3+ vendors, one identical value",YH5ZRSEX,Libacao Public Market,Honeybee Buzz Grocery
+660,AKLAN,LIBACAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,160,5,5,"flat group: 3+ vendors, one identical value",Z19H7OYJ,Sitio Cabanbana Julita Libacao Roadside,Papa Jums Store
+763,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,184,6,6,"flat group: 3+ vendors, one identical value",5BZEGX8P,Madalag public market,Marshas variety store
+764,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,184,6,6,"flat group: 3+ vendors, one identical value",A0FQ0IIL,Madalag roadside,Joachis grocery
+765,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,184,6,6,"flat group: 3+ vendors, one identical value",KZK7W1C4,Brgy.paningayan madalag talipapa,Bogz sari sari and vegetables store
+766,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,184,6,6,"flat group: 3+ vendors, one identical value",TJ8B2LTW,Madalag roadside,Naldoza variety store
+767,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,184,6,6,"flat group: 3+ vendors, one identical value",VL7KJQBF,Brgy.napnot talipapa,Tobys sari sari store
+768,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,184,6,6,"flat group: 3+ vendors, one identical value",XQ3JFHTX,Madalag roadside,Jdy store
+769,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,185,5,5,"flat group: 3+ vendors, one identical value",7WMRBLQM,Madalag roadside,Jdy store
+770,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,185,5,5,"flat group: 3+ vendors, one identical value",Q1KT755H,Brgy.paningayan madalag talipapa,Bogz sari sari and vegetables store
+771,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,185,5,5,"flat group: 3+ vendors, one identical value",SG2X5XN0,Madalag roadside,Naldoza variety store
+772,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,185,5,5,"flat group: 3+ vendors, one identical value",SX0MJKCL,Madalag public market,Marshas variety store
+773,AKLAN,MADALAG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,185,5,5,"flat group: 3+ vendors, one identical value",TVRDL6LF,Madalag roadside,Joachis grocery
+871,AKLAN,MAKATO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,206,9,9,"flat group: 3+ vendors, one identical value",26INS5PK,Makato Public Market,Tipan Store
+872,AKLAN,MAKATO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,206,9,9,"flat group: 3+ vendors, one identical value",3XQMM8HQ,Makato Public Market,Tipan Store
+873,AKLAN,MAKATO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,206,9,9,"flat group: 3+ vendors, one identical value",5VYJ47VD,Poblacion Makato Talipapa,Jomel Store
+874,AKLAN,MAKATO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,206,9,9,"flat group: 3+ vendors, one identical value",8HIO7IDC,Makato Public Market,Ram's Variety Store
+875,AKLAN,MAKATO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,206,9,9,"flat group: 3+ vendors, one identical value",BB404OS7,Tugas Makato Roadside,Torrefiel Store
+876,AKLAN,MAKATO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,206,9,9,"flat group: 3+ vendors, one identical value",BKGUW9AD,Poblacion Makato Talipapa,Paunn Mini Store
+877,AKLAN,MAKATO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,206,9,9,"flat group: 3+ vendors, one identical value",D0YFG8TG,Tugas Makato Roadside,DMR Variety Store
+878,AKLAN,MAKATO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,206,9,9,"flat group: 3+ vendors, one identical value",SJFIFTET,Poblacion Makato Talipapa,DJIV Convenience Store
+879,AKLAN,MAKATO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,206,9,9,"flat group: 3+ vendors, one identical value",UMZFXD96,Tugas Makato Roadside,GL Centro Point
+1042,AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,230,9,9,"flat group: 3+ vendors, one identical value",4JE7TC36,Brgy.union caticlan talipapa,Sadifa store
+1043,AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,230,9,9,"flat group: 3+ vendors, one identical value",91G2OF1P,Caticlan roadside,James sari sari store
+1044,AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,230,9,9,"flat group: 3+ vendors, one identical value",IQGU2O9S,Caticlan public market,Ed ed variety store
+1045,AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,230,9,9,"flat group: 3+ vendors, one identical value",L673PONK,Brgy.union caticlan talipapa,Slp
+1046,AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,230,9,9,"flat group: 3+ vendors, one identical value",RH29IMSS,Caticlan roadside,Michaela store
+1047,AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,230,9,9,"flat group: 3+ vendors, one identical value",U6UUNKWZ,Brgy.union caticlan talipapa,Fredelyn variety store
+1048,AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,230,9,9,"flat group: 3+ vendors, one identical value",U703Z9VY,Caticlan public market,Eden and kn store
+1049,AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,230,9,9,"flat group: 3+ vendors, one identical value",UOBM4C4N,Caticlan roadside,Mylchs store
+1050,AKLAN,MALAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,230,9,9,"flat group: 3+ vendors, one identical value",YVEOHYLN,Caticlan public market,Franz store
+1176,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,258,6,6,"flat group: 3+ vendors, one identical value",8K1K8BBS,"Malinao,Public Market",Tres Niños Store
+1177,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,258,6,6,"flat group: 3+ vendors, one identical value",A70Q3C4R,"Malinao, Public Market",Yvana plastic ware and groceries Store
+1178,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,258,6,6,"flat group: 3+ vendors, one identical value",A7C4E4PD,"Malinao, Poblacion",Alexandria Store
+1179,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,258,6,6,"flat group: 3+ vendors, one identical value",KZCXV6DO,"Malinao, Poblacion",Jay and jeric Variety store
+1180,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,258,6,6,"flat group: 3+ vendors, one identical value",UHR03ROJ,"Malinao, Poblacion",Princess and Irone Store
+1181,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,258,6,6,"flat group: 3+ vendors, one identical value",V2DTR6XV,"Malinao,Public Market",Lynds Store
+1182,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,small_size,mL,350,261,4,4,"flat group: 3+ vendors, one identical value",3A71MQHU,"Malinao,Public Market",Yvana plastic ware and groceries Store
+1184,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,259,4,4,"flat group: 3+ vendors, one identical value",3A71MQHU,"Malinao,Public Market",Yvana plastic ware and groceries Store
+1185,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,small_size,mL,350,261,4,4,"flat group: 3+ vendors, one identical value",5N7MEE3D,"Malinao, Poblacion",Princess and Irone Store
+1188,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,259,4,4,"flat group: 3+ vendors, one identical value",HH35JI4O,"Malinao, Poblacion",Jay and jeric Variety store
+1189,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,small_size,mL,350,261,4,4,"flat group: 3+ vendors, one identical value",ITWDRTJH,"Malinao,Public Market",J. Naig Mini mart
+1191,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,259,4,4,"flat group: 3+ vendors, one identical value",ITWDRTJH,"Malinao,Public Market",J. Naig Mini mart
+1193,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,small_size,mL,350,261,4,4,"flat group: 3+ vendors, one identical value",SRBU2IR6,"Malinao, Poblacion",Alexandria Store
+1195,AKLAN,MALINAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,259,4,4,"flat group: 3+ vendors, one identical value",SRBU2IR6,"Malinao, Poblacion",Alexandria Store
+1290,AKLAN,NABAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,278,4,4,"flat group: 3+ vendors, one identical value",4ZSP5QB2,"Nabas, Poblacion, Aklan",7-Eleven
+1292,AKLAN,NABAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,278,4,4,"flat group: 3+ vendors, one identical value",GCTO4540,"Nabas, Bonifacio, Aklan",May ason Variety Store
+1295,AKLAN,NABAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,278,4,4,"flat group: 3+ vendors, one identical value",S93WD94Y,"Toledo Street,  Aklan",Brillantes Store
+1298,AKLAN,NABAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,278,4,4,"flat group: 3+ vendors, one identical value",UK2UCJJU,"Toledo Street,  Aklan",Rosie Store
+1286,AKLAN,NABAS,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,277,3,3,"flat group: 3+ vendors, one identical value",3Y3ZD1B8,"Toledo Street,  Aklan",Brillantes Store
+1287,AKLAN,NABAS,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,277,3,3,"flat group: 3+ vendors, one identical value",8ZAH7XTA,"Toledo Street,  Aklan",Rosie Store
+1288,AKLAN,NABAS,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,277,3,3,"flat group: 3+ vendors, one identical value",FT9DN0CZ,"Mabini Street, Nabas",Solanoy Store
+1404,AKLAN,NEW WASHINGTON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,296,3,3,"flat group: 3+ vendors, one identical value",0KRAFA84,New Washington Magsaysay road,Liam Store
+1406,AKLAN,NEW WASHINGTON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,296,3,3,"flat group: 3+ vendors, one identical value",6DS7K5LK,Washington Public Market,Tripple E And S Mini mart
+1409,AKLAN,NEW WASHINGTON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,296,3,3,"flat group: 3+ vendors, one identical value",CTK6ROAS,Washington Public Market,VJ Sari-sari Store
+1513,AKLAN,TANGALAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,321,9,9,"flat group: 3+ vendors, one identical value",4HEBLAZJ,Brgy.panayakan tangalan talipapa,Roselyn sari sari store
+1514,AKLAN,TANGALAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,321,9,9,"flat group: 3+ vendors, one identical value",4U8DNZOB,Tangalan public market,Mujer general merchandise
+1515,AKLAN,TANGALAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,321,9,9,"flat group: 3+ vendors, one identical value",DZZZEHI2,Tangalan public market,Reaven beverage company
+1516,AKLAN,TANGALAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,321,9,9,"flat group: 3+ vendors, one identical value",EKFFRRGQ,Brgy.panayakan talipapa,Liam store
+1517,AKLAN,TANGALAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,321,9,9,"flat group: 3+ vendors, one identical value",JD2JYLWO,Tangalan roadside,Crisolpia snacks house
+1518,AKLAN,TANGALAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,321,9,9,"flat group: 3+ vendors, one identical value",M9U9LF4B,Tangalan roadside,Miles store
+1519,AKLAN,TANGALAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,321,9,9,"flat group: 3+ vendors, one identical value",MSJ5B6OI,Brgy.panayakan tangalan talipapa,3rs and 1
+1520,AKLAN,TANGALAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,321,9,9,"flat group: 3+ vendors, one identical value",USUMF7BP,Tangalan public market,Tijada store
+1521,AKLAN,TANGALAN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,321,9,9,"flat group: 3+ vendors, one identical value",WKLPIR9Y,Tangalan roadside,A and a store
+1644,ANTIQUE,BARBAZA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,348,4,4,"flat group: 3+ vendors, one identical value",I8F4TTGX,Brgy.palma barbaza public market,Kisses general merchandising
+1645,ANTIQUE,BARBAZA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,348,4,4,"flat group: 3+ vendors, one identical value",SPSKGVO8,Brgy.palma barbaza roadside,"Al,en store"
+1646,ANTIQUE,BARBAZA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,348,4,4,"flat group: 3+ vendors, one identical value",VOY1MJF8,Brgy.cubay barbaza talipapa,Fgb enterprises
+1647,ANTIQUE,BARBAZA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,348,4,4,"flat group: 3+ vendors, one identical value",XA3JOP82,Brgy.cubay barbaza talipapa,Maggys happiness sari sari store
+1920,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,414,6,6,"flat group: 3+ vendors, one identical value",0U5F4VV5,Bugasong Public Market,Bhing Store
+1921,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,414,6,6,"flat group: 3+ vendors, one identical value",BBAV5KLH,"I laurente, Bugasong",7- Eleven
+1922,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,414,6,6,"flat group: 3+ vendors, one identical value",H93A5OKQ,Bugasong Public Market,Eduardo Sari-sari store
+1923,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,414,6,6,"flat group: 3+ vendors, one identical value",MUPYY9X0,Bugasong Public Market,AHRON'S sari-sari store
+1924,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,414,6,6,"flat group: 3+ vendors, one identical value",NOHXS3TJ,"Bugasong, Brgy Pojo",Calex Store
+1925,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,414,6,6,"flat group: 3+ vendors, one identical value",WFXBFOEV,"I laurente, Bugasong",Niña Store
+1926,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,416,6,6,"flat group: 3+ vendors, one identical value",64BFADEP,"I laurente, Bugasong",Niña Store
+1928,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,416,6,6,"flat group: 3+ vendors, one identical value",6PYWMM94,Bugasong Public market,AHRON'S sari-sari store
+1930,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,416,6,6,"flat group: 3+ vendors, one identical value",D6CCH5XX,Bugasong Public market,Bhing Store
+1931,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,416,6,6,"flat group: 3+ vendors, one identical value",GWCRZT05,"I laurente, Bugasong",7- Eleven
+1933,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,416,6,6,"flat group: 3+ vendors, one identical value",HFCE5NMW,"I laurente, Bugasong",Calex Store
+1935,ANTIQUE,BUGASONG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,416,6,6,"flat group: 3+ vendors, one identical value",IKSDZMD2,Bugasong Public market,Eduardo Sari-sari store
+2090,ANTIQUE,CULASI,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,444,8,8,"flat group: 3+ vendors, one identical value",EZB7OF6P,Brgy.fe culasi,Aya and adie
+2091,ANTIQUE,CULASI,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,444,8,8,"flat group: 3+ vendors, one identical value",F98NT84G,Public market,Jethrich variety store
+2092,ANTIQUE,CULASI,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,444,8,8,"flat group: 3+ vendors, one identical value",FOZQNDKI,Brgy.fe culasi,Bebeth store
+2093,ANTIQUE,CULASI,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,444,8,8,"flat group: 3+ vendors, one identical value",H7TY869H,Culasi public market,Mateo variety store
+2094,ANTIQUE,CULASI,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,444,8,8,"flat group: 3+ vendors, one identical value",KEYEJ6MP,Culasi public market,Candazo minimart
+2095,ANTIQUE,CULASI,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,444,8,8,"flat group: 3+ vendors, one identical value",S3I4N1A9,Brgy.esperanza culasi,Lomogdang sari sari store
+2096,ANTIQUE,CULASI,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,444,8,8,"flat group: 3+ vendors, one identical value",UXFRSF2W,culasi roadside,Arzi sari sari store
+2097,ANTIQUE,CULASI,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,444,8,8,"flat group: 3+ vendors, one identical value",WP8HATEU,culasi roadside,Olaso store
+2303,ANTIQUE,HAMTIC,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,481,8,8,"flat group: 3+ vendors, one identical value",0J89I86I,Poblacion 2 hamtic Antique,Marfil Sari-sari store
+2304,ANTIQUE,HAMTIC,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,481,8,8,"flat group: 3+ vendors, one identical value",0PFI5CGG,Malandog community Talipapa,Marycon Sari-sari store
+2305,ANTIQUE,HAMTIC,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,481,8,8,"flat group: 3+ vendors, one identical value",5YXIDQLX,Hamtic Public Market,Soria Sari-sari store
+2306,ANTIQUE,HAMTIC,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,481,8,8,"flat group: 3+ vendors, one identical value",FJUBQ70G,Hamtic Public Market,Pagunsan Variety Store
+2308,ANTIQUE,HAMTIC,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,481,8,8,"flat group: 3+ vendors, one identical value",MLUMLQWW,Poblacion 2 hamtic Antique,Double-k  Minimart
+2310,ANTIQUE,HAMTIC,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,481,8,8,"flat group: 3+ vendors, one identical value",UUGUNNBI,Malandog community Talipapa,JK Sari-sari store
+2312,ANTIQUE,HAMTIC,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,481,8,8,"flat group: 3+ vendors, one identical value",VI8MSH1P,Malandog community Talipapa,QSA Sari-sari store
+2313,ANTIQUE,HAMTIC,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,481,8,8,"flat group: 3+ vendors, one identical value",Z2945C06,Hamtic Public Market,AJS Variety Store
+2403,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,501,7,7,"flat group: 3+ vendors, one identical value",1K5FF29H,Poblacion Laua-an Roadside,Jes Store
+2404,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,501,7,7,"flat group: 3+ vendors, one identical value",1Y16XUHD,Poblacion Laua-an Roadside,DSV Store
+2405,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,501,7,7,"flat group: 3+ vendors, one identical value",50A6FLRR,Poblacion Laua-an Roadside,JED-K Pharmacy and Mini Mart
+2406,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,501,7,7,"flat group: 3+ vendors, one identical value",9K498ZO7,Laua-an Public Market,EBS Sari-Sari Store
+2407,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,501,7,7,"flat group: 3+ vendors, one identical value",EOXQVAJT,Laua-an Public Market,Dalumpines Store
+2408,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,501,7,7,"flat group: 3+ vendors, one identical value",IDNPXJ4B,Laua-an Public Market,RJV Store
+2409,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,501,7,7,"flat group: 3+ vendors, one identical value",IN6WG8G6,Sarmiento St.Laua-an Talipapa,Gads Store
+2410,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,502,7,7,"flat group: 3+ vendors, one identical value",06ICZFK6,Laua-an Roadside,JED-K Pharmacy and Mini Mart
+2411,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,502,7,7,"flat group: 3+ vendors, one identical value",41I0TX31,Laua-an Public Market,RJV Store
+2412,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,502,7,7,"flat group: 3+ vendors, one identical value",6I0HAZM5,Laua-an Public Market,Dalumpines Store
+2413,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,502,7,7,"flat group: 3+ vendors, one identical value",F9QPP8GY,Laua-an Roadside,Jes Store
+2414,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,502,7,7,"flat group: 3+ vendors, one identical value",O7XUMQ3I,Sarmiento St.Laua-an Talipapa,Gads Store
+2415,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,502,7,7,"flat group: 3+ vendors, one identical value",W2516IDY,Guisjian Laua-an Roadside,DSV Store
+2416,ANTIQUE,LAUA-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,502,7,7,"flat group: 3+ vendors, one identical value",WTMCESBL,Laua-an Public Market,EBS Sari-Sari Store
+2497,ANTIQUE,LIBERTAD,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,524,4,4,"flat group: 3+ vendors, one identical value",5O6ORK3X,Zaldivar St.Libertad Roadside,Cahilig Store
+2498,ANTIQUE,LIBERTAD,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,524,4,4,"flat group: 3+ vendors, one identical value",JVI6F9ZF,Union Nipa Libertad Talipapa,Gensam Store
+2499,ANTIQUE,LIBERTAD,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,524,4,4,"flat group: 3+ vendors, one identical value",QW2P4BI9,Union Nipa Libertad Talipapa,Maribeth Store
+2500,ANTIQUE,LIBERTAD,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,524,4,4,"flat group: 3+ vendors, one identical value",ZXRI24VS,Dujali St.Libertad Roadside,Sualog Store
+2501,ANTIQUE,LIBERTAD,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,525,4,4,"flat group: 3+ vendors, one identical value",0U75X82C,Zaldivar St.Libertad Roadside,Sualog Store
+2502,ANTIQUE,LIBERTAD,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,525,4,4,"flat group: 3+ vendors, one identical value",3SB3PJUF,Union Nipa Libertad Talipapa,Gensam Store
+2503,ANTIQUE,LIBERTAD,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,525,4,4,"flat group: 3+ vendors, one identical value",NZ3A0ZY7,Zaldivar St.Libertad Roadside,Cahilig Store
+2504,ANTIQUE,LIBERTAD,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,525,4,4,"flat group: 3+ vendors, one identical value",XGUR7TNW,Union Nipa Libertad Talipapa,Maribeth Store
+2580,ANTIQUE,PANDAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,544,6,6,"flat group: 3+ vendors, one identical value",0B1RCL6T,Pandan Public  Market,Mars Store
+2581,ANTIQUE,PANDAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,544,6,6,"flat group: 3+ vendors, one identical value",5V9Y4KMJ,Sto.Rosario Pandan Talipapa,Tesnado Store
+2582,ANTIQUE,PANDAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,544,6,6,"flat group: 3+ vendors, one identical value",HAADP4CL,Nauring Pandan Roadside,J - Lights Grocery
+2583,ANTIQUE,PANDAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,544,6,6,"flat group: 3+ vendors, one identical value",HFCWN0X6,Pandan Public Market,jhayann consumer goods store
+2584,ANTIQUE,PANDAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,544,6,6,"flat group: 3+ vendors, one identical value",RHBHRUX5,Nauring Pandan Roadside,Vann Stall
+2585,ANTIQUE,PANDAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,544,6,6,"flat group: 3+ vendors, one identical value",SXWGU318,Nauring Pandan Antique,Garzon Store
+2706,ANTIQUE,PATNONGON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,563,7,7,"flat group: 3+ vendors, one identical value",D2EQ7L7O,Patnungon Public Market,EVE & JEN'Z Store
+2707,ANTIQUE,PATNONGON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,563,7,7,"flat group: 3+ vendors, one identical value",DK37QRNV,Poblacion Patnongon Roadside,Daisy Store
+2708,ANTIQUE,PATNONGON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,563,7,7,"flat group: 3+ vendors, one identical value",N6C9JF8N,Patnungon Public Market,Fador Store
+2709,ANTIQUE,PATNONGON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,563,7,7,"flat group: 3+ vendors, one identical value",O8UCQK0P,Patnungon Public Market,Talidong Groceries Sari Sari Store
+2710,ANTIQUE,PATNONGON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,563,7,7,"flat group: 3+ vendors, one identical value",X6H00LR4,Poblacion Patnongon Roadside,RRC Consumers Goods Trading
+2711,ANTIQUE,PATNONGON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,563,7,7,"flat group: 3+ vendors, one identical value",XR25TADN,Carit-an Public Market,Carit-an Multi Purpose Cooperative
+2712,ANTIQUE,PATNONGON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,563,7,7,"flat group: 3+ vendors, one identical value",XXBJ7WF0,Poblacion Patnongon Roadside,DenterCel Store
+2816,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,590,8,8,"flat group: 3+ vendors, one identical value",021N3E3D,San remegio brgy.barangbang,Tessie sari sari store
+2817,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,590,8,8,"flat group: 3+ vendors, one identical value",3L7UATBE,San remegio roadside,Trie variety store
+2818,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,590,8,8,"flat group: 3+ vendors, one identical value",8V86YG55,Brgy.san rafael san remegio,Tallo sari sari store
+2819,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,590,8,8,"flat group: 3+ vendors, one identical value",ABULUUU3,San remegio roadside,2mj variety store
+2820,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,590,8,8,"flat group: 3+ vendors, one identical value",N4ZGWNWB,San remegio,Elijahs variety store
+2821,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,590,8,8,"flat group: 3+ vendors, one identical value",N9G0HS5V,San remegio brgy.barangbang,Cyrome and nicole store
+2822,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,590,8,8,"flat group: 3+ vendors, one identical value",WSZIU0WB,San remegio brgy.barangbang,Tony store
+2823,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,590,8,8,"flat group: 3+ vendors, one identical value",ZZ8E3SBH,San remegio public market,Pagunsan store
+2824,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,591,8,8,"flat group: 3+ vendors, one identical value",3JCD1R2O,San remegio brgy.barangbang,Tony store
+2825,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,591,8,8,"flat group: 3+ vendors, one identical value",3SY0ULFP,San remegio roadside,Trie variety store
+2826,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,591,8,8,"flat group: 3+ vendors, one identical value",7GB8KGV2,San remegio brgy.barangbang,Tessie sari sari store
+2827,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,591,8,8,"flat group: 3+ vendors, one identical value",9KU59HHJ,San remegio roadside,2mj variety store
+2828,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,591,8,8,"flat group: 3+ vendors, one identical value",DRRCIU6E,San remegio brgy.barangbang,Cyrome and nicole store
+2829,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,591,8,8,"flat group: 3+ vendors, one identical value",I2MU3Q06,San remeio public market,Elijahs variety store
+2830,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,591,8,8,"flat group: 3+ vendors, one identical value",NM6L2F4H,San remeio public market,Pagunsan store
+2831,ANTIQUE,SAN REMIGIO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,591,8,8,"flat group: 3+ vendors, one identical value",Q86B25AU,San remegio roadside,Diaconia store
+2938,ANTIQUE,SEBASTE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,613,5,5,"flat group: 3+ vendors, one identical value",7X0QYUN5,"Brgy Idio, Sebaste",Tisoy Store
+2939,ANTIQUE,SEBASTE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,613,5,5,"flat group: 3+ vendors, one identical value",EUZC27IF,Sebaste roadside,Herman consumer goods trading
+2940,ANTIQUE,SEBASTE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,613,5,5,"flat group: 3+ vendors, one identical value",GA3Y9516,Sebaste roadside,Glavior store
+2941,ANTIQUE,SEBASTE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,613,5,5,"flat group: 3+ vendors, one identical value",GJTGU4BJ,"Brgy Idio, Sebaste",Perucho Store
+2942,ANTIQUE,SEBASTE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,613,5,5,"flat group: 3+ vendors, one identical value",VPPW3FGR,Sebaste roadside,Triple h
+3074,ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,641,9,9,"flat group: 3+ vendors, one identical value",5C14GK6K,Sibalom talipapa,Yena store
+3075,ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,641,9,9,"flat group: 3+ vendors, one identical value",5K1QL3RN,Sibalom roadside,Analyns convenient store
+3076,ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,641,9,9,"flat group: 3+ vendors, one identical value",71HOTQLX,Sibalom public market,Kent store
+3077,ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,641,9,9,"flat group: 3+ vendors, one identical value",C3O5HJZ4,Sibalom public market,Jannet sari sari store
+3078,ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,641,9,9,"flat group: 3+ vendors, one identical value",HTT111TJ,Sibalom talipapa,Kyle convenients store
+3079,ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,641,9,9,"flat group: 3+ vendors, one identical value",J8V5TFHN,Sibalom public market,Catmons sarisari store
+3080,ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,641,9,9,"flat group: 3+ vendors, one identical value",L1CN0JKG,Sibalom talipapa,Osonero store
+3081,ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,641,9,9,"flat group: 3+ vendors, one identical value",M8KW2V9N,Sibalom roadside,Jomilyn store
+3082,ANTIQUE,SIBALOM,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,641,9,9,"flat group: 3+ vendors, one identical value",OXIWDW99,Sibalom roadside,7eleven
+3202,ANTIQUE,TIBIAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,663,6,6,"flat group: 3+ vendors, one identical value",4ZXSVA6C,San Francisco Sur Tibiao Roadside,Lim Lab Store
+3203,ANTIQUE,TIBIAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,663,6,6,"flat group: 3+ vendors, one identical value",6DYMN1UU,Tibiao Public Market,CPD Variety Store
+3204,ANTIQUE,TIBIAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,663,6,6,"flat group: 3+ vendors, one identical value",D6S5HONG,Tibiao Public Market,Angela Dela Cruz Variety Store
+3205,ANTIQUE,TIBIAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,663,6,6,"flat group: 3+ vendors, one identical value",EINOEYXE,San Francisco Sur Tibiao Roadside,Peng Dry Goods Store
+3206,ANTIQUE,TIBIAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,663,6,6,"flat group: 3+ vendors, one identical value",IRX33X81,San Francisco Sur Tibiao Roadside,SGC Drug Store
+3207,ANTIQUE,TIBIAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,663,6,6,"flat group: 3+ vendors, one identical value",W371RD2C,Tibiao Public Market,SFN Store
+3332,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,688,8,8,"flat group: 3+ vendors, one identical value",161F9RZL,Dao Public market,Tykhee Store
+3333,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,688,8,8,"flat group: 3+ vendors, one identical value",5G0RHOCO,Rizal Street Dao Antique,Angel Store
+3334,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,688,8,8,"flat group: 3+ vendors, one identical value",6A9SWAGK,Brgy Abaca Dao Antique,Neljoy Store
+3335,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,688,8,8,"flat group: 3+ vendors, one identical value",9A8CY5JR,Dao Public Market,Dime's store
+3336,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,688,8,8,"flat group: 3+ vendors, one identical value",CEFJJXH2,Dao Public market,Sunrose  Merchandising
+3337,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,688,8,8,"flat group: 3+ vendors, one identical value",J32EOREW,Rizal Street Dao Antique,Liquor Van
+3338,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,688,8,8,"flat group: 3+ vendors, one identical value",OJNJCOV4,Brgy Abaca Dao Antique,Pineda store
+3339,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,688,8,8,"flat group: 3+ vendors, one identical value",PHNSP5RU,Brgy Abaca Dao Antique,628 Minimart
+3340,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,690,8,8,"flat group: 3+ vendors, one identical value",1EYURXOZ,Dao Public market,Tykhee Store
+3342,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,690,8,8,"flat group: 3+ vendors, one identical value",62EBEZKU,Rizal Street Dao Antique,Pineda store
+3343,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,690,8,8,"flat group: 3+ vendors, one identical value",6CYEIDRZ,Dao Public market,Sunrose  Merchandising
+3344,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,690,8,8,"flat group: 3+ vendors, one identical value",MHTVQ3IF,Rizal Street Dao Antique,Liquor Van
+3346,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,690,8,8,"flat group: 3+ vendors, one identical value",OM0XJXEJ,Dao Public market,Dime's store
+3347,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,690,8,8,"flat group: 3+ vendors, one identical value",OWUT0ARS,Brgy Abaca Dao Antique,Neljoy Store
+3348,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,690,8,8,"flat group: 3+ vendors, one identical value",SKUL1H7R,"Brgy. Atabay, Tobias",Angel Store
+3349,ANTIQUE,TOBIAS FORNIER,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,690,8,8,"flat group: 3+ vendors, one identical value",Y4Z0XW4D,Brgy Abaca Dao Antique,628 Minimart
+3479,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,716,7,7,"flat group: 3+ vendors, one identical value",0M9ITHNV,"Wayang Ubos, Valderrama",Sweet Rose stall
+3480,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,716,7,7,"flat group: 3+ vendors, one identical value",BXALP5NS,Valderrama Public market,Norma store
+3481,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,716,7,7,"flat group: 3+ vendors, one identical value",C7WEBTLU,Valderrama Public market,Beng-Beng Store
+3482,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,716,7,7,"flat group: 3+ vendors, one identical value",JCVH3NZ4,Brgy. Ubos Valderrama,Tots Sari-sari Store
+3483,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,716,7,7,"flat group: 3+ vendors, one identical value",M2F7Y9Q9,"Wayang, Valderrama",Mang Pigo Sari-sari store
+3484,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,716,7,7,"flat group: 3+ vendors, one identical value",OJSGI83L,"Takas Poblacion, Valderrama",7/11
+3485,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,716,7,7,"flat group: 3+ vendors, one identical value",WWY1T25K,Valderrama Public market,MJLG Sari-sari store
+3486,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,718,7,7,"flat group: 3+ vendors, one identical value",GPSBBMV1,Valderrama Public market,Norma store
+3488,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,718,7,7,"flat group: 3+ vendors, one identical value",JB4D5BTE,Valderrama Public market,MJLG Sari-sari store
+3490,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,718,7,7,"flat group: 3+ vendors, one identical value",TLA0DS1G,Valderrama Public market,Beng-Beng Store
+3492,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,718,7,7,"flat group: 3+ vendors, one identical value",TVW55PH9,"Wayang, Valderrama",7/11
+3494,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,718,7,7,"flat group: 3+ vendors, one identical value",UKLAK852,"Wayang, Valderrama",Sweet Rose stall
+3497,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,718,7,7,"flat group: 3+ vendors, one identical value",UYBJCXGU,"Wayang, Valderrama",Mang Pigo Sari-sari store
+3499,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,718,7,7,"flat group: 3+ vendors, one identical value",ZT7Y6D6Q,Brgy. Ubos Valderrama,Tots Sari-sari Store
+3487,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,717,5,5,"flat group: 3+ vendors, one identical value",GPSBBMV1,Valderrama Public market,Norma store
+3489,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,717,5,5,"flat group: 3+ vendors, one identical value",JB4D5BTE,Valderrama Public market,MJLG Sari-sari store
+3493,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,717,5,5,"flat group: 3+ vendors, one identical value",TVW55PH9,"Wayang, Valderrama",7/11
+3495,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,717,5,5,"flat group: 3+ vendors, one identical value",UKLAK852,"Wayang, Valderrama",Sweet Rose stall
+3498,ANTIQUE,VALDERRAMA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,717,5,5,"flat group: 3+ vendors, one identical value",UYBJCXGU,"Wayang, Valderrama",Mang Pigo Sari-sari store
+3589,CAPIZ,CUARTERO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,743,4,4,"flat group: 3+ vendors, one identical value",7T5E84Q9,Quartero Public market,Gege Store
+3590,CAPIZ,CUARTERO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,743,4,4,"flat group: 3+ vendors, one identical value",JQBH7W92,Cuartero Public Market,Clynic Store
+3591,CAPIZ,CUARTERO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,743,4,4,"flat group: 3+ vendors, one identical value",RP9E57XR,Quartero Public market,Whalid Store
+3592,CAPIZ,CUARTERO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,743,4,4,"flat group: 3+ vendors, one identical value",RQGJB2BK,Cuartero roadside,Jolly Ann Store
+3677,CAPIZ,DAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,780,3,3,"flat group: 3+ vendors, one identical value",E9PDKQXZ,Dao,J&j store
+3678,CAPIZ,DAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,780,3,3,"flat group: 3+ vendors, one identical value",NXIC7DFI,Pontevedra,Kylens store
+3679,CAPIZ,DAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,780,3,3,"flat group: 3+ vendors, one identical value",PAJ2X6VL,Dao,Nek
+3764,CAPIZ,DUMALAG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,805,3,3,"flat group: 3+ vendors, one identical value",6XGOH6AZ,Dumalag,M=M store
+3765,CAPIZ,DUMALAG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,805,3,3,"flat group: 3+ vendors, one identical value",EAM1146V,Dumalag,Vv store
+3766,CAPIZ,DUMALAG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,805,3,3,"flat group: 3+ vendors, one identical value",SY4Y7QUG,Dumalag,Daboy
+3823,CAPIZ,DUMARAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,833,3,3,"flat group: 3+ vendors, one identical value",502N23V5,Dumarao,Alcazar store
+3824,CAPIZ,DUMARAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,833,3,3,"flat group: 3+ vendors, one identical value",DOS100LJ,Dumarao,Bajon stor3
+3825,CAPIZ,DUMARAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,833,3,3,"flat group: 3+ vendors, one identical value",T71B8BET,Dumarao,Jabing store
+3936,CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,862,4,4,"flat group: 3+ vendors, one identical value",00DBDHQS,Ivisan Public market,Dennis Store
+3937,CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,862,4,4,"flat group: 3+ vendors, one identical value",25USBAII,Ivisan Public market,Ian Store
+3938,CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,862,4,4,"flat group: 3+ vendors, one identical value",G6MZCGZY,Ivisan Talipapa,Jenaline Store
+3939,CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,862,4,4,"flat group: 3+ vendors, one identical value",OOBXK9QB,Ivisan Talipapa,Nida Store
+3924,CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,500,861,3,3,"flat group: 3+ vendors, one identical value",K4HYU4AO,Ivisan Public Market,Jing Jing Store
+3926,CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,1000,859,3,3,"flat group: 3+ vendors, one identical value",K4HYU4AO,Ivisan Public Market,Jing Jing Store
+3927,CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,500,861,3,3,"flat group: 3+ vendors, one identical value",PD2JF7NA,Ivisan Public Market,Julie Store
+3929,CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,1000,859,3,3,"flat group: 3+ vendors, one identical value",PD2JF7NA,Ivisan Public Market,Julie Store
+3932,CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,500,861,3,3,"flat group: 3+ vendors, one identical value",WQ77H1YF,Ivisan Public Market,Justine Store
+3934,CAPIZ,IVISAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,1000,859,3,3,"flat group: 3+ vendors, one identical value",WQ77H1YF,Ivisan Public Market,Justine Store
+4079,CAPIZ,MA-AYON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,912,6,6,"flat group: 3+ vendors, one identical value",AYU1K92S,Maayon Public market,Pias Store
+4080,CAPIZ,MA-AYON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,912,6,6,"flat group: 3+ vendors, one identical value",B4JQAOMO,Maayon Public Market,Joseph Store
+4081,CAPIZ,MA-AYON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,912,6,6,"flat group: 3+ vendors, one identical value",G9A3EZL9,Maayon Public market,Cerdy Store
+4082,CAPIZ,MA-AYON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,912,6,6,"flat group: 3+ vendors, one identical value",NXWN1AAS,Roadside,Candy Store
+4083,CAPIZ,MA-AYON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,912,6,6,"flat group: 3+ vendors, one identical value",T820S7F0,Maayon Public Market,Jocelyn Store
+4084,CAPIZ,MA-AYON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,912,6,6,"flat group: 3+ vendors, one identical value",TSP4HZ8M,Roadside,Toto Miel Store
+4198,CAPIZ,MAMBUSAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,942,6,6,"flat group: 3+ vendors, one identical value",186EZI94,Mambusao Public Market,Calib Variety Store
+4200,CAPIZ,MAMBUSAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,942,6,6,"flat group: 3+ vendors, one identical value",1RCFT0AP,roadside,Leah Store
+4202,CAPIZ,MAMBUSAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,942,6,6,"flat group: 3+ vendors, one identical value",63UFOL03,Mambusao Public Market,Seanniah Store
+4203,CAPIZ,MAMBUSAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,942,6,6,"flat group: 3+ vendors, one identical value",AU7HRFL5,Mambusao Public Market,Liling Store
+4205,CAPIZ,MAMBUSAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,942,6,6,"flat group: 3+ vendors, one identical value",R8IC5QM9,roadside,Jenny Sari Sari Store
+4207,CAPIZ,MAMBUSAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,942,6,6,"flat group: 3+ vendors, one identical value",UK7UC93D,Mambusao Public Market,Doray Store
+4485,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1020,7,7,"flat group: 3+ vendors, one identical value",0HJU3SDS,roadside,DRL store
+4487,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1020,7,7,"flat group: 3+ vendors, one identical value",7HT73PP3,Panitan Public Market,MeD Drugmart
+4491,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1020,7,7,"flat group: 3+ vendors, one identical value",FMC7HGZB,Talipapa,Dapat Store
+4492,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1020,7,7,"flat group: 3+ vendors, one identical value",OMC63ZKA,Panitan Public Market,Joyce Variety Store
+4494,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1020,7,7,"flat group: 3+ vendors, one identical value",OTGQMPAH,Panitan Public Market,Calex Store
+4496,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1020,7,7,"flat group: 3+ vendors, one identical value",SOLYJEX0,Roadside,Tintin Store
+4499,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1020,7,7,"flat group: 3+ vendors, one identical value",TAH1CMAI,roadside,Ri Quos Store
+4486,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1019,6,6,"flat group: 3+ vendors, one identical value",0HJU3SDS,roadside,DRL store
+4488,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1019,6,6,"flat group: 3+ vendors, one identical value",7HT73PP3,Panitan Public Market,MeD Drugmart
+4489,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1019,6,6,"flat group: 3+ vendors, one identical value",AT448XPS,Panitan Public Market,Layson Store
+4493,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1019,6,6,"flat group: 3+ vendors, one identical value",OMC63ZKA,Panitan Public Market,Joyce Variety Store
+4497,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1019,6,6,"flat group: 3+ vendors, one identical value",SOLYJEX0,Roadside,Tintin Store
+4500,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1019,6,6,"flat group: 3+ vendors, one identical value",TAH1CMAI,roadside,Ri Quos Store
+4490,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,250,1021,3,3,"flat group: 3+ vendors, one identical value",FMC7HGZB,Talipapa,Dapat Store
+4495,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,250,1021,3,3,"flat group: 3+ vendors, one identical value",SOLYJEX0,Roadside,Tintin Store
+4498,CAPIZ,PANITAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,250,1021,3,3,"flat group: 3+ vendors, one identical value",TAH1CMAI,roadside,Ri Quos Store
+4607,CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1049,6,6,"flat group: 3+ vendors, one identical value",1HL8BKAW,Pilar Roadside,LOTA Store
+4609,CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1049,6,6,"flat group: 3+ vendors, one identical value",A3UBT9N4,PilarbPublic Market,Bacay Store
+4611,CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1049,6,6,"flat group: 3+ vendors, one identical value",C79H881Q,Pilar Roadside,Ekyat Store
+4612,CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1049,6,6,"flat group: 3+ vendors, one identical value",QV05ICZ3,PilarbPublic Market,Violeta Sari Sari Store
+4614,CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1049,6,6,"flat group: 3+ vendors, one identical value",RPY88S5W,PilarbPublic Market,Rich Mini Mart
+4616,CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1049,6,6,"flat group: 3+ vendors, one identical value",UCWH47ZV,Pilar Roadside,Aimee Store
+4610,CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1048,4,4,"flat group: 3+ vendors, one identical value",A3UBT9N4,PilarbPublic Market,Bacay Store
+4613,CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1048,4,4,"flat group: 3+ vendors, one identical value",QV05ICZ3,PilarbPublic Market,Violeta Sari Sari Store
+4615,CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1048,4,4,"flat group: 3+ vendors, one identical value",RPY88S5W,PilarbPublic Market,Rich Mini Mart
+4617,CAPIZ,PILAR,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1048,4,4,"flat group: 3+ vendors, one identical value",UCWH47ZV,Pilar Roadside,Aimee Store
+4724,CAPIZ,PONTEVEDRA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1078,3,3,"flat group: 3+ vendors, one identical value",4WB3HJRP,Roadside,Dordas store
+4725,CAPIZ,PONTEVEDRA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1078,3,3,"flat group: 3+ vendors, one identical value",4YXG1JU7,Roadside,Triple j
+4726,CAPIZ,PONTEVEDRA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1078,3,3,"flat group: 3+ vendors, one identical value",Q9NZUFAL,Pontevedra,Dangan
+4779,CAPIZ,PRESIDENT ROXAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1099,4,4,"flat group: 3+ vendors, one identical value",2YVT2H5A,President roxas,Syudad store
+4780,CAPIZ,PRESIDENT ROXAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1099,4,4,"flat group: 3+ vendors, one identical value",FSPZ50RN,President roxas,Alfaros store
+4782,CAPIZ,PRESIDENT ROXAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1099,4,4,"flat group: 3+ vendors, one identical value",TEU7HKH4,President roxas,Ace Enterprises
+4783,CAPIZ,PRESIDENT ROXAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1099,4,4,"flat group: 3+ vendors, one identical value",XC003ZWW,President roxas,Legacy
+4860,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,1125,6,6,"flat group: 3+ vendors, one identical value",6KDI9Z1H,SAPI-AN Public Market,Marves Store
+4861,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,1125,6,6,"flat group: 3+ vendors, one identical value",I0U8QMZN,SAPI-AN Public Market,Charmel Store
+4862,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,1125,6,6,"flat group: 3+ vendors, one identical value",IP4ZTWCX,Sapi-an Roadside,Amy Store
+4863,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,1125,6,6,"flat group: 3+ vendors, one identical value",P4M8KH1C,Sapi-an Roadside,Ram Store
+4864,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,1125,6,6,"flat group: 3+ vendors, one identical value",QZBB7RIQ,Sapi-an Roadside,J and J  Store
+4865,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,1125,6,6,"flat group: 3+ vendors, one identical value",X3Q56LFH,SAPI-AN Public Market,Vez Variety Store
+4866,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1126,5,5,"flat group: 3+ vendors, one identical value",1XII30PJ,SAPI-AN Roadside,Ram Store
+4867,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1126,5,5,"flat group: 3+ vendors, one identical value",56ANE7PR,Sapi-an Public market,Charmel Store
+4868,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1126,5,5,"flat group: 3+ vendors, one identical value",6UI2TRXX,Sapi-an Roadside,J and J  Store
+4869,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1126,5,5,"flat group: 3+ vendors, one identical value",KRWQQEK2,Sapi-an Public market,Marves Store
+4870,CAPIZ,SAPI-AN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1126,5,5,"flat group: 3+ vendors, one identical value",QEKF7HAX,Sapi-an Public market,Vez Variety Store
+5041,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1160,6,6,"flat group: 3+ vendors, one identical value",1RUBJPTP,Tapaz Public Market,Sole Store
+5042,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1159,6,6,"flat group: 3+ vendors, one identical value",1RUBJPTP,Tapaz Public Market,Sole Store
+5043,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1160,6,6,"flat group: 3+ vendors, one identical value",9XO7RUZC,Roadside,RF Store
+5044,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1159,6,6,"flat group: 3+ vendors, one identical value",9XO7RUZC,Roadside,RF Store
+5045,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1160,6,6,"flat group: 3+ vendors, one identical value",E89XO9OK,Tapaz Public Market,sy Ann store
+5046,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1159,6,6,"flat group: 3+ vendors, one identical value",E89XO9OK,Tapaz Public Market,sy Ann store
+5047,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1160,6,6,"flat group: 3+ vendors, one identical value",F9H0EF9G,Roadside,Miles Store
+5048,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1159,6,6,"flat group: 3+ vendors, one identical value",F9H0EF9G,Roadside,Miles Store
+5049,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1160,6,6,"flat group: 3+ vendors, one identical value",KF15NGE3,Roadside,Rodan Store
+5050,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1159,6,6,"flat group: 3+ vendors, one identical value",KF15NGE3,Roadside,Rodan Store
+5051,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1160,6,6,"flat group: 3+ vendors, one identical value",N8L0H26F,Tapaz Public Market,Gahum Store
+5052,CAPIZ,TAPAZ,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1159,6,6,"flat group: 3+ vendors, one identical value",N8L0H26F,Tapaz Public Market,Gahum Store
+5250,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1238,9,9,"flat group: 3+ vendors, one identical value",75Z2SEYS,Alimodian public market,Old cabalinan Store
+5251,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1238,9,9,"flat group: 3+ vendors, one identical value",C12HZFLN,"Talipapa Brgy.Bangcal,Alimodian",Noah Store
+5252,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1238,9,9,"flat group: 3+ vendors, one identical value",FPPMJXHD,Alimodian public market,Salarda Mini Mart
+5253,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1238,9,9,"flat group: 3+ vendors, one identical value",IOHC15A5,Alimodian public market,5028 Onestop Store
+5254,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1238,9,9,"flat group: 3+ vendors, one identical value",MUYL09AU,"Talipapa Brgy.Bangcal,Alimodian",3 Rd store
+5255,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1238,9,9,"flat group: 3+ vendors, one identical value",NUITM6Z0,Roadside Alimodian,7/11store
+5256,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1238,9,9,"flat group: 3+ vendors, one identical value",QJE7GWNR,Roadside Alimodian,Hapit anay store
+5257,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1238,9,9,"flat group: 3+ vendors, one identical value",V4BYL2YM,Roadside Alimodian,J and C grocery store
+5258,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1238,9,9,"flat group: 3+ vendors, one identical value",XDOL5Y0D,"Talipapa Brgy.Bangcal,Alimodian",JKL'S STORE
+5259,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1239,9,9,"flat group: 3+ vendors, one identical value",17K3LCCZ,Roadside Alimodian,7/11store
+5260,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1239,9,9,"flat group: 3+ vendors, one identical value",6VGQ1C0L,Roadside Alimodian,J and C grocery store
+5261,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1239,9,9,"flat group: 3+ vendors, one identical value",BGK58JAE,"Talipapa Brgy.Bangcal,Alimodian",3 Rd store
+5262,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1239,9,9,"flat group: 3+ vendors, one identical value",DDLBAEDH,Roadside Alimodian,Hapit anay store
+5263,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1239,9,9,"flat group: 3+ vendors, one identical value",JGNX5BHJ,Alimodian public market,5028 Onestop Store
+5264,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1239,9,9,"flat group: 3+ vendors, one identical value",MKZPP8LX,"Talipapa Brgy.Bangcal,Alimodian",JKL'S STORE
+5265,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1239,9,9,"flat group: 3+ vendors, one identical value",N4ABZID7,"Talipapa Brgy.Bangcal,Alimodian",Noah Store
+5266,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1239,9,9,"flat group: 3+ vendors, one identical value",WQNCS6YQ,Alimodian public market,Salarda Mini Mart
+5267,ILOILO,ALIMODIAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1239,9,9,"flat group: 3+ vendors, one identical value",XGMNZ9OR,Alimodian public market,Old cabalinan Store
+5383,ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1273,5,5,"flat group: 3+ vendors, one identical value",2RF8C2LE,Anilao Public Market,Segura Store
+5384,ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1272,5,5,"flat group: 3+ vendors, one identical value",2RF8C2LE,Anilao Public Market,Segura Store
+5385,ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1273,5,5,"flat group: 3+ vendors, one identical value",8MU1JQ2O,Roadside,JBA sarisari store
+5386,ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1272,5,5,"flat group: 3+ vendors, one identical value",CA51CSGL,Roadside,JBA sarisari store
+5387,ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1273,5,5,"flat group: 3+ vendors, one identical value",GJQDIJ52,Roadside,Irish Store
+5388,ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1272,5,5,"flat group: 3+ vendors, one identical value",GJQDIJ52,Roadside,Irish Store
+5389,ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1273,5,5,"flat group: 3+ vendors, one identical value",I8T2WK09,Anilao Public Market,Jia Store
+5390,ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1272,5,5,"flat group: 3+ vendors, one identical value",I8T2WK09,Anilao Public Market,Jia Store
+5391,ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1273,5,5,"flat group: 3+ vendors, one identical value",XDAHMPKV,Anilao Public Market,PENUELA store
+5392,ILOILO,ANILAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1272,5,5,"flat group: 3+ vendors, one identical value",XDAHMPKV,Anilao Public Market,PENUELA store
+5465,ILOILO,BADIANGAN,"liquor (e.g, whisky, coconut wine)",junior,junior lapad,small_size,mL,250,1299,3,3,"flat group: 3+ vendors, one identical value",6ASW2YOV,Iniligan Badiangan Roadside,Armada Sari Sari Store
+5466,ILOILO,BADIANGAN,"liquor (e.g, whisky, coconut wine)",junior,junior lapad,small_size,mL,250,1299,3,3,"flat group: 3+ vendors, one identical value",6IYO83FG,Badiangan Public Market,Dawn Grace Store
+5467,ILOILO,BADIANGAN,"liquor (e.g, whisky, coconut wine)",junior,junior lapad,small_size,mL,250,1299,3,3,"flat group: 3+ vendors, one identical value",XB4XM06M,Iniligan Badiangan Roadside,Kailis Tindahan
+5468,ILOILO,BADIANGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1300,3,3,"flat group: 3+ vendors, one identical value",KH9Y81C9,Iniligan Badiangan Roadside,Kailis Tindahan
+5469,ILOILO,BADIANGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1300,3,3,"flat group: 3+ vendors, one identical value",PHZZMIM1,Badiangan Public Market,Gorriceta Sari-Sar Store
+5470,ILOILO,BADIANGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1300,3,3,"flat group: 3+ vendors, one identical value",ZZEM8CE9,Badiangan Public Market,Dawn Grace Store
+5647,ILOILO,BANATE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1363,5,5,"flat group: 3+ vendors, one identical value",6P0AKTKU,roadside,Kate store
+5648,ILOILO,BANATE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1363,5,5,"flat group: 3+ vendors, one identical value",76HSHWR7,banate Public Market,New Banate Nonoy Store
+5649,ILOILO,BANATE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1363,5,5,"flat group: 3+ vendors, one identical value",ATU9RE7B,banate Public Market,Viola Store
+5650,ILOILO,BANATE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1363,5,5,"flat group: 3+ vendors, one identical value",EPRYI4QI,roadside,Ariana Store
+5651,ILOILO,BANATE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1363,5,5,"flat group: 3+ vendors, one identical value",GWVXPB0I,Banate Public Market,Rapid Sari Sari Store
+5726,ILOILO,BAROTAC NUEVO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1396,3,3,"flat group: 3+ vendors, one identical value",BJL9JTC7,Barotac Public Market,J and K Store
+5727,ILOILO,BAROTAC NUEVO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1396,3,3,"flat group: 3+ vendors, one identical value",HEFGT6R4,Neuvo public market,Jenbelle
+5728,ILOILO,BAROTAC NUEVO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1396,3,3,"flat group: 3+ vendors, one identical value",MQ2JICTI,Nuevo public market,CHJ store
+5730,ILOILO,BAROTAC NUEVO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1397,3,3,"flat group: 3+ vendors, one identical value",5FTOZT7Z,Nuevo public market,Joybell
+5731,ILOILO,BAROTAC NUEVO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1397,3,3,"flat group: 3+ vendors, one identical value",CIK8HJ60,Nuevo public market,Jenbelle
+5732,ILOILO,BAROTAC NUEVO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1397,3,3,"flat group: 3+ vendors, one identical value",W0QBMLPP,Nuevo public market,J and K Store
+5932,ILOILO,BATAD,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1466,6,6,"flat group: 3+ vendors, one identical value",7UZEZTJH,Batad market,Pem ann
+5933,ILOILO,BATAD,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1466,6,6,"flat group: 3+ vendors, one identical value",9RDTH6Y1,roadside,Charey store
+5934,ILOILO,BATAD,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1466,6,6,"flat group: 3+ vendors, one identical value",QVKY6TCV,Batad roadside,Bnn store
+5935,ILOILO,BATAD,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1466,6,6,"flat group: 3+ vendors, one identical value",RR5RUJ5H,Batad roadside,Shenat store
+5936,ILOILO,BATAD,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1466,6,6,"flat group: 3+ vendors, one identical value",TKB82TZL,roadside,Lorian store
+5937,ILOILO,BATAD,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1466,6,6,"flat group: 3+ vendors, one identical value",VBS6BHHR,Batad market,3 kings store
+6074,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1508,6,6,"flat group: 3+ vendors, one identical value",2DTQXPHE,"Sitio, Karuntingan, Bingawan",Ash Angel store
+6075,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1508,6,6,"flat group: 3+ vendors, one identical value",C4B5WDDK,"Sitio, Karuntingan, Bingawan",Js Sari-sari store
+6076,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1508,6,6,"flat group: 3+ vendors, one identical value",GEFKLBDM,Bingawan Public Market,Dear Store
+6077,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1508,6,6,"flat group: 3+ vendors, one identical value",IUJNOVAK,Bingawan Public Market,RTJ Faldas Sari-sari store
+6079,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1508,6,6,"flat group: 3+ vendors, one identical value",SW43R4ES,Bingawan Public Market,Maquiliao Store
+6081,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1508,6,6,"flat group: 3+ vendors, one identical value",VIGYX5AE,"Sitio, Karuntingan, Bingawan",Reymarie bread stall
+6069,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1506,5,5,"flat group: 3+ vendors, one identical value",2M7XEN7V,"Sitio, Karuntingan, Bingawan",Js Sari-sari store
+6070,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1506,5,5,"flat group: 3+ vendors, one identical value",KXGHAMUT,Castellanes street,Reymarie bread stall
+6071,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1506,5,5,"flat group: 3+ vendors, one identical value",O66BSUK2,Purok 6,Ash Angel store
+6072,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1506,5,5,"flat group: 3+ vendors, one identical value",WRIEPP0Y,Bingawan Public Market,Maquiliao Store
+6073,ILOILO,BINGAWAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1506,5,5,"flat group: 3+ vendors, one identical value",WW3HNXPH,Bingawan Public Market,RTJ Faldas Sari-sari store
+6348,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1581,8,8,"flat group: 3+ vendors, one identical value",5A7Y0BH9,Caro Building,Riza art and signs
+6349,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1581,8,8,"flat group: 3+ vendors, one identical value",60KV83P0,Dalid Talipapa,JR Caro
+6350,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1581,8,8,"flat group: 3+ vendors, one identical value",9SVWOTN1,Dalid Talipapa,Trining Store
+6351,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1581,8,8,"flat group: 3+ vendors, one identical value",9ZHKC6BR,Dalid talipapa,Vinz lechon stall
+6352,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1581,8,8,"flat group: 3+ vendors, one identical value",IN0OFSNI,Poblacion rizal ilaud,Godes Fruit stand
+6353,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1581,8,8,"flat group: 3+ vendors, one identical value",KQT83OTJ,Calinog gulayan Market,Carisma store
+6355,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1581,8,8,"flat group: 3+ vendors, one identical value",MWZX6ZOS,Calinog gulayan Market,Leo Grace Store
+6356,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1581,8,8,"flat group: 3+ vendors, one identical value",PYG7OVVV,Calinog Public Market,Connie's Store
+6357,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1584,8,8,"flat group: 3+ vendors, one identical value",1PVY81P6,Calinog gulayan Market,Leo Grace Store
+6359,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1584,8,8,"flat group: 3+ vendors, one identical value",4CO602ZZ,Dalid talipapa,Trining Store
+6360,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1584,8,8,"flat group: 3+ vendors, one identical value",5TAH0E5K,Poblacion rizal ilaud,Riza art and signs
+6361,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1584,8,8,"flat group: 3+ vendors, one identical value",7LJSH5B4,Poblacion rizal ilaud,Godes Fruit stand
+6362,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1584,8,8,"flat group: 3+ vendors, one identical value",BHMOHYX8,Poblacion rizal ilaud,Solas B stall
+6363,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1584,8,8,"flat group: 3+ vendors, one identical value",IBGG8F1Z,Calinog gulayan Market,Connie's Store
+6364,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1584,8,8,"flat group: 3+ vendors, one identical value",NCB0GFPH,Dalid talipapa,Vinz lechon stall
+6365,ILOILO,CALINOG,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1584,8,8,"flat group: 3+ vendors, one identical value",P308S3AP,Dalid talipapa,JR Caro
+6503,ILOILO,CARLES,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1627,4,4,"flat group: 3+ vendors, one identical value",AW541HFY,Carles Public market,3'Js Variety Store
+6504,ILOILO,CARLES,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1627,4,4,"flat group: 3+ vendors, one identical value",CBTXNYE6,Carles Public market,AJV Sari Sari Store
+6505,ILOILO,CARLES,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1627,4,4,"flat group: 3+ vendors, one identical value",R2DLSTMR,Carles roadside,Eddie Store
+6506,ILOILO,CARLES,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1627,4,4,"flat group: 3+ vendors, one identical value",U78NPGAU,Carles Public market,RC Wholesale Retail
+6499,ILOILO,CARLES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1625,3,3,"flat group: 3+ vendors, one identical value",9KNME5UY,Carles Public market,AJV Sari Sari Store
+6500,ILOILO,CARLES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1625,3,3,"flat group: 3+ vendors, one identical value",GATU0WYZ,Carles Public market,RC Wholesale Retail
+6501,ILOILO,CARLES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1625,3,3,"flat group: 3+ vendors, one identical value",LRPUPGN0,Carles Public market,3'Js Variety Store
+6725,ILOILO,DINGLE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1707,4,4,"flat group: 3+ vendors, one identical value",1Z0ILS2K,Dingle roadside,Myka sari sari store
+6726,ILOILO,DINGLE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1707,4,4,"flat group: 3+ vendors, one identical value",GBTT4MIA,Public market,John and sam store
+6727,ILOILO,DINGLE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1707,4,4,"flat group: 3+ vendors, one identical value",IT8C5KMM,Public market,Porras sari sari store
+6728,ILOILO,DINGLE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1707,4,4,"flat group: 3+ vendors, one identical value",RW4PVY4C,Public market,Miravic store
+6873,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1741,8,8,"flat group: 3+ vendors, one identical value",25N12ICR,Duenas Public Market,Love variety Store
+6874,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1741,8,8,"flat group: 3+ vendors, one identical value",CRZYDUSD,Duenas bangga patyo,Hermzden store
+6875,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1741,8,8,"flat group: 3+ vendors, one identical value",DSJ929TQ,Duenas bangga patyo,Jordan Sari-sari store
+6876,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1741,8,8,"flat group: 3+ vendors, one identical value",I9OLZHE1,Duenas Public Market,6 grandchildren store
+6877,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1741,8,8,"flat group: 3+ vendors, one identical value",N99CWZ5B,Duenas bangga patyo,Eboy store
+6878,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1741,8,8,"flat group: 3+ vendors, one identical value",OTTCH9SR,Duenas road,Dre Sari-sari
+6879,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1741,8,8,"flat group: 3+ vendors, one identical value",P9H4K2AR,Duenas Public Market,Ruthwin store
+6880,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1741,8,8,"flat group: 3+ vendors, one identical value",ZDTHO2IM,Duenas front of Public market,Dry goods traiding
+6881,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1743,8,8,"flat group: 3+ vendors, one identical value",7TD16APF,Duenas Public Market,Ruthwin store
+6882,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1743,8,8,"flat group: 3+ vendors, one identical value",A46FSBHW,Duenas Public Market,Love variety Store
+6884,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1743,8,8,"flat group: 3+ vendors, one identical value",GTKAE2RN,Duenas bangga patyo,Jordan Sari-sari store
+6885,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1743,8,8,"flat group: 3+ vendors, one identical value",HL87IYNX,Duenas bangga patyo,Eboy store
+6886,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1743,8,8,"flat group: 3+ vendors, one identical value",IJLEWXQG,Duenas bangga patyo,Hermzden store
+6887,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1743,8,8,"flat group: 3+ vendors, one identical value",RRSCMOJE,Duenas road,Dre Sari-sari
+6888,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1743,8,8,"flat group: 3+ vendors, one identical value",TVOUCPK3,Duenas Public Market,6 grandchildren store
+6889,ILOILO,DUEAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,1743,8,8,"flat group: 3+ vendors, one identical value",UCLHBH96,Duenas road,Dry goods traiding
+7054,ILOILO,ESTANCIA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1795,7,7,"flat group: 3+ vendors, one identical value",1U5VANY0,Estancia Roadside,May May Store
+7055,ILOILO,ESTANCIA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1795,7,7,"flat group: 3+ vendors, one identical value",7APCF6PU,Estancia Public Market,Loren Store
+7056,ILOILO,ESTANCIA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1795,7,7,"flat group: 3+ vendors, one identical value",8M17ISGS,Estancia Roadside,Vasquez Store
+7057,ILOILO,ESTANCIA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1795,7,7,"flat group: 3+ vendors, one identical value",9GZDEQVU,Estancia Public Market,Sunshine Store
+7058,ILOILO,ESTANCIA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1795,7,7,"flat group: 3+ vendors, one identical value",K2F1HH0Q,Estancia Talipapa,Paning Store
+7059,ILOILO,ESTANCIA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1795,7,7,"flat group: 3+ vendors, one identical value",QKYNWEAF,Estancia  Roadside,Est Store
+7060,ILOILO,ESTANCIA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1795,7,7,"flat group: 3+ vendors, one identical value",YGUME51K,Estancia Wet Market,Lucille's Variety Store
+7314,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1859,7,7,"flat group: 3+ vendors, one identical value",11SJBZBF,Brgy.5 talipapa,Amon store
+7315,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1859,7,7,"flat group: 3+ vendors, one identical value",3XAHTZKB,Igbaras roadside,Erazo variety store
+7316,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1859,7,7,"flat group: 3+ vendors, one identical value",DL96XVSV,Igbaras public market,Pilo store
+7317,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1859,7,7,"flat group: 3+ vendors, one identical value",L6ZNZP0B,Igbaras public market,Deniamel consumer goods
+7318,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1859,7,7,"flat group: 3+ vendors, one identical value",TCM7X7HP,Igbaras roadside,Inday con store
+7319,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1859,7,7,"flat group: 3+ vendors, one identical value",UOLTI74O,Igbaras public market,Jescel store
+7320,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1859,7,7,"flat group: 3+ vendors, one identical value",X71K7ZFQ,Igbaras roadside,D sisters
+7321,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1860,7,7,"flat group: 3+ vendors, one identical value",2IXVNV9K,Igbaras public market,Deniamel consumer goods
+7322,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1860,7,7,"flat group: 3+ vendors, one identical value",3HFI0E8J,Igbaras roadside,Inday con store
+7323,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1860,7,7,"flat group: 3+ vendors, one identical value",3MT1X92J,Igbaras public market,Jescel store
+7324,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1860,7,7,"flat group: 3+ vendors, one identical value",CL2ZUO63,Igbaras roadside,Erazo variety store
+7325,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1860,7,7,"flat group: 3+ vendors, one identical value",DQWJGOX7,Igbaras roadside,D sisters
+7326,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1860,7,7,"flat group: 3+ vendors, one identical value",U6O17GCE,Igbaras public market,Pilo store
+7327,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1860,7,7,"flat group: 3+ vendors, one identical value",V47PMD60,Brgy.5 talipapa,Amon store
+7308,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",junior lapad,junior lapad,small_size,mL,250,1858,6,6,"flat group: 3+ vendors, one identical value",4BD4O80L,Igbaras roadside,D sisters
+7309,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",junior lapad,junior lapad,small_size,mL,250,1858,6,6,"flat group: 3+ vendors, one identical value",51CEE8R8,Brgy.5 talipapa,Amon store
+7310,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",junior lapad,junior lapad,small_size,mL,250,1858,6,6,"flat group: 3+ vendors, one identical value",DGW5QL95,Igbaras public market,Pilo store
+7311,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",junior lapad,junior lapad,small_size,mL,250,1858,6,6,"flat group: 3+ vendors, one identical value",P60Q8YNF,Igbaras roadside,Inday con store
+7312,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",junior lapad,junior lapad,small_size,mL,250,1858,6,6,"flat group: 3+ vendors, one identical value",R6BA057B,Igbaras public market,Jescel store
+7313,ILOILO,IGBARAS,"liquor (e.g, whisky, coconut wine)",junior lapad,junior lapad,small_size,mL,250,1858,6,6,"flat group: 3+ vendors, one identical value",XWNTGA3G,Igbaras public market,Deniamel consumer goods
+7495,ILOILO,JANIUAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1895,5,5,"flat group: 3+ vendors, one identical value",6AFLSHAF,Jibolo Street,Toto RV store
+7496,ILOILO,JANIUAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1895,5,5,"flat group: 3+ vendors, one identical value",E9Q5RLYI,Janiuay Public Market,RR store
+7498,ILOILO,JANIUAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1895,5,5,"flat group: 3+ vendors, one identical value",MCR209EN,Janiuay Public Market,Frozen store
+7499,ILOILO,JANIUAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1895,5,5,"flat group: 3+ vendors, one identical value",MDMW5Q8M,Janiuay Public Market,Mama's store
+7500,ILOILO,JANIUAY,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1895,5,5,"flat group: 3+ vendors, one identical value",URZHD4F3,Jibolo Street,Erna store
+7660,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1930,5,5,"flat group: 3+ vendors, one identical value",0UK41HXE,Poblacion Lambunao Roadside,Reymon Store
+7661,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1930,5,5,"flat group: 3+ vendors, one identical value",6Q4O1YZ4,Lambunao Public Market,Ze Ze Store
+7662,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1930,5,5,"flat group: 3+ vendors, one identical value",FCPMBKWB,Poblacion Lambunao Roadside,Manny Store
+7663,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1930,5,5,"flat group: 3+ vendors, one identical value",H68PVA73,Cubay Roadside,Susan Store
+7664,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1930,5,5,"flat group: 3+ vendors, one identical value",YFHERCIK,Lambunao Public Market,Kent Adrian Grocery Store
+7665,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1931,5,5,"flat group: 3+ vendors, one identical value",BRN3N4E5,Lambunao Public Market,Kent Adrian Grocery Store
+7666,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1931,5,5,"flat group: 3+ vendors, one identical value",IVBK9HST,Lambunao Public Market,Ze Ze Store
+7667,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1931,5,5,"flat group: 3+ vendors, one identical value",JIF2W33I,Poblacion Lambunao Roadside,Manny Store
+7668,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1931,5,5,"flat group: 3+ vendors, one identical value",OXKPZ5ZY,Poblacion Lambunao Roadside,Reymon Store
+7669,ILOILO,LAMBUNAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,1931,5,5,"flat group: 3+ vendors, one identical value",S743TR83,Poblacion Lambunao Roadside,Susan Store
+7772,ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1969,5,5,"flat group: 3+ vendors, one identical value",21LXT1WY,leganes Public Market,Leejjem Store
+7773,ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1968,5,5,"flat group: 3+ vendors, one identical value",21LXT1WY,leganes Public Market,Leejjem Store
+7774,ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1969,5,5,"flat group: 3+ vendors, one identical value",4GBKHMN9,leganes Public Market,Zanjie Store
+7775,ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1968,5,5,"flat group: 3+ vendors, one identical value",4GBKHMN9,leganes Public Market,Zanjie Store
+7776,ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1969,5,5,"flat group: 3+ vendors, one identical value",M8CTQDYK,roadside,Sunido Store
+7777,ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1968,5,5,"flat group: 3+ vendors, one identical value",M8CTQDYK,roadside,Sunido Store
+7778,ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1969,5,5,"flat group: 3+ vendors, one identical value",R0E73DQC,roadside,EMR Store
+7779,ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1968,5,5,"flat group: 3+ vendors, one identical value",R0E73DQC,roadside,EMR Store
+7780,ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,1969,5,5,"flat group: 3+ vendors, one identical value",WCCD9MFW,roadside,Rene Store
+7781,ILOILO,LEGANES,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,1968,5,5,"flat group: 3+ vendors, one identical value",WCCD9MFW,roadside,Rene Store
+7957,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2034,8,8,"flat group: 3+ vendors, one identical value",29FMD9V6,Cabaluna street,Alderete Sari-sari store
+7959,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2034,8,8,"flat group: 3+ vendors, one identical value",A37ITJ69,Leon Public Market,Mtk Cagampang Store
+7960,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2034,8,8,"flat group: 3+ vendors, one identical value",H6HNCVP5,"Brgy Bucari, Leon",Twinkle Sari-sari store
+7961,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2034,8,8,"flat group: 3+ vendors, one identical value",O17AOOER,"Brgy. Bucari, Leon",Cha-cha Sari-sari store
+7962,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2034,8,8,"flat group: 3+ vendors, one identical value",SIO918XW,Front of Leon Public Market,Junnel Store
+7963,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2034,8,8,"flat group: 3+ vendors, one identical value",UIBQ8AHJ,Leon Public Market,Bigbest consumer goods retailing
+7964,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2034,8,8,"flat group: 3+ vendors, one identical value",WTAXX5OF,Leon Public Market,Calasagsag store
+7965,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2034,8,8,"flat group: 3+ vendors, one identical value",ZVMBGMFB,F Cabarles street Leon,3Q minimart
+7966,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2037,8,8,"flat group: 3+ vendors, one identical value",0SSGBH7G,Leon Public Market,Mtk Cagampang Store
+7967,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2037,8,8,"flat group: 3+ vendors, one identical value",5HNJQX6M,Front of Leon Public Market,Alderete Sari-sari store
+7969,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2037,8,8,"flat group: 3+ vendors, one identical value",7GEHMME8,"Brgy. Bucari, leon",Dolar Store
+7970,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2037,8,8,"flat group: 3+ vendors, one identical value",G64NG9SE,Front of Leon Public Market,Junnel Store
+7971,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2037,8,8,"flat group: 3+ vendors, one identical value",PO2IA6LV,Leon Bagsakan,Cha-cha Sari-sari store
+7973,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2037,8,8,"flat group: 3+ vendors, one identical value",U0X4N2O9,Leon Public Market,Calasagsag store
+7975,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2037,8,8,"flat group: 3+ vendors, one identical value",UAW2UY8S,Leon Public Market,Bigbest consumer goods retailing
+7976,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2037,8,8,"flat group: 3+ vendors, one identical value",WYMTP5Z9,Front of Leon Public Market,3Q minimart
+7968,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,2036,3,3,"flat group: 3+ vendors, one identical value",5HNJQX6M,Front of Leon Public Market,Alderete Sari-sari store
+7974,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,2036,3,3,"flat group: 3+ vendors, one identical value",U0X4N2O9,Leon Public Market,Calasagsag store
+7977,ILOILO,LEON,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,1000,2036,3,3,"flat group: 3+ vendors, one identical value",WYMTP5Z9,Front of Leon Public Market,3Q minimart
+8109,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2069,6,6,"flat group: 3+ vendors, one identical value",2UADTT9O,Maasin Public Market,Nenita Store
+8110,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2069,6,6,"flat group: 3+ vendors, one identical value",50BVC86F,Tubang Maasin Roadside,June Ve-geil Store
+8111,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2069,6,6,"flat group: 3+ vendors, one identical value",9I113G3Q,Maasin Public Market,Piojo Sari  Sari Store
+8112,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2069,6,6,"flat group: 3+ vendors, one identical value",DXZ141FM,Tubang Maasin Roadside,Jasper  Store
+8113,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2069,6,6,"flat group: 3+ vendors, one identical value",Y62J53R0,Brgy.Mandog Maasin Talipapa,Magnetico Store
+8114,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2069,6,6,"flat group: 3+ vendors, one identical value",ZJAS8QE7,Tubang Maasin Roadside,F n Z Store
+8115,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2070,5,5,"flat group: 3+ vendors, one identical value",2EII52I1,Brgy.Mandog Maasin Talipapa,Magnetico Store
+8117,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2070,5,5,"flat group: 3+ vendors, one identical value",DV7VNMPE,Maasin Public Market,Nenita Store
+8118,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2070,5,5,"flat group: 3+ vendors, one identical value",HQRRE4J2,Maasin Public Market,Chanel Variety Store
+8119,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2070,5,5,"flat group: 3+ vendors, one identical value",K2BB9V7W,Tubang Maasin Roadside,F n Z Store
+8120,ILOILO,MAASIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2070,5,5,"flat group: 3+ vendors, one identical value",ULY8QLYM,Tubang Maasin Roadside,Jasper  Store
+8226,ILOILO,MIAGAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,375,2096,3,3,"flat group: 3+ vendors, one identical value",5EBT8D48,Zulueta Street,Js mac store
+8227,ILOILO,MIAGAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,375,2096,3,3,"flat group: 3+ vendors, one identical value",I18EVT3H,Tahanlangit street,Alex stall
+8228,ILOILO,MIAGAO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,375,2096,3,3,"flat group: 3+ vendors, one identical value",ZKXKUVZG,Zulueta Street,JFA stall
+8229,ILOILO,MIAGAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2098,3,3,"flat group: 3+ vendors, one identical value",E32WNO36,Zulueta Street,Alex stall
+8230,ILOILO,MIAGAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2098,3,3,"flat group: 3+ vendors, one identical value",HCBNCQQT,Sulueta street,Kap bembem arroz caldo
+8232,ILOILO,MIAGAO,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,medium_size,mL,750,2098,3,3,"flat group: 3+ vendors, one identical value",TGD1HHNA,Zulueta Street,JFA stall
+8372,ILOILO,MINA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,2137,4,4,"flat group: 3+ vendors, one identical value",1HT3CTFH,Mina Public Market,Osaga Sari-sari store
+8373,ILOILO,MINA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,2137,4,4,"flat group: 3+ vendors, one identical value",2KV4S7KF,Mina Public Market,C& J variety Store
+8374,ILOILO,MINA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,2137,4,4,"flat group: 3+ vendors, one identical value",7U9AHGI4,Mina Public Market,Anjalyn store
+8375,ILOILO,MINA,"liquor (e.g, whisky, coconut wine)",lapad,lipid/lapad,medium_size,mL,375,2137,4,4,"flat group: 3+ vendors, one identical value",LKPDCWMW,Triangle Muling Talipapa,Aprong store
+8501,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2173,9,9,"flat group: 3+ vendors, one identical value",086R6PDM,Wari Wari New Lucena Talipapa,Cecilia Store
+8502,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2173,9,9,"flat group: 3+ vendors, one identical value",0M4HCUO5,Wari Wari New Lucena Talipapa,Delsa Store
+8503,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2173,9,9,"flat group: 3+ vendors, one identical value",7V97LYSO,New Lucena Public Market,C NGER  Sar Sari Store
+8504,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2173,9,9,"flat group: 3+ vendors, one identical value",9GWQNNRA,Cabugao New Lucena Roadside,S & N  Mini Store
+8505,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2173,9,9,"flat group: 3+ vendors, one identical value",ADHLMD9D,New Lucena Public Market,Mancil-Saul Mini Mart
+8506,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2173,9,9,"flat group: 3+ vendors, one identical value",EXGHB9Y1,New Lucena Public Market,Enesa Grocery Store
+8507,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2173,9,9,"flat group: 3+ vendors, one identical value",HGMY7VKG,Wari Wari New Lucena Talipapa,Norma Store
+8508,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2173,9,9,"flat group: 3+ vendors, one identical value",JYC6EXZ6,Wari Wari New Lucena Roadside,RJ Store
+8509,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2173,9,9,"flat group: 3+ vendors, one identical value",QPUSLL86,Wari Wari New Lucena Roadside,Lyden Store
+8492,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2171,8,8,"flat group: 3+ vendors, one identical value",35RVYI3F,Wari Wari New Lucena Roadside,S & N  Mini Store
+8493,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2171,8,8,"flat group: 3+ vendors, one identical value",3Y6DO405,Wari Wari New Lucena Roadside,Lyden Store
+8494,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2171,8,8,"flat group: 3+ vendors, one identical value",9RZD8ILR,New Lucena Public Market,Enesa Grocery Store
+8496,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2171,8,8,"flat group: 3+ vendors, one identical value",FVKQNDT5,New Lucena Public Market,C NGER  Sar Sari Store
+8497,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2171,8,8,"flat group: 3+ vendors, one identical value",N3VWXFYB,Wari Wari New Lucena Talipapa,Cecilia Store
+8498,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2171,8,8,"flat group: 3+ vendors, one identical value",S5CNALXS,Wari Wari New Lucena Roadside,RJ Store
+8499,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2171,8,8,"flat group: 3+ vendors, one identical value",TH0KSDQF,New Lucena Public Market,Mancil-Saul Mini Mart
+8500,ILOILO,NEW LUCENA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2171,8,8,"flat group: 3+ vendors, one identical value",VH7QTDIM,Wari Wari New Lucena Talipapa,Norma Store
+8657,ILOILO,OTON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,375,2218,6,6,"flat group: 3+ vendors, one identical value",BCSS71JP,San nicolas oton roadside,Enzo store
+8658,ILOILO,OTON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,375,2218,6,6,"flat group: 3+ vendors, one identical value",CBMEVEO5,San nicolas oton roadside,Dalia store
+8659,ILOILO,OTON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,375,2218,6,6,"flat group: 3+ vendors, one identical value",H5ZYT543,Trapiche talipapa,AJI SARI SARI STORE
+8662,ILOILO,OTON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,375,2218,6,6,"flat group: 3+ vendors, one identical value",PXKZVQ89,San nicolas oton roadside,KM STORE and Eatery
+8663,ILOILO,OTON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,375,2218,6,6,"flat group: 3+ vendors, one identical value",SMOZMCYM,Trapiche talipapa,Regina store
+8664,ILOILO,OTON,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,small_size,mL,375,2218,6,6,"flat group: 3+ vendors, one identical value",ZT4ZXFVA,Trapiche talipapa,Rein store
+8857,ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2265,9,9,"flat group: 3+ vendors, one identical value",126RQHLQ,Talipapa,Vily Marie store
+8858,ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2265,9,9,"flat group: 3+ vendors, one identical value",87WUEDYY,Katuogan talipapa,Grace Variety store
+8859,ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2265,9,9,"flat group: 3+ vendors, one identical value",AN17LJM9,Pototan old market,Sema store
+8860,ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2265,9,9,"flat group: 3+ vendors, one identical value",E4S2FUVK,Talipapa,Johnrey sari sari store
+8861,ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2265,9,9,"flat group: 3+ vendors, one identical value",EYO4VGEQ,Pototan old market,Corbille Variety store
+8862,ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2265,9,9,"flat group: 3+ vendors, one identical value",H1JXR7UH,Brgy.lay ahan pototan,Nj variety store
+8863,ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2265,9,9,"flat group: 3+ vendors, one identical value",ICS6ZXSW,Pototan Old market,Nicole's store
+8864,ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2265,9,9,"flat group: 3+ vendors, one identical value",O8U65XKW,Katuogan talipapa,Sinoy store
+8865,ILOILO,POTOTAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2265,9,9,"flat group: 3+ vendors, one identical value",PPTWNJRG,Katuogan talipapa,Castor store
+8982,ILOILO,SAN DIONISIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,2294,4,4,"flat group: 3+ vendors, one identical value",A3WBWZAS,San dionisio public market,Baron store
+8984,ILOILO,SAN DIONISIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,2294,4,4,"flat group: 3+ vendors, one identical value",BJHKZ450,San dionisio roadside,Babe store
+8986,ILOILO,SAN DIONISIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,2294,4,4,"flat group: 3+ vendors, one identical value",FT5SQGJL,San dionisio,ALCR2
+8987,ILOILO,SAN DIONISIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,large_size,mL,750,2294,4,4,"flat group: 3+ vendors, one identical value",P1GXF1HI,San dionisio roadside,Arcosa
+8981,ILOILO,SAN DIONISIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2295,3,3,"flat group: 3+ vendors, one identical value",A3WBWZAS,San dionisio public market,Baron store
+8983,ILOILO,SAN DIONISIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2295,3,3,"flat group: 3+ vendors, one identical value",BJHKZ450,San dionisio roadside,Babe store
+8985,ILOILO,SAN DIONISIO,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2295,3,3,"flat group: 3+ vendors, one identical value",FT5SQGJL,San dionisio,ALCR2
+9078,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2335,8,8,"flat group: 3+ vendors, one identical value",ETNFFD7K,San Enrique Public Market,Panes Variety Store
+9079,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2335,8,8,"flat group: 3+ vendors, one identical value",F92PA89U,Sitio Agutayan Talipapa,Padios Store
+9080,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2335,8,8,"flat group: 3+ vendors, one identical value",FWY5IO3Z,Sitio Agutayan Talipapa,Angel Store
+9081,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2335,8,8,"flat group: 3+ vendors, one identical value",RK3PO1IB,Sitio Agutayan Talipapa,Alarba Store
+9082,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2335,8,8,"flat group: 3+ vendors, one identical value",RK99JXOB,San Enrique Public Market,Embing Store
+9083,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2335,8,8,"flat group: 3+ vendors, one identical value",VF5H85WI,Sitio Agutayan Talipapa,VIC 21 FISH TALIPAPA
+9084,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2335,8,8,"flat group: 3+ vendors, one identical value",Y8WZ50MA,San Enrique Roadside,JE Store
+9085,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2335,8,8,"flat group: 3+ vendors, one identical value",ZOW2XQ1P,San Enrique Roadside,Pamonag Store
+9086,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2336,5,5,"flat group: 3+ vendors, one identical value",0JB9FASO,San Enrique Public Market,Embing Store
+9087,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2336,5,5,"flat group: 3+ vendors, one identical value",B271K6TD,San Enrique Roadside,Pamonag Store
+9088,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2336,5,5,"flat group: 3+ vendors, one identical value",C1C1IQGU,San Enrique Roadside,JE Store
+9089,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2336,5,5,"flat group: 3+ vendors, one identical value",HPO3SSVX,Sitio Agutayan Talipapa,Angel Store
+9090,ILOILO,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2336,5,5,"flat group: 3+ vendors, one identical value",UABQ11NI,Sitio Agutayan Talipapa,Padios Store
+9234,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2374,9,9,"flat group: 3+ vendors, one identical value",1EFX8XRT,San juaquin public market,Roqueta stall
+9235,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2374,9,9,"flat group: 3+ vendors, one identical value",1N4F4HLB,San joaquin tiolas roadside,Luke Store
+9236,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2374,9,9,"flat group: 3+ vendors, one identical value",28S5D9VL,San joaquin tiolas roadside,
+9237,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2374,9,9,"flat group: 3+ vendors, one identical value",29BN3TTT,Tiolas san joaquin talipapa,John Lawrence store
+9238,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2374,9,9,"flat group: 3+ vendors, one identical value",41M6X537,Tiolas san joaquin talipapa,Nono store
+9239,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2374,9,9,"flat group: 3+ vendors, one identical value",58GI67NH,Tiolas san joaquin talipapa,Jeljeff
+9240,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2374,9,9,"flat group: 3+ vendors, one identical value",BMPSYSXX,San juaquin public market,Ferly store
+9241,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2374,9,9,"flat group: 3+ vendors, one identical value",KGWUEFQ7,San joaquin roadside,D survivor store
+9242,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2374,9,9,"flat group: 3+ vendors, one identical value",ZXYBEBWU,San juaquin public market,J.mucas store
+9224,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2372,7,7,"flat group: 3+ vendors, one identical value",58F0EOHJ,Tiolas san joaquin talipapa,Jeljeff
+9225,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2372,7,7,"flat group: 3+ vendors, one identical value",6VNWOI43,San joaquin tiolas roadside,Lil store
+9227,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2372,7,7,"flat group: 3+ vendors, one identical value",81UXHP4T,Tiolas san joaquin talipapa,Nono store
+9230,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2372,7,7,"flat group: 3+ vendors, one identical value",NDGGY54J,Roadside,Luke Store
+9231,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2372,7,7,"flat group: 3+ vendors, one identical value",RX1R33UK,San juaquin public market,Roqueta stall
+9232,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2372,7,7,"flat group: 3+ vendors, one identical value",T1FEZGSJ,Tiolas san joaquin talipapa,Rayn renz store
+9233,ILOILO,SAN JOAQUIN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2372,7,7,"flat group: 3+ vendors, one identical value",U22ZGIRC,San juaquin public market,Ferly store
+9381,ILOILO,SAN MIGUEL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2406,9,9,"flat group: 3+ vendors, one identical value",3F21J36O,San Miguel Public Market,Claro Store
+9382,ILOILO,SAN MIGUEL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2406,9,9,"flat group: 3+ vendors, one identical value",8OMB8OMC,San Miguel Public Market,E.N.S. Store
+9383,ILOILO,SAN MIGUEL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2406,9,9,"flat group: 3+ vendors, one identical value",8QYAYB4D,Sitio Tuburan San Miguel Roadside,Red Ficus Store
+9384,ILOILO,SAN MIGUEL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2406,9,9,"flat group: 3+ vendors, one identical value",BD2WJXCM,San Miguel Public Market,SMM Grocery
+9385,ILOILO,SAN MIGUEL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2406,9,9,"flat group: 3+ vendors, one identical value",FDDDF3MS,Sitio Tuburan San Miguel Roadside,Ann Store
+9386,ILOILO,SAN MIGUEL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2406,9,9,"flat group: 3+ vendors, one identical value",FXTDO8D2,San Miguel Roadside,ENS Store
+9387,ILOILO,SAN MIGUEL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2406,9,9,"flat group: 3+ vendors, one identical value",PV99KFKS,Crossing San Jose Talipapa,Shiela Store
+9388,ILOILO,SAN MIGUEL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2406,9,9,"flat group: 3+ vendors, one identical value",SSAEZGWX,Crossing San Jose Talipapa,Double J Mini Mart
+9389,ILOILO,SAN MIGUEL,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2406,9,9,"flat group: 3+ vendors, one identical value",ZLOVZMOI,Crossing San Jose Talipapa,Nicholes Store
+9658,ILOILO,SANTA BARBARA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2472,8,8,"flat group: 3+ vendors, one identical value",100YPCRN,Sta.Barbara. Public Market,
+9659,ILOILO,SANTA BARBARA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2472,8,8,"flat group: 3+ vendors, one identical value",CH7TLB0H,Zone1Arroyo St.Sta Barbara,Froilyn Variety Store Wholesale and Retail
+9660,ILOILO,SANTA BARBARA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2472,8,8,"flat group: 3+ vendors, one identical value",CN5Z0NOL,Sta.Barbara. Public Market,3 Kids General Merchandise
+9661,ILOILO,SANTA BARBARA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2472,8,8,"flat group: 3+ vendors, one identical value",DCL06VHB,Sta.Barbara. Public Market,
+9662,ILOILO,SANTA BARBARA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2472,8,8,"flat group: 3+ vendors, one identical value",FHUM5LTS,Anemone St.Balabag Sta. Barbara Roadside,Jenelyn Variety Store
+9663,ILOILO,SANTA BARBARA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2472,8,8,"flat group: 3+ vendors, one identical value",JNQFQSNN,Balabag Talipapa,RJ Store
+9664,ILOILO,SANTA BARBARA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2472,8,8,"flat group: 3+ vendors, one identical value",UAK2HCUA,Balabag Talipapa,Roll En Store
+9665,ILOILO,SANTA BARBARA,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2472,8,8,"flat group: 3+ vendors, one identical value",UK5TEYO2,Balabag Sta.Barbara Roadside,Katen Josh Variety Store
+9835,ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2502,5,5,"flat group: 3+ vendors, one identical value",9A48BQ6I,Sara roadside,Ron Ron Store
+9837,ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2502,5,5,"flat group: 3+ vendors, one identical value",C4J9P1GS,Talipapa,Lucia Store
+9838,ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2502,5,5,"flat group: 3+ vendors, one identical value",C6M4P9SQ,Sara roadside,Dudz Cafe & Bistro
+9839,ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2502,5,5,"flat group: 3+ vendors, one identical value",EM6PFPJG,Sara wet market,Sophia and Cheska Store
+9840,ILOILO,SARA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2502,5,5,"flat group: 3+ vendors, one identical value",KNG6Z3VZ,talipapa,Kyle Store
+10164,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2583,9,9,"flat group: 3+ vendors, one identical value",228F1CGA,Tubungan talipapa,K and g store
+10165,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2583,9,9,"flat group: 3+ vendors, one identical value",4YXJBR7J,Tubungan talipapa,Macky store
+10166,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2583,9,9,"flat group: 3+ vendors, one identical value",83PE5Y53,Tubungan roadside,Diding store
+10167,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2583,9,9,"flat group: 3+ vendors, one identical value",FCAIU5AH,Tuhungan public market,Lany store
+10168,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2583,9,9,"flat group: 3+ vendors, one identical value",HQ40NDRL,Tuhungan public market,Jl 1
+10169,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2583,9,9,"flat group: 3+ vendors, one identical value",J81CEXNF,Tubungan public market,Taksagon marketing
+10170,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2583,9,9,"flat group: 3+ vendors, one identical value",JYPJ217C,Tubungan roadside,Talidano store
+10171,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2583,9,9,"flat group: 3+ vendors, one identical value",LV23BHZK,Brgy.Seguidan talipapa,Borj store
+10172,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2583,9,9,"flat group: 3+ vendors, one identical value",QCV3639T,Tubungan roadside,Ador sari sari store
+10173,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2584,9,9,"flat group: 3+ vendors, one identical value",5UF1RVP3,Tuhungan public market,Jl 1
+10174,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2584,9,9,"flat group: 3+ vendors, one identical value",91U6MCI5,Tubungan talipapa,K and g store
+10175,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2584,9,9,"flat group: 3+ vendors, one identical value",A0YTQOJ1,Tubungan roadside,Diding store
+10176,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2584,9,9,"flat group: 3+ vendors, one identical value",DLH1WWHA,Tuhungan public market,Taksagon marketing
+10177,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2584,9,9,"flat group: 3+ vendors, one identical value",EW6UKPA9,Tubungan talipapa,Borj store
+10178,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2584,9,9,"flat group: 3+ vendors, one identical value",IADN45PS,Tubungan roadside,Talidano store
+10179,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2584,9,9,"flat group: 3+ vendors, one identical value",MIYHBCHQ,Tuhungan public market,Lany store
+10180,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2584,9,9,"flat group: 3+ vendors, one identical value",P1LNVRFN,Tubungan talipapa,Macky store
+10181,ILOILO,TUBUNGAN,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2584,9,9,"flat group: 3+ vendors, one identical value",WLF9988K,Tubungan roadside,Casti eatery
+10297,ILOILO,ZARRAGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2607,5,5,"flat group: 3+ vendors, one identical value",2GX5O97C,Zarraga Talipapa,Alicia Store
+10298,ILOILO,ZARRAGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2607,5,5,"flat group: 3+ vendors, one identical value",6XZI63CD,Zarraga Roadside,Sukijah Store
+10299,ILOILO,ZARRAGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2607,5,5,"flat group: 3+ vendors, one identical value",8WPDSLL8,Zarraga Roadside,Jennifer Store
+10300,ILOILO,ZARRAGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2607,5,5,"flat group: 3+ vendors, one identical value",9QTBOL1K,Zarraga Public Market,Needs Store
+10301,ILOILO,ZARRAGA,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2607,5,5,"flat group: 3+ vendors, one identical value",FXYAVJ3T,Zarraga Public Market,Euriz Sari Sari Store
+10472,NEGROS OCCIDENTAL,CANDONI,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2641,3,3,"flat group: 3+ vendors, one identical value",K3Y4EVB5,Candoni Roadside,7/11
+10473,NEGROS OCCIDENTAL,CANDONI,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2641,3,3,"flat group: 3+ vendors, one identical value",QCKDAZ27,Candoni Roadside,Jesica Store
+10474,NEGROS OCCIDENTAL,CANDONI,"liquor (e.g, whisky, coconut wine)",long-neck,long-neck,large_size,mL,750,2641,3,3,"flat group: 3+ vendors, one identical value",QVE4MDVH,Candoni Roadside,Jane Store
+11367,NEGROS OCCIDENTAL,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2844,6,6,"flat group: 3+ vendors, one identical value",C5BDDSAI,San Enrique Roadside,Rowena Store
+11368,NEGROS OCCIDENTAL,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2844,6,6,"flat group: 3+ vendors, one identical value",JZT2W534,San Enrique Roadside,Raffy Store
+11369,NEGROS OCCIDENTAL,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2844,6,6,"flat group: 3+ vendors, one identical value",KQVPZZAX,San Enrique Public Market,Double H Store
+11370,NEGROS OCCIDENTAL,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2844,6,6,"flat group: 3+ vendors, one identical value",O5F99V6W,San Enrique Public Market,Marvee Store
+11372,NEGROS OCCIDENTAL,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2844,6,6,"flat group: 3+ vendors, one identical value",S571BN39,San Enrique Public Market,Allyah  Sari Sari Store
+11373,NEGROS OCCIDENTAL,SAN ENRIQUE,"liquor (e.g, whisky, coconut wine)",lipid / lapad,lipid/lapad,medium_size,mL,375,2844,6,6,"flat group: 3+ vendors, one identical value",TF2WT9B7,San Enrique Roadside,Milver Store
+47,AKLAN,ALTAVAS,loaf bread,large,large packs,large_size,g,640,18,4,4,"flat group: 3+ vendors, one identical value",6FFCCIM3,Altavas Public Market,MJ Store
+48,AKLAN,ALTAVAS,loaf bread,large,large packs,large_size,g,640,18,4,4,"flat group: 3+ vendors, one identical value",LEZTKK62,Poblacion Altavas Roadside,Altavas Sari Sari Store
+49,AKLAN,ALTAVAS,loaf bread,large,large packs,large_size,g,640,18,4,4,"flat group: 3+ vendors, one identical value",ME7SHSCX,Poblacion Altavas Talipapa,Murayan Corner
+50,AKLAN,ALTAVAS,loaf bread,large,large packs,large_size,g,640,18,4,4,"flat group: 3+ vendors, one identical value",P5VNXJGM,Altavas Public Market,NG's Variety Store
+54,AKLAN,ALTAVAS,loaf bread,medium,medium packs,medium_size,g,450,19,4,4,"flat group: 3+ vendors, one identical value",267KBI1T,Poblacion Altavas Roadside,Altavas Sari Sari Store
+55,AKLAN,ALTAVAS,loaf bread,medium,medium packs,medium_size,g,450,19,4,4,"flat group: 3+ vendors, one identical value",3MBYD38K,Altavas Public Market,NG's Variety Store
+56,AKLAN,ALTAVAS,loaf bread,medium,medium packs,medium_size,g,450,19,4,4,"flat group: 3+ vendors, one identical value",ULGWLFRP,Altavas Public Market,MJ Store
+57,AKLAN,ALTAVAS,loaf bread,medium,medium packs,medium_size,g,450,19,4,4,"flat group: 3+ vendors, one identical value",ZEXX511R,Poblacion Altavas Talipapa,Murayan Corner
+1068,AKLAN,MALAY,loaf bread,small,small packs,small_size,g,300,234,3,3,"flat group: 3+ vendors, one identical value",B5L0S754,Caticlan roadside,Pergola store
+1069,AKLAN,MALAY,loaf bread,small,small packs,small_size,g,300,234,3,3,"flat group: 3+ vendors, one identical value",BTKE7OE1,Brgy.union caticlan talipapa,Grms sari sari store
+1070,AKLAN,MALAY,loaf bread,small,small packs,small_size,g,300,234,3,3,"flat group: 3+ vendors, one identical value",XKW8O7UN,Caticlan roadside,Caticlan drugstore and grocery store
+1196,AKLAN,MALINAO,loaf bread,kasarangan nga putos,medium packs,medium_size,g,450,263,6,6,"flat group: 3+ vendors, one identical value",FQVAABNZ,"Malinao, Poblacion",Alexandria Store
+1197,AKLAN,MALINAO,loaf bread,kasarangan nga putos,medium packs,medium_size,g,450,263,6,6,"flat group: 3+ vendors, one identical value",HDY4ENIP,"Malinao,Public Market",J. Naig Mini mart
+1198,AKLAN,MALINAO,loaf bread,kasarangan nga putos,medium packs,medium_size,g,450,263,6,6,"flat group: 3+ vendors, one identical value",J2CJZXHU,"Malinao, Poblacion",Princess and Irone Store
+1199,AKLAN,MALINAO,loaf bread,kasarangan nga putos,medium packs,medium_size,g,450,263,6,6,"flat group: 3+ vendors, one identical value",S4OO2170,"Malinao,Public Market",Lynds Store
+1200,AKLAN,MALINAO,loaf bread,kasarangan nga putos,medium packs,medium_size,g,450,263,6,6,"flat group: 3+ vendors, one identical value",TNC9HXWN,"Malinao,Public Market",Triple J Variety store
+1201,AKLAN,MALINAO,loaf bread,kasarangan nga putos,medium packs,medium_size,g,450,263,6,6,"flat group: 3+ vendors, one identical value",ZSZM0X47,"Malinao, Poblacion",Jay and jeric Variety store
+2417,ANTIQUE,LAUA-AN,loaf bread,daragkul nga putos,large packs,large_size,g,640,503,3,3,"flat group: 3+ vendors, one identical value",7NI27ZPQ,Poblacion Laua-an Roadside,Plato - Loral Restaurant
+2418,ANTIQUE,LAUA-AN,loaf bread,daragkul nga putos,large packs,large_size,g,640,503,3,3,"flat group: 3+ vendors, one identical value",CU8OYEAW,Laua-an Public Market,RJV Store
+2419,ANTIQUE,LAUA-AN,loaf bread,daragkul nga putos,large packs,large_size,g,640,503,3,3,"flat group: 3+ vendors, one identical value",QIK5752M,Sarmiento St.Laua-an Talipapa,Gads Store
+2421,ANTIQUE,LAUA-AN,loaf bread,medium nga putos,medium packs,medium_size,g,450,504,3,3,"flat group: 3+ vendors, one identical value",FUQZNL3B,Poblacion Laua-an Roadside,Plato - Loral Restaurant
+2422,ANTIQUE,LAUA-AN,loaf bread,medium nga putos,medium packs,medium_size,g,450,504,3,3,"flat group: 3+ vendors, one identical value",SO8Q7DSQ,Laua-an Public Market,RJV Store
+2423,ANTIQUE,LAUA-AN,loaf bread,medium nga putos,medium packs,medium_size,g,450,504,3,3,"flat group: 3+ vendors, one identical value",VYZFNG5M,Sarmiento St.Laua-an Talipapa,Gads Store
+2720,ANTIQUE,PATNONGON,loaf bread,large,large packs,large_size,g,640,565,3,3,"flat group: 3+ vendors, one identical value",AAZQQ76E,Patnungon Public Market,EVE & JEN'Z Store
+2721,ANTIQUE,PATNONGON,loaf bread,large,large packs,large_size,g,640,565,3,3,"flat group: 3+ vendors, one identical value",MKNCY30R,Patnungon Public Market,Sherlyn Store
+2722,ANTIQUE,PATNONGON,loaf bread,large,large packs,large_size,g,640,565,3,3,"flat group: 3+ vendors, one identical value",QCP98U3N,Patnungon Public Market,Talidong Groceries Sari Sari Store
+2723,ANTIQUE,PATNONGON,loaf bread,medium,medium packs,medium_size,g,450,566,3,3,"flat group: 3+ vendors, one identical value",48203I68,Patnungon Public Market,Fador Store
+2724,ANTIQUE,PATNONGON,loaf bread,medium,medium packs,medium_size,g,450,566,3,3,"flat group: 3+ vendors, one identical value",7O83ZRTW,Patnungon Public Market,Talidong Groceries Sari Sari Store
+2725,ANTIQUE,PATNONGON,loaf bread,medium,medium packs,medium_size,g,450,566,3,3,"flat group: 3+ vendors, one identical value",MWSNO9OI,Patnungon Public Market,EVE & JEN'Z Store
+3593,CAPIZ,CUARTERO,loaf bread,dalagku nga putos,large packs,large_size,g,640,744,5,5,"flat group: 3+ vendors, one identical value",4I86Z5P7,Cuartero roadside,Jiji store
+3594,CAPIZ,CUARTERO,loaf bread,large,large packs,large_size,g,640,744,5,5,"flat group: 3+ vendors, one identical value",6UPF3GN5,Quartero Public market,Clynic Store
+3595,CAPIZ,CUARTERO,loaf bread,large,large packs,large_size,g,640,744,5,5,"flat group: 3+ vendors, one identical value",7LIX5CUK,Cuartero Public market,Whalid Store
+3596,CAPIZ,CUARTERO,loaf bread,large,large packs,large_size,g,640,744,5,5,"flat group: 3+ vendors, one identical value",LFT0RQXL,Cuartero roadside,Jolly Ann Store
+3597,CAPIZ,CUARTERO,loaf bread,large,large packs,large_size,g,640,744,5,5,"flat group: 3+ vendors, one identical value",TRPE26Z9,Cuartero Public Market,Gege Store
+3829,CAPIZ,DUMARAO,loaf bread,medium,medium packs,medium_size,g,450,836,3,3,"flat group: 3+ vendors, one identical value",62PZ33K0,Dumarao public market,Bajon stor3
+3831,CAPIZ,DUMARAO,loaf bread,medium,medium packs,medium_size,g,450,836,3,3,"flat group: 3+ vendors, one identical value",NCBTNBJM,Dumarao,Alcazar store
+3832,CAPIZ,DUMARAO,loaf bread,medium,medium packs,medium_size,g,450,836,3,3,"flat group: 3+ vendors, one identical value",XWFCM0U6,Dumarao,Jabing store
+3943,CAPIZ,IVISAN,loaf bread,medium,medium packs,medium_size,g,450,864,4,4,"flat group: 3+ vendors, one identical value",0ZHVXCX7,Ivisan Public market,Cecil Store
+3944,CAPIZ,IVISAN,loaf bread,medium,medium packs,medium_size,g,450,864,4,4,"flat group: 3+ vendors, one identical value",BXSXS4N6,Ivisan Public market,Ian Store
+3945,CAPIZ,IVISAN,loaf bread,medium,medium packs,medium_size,g,450,864,4,4,"flat group: 3+ vendors, one identical value",ST3NI2W6,Ivisan Public market,Dennis Store
+3946,CAPIZ,IVISAN,loaf bread,medium,medium packs,medium_size,g,450,864,4,4,"flat group: 3+ vendors, one identical value",XOU6OSRI,Ivisan Roadside,7/11
+3940,CAPIZ,IVISAN,loaf bread,large,large packs,large_size,g,640,863,3,3,"flat group: 3+ vendors, one identical value",7W9Q5LE8,Ivisan Public market,Cecil Store
+3941,CAPIZ,IVISAN,loaf bread,large,large packs,large_size,g,640,863,3,3,"flat group: 3+ vendors, one identical value",RJNA1S06,Ivisan Public market,Ian Store
+3942,CAPIZ,IVISAN,loaf bread,large,large packs,large_size,g,640,863,3,3,"flat group: 3+ vendors, one identical value",S0HM9YF1,Ivisan Public market,Dennis Store
+4091,CAPIZ,MA-AYON,loaf bread,large,large packs,large_size,g,640,914,3,3,"flat group: 3+ vendors, one identical value",1IJISDM9,Maayon Public Market,Toto Miel Store
+4092,CAPIZ,MA-AYON,loaf bread,large,large packs,large_size,g,640,914,3,3,"flat group: 3+ vendors, one identical value",HO3076B8,Maayon Public Market,Candy Store
+4093,CAPIZ,MA-AYON,loaf bread,large,large packs,large_size,g,640,914,3,3,"flat group: 3+ vendors, one identical value",ZA0CICCA,Roadside,Joseph Store
+4094,CAPIZ,MA-AYON,loaf bread,medium,medium packs,medium_size,g,450,915,3,3,"flat group: 3+ vendors, one identical value",A5VDTFY0,Roadside,Toto Miel Store
+4095,CAPIZ,MA-AYON,loaf bread,medium,medium packs,medium_size,g,450,915,3,3,"flat group: 3+ vendors, one identical value",JTG8GJI7,Roadside,Joseph Store
+4096,CAPIZ,MA-AYON,loaf bread,medium,medium packs,medium_size,g,450,915,3,3,"flat group: 3+ vendors, one identical value",PJTT66X3,Roadside,Candy Store
+4956,CAPIZ,SIGMA,loaf bread,dalagku nga putos,large packs,small_size,g,220,1149,3,3,"flat group: 3+ vendors, one identical value",B9R205LX,Sigma Public Market,6ms Bakeshop
+4959,CAPIZ,SIGMA,loaf bread,dalagku nga putos,large packs,small_size,g,220,1149,3,3,"flat group: 3+ vendors, one identical value",L389RIAQ,roadside,Argentina Store
+4962,CAPIZ,SIGMA,loaf bread,dalagku nga putos,large packs,small_size,g,220,1149,3,3,"flat group: 3+ vendors, one identical value",Q2DWPCHS,Sigma Public Market,Norma Bakery
+5055,CAPIZ,TAPAZ,loaf bread,dalagku nga putos,large packs,medium_size,g,450,1163,4,4,"flat group: 3+ vendors, one identical value",H6YOULS7,Tapaz Public Market,Satonero Store
+5057,CAPIZ,TAPAZ,loaf bread,dalagku nga putos,large packs,medium_size,g,450,1163,4,4,"flat group: 3+ vendors, one identical value",I5WOXMJC,Roadside,Miles Store
+5059,CAPIZ,TAPAZ,loaf bread,dalagku nga putos,large packs,medium_size,g,450,1163,4,4,"flat group: 3+ vendors, one identical value",OBR05OEE,Tapaz Public Market,Sole Store
+5061,CAPIZ,TAPAZ,loaf bread,dalagku nga putos,large packs,medium_size,g,450,1163,4,4,"flat group: 3+ vendors, one identical value",R2GWJSOV,Tapaz Public Market,Emma Fruit Stand
+5817,ILOILO,BAROTAC VIEJO,loaf bread,large,large packs,large_size,g,640,1433,3,3,"flat group: 3+ vendors, one identical value",02WOE21B,Vieko public market,Ag store
+5818,ILOILO,BAROTAC VIEJO,loaf bread,large,large packs,large_size,g,640,1433,3,3,"flat group: 3+ vendors, one identical value",HCN4K6B2,Vieko public market,Wena store
+5819,ILOILO,BAROTAC VIEJO,loaf bread,large,large packs,large_size,g,640,1433,3,3,"flat group: 3+ vendors, one identical value",VXD0S2K9,Vieko public market,Flora fiel
+5938,ILOILO,BATAD,loaf bread,dalagku nga putos,large packs,large_size,g,640,1467,4,4,"flat group: 3+ vendors, one identical value",37QS7NL8,Batad market,Jay store
+5939,ILOILO,BATAD,loaf bread,dalagku nga putos,large packs,large_size,g,640,1467,4,4,"flat group: 3+ vendors, one identical value",C34BFU3D,Batad market,Pem ann
+5940,ILOILO,BATAD,loaf bread,dalagku nga putos,large packs,large_size,g,640,1467,4,4,"flat group: 3+ vendors, one identical value",JB3R76JD,Batad market,Gigi store
+5941,ILOILO,BATAD,loaf bread,dalagku nga putos,large packs,large_size,g,640,1467,4,4,"flat group: 3+ vendors, one identical value",JNE7ZL4P,roadside,Bikoy store
+5942,ILOILO,BATAD,loaf bread,medium,medium packs,medium_size,g,450,1469,4,4,"flat group: 3+ vendors, one identical value",0TKJ0SOH,roadside,Bikoy store
+5943,ILOILO,BATAD,loaf bread,medium,medium packs,medium_size,g,450,1469,4,4,"flat group: 3+ vendors, one identical value",5Z9NTBVO,Batad Public market,Gigi store
+5944,ILOILO,BATAD,loaf bread,medium,medium packs,medium_size,g,450,1469,4,4,"flat group: 3+ vendors, one identical value",FQ207EWN,Batad Public market,3 kings store
+5946,ILOILO,BATAD,loaf bread,medium,medium packs,medium_size,g,450,1469,4,4,"flat group: 3+ vendors, one identical value",T0AH7R8S,Batad Public market,Pem ann
+7061,ILOILO,ESTANCIA,loaf bread,large,large packs,large_size,g,640,1796,3,3,"flat group: 3+ vendors, one identical value",88LK1AB8,Estancia Wet Market,E. Villegas Store
+7062,ILOILO,ESTANCIA,loaf bread,large,large packs,large_size,g,640,1796,3,3,"flat group: 3+ vendors, one identical value",TJMFWSZ4,Estancia Public Market,Rosalie Store
+7063,ILOILO,ESTANCIA,loaf bread,large,large packs,large_size,g,640,1796,3,3,"flat group: 3+ vendors, one identical value",VOF2YZ2X,Estancia Public Market,Jinkee Store
+7064,ILOILO,ESTANCIA,loaf bread,medium,medium packs,medium_size,g,450,1797,3,3,"flat group: 3+ vendors, one identical value",BXAO7453,Estancia Wet Market,Jinkee Store
+7065,ILOILO,ESTANCIA,loaf bread,medium,medium packs,medium_size,g,450,1797,3,3,"flat group: 3+ vendors, one identical value",JLFS15OC,Estancia Wet Market,E. Villegas Store
+7066,ILOILO,ESTANCIA,loaf bread,medium,medium packs,medium_size,g,450,1797,3,3,"flat group: 3+ vendors, one identical value",QKFB5ZIR,Estancia Wet Market,Rosalie Store
+7784,ILOILO,LEGANES,loaf bread,dalagku nga putos,large packs,large_size,g,640,1971,3,3,"flat group: 3+ vendors, one identical value",AGVYUIDP,Leganes Public Market,Leejjem Store
+7787,ILOILO,LEGANES,loaf bread,dalagku nga putos,large packs,large_size,g,640,1971,3,3,"flat group: 3+ vendors, one identical value",O1YB0SXC,Leganes Public Market,Zanjie Store
+7788,ILOILO,LEGANES,loaf bread,dalagku nga putos,large packs,large_size,g,640,1971,3,3,"flat group: 3+ vendors, one identical value",Z0VTI0WX,roadside,Wacky Store
+7978,ILOILO,LEON,loaf bread,large,large packs,large_size,g,640,2039,5,5,"flat group: 3+ vendors, one identical value",50BVE30U,Leon Public Market,Rosalie bread stall
+7979,ILOILO,LEON,loaf bread,large,large packs,large_size,g,640,2039,5,5,"flat group: 3+ vendors, one identical value",8P2RRUOT,Leon Public Market,Nona Bread Store
+7980,ILOILO,LEON,loaf bread,large,large packs,large_size,g,640,2039,5,5,"flat group: 3+ vendors, one identical value",B4LQCV9I,Front of Leon Public Market,Junnel Store
+7981,ILOILO,LEON,loaf bread,large,large packs,large_size,g,640,2039,5,5,"flat group: 3+ vendors, one identical value",PQRH7VZR,Leon Public Market,Ellens bread stall
+7982,ILOILO,LEON,loaf bread,large,large packs,large_size,g,640,2039,5,5,"flat group: 3+ vendors, one identical value",QOMA885M,Front of Leon Public Market,3Q minimart
+7989,ILOILO,LEON,loaf bread,small,small packs,small_size,g,360,2041,5,5,"flat group: 3+ vendors, one identical value",1986FGLE,Leon Public Market,Rosalie bread stall
+7990,ILOILO,LEON,loaf bread,small,small packs,small_size,g,360,2041,5,5,"flat group: 3+ vendors, one identical value",BW4R1550,Leon Public Market,Ellens bread stall
+7991,ILOILO,LEON,loaf bread,small,small packs,small_size,g,360,2041,5,5,"flat group: 3+ vendors, one identical value",EA20M1OI,Front of Leon Public Market,Junnel Store
+7992,ILOILO,LEON,loaf bread,small,small packs,small_size,g,360,2041,5,5,"flat group: 3+ vendors, one identical value",TSWMB64U,Front of Leon Public Market,3Q minimart
+7993,ILOILO,LEON,loaf bread,small,small packs,small_size,g,360,2041,5,5,"flat group: 3+ vendors, one identical value",U7AHKKW1,Leon Public Market,Nona Bread Store
+8386,ILOILO,MINA,loaf bread,medium,medium packs,medium_size,g,450,2142,3,3,"flat group: 3+ vendors, one identical value",4BBLPLFR,Mina Public Market,Nelida store
+8387,ILOILO,MINA,loaf bread,medium,medium packs,medium_size,g,450,2142,3,3,"flat group: 3+ vendors, one identical value",8WYJS7XJ,Mina Public Market,Osaga Sari-sari store
+8388,ILOILO,MINA,loaf bread,medium,medium packs,medium_size,g,450,2142,3,3,"flat group: 3+ vendors, one identical value",K0G3SXTD,Mina Public Market,Brillio store
+8515,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium_size,g,450,2176,4,4,"flat group: 3+ vendors, one identical value",3EXZ6NLW,New Lucena Public Market,Apostol Grocery Store
+8516,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium_size,g,450,2176,4,4,"flat group: 3+ vendors, one identical value",3NH1B5B9,New Lucena Public Market,Mancil-Saul Mini Mart
+8517,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium_size,g,450,2176,4,4,"flat group: 3+ vendors, one identical value",FX2K65TC,Wari Wari New Lucena Talipapa,Ahliza Store
+8518,ILOILO,NEW LUCENA,loaf bread,tama-tama nga putos,tama-tama nga putos,medium_size,g,450,2176,4,4,"flat group: 3+ vendors, one identical value",HJJ3MU5O,Wari Wari New Lucena Talipapa,Chityl Sari Sari Store
+10477,NEGROS OCCIDENTAL,CANDONI,loaf bread,medium,medium packs,medium_size,g,450,2643,3,3,"flat group: 3+ vendors, one identical value",HBMBT4YE,Candoni,Maricel
+10478,NEGROS OCCIDENTAL,CANDONI,loaf bread,medium,medium packs,medium_size,g,450,2643,3,3,"flat group: 3+ vendors, one identical value",TOYCIRMA,Candoni,Jef jan store
+10479,NEGROS OCCIDENTAL,CANDONI,loaf bread,medium,medium packs,medium_size,g,450,2643,3,3,"flat group: 3+ vendors, one identical value",VNIHFNPK,Candoni,Girlowei
+10536,NEGROS OCCIDENTAL,CAUAYAN,loaf bread,medium,medium packs,medium_size,g,450,2652,3,3,"flat group: 3+ vendors, one identical value",1BFQVQJ0,Cauayan Public Market,3s Marias Bakery
+10537,NEGROS OCCIDENTAL,CAUAYAN,loaf bread,medium,medium packs,medium_size,g,450,2652,3,3,"flat group: 3+ vendors, one identical value",B1HTOMPC,Cauayan Roadside,Emalyn Store
+10538,NEGROS OCCIDENTAL,CAUAYAN,loaf bread,medium,medium packs,medium_size,g,450,2652,3,3,"flat group: 3+ vendors, one identical value",HVKBYOM1,Cauayan Public Market,Azjia Store
+10593,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),loaf bread,large,large packs,medium_size,g,450,2667,3,3,"flat group: 3+ vendors, one identical value",5S28K8JM,EB Magalona Public Market,Miles Store
+10594,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),loaf bread,large,large packs,large_size,g,640,2666,3,3,"flat group: 3+ vendors, one identical value",5S28K8JM,EB Magalona Public Market,Miles Store
+10596,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),loaf bread,large,large packs,medium_size,g,450,2667,3,3,"flat group: 3+ vendors, one identical value",7VT0SJI1,EB Magalona Public Market,Jewel Store
+10597,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),loaf bread,large,large packs,large_size,g,640,2666,3,3,"flat group: 3+ vendors, one identical value",7VT0SJI1,EB Magalona Public Market,Jewel Store
+10599,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),loaf bread,large,large packs,medium_size,g,450,2667,3,3,"flat group: 3+ vendors, one identical value",PGY7LVR6,EB Magalona Public Market,NENITA STORE
+10600,NEGROS OCCIDENTAL,ENRIQUE B. MAGALONA (SARAVIA),loaf bread,large,large packs,large_size,g,640,2666,3,3,"flat group: 3+ vendors, one identical value",PGY7LVR6,EB Magalona Public Market,NENITA STORE
+10722,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,dagko nga pakete,large packs,large_size,g,640,2697,6,6,"flat group: 3+ vendors, one identical value",DB19ESG8,Roadside,Mars Store
+10723,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,dagko nga pakete,large packs,large_size,g,640,2697,6,6,"flat group: 3+ vendors, one identical value",V9AZNCUO,Hinobaan Public Narket,Kons Store
+10724,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,dagko nga pakete,large packs,large_size,g,640,2697,6,6,"flat group: 3+ vendors, one identical value",YI4I8SS8,Hinobaan Public Narket,Mekayla Store
+10725,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,large,large packs,large_size,g,640,2697,6,6,"flat group: 3+ vendors, one identical value",3FKPCI3R,Roadside,Jan Jan Store
+10726,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,large,large packs,large_size,g,640,2697,6,6,"flat group: 3+ vendors, one identical value",3OL2UIY6,Hinobaan Public Narket,Mekayla Store
+10727,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,large,large packs,large_size,g,640,2697,6,6,"flat group: 3+ vendors, one identical value",9R9S3QC0,Hinobaan Public Narket,Kons Store
+10728,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,medium nga pakete,medium packs,medium_size,g,450,2698,6,6,"flat group: 3+ vendors, one identical value",GLW7PJIM,Hinobaan Public Narket,Kons Store
+10729,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,medium nga pakete,medium packs,medium_size,g,450,2698,6,6,"flat group: 3+ vendors, one identical value",U0X4MYQM,Hinobaan Public Narket,Mekayla Store
+10730,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,medium,medium packs,medium_size,g,450,2698,6,6,"flat group: 3+ vendors, one identical value",0JLUDIB1,Hinobaan Public Narket,Mekayla Store
+10731,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,medium,medium packs,medium_size,g,450,2698,6,6,"flat group: 3+ vendors, one identical value",A2OQTT1G,Roadside,Mars Store
+10732,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,medium,medium packs,medium_size,g,450,2698,6,6,"flat group: 3+ vendors, one identical value",MX1GRKYG,Hinobaan Public Narket,Kons Store
+10733,NEGROS OCCIDENTAL,HINOBA-AN (ASIA),loaf bread,medium,medium packs,medium_size,g,450,2698,6,6,"flat group: 3+ vendors, one identical value",Z39MCSA8,Roadside,Jan Jan Store
+10874,NEGROS OCCIDENTAL,ISABELA,loaf bread,medium,medium packs,medium_size,g,450,2726,3,3,"flat group: 3+ vendors, one identical value",13VY4EKE,Isabela publuic market,Manolette Bakeshop
+10875,NEGROS OCCIDENTAL,ISABELA,loaf bread,medium,medium packs,medium_size,g,450,2726,3,3,"flat group: 3+ vendors, one identical value",MSODZVCT,Isabela Roadside,Juvelyn Store
+10876,NEGROS OCCIDENTAL,ISABELA,loaf bread,medium,medium packs,medium_size,g,450,2726,3,3,"flat group: 3+ vendors, one identical value",PLE7B6EW,Isabela publuic market,Irene Store
+11240,NEGROS OCCIDENTAL,PULUPANDAN,loaf bread,small,small packs,small_size,g,220,2815,3,3,"flat group: 3+ vendors, one identical value",CPN4XN9V,Pulupandan,Mary ann
+11241,NEGROS OCCIDENTAL,PULUPANDAN,loaf bread,small,small packs,small_size,g,220,2815,3,3,"flat group: 3+ vendors, one identical value",GYXPPEFM,Pulupandan,Deguzman
+11242,NEGROS OCCIDENTAL,PULUPANDAN,loaf bread,small,small packs,small_size,g,220,2815,3,3,"flat group: 3+ vendors, one identical value",PSFR6WO7,Pulupandan,Salie store
+4881,CAPIZ,SAPI-AN,"mineral or spring water, all drinking water sold in containers",refilled,refilled,medium_size,mL,1000,1133,3,3,"flat group: 3+ vendors, one identical value",ERG35EHQ,Sapi-an Public market,Rp store
+4882,CAPIZ,SAPI-AN,"mineral or spring water, all drinking water sold in containers",refilled,refilled,medium_size,mL,1000,1133,3,3,"flat group: 3+ vendors, one identical value",EXMZ7FGJ,Sapi-an Roadside,Amy Store
+4883,CAPIZ,SAPI-AN,"mineral or spring water, all drinking water sold in containers",refilled,refilled,medium_size,mL,1000,1133,3,3,"flat group: 3+ vendors, one identical value",KPWQMH2H,Sapi-an Public market,Arrow Store
+567,AKLAN,IBAJAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,500,140,4,4,"flat group: 3+ vendors, one identical value",LEICBWT7,Ibajay Public Market,Persal Chicken Station
+570,AKLAN,IBAJAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,500,140,4,4,"flat group: 3+ vendors, one identical value",SADP3A2K,Ibajay Public Market,Tormis Frozen Products
+573,AKLAN,IBAJAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,500,140,4,4,"flat group: 3+ vendors, one identical value",TNAR1DZQ,"Purok 1, Ibajay",EC Variety Store
+575,AKLAN,IBAJAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,500,140,4,4,"flat group: 3+ vendors, one identical value",XL5FHF3I,Ibajay Public Market,RF Nobleza Chicken Station
+2335,ANTIQUE,HAMTIC,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,486,4,4,"flat group: 3+ vendors, one identical value",BD66CM38,Malandog community Talipapa,Marycon Sari-sari store
+2336,ANTIQUE,HAMTIC,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,486,4,4,"flat group: 3+ vendors, one identical value",JL2HJB5P,Malandog community Talipapa,Toto Dale Frozen food
+2337,ANTIQUE,HAMTIC,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,486,4,4,"flat group: 3+ vendors, one identical value",QDEVBZWR,Poblacion 2 hamtic Antique,Double-k  Minimart
+2338,ANTIQUE,HAMTIC,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,486,4,4,"flat group: 3+ vendors, one identical value",SQWN2AB2,Poblacion 2 hamtic Antique,Lyka Sari-sari store
+3623,CAPIZ,CUARTERO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,756,3,3,"flat group: 3+ vendors, one identical value",50WF7BVS,Quartero Public market,jovet Store
+3624,CAPIZ,CUARTERO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,755,3,3,"flat group: 3+ vendors, one identical value",50WF7BVS,Quartero Public market,jovet Store
+3626,CAPIZ,CUARTERO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,756,3,3,"flat group: 3+ vendors, one identical value",CVGH4M33,Quartero Public market,Ninoy store
+3627,CAPIZ,CUARTERO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,755,3,3,"flat group: 3+ vendors, one identical value",CVGH4M33,Quartero Public market,Ninoy store
+3628,CAPIZ,CUARTERO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,756,3,3,"flat group: 3+ vendors, one identical value",OFDTTG8K,Quartero Public market,Amie Store
+3629,CAPIZ,CUARTERO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,755,3,3,"flat group: 3+ vendors, one identical value",OFDTTG8K,Quartero Public market,Amie Store
+4365,CAPIZ,PANAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,990,3,3,"flat group: 3+ vendors, one identical value",1Q68WPME,Panay Public market,Mariska Store
+4366,CAPIZ,PANAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,989,3,3,"flat group: 3+ vendors, one identical value",1Q68WPME,Panay Public market,Mariska Store
+4367,CAPIZ,PANAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,990,3,3,"flat group: 3+ vendors, one identical value",AMYLNAZK,Panay Public market,Adora Store
+4368,CAPIZ,PANAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,989,3,3,"flat group: 3+ vendors, one identical value",AMYLNAZK,Panay Public market,Adora Store
+4369,CAPIZ,PANAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,990,3,3,"flat group: 3+ vendors, one identical value",B4XWXPAH,Panay Public market,A&R Vegetable Stall
+4370,CAPIZ,PANAY,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,989,3,3,"flat group: 3+ vendors, one identical value",B4XWXPAH,Panay Public market,A&R Vegetable Stall
+5305,ILOILO,ALIMODIAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,1251,4,4,"flat group: 3+ vendors, one identical value",EFYPYE8L,Roadside Alimodian,Umblas frozen foods
+5308,ILOILO,ALIMODIAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,1251,4,4,"flat group: 3+ vendors, one identical value",HPFZ2D54,Alimodian public market,Algallar dressed chicken and frozen products
+5313,ILOILO,ALIMODIAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,1251,4,4,"flat group: 3+ vendors, one identical value",OS23AM4O,Alimodian public market,Bonbon dressed chicken and frozen products
+5314,ILOILO,ALIMODIAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,1251,4,4,"flat group: 3+ vendors, one identical value",V6L3TG7M,"Talipapa Brgy.Bangcal,Alimodian",3 Rd store
+5487,ILOILO,BADIANGAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,200,1304,4,4,"flat group: 3+ vendors, one identical value",7STE33YA,Iniligan Badiangan Roadside,Armada Sari Sari Store
+5488,ILOILO,BADIANGAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,200,1304,4,4,"flat group: 3+ vendors, one identical value",FW7UFQZB,Badiangan Public Market,Emman Store Dressed Chicken and Meat Shop
+5489,ILOILO,BADIANGAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,200,1304,4,4,"flat group: 3+ vendors, one identical value",H308SEMM,Iniligan Badiangan Roadside,Kailis Tindahan
+5490,ILOILO,BADIANGAN,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,200,1304,4,4,"flat group: 3+ vendors, one identical value",Q8ZCGPXI,Badiangan Public Market,Gwyneth Variety Store
+5744,ILOILO,BAROTAC NUEVO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,1405,3,3,"flat group: 3+ vendors, one identical value",98SYG2EM,Nuevo public market,Bebing
+5745,ILOILO,BAROTAC NUEVO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,large_size,g,1000,1404,3,3,"flat group: 3+ vendors, one identical value",98SYG2EM,Nuevo public market,Bebing
+5746,ILOILO,BAROTAC NUEVO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,1405,3,3,"flat group: 3+ vendors, one identical value",MBHZMLHW,Nuevo public market,Frets
+5747,ILOILO,BAROTAC NUEVO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,large_size,g,1000,1404,3,3,"flat group: 3+ vendors, one identical value",MBHZMLHW,Nuevo public market,Frets
+5748,ILOILO,BAROTAC NUEVO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,1405,3,3,"flat group: 3+ vendors, one identical value",ONIZU6CP,Neuvo public market,HD store
+5749,ILOILO,BAROTAC NUEVO,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,large_size,g,1000,1404,3,3,"flat group: 3+ vendors, one identical value",ONIZU6CP,Neuvo public market,HD store
+5837,ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,1440,3,3,"flat group: 3+ vendors, one identical value",8Q4R5HI1,Vieko public market,Devs store
+5838,ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,1440,3,3,"flat group: 3+ vendors, one identical value",DNJJ4D40,Vieko public market,Ten store
+5840,ILOILO,BAROTAC VIEJO,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,1440,3,3,"flat group: 3+ vendors, one identical value",LY8NJWSV,Veijo public market,Ryan store
+5964,ILOILO,BATAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,small_size,g,250,1480,3,3,"flat group: 3+ vendors, one identical value",5C3JFTQK,Batad Public market,Okay store
+5965,ILOILO,BATAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,medium_size,g,250,1479,3,3,"flat group: 3+ vendors, one identical value",5C3JFTQK,Batad Public market,Okay store
+5967,ILOILO,BATAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,small_size,g,250,1480,3,3,"flat group: 3+ vendors, one identical value",8CRDC5TO,Batad market,Andrie store
+5968,ILOILO,BATAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,medium_size,g,250,1479,3,3,"flat group: 3+ vendors, one identical value",8CRDC5TO,Batad market,Andrie store
+5969,ILOILO,BATAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,small_size,g,250,1480,3,3,"flat group: 3+ vendors, one identical value",L860NOQ6,Batad market,3 kings store
+5970,ILOILO,BATAD,"preserved or processed meat (tocino, tapa, longaniza, etc)",packs,pack,medium_size,g,250,1479,3,3,"flat group: 3+ vendors, one identical value",L860NOQ6,Batad market,3 kings store
+7091,ILOILO,ESTANCIA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,1808,3,3,"flat group: 3+ vendors, one identical value",5TJS8T7P,Estancia Wet Market,Mary Jean Store
+7093,ILOILO,ESTANCIA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,1808,3,3,"flat group: 3+ vendors, one identical value",BI37R29Z,Estancia Wet Market,Elmeriza Store
+7095,ILOILO,ESTANCIA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,1808,3,3,"flat group: 3+ vendors, one identical value",CL9FHPCY,Estancia Wet Market,Timothy Frozen Foods
+7348,ILOILO,IGBARAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",lata,cans,medium_size,g,260,1868,3,3,"flat group: 3+ vendors, one identical value",4MSVVZD6,Igbaras public market,Nenen store
+7350,ILOILO,IGBARAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",lata,cans,medium_size,g,260,1868,3,3,"flat group: 3+ vendors, one identical value",78J6DU0K,Igbaras roadside,Erazo variety store
+7354,ILOILO,IGBARAS,"preserved or processed meat (tocino, tapa, longaniza, etc)",lata,cans,medium_size,g,260,1868,3,3,"flat group: 3+ vendors, one identical value",VVL6EKMX,Igbaras roadside,Inday con store
+8026,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2049,6,6,"flat group: 3+ vendors, one identical value",36RXPKOY,Leon Public Market,Happy pit Frozen foods
+8028,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2049,6,6,"flat group: 3+ vendors, one identical value",F1E89Z8K,Front of Leon Public Market,Delsal Variety store
+8029,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2049,6,6,"flat group: 3+ vendors, one identical value",ICWT02I6,Leon Bagsakan,Dolar Store
+8030,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2049,6,6,"flat group: 3+ vendors, one identical value",IO0UBPMG,Leon Public Market,Aya Frozen food
+8032,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2049,6,6,"flat group: 3+ vendors, one identical value",MCNQ2EYZ,Front of Leon Public Market,Alderete Sari-sari store
+8033,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2049,6,6,"flat group: 3+ vendors, one identical value",Q4TP5VRS,Leon Public Market,Cabana foods
+8021,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,2046,4,4,"flat group: 3+ vendors, one identical value",6HQY21NH,Front of Leon Public Market,Delsal Variety store
+8023,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,2046,4,4,"flat group: 3+ vendors, one identical value",KZ56UJKD,Front of Leon Public Market,Alderete Sari-sari store
+8024,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,2046,4,4,"flat group: 3+ vendors, one identical value",MVX0DKVI,Leon Public Market,Happy pit Frozen foods
+8025,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",bilog,bilog,small_size,g,250,2046,4,4,"flat group: 3+ vendors, one identical value",N8DLX9QM,Leon Public Market,Cabana foods
+8027,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,large_size,g,1000,2047,3,3,"flat group: 3+ vendors, one identical value",36RXPKOY,Leon Public Market,Happy pit Frozen foods
+8031,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,large_size,g,1000,2047,3,3,"flat group: 3+ vendors, one identical value",IO0UBPMG,Leon Public Market,Aya Frozen food
+8035,ILOILO,LEON,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,large_size,g,1000,2047,3,3,"flat group: 3+ vendors, one identical value",Q4TP5VRS,Leon Public Market,Cabana foods
+10331,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,2614,6,6,"flat group: 3+ vendors, one identical value",3AVEK95W,Zarraga Public Market,Alor Store
+10333,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,2614,6,6,"flat group: 3+ vendors, one identical value",BHN6QW8Z,Zarraga Talipapa,Alicia Store
+10335,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,2614,6,6,"flat group: 3+ vendors, one identical value",IEY2TWDG,Zarraga Public Market,Gamay Frozen Foods
+10336,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,2614,6,6,"flat group: 3+ vendors, one identical value",KQKPEQ58,Zarraga Talipapa,Mylyn Store
+10338,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,2614,6,6,"flat group: 3+ vendors, one identical value",VL7QNH0D,Zarraga Public Market,Abbis Frozen Store
+10340,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,medium_size,g,250,2614,6,6,"flat group: 3+ vendors, one identical value",X98Z6EKV,Zarraga Talipapa,Ameerahs Store
+10330,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2615,5,5,"flat group: 3+ vendors, one identical value",3AVEK95W,Zarraga Public Market,Alor Store
+10332,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2615,5,5,"flat group: 3+ vendors, one identical value",BHN6QW8Z,Zarraga Talipapa,Alicia Store
+10334,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2615,5,5,"flat group: 3+ vendors, one identical value",IEY2TWDG,Zarraga Public Market,Gamay Frozen Foods
+10337,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2615,5,5,"flat group: 3+ vendors, one identical value",VL7QNH0D,Zarraga Public Market,Abbis Frozen Store
+10339,ILOILO,ZARRAGA,"preserved or processed meat (tocino, tapa, longaniza, etc)",putos,putos,small_size,g,250,2615,5,5,"flat group: 3+ vendors, one identical value",X98Z6EKV,Zarraga Talipapa,Ameerahs Store
