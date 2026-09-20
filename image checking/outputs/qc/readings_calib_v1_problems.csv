@@ -1,6 +1,6 @@
 reader,kind,detail
 haiku_a3,label_not_in_manifest,0149
-(coverage),image_never_read,id 370
-(coverage),image_never_read,id 885
-(coverage),image_never_read,id 2460
-(coverage),image_never_read,id 8229
+(coverage),image_under_read,id 370: 1 of 2 readers
+(coverage),image_under_read,id 885: 1 of 2 readers
+(coverage),image_under_read,id 2460: 1 of 2 readers
+(coverage),image_under_read,id 8229: 1 of 2 readers
