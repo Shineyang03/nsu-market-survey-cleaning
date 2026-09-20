@@ -1,0 +1,47 @@
+id,stratum,rawtick,raw_weight,display_texthaiku,display_textsonnet,tiled_agreed
+110,C2 magnitude,grams (g),.205,0.205,0.205,1
+864,C2 magnitude,grams (g),.050000001,0.050,0.050,1
+2449,C2 magnitude,grams (g),.20999999,0.210,0.210,1
+2460,C2 magnitude,grams (g),.215,0215,0.215,0
+2532,C2 magnitude,grams (g),.89499998,0.0895,0.895,0
+4196,C2 block governs,grams (g),.56,0.560,0.560,1
+4311,C1 liquid as mass,grams (g),375,0.375,0.375,1
+4312,C1 liquid as mass,grams (g),440,0.140,0.440,0
+4843,C1 liquid as mass,grams (g),435,0.955,0.485,0
+4935,C2 block governs,grams (g),.155,0.155,0.155,1
+4976,C2 magnitude,grams (g),.46000001,0.460,0.460,1
+4996,C2 magnitude,grams (g),.13,0.130,0.130,1
+5077,C2 magnitude,grams (g),.2,0.200,0.200,1
+5184,C2 review queue,grams (g),.079999998,0.050,0.080,0
+5443,C1 solid as Litres,Litres (L),.001175,0.115,1.175,0
+6192,C2 review queue,grams (g),.35499999,0.355,0.355,1
+6202,C2 review queue,grams (g),.94999999,0.005,0.095,0
+6476,C2 block governs,grams (g),.064999998,0.065,0.065,1
+6498,C2 block governs,grams (g),.54000002,0.540,0.540,1
+7226,C2 block governs,Kilograms (Kgs),2060,2095,2.095,0
+7576,C2 block governs,grams (g),.105,0.105,0.105,1
+7625,C1 solid as Litres,Litres (L),.94999999,0.850,0.950,0
+7639,C1 liquid as mass,grams (g),.23999999,0.007,0.240,0
+7843,C1 liquid as mass,grams (g),.44,0.440,0.440,1
+8435,C2 block governs,grams (g),.51999998,0.520,0.520,1
+8474,C1 liquid as mass,grams (g),.47,0.940,0.470,0
+9424,C2 block governs,grams (g),.60000002,0.080,0.060,0
+9460,C2 block governs,grams (g),.185,0.185,0.185,1
+9461,C2 review queue,grams (g),.40000001,0.040,0.040,1
+9471,C2 block governs,grams (g),.025,0.035,0.030,0
+9479,C2 magnitude,grams (g),.54500002,0.545,0.545,1
+9509,C2 magnitude,grams (g),.47,0.075,0.470,0
+9510,C2 magnitude,grams (g),.67000002,0.670,0.670,1
+9668,C1 solid as Litres,Litres (L),.67500001,0.655,0.675,0
+9710,C2 magnitude,grams (g),.235,0.235,0.235,1
+9790,C2 magnitude,grams (g),.025,0.025,0.025,1
+9799,C2 block governs,grams (g),.025,0.025,0.025,1
+9817,C2 block governs,grams (g),.57499999,0.515,0.575,0
+9995,C1 liquid as mass,grams (g),760,0.660,0.760,0
+10028,C1 dual-ticked,grams (g),490,0.789,0.490,0
+10269,C2 review queue,grams (g),.045000002,0.045,0.045,1
+10706,C1 liquid as mass,grams (g),810,0.810,0.810,1
+10707,C1 liquid as mass,grams (g),750,0.750,0.750,1
+10965,C1 liquid as mass,grams (g),495,0.995,0.595,0
+11053,C1 liquid as mass,grams (g),480,0.080,0.490,0
+11054,C1 liquid as mass,grams (g),610,0.085,0.670,0
