@@ -259,6 +259,23 @@ The disagreement is one-sided. **Dropping Haiku from digit reading is the first 
 it is free.** Haiku stays on Check 1 classification, where scale-present agreement is
 96.6%.
 
+> **These are not accuracy figures, and must never be quoted as one.** The typed weight
+> is what Check 2 exists to check, so scoring a reading against it measures *agreement
+> with the field officer*, not correctness. A perfect reader would not score 100%: it
+> would score `100% − (the rate at which officers typed something other than the
+> display)`, which is unknown and is the very quantity being sought. **Sonnet's true
+> reading accuracy is unknown and is bounded below, not above, by 82.6%.**
+>
+> Two conclusions survive this, because neither needs the typed value:
+>
+> - **Haiku is the weaker reader.** Sonnet reads the *same* display identically across
+>   two presentations (43 of 43), while Haiku agrees with Sonnet on only 54.3%. One
+>   reader is self-consistent and the other is not; no yardstick is involved.
+> - **Resolution changes nothing** — same 43 of 43 agreement, again yardstick-free.
+>
+> What the yardstick cannot do is tell you how good the best reader actually is. Only a
+> human reading the same displays can, and that check is still outstanding.
+
 ### Resolution is NOT the lever — tested and refuted
 
 `05_resolution_test_draw.do` / `06_resolution_compare.do` re-presented the same 46
