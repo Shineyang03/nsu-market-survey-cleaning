@@ -115,10 +115,29 @@ plainly reads `0.430`. Two independent failures:
    from unlit is genuinely ambiguous at the pixel level, which is why so many readings
    decode as `8` or `88`.
 
-What a working version would need: a constraint that the display sits on a dark bezel,
-local contrast normalisation rather than a global threshold, and a way to identify the
-WEIGHT row specifically rather than the brightest blob. That is a real computer-vision
-effort, not a tuning pass.
+### What this does NOT establish
+
+That no reproducible reader is possible. **One method was tested, and it was the weakest
+plausible one.** Colour thresholding is what you reach for when the target object is not
+repeatable. Here it is: every photograph shows the same Micromatic body, with a
+high-contrast keypad (`7 8 9 / TARE`, `4 5 6 / ZERO`, …) in a fixed geometric
+relationship to the display. That is the standard case for **feature matching against a
+reference image** — match, solve a homography, rectify, then crop the display at known
+relative coordinates. It handles angle and distance, it is deterministic, and it was not
+tried. `opencv-python` installs cleanly on this machine's Python 3.14.
+
+Two things also make the problem smaller than it first looks:
+
+* **Check 2 may not need full digit recognition.** What it asks is whether the decimal
+  was moved correctly — `0.800` against `800`. Digit *count* and decimal *position*
+  answer most of that, and are far easier to recover than every glyph.
+* **The population is probably well under 2,472.** If the label-transcription pattern
+  above holds, many Check 2 rows have no scale in the photograph at all. Those are
+  settled by Check 1, and no OCR is owed on them.
+
+Rescuing the colour approach — dark-bezel constraint, local contrast normalisation,
+WEIGHT-row identification — is a real effort for an uncertain payoff. The template route
+is the one to try first, and it has not been tried.
 
 **No OCR tooling is installed on this machine** (no tesseract, no opencv, no GPU) and
 none was needed to establish the above — `sevenseg.py` uses only numpy, scipy and
