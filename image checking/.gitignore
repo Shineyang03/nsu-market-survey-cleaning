@@ -10,3 +10,14 @@ outputs/sheets/*/
 # Downscaled image cache. Lives outside the repo (AppData) by design; this entry only
 # catches a run that was pointed somewhere else by mistake.
 cache/
+
+# The validation workbook and the scratch JPEGs it embeds. Both are DERIVED: the draw
+# is seeded and the shuffle is seeded, so 07_human_validation_draw.do plus
+# make_validation_workbook.py rebuild the identical workbook. Committing ~5 MB of
+# re-generable binary per validation round is not worth it.
+#
+# What IS tracked is the part that cannot be regenerated: the draw
+# (outputs/tables/human_validation_ids.csv), the code-to-id map, and -- once it comes
+# back -- the human's answers, which are evidence and belong in the repository.
+outputs/qc/_wb_tmp/
+outputs/qc/human_validation_*.xlsx

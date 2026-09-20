@@ -1,0 +1,41 @@
+id,stratum,rawtick,raw_weight,corrected_weight,photo_typesonnet,display_texthaiku,display_textsonnet,seed,draw_tag
+71,C2 magnitude,grams (g),.5,500,scale_with_item,,,,human_v1
+110,C2 magnitude,grams (g),.205,205,scale_with_item,0.205,0.205,,human_v1
+924,C2 magnitude,grams (g),.064999998,65,scale_with_item,,0.065,,human_v1
+2460,C2 magnitude,grams (g),.215,215,scale_with_item,0215,0.215,,human_v1
+2535,C2 block governs,grams (g),.27000001,270,scale_with_item,0.080,,,human_v1
+2548,C2 magnitude,grams (g),.059999999,60,scale_with_item,,0.060,,human_v1
+3887,C2 block governs,grams (g),.44999999,450,scale_with_item,,0.045,,human_v1
+4196,C2 block governs,grams (g),.56,560,scale_with_item,0.560,0.560,,human_v1
+4312,C1 liquid as mass,grams (g),440,440,scale_with_item,0.140,0.440,,human_v1
+4996,C2 magnitude,grams (g),.13,130,scale_with_item,0.130,0.130,,human_v1
+5184,C2 review queue,grams (g),.079999998,80,scale_with_item,0.050,0.080,,human_v1
+5375,C1 dual-ticked,Litres (L),.80000001,800,scale_with_item,,,,human_v1
+5443,C1 solid as Litres,Litres (L),.001175,1175,scale_with_item,0.115,1.175,,human_v1
+5918,C1 liquid as mass,grams (g),300,300,scale_with_item,,1.300,,human_v1
+6202,C2 review queue,grams (g),.94999999,950,scale_with_item,0.005,0.095,,human_v1
+6498,C2 block governs,grams (g),.54000002,540,scale_with_item,0.540,0.540,,human_v1
+7226,C2 block governs,Kilograms (Kgs),2060,2060,scale_with_item,2095,2.095,,human_v1
+7576,C2 block governs,grams (g),.105,105,scale_with_item,0.105,0.105,,human_v1
+7625,C1 solid as Litres,Litres (L),.94999999,950,scale_with_item,0.850,0.950,,human_v1
+7639,C1 liquid as mass,grams (g),.23999999,240,scale_with_item,0.007,0.240,,human_v1
+7843,C1 liquid as mass,grams (g),.44,440,scale_with_item,0.440,0.440,,human_v1
+8435,C2 block governs,grams (g),.51999998,520,scale_with_item,0.520,0.520,,human_v1
+8882,C1 solid as Litres,Litres (L),.40000001,400,scale_with_item,,0.400,,human_v1
+9045,C2 magnitude,grams (g),.14,140,scale_with_item,0.135,,,human_v1
+9068,C1 liquid as mass,grams (g),.405,405,scale_with_item,,,,human_v1
+9424,C2 block governs,grams (g),.60000002,600,scale_with_item,0.080,0.060,,human_v1
+9461,C2 review queue,grams (g),.40000001,400,scale_with_item,0.040,0.040,,human_v1
+9471,C2 block governs,grams (g),.025,25,scale_with_item,0.035,0.030,,human_v1
+9479,C2 magnitude,grams (g),.54500002,545,scale_with_item,0.545,0.545,,human_v1
+9510,C2 magnitude,grams (g),.67000002,670,scale_with_item,0.670,0.670,,human_v1
+9790,C2 magnitude,grams (g),.025,25,scale_with_item,0.025,0.025,,human_v1
+9799,C2 block governs,grams (g),.025,25,scale_with_item,0.025,0.025,,human_v1
+9817,C2 block governs,grams (g),.57499999,575,scale_with_item,0.515,0.575,,human_v1
+9994,C1 liquid as mass,grams (g),700,700,scale_with_item,,,,human_v1
+9995,C1 liquid as mass,grams (g),760,760,scale_with_item,0.660,0.760,,human_v1
+9999,C1 liquid as mass,grams (g),300,300,scale_with_item,,0.300,,human_v1
+10000,C1 liquid as mass,grams (g),450,450,scale_with_item,,0.450,,human_v1
+10028,C1 dual-ticked,grams (g),490,490,scale_with_item,0.789,0.490,,human_v1
+10047,C1 dual-ticked,grams (g),485,485,scale_with_item,,0.485,,human_v1
+10269,C2 review queue,grams (g),.045000002,45,scale_with_item,0.045,0.045,,human_v1
