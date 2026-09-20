@@ -210,14 +210,23 @@ Three consequences:
 
 - **The flat-group test is vindicated.** 19 of 20 representatives show no scale. The
   4A logic in `photo_check_packaging.do` is identifying real label transcriptions.
-- **Dimension overrules rest on a weaker premise than stated.** 19 of 20 show no scale,
-  so there was no weighing to mis-tick. The repair is not correcting a dropdown slip; it
-  is reinterpreting a transcribed package label. That is a different claim and it is not
-  the one `05_manual_corrections.do` documents.
-- **Liquids ticked as a mass were mostly genuinely weighed** — 18 of 20 show a scale.
-  The brief says "nothing in the data distinguishes weighed-honestly from a dropdown
-  slip." The photographs do, and they favour weighed. That is direct evidence on **A23**,
-  which overrules those rows to mL.
+- **The dimension overrules reach the right answer by the wrong mechanism.** All 20 show
+  no scale, and 19 carry a printed label whose volume **equals the typed number exactly**
+  — `750 g` typed against `750 mL` printed. So the overrule to mL recovers the unit
+  actually on the bottle and is correct. But the recorded justification — an officer
+  weighed the bottle and ticked grams for want of an mL option — is not what happened.
+  These are **declared pack sizes**, not measurements of a vendor's unit, and nothing in
+  the build marks them as such. Filed as **#40**.
+- **A23's one verdict acts on two different populations.** The liquor rows above were
+  never weighed. The *drinks at restaurant* rows were: 19 of 20 show a scale, and the
+  display corroborates the typed value (`0.440` read against `0.440` typed). For those,
+  the 1 g per mL relabel turns a genuine mass into a volume — which is the case a density
+  correction would actually apply to, and it is not the population the discussion has
+  been about.
+
+> An earlier version of this section said the dimension overrules "rest on a weaker
+> premise than stated", implying the outcome might be wrong. That was written before the
+> package labels were read. The outcome is right; the stated mechanism is wrong.
 
 ### Check 2 — does the display match what was typed?
 
