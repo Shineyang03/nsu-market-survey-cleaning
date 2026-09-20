@@ -1,0 +1,12 @@
+# Contact sheets are DERIVED: make_contact_sheets.py rebuilds any of them from the
+# bridge plus the recorded seed, so committing thousands of JPEGs would add tens of MB
+# to the repository for something a one-line command reproduces.
+#
+# The MANIFEST is not derived in the same sense and IS tracked -- it carries the seed,
+# the sequence-to-id mapping and the image hash, which is what makes a recorded reading
+# traceable back to the photograph it was made from.
+outputs/sheets/*/
+
+# Downscaled image cache. Lives outside the repo (AppData) by design; this entry only
+# catches a run that was pointed somewhere else by mistake.
+cache/
