@@ -164,6 +164,9 @@ def main(argv=None) -> int:
                     help="sample size. Omit to take every row.")
     ap.add_argument("--seed", type=int, default=20260919,
                     help="recorded in the manifest so the draw reproduces")
+    ap.add_argument("--shuffle", action="store_true",
+                    help="seeded shuffle after selection, so sheets do not cluster "
+                         "by item or stratum")
     ap.add_argument("--cell", type=int, default=500, help="px per tile")
     ap.add_argument("--cols", type=int, default=3)
     ap.add_argument("--per-sheet", type=int, default=9)
@@ -204,6 +207,15 @@ def main(argv=None) -> int:
     df = df.sort_values("id").reset_index(drop=True)
     if args.n and args.n < len(df):
         df = df.sample(n=args.n, random_state=args.seed).sort_values("id")
+
+    if args.shuffle:
+        # Seeded shuffle, so sheets do not cluster by item or stratum.
+        # `id` is assigned on a content key beginning with province and municipality,
+        # so ordering by it puts all of one market's cabbages on one sheet. That is a
+        # reading hazard rather than a blinding one: a reader who has just read four
+        # cabbages is primed for a fifth. Seeded, so the draw still reproduces.
+        df = df.sample(frac=1.0, random_state=args.seed)
+
     df = df.reset_index(drop=True)
     df["seq"] = range(1, len(df) + 1)
 

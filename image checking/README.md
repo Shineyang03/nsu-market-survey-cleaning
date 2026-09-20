@@ -18,30 +18,100 @@ it.
 
 ## Run order
 
-From `image checking/dofiles`:
+A prerequisite, from `dofiles/` in the main project — it publishes the row-level flags
+the target list reads:
+
+```
+"C:\Program Files\StataNow19\StataSE-64.exe" -e do 90_diagnostics/photo_check_scope.do
+```
+
+Then, from `image checking/dofiles`:
 
 ```
 "C:\Program Files\StataNow19\StataSE-64.exe" -e do 01_photo_bridge.do
+"C:\Program Files\StataNow19\StataSE-64.exe" -e do 02_photo_targets.do
+"C:\Program Files\StataNow19\StataSE-64.exe" -e do 03_calibration_draw.do
 ```
 
-From `image checking/scripts`:
+From `image checking/scripts`, to build the sheets:
 
 ```
-python make_contact_sheets.py --out-tag <name> [--ids targets.csv] [--n N] [--seed S]
-python sevenseg.py --manifest ../outputs/sheets/manifest_<name>.csv --out ../outputs/qc/<name>_ocr.csv
+python make_contact_sheets.py --out-tag calib_v1 --ids ../outputs/tables/calibration_ids.csv \
+    --shuffle --seed 20260919 --cell 700 --cols 2 --per-sheet 4
+```
+
+Readers then read those sheets under `PROMPT.md` and write one JSONL file each into
+`outputs/readings/raw/<tag>/`. See *Dispatching readers*. Finally:
+
+```
+python parse_readings.py --tag calib_v1 --out ../outputs/qc/readings_calib_v1.csv
+"C:\Program Files\StataNow19\StataSE-64.exe" -e do 04_photo_reconcile.do
 ```
 
 `stata -e` exits 0 even when a do-file errors. Check the log for `r(` followed by a
-number and a semicolon; an exit status of 0 is not evidence the step ran.
+number and a semicolon; an exit status of 0 is not evidence the step ran. The same
+applies to the shell: a Stata invocation that never starts leaves the PREVIOUS log in
+place, and reading it looks exactly like a successful run. Check the log's timestamp.
 
 ## What each file does
 
 | file | does |
 | :-- | :-- |
+| `PROMPT.md` | **the reading instrument.** Versioned; its version is recorded against every reading |
 | `dofiles/00_photo_globals.do` | paths. Runs the build's own `00_globals.do` first, so `${data}`, `${tables}` and `def_hetero` mean the same here as in the pipeline |
 | `dofiles/01_photo_bridge.do` | **the join.** Links every photograph to the weighing it depicts, via the durable `id` |
-| `scripts/make_contact_sheets.py` | tiles photographs into blinded sheets for reading, and writes the manifest that unblinds them |
-| `scripts/sevenseg.py` | reads the red LED scale display. **Does not currently work — see below** |
+| `dofiles/02_photo_targets.do` | which photographs to pull for Checks 1 and 2. Defines no populations of its own |
+| `dofiles/03_calibration_draw.do` | the stratified, seeded sample the instrument is tested on |
+| `dofiles/04_photo_reconcile.do` | **the unblinding step.** Reliability, then Check 1, then Check 2 |
+| `scripts/make_contact_sheets.py` | tiles photographs into blinded sheets, and writes the manifest that unblinds them |
+| `scripts/parse_readings.py` | validates reader output and joins it back to `id` |
+| `scripts/sevenseg.py` | reads the red LED scale display. **Does not work — see below** |
+
+## Dispatching readers
+
+Readers are subagents. Each is given `PROMPT.md` verbatim, a list of sheet filenames,
+and an output path; it reads the sheets and writes one JSON object per photograph.
+
+**Two models read the same sheets.** That is what makes agreement measurable, and it is
+the only reason a reading can be quoted at all. Within a model the work is split across
+several workers over *disjoint* sheets, so the model is one reader between them —
+`04_photo_reconcile.do` halts if two workers of one model read the same image, because
+an overlap would silently corrupt the agreement denominator.
+
+Reader output is never edited. A malformed batch is re-run, not patched.
+
+## What the calibration is drawn from, and why not at random
+
+A random sample of the target list is dominated by easy images, and agreement measured
+on easy images does not transfer to the hard ones — which are the only ones the answer
+turns on. `03_calibration_draw.do` therefore stratifies and over-samples the awkward
+cells, 20 per stratum:
+
+| stratum | why |
+| :-- | :-- |
+| C1 solid as Litres | 17 in the build; small enough to do exhaustively |
+| C2 review queue | already wrong relative to its neighbours |
+| C2 dimension overrule | asserts the officer picked the wrong dropdown item |
+| C1 flat-group rep | expected answer is a printed label and no scale at all |
+| C2 block governs | where `KGMAX` and the `<10` threshold actually decided something |
+| C1 liquid as mass | A23's item-level verdict overruled these |
+| C1 dual-ticked | a contradiction inside one cell |
+| C2 magnitude | the bulk case |
+
+Two ordering choices in that file are load-bearing, and both were bugs first:
+
+- **Stratify before collapsing to one row per image.** All 348 dimension overrules are
+  also Check 1 rows — overruling a tick is exactly what makes a weighing
+  liquid-ticked-as-mass or dual-ticked — so taking the lowest `check` per image first
+  absorbed every one of them into Check 1 and left the Check 2 dimension cell with zero
+  rows, while reporting success.
+- **Break ties by scarcity, not by check.** An image wanted by two strata is worth more
+  to the calibration in the smaller one.
+
+Images already seen are excluded by id through `outputs/qc/seen_ids.csv`, which is
+appended to and never rewritten: an image once seen is seen permanently. Sixteen
+photographs were read openly while this pipeline was being built, so a "blind" re-read
+of them would not be blind.
 
 ## The join
 
