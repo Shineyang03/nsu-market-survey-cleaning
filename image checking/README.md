@@ -244,13 +244,73 @@ display exactly, and the published gram value is right. **But n is 25, and those
 the images two readers agreed on** — plausibly the legible ones, which is a selection
 toward agreement. Treat this as encouraging, not as the check being done.
 
+### The 54% is one reader, not the task
+
+Scored against the typed weight — a proxy valid for *comparing* readers only, since the
+typed value is what Check 2 is checking:
+
+| reader | gave a reading | within 5% of typed |
+| :-- | ---: | ---: |
+| tiled, Haiku | 46 | **58.7%** |
+| tiled, Sonnet | 46 | **82.6%** |
+| hi-res, Sonnet | 43 | 88.4% |
+
+The disagreement is one-sided. **Dropping Haiku from digit reading is the first fix and
+it is free.** Haiku stays on Check 1 classification, where scale-present agreement is
+96.6%.
+
+### Resolution is NOT the lever — tested and refuted
+
+`05_resolution_test_draw.do` / `06_resolution_compare.do` re-presented the same 46
+images, same model, same instrument, one per sheet at 1500 px instead of four at 700 px.
+
+| presentation | within 5% of typed |
+| :-- | ---: |
+| tiled, 700 px, 4-up | **88.4%** |
+| hi-res, 1500 px, 1-up | **88.4%** |
+
+Identical, on the same 43 images. Resolution fixed 3 and broke 3 — net zero. Hi-res also
+abstained on 3 it had previously read.
+
+**The two presentations agree with each other on all 43 images.** So the model reads a
+given display the same way regardless of how it is shown, and its errors are not
+resolution-limited. Presenting images larger is not worth the extra tokens.
+
+### Part of the remaining error is the finding, not reader error
+
+The yardstick is the typed weight, so a reader that *correctly* reads a display which
+disagrees with what the officer typed is scored as wrong. Since both presentations agree
+with each other, a case where they agree and the typed value differs is a candidate
+Check 2 error rather than a misread.
+
+**Five such cases in 43. Three are a clean decade slip:**
+
+| id | stratum | typed | display reads |
+| ---: | :-- | --: | --: |
+| 6202 | C2 review queue | `0.950` g | `0.095` |
+| 9424 | C2 block governs | `0.600` g | `0.060` |
+| 9461 | C2 review queue | `0.400` g | `0.040` |
+
+The officer typed ten times what the scale showed. `03a_block_reading.do`'s
+`< 10 → ×1,000` then published 950, 600 and 400 grams where the display supports 95, 60
+and 40. **These are exactly the decade outliers `photo_review_queue.do` flags**, and the
+photographs resolve them in the direction the diagnostic suspected.
+
+Of the other two: `11054` reads `0.670` against `610` typed, close enough that a misread
+digit is as likely as a data error. **`5443` is an artefact of the yardstick, not a
+finding** — its typed `0.001175 L` is published through the `×10⁶` rule as `1175 mL`,
+which matches the display, but the normalisation here rescales the *typed* value rather
+than the published one and mis-scores litre-ticked rows. That normalisation should be
+fixed before the yardstick is used on the litre band.
+
 ### What this says about scaling up
 
-Reading all 3,535 must-tier images is worth doing **for Check 1**, where agreement is
-96.6%. For Check 2 the bottleneck is not throughput but reliability: at 54% exact
-agreement, more readings produce more disagreement, not more answers. Either the digits
-need a better instrument — higher-resolution single-image reads rather than 4-up tiles —
-or Check 2 needs the deterministic reader that `sevenseg.py` failed to be.
+- **Check 1 at scale: yes.** 96.6% agreement, and Haiku is adequate, so it is cheap.
+- **Check 2: use Sonnet, keep the 4-up tiles.** Resolution buys nothing; the model does.
+- **Two independent reads still earn their cost**, but for a different reason than
+  assumed. They are not there to average out noise — the model is self-consistent. They
+  are there to separate "the reader misread" from "the typed value is wrong", which is
+  the only way a Check 2 finding can be asserted at all.
 
 ## Status of the OCR reader
 

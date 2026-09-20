@@ -1,0 +1,47 @@
+reader,prompt_version,tag,label,sheet,id,filename,img_sha16,photo_type,item_on_scale,display_text,has_decimal,display_legible,display_unit_shown,package_text,package_qty,package_unit,notes
+sonnet_hi1,v1.0,restest,0001,sheet_001.jpg,9995,1773730865630.jpg,fd2ffb81395db02e,scale_with_item,True,0.780,True,clear,none_shown,355 mL,355.0,mL,Mountain Dew glass bottle held upright by blue cloth sling on scale
+sonnet_hi1,v1.0,restest,0002,sheet_002.jpg,5077,1773710954464.jpg,7e931c8deb30e4f8,scale_with_item,True,0.200,True,clear,none_shown,,,,bunch of leafy greens (kangkong) on scale
+sonnet_hi1,v1.0,restest,0003,sheet_003.jpg,4996,1775703652194.jpg,c6b730964cc242b1,scale_with_item,True,0.130,True,clear,none_shown,,,,single carrot on scale
+sonnet_hi1,v1.0,restest,0004,sheet_004.jpg,2532,1776737899434.jpg,1e1e842f2d8c53ba,scale_with_item,True,0.895,True,clear,none_shown,,,,cabbage head on scale
+sonnet_hi1,v1.0,restest,0005,sheet_005.jpg,10965,1776822393755.jpg,66c25c4a3cc4191a,scale_with_item,True,,,ambiguous,none_shown,,,,"weight display reads approximately 0.5XX-0.6XX; second digit after decimal not reliably distinguishable (looked like 5, 6, or 9 depending on crop); avocado/fruit shake cup with straw and dome lid on scale"
+sonnet_hi1,v1.0,restest,0006,sheet_006.jpg,9509,1773728678859.jpg,ff5cff69e1d7e68a,scale_with_item,True,0.470,True,clear,none_shown,,,,"loaf of bread in green/white plastic packaging (bakery bread), nutrition facts panel visible but no net-weight figure legible"
+sonnet_hi1,v1.0,restest,0007,sheet_007.jpg,7639,1774487698787.jpg,21b3fd51530ed45f,scale_with_item,True,0.240,True,clear,none_shown,,,,iced coffee/frappe cup with dome lid and straw on scale
+sonnet_hi1,v1.0,restest,0008,sheet_008.jpg,9790,1773880892030.jpg,79659566ef7d4a2b,scale_with_item,True,0.025,True,clear,none_shown,,,,Skyflakes crackers pack on scale; small printed net-weight text on wrapper not legible enough to transcribe
+sonnet_hi1,v1.0,restest,0009,sheet_009.jpg,110,1778117239723.jpg,a67f9af7f642c2da,scale_with_item,True,0.205,True,clear,none_shown,,,,single carrot on scale
+sonnet_hi1,v1.0,restest,0010,sheet_010.jpg,10707,1777606851141.jpg,4704b2eae7332e73,scale_with_item,True,0.750,True,clear,none_shown,,,,tall cup of iced milk-tea style drink with straw on scale
+sonnet_hi1,v1.0,restest,0011,sheet_011.jpg,8474,1775701177913.jpg,68301c17fbcbab6c,scale_with_item,True,0.470,True,clear,none_shown,NetContent:450g,450.0,g,pink 'Refreshing Strawberry' cup with red lid on scale
+sonnet_hi1,v1.0,restest,0012,sheet_012.jpg,9461,1773796774872.jpg,1e161f721c2b6170,scale_with_item,True,0.040,True,clear,none_shown,,,,Fudgee Barr Macapuno wrapped bar on scale; nutrition facts panel visible but net-weight text not legible
+sonnet_hi1,v1.0,restest,0013,sheet_013.jpg,5443,1774578054508.jpg,ae85099777867686,scale_with_item,True,1.175,True,clear,none_shown,,,,large bag of meat/poultry wrapped in white plastic on scale
+sonnet_hi1,v1.0,restest,0014,sheet_014.jpg,10269,1774669586277.jpg,b2ffa0df187d5e35,scale_with_item,True,0.045,True,clear,none_shown,,,,single fried chicken wing on plastic wrap on scale
+sonnet_hi1,v1.0,restest,0015,sheet_015.jpg,10706,1777607182345.jpg,5341133e353dfe9d,scale_with_item,True,0.810,True,clear,none_shown,,,,milkshake in glass mason-jar mug with straw and whipped cream on scale
+sonnet_hi1,v1.0,restest,0016,sheet_016.jpg,5184,1775866549083.jpg,d17482a0c551c303,scale_with_item,True,0.080,True,clear,none_shown,,,,raw chicken wing pieces on scale tray
+sonnet_hi1,v1.0,restest,0017,sheet_017.jpg,9510,1773728699938.jpg,f6e6648f4bb67fc0,scale_with_item,True,0.670,True,clear,none_shown,,,,'Angelina Super Loaf' bread bag (upside down) on scale; printed net-weight text on package appears inverted/mirrored and not reliably legible
+sonnet_hi1,v1.0,restest,0018,sheet_018.jpg,6192,1773801717143.jpg,cc2391f727a0e5a0,scale_with_item,True,0.355,True,clear,none_shown,,,,Oreo Original box on scale
+sonnet_hi1,v1.0,restest,0019,sheet_019.jpg,4843,1775879036042.jpg,137f3396fbf9b447,scale_with_item,True,,,ambiguous,none_shown,,,,halo-halo style shaved-ice dessert cup on scale; weight digits appear in the 0.4X range but exact digits not confidently readable
+sonnet_hi1,v1.0,restest,0020,sheet_020.jpg,10028,1773721624084.jpg,6a8935ea3f9ac665,scale_with_item,True,0.490,True,clear,none_shown,,,,"ice cream tub ('2in1 Vanilla Chocolate') on scale, foil/plastic wrapped underneath"
+sonnet_hi1,v1.0,restest,0021,sheet_021.jpg,9424,1773724826947.jpg,6ace8f56018f8b96,scale_with_item,True,0.060,True,clear,none_shown,,,,bagged produce (onion/garlic) in white plastic bag on scale
+sonnet_hi1,v1.0,restest,0022,sheet_022.jpg,7625,1774422255907.jpg,75f4422408e20756,scale_with_item,True,0.958,True,probable,none_shown,,,,photo rotated ~90 degrees; whole raw chicken on scale tray with paper liner; digits read after mentally rotating the image
+sonnet_hi1,v1.0,restest,0023,sheet_023.jpg,4976,1775703565165.jpg,8ed2e251a480239f,scale_with_item,True,0.460,True,clear,none_shown,,,,cabbage head on scale
+sonnet_hi2,v1.0,restest,0024,sheet_024.jpg,11054,1777266085340.jpg,d3cdc2d676ff2018,scale_with_item,True,0.670,True,clear,none_shown,,,,plastic cup of pink/red smoothie drink on scale platter
+sonnet_hi2,v1.0,restest,0025,sheet_025.jpg,4312,1776219074931.jpg,5168b094b879af75,scale_with_item,True,0.440,True,clear,none_shown,,,,cup of orange drink with pulp on scale
+sonnet_hi2,v1.0,restest,0026,sheet_026.jpg,4196,1775875357769.jpg,9172631401d751e7,scale_with_item,True,0.560,True,clear,none_shown,,,,bowl of halo-halo dessert on scale
+sonnet_hi2,v1.0,restest,0027,sheet_027.jpg,2460,1777082700414.jpg,9b163967a971e1d8,scale_with_item,True,0.215,True,clear,none_shown,,,,single carrot with greens attached on scale
+sonnet_hi2,v1.0,restest,0028,sheet_028.jpg,9479,1773794488084.jpg,cbcfba3ce2d2f0a6,scale_with_item,True,0.545,True,clear,none_shown,,,,"whole fish on scale, more fish visible off-scale in background"
+sonnet_hi2,v1.0,restest,0029,sheet_029.jpg,7576,1774419159052.jpg,d05c7a97f082a5d7,scale_with_item,True,0.105,True,clear,none_shown,,,,bag of leafy green vegetable on scale
+sonnet_hi2,v1.0,restest,0030,sheet_030.jpg,6476,1774051090174.jpg,7a38acc10d1a1265,scale_with_item,True,0.065,True,clear,none_shown,,,,single small fish on scale
+sonnet_hi2,v1.0,restest,0031,sheet_031.jpg,8435,1775696058786.jpg,77add66455360f6f,scale_with_item,True,0.520,True,clear,none_shown,,,,"sweet potato (kamote) on scale, cabbages in background"
+sonnet_hi2,v1.0,restest,0032,sheet_032.jpg,9710,1773882134028.jpg,d7aa0b846cd7092c,scale_with_item,True,0.235,True,clear,none_shown,,,,single spotted mango on scale
+sonnet_hi2,v1.0,restest,0033,sheet_033.jpg,864,1778056525267.jpg,6c562816ecae06ce,scale_with_item,True,0.050,True,clear,none_shown,,,,small reddish-brown item wrapped in plastic on scale
+sonnet_hi2,v1.0,restest,0034,sheet_034.jpg,6202,1773810007262.jpg,f2bd5243b0ccc203,scale_with_item,True,0.095,True,clear,none_shown,,,,white cylindrical item wrapped in plastic on scale
+sonnet_hi2,v1.0,restest,0035,sheet_035.jpg,4311,1776219058341.jpg,e07ce08b1c5474c9,scale_with_item,True,0.375,True,clear,none_shown,,,,cup of pale yellow drink with pink sediment at bottom on scale
+sonnet_hi2,v1.0,restest,0036,sheet_036.jpg,7843,1778834502177.jpg,cd8ae522403d8aa8,scale_with_item,True,0.440,True,clear,kg,,,,cup of bright green drink on a different digital LCD scale labeled WEIGHT(kg); unit printed on scale face
+sonnet_hi2,v1.0,restest,0037,sheet_037.jpg,9471,1773969164870.jpg,daa0ef19199df385,scale_with_item,True,,,ambiguous,none_shown,,,,"pack of Sky Flakes crackers on scale; weight digits obscured by glare/reflection, appears to start 0.0 but not fully legible"
+sonnet_hi2,v1.0,restest,0038,sheet_038.jpg,4935,1775527493887.jpg,ef2817c3c53321e5,scale_with_item,True,0.155,True,clear,none_shown,,,,three small fish in metal bowl on scale
+sonnet_hi2,v1.0,restest,0039,sheet_039.jpg,9668,1773897368621.jpg,8e7b0d8d8b488d99,scale_with_item,True,0.675,True,clear,none_shown,,,,packaged loaf of bread (Sunday Loaf brand) on scale
+sonnet_hi2,v1.0,restest,0040,sheet_040.jpg,9817,1773913217221.jpg,21c629d5f91c3257,scale_with_item,True,0.575,True,clear,none_shown,,,,plate of small pompano-type fish on scale
+sonnet_hi2,v1.0,restest,0041,sheet_041.jpg,2449,1776995378158.jpg,ea90c80c05b76ee7,scale_with_item,True,0.210,True,clear,none_shown,,,,"sweet potato on scale; eggs, tomatoes, and a second scale visible in background"
+sonnet_hi2,v1.0,restest,0042,sheet_042.jpg,9460,1773723476270.jpg,f2c7cedaff38d7de,scale_with_item,True,0.185,True,clear,none_shown,,,,bag of assorted home-baked biscuits (R&B label) on scale
+sonnet_hi2,v1.0,restest,0043,sheet_043.jpg,11053,1777266059884.jpg,128e953b5303e933,scale_with_item,True,0.480,True,probable,none_shown,,,,"cup of milkshake-style drink (Teaman Cafe) on scale; decimal point not clearly visible, digits read as 0480"
+sonnet_hi2,v1.0,restest,0044,sheet_044.jpg,7226,1778722214887.jpg,d84a70cf1d891bbb,scale_with_item,True,2.095,True,clear,none_shown,,,,pile of animal intestines/offal on large scale
+sonnet_hi2,v1.0,restest,0045,sheet_045.jpg,9799,1773969859472.jpg,9de315d320b8c936,scale_with_item,True,0.025,True,clear,none_shown,,,,small snack bag (Moby Crunchy Chocolate corn snack) on scale
+sonnet_hi2,v1.0,restest,0046,sheet_046.jpg,6498,1774321355224.jpg,7c4f4f3a0f0b4e74,scale_with_item,True,0.540,True,clear,none_shown,,,,tub of ice cream (Creamline 2in1 Family) on scale; lid printed '2in1 FAMILY 900' but unit not shown
