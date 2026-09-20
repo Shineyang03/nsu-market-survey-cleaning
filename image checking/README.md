@@ -158,6 +158,91 @@ joined only after readings are recorded.
 Samples are drawn with a recorded seed, stored in the manifest, so a later session
 drawing the same population reproduces the same rows.
 
+## Calibration results, `calib_v1` (2026-09-19)
+
+148 images, stratified, 20 per cell. Two models read every image: Haiku and Sonnet,
+under `PROMPT.md` v1.0. **No human check has been done**, so everything below is
+consistency between two model readers, not accuracy.
+
+### Reliability — read this before any result
+
+| measure | agreement | n |
+| :-- | ---: | ---: |
+| is a scale present | **96.6%** | 148 |
+| full 7-way `photo_type` | 81.1% | 148 |
+| **exact display text** | **54.3%** | 46 |
+| decimal present or not | 95.7% | 46 |
+
+Abstention: Haiku 68.9%, Sonnet 60.1%.
+
+**The split is the finding.** "Is there a scale?" is reliable enough to build on.
+**Reading the digits is not** — two readers give the same string barely half the time.
+So Check 1 rests on solid ground and Check 2's digit reading does not, and no amount of
+prompt tuning should be assumed to close that gap.
+
+The 95.7% decimal agreement is weaker evidence than it looks: nearly every display read
+is in kilogram mode and carries a decimal, so there is little variance for the metric to
+detect. It rules out a *systematic* decimal drop; it does not establish digit accuracy.
+
+Both readers abstain often, which is the instrument working — they are declining rather
+than inventing. It also means only 46 of 148 images have two display readings at all.
+
+### Check 1 — is there a scale in the photograph?
+
+Agreed readings only; disagreements excluded, not assigned.
+
+| stratum | no scale | scale |
+| :-- | ---: | ---: |
+| C2 dimension overrule | **19 (95%)** | 0 |
+| C1 flat-group rep | **19 (95%)** | 0 |
+| C1 dual-ticked | 17 (85%) | 3 |
+| C1 solid as Litres | 13 (76%) | 4 |
+| C2 review queue | 4 (36%) | 7 |
+| C2 block governs | 3 (15%) | 16 (80%) |
+| C1 liquid as mass | 1 (5%) | **18 (90%)** |
+| C2 magnitude | 0 | **19 (95%)** |
+
+**A clean split runs through the build.** Where the pipeline made a *dimension*
+judgement there is usually **no scale** — the number was read off a package label.
+Where it made a *magnitude* judgement there usually **is** one.
+
+Three consequences:
+
+- **The flat-group test is vindicated.** 19 of 20 representatives show no scale. The
+  4A logic in `photo_check_packaging.do` is identifying real label transcriptions.
+- **Dimension overrules rest on a weaker premise than stated.** 19 of 20 show no scale,
+  so there was no weighing to mis-tick. The repair is not correcting a dropdown slip; it
+  is reinterpreting a transcribed package label. That is a different claim and it is not
+  the one `05_manual_corrections.do` documents.
+- **Liquids ticked as a mass were mostly genuinely weighed** — 18 of 20 show a scale.
+  The brief says "nothing in the data distinguishes weighed-honestly from a dropdown
+  slip." The photographs do, and they favour weighed. That is direct evidence on **A23**,
+  which overrules those rows to mL.
+
+### Check 2 — does the display match what was typed?
+
+Only the 25 images where both readers gave the *same* display text.
+
+| | result |
+| :-- | :-- |
+| **(a) transcription** — typed weight equals the display | **21 of 25** |
+| ...within Check 2's own strata (block governs + magnitude) | **18 of 18** |
+| the 4 mismatches | all `C1 liquid as mass` |
+| **(b) interpretation** — published grams match the display | **24 of 25** |
+
+On its own population the decimal-drift correction verifies: officers transcribed the
+display exactly, and the published gram value is right. **But n is 25, and those 25 are
+the images two readers agreed on** — plausibly the legible ones, which is a selection
+toward agreement. Treat this as encouraging, not as the check being done.
+
+### What this says about scaling up
+
+Reading all 3,535 must-tier images is worth doing **for Check 1**, where agreement is
+96.6%. For Check 2 the bottleneck is not throughput but reliability: at 54% exact
+agreement, more readings produce more disagreement, not more answers. Either the digits
+need a better instrument — higher-resolution single-image reads rather than 4-up tiles —
+or Check 2 needs the deterministic reader that `sevenseg.py` failed to be.
+
 ## Status of the OCR reader
 
 `sevenseg.py` **does not work well enough to use.** Recorded here rather than deleted,

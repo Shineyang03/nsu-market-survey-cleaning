@@ -143,6 +143,10 @@ haiku_a3,v1.0,calib_v1,0145,sheet_037.jpg,8509,1775781268847.jpg,8a1528449563e51
 haiku_a3,v1.0,calib_v1,0146,sheet_037.jpg,5617,1774403634472.jpg,ab1b9fc429f357a7,label_closeup,,,,not_visible,none_shown,,,,Rebisco Peanut Butter crackers
 haiku_a3,v1.0,calib_v1,0147,sheet_037.jpg,4475,1776137969380.jpg,9972a36f9969c6ea,item_no_scale,False,,,not_visible,none_shown,,,,Tanduay Light bottle
 haiku_a3,v1.0,calib_v1,0148,sheet_037.jpg,3207,1776821966687.jpg,13d39f83b487fb63,item_no_scale,False,,,not_visible,none_shown,,,,Baked good on tray
+haiku_a4,v1.0,calib_v1,0049,sheet_013.jpg,370,1777353538719.jpg,4b9cc87761f4a51d,label_closeup,,,,not_visible,,NET WT. 50g,50.0,g,
+haiku_a4,v1.0,calib_v1,0050,sheet_013.jpg,8229,1773971621224.jpg,1658bf25e532324e,item_no_scale,False,,,not_visible,,,,,Bottle on shelf with label visible but text not legible
+haiku_a4,v1.0,calib_v1,0051,sheet_013.jpg,885,1777514476584.jpg,07d44dff45ac6e90,item_no_scale,False,,,not_visible,,700 mL,700.0,mL,
+haiku_a4,v1.0,calib_v1,0052,sheet_013.jpg,2460,1777082700414.jpg,9b163967a971e1d8,scale_with_item,True,0215,False,clear,none_shown,,,,
 sonnet_b1,v1.0,calib_v1,0001,sheet_001.jpg,10164,1774498316772.jpg,e08874d205b5a585,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held, no scale visible"
 sonnet_b1,v1.0,calib_v1,0002,sheet_001.jpg,10028,1773721624084.jpg,6a8935ea3f9ac665,scale_with_item,True,0.490,True,clear,none_shown,,,,ice cream tub (2in1) on scale
 sonnet_b1,v1.0,calib_v1,0003,sheet_001.jpg,6736,1775537032728.jpg,cdb6da83e89cd257,item_no_scale,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,"Angelina Super Loaf bread held, no scale"

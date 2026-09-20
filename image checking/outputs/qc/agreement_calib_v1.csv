@@ -1,0 +1,149 @@
+id,both_read,ag_type,ag_scale,ag_disp,ag_dec,abst_h,abst_s,check,stratum
+9461,1,1,1,1,1,0,0,2,C2 review queue
+2449,1,1,1,1,1,0,0,2,C2 magnitude
+6192,1,1,1,1,1,0,0,2,C2 review queue
+10706,1,1,1,1,1,0,0,1,C1 liquid as mass
+9510,1,1,1,1,1,0,0,2,C2 magnitude
+4996,1,1,1,1,1,1,0,2,C2 magnitude
+9710,1,1,1,1,1,0,0,2,C2 magnitude
+9460,1,1,1,1,1,0,0,2,C2 block governs
+5077,1,1,1,1,1,0,0,2,C2 magnitude
+6498,1,1,1,1,1,0,0,2,C2 block governs
+9479,1,1,1,1,1,0,0,2,C2 magnitude
+864,1,1,1,1,1,0,0,2,C2 magnitude
+9790,1,1,1,1,1,0,0,2,C2 magnitude
+10707,1,1,1,1,1,0,0,1,C1 liquid as mass
+8435,1,1,1,1,1,0,0,2,C2 block governs
+4311,1,1,1,1,1,0,0,1,C1 liquid as mass
+7576,1,1,1,1,1,0,0,2,C2 block governs
+110,1,1,1,1,1,0,0,2,C2 magnitude
+10269,1,1,1,1,1,0,0,2,C2 review queue
+4196,1,1,1,1,1,0,0,2,C2 block governs
+6476,1,1,1,1,1,0,0,2,C2 block governs
+9799,1,1,1,1,1,1,0,2,C2 block governs
+7843,1,1,1,1,1,0,0,1,C1 liquid as mass
+4976,1,1,1,1,1,0,0,2,C2 magnitude
+4935,1,1,1,1,1,0,0,2,C2 block governs
+2921,1,1,1,,,1,1,1,C1 dual-ticked
+6405,1,1,1,,,1,1,1,C1 solid as Litres
+4312,1,1,1,0,1,0,0,1,C1 liquid as mass
+9068,1,1,1,,,1,1,1,C1 liquid as mass
+8474,1,1,1,0,1,0,0,1,C1 liquid as mass
+377,1,1,1,,,1,1,1,C1 dual-ticked
+4610,1,1,1,,,1,1,1,C1 flat-group rep
+11108,1,0,1,,,1,1,1,C1 solid as Litres
+9999,1,1,1,,,1,0,1,C1 liquid as mass
+6345,1,1,1,,,1,1,2,C2 dimension overrule
+924,1,0,1,,,1,0,2,C2 magnitude
+71,1,1,1,,,1,1,2,C2 magnitude
+8354,1,1,1,,,1,1,1,C1 dual-ticked
+4940,1,0,1,,,1,1,1,C1 dual-ticked
+10964,1,0,0,,,1,0,1,C1 liquid as mass
+5375,1,1,1,,,1,1,1,C1 dual-ticked
+5029,1,0,1,,,1,1,1,C1 dual-ticked
+10028,1,1,1,0,1,0,0,1,C1 dual-ticked
+5443,1,1,1,0,1,0,0,1,C1 solid as Litres
+4843,1,1,1,0,1,0,0,1,C1 liquid as mass
+3887,1,1,1,,,1,0,2,C2 block governs
+3479,1,1,1,,,1,1,1,C1 flat-group rep
+6202,1,1,1,0,1,0,0,2,C2 review queue
+11246,1,0,0,,,1,0,2,C2 block governs
+4234,1,0,1,,,1,1,1,C1 solid as Litres
+8509,1,1,1,,,1,1,2,C2 dimension overrule
+2932,1,1,1,,,1,1,2,C2 review queue
+2922,1,1,1,,,1,1,1,C1 dual-ticked
+4475,1,1,1,,,1,1,2,C2 block governs
+4881,1,1,1,,,1,1,1,C1 flat-group rep
+2583,1,1,1,,,1,1,2,C2 dimension overrule
+10714,1,0,1,,,1,1,1,C1 dual-ticked
+2403,1,1,1,,,1,1,2,C2 dimension overrule
+4233,1,0,1,,,1,1,1,C1 solid as Litres
+7851,1,1,1,,,1,1,2,C2 block governs
+4936,1,0,1,,,1,1,2,C2 block governs
+5744,1,0,1,,,1,1,1,C1 flat-group rep
+8229,1,1,1,,,1,1,1,C1 flat-group rep
+5232,1,1,1,,,1,1,2,C2 block governs
+375,1,0,1,,,1,1,1,C1 solid as Litres
+3207,1,1,1,,,1,1,2,C2 dimension overrule
+9424,1,1,1,0,1,0,0,2,C2 block governs
+2715,1,1,1,,,1,1,2,C2 dimension overrule
+5730,1,1,1,,,1,1,1,C1 flat-group rep
+1184,1,1,1,,,1,1,1,C1 flat-group rep
+9994,1,1,1,,,1,1,1,C1 liquid as mass
+9349,1,0,1,,,1,1,2,C2 block governs
+2548,1,0,1,,,1,0,2,C2 magnitude
+10511,1,1,1,,,1,0,1,C1 liquid as mass
+10164,1,1,1,,,1,1,1,C1 flat-group rep
+5305,1,0,1,,,1,1,1,C1 flat-group rep
+5184,1,1,1,0,1,0,0,2,C2 review queue
+3696,1,1,1,,,1,1,1,C1 solid as Litres
+1195,1,1,1,,,1,1,1,C1 dual-ticked
+9571,1,0,0,,,1,0,2,C2 magnitude
+11054,1,1,1,0,1,0,0,1,C1 liquid as mass
+1787,1,1,1,,,1,1,1,C1 solid as Litres
+10047,1,1,1,,,1,0,1,C1 dual-ticked
+6725,1,1,1,,,1,1,1,C1 flat-group rep
+8882,1,1,1,,,1,0,1,C1 solid as Litres
+7667,1,0,0,,,0,1,2,C2 dimension overrule
+683,1,1,1,,,1,1,2,C2 review queue
+1186,1,1,1,,,1,1,2,C2 dimension overrule
+7662,1,1,1,,,1,1,2,C2 dimension overrule
+7824,1,1,1,,,0,1,2,C2 magnitude
+10165,1,1,1,,,1,1,1,C1 dual-ticked
+406,1,1,1,,,1,1,2,C2 dimension overrule
+10610,1,1,1,,,1,1,1,C1 solid as Litres
+8657,1,1,1,,,1,1,1,C1 flat-group rep
+10167,1,1,1,,,1,1,1,C1 dual-ticked
+8027,1,1,1,,,1,1,1,C1 flat-group rep
+2712,1,1,1,,,1,1,2,C2 dimension overrule
+5617,1,1,1,,,1,1,1,C1 solid as Litres
+2048,1,1,1,,,1,1,1,C1 solid as Litres
+8503,1,1,1,,,1,1,2,C2 dimension overrule
+882,1,1,1,,,1,1,2,C2 dimension overrule
+10965,1,1,1,0,1,1,0,1,C1 liquid as mass
+9471,1,1,1,0,1,0,0,2,C2 block governs
+5817,1,1,1,,,1,1,1,C1 flat-group rep
+2535,1,1,1,,,0,1,2,C2 block governs
+370,1,0,1,,,1,1,1,C1 dual-ticked
+4495,1,0,1,,,1,1,1,C1 dual-ticked
+8808,1,0,1,,,1,1,1,C1 flat-group rep
+9509,1,1,1,0,1,0,0,2,C2 magnitude
+7051,1,0,0,,,1,1,1,C1 flat-group rep
+4490,1,1,1,,,1,1,2,C2 dimension overrule
+380,1,1,1,,,1,1,1,C1 solid as Litres
+11167,1,0,1,,,1,1,1,C1 dual-ticked
+601,1,1,1,,,1,1,2,C2 magnitude
+763,1,1,1,,,1,1,1,C1 flat-group rep
+2460,1,1,1,0,0,0,0,2,C2 magnitude
+7669,1,1,1,,,1,1,2,C2 dimension overrule
+7639,1,1,1,0,1,0,0,1,C1 liquid as mass
+2709,1,1,1,,,1,1,2,C2 dimension overrule
+11053,1,1,1,0,1,0,0,1,C1 liquid as mass
+8515,1,1,1,,,1,1,1,C1 flat-group rep
+9654,1,1,1,,,1,1,2,C2 dimension overrule
+2266,1,1,1,,,1,1,1,C1 dual-ticked
+9817,1,1,1,0,1,0,0,2,C2 block governs
+2532,1,1,1,0,1,0,0,2,C2 magnitude
+2050,1,0,1,,,1,1,1,C1 dual-ticked
+7487,1,1,1,,,1,1,1,C1 flat-group rep
+8120,1,1,1,,,1,1,2,C2 dimension overrule
+2051,1,1,1,,,1,1,1,C1 dual-ticked
+5353,1,1,1,,,1,1,2,C2 review queue
+7625,1,1,1,0,1,0,0,1,C1 solid as Litres
+8364,1,0,1,,,1,1,2,C2 review queue
+8837,1,0,1,,,1,1,1,C1 dual-ticked
+8405,1,0,1,,,1,1,1,C1 solid as Litres
+885,1,1,1,,,1,1,2,C2 dimension overrule
+3593,1,0,1,,,1,1,1,C1 flat-group rep
+9668,1,1,1,0,1,0,0,1,C1 solid as Litres
+769,1,0,1,,,1,1,1,C1 flat-group rep
+9653,1,1,1,,,1,1,2,C2 dimension overrule
+9995,1,1,1,0,1,0,0,1,C1 liquid as mass
+5181,1,1,1,,,1,0,2,C2 review queue
+6736,1,1,1,,,1,1,1,C1 solid as Litres
+6463,1,1,1,,,1,1,2,C2 review queue
+5918,1,1,1,,,1,0,1,C1 liquid as mass
+9045,1,1,1,,,0,1,2,C2 magnitude
+7226,1,1,1,0,0,1,0,2,C2 block governs
+10000,1,1,1,,,1,0,1,C1 liquid as mass
+11421,1,1,1,,,1,1,1,C1 liquid as mass
