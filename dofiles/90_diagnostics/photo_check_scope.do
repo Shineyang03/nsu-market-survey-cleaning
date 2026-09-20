@@ -2,9 +2,26 @@
 * photo_check_scope.do -- how much of the build rests on a decision a photograph
 * could overturn?
 *
-* MEASUREMENT ONLY. Prints counts; writes nothing. It exists so the figures quoted
-* in the photograph-review brief and in issue #38 can be re-derived rather than
-* trusted, and so they fail visibly when the build moves.
+* It exists so the figures quoted in the photograph-review brief and in issue #38 can
+* be re-derived rather than trusted, and so they fail visibly when the build moves.
+*
+* IT ALSO PUBLISHES THE ROW-LEVEL BASIS FOR ITS OWN COUNTS, to ${btables}:
+*
+*   photo_check1_flags.csv   id + the Check 1 grounds (dual-ticked case, liquid
+*                            ticked as a mass, solid ticked as Litres)
+*   photo_check2_flags.csv   id + the Check 2 grounds (plain conversion, magnitude
+*                            changed, dimension changed, nothing published)
+*
+* WHY IT WRITES THESE, having originally printed only totals. A target list of
+* photographs to pull needs the same populations at the row level. Recomputing the
+* flags in the file that builds that list would put two definitions of "a judgement
+* was applied" in the project, and near-identical copies of a decision rule disagree
+* silently -- the defect that gave the block reading three implementations. The rule
+* is defined here, once; "image checking/dofiles/02_photo_targets.do" reads these
+* two CSVs and never re-derives them.
+*
+* The counts printed below and the rows written are the same object, so a figure in
+* the brief can be traced to the weighings behind it rather than taken on trust.
 *
 * THREE CHECKS, THREE DIFFERENT THINGS BEING VERIFIED. Keeping them apart is the
 * whole point, because two of them are measured on opposite sides of the pipeline:
@@ -158,6 +175,21 @@ di as txt "    union .......... " r(N)
 di as txt "    (the flat groups -- 'was it measured at all' -- are counted separately,"
 di as txt "     by 90_diagnostics/photo_check_packaging.do)"
 
+* ---- publish the Check 1 grounds, row by row ----------------------------------
+* Written BEFORE the keep below, which drops these columns on the way into Check 2.
+* The flat groups are NOT here: photo_check_packaging.do owns that population and
+* already writes it to outputs/tables/photo_check_packaging.csv.
+preserve
+	keep id pull_item tick m_dualcase m_liqmass m_solvol liquid icecream mass vol
+	label var m_dualcase "Case holds both a mass and a volume tick (raw)"
+	label var m_liqmass  "Liquid item ticked as a mass (kg or g)"
+	label var m_solvol   "Non-liquid, non-ice-cream item ticked as Litres"
+	order id pull_item tick m_dualcase m_liqmass m_solvol
+	sort id
+	export delimited using "${btables}/photo_check1_flags.csv", replace
+	di as txt _n "  wrote ${btables}/photo_check1_flags.csv"
+restore
+
 keep id weight unit
 rename (weight unit) (raw_weight raw_unit)
 tempfile raw
@@ -228,6 +260,27 @@ preserve
 	forvalues i = 1/`=min(_N,12)' {
 		di as txt %-46s abbrev(pull_item[`i'],46) %8.0f n[`i']
 	}
+restore
+
+* ---- publish the Check 2 grounds, row by row ----------------------------------
+* `judgement' is the must-check population printed above: not a plain conversion,
+* and something was published. It is written as a column rather than left implicit
+* so a reader of the CSV does not have to reconstruct it from the other three.
+gen byte judgement = !trivial & !nopub
+label var trivial   "Published value is a plain unit conversion of the typed one"
+label var judgement "MUST-CHECK: a judgement was applied"
+label var magchg    "Magnitude changed -- the decimal moved"
+label var dimchg    "Dimension changed -- the tick was overruled"
+label var nopub     "Nothing published: no typed weight survived"
+
+preserve
+	keep id pull_item rawtick dim snap_rule raw_weight corrected_weight ///
+	     trivial judgement magchg dimchg nopub
+	order id pull_item rawtick dim raw_weight corrected_weight ///
+	      judgement magchg dimchg trivial nopub snap_rule
+	sort id
+	export delimited using "${btables}/photo_check2_flags.csv", replace
+	di as txt _n "  wrote ${btables}/photo_check2_flags.csv"
 restore
 
 di as res _n "{hline 78}"
