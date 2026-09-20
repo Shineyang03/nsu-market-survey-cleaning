@@ -83,6 +83,10 @@ def main(argv=None) -> int:
     ap.add_argument("--out", required=True)
     ap.add_argument("--raw-dir", default=None)
     ap.add_argument("--prompt-version", default="v1.0")
+    ap.add_argument("--expect-readers", type=int, default=None,
+                    help="how many readers every image should have. Defaults to the "
+                         "observed maximum, which flags relative gaps but cannot "
+                         "notice that EVERY reader missed the same image.")
     args = ap.parse_args(argv)
 
     mpath = os.path.join(SHEETDIR, f"manifest_{args.tag}.csv")
@@ -157,12 +161,40 @@ def main(argv=None) -> int:
                 "notes": o.get("notes", ""),
             })
 
-        missing = set(by_label.index[by_label.sheet.isin(
-            {r["sheet"] for r in rows if r["reader"] == reader})]) - seen
+        # Missing tiles WITHIN a sheet the reader touched. This alone is not enough --
+        # see the coverage check after the loop, which catches a sheet skipped whole.
+        touched = {r["sheet"] for r in rows if r["reader"] == reader}
+        missing = set(by_label.index[by_label.sheet.isin(touched)]) - seen
         for lab in sorted(missing):
             problems.append({"reader": reader, "kind": "missing_tile", "detail": lab})
 
     df = pd.DataFrame(rows)
+
+    # ---- COVERAGE, checked against the manifest rather than against what a reader
+    # happened to touch. The per-reader check above cannot see a sheet that was
+    # skipped ENTIRELY: with no readings from it, the sheet is not in `touched`, so
+    # none of its tiles are counted as missing. That is exactly how four images went
+    # unread while the parser reported only one problem.
+    #
+    # An unread image is not a cosmetic gap. It shrinks the agreement denominator
+    # silently, and a reader that skips the images it finds hardest would leave a
+    # high agreement rate computed on the easy remainder.
+    if len(df):
+        cov = df.groupby("id").reader.nunique()
+        expect = args.expect_readers or int(cov.max())
+        short = cov[cov < expect]
+        for img_id, n in short.items():
+            problems.append({"reader": "(coverage)", "kind": "image_under_read",
+                             "detail": f"id {img_id}: {n} of {expect} readers"})
+        unread = set(mf.id) - set(df.id)
+        for img_id in sorted(unread):
+            problems.append({"reader": "(coverage)", "kind": "image_never_read",
+                             "detail": f"id {img_id}"})
+
+        sheets_seen = df.groupby("reader").sheet.nunique()
+        print("\nsheets per reader:")
+        print(sheets_seen.to_string())
+
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     df.to_csv(args.out, index=False)
 

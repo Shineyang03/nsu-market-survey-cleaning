@@ -1,0 +1,145 @@
+reader,prompt_version,tag,label,sheet,id,filename,img_sha16,photo_type,item_on_scale,display_text,has_decimal,display_legible,display_unit_shown,package_text,package_qty,package_unit,notes
+haiku_a1,v1.0,calib_v1,0001,sheet_001.jpg,10164,1774498316772.jpg,e08874d205b5a585,item_no_scale,,,,not_visible,,375 mL,375.0,mL,
+haiku_a1,v1.0,calib_v1,0002,sheet_001.jpg,10028,1773721624084.jpg,6a8935ea3f9ac665,scale_with_item,True,0.789,True,clear,none_shown,,,,
+haiku_a1,v1.0,calib_v1,0003,sheet_001.jpg,6736,1775537032728.jpg,cdb6da83e89cd257,item_no_scale,,,,not_visible,,NET WT. 380 g,380.0,g,
+haiku_a1,v1.0,calib_v1,0004,sheet_001.jpg,7625,1774422255907.jpg,75f4422408e20756,scale_with_item,True,0.850,True,clear,none_shown,,,,
+haiku_a1,v1.0,calib_v1,0005,sheet_002.jpg,2048,1776833924749.jpg,8fafaab4063672c3,item_no_scale,,,,not_visible,,,,,ice cream cone package
+haiku_a1,v1.0,calib_v1,0006,sheet_002.jpg,7576,1774419159052.jpg,d05c7a97f082a5d7,scale_with_item,True,0.105,True,clear,none_shown,,,,
+haiku_a1,v1.0,calib_v1,0007,sheet_002.jpg,2548,1776735202324.jpg,04c60eaff0485c88,scale_no_item,False,,,not_visible,none_shown,,,,empty scale
+haiku_a1,v1.0,calib_v1,0008,sheet_002.jpg,4940,1775610252743.jpg,82c10f66946aacd8,other,,,,not_visible,,,,,white bowl or saucer with markings
+haiku_a1,v1.0,calib_v1,0009,sheet_003.jpg,4610,1776304644527.jpg,df537cccdccf1500,item_no_scale,,,,not_visible,,375 mL,375.0,mL,Tanduay Rhum Dark bottle
+haiku_a1,v1.0,calib_v1,0010,sheet_003.jpg,2051,1776912496006.jpg,ca16f3e55504b251,item_no_scale,,,,not_visible,,Cheese wafer,,,"Cal Cheese package, weight text not fully legible"
+haiku_a1,v1.0,calib_v1,0011,sheet_003.jpg,9654,1773968836824.jpg,00f267354b9feed0,item_no_scale,,,,not_visible,,,,,Tanduay Rhum Dark bottle
+haiku_a1,v1.0,calib_v1,0012,sheet_003.jpg,6405,1774407522026.jpg,ebc57cdbb1572cc0,item_no_scale,,,,not_visible,,,,,Sweet Corn snack package
+haiku_a1,v1.0,calib_v1,0013,sheet_004.jpg,6463,1774054625168.jpg,1512f7e7ddedacec,item_no_scale,,,,not_visible,,LAVA CAKE QUEZO CON UBE,,,package on white background
+haiku_a1,v1.0,calib_v1,0014,sheet_004.jpg,8882,1778288077794.jpg,03c92bbb0e70aa48,scale_with_item,True,,,ambiguous,none_shown,,,,"scale display difficult to read, appears blank or very dim"
+haiku_a1,v1.0,calib_v1,0015,sheet_004.jpg,11421,1779243080681.jpg,1b55ba64a5672eb0,item_no_scale,,,,not_visible,,600 mL,600.0,mL,Nature's Spring water bottle
+haiku_a1,v1.0,calib_v1,0016,sheet_004.jpg,2532,1776737899434.jpg,1e1e842f2d8c53ba,scale_with_item,True,0.0895,True,clear,none_shown,,,,
+haiku_a1,v1.0,calib_v1,0017,sheet_005.jpg,6498,1774321355224.jpg,7c4f4f3a0f0b4e74,scale_with_item,True,0.540,True,clear,none_shown,,,,pink container on scale
+haiku_a1,v1.0,calib_v1,0018,sheet_005.jpg,380,1777345381826.jpg,ed76832caadb1339,item_no_scale,,,,not_visible,,Piatto's cheese flavored potato crisps,,,package weight not fully legible
+haiku_a1,v1.0,calib_v1,0019,sheet_005.jpg,10511,1777864638308.jpg,6727e50f661ba02d,scale_with_item,True,,,ambiguous,none_shown,,,,"drink in glass, display difficult to read through liquid"
+haiku_a1,v1.0,calib_v1,0020,sheet_005.jpg,3887,1775787569138.jpg,426d21c995c30b5b,scale_with_item,True,,,ambiguous,none_shown,,,,"carrot on scale, display partially obscured and difficult to read"
+haiku_a1,v1.0,calib_v1,0021,sheet_006.jpg,763,1777598645411.jpg,00ec0de178577ad5,item_no_scale,,,,not_visible,,375 mL,375.0,mL,Tanduay Rhum Dark bottle held
+haiku_a1,v1.0,calib_v1,0022,sheet_006.jpg,10610,1777336641605.jpg,75a0997afa770476,item_no_scale,,,,not_visible,,NET WT. 156 g,156.0,g,Lucky 7 Carne Norte can
+haiku_a1,v1.0,calib_v1,0023,sheet_006.jpg,6202,1773810007262.jpg,f2bd5243b0ccc203,scale_with_item,True,0.005,True,clear,none_shown,,,,pale colored item on scale
+haiku_a1,v1.0,calib_v1,0024,sheet_006.jpg,9653,1773895333758.jpg,61c968d0c44200fd,item_no_scale,,,,not_visible,,375 mL,375.0,mL,Tanduay Rhum Dark bottle on shelf
+haiku_a1,v1.0,calib_v1,0025,sheet_007.jpg,3479,1776910783435.jpg,8b5fbfafae46666a,item_no_scale,,,,not_visible,,,,,Tanduay Rhum bottle held
+haiku_a1,v1.0,calib_v1,0026,sheet_007.jpg,6476,1774051090174.jpg,7a38acc10d1a1265,scale_with_item,True,0.065,True,clear,none_shown,,,,fish on scale
+haiku_a1,v1.0,calib_v1,0027,sheet_007.jpg,3696,1775613983708.jpg,8d8415198c10125b,item_no_scale,,,,not_visible,,,,,chocolate crispy snack package
+haiku_a1,v1.0,calib_v1,0028,sheet_007.jpg,864,1778056525267.jpg,6c562816ecae06ce,scale_with_item,True,0.050,True,clear,none_shown,,,,pink/reddish item on scale
+haiku_a1,v1.0,calib_v1,0029,sheet_008.jpg,8837,1778290693824.jpg,d07f9896b7ab95b4,label_closeup,,,,not_visible,,655 mL,655.0,mL,close-up of corn product packaging
+haiku_a1,v1.0,calib_v1,0030,sheet_008.jpg,9068,1775610644371.jpg,b854fb57f3771157,scale_with_item,True,,,not_visible,none_shown,,,,"drink on scale, display not visible/blank"
+haiku_a1,v1.0,calib_v1,0031,sheet_008.jpg,5443,1774578054508.jpg,ae85099777867686,scale_with_item,True,0.115,True,clear,none_shown,,,,plastic bag with grain on scale
+haiku_a1,v1.0,calib_v1,0032,sheet_008.jpg,9479,1773794488084.jpg,cbcfba3ce2d2f0a6,scale_with_item,True,0.545,True,clear,none_shown,,,,fish on scale
+haiku_a1,v1.0,calib_v1,0033,sheet_009.jpg,377,1777349119131.jpg,4a8e7d17b57ee7dd,item_no_scale,,,,not_visible,,NET WT. 3.17 oz (90g),90.0,g,fried snacks with ESPESYAL SUKA flavoring
+haiku_a1,v1.0,calib_v1,0034,sheet_009.jpg,7662,1774485508198.jpg,c8d8f60c58930fe6,item_no_scale,,,,not_visible,,375 mL,375.0,mL,Tanduay Rhum Dark bottle held
+haiku_a1,v1.0,calib_v1,0035,sheet_009.jpg,7669,1774490339878.jpg,56ac46bb1e82a566,item_no_scale,,,,not_visible,,,,,Tanduay Rhum Light bottle held
+haiku_a1,v1.0,calib_v1,0036,sheet_009.jpg,8503,1775699544558.jpg,7689d89537eabc76,item_no_scale,,,,not_visible,,,,,Tanduay Rhum bottle held
+haiku_a1,v1.0,calib_v1,0037,sheet_010.jpg,9995,1773730865630.jpg,fd2ffb81395db02e,scale_with_item,True,0.660,True,clear,none_shown,,,,green bottle on scale
+haiku_a1,v1.0,calib_v1,0038,sheet_010.jpg,8657,1773884341657.jpg,9d36fd36013be06c,item_no_scale,,,,not_visible,,,,,Tanduay Rhum bottle on shelf
+haiku_a1,v1.0,calib_v1,0039,sheet_010.jpg,9509,1773728678859.jpg,ff5cff69e1d7e68a,scale_with_item,True,0.075,True,clear,none_shown,,,,green snack package on scale
+haiku_a1,v1.0,calib_v1,0040,sheet_010.jpg,5918,1774492836874.jpg,13f6194b25e17931,scale_with_item,True,,,not_visible,none_shown,,,,"drink on scale, display very dim or not visible"
+haiku_a1,v1.0,calib_v1,0041,sheet_011.jpg,9471,1773969164870.jpg,daa0ef19199df385,scale_with_item,True,0.035,True,clear,none_shown,,,,wrapped small items on scale
+haiku_a1,v1.0,calib_v1,0042,sheet_011.jpg,10706,1777607182345.jpg,5341133e353dfe9d,scale_with_item,True,0.810,True,clear,none_shown,,,,glass jar with liquid on scale
+haiku_a1,v1.0,calib_v1,0043,sheet_011.jpg,10707,1777606851141.jpg,4704b2eae7332e73,scale_with_item,True,0.750,True,clear,none_shown,,,,clear beverage in glass on scale
+haiku_a1,v1.0,calib_v1,0044,sheet_011.jpg,5817,1774408400798.jpg,0949cd24860d7985,item_no_scale,,,,not_visible,,NET WT. 640g,640.0,g,Angelina Super Loaf bread
+haiku_a1,v1.0,calib_v1,0045,sheet_012.jpg,6725,1778212767551.jpg,c2dbde443c40fa5e,item_no_scale,,,,not_visible,,,,,Tanduay Rhum Light bottle held
+haiku_a1,v1.0,calib_v1,0046,sheet_012.jpg,11054,1777266085340.jpg,d3cdc2d676ff2018,scale_with_item,True,0.085,True,clear,none_shown,,,,red/pink drink in cup on scale
+haiku_a1,v1.0,calib_v1,0047,sheet_012.jpg,4490,1776212909720.jpg,13d039db4b104fe3,item_no_scale,,,,not_visible,,,,,Tanduay Rhum bottle held
+haiku_a1,v1.0,calib_v1,0048,sheet_012.jpg,4843,1775879036042.jpg,137f3396fbf9b447,scale_with_item,True,0.955,True,clear,none_shown,,,,clear beverage on scale
+haiku_a2,v1.0,calib_v1,0053,sheet_014.jpg,11246,1777343511311.jpg,c0f2f2b1b55e1050,item_no_scale,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0054,sheet_014.jpg,2715,1776221310281.jpg,1c0ce90093d0029b,item_no_scale,,,,not_visible,,375 mL,375.0,mL,
+haiku_a2,v1.0,calib_v1,0055,sheet_014.jpg,10000,1773730426188.jpg,a934383448af4a4b,scale_with_item,True,,,not_visible,indeterminate,,,,"display very dim, unlit or showing all segments faint"
+haiku_a2,v1.0,calib_v1,0056,sheet_014.jpg,11167,1776826496720.jpg,32b737515061b436,label_closeup,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0057,sheet_015.jpg,5744,1774576416960.jpg,cd9dd5a209722558,label_closeup,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0058,sheet_015.jpg,882,1777433680119.jpg,923c00d32a7e0451,item_no_scale,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0059,sheet_015.jpg,5029,1775787703757.jpg,5d484e3fb5eaca54,label_closeup,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0060,sheet_015.jpg,9710,1773882134028.jpg,d7aa0b846cd7092c,scale_with_item,True,0.235,True,clear,none_shown,,,,
+haiku_a2,v1.0,calib_v1,0061,sheet_016.jpg,1186,1778118893591.jpg,8b1e81c3c66b7af5,item_no_scale,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0062,sheet_016.jpg,1195,1778120008596.jpg,7f624240c27dd0bc,item_no_scale,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0063,sheet_016.jpg,4936,1775611968774.jpg,af75e31650ca6fa4,label_closeup,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0064,sheet_016.jpg,5305,1778545120418.jpg,efeda89a6bccaf6f,label_closeup,,,,not_visible,,Net Wt. 250g,250.0,g,
+haiku_a2,v1.0,calib_v1,0065,sheet_017.jpg,2583,1776667143474.jpg,e1c214c6be635193,item_no_scale,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0066,sheet_017.jpg,8474,1775701177913.jpg,68301c17fbcbab6c,scale_with_item,True,0.940,True,clear,none_shown,,,,
+haiku_a2,v1.0,calib_v1,0067,sheet_017.jpg,10165,1774497685599.jpg,199635d431be5aad,item_no_scale,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0068,sheet_017.jpg,10714,1777604338634.jpg,529aa39ad3631a79,label_closeup,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0069,sheet_018.jpg,10965,1776822393755.jpg,66c25c4a3cc4191a,scale_with_item,True,0.995,True,ambiguous,none_shown,,,,could be 0.895 or 0.995
+haiku_a2,v1.0,calib_v1,0070,sheet_018.jpg,9799,1773969859472.jpg,9de315d320b8c936,scale_with_item,True,0.025,True,ambiguous,none_shown,,,,could be 0.225
+haiku_a2,v1.0,calib_v1,0071,sheet_018.jpg,10047,1773721978047.jpg,aec17f52c575f35d,scale_with_item,True,,,not_visible,indeterminate,,,,display unlit or very faint
+haiku_a2,v1.0,calib_v1,0072,sheet_018.jpg,9510,1773728699938.jpg,f6e6648f4bb67fc0,scale_with_item,True,0.670,True,clear,none_shown,,,,
+haiku_a2,v1.0,calib_v1,0073,sheet_019.jpg,4996,1775703652194.jpg,c6b730964cc242b1,scale_with_item,True,0.130,True,ambiguous,none_shown,,,,could be 0.130 or .130
+haiku_a2,v1.0,calib_v1,0074,sheet_019.jpg,7226,1778722214887.jpg,d84a70cf1d891bbb,scale_with_item,True,2095,False,ambiguous,none_shown,,,,"decimal position unclear, could be 20.95 or 2.095"
+haiku_a2,v1.0,calib_v1,0075,sheet_019.jpg,2050,1776910664430.jpg,1e2b2feb5fa02033,label_closeup,,,,not_visible,,Net Wt. 130g,130.0,g,
+haiku_a2,v1.0,calib_v1,0076,sheet_019.jpg,924,1777427847332.jpg,04d9d0238d5ebd4a,scale_no_item,,,,not_visible,indeterminate,,,,empty scale
+haiku_a2,v1.0,calib_v1,0077,sheet_020.jpg,9999,1773730396940.jpg,c5cf93c7786f7c7f,scale_with_item,True,,,not_visible,indeterminate,,,,display very dim
+haiku_a2,v1.0,calib_v1,0078,sheet_020.jpg,9349,1774058611117.jpg,19df2e18d2699f69,label_closeup,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0079,sheet_020.jpg,11108,1777508424730.jpg,60d45d5e9365e3e7,other,,,,not_visible,,,,,"shelf display, multiple items"
+haiku_a2,v1.0,calib_v1,0080,sheet_020.jpg,4196,1775875357769.jpg,9172631401d751e7,scale_with_item,True,0.560,True,clear,none_shown,,,,
+haiku_a2,v1.0,calib_v1,0081,sheet_021.jpg,769,1777601249544.jpg,8be1ffb8165ab983,other,,,,not_visible,,,,,bottles on display shelf
+haiku_a2,v1.0,calib_v1,0082,sheet_021.jpg,2266,1776391488326.jpg,a30ca75332d75496,item_no_scale,,,,not_visible,,190 mL,190.0,mL,
+haiku_a2,v1.0,calib_v1,0083,sheet_021.jpg,5353,1774580053977.jpg,14ecf13043bd8cff,label_closeup,,,,not_visible,,NET WT. 150g,150.0,g,
+haiku_a2,v1.0,calib_v1,0084,sheet_021.jpg,2922,1776651901494.jpg,4d3cc65448657e12,item_no_scale,,,,not_visible,,250mL,250.0,mL,
+haiku_a2,v1.0,calib_v1,0085,sheet_022.jpg,9994,1773731054952.jpg,c6af7dafae9c6eee,scale_with_item,True,,,not_visible,indeterminate,,,,display very dim
+haiku_a2,v1.0,calib_v1,0086,sheet_022.jpg,71,1778207894293.jpg,d233ee43a0982ce4,scale_with_item,True,,,not_visible,indeterminate,,,,"display blank, all segments faint (8.8.8.8.8 pattern)"
+haiku_a2,v1.0,calib_v1,0087,sheet_022.jpg,9817,1773913217221.jpg,21c629d5f91c3257,scale_with_item,True,0.515,True,probable,none_shown,,,,
+haiku_a2,v1.0,calib_v1,0088,sheet_022.jpg,9424,1773724826947.jpg,6ace8f56018f8b96,scale_with_item,True,0.080,True,clear,none_shown,,,,
+haiku_a2,v1.0,calib_v1,0089,sheet_023.jpg,4311,1776219058341.jpg,e07ce08b1c5474c9,scale_with_item,True,0.375,True,clear,none_shown,,,,
+haiku_a2,v1.0,calib_v1,0090,sheet_023.jpg,4234,1779166361997.jpg,7051226c849a9a19,other,,,,not_visible,,,,,"crate with bottles, multiple items"
+haiku_a2,v1.0,calib_v1,0091,sheet_023.jpg,9045,1775521072842.jpg,f0773ee7acb8240a,scale_with_item,True,0.135,True,clear,none_shown,,,,
+haiku_a2,v1.0,calib_v1,0092,sheet_023.jpg,10269,1774669586277.jpg,b2ffa0df187d5e35,scale_with_item,True,0.045,True,clear,none_shown,,,,
+haiku_a2,v1.0,calib_v1,0093,sheet_024.jpg,7843,1778834502177.jpg,cd8ae522403d8aa8,scale_with_item,True,0.440,True,clear,none_shown,,,,
+haiku_a2,v1.0,calib_v1,0094,sheet_024.jpg,10964,1776828515542.jpg,6c090770487070d1,item_no_scale,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0095,sheet_024.jpg,8405,1775703101721.jpg,c9f3985339b64dcf,label_closeup,,,,not_visible,,NET WT. 1.20 KG,1.2,kg,
+haiku_a2,v1.0,calib_v1,0096,sheet_024.jpg,8515,1775706189553.jpg,d99d5728885c0b46,item_no_scale,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0097,sheet_025.jpg,375,1777264173054.jpg,dc500698fd8ee938,label_closeup,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0098,sheet_025.jpg,2709,1776222301469.jpg,ef3f051ff97584d7,item_no_scale,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0099,sheet_025.jpg,5730,1774578273239.jpg,d34bf66dc2d4a2fa,item_no_scale,,,,not_visible,,,,,
+haiku_a2,v1.0,calib_v1,0100,sheet_025.jpg,8364,1775702946856.jpg,ccfcb4c3407bc580,label_closeup,,,,not_visible,,,,,
+haiku_a3,v1.0,calib_v1,0101,sheet_026.jpg,9790,1773880892030.jpg,79659566ef7d4a2b,scale_with_item,True,0.025,True,clear,none_shown,,,,
+haiku_a3,v1.0,calib_v1,0102,sheet_026.jpg,9461,1773796774872.jpg,1e161f721c2b6170,scale_with_item,True,0.040,True,clear,none_shown,,,,
+haiku_a3,v1.0,calib_v1,0103,sheet_026.jpg,1787,1776737620980.jpg,ca03e1591fa3e424,item_no_scale,False,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+haiku_a3,v1.0,calib_v1,0104,sheet_026.jpg,8120,1776039897386.jpg,67e53a3c0daf85e0,item_no_scale,False,,,not_visible,none_shown,,,,Tanduay rum bottle
+haiku_a3,v1.0,calib_v1,0105,sheet_027.jpg,5232,1776038087348.jpg,e53a4803b5b18560,scale_with_item,True,0.000,True,ambiguous,none_shown,,,,Fish; top row very dim
+haiku_a3,v1.0,calib_v1,0106,sheet_027.jpg,8808,1775711210556.jpg,d1b2a5081625428c,label_closeup,,,,not_visible,none_shown,,,,Snack/chip packaging display
+haiku_a3,v1.0,calib_v1,0107,sheet_027.jpg,5375,1774576272386.jpg,f55701e1037c8210,scale_with_item,True,,,not_visible,none_shown,,,,"All display rows very dim, unlit segments showing"
+haiku_a3,v1.0,calib_v1,0108,sheet_027.jpg,7824,1773890407581.jpg,ecb87f1f90afb436,scale_with_item,True,0.080,True,clear,none_shown,,,,Carrot on scale
+haiku_a3,v1.0,calib_v1,0109,sheet_028.jpg,2535,1776665292134.jpg,eda17d772108f2e8,scale_with_item,True,0.080,True,clear,none_shown,,,,Wrapped item on scale
+haiku_a3,v1.0,calib_v1,0110,sheet_028.jpg,2712,1776310607687.jpg,134c461f1f3b1a0c,item_no_scale,False,,,not_visible,none_shown,375 mL,375.0,mL,Canduarrhum Dark rum bottle
+haiku_a3,v1.0,calib_v1,0111,sheet_028.jpg,7487,1774070796560.jpg,aff3793f70c8b9d4,item_no_scale,False,,,not_visible,none_shown,150ml,150.0,mL,Sorbetes Ube cup
+haiku_a3,v1.0,calib_v1,0112,sheet_028.jpg,4881,1776045945900.jpg,604b7ddcdad5084c,item_no_scale,False,,,not_visible,none_shown,1 Liter,1.0,L,DK water bottle
+haiku_a3,v1.0,calib_v1,0113,sheet_029.jpg,8435,1775696058786.jpg,77add66455360f6f,scale_with_item,True,0.520,True,clear,none_shown,,,,Root vegetable/potato
+haiku_a3,v1.0,calib_v1,0114,sheet_029.jpg,601,1777598389404.jpg,d77f6757bdebc0e0,scale_with_item,True,,,not_visible,none_shown,,,,Plants/vegetables; all display rows very dim
+haiku_a3,v1.0,calib_v1,0115,sheet_029.jpg,4312,1776219074931.jpg,5168b094b879af75,scale_with_item,True,0.140,True,clear,none_shown,,,,Beverage on scale
+haiku_a3,v1.0,calib_v1,0116,sheet_029.jpg,11053,1777266059884.jpg,128e953b5303e933,scale_with_item,True,0.080,True,clear,none_shown,,,,Beverage on scale
+haiku_a3,v1.0,calib_v1,0117,sheet_030.jpg,8354,1775702195248.jpg,9668a8a1acf848d9,item_no_scale,False,,,not_visible,none_shown,,,,Small bottle in store
+haiku_a3,v1.0,calib_v1,0118,sheet_030.jpg,1184,1778034821033.jpg,76490bfda1928fc1,item_no_scale,False,,,not_visible,none_shown,1 Liter,1.0,L,Emperador Light rum
+haiku_a3,v1.0,calib_v1,0119,sheet_030.jpg,7639,1774487698787.jpg,21b3fd51530ed45f,scale_with_item,True,0.007,True,clear,none_shown,,,,Drink cup on scale
+haiku_a3,v1.0,calib_v1,0120,sheet_030.jpg,4976,1775703565165.jpg,8ed2e251a480239f,scale_with_item,True,0.460,True,clear,none_shown,,,,Cabbage/lettuce head
+haiku_a3,v1.0,calib_v1,0121,sheet_031.jpg,683,1777694696097.jpg,67becbf1a9a9a2cf,scale_with_item,True,,,not_visible,none_shown,,,,Meat package; all display rows very dim
+haiku_a3,v1.0,calib_v1,0122,sheet_031.jpg,5184,1775866549083.jpg,d17482a0c551c303,scale_with_item,True,0.050,True,clear,none_shown,,,,Chip bag on scale
+haiku_a3,v1.0,calib_v1,0123,sheet_031.jpg,8027,1775885893833.jpg,a37ccebbc85b90b5,item_no_scale,False,,,not_visible,none_shown,Net Wt. 1 KG,1.0,kg,Champion/Champorado package
+haiku_a3,v1.0,calib_v1,0124,sheet_031.jpg,6345,1774401432433.jpg,6914f55c9638fde4,item_no_scale,False,,,not_visible,none_shown,,,,Chocky ice cream package
+haiku_a3,v1.0,calib_v1,0125,sheet_032.jpg,10167,1774403002013.jpg,93e2e9625a491c9b,item_no_scale,False,,,not_visible,none_shown,,,,Nescafe box in hand
+haiku_a3,v1.0,calib_v1,0126,sheet_032.jpg,5077,1773710954464.jpg,7e931c8deb30e4f8,scale_with_item,True,0.200,True,clear,none_shown,,,,Bundle of greens
+haiku_a3,v1.0,calib_v1,0127,sheet_032.jpg,9571,1773881530966.jpg,a0922aa81f0ad18b,item_no_scale,False,,,not_visible,none_shown,,,,Tanduay rum bottle
+haiku_a3,v1.0,calib_v1,0128,sheet_032.jpg,7667,1774485582179.jpg,19decaa1734391a5,scale_with_item,True,0.150,True,clear,none_shown,,,,Meat/fish on scale
+haiku_a3,v1.0,calib_v1,0129,sheet_033.jpg,7851,1773890829632.jpg,a9611eda3d748e2f,scale_with_item,True,,,not_visible,none_shown,,,,Rice package; all display rows very dim
+haiku_a3,v1.0,calib_v1,0130,sheet_033.jpg,4233,1779166704428.jpg,8459986a09c2ba13,other,,,,not_visible,none_shown,,,,Display of bottled fish/sardines
+haiku_a3,v1.0,calib_v1,0131,sheet_033.jpg,9668,1773897368621.jpg,8e7b0d8d8b488d99,scale_with_item,True,0.655,True,clear,none_shown,,,,Green package on scale
+haiku_a3,v1.0,calib_v1,0132,sheet_033.jpg,5181,1775866955885.jpg,538c5583615a7641,scale_with_item,True,,,not_visible,none_shown,,,,Small meat/poultry; all display rows very dim
+haiku_a3,v1.0,calib_v1,0133,sheet_034.jpg,6192,1773801717143.jpg,cc2391f727a0e5a0,scale_with_item,True,0.355,True,clear,none_shown,,,,Oreo box on scale
+haiku_a3,v1.0,calib_v1,0134,sheet_034.jpg,2932,1776652488011.jpg,5b77d7477c265d7a,item_no_scale,False,,,not_visible,none_shown,,,,Rainbow Pop ice cream package
+haiku_a3,v1.0,calib_v1,0135,sheet_034.jpg,2449,1776995378158.jpg,ea90c80c05b76ee7,scale_with_item,True,0.210,True,clear,none_shown,,,,Meat/poultry on scale
+haiku_a3,v1.0,calib_v1,0136,sheet_034.jpg,3593,1778894594967.jpg,4840ebed716dcd71,label_closeup,,,,not_visible,none_shown,,,,Packaged food items
+haiku_a3,v1.0,calib_v1,0137,sheet_035.jpg,110,1778117239723.jpg,a67f9af7f642c2da,scale_with_item,True,0.205,True,clear,none_shown,,,,Carrot on scale
+haiku_a3,v1.0,calib_v1,0138,sheet_035.jpg,7051,1774057127341.jpg,ad5ad9952a1d0a2a,item_no_scale,False,,,not_visible,none_shown,,,,Yogurt cup on platter
+haiku_a3,v1.0,calib_v1,0139,sheet_035.jpg,406,1777347876752.jpg,973e48cfcb5c4a63,item_no_scale,False,,,not_visible,none_shown,,,,Tanduay Light rum bottle
+haiku_a3,v1.0,calib_v1,0140,sheet_035.jpg,9460,1773723476270.jpg,f2c7cedaff38d7de,scale_with_item,True,0.185,True,clear,none_shown,,,,Item in white packaging on scale
+haiku_a3,v1.0,calib_v1,0141,sheet_036.jpg,2403,1776469815820.jpg,90b3a867e14efa5e,item_no_scale,False,,,not_visible,none_shown,,,,Tanduay bottle held in hand
+haiku_a3,v1.0,calib_v1,0142,sheet_036.jpg,4495,1776215627192.jpg,d44fafc15988502e,label_closeup,,,,not_visible,none_shown,,,,Tanduay rum bottle label closeup
+haiku_a3,v1.0,calib_v1,0143,sheet_036.jpg,2921,1776737593157.jpg,51f862bb6d7b3120,item_no_scale,False,,,not_visible,none_shown,,,,Sprite bottle
+haiku_a3,v1.0,calib_v1,0144,sheet_036.jpg,4935,1775527493887.jpg,ef2817c3c53321e5,scale_with_item,True,0.155,True,clear,none_shown,,,,Fish on scale
+haiku_a3,v1.0,calib_v1,0145,sheet_037.jpg,8509,1775781268847.jpg,8a1528449563e51a,item_no_scale,False,,,not_visible,none_shown,,,,Tanduay bottle held
+haiku_a3,v1.0,calib_v1,0146,sheet_037.jpg,5617,1774403634472.jpg,ab1b9fc429f357a7,label_closeup,,,,not_visible,none_shown,,,,Rebisco Peanut Butter crackers
+haiku_a3,v1.0,calib_v1,0147,sheet_037.jpg,4475,1776137969380.jpg,9972a36f9969c6ea,item_no_scale,False,,,not_visible,none_shown,,,,Tanduay Light bottle
+haiku_a3,v1.0,calib_v1,0148,sheet_037.jpg,3207,1776821966687.jpg,13d39f83b487fb63,item_no_scale,False,,,not_visible,none_shown,,,,Baked good on tray
