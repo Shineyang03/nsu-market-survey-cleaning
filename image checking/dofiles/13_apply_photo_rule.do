@@ -49,6 +49,13 @@ local GATE 2      // this far off, or further, waits for a person
 
 import delimited "${imgqc}/photo_readings_master.csv", clear varnames(1) ///
 	delimiter(",") encoding("utf-8") stringcols(_all)
+* `import delimited' LOWERCASES every variable name, so the column written as
+* mL_rule_pending arrives as ml_rule_pending. Renamed once here rather than spelled
+* the lowercase way throughout, so this file and 12 keep using the same name for the
+* same thing.
+capture confirm variable ml_rule_pending
+if _rc == 0 rename ml_rule_pending mL_rule_pending
+
 destring id photo_g corrected_weight raw_weight has_reading from_human ///
 	mL_rule_pending pkg_seen h_glare_flag, replace
 

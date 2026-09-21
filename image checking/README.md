@@ -1,293 +1,200 @@
-# Photograph checks
+# Checking the cleaning pipeline against the field photographs
 
-Machinery for checking the cleaning pipeline against the field photographs: 11,506
-JPEGs taken by field officers at the point of weighing, held in
-`NSU Market Survey Launch/data/pictures`.
+The NSU market survey recorded what a non-standard local unit weighs — a *bundle* of
+camote tops, a *putos* of crackers, a *lapad* of liquor. Field officers weighed on a
+portable scale and typed a number plus a unit tick, and **they also photographed what
+they were looking at**: 11,506 JPEGs, one per weighing.
 
-Three checks are defined in issue **#38** and the handover brief. This folder builds the
-apparatus they need; it is not part of the build and nothing under `dofiles/` depends on
-it.
+Those photographs are ground truth. They show what was measured, what it was measured
+on, and what the vendor called it — things the recorded numbers can only be argued
+about. This folder is the machinery for reading them and checking the build against
+what they say.
 
-| check | question | measured on |
-| :-- | :-- | :-- |
-| 1 | was a measurement taken at all, and is the unit tick right? | raw `weight` / `unit` |
-| 2 | where the decimal was moved, did we get it right? | raw joined to published |
-| 3 | do two pooled labels name one object? | the fold verdicts |
+**Start here:** run order below, then *What the photographs showed* for the results.
+The three checks are defined in issue **#38**.
 
 ---
 
 ## Run order
 
-A prerequisite, from `dofiles/` in the main project — it publishes the row-level flags
-the target list reads:
+Prerequisite, from `dofiles/` in the main project:
 
 ```
 "C:\Program Files\StataNow19\StataSE-64.exe" -e do 90_diagnostics/photo_check_scope.do
 ```
 
-Then, from `image checking/dofiles`:
+Then from `image checking/dofiles`:
 
 ```
-"C:\Program Files\StataNow19\StataSE-64.exe" -e do 01_photo_bridge.do
-"C:\Program Files\StataNow19\StataSE-64.exe" -e do 02_photo_targets.do
-"C:\Program Files\StataNow19\StataSE-64.exe" -e do 03_calibration_draw.do
+01_photo_bridge.do            link every photograph to its weighing
+02_photo_targets.do           which photographs each check needs
+11_sweep_draw.do              the Check 2 population, and what is unread
 ```
 
-From `image checking/scripts`, to build the sheets:
+From `image checking/scripts`, to build blinded sheets:
 
 ```
-python make_contact_sheets.py --out-tag calib_v1 --ids ../outputs/tables/calibration_ids.csv \
-    --shuffle --seed 20260919 --cell 700 --cols 2 --per-sheet 4
+python make_contact_sheets.py --out-tag <tag> --ids <ids.csv> --shuffle --seed 20260920 \
+    --cell 700 --cols 2 --per-sheet 4
 ```
 
-Readers then read those sheets under `PROMPT.md` and write one JSONL file each into
-`outputs/readings/raw/<tag>/`. See *Dispatching readers*. Finally:
+Readers read those sheets under `PROMPT.md`, one JSONL each into
+`outputs/readings/raw/<tag>/`. Then:
 
 ```
-python parse_readings.py --tag calib_v1 --out ../outputs/qc/readings_calib_v1.csv
-"C:\Program Files\StataNow19\StataSE-64.exe" -e do 04_photo_reconcile.do
+python parse_readings.py --tag <tag> --out ../outputs/qc/readings_<tag>.csv --expect-readers 1
 ```
 
-`stata -e` exits 0 even when a do-file errors. Check the log for `r(` followed by a
-number and a semicolon; an exit status of 0 is not evidence the step ran. The same
-applies to the shell: a Stata invocation that never starts leaves the PREVIOUS log in
-place, and reading it looks exactly like a successful run. Check the log's timestamp.
+Back in `image checking/dofiles`:
 
-## What each file does
+```
+12_photo_readings_master.do   every reading, one dataset
+13_apply_photo_rule.do        the override rule and what it proposes
+```
+
+**`stata -e` exits 0 even when a do-file errors.** Check the log for `r(` followed by a
+number and a semicolon. Check its **timestamp** too: a Stata invocation that never
+starts leaves the previous log in place, and reading it is indistinguishable from a
+successful run. That happened here.
+
+**Pin the picture folder to *Available offline* before any sweep.** Generating 592
+sheets from the streamed Box drive took 50 minutes at ~1.5 s per image, essentially all
+of it network wait. `make_contact_sheets.py` now prefetches on 12 threads, which makes
+an unpinned folder tolerable, not fast.
+
+---
+
+## How the pieces fit
 
 | file | does |
 | :-- | :-- |
-| `PROMPT.md` | **the reading instrument.** Versioned; its version is recorded against every reading |
-| `dofiles/00_photo_globals.do` | paths. Runs the build's own `00_globals.do` first, so `${data}`, `${tables}` and `def_hetero` mean the same here as in the pipeline |
-| `dofiles/01_photo_bridge.do` | **the join.** Links every photograph to the weighing it depicts, via the durable `id` |
-| `dofiles/02_photo_targets.do` | which photographs to pull for Checks 1 and 2. Defines no populations of its own |
-| `dofiles/03_calibration_draw.do` | the stratified, seeded sample the instrument is tested on |
-| `dofiles/04_photo_reconcile.do` | **the unblinding step.** Reliability, then Check 1, then Check 2 |
-| `scripts/make_contact_sheets.py` | tiles photographs into blinded sheets, and writes the manifest that unblinds them |
-| `scripts/parse_readings.py` | validates reader output and joins it back to `id` |
-| `scripts/sevenseg.py` | reads the red LED scale display. **Does not work — see below** |
-
-## Dispatching readers
-
-Readers are subagents. Each is given `PROMPT.md` verbatim, a list of sheet filenames,
-and an output path; it reads the sheets and writes one JSON object per photograph.
-
-**Two models read the same sheets.** That is what makes agreement measurable, and it is
-the only reason a reading can be quoted at all. Within a model the work is split across
-several workers over *disjoint* sheets, so the model is one reader between them —
-`04_photo_reconcile.do` halts if two workers of one model read the same image, because
-an overlap would silently corrupt the agreement denominator.
-
-Reader output is never edited. A malformed batch is re-run, not patched.
-
-## What the calibration is drawn from, and why not at random
-
-A random sample of the target list is dominated by easy images, and agreement measured
-on easy images does not transfer to the hard ones — which are the only ones the answer
-turns on. `03_calibration_draw.do` therefore stratifies and over-samples the awkward
-cells, 20 per stratum:
-
-| stratum | why |
-| :-- | :-- |
-| C1 solid as Litres | 17 in the build; small enough to do exhaustively |
-| C2 review queue | already wrong relative to its neighbours |
-| C2 dimension overrule | asserts the officer picked the wrong dropdown item |
-| C1 flat-group rep | expected answer is a printed label and no scale at all |
-| C2 block governs | where `KGMAX` and the `<10` threshold actually decided something |
-| C1 liquid as mass | A23's item-level verdict overruled these |
-| C1 dual-ticked | a contradiction inside one cell |
-| C2 magnitude | the bulk case |
-
-Two ordering choices in that file are load-bearing, and both were bugs first:
-
-- **Stratify before collapsing to one row per image.** All 348 dimension overrules are
-  also Check 1 rows — overruling a tick is exactly what makes a weighing
-  liquid-ticked-as-mass or dual-ticked — so taking the lowest `check` per image first
-  absorbed every one of them into Check 1 and left the Check 2 dimension cell with zero
-  rows, while reporting success.
-- **Break ties by scarcity, not by check.** An image wanted by two strata is worth more
-  to the calibration in the smaller one.
-
-Images already seen are excluded by id through `outputs/qc/seen_ids.csv`, which is
-appended to and never rewritten: an image once seen is seen permanently. Sixteen
-photographs were read openly while this pipeline was being built, so a "blind" re-read
-of them would not be blind.
+| `PROMPT.md` | **the reading instrument**, versioned. Every reading records its version |
+| `dofiles/00_photo_globals.do` | paths; runs the build's own globals first |
+| `dofiles/01_photo_bridge.do` | **the join** — photograph ↔ weighing, via the durable `id` |
+| `dofiles/02_photo_targets.do` | must-tier target lists for Checks 1 and 2 |
+| `dofiles/03_calibration_draw.do` | the stratified set the instrument was tested on |
+| `dofiles/04_photo_reconcile.do` | reliability, then Check 1, then Check 2 |
+| `dofiles/05_resolution_test_draw.do` | the presentation A/B |
+| `dofiles/06_resolution_compare.do` | …and its result |
+| `dofiles/07_human_validation_draw.do` | the 40 a person reads |
+| `dofiles/08_score_against_human.do` | **the only non-circular scoring** |
+| `dofiles/09_photo_corrections.do` | verdict ledger from the human readings |
+| `dofiles/10_stage_ledger_additions.do` | those verdicts in the build ledger's schema |
+| `dofiles/11_sweep_draw.do` | the full Check 2 population |
+| `dofiles/12_photo_readings_master.do` | **every reading, one dataset** |
+| `dofiles/13_apply_photo_rule.do` | the override rule |
+| `scripts/make_contact_sheets.py` | blinded sheets + the manifest that unblinds them |
+| `scripts/parse_readings.py` | validation gate on reader output |
+| `scripts/make_validation_workbook.py` | the workbook a person reads |
+| `scripts/parse_validation_workbook.py` | reads it back |
+| `scripts/sevenseg.py` | deterministic OCR. **Does not work** — see below |
 
 ## The join
 
 The photo crosswalk keys a filename on a submission `KEY` and a photo slot; the raw
-survey keys a weighing on `key` and `obs_type`. The slots and the obs_type values are
-the same nine categories under two spellings:
+survey keys a weighing on `key` and `obs_type`. The nine slots and nine obs_type values
+are the same categories under two spellings:
 
 ```
 crosswalk KEY + photo_variable  ==  raw key + obs_type  ->  one weighing  ->  id
 ```
 
 `key` + `obs_type` is unique in the raw survey. The `id` is looked up in
-`outputs/tables/weighing_id_registry.csv` and never minted here — if a row has no id the
-fix is in `00_shared/00a_weighing_ids.do`, not a number invented in a diagnostic.
+`weighing_id_registry.csv` and **never minted here**.
 
-Neither `prelim_nsu_data.dta` nor `nsu_weighings_cpi.dta` carries `key`, which is why
-the join starts from the raw survey.
-
-Measured 2026-09-19:
-
-| | count |
+| | |
 | :-- | ---: |
 | crosswalk rows | 11,480 |
 | matched to a raw weighing | 11,459 |
 | raw weighings with no photo slot | 36 — all `unique_mun_price6/7` |
-| photos matching no raw weighing | 21 |
-| **usable pairs published in the bridge** | **11,449** |
+| photos matching no weighing | 21 |
+| **usable pairs** | **11,449** |
 
-The do-file reports these against a recorded baseline. A move is **information**, not a
-failure: it means the survey was re-exported or the crosswalk rebuilt. Structural
-violations — a duplicate filename, a caseid disagreement, a row with no id — halt.
+---
 
-## Blinding
+## The three rules that make the readings worth anything
 
-**Contact sheets carry a sequence number and nothing else.** No id, no typed weight, no
-unit tick, no published value.
+### 1. Blinding
 
-This is not ceremony. A reader who sees "typed 0.8, published 800" before looking at the
-display is being asked to confirm a number rather than read one, and will tend to
-confirm it — which would make the check validate the pipeline because it was told what
-the pipeline said. The sequence-to-id mapping is written to a separate manifest and
-joined only after readings are recorded.
+**A contact sheet carries a sequence number and nothing else** — no id, no typed weight,
+no published value, no item name, no stratum, and no hint which rows are contentious.
+The sequence-to-id manifest is written separately and joined only after readings are
+recorded.
 
-Samples are drawn with a recorded seed, stored in the manifest, so a later session
-drawing the same population reproduces the same rows.
+This is load-bearing, not ceremony. A reader shown *"the officer typed 0.8 and we
+published 800"* is being asked to confirm a number rather than read one, and will tend
+to confirm it — which would make the check validate the pipeline because it was told
+what the pipeline said.
 
-## Human validation, `human_v1` (2026-09-20) — the first non-circular numbers
+The human workbook goes further: nothing is pre-filled. That **deliberately breaks**
+`docs/adjudication_playbook.md`, which says to pre-fill every verdict because
+confirm/override is cheap. That rule is right when a reviewer *adjudicates* a judgement
+call. Here the person is the measuring instrument, and pre-filling an instrument with
+the answer destroys it.
 
-40 photographs, drawn stratified from images where both model readers agreed a scale
-was present, read **blind by a person**: no typed value, no published value, no model
-reading, no item name, no stratum, nothing pre-filled.
+### 2. The typed value is never the yardstick
 
-This is the only ground truth in the project that does not depend on the data being
-checked. Two different questions become answerable, and they are kept apart.
+Early scoring compared readings against the typed weight. **That is backwards** — the
+photographs are what the typed data is being checked against, so scoring against it
+makes the evidence answerable to the thing it judges, and it cannot yield an accuracy
+figure at all: a perfect reader would score `100% − (officer mis-typing rate)`, which is
+the unknown being sought.
 
-### 1. Reader accuracy — model against the human
+Reader quality is therefore measured two ways only: **against each other** (yardstick
+free) and **against a human** (`08_score_against_human.do`). Anything comparing a
+reading with a typed or published value is a *finding*, never a score.
 
-| reader | gave a reading | correct |
-| :-- | ---: | ---: |
-| Haiku, tiled | 27 | **55.6%** |
-| Sonnet, tiled | 33 | **97.0%** |
-| Sonnet, hi-res | 24 | **100%** |
+### 3. Everything is keyed on something durable
 
-**Sonnet reads these displays essentially correctly.** The earlier 82.6% "agreement with
-the typed value" was not reader error — it was the typed values being wrong. That gap is
-the whole reason the yardstick had to change.
+Readings key on `image_code` — the crosswalk's own key, unique per photograph, and safe
+to show since it is a capture timestamp carrying nothing about the weight. **A row
+number is not a key**: it changes when a set is re-drawn, re-shuffled, re-sent, or
+sorted. `id` would leak a little (ids run in province, municipality, item order), so it
+stays out of anything a reader sees.
 
-Haiku at 55.6% confirms the earlier verdict from an independent direction: it should not
-read digits.
+---
 
-### 2. The published value against the photograph — Check 2's actual answer
+## What the photographs showed
 
-| | |
+### The premise the checks were written under was wrong
+
+`NSU_photograph_checks_brief.md` assumes each image shows a scale with a reading and an
+object on it. The first seven read say otherwise — **only the fresh items did**:
+
+| item | typed | photograph |
+| :-- | :-- | :-- |
+| chicken | `1085 g` | scale, display `1085` |
+| cabbage | `0.8 g` | scale, display `0.800` |
+| liquor | `375 g` | bottle held to a shelf. Label `375 mL`. No scale |
+| loaf bread | `640 g` | loaf in a crate. Label `Net Wt. 640 g`. No scale |
+| ice cream | `0.085 L` | sachet. Label `85 ml`. No scale |
+| mineral water | `0.006 L` | bottle. Label `6 LITERS / 6000 ml`. No scale |
+
+The scale displays in **kilograms to three decimals** on some photographs and grams on
+others, and officers typed the display verbatim either way while the tick did not track
+the mode. That is a mechanism for `03a_block_reading.do`'s `< 10 → ×1,000` rule, which
+until now rested on convention — and it answers issue **#37 item 2**.
+
+### Reader reliability, measured
+
+Two models read 148 stratified images; a person then read 40 of them blind.
+
+| | agreement / accuracy |
 | :-- | ---: |
-| published value matches the display | **86.5%** of 37 |
-| mismatches | **5** |
-| of which a decade slip (10× or more) | **4** |
+| is a scale present (model vs model) | **96.6%** |
+| exact display text (model vs model) | 54.3% |
+| **Sonnet vs the human** | **97.0%** |
+| **Haiku vs the human** | **55.6%** |
 
-**Where the errors are:**
+The 54.3% was **not** a hard task — it was one bad reader. **Haiku is never used for
+digit reading.** It survives in the master as a column only so the disagreement that
+established this stays visible in the data.
 
-| stratum | wrong / total |
-| :-- | ---: |
-| C2 block governs | **3 / 11** |
-| C2 review queue | **2 / 4** |
-| C2 magnitude | 0 / 10 |
-| C1 liquid as mass | 0 / 7 |
-| C1 solid as Litres | 0 / 3 |
-| C1 dual-ticked | 0 / 2 |
+**Resolution is not a lever.** The same 46 images at 1500px single versus 700px 4-up
+scored **88.4% either way**, and the two presentations agreed with each other on all 43
+they both read. Presenting images larger buys nothing.
 
-Every error falls in `block governs` or `review queue`. **The bulk `magnitude`
-corrections are clean, 10 for 10** — the `< 10 → ×1,000` rule works where it does most
-of its work. The failures are concentrated exactly where `photo_review_queue.do`
-predicted they would be, which is the diagnostic doing its job.
-
-**The four decade slips**, all published 10× too high:
-
-| image code | display shows | typed | published | should be |
-| :-- | --: | --: | --: | --: |
-| `1773810007262` | `0.095` | 0.950 g | 950 | 95 |
-| `1773724826947` | `0.06` | 0.600 g | 600 | 60 |
-| `1773796774872` | `0.04` | 0.400 g | 400 | 40 |
-| `1775787569138` | `0.045` | 0.450 g | 450 | 45 |
-
-Three of these were flagged by the models before the human saw them. The human confirmed
-all three and found a fourth.
-
-**These are not population rates.** n=37, drawn from strata that deliberately
-over-sample the awkward cells. What they establish is that the failure mode is real, that
-it is concentrated where the diagnostics said, and that a model reader can find it.
-
-### What the returned workbook cost
-
-Three defects, recorded because two of them changed a number:
-
-- **Excel coerced 37 of 40 answers to numbers**, so `0.300` returned as `0.3`. The
-  workbook generator set a text format on the image code and not on the answer column.
-  Fixed for v2. The numeric comparison was unaffected; the exact-string check the
-  instrument promises was simply unavailable.
-- **The `legible` dropdown did not bind** — answers came back as free text
-  (`Y (bad glare)`). That turned out *more* informative than the closed vocabulary, and
-  is parsed into a glare flag rather than rejected. 10 of 40 rows carry one.
-- **A normalisation bug in the scoring reported a false positive twice.** Re-scaling the
-  raw typed value re-implements the block rule, and the version used did not cover the
-  litre branch, where a sub-0.01 litre entry is multiplied by 1,000,000. `0.001175 L`
-  scored as a mismatch against a display of `1.175` when the pipeline had published
-  `1175` — correct. Fixed by comparing the **published** value, which the pipeline
-  already computed, instead of recomputing one. This is precisely the rule the project's
-  `CLAUDE.md` states, and breaking it cost two wrong findings.
-
-### Open: package volume versus scale reading
-
-Three rows record a **package volume** rather than the scale display, on the reviewer's
-stated rule that a printed volume is preferred where both are visible. They are excluded
-from the scores above, because the question there is what the display said.
-
-**That rule needs a decision before it is encoded**, because it answers two questions at
-once. For Check 2 the scale reading is the relevant quantity — it is what the officer
-transcribed. For Check 1 and A23 the package volume may well be the better datum. On one
-of these rows the reviewer noted both were legible: `355 mL` printed, `0.7 kg` on the
-scale. A 355 mL container weighing 700 g is a real discrepancy, not a misread, and it
-matches an anomaly flagged independently in the `liquid as mass` stratum.
-
-Recording **both** readings would settle it without choosing. See the open items below.
-
-## Calibration results, `calib_v1` (2026-09-19)
-
-148 images, stratified, 20 per cell. Two models read every image: Haiku and Sonnet,
-under `PROMPT.md` v1.0. **No human check has been done**, so everything below is
-consistency between two model readers, not accuracy.
-
-### Reliability — read this before any result
-
-| measure | agreement | n |
-| :-- | ---: | ---: |
-| is a scale present | **96.6%** | 148 |
-| full 7-way `photo_type` | 81.1% | 148 |
-| **exact display text** | **54.3%** | 46 |
-| decimal present or not | 95.7% | 46 |
-
-Abstention: Haiku 68.9%, Sonnet 60.1%.
-
-**The split is the finding.** "Is there a scale?" is reliable enough to build on.
-**Reading the digits is not** — two readers give the same string barely half the time.
-So Check 1 rests on solid ground and Check 2's digit reading does not, and no amount of
-prompt tuning should be assumed to close that gap.
-
-The 95.7% decimal agreement is weaker evidence than it looks: nearly every display read
-is in kilogram mode and carries a decimal, so there is little variance for the metric to
-detect. It rules out a *systematic* decimal drop; it does not establish digit accuracy.
-
-Both readers abstain often, which is the instrument working — they are declining rather
-than inventing. It also means only 46 of 148 images have two display readings at all.
-
-### Check 1 — is there a scale in the photograph?
-
-Agreed readings only; disagreements excluded, not assigned.
+### Check 1 — a clean split runs through the build
 
 | stratum | no scale | scale |
 | :-- | ---: | ---: |
@@ -295,237 +202,155 @@ Agreed readings only; disagreements excluded, not assigned.
 | C1 flat-group rep | **19 (95%)** | 0 |
 | C1 dual-ticked | 17 (85%) | 3 |
 | C1 solid as Litres | 13 (76%) | 4 |
-| C2 review queue | 4 (36%) | 7 |
-| C2 block governs | 3 (15%) | 16 (80%) |
-| C1 liquid as mass | 1 (5%) | **18 (90%)** |
+| C2 block governs | 3 | 16 (80%) |
+| C1 liquid as mass | 1 | **18 (90%)** |
 | C2 magnitude | 0 | **19 (95%)** |
 
-**A clean split runs through the build.** Where the pipeline made a *dimension*
-judgement there is usually **no scale** — the number was read off a package label.
-Where it made a *magnitude* judgement there usually **is** one.
+Where the pipeline made a **dimension** judgement there is usually no scale — the number
+was read off a package label. Where it made a **magnitude** judgement there usually is
+one.
 
-Three consequences:
-
-- **The flat-group test is vindicated.** 19 of 20 representatives show no scale. The
-  4A logic in `photo_check_packaging.do` is identifying real label transcriptions.
+- **The flat-group test is vindicated.** Its representatives really are label
+  transcriptions.
 - **The dimension overrules reach the right answer by the wrong mechanism.** All 20 show
-  no scale, and 19 carry a printed label whose volume **equals the typed number exactly**
-  — `750 g` typed against `750 mL` printed. So the overrule to mL recovers the unit
-  actually on the bottle and is correct. But the recorded justification — an officer
-  weighed the bottle and ticked grams for want of an mL option — is not what happened.
-  These are **declared pack sizes**, not measurements of a vendor's unit, and nothing in
-  the build marks them as such. Filed as **#40**.
-- **A23's one verdict acts on two different populations.** The liquor rows above were
-  never weighed. The *drinks at restaurant* rows were: 19 of 20 show a scale, and the
-  display corroborates the typed value (`0.440` read against `0.440` typed). For those,
-  the 1 g per mL relabel turns a genuine mass into a volume — which is the case a density
-  correction would actually apply to, and it is not the population the discussion has
-  been about.
+  no scale and 19 carry a printed label whose volume *equals the typed number exactly* —
+  `750 g` typed against `750 mL` printed. So relabelling to mL recovers the printed unit
+  and is correct. But the recorded justification (an officer weighed it and ticked grams
+  for want of an mL option) is not what happened: these are **declared pack sizes**, not
+  measurements of a vendor's unit. Filed as **#40**.
+- **A23's one verdict acts on two populations with opposite provenance.** Liquor was
+  never weighed. *Drinks at restaurant* were — 19 of 20 show a scale, and the display
+  corroborates the typed value. A density correction, if one were ever owed, belongs to
+  the drinks rows and not the liquor rows where the discussion has been.
 
-> An earlier version of this section said the dimension overrules "rest on a weaker
-> premise than stated", implying the outcome might be wrong. That was written before the
-> package labels were read. The outcome is right; the stated mechanism is wrong.
+### Check 2 — the sweep
 
-### Check 2 — does the display match what was typed?
-
-Only the 25 images where both readers gave the *same* display text.
-
-| | result |
-| :-- | :-- |
-| **(a) transcription** — typed weight equals the display | **21 of 25** |
-| ...within Check 2's own strata (block governs + magnitude) | **18 of 18** |
-| the 4 mismatches | all `C1 liquid as mass` |
-| **(b) interpretation** — published grams match the display | **24 of 25** |
-
-On its own population the decimal-drift correction verifies: officers transcribed the
-display exactly, and the published gram value is right. **But n is 25, and those 25 are
-the images two readers agreed on** — plausibly the legible ones, which is a selection
-toward agreement. Treat this as encouraging, not as the check being done.
-
-### The 54% is one reader, not the task
-
-Scored against the typed weight — a proxy valid for *comparing* readers only, since the
-typed value is what Check 2 is checking:
-
-| reader | gave a reading | within 5% of typed |
-| :-- | ---: | ---: |
-| tiled, Haiku | 46 | **58.7%** |
-| tiled, Sonnet | 46 | **82.6%** |
-| hi-res, Sonnet | 43 | 88.4% |
-
-The disagreement is one-sided. **Dropping Haiku from digit reading is the first fix and
-it is free.** Haiku stays on Check 1 classification, where scale-present agreement is
-96.6%.
-
-> **These are not accuracy figures, and must never be quoted as one.** The typed weight
-> is what Check 2 exists to check, so scoring a reading against it measures *agreement
-> with the field officer*, not correctness. A perfect reader would not score 100%: it
-> would score `100% − (the rate at which officers typed something other than the
-> display)`, which is unknown and is the very quantity being sought. **Sonnet's true
-> reading accuracy is unknown and is bounded below, not above, by 82.6%.**
->
-> Two conclusions survive this, because neither needs the typed value:
->
-> - **Haiku is the weaker reader.** Sonnet reads the *same* display identically across
->   two presentations (43 of 43), while Haiku agrees with Sonnet on only 54.3%. One
->   reader is self-consistent and the other is not; no yardstick is involved.
-> - **Resolution changes nothing** — same 43 of 43 agreement, again yardstick-free.
->
-> What the yardstick cannot do is tell you how good the best reader actually is. Only a
-> human reading the same displays can, and that check is still outstanding.
-
-### Resolution is NOT the lever — tested and refuted
-
-`05_resolution_test_draw.do` / `06_resolution_compare.do` re-presented the same 46
-images, same model, same instrument, one per sheet at 1500 px instead of four at 700 px.
-
-| presentation | within 5% of typed |
-| :-- | ---: |
-| tiled, 700 px, 4-up | **88.4%** |
-| hi-res, 1500 px, 1-up | **88.4%** |
-
-Identical, on the same 43 images. Resolution fixed 3 and broke 3 — net zero. Hi-res also
-abstained on 3 it had previously read.
-
-**The two presentations agree with each other on all 43 images.** So the model reads a
-given display the same way regardless of how it is shown, and its errors are not
-resolution-limited. Presenting images larger is not worth the extra tokens.
-
-### Part of the remaining error is the finding, not reader error
-
-The yardstick is the typed weight, so a reader that *correctly* reads a display which
-disagrees with what the officer typed is scored as wrong. Since both presentations agree
-with each other, a case where they agree and the typed value differs is a candidate
-Check 2 error rather than a misread.
-
-**Five such cases in 43. Three are a clean decade slip:**
-
-| id | stratum | typed | display reads |
-| ---: | :-- | --: | --: |
-| 6202 | C2 review queue | `0.950` g | `0.095` |
-| 9424 | C2 block governs | `0.600` g | `0.060` |
-| 9461 | C2 review queue | `0.400` g | `0.040` |
-
-The officer typed ten times what the scale showed. `03a_block_reading.do`'s
-`< 10 → ×1,000` then published 950, 600 and 400 grams where the display supports 95, 60
-and 40. **These are exactly the decade outliers `photo_review_queue.do` flags**, and the
-photographs resolve them in the direction the diagnostic suspected.
-
-Of the other two: `11054` reads `0.670` against `610` typed, close enough that a misread
-digit is as likely as a data error. **`5443` is an artefact of the yardstick, not a
-finding** — its typed `0.001175 L` is published through the `×10⁶` rule as `1175 mL`,
-which matches the display, but the normalisation here rescales the *typed* value rather
-than the published one and mis-scores litre-ticked rows. That normalisation should be
-fixed before the yardstick is used on the litre band.
-
-### What this says about scaling up
-
-- **Check 1 at scale: yes.** 96.6% agreement, and Haiku is adequate, so it is cheap.
-- **Check 2: use Sonnet, keep the 4-up tiles.** Resolution buys nothing; the model does.
-- **Two independent reads still earn their cost**, but for a different reason than
-  assumed. They are not there to average out noise — the model is self-consistent. They
-  are there to separate "the reader misread" from "the typed value is wrong", which is
-  the only way a Check 2 finding can be asserted at all.
-
-## Status of the OCR reader
-
-`sevenseg.py` **does not work well enough to use.** Recorded here rather than deleted,
-because the negative result is worth keeping and the diagnosis says what a second
-attempt would have to solve.
-
-Tested on 45 photographs of fresh items, where a scale is nearly always present:
+All 2,460 Check 2 must-tier weighings with a photograph were read.
 
 | | |
 | :-- | ---: |
-| reported `ok` | 22 |
-| reported `partial` | 23 |
-| **actually correct** | **≈0** |
+| photographed weighings with a reading attempt | 2,515 |
+| **with a resolved display reading** | **1,862** |
+| **published value matches the photograph** | **1,746 (93.8%)** |
+| override, under 2× | 79 (4.2%) |
+| **held for a human, 2× or more** | **37 (2.0%)** |
 
-The `ok` rows are the dangerous part — confident readings like `88` where the display
-plainly reads `0.430`. Two independent failures:
+**Where the errors are:**
 
-1. **Colour does not isolate the display.** The mask keys on red, and a market stall is
-   full of red and orange: carrots, tomatoes, crates, signage. On one carrot photograph
-   the largest "display" candidate was the carrot, at 601×196 px. Tightening the mask to
-   require genuinely low green and blue (LED red is ~`(220,30,20)`, carrot orange
-   ~`(230,130,60)`) cuts stray pixels by 90% on some images and barely moves others.
-2. **Inactive segments still glow.** The Micromatic shows three rows — WEIGHT, UNIT
-   PRICE, TOTAL PRICE — and the unlit ones read as a faint `8.8.8.8.8`. Deciding lit
-   from unlit is genuinely ambiguous at the pixel level, which is why so many readings
-   decode as `8` or `88`.
+| rule that set the published value | confirm | hold |
+| :-- | ---: | ---: |
+| `block governs` | 82.4% | **10.8%** |
+| `log10 median` | 94.4% | 1.5% |
 
-### What this does NOT establish
+`block governs` rows are **7× more likely** to need review — independent confirmation of
+`photo_review_queue.do`, which predicted exactly that concentration. Those are the rows
+where `KGMAX = 30` and the `< 10` threshold actually decided something.
 
-That no reproducible reader is possible. **One method was tested, and it was the weakest
-plausible one.** Colour thresholding is what you reach for when the target object is not
-repeatable. Here it is: every photograph shows the same Micromatic body, with a
-high-contrast keypad (`7 8 9 / TARE`, `4 5 6 / ZERO`, …) in a fixed geometric
-relationship to the display. That is the standard case for **feature matching against a
-reference image** — match, solve a homography, rectify, then crop the display at known
-relative coordinates. It handles angle and distance, it is deterministic, and it was not
-tried. `opencv-python` installs cleanly on this machine's Python 3.14.
+Held rows by magnitude: 19 at 2–5×, 16 at 5–20×, **2 at 20×+**.
 
-Two things also make the problem smaller than it first looks:
+Human-confirmed decade errors so far, each published 10× too high:
 
-* **Check 2 may not need full digit recognition.** What it asks is whether the decimal
-  was moved correctly — `0.800` against `800`. Digit *count* and decimal *position*
-  answer most of that, and are far easier to recover than every glyph.
-* **The population is probably well under 2,472.** If the label-transcription pattern
-  above holds, many Check 2 rows have no scale in the photograph at all. Those are
-  settled by Check 1, and no OCR is owed on them.
+| image code | display | published | should be |
+| :-- | --: | --: | --: |
+| `1773810007262` | `0.095` | 950 | 95 |
+| `1773724826947` | `0.06` | 600 | 60 |
+| `1773796774872` | `0.04` | 400 | 40 |
+| `1775787569138` | `0.045` | 450 | 45 |
 
-Rescuing the colour approach — dark-bezel constraint, local contrast normalisation,
-WEIGHT-row identification — is a real effort for an uncertain payoff. The template route
-is the one to try first, and it has not been tried.
+---
 
-**No OCR tooling is installed on this machine** (no tesseract, no opencv, no GPU) and
-none was needed to establish the above — `sevenseg.py` uses only numpy, scipy and
-Pillow, which are present. General-purpose OCR would not obviously help: tesseract has
-no seven-segment training data and performs poorly on LED glyphs.
+## The override rule
 
-## What the photographs actually show
+Set by the project owner, 2026-09-20:
 
-Worth stating up front, because it contradicts the premise the checks were specified
-under. The brief assumes each image shows a scale with a reading and an object on it.
-On an initial sample of 7, **only the fresh items did**:
+> Where a photograph reading differs from the published value, **the photograph
+> governs** — except that anything **2× or more** away is held for a human first.
 
-| item | typed | photograph |
+The gate spends attention where a model error would do damage. Sonnet reads at 97%, so
+roughly 3% of overrides are wrong: a poor trade if the wrong changes are large, a fine
+one if they are small. A decade slip moves a weight 1,000%; a 5% disagreement is within
+the noise of a glary display. **A human-read row is never held** — the confirmation the
+gate exists to obtain has already happened.
+
+### The mL rule
+
+> Where a printed volume and a scale reading are both legible, **the printed volume
+> governs**, even against the enumerator's record.
+
+Applied only on human-read rows, because it overrides a field record. Model rows that
+saw a package label carry `mL_rule_pending` so the rule's reach is visible — 385 of
+them.
+
+### Nothing here is applied
+
+These write **proposals**. Section 9 of the brief: verdicts are an *input* to the
+pipeline, never an edit to a deliverable, because deliverables rebuild from their inputs
+and a hand edit is silently overwritten.
+
+| to change | edit |
+| :-- | :-- |
+| a weight | `reference/reviewed/snap_verdicts.csv` (§6 of `05_manual_corrections.do`) |
+| a dimension | `reference/reviewed/unit_verdicts.csv` (§1d, added here) |
+
+Then rebuild and run `python dofiles/verify_pipeline.py`.
+
+**Two cautions on applying.** Superseded ledger rows must be **removed**, not appended
+beside — §6 asserts one key never carries two verdicts, so a careless append halts the
+build. And three of the human corrections **overwrite an earlier human adjudication**;
+on two of them the ledger chose the block reading and the photograph agrees with the
+anchor, which is itself evidence on #38 §3.
+
+---
+
+## Things that went wrong, and what they cost
+
+Recorded because each was silent, and a reader deserves to know which numbers were once
+wrong.
+
+| what | cost | fix |
 | :-- | :-- | :-- |
-| chicken | `1085 g` | scale, display `1085` |
-| cabbage | `0.8 g` | scale, display `0.800` |
-| liquor | `375 g` | bottle held to shelf. Label `375 mL`. No scale |
-| loaf bread | `640 g` | loaf in a crate. Label `Net Wt. 640 g`. No scale |
-| crackers | `40 g` | wafer pack on a table. No scale |
-| ice cream | `0.085 L` | sachet. Label `85 ml`. No scale |
-| mineral water | `0.006 L` | bottle. Label `6 LITERS / 6000 ml`. No scale |
+| A Stata call never ran; the **previous log** was read instead | counts quoted from a stale run | check the log's timestamp |
+| Collapsing by `check` before stratifying **emptied a whole stratum** — all 348 dimension overrules are also Check 1 rows | the Check 2 dimension cell came out zero while reporting success | stratify first, break ties by scarcity |
+| The parser's missing-tile check only looked *within sheets a reader touched* | a wholly skipped sheet was invisible; 4 images unread | coverage checked against the manifest |
+| Re-scaling the **raw typed value** re-implements the block rule and missed the litre branch | a false positive reported **twice** | compare `corrected_weight`, which the pipeline already computed |
+| Excel coerced 37 of 40 human answers to numbers | `0.300` returned as `0.3`; exact-string check unavailable | text format on the answer column |
+| A transient Box read failure was baked into a sheet as UNREADABLE | 3 photographs recorded as corrupt when they were fine | retry with backoff in `cached_photo` |
+| `import delimited` lowercases names | `mL_rule_pending` not found | rename on import |
 
-Two consequences, both unconfirmed at this sample size:
+The pattern is the same each time: **a failure recorded as a property of the data when it
+was a property of the process.**
 
-- **The flat-group test under-detects.** Crackers (1.5% flat) and loaf bread (12.3%)
-  both showed label photographs, so label-reading reaches items the test scores as
-  genuinely weighed.
-- **A23 may not be a safe relabel.** The ice cream and water readings are printed
-  *volumes*, so converting at 1 g per mL relabels a volume as a mass.
+## The OCR reader does not work
 
-Sizing these properly is what Check 1 is for.
+`sevenseg.py` scored roughly zero on 45 photographs, and its confident readings were the
+dangerous part — `88` where the display plainly reads `0.430`. Two causes: colour cannot
+isolate an LED display in a stall full of carrots and crates, and unlit segments still
+glow so everything decodes toward `8`.
 
-Separately, the scale displays in **kilograms to three decimals** on some photographs
-and in grams on others, and field officers typed the display verbatim either way. That
-is a mechanism for the `< 10 → ×1,000` rule in `03a_block_reading.do`, which until now
-rested on convention — and it bears directly on issue **#37 item 2**.
+**This does not establish that no deterministic reader is possible.** One method was
+tested and it was the weakest plausible one. Every photograph shows the same Micromatic
+body with a rigid keypad, which is the standard case for feature matching against a
+reference image — match, solve a homography, rectify, crop at known coordinates. That
+was not tried. `opencv-python` installs cleanly on this machine's Python 3.14.
 
-## Conventions
+## Limits to state wherever these numbers are quoted
 
-Inherited from the project's `CLAUDE.md` and `dofiles/README.md`:
+- **No result here is a population rate.** The calibration strata deliberately
+  over-sample awkward cells; the sweep covers the Check 2 must tier, which is 21.8% of
+  weighings chosen because judgement was applied to them.
+- **Agreement is not accuracy.** Only the 40 human readings are ground truth, and 97%
+  rests on 33 of them.
+- **Readings are not bit-reproducible.** The instrument is fixed and versioned; the
+  reader is not. This is the same standing as the hand verdicts already in
+  `05_manual_corrections.do`.
+- **`05_manual_corrections.do` §1d is untested.** It was added but the build has not been
+  re-run, because rebuilding would overwrite the outputs the sweep reads.
 
-- Objects the checks read are built in **Stata**. Python only for image I/O and `.xlsx`.
-- A diagnostic reads what the pipeline computed; it never recomputes it.
-- Write files with editor tools, never a shell heredoc.
-- Verdicts are an **input** to the pipeline, keyed on `id` — never a hand-edit of a
-  deliverable, which rebuilds from its inputs and would overwrite them.
+## Not done
 
-## Not built yet
-
-- `02_photo_targets.do` — the Check 1 and Check 2 must-tier target lists
-- the verdict ledger, and `04_photo_reconcile.do` which joins it to the published columns
-- Check 3's label-pair file
+- Check 1's own sweep — only its calibration sample has been read.
+- Check 3 entirely; its unit is a label pair, so it needs its own file.
+- Spot tiers, which need the packaged/fresh classification published out of
+  `photo_check_packaging.do` the way the other two now are.
+- Whether `psps_grams` forces mL → g at 1:1 downstream. Until that is traced, the
+  density question is settled for Outcome 1 only.

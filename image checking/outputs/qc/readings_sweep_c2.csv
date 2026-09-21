@@ -1,4 +1,164 @@
 reader,prompt_version,tag,label,sheet,id,filename,img_sha16,photo_type,item_on_scale,display_text,has_decimal,display_legible,display_unit_shown,package_text,package_qty,package_unit,notes
+sonnet_w01,v1.0,sweep_c2,0001,sheet_001.jpg,7684,1774424963842.jpg,51f111fa0b394f9a,scale_with_item,True,0.200,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0002,sheet_001.jpg,7582,1774492827178.jpg,600cfee77f602601,scale_with_item,True,,,not_visible,indeterminate,,,,"display shows dim all-segment (blank) pattern across all three rows, not a live reading"
+sonnet_w01,v1.0,sweep_c2,0003,sheet_001.jpg,3167,1776910350679.jpg,169acd98757d5446,scale_with_item,True,0.060,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0004,sheet_001.jpg,9024,1778647177779.jpg,bbbcd4d11dc5eda8,scale_with_item,True,0.115,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0005,sheet_002.jpg,2716,1776308432112.jpg,54c535aa585b111d,item_no_scale,,,,not_visible,indeterminate,,,,"bottle held reads 'TANDUAY RHUM LIGHT, Smooth Spirit'; volume text on label not clearly legible in frame"
+sonnet_w01,v1.0,sweep_c2,0006,sheet_002.jpg,6154,1773709282828.jpg,0d7dd9637268cd34,scale_with_item,True,0.170,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0007,sheet_002.jpg,2444,1776994722490.jpg,1620d4f2dc2c13aa,scale_with_item,True,0.105,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0008,sheet_002.jpg,11491,1776990970946.jpg,b47380dcdb2de33a,scale_with_item,True,0.235,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0009,sheet_003.jpg,1634,1776999946397.jpg,beb7c42839398d85,item_no_scale,,,,not_visible,indeterminate,,,,wrapper reads 'JUMBO ... UBE QUESO POSTILLOS'; possible volume figure near top not clearly legible
+sonnet_w01,v1.0,sweep_c2,0010,sheet_003.jpg,5109,1773718137623.jpg,e76d5d2b9c358ea6,scale_with_item,True,0.065,True,clear,none_shown,,,,item is a 'Chocolate Crispy' wrapped ice cream bar
+sonnet_w01,v1.0,sweep_c2,0011,sheet_003.jpg,5120,1773713566210.jpg,384df0185b313d38,scale_with_item,True,0.400,True,clear,none_shown,,,,item is a bagged loaf labeled 'Vite Bread'
+sonnet_w01,v1.0,sweep_c2,0012,sheet_003.jpg,2668,1776218516455.jpg,13d952c35225bf79,scale_with_item,True,0.610,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0013,sheet_004.jpg,9552,1773987411605.jpg,9ec54e9d7b23234e,scale_with_item,True,,,not_visible,indeterminate,,,,"display shows dim all-segment (blank) pattern, not a live reading"
+sonnet_w01,v1.0,sweep_c2,0014,sheet_004.jpg,6949,1778111402193.jpg,b605ca83a30c60a9,scale_with_item,True,0.650,True,clear,kg,,,,scale housing prints 'Weight (kg)' as a fixed label
+sonnet_w01,v1.0,sweep_c2,0015,sheet_004.jpg,9687,1773992584995.jpg,6c2bd2d316724e0c,scale_with_item,True,0.415,True,clear,none_shown,,,,item is a bagged sliced bread loaf
+sonnet_w01,v1.0,sweep_c2,0016,sheet_004.jpg,5421,1774655104338.jpg,6a1505a7d32bfcd7,scale_with_item,True,0.115,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0017,sheet_005.jpg,2409,1776471432783.jpg,20a3610802052600,item_no_scale,,,,not_visible,indeterminate,375 mL,375.0,mL,"label reads 'TANDUAY RHUM DARK, 80 PROOF'"
+sonnet_w01,v1.0,sweep_c2,0018,sheet_005.jpg,7595,1774419627778.jpg,ea55a33bc19f379f,scale_with_item,True,0.090,True,probable,none_shown,,,,scale photographed at an angle/rotated; digits legible but sideways
+sonnet_w01,v1.0,sweep_c2,0019,sheet_005.jpg,9789,1773967474115.jpg,be972d4cfea96612,scale_with_item,True,0.045,True,clear,none_shown,NET WT. 1.41 oz (40g),1.41,oz,bag is 'Roast Beef Flavored Potato Crisps'; parenthetical (40g) also printed
+sonnet_w01,v1.0,sweep_c2,0020,sheet_005.jpg,824,1778028816971.jpg,2e6b32f87ec89942,scale_with_item,True,0.108,True,probable,none_shown,,,,last digit slightly uncertain
+sonnet_w01,v1.0,sweep_c2,0021,sheet_006.jpg,1651,1777082401481.jpg,5df2e443a4e024a5,item_no_scale,,,,not_visible,indeterminate,750 mL,750.0,mL,label reads 'TANDUAY RHUM DARK'
+sonnet_w01,v1.0,sweep_c2,0022,sheet_006.jpg,9611,1773997023325.jpg,cad848d3279c2ed1,scale_with_item,True,0.760,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0023,sheet_006.jpg,2600,1776302692219.jpg,9fa10688fc7a4962,scale_with_item,True,,,not_visible,indeterminate,,,,"display shows dim all-segment (blank) pattern, not a live reading"
+sonnet_w01,v1.0,sweep_c2,0024,sheet_006.jpg,5581,1774408793521.jpg,9ef9e69c4fc829a8,scale_with_item,True,0.320,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0025,sheet_007.jpg,613,1777867916089.jpg,e5ea32c3885da84f,scale_with_item,True,0.085,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0026,sheet_007.jpg,103,1778118987054.jpg,3bf2d5f8c44da3c1,scale_with_item,True,0.220,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0027,sheet_007.jpg,7866,1773973887575.jpg,fb95bfc69470c6e9,scale_with_item,True,0.125,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0028,sheet_007.jpg,9389,1774063138096.jpg,5a2becacddbd1e82,item_no_scale,,,,not_visible,indeterminate,375 mL,375.0,mL,label reads 'TANDUAY RHUM DARK'; standalone bottle on store counter
+sonnet_w01,v1.0,sweep_c2,0029,sheet_008.jpg,9159,1778464010872.jpg,b9ed28fd01f5498f,scale_with_item,True,1.440,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0030,sheet_008.jpg,3182,1776911604639.jpg,7ab12adf0e89998c,scale_with_item,True,0.510,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0031,sheet_008.jpg,813,1777424431544.jpg,9fe271d63b28fb9f,scale_with_item,True,0.165,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0032,sheet_008.jpg,4134,1775873843938.jpg,f22021b17d7da9fb,scale_with_item,True,0.200,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0033,sheet_009.jpg,14,1778292531547.jpg,5b773ef4f15fa806,scale_with_item,True,0.090,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0034,sheet_009.jpg,4939,1775534417181.jpg,5eca4153a1d32ace,label_closeup,,,,not_visible,indeterminate,,,,Selecta Ice Pop package on counter; price 'P10' visible but no weight/volume printed visibly
+sonnet_w01,v1.0,sweep_c2,0035,sheet_009.jpg,5423,1774580521250.jpg,e52efae980e63b87,scale_with_item,True,0.115,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0036,sheet_009.jpg,59,1778298981027.jpg,4851e9c4d7d8ae3e,scale_with_item,True,0.180,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0037,sheet_010.jpg,105,1778204787227.jpg,38e984d0e0f602ea,scale_with_item,True,0.215,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0038,sheet_010.jpg,5163,1775868763381.jpg,79d2eeb6122fc19e,scale_with_item,True,0.240,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0039,sheet_010.jpg,9371,1774313650033.jpg,807af7b0c98d4b6b,scale_with_item,True,0.710,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0040,sheet_010.jpg,9624,1773969895889.jpg,d318c5e3260aed80,scale_with_item,True,,,not_visible,indeterminate,,,,"display shows dim all-segment (blank) pattern, not a live reading"
+sonnet_w01,v1.0,sweep_c2,0041,sheet_011.jpg,9576,1773880056793.jpg,4759899580a50eb8,scale_with_item,True,0.115,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0042,sheet_011.jpg,7696,1774421653595.jpg,73242bdd114a9739,scale_with_item,True,0.600,True,clear,none_shown,,,,item appears to be packaged sausages/meat rolls in plastic
+sonnet_w01,v1.0,sweep_c2,0043,sheet_011.jpg,9443,1773722935812.jpg,a145077ff9840059,scale_with_item,True,0.240,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0044,sheet_011.jpg,854,1777448667164.jpg,2b69bf407ce6d989,scale_with_item,True,0.280,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0045,sheet_012.jpg,11168,1776826269121.jpg,ea77c1bca1d4c4a9,label_closeup,,,,not_visible,indeterminate,60mL,60.0,mL,'Boom Boom! Pinipig Chocolate' ice cream bar wrapper; also shows '160 CALORIES'
+sonnet_w01,v1.0,sweep_c2,0046,sheet_012.jpg,403,1777265375758.jpg,ac35dcdba1e737f7,item_no_scale,,,,not_visible,indeterminate,750 mL,750.0,mL,"label reads 'TANDUAY RHUM LIGHT, Smooth Spirit'"
+sonnet_w01,v1.0,sweep_c2,0047,sheet_012.jpg,9312,1774061026271.jpg,771b426f66c3c63b,scale_with_item,True,0.115,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0048,sheet_012.jpg,8434,1775695280058.jpg,5d1812a7aa7cf8f6,scale_with_item,True,0.380,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0049,sheet_013.jpg,9853,1773892939922.jpg,d5ae83c68fc4014e,scale_with_item,True,0.205,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0050,sheet_013.jpg,145,1778208055011.jpg,7e393fc3a22df47b,item_no_scale,,,,not_visible,indeterminate,375 mL,375.0,mL,"label reads 'TANDUAY RHUM LIGHT, Smooth Spirit, 55 PROOF'"
+sonnet_w01,v1.0,sweep_c2,0051,sheet_013.jpg,9780,1773891409239.jpg,00725357126a40e2,scale_with_item,True,0.030,True,clear,none_shown,,,,item is a bag of 'Nutri Star Chicken BBQ Crunchy Snack'
+sonnet_w01,v1.0,sweep_c2,0052,sheet_013.jpg,9300,1774052679965.jpg,f24c6ec359ea2a37,scale_with_item,True,0.330,True,probable,none_shown,,,,display digits small/slightly dim in frame
+sonnet_w01,v1.0,sweep_c2,0053,sheet_014.jpg,4972,1775528808367.jpg,948d577791ced075,scale_with_item,True,0.270,True,clear,none_shown,,,,item is meat cubes in a plastic bag
+sonnet_w01,v1.0,sweep_c2,0054,sheet_014.jpg,6454,1774055371617.jpg,51c7bd5d9a0439b3,label_closeup,,,,not_visible,indeterminate,45g,45.0,g,"'Piattos Cheese Flavored Potato Crisps' bag; net weight text small, read with some uncertainty"
+sonnet_w01,v1.0,sweep_c2,0055,sheet_014.jpg,8622,1773901769126.jpg,2f610d5a957a10aa,scale_with_item,True,0.450,True,clear,none_shown,,,,item is an iced milk tea/coffee cup
+sonnet_w01,v1.0,sweep_c2,0056,sheet_014.jpg,9785,1773968432743.jpg,e770432df13f46ab,scale_with_item,True,0.100,True,clear,none_shown,,,,item is a 'Chicharron Mang Juan' snack bag
+sonnet_w01,v1.0,sweep_c2,0057,sheet_015.jpg,10765,1777422226308.jpg,d53e332b1391b81f,scale_with_item,True,0.140,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0058,sheet_015.jpg,6,1778295456945.jpg,b5de5eb7d586fd6a,scale_with_item,True,0.145,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0059,sheet_015.jpg,6152,1773800416323.jpg,985d02d4facdd694,scale_with_item,True,0.140,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0060,sheet_015.jpg,11490,1776990659725.jpg,093ec7252fb6c5cb,scale_with_item,True,0.260,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0061,sheet_016.jpg,9040,1775521004181.jpg,403bfa938acc3da8,scale_with_item,True,0.305,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0062,sheet_016.jpg,392,1777347263067.jpg,155502ed4327b137,item_no_scale,,,,not_visible,indeterminate,375 mL,375.0,mL,"label reads 'TANDUAY RHUM DARK, 80 PROOF'"
+sonnet_w01,v1.0,sweep_c2,0063,sheet_016.jpg,6496,1774321320859.jpg,a086f6c72a061cee,scale_with_item,True,0.040,True,clear,none_shown,,,,item is a small pink container/cup
+sonnet_w01,v1.0,sweep_c2,0064,sheet_016.jpg,2655,1776217135525.jpg,0aaac5f637d189ae,scale_with_item,True,0.220,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0065,sheet_017.jpg,8767,1775704731507.jpg,3b251ac511b3f42c,scale_with_item,True,0.195,True,probable,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0066,sheet_017.jpg,9694,1773902875514.jpg,f1228d9b3ba737ab,scale_with_item,True,0.215,True,probable,none_shown,,,,reflection/glare partly overlays the display
+sonnet_w01,v1.0,sweep_c2,0067,sheet_017.jpg,1753,1776647956424.jpg,92adf781d432645d,scale_with_item,True,,,not_visible,indeterminate,,,,"display shows dim all-segment (blank) pattern, not a live reading"
+sonnet_w01,v1.0,sweep_c2,0068,sheet_017.jpg,8481,1775703803989.jpg,6e9ae1d086b835d8,scale_with_item,True,0.875,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0069,sheet_018.jpg,5966,1774491239222.jpg,33095c428f54910f,label_closeup,,,,not_visible,indeterminate,NET WT. 1.15 KG,1.15,kg,"frozen 'Bossing Chicken Franks King Size, 15 Pieces' package"
+sonnet_w01,v1.0,sweep_c2,0070,sheet_018.jpg,399,1777263705919.jpg,39aa1d649abf65df,item_no_scale,,,,not_visible,indeterminate,750 mL,750.0,mL,"label reads 'TANDUAY RHUM LIGHT, Smooth Spirit'; volume text small and partly faded"
+sonnet_w01,v1.0,sweep_c2,0071,sheet_018.jpg,2371,1776387166744.jpg,df183f328dbfdfa2,scale_with_item,True,0.110,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0072,sheet_018.jpg,107,1778118609675.jpg,e80d4d0649454f2c,scale_with_item,True,0.145,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0073,sheet_019.jpg,9756,1773888978528.jpg,d97ae48a797c8972,scale_with_item,True,0.240,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0074,sheet_019.jpg,5159,1775867871544.jpg,96f367cfbca87f48,scale_with_item,True,0.180,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0075,sheet_019.jpg,7596,1774419663518.jpg,58da4951aae5abf4,scale_with_item,True,0.175,True,clear,none_shown,,,,two small potatoes on scale
+sonnet_w01,v1.0,sweep_c2,0076,sheet_019.jpg,7590,1774491861326.jpg,a8ea91ad5fe169e3,scale_with_item,True,0.185,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0077,sheet_020.jpg,5468,1774577281675.jpg,7a68a8ef8789e8a1,item_no_scale,,,,not_visible,indeterminate,375 mL,375.0,mL,"label reads 'TANDUAY RHUM LIGHT, Smooth Spirit, 55 PROOF'"
+sonnet_w01,v1.0,sweep_c2,0078,sheet_020.jpg,5169,1775865097157.jpg,97622b9fe98a16e0,scale_with_item,True,0.060,True,clear,none_shown,,,,item is a small dressed/skinned whole bird
+sonnet_w01,v1.0,sweep_c2,0079,sheet_020.jpg,811,1777425390878.jpg,9a8962d2ecbfe405,scale_with_item,True,0.675,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0080,sheet_020.jpg,9631,1773967675771.jpg,13096b50644dffb2,scale_with_item,True,0.170,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0081,sheet_021.jpg,7563,1774484683137.jpg,60452394d95a7548,scale_with_item,True,0.505,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0082,sheet_021.jpg,4400,1776132223189.jpg,836b751c1c15a968,scale_with_item,True,0.140,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0083,sheet_021.jpg,1743,1776649056016.jpg,17fa2eff4df1c237,scale_with_item,True,0.125,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0084,sheet_021.jpg,6187,1773802465492.jpg,a22ae016a55e62ee,scale_with_item,True,0.025,True,clear,none_shown,,,,item is a small dark packaged item
+sonnet_w01,v1.0,sweep_c2,0085,sheet_022.jpg,339,1777950080968.jpg,622bb3620a552163,scale_with_item,True,,,not_visible,indeterminate,,,,"display shows dim all-segment (blank) pattern, not a live reading"
+sonnet_w01,v1.0,sweep_c2,0086,sheet_022.jpg,6127,1773708595920.jpg,dee10bd4b975de2f,scale_with_item,True,0.205,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0087,sheet_022.jpg,584,1777865609186.jpg,9c3b0b8159ae5014,scale_with_item,True,0.365,True,clear,none_shown,,,,sweet potatoes visible in basket below are not on the scale
+sonnet_w01,v1.0,sweep_c2,0088,sheet_022.jpg,9866,1773884278378.jpg,f85ef76a034ba405,scale_with_item,True,0.150,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0089,sheet_023.jpg,4544,1776299783553.jpg,e0845d2748830cb7,scale_with_item,True,0.125,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0090,sheet_023.jpg,877,1777539324834.jpg,d32d697be0f31fe2,item_no_scale,,,,not_visible,indeterminate,375 mL,375.0,mL,"back label of 'TANDUAY RHUM LIGHT, 55 PROOF' bottle with barcode"
+sonnet_w01,v1.0,sweep_c2,0091,sheet_023.jpg,5580,1774408776528.jpg,80a981123997bef9,scale_with_item,True,0.210,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0092,sheet_023.jpg,6170,1773800369197.jpg,67c59aab79ec48c0,scale_with_item,True,0.180,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0093,sheet_024.jpg,4396,1776132104402.jpg,e20733a36f536ebf,scale_with_item,True,0.220,True,clear,none_shown,,,,close-up of leafy greens on scale
+sonnet_w01,v1.0,sweep_c2,0094,sheet_024.jpg,679,1777866972316.jpg,f3d0fb2af8e05f3f,scale_with_item,True,0.065,True,clear,none_shown,,,,item is a small red handled tool/object
+sonnet_w01,v1.0,sweep_c2,0095,sheet_024.jpg,2714,1776223458772.jpg,fe35ed2fd4bd3f3f,item_no_scale,,,,not_visible,indeterminate,750 mL,750.0,mL,"label reads 'TANDUAY RHUM LIGHT, Smooth Spirit'; box of smaller bottles visible behind"
+sonnet_w01,v1.0,sweep_c2,0096,sheet_024.jpg,9326,1774328107451.jpg,4e5fd278685d513d,scale_with_item,True,0.095,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0097,sheet_025.jpg,4382,1776216071948.jpg,2bb0c578eb496298,scale_with_item,True,0.480,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0098,sheet_025.jpg,2589,1776750613995.jpg,50fc67d543897b7d,item_no_scale,,,,not_visible,indeterminate,750 mL,750.0,mL,label reads 'TANDUAY RHUM DARK'; a price tag 'PHP 56.00' is visible nearby but is not on the bottle
+sonnet_w01,v1.0,sweep_c2,0099,sheet_025.jpg,9640,1773986944427.jpg,a3e97596908ea211,scale_with_item,True,0.055,True,clear,none_shown,,,,item is a small cup
+sonnet_w01,v1.0,sweep_c2,0100,sheet_025.jpg,6203,1773806888949.jpg,d268ea45b433ff57,scale_with_item,True,0.380,True,clear,none_shown,,,,item is a cup of shaved-ice dessert
+sonnet_w01,v1.0,sweep_c2,0101,sheet_026.jpg,102,1778118972103.jpg,61aa2f7826f79fc7,scale_with_item,True,0.105,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0102,sheet_026.jpg,6455,1774055395924.jpg,ba626d820079fcfd,label_closeup,,,,not_visible,indeterminate,,,,"'Regent Snacku Rice Crackers, Vegetable Flavored' bag; 'Net Weight' text visible but value cut off/not legible"
+sonnet_w01,v1.0,sweep_c2,0103,sheet_026.jpg,1652,1777080054228.jpg,3731f5231accd34a,item_no_scale,,,,not_visible,indeterminate,,,,"bottle reads 'TANDUAY SELECT BLENDED...'; label partly obscured by hand and canned goods, no legible volume text"
+sonnet_w01,v1.0,sweep_c2,0104,sheet_026.jpg,4983,1775703690524.jpg,815b758f52af558b,scale_with_item,True,0.165,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0105,sheet_027.jpg,7585,1774419090994.jpg,8ce00bbac88ed364,scale_with_item,True,0.165,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0106,sheet_027.jpg,8125,1775870344983.jpg,bfab54e52f6f735f,scale_with_item,True,0.260,True,clear,none_shown,,,,item is a bone-in meat piece
+sonnet_w01,v1.0,sweep_c2,0107,sheet_027.jpg,112,1778118221302.jpg,54d03968e32477cb,scale_with_item,True,0.685,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0108,sheet_027.jpg,6125,1773709435593.jpg,cc67f758f50fd568,scale_with_item,True,0.155,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0109,sheet_028.jpg,9681,1773995933139.jpg,3368eb1ed96bba46,scale_with_item,True,0.480,True,probable,none_shown,,,,"item is 'Angelina Medium Loaf' bread bag, partially obscuring the display; a faint 'Net Wt' line is on the bag but the value is not clearly legible"
+sonnet_w01,v1.0,sweep_c2,0110,sheet_028.jpg,2662,1776216926030.jpg,00edb2d1511d057a,scale_with_item,True,0.205,True,clear,none_shown,,,,item is shredded cabbage and carrot
+sonnet_w01,v1.0,sweep_c2,0111,sheet_028.jpg,10809,1777423540478.jpg,e54fef34ff5eacbb,scale_with_item,True,0.060,True,clear,none_shown,,,,item is a red candy/jelly stick
+sonnet_w01,v1.0,sweep_c2,0112,sheet_028.jpg,2929,1776653752200.jpg,d31cd9278484d7ff,item_no_scale,,,,not_visible,indeterminate,Net Content: 110mL,110.0,mL,'Choco Vanilla Ice Cream in Sugar Cone' wrapper held in hand
+sonnet_w01,v1.0,sweep_c2,0113,sheet_029.jpg,5126,1773711907574.jpg,efeaf4a7de07892a,scale_with_item,True,0.415,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0114,sheet_029.jpg,4406,1776132553959.jpg,e7ae8d48ed617d99,scale_with_item,True,0.265,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0115,sheet_029.jpg,9686,1773895677590.jpg,79df5065600e475e,scale_with_item,True,0.385,True,clear,none_shown,,,,item appears to be a bagged food item
+sonnet_w01,v1.0,sweep_c2,0116,sheet_029.jpg,5456,1774583760541.jpg,babae01ad0815a0d,scale_with_item,True,0.090,True,clear,none_shown,,,,item is a small orange plastic tool
+sonnet_w01,v1.0,sweep_c2,0117,sheet_030.jpg,3161,1776909770980.jpg,2c833321d37f2c30,scale_with_item,True,0.180,True,probable,none_shown,,,,image slightly blurred
+sonnet_w01,v1.0,sweep_c2,0118,sheet_030.jpg,9659,1773968953451.jpg,85ccb5baf6c72f77,item_no_scale,,,,not_visible,indeterminate,,,,label reads 'TANDUAY RHUM DARK'; volume text not clearly legible in frame
+sonnet_w01,v1.0,sweep_c2,0119,sheet_030.jpg,6110,1773708130557.jpg,685666442d5cc77a,scale_with_item,True,0.970,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0120,sheet_030.jpg,5571,1774408125255.jpg,3d1d281744cb2495,scale_with_item,True,0.405,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0121,sheet_031.jpg,2612,1776217949497.jpg,87c5163330c58896,scale_with_item,True,0.225,True,clear,none_shown,,,,"item is mixed vegetable trimmings (cabbage, carrot, tomato, chili)"
+sonnet_w01,v1.0,sweep_c2,0122,sheet_031.jpg,8492,1775786507680.jpg,cc70ac88cb54e349,item_no_scale,,,,not_visible,indeterminate,375 mL,375.0,mL,"label reads 'TANDUAY RHUM DARK, 80 PROOF'"
+sonnet_w01,v1.0,sweep_c2,0123,sheet_031.jpg,919,1777509264770.jpg,fbd3eb5d34badacc,scale_with_item,True,0.505,True,probable,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0124,sheet_031.jpg,9329,1774066291174.jpg,af7da9ce253269e6,scale_with_item,True,0.085,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0125,sheet_032.jpg,319,1777951176678.jpg,2b11011e592fb885,scale_with_item,True,0.385,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0126,sheet_032.jpg,2438,1777083825386.jpg,184c93d6e01f733a,scale_with_item,True,0.800,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0127,sheet_032.jpg,9610,1773906440307.jpg,4ef7e8354adac201,scale_with_item,True,0.795,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0128,sheet_032.jpg,2664,1776218026815.jpg,82256a7d58c668a0,item_no_scale,,,,not_visible,indeterminate,,,,shredded cabbage and carrot resting on a chair seat; no scale in frame
+sonnet_w01,v1.0,sweep_c2,0129,sheet_033.jpg,9784,1773968407167.jpg,a61af88f8b93066b,scale_with_item,True,0.075,True,clear,none_shown,NET WT. 2.47 oz (70g),2.47,oz,'Mang Juan Chik'n Skin' crackling snack bag; parenthetical (70g) also printed
+sonnet_w01,v1.0,sweep_c2,0130,sheet_033.jpg,6172,1773812140109.jpg,b279d2dee696ccf4,scale_with_item,True,,,ambiguous,none_shown,,,,glare/reflection across the display obscures the digits; appears to start with 0.10 but cannot be confirmed
+sonnet_w01,v1.0,sweep_c2,0131,sheet_033.jpg,7842,1773884316716.jpg,922f14dcd4fbafa6,scale_with_item,True,0.285,True,clear,none_shown,,,,item is 'Nissin Butter Coconut' biscuit box
+sonnet_w01,v1.0,sweep_c2,0132,sheet_033.jpg,10417,1778569286813.jpg,c0850e4634a32b71,scale_with_item,True,1.175,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0133,sheet_034.jpg,2616,1776302447685.jpg,08560960e6ff4820,scale_with_item,True,0.160,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0134,sheet_034.jpg,11464,1776993250703.jpg,25abae7812e84926,scale_with_item,True,0.140,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0135,sheet_034.jpg,9464,1773797286968.jpg,8f5c935cc561eefc,scale_with_item,True,0.330,True,clear,none_shown,,,,items are wrapped 'Choco...' bread/bun packs
+sonnet_w01,v1.0,sweep_c2,0136,sheet_034.jpg,11126,1776823290113.jpg,2fea901b0758cf18,scale_with_item,True,0.095,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0137,sheet_035.jpg,5363,1774578806623.jpg,a8fcc19b234ee613,scale_with_item,True,0.275,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0138,sheet_035.jpg,8520,1778719778040.jpg,3499ff483ad41637,scale_with_item,True,0.865,True,probable,none_shown,,,,a faint reflected number overlays part of the display
+sonnet_w01,v1.0,sweep_c2,0139,sheet_035.jpg,859,1778033569965.jpg,89f49e6f190807f5,scale_with_item,True,,,not_visible,indeterminate,,,,"display shows dim all-segment (blank) pattern, not a live reading"
+sonnet_w01,v1.0,sweep_c2,0140,sheet_035.jpg,6139,1773709378840.jpg,6bbd9f6d7edd971b,scale_with_item,True,0.155,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0141,sheet_036.jpg,9514,1773969996595.jpg,80a1e7d9d5a65d90,scale_with_item,True,0.286,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0142,sheet_036.jpg,9736,1773886557036.jpg,d0e6a66486387f83,scale_with_item,True,0.250,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0143,sheet_036.jpg,7601,1774492658536.jpg,ff248a4777a37c2f,scale_with_item,True,,,not_visible,indeterminate,,,,"display shows dim all-segment (blank) pattern, not a live reading"
+sonnet_w01,v1.0,sweep_c2,0144,sheet_036.jpg,4988,1775701977093.jpg,16f7ce3d99c1c179,scale_with_item,True,0.095,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0145,sheet_037.jpg,5364,1774578841977.jpg,3b6824227f22099e,scale_with_item,True,0.305,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0146,sheet_037.jpg,340,1777950101519.jpg,f766e1b40f5b5c42,scale_with_item,True,,,not_visible,indeterminate,,,,"display shows dim all-segment (blank) pattern, not a live reading"
+sonnet_w01,v1.0,sweep_c2,0147,sheet_037.jpg,10758,1777421689381.jpg,b8584c06b5b757b8,scale_with_item,True,0.775,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0148,sheet_037.jpg,9766,1773885711581.jpg,2376edf6482fa1ea,scale_with_item,True,0.130,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0149,sheet_038.jpg,617,1777598963099.jpg,d2457eddc560abaf,scale_with_item,True,0.720,True,clear,none_shown,,,,item is chicken wing pieces
+sonnet_w01,v1.0,sweep_c2,0150,sheet_038.jpg,2258,1776389980012.jpg,4c09669b61ed7314,item_no_scale,,,,not_visible,indeterminate,1.75L,1.75,L,'Sprite' bottle; label also shows promotional text 'FREE 250 mL'
+sonnet_w01,v1.0,sweep_c2,0151,sheet_038.jpg,9850,1773972447607.jpg,344c2479367d9324,scale_with_item,True,0.285,True,clear,none_shown,,,,item is a bagged bread/flour product with a nutrition facts panel; net weight not clearly legible
+sonnet_w01,v1.0,sweep_c2,0152,sheet_038.jpg,6121,1773726593878.jpg,8990afa8d3163e61,scale_with_item,True,0.170,True,clear,none_shown,,,,item is wrapped in a plastic bag
+sonnet_w01,v1.0,sweep_c2,0153,sheet_039.jpg,9561,1773879885975.jpg,5a19d9a96f2585b5,scale_with_item,True,0.110,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0154,sheet_039.jpg,10962,1776651549117.jpg,2bf775ba1cd2e265,scale_with_item,True,1.160,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0155,sheet_039.jpg,350,1777264566880.jpg,b4696a9e9dd633aa,scale_with_item,True,0.605,True,clear,none_shown,,,,item is chicken pieces
+sonnet_w01,v1.0,sweep_c2,0156,sheet_039.jpg,6952,1778111195907.jpg,c9305ec66190a610,scale_with_item,True,0.140,True,clear,kg,,,,scale housing prints 'WEIGHT (kg)' as a fixed label
+sonnet_w01,v1.0,sweep_c2,0157,sheet_040.jpg,8977,1773969923664.jpg,296d650321af61e1,scale_with_item,True,0.048,True,probable,none_shown,,,,item is a red candy stick
+sonnet_w01,v1.0,sweep_c2,0158,sheet_040.jpg,7820,1773890518371.jpg,d2307554e5f9c03f,scale_with_item,True,0.020,True,probable,none_shown,,,,display screen is worn/dim
+sonnet_w01,v1.0,sweep_c2,0159,sheet_040.jpg,4115,1775873396532.jpg,9d2fdbee581ef8c5,scale_with_item,True,0.695,True,clear,none_shown,,,,
+sonnet_w01,v1.0,sweep_c2,0160,sheet_040.jpg,5127,1773712045998.jpg,3b38bd3b0d16cf6e,scale_with_item,True,0.550,True,clear,none_shown,,,,
 sonnet_w02,v1.0,sweep_c2,0161,sheet_041.jpg,2580,1776750555322.jpg,1b22d1c6845fbad3,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"bottle held in hand, no scale in frame"
 sonnet_w02,v1.0,sweep_c2,0162,sheet_041.jpg,883,1777515206582.jpg,63a0320144f0c1c2,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"bottle held in hand near a table, no scale in frame"
 sonnet_w02,v1.0,sweep_c2,0163,sheet_041.jpg,11489,1776994985880.jpg,db1183371c1fc314,scale_with_item,True,0.205,True,clear,none_shown,,,,mango on scale
@@ -1278,3 +1438,928 @@ sonnet_w09,v1.0,sweep_c2,1437,sheet_360.jpg,2499,1777087586690.jpg,da19cfea6716b
 sonnet_w09,v1.0,sweep_c2,1438,sheet_360.jpg,9626,1773997708682.jpg,162b8cd72576eecc,scale_with_item,True,0.280,True,clear,none_shown,,,,
 sonnet_w09,v1.0,sweep_c2,1439,sheet_360.jpg,8446,1775788721817.jpg,29ce5e8c3f9cab99,scale_with_item,True,0.140,True,clear,none_shown,,,,
 sonnet_w09,v1.0,sweep_c2,1440,sheet_360.jpg,60,1778296610754.jpg,0d8d72ad60cba2fa,scale_with_item,True,0.130,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1441,sheet_361.jpg,8493,1775781366626.jpg,266a01903d807914,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand; label also shows 55 PROOF
+sonnet_w10,v1.0,sweep_c2,1442,sheet_361.jpg,3147,1776824898275.jpg,a2b4d79f25511308,scale_with_item,True,0.380,True,probable,none_shown,,,,cabbage on scale; weight row partly glared
+sonnet_w10,v1.0,sweep_c2,1443,sheet_361.jpg,5588,1774408275669.jpg,47bdf2c63fa4e413,scale_with_item,True,0.210,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1444,sheet_361.jpg,10690,1777603040385.jpg,a21860ab5f6922aa,item_no_scale,,,,not_visible,none_shown,,,,leafy greens on a metal surface; no scale display visible in frame
+sonnet_w10,v1.0,sweep_c2,1445,sheet_362.jpg,2529,1776664503327.jpg,88d4bf6faadc309f,scale_with_item,True,0.425,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1446,sheet_362.jpg,320,1777951196406.jpg,e0d29a9a9ca4946f,scale_with_item,True,0.790,True,probable,none_shown,,,,slight glare on display
+sonnet_w10,v1.0,sweep_c2,1447,sheet_362.jpg,1475,1777450707934.jpg,523c6c509667ab57,scale_with_item,True,1.085,True,clear,none_shown,,,,whole chicken on scale
+sonnet_w10,v1.0,sweep_c2,1448,sheet_362.jpg,806,1777447910367.jpg,e3dc706d6d653e95,scale_with_item,True,,,ambiguous,none_shown,,,,"weight row obscured by glare/overlap with keypad, not confidently readable"
+sonnet_w10,v1.0,sweep_c2,1449,sheet_363.jpg,9035,1775525887448.jpg,1bb481a58f061fdc,scale_with_item,True,,,ambiguous,none_shown,,,,"weight and price rows show unclear/dim digits, possibly a blank-display artifact; not confidently readable"
+sonnet_w10,v1.0,sweep_c2,1450,sheet_363.jpg,109,1778117223598.jpg,a3ededf51eb05c8d,scale_with_item,True,0.120,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1451,sheet_363.jpg,5233,1776043707559.jpg,ebac934dc1a39380,label_closeup,,,,not_visible,none_shown,Net Content: 95mL (45g),95.0,mL,packaged ice cream/snack items on a shelf; package also states 45 g
+sonnet_w10,v1.0,sweep_c2,1452,sheet_363.jpg,9303,1774053313704.jpg,e0c5742f7260a46d,scale_with_item,True,,,ambiguous,none_shown,,,,"image rotated ~90 degrees, digits not confidently readable"
+sonnet_w10,v1.0,sweep_c2,1453,sheet_364.jpg,5135,1775868609565.jpg,23ae9d5f6e6d9efd,scale_with_item,True,0.410,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1454,sheet_364.jpg,5112,1773803103151.jpg,681ffe613a8f728e,scale_with_item,True,0.605,True,probable,none_shown,,,,Tanduay bottle on scale; display legible but with glare
+sonnet_w10,v1.0,sweep_c2,1455,sheet_364.jpg,2650,1776305817615.jpg,eb972723524bfdb1,scale_with_item,True,0.070,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1456,sheet_364.jpg,9445,1773726939000.jpg,da83fc661cec6ef2,scale_with_item,True,0.080,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1457,sheet_365.jpg,6106,1773709169064.jpg,3966c50c4be87085,scale_with_item,True,0.515,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1458,sheet_365.jpg,9734,1773885560527.jpg,f8944ebf5cccc20b,scale_with_item,True,0.475,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1459,sheet_365.jpg,7571,1774420292607.jpg,b0492b057898881a,scale_with_item,True,0.690,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1460,sheet_365.jpg,4594,1776298893800.jpg,c9c338fd9d6d6c2c,scale_with_item,True,0.075,True,clear,none_shown,,,,fish on scale
+sonnet_w10,v1.0,sweep_c2,1461,sheet_366.jpg,2711,1776307303241.jpg,58c16d5d4c1e4995,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held; also shows 55 PROOF
+sonnet_w10,v1.0,sweep_c2,1462,sheet_366.jpg,9669,1773992337726.jpg,81768f99bbacd840,scale_with_item,True,0.610,True,probable,none_shown,,,,"bag of item on scale, sign before digits possibly tare indicator"
+sonnet_w10,v1.0,sweep_c2,1463,sheet_366.jpg,9019,1775520637183.jpg,906f5587661956e9,scale_with_item,True,0.505,True,clear,none_shown,,,,garlic bulb on scale
+sonnet_w10,v1.0,sweep_c2,1464,sheet_366.jpg,6955,1778111542124.jpg,b853d22c0f97b586,scale_with_item,True,0.140,True,clear,none_shown,,,,carrot on a different-style digital scale display; weight shown with tare 0
+sonnet_w10,v1.0,sweep_c2,1465,sheet_367.jpg,3723,1775697769874.jpg,129f13d65b8e148a,scale_with_item,True,0.090,True,clear,none_shown,,,,small tamarind-like fruit on scale
+sonnet_w10,v1.0,sweep_c2,1466,sheet_367.jpg,11477,1776997911798.jpg,560e9f2f26879baa,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle, standing, 80 proof, Gold Seal Five Years"
+sonnet_w10,v1.0,sweep_c2,1467,sheet_367.jpg,2647,1776216359687.jpg,355a752e4a4553cd,scale_with_item,True,0.070,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1468,sheet_367.jpg,602,1777598439844.jpg,061f6274beb4e5be,scale_with_item,True,0.635,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w10,v1.0,sweep_c2,1469,sheet_368.jpg,906,1778034178247.jpg,5a9c6a3ebd0272ca,scale_with_item,True,0.160,True,probable,none_shown,,,,small yellowish fruit on scale; digits partly indistinct
+sonnet_w10,v1.0,sweep_c2,1470,sheet_368.jpg,1776,1779239773069.jpg,99fcfab0332bfdf8,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held close-up, 80 proof, Gold Seal Five Years"
+sonnet_w10,v1.0,sweep_c2,1471,sheet_368.jpg,1653,1777000665803.jpg,b4bc4838a69b7255,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Light bottle on table
+sonnet_w10,v1.0,sweep_c2,1472,sheet_368.jpg,2492,1777001240809.jpg,9094814b9bb23dd5,scale_with_item,True,0.080,True,clear,none_shown,,,,small white sausage/dumpling item on scale
+sonnet_w10,v1.0,sweep_c2,1473,sheet_369.jpg,8057,1775876032423.jpg,c7abee7f68e2942c,scale_with_item,True,0.145,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w10,v1.0,sweep_c2,1474,sheet_369.jpg,9430,1773799344987.jpg,6212443e6744e7a0,scale_with_item,True,0.070,True,clear,none_shown,,,,root vegetable (singkamas/turnip) on scale
+sonnet_w10,v1.0,sweep_c2,1475,sheet_369.jpg,2654,1776217112641.jpg,eddd00621c9d2002,scale_with_item,True,0.125,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1476,sheet_369.jpg,9071,1775613139329.jpg,787b34f19396c3eb,scale_with_item,True,,,not_visible,none_shown,,,,fish on scale; weight row shows dim all-segment (blank) pattern per instrument's blank-eights rule
+sonnet_w10,v1.0,sweep_c2,1477,sheet_370.jpg,9754,1773910641644.jpg,0a50972693d62970,scale_with_item,True,0.070,True,clear,none_shown,,,,small potato on scale
+sonnet_w10,v1.0,sweep_c2,1478,sheet_370.jpg,10041,1778477588282.jpg,1e0f1674aec4263f,item_no_scale,,,,not_visible,none_shown,,,,Fruit Twister ice milk stick held in hand (apple & pineapple flavored); no weight/volume text visible in frame
+sonnet_w10,v1.0,sweep_c2,1479,sheet_370.jpg,9586,1773987339085.jpg,28fa80abeed3fbc6,scale_with_item,True,,,not_visible,none_shown,,,,carrot on scale; weight row shows dim all-segment (blank) pattern
+sonnet_w10,v1.0,sweep_c2,1480,sheet_370.jpg,3073,1776302577882.jpg,edc9c97f6f77b9a7,item_no_scale,,,,not_visible,none_shown,,,,Magnum Almond ice cream bar package; net weight not visible in frame
+sonnet_w10,v1.0,sweep_c2,1481,sheet_371.jpg,1708,1776649977682.jpg,90db9fdc0eb7b659,scale_with_item,True,0.325,True,probable,none_shown,,,,kangkong bundle on scale; last digit slightly uncertain
+sonnet_w10,v1.0,sweep_c2,1482,sheet_371.jpg,4223,1775872179761.jpg,a6f420f19ca6ddf7,scale_with_item,True,0.065,True,clear,none_shown,,,,red sausage/candle-shaped item labeled BOSSING on scale
+sonnet_w10,v1.0,sweep_c2,1483,sheet_371.jpg,6117,1778895306551.jpg,a6738bdb2c527f07,scale_with_item,True,0.000,True,clear,none_shown,,,,"wrapped packaged item on scale; display reads 0.000, possibly not yet settled"
+sonnet_w10,v1.0,sweep_c2,1484,sheet_371.jpg,7690,1774425399480.jpg,e9f45a5f6e0efc9e,scale_with_item,True,0.350,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1485,sheet_372.jpg,9384,1774057672302.jpg,0847c0a64abaf8e0,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held; 55 proof
+sonnet_w10,v1.0,sweep_c2,1486,sheet_372.jpg,7804,1773971679900.jpg,1c8fb577e860dde8,scale_with_item,True,0.530,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1487,sheet_372.jpg,5092,1773715357404.jpg,bef7563b88931afa,scale_with_item,True,0.290,True,clear,none_shown,,,,Jack 'n Jill Cream-O Cookies'n Cream package on scale; no printed weight visible
+sonnet_w10,v1.0,sweep_c2,1488,sheet_372.jpg,4891,1775872348440.jpg,269c797ee553bec2,item_no_scale,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,"Champion Hotdog Jumbo package, not on a scale"
+sonnet_w10,v1.0,sweep_c2,1489,sheet_373.jpg,9861,1773892162507.jpg,fa99a9bcbf89163c,scale_with_item,True,0.320,True,probable,none_shown,,,,mango on scale; display shows a leading dash (possibly TARE indicator)
+sonnet_w10,v1.0,sweep_c2,1490,sheet_373.jpg,10549,1777268855321.jpg,ac82e35cdaa4ded8,scale_with_item,True,0.465,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1491,sheet_373.jpg,8850,1775714935332.jpg,83a873b1828a2109,item_no_scale,,,,not_visible,none_shown,Net Content: 110mL,110.0,mL,"Rocky Road Ice Cream in Sugar Cone, held in hand"
+sonnet_w10,v1.0,sweep_c2,1492,sheet_373.jpg,8073,1775867084307.jpg,b5215dea84c9c1fc,scale_with_item,True,0.110,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1493,sheet_374.jpg,9409,1774056145567.jpg,67ce829815623b77,scale_with_item,True,0.580,True,clear,none_shown,,,,bundle of sausages/longganisa on scale
+sonnet_w10,v1.0,sweep_c2,1494,sheet_374.jpg,5185,1775866580610.jpg,7ad7d183a444d218,scale_with_item,True,0.230,True,clear,none_shown,,,,chicken leg/thigh on scale
+sonnet_w10,v1.0,sweep_c2,1495,sheet_374.jpg,9767,1773880419198.jpg,984bcaf30d706ee1,scale_with_item,True,0.125,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1496,sheet_374.jpg,1532,1777427570284.jpg,fc72194c94bd0f29,item_no_scale,,,,not_visible,none_shown,,,,hand holding two Tanduay Rhum Light bottles in a store; volume text not visible in frame
+sonnet_w10,v1.0,sweep_c2,1497,sheet_375.jpg,9697,1773905095997.jpg,f11b395401ff8a24,scale_with_item,True,0.220,True,clear,none_shown,,,,mango/potato on scale
+sonnet_w10,v1.0,sweep_c2,1498,sheet_375.jpg,7850,1778832777637.jpg,718e40ae715d5388,scale_with_item,True,0.466,True,clear,none_shown,,,,fish head in yellow bag on green digital scale display
+sonnet_w10,v1.0,sweep_c2,1499,sheet_375.jpg,16,1778292568459.jpg,dc95e414999b8179,scale_with_item,True,0.630,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1500,sheet_375.jpg,8050,1775866470721.jpg,be17353567cf4ea4,scale_with_item,True,0.275,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1501,sheet_376.jpg,10691,1777603127656.jpg,3ac2c3bbcb34112c,scale_with_item,True,0.310,True,clear,none_shown,,,,leafy greens on scale
+sonnet_w10,v1.0,sweep_c2,1502,sheet_376.jpg,5021,1775700922372.jpg,ae6b731191d26310,scale_with_item,True,0.215,True,clear,none_shown,,,,fish on scale
+sonnet_w10,v1.0,sweep_c2,1503,sheet_376.jpg,8443,1775695362397.jpg,f5e481ef2a9fa095,scale_with_item,True,0.095,True,clear,none_shown,,,,small carrot piece on scale
+sonnet_w10,v1.0,sweep_c2,1504,sheet_376.jpg,9864,1773884572418.jpg,65bc6b59942c9b23,scale_with_item,True,0.145,True,clear,none_shown,,,,pile of shrimp on scale
+sonnet_w10,v1.0,sweep_c2,1505,sheet_377.jpg,6477,1774051113734.jpg,b8a51882f0e4a601,scale_with_item,True,0.085,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1506,sheet_377.jpg,4856,1776046601290.jpg,49fb6ac141c92c00,label_closeup,,,,not_visible,none_shown,Net Content: 52g,52.0,g,Joyto Sweet Corn flavored ice milk package in a freezer
+sonnet_w10,v1.0,sweep_c2,1507,sheet_377.jpg,2689,1776219825361.jpg,a9fdbc34c317f22a,scale_with_item,True,0.825,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1508,sheet_377.jpg,6102,1773798497274.jpg,152cafb3d04ed41e,scale_with_item,True,0.235,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1509,sheet_378.jpg,10059,1773811538004.jpg,65f8b4e7fa493ff6,scale_with_item,True,1.215,True,clear,none_shown,,,,Tanduay Rhum Dark bottle on scale
+sonnet_w10,v1.0,sweep_c2,1510,sheet_378.jpg,9732,1773905473135.jpg,2f6063ab46036d4d,scale_with_item,True,0.200,True,clear,none_shown,,,,packaged meat item on scale
+sonnet_w10,v1.0,sweep_c2,1511,sheet_378.jpg,6619,1773802180757.jpg,d031e0a909b56ebf,scale_with_item,True,,,ambiguous,none_shown,,,,"Sweet Corn Stick snack pack on scale; display digits distorted/reflective, not confidently readable"
+sonnet_w10,v1.0,sweep_c2,1512,sheet_378.jpg,4431,1776130011785.jpg,a8797a201c87b13e,scale_with_item,True,1.065,True,clear,none_shown,,,,whole chicken on scale
+sonnet_w10,v1.0,sweep_c2,1513,sheet_379.jpg,9851,1773972465581.jpg,f4cdb4a0d1a8c22e,scale_with_item,True,0.430,True,clear,none_shown,,,,loaf of bread on scale
+sonnet_w10,v1.0,sweep_c2,1514,sheet_379.jpg,9524,1773904699151.jpg,03eb4c7bbf14cf39,scale_with_item,True,0.770,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1515,sheet_379.jpg,878,1777449295080.jpg,73d0b7c7b8729b26,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held; 80 proof, Gold Seal Five Years"
+sonnet_w10,v1.0,sweep_c2,1516,sheet_379.jpg,6480,1774051559980.jpg,fecceacde463cfed,scale_with_item,True,0.435,True,clear,none_shown,,,,fish on scale
+sonnet_w10,v1.0,sweep_c2,1517,sheet_380.jpg,391,1777345467427.jpg,c11734b1355724b7,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held; 80 proof, Gold Seal Five Years"
+sonnet_w10,v1.0,sweep_c2,1518,sheet_380.jpg,10057,1773807561400.jpg,7e64b1f4e56e42e5,scale_with_item,True,1.240,True,clear,none_shown,,,,Tanduay Rhum Light bottle on scale; volume text not clearly visible at this angle
+sonnet_w10,v1.0,sweep_c2,1519,sheet_380.jpg,6100,1773798689344.jpg,2696a4f5580c0564,scale_with_item,True,0.180,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1520,sheet_380.jpg,3727,1775696731461.jpg,7edd42bf771e44d8,scale_with_item,True,0.075,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1521,sheet_381.jpg,6165,1773799670502.jpg,aaa62ab5f8e616da,scale_with_item,True,0.178,True,probable,none_shown,,,,carrot on scale; last digit unclear due to glare
+sonnet_w10,v1.0,sweep_c2,1522,sheet_381.jpg,9435,1773726862367.jpg,f7558db573243c0b,scale_with_item,True,0.205,True,clear,none_shown,,,,sweet potato/yam on scale
+sonnet_w10,v1.0,sweep_c2,1523,sheet_381.jpg,648,1777599317630.jpg,4290581c1e0cbb02,scale_with_item,True,0.465,True,clear,none_shown,,,,fish partially wrapped in paper on scale
+sonnet_w10,v1.0,sweep_c2,1524,sheet_381.jpg,1605,1777080520246.jpg,62bbd2c640e2a07b,scale_with_item,True,1.050,True,clear,none_shown,,,,Magnolia Whole Chicken package on scale; no printed weight visible on packaging
+sonnet_w10,v1.0,sweep_c2,1525,sheet_382.jpg,6129,1773726373086.jpg,b5012621a27ebc47,scale_with_item,True,0.130,True,clear,none_shown,,,,kangkong greens on scale
+sonnet_w10,v1.0,sweep_c2,1526,sheet_382.jpg,8506,1775698880629.jpg,c91670387b4e8edd,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held; 80 proof
+sonnet_w10,v1.0,sweep_c2,1527,sheet_382.jpg,805,1777424277714.jpg,9b3566c2a2e02d4c,scale_with_item,True,0.980,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1528,sheet_382.jpg,588,1777597858497.jpg,f6fc666cbd3e3f34,scale_with_item,True,1.080,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1529,sheet_383.jpg,373,1777263980383.jpg,1593334bc8ad2854,item_no_scale,,,,not_visible,none_shown,NET WEIGHT 22.6g,22.6,g,Tiger Chocolate biscuit pack held in hand
+sonnet_w10,v1.0,sweep_c2,1530,sheet_383.jpg,7686,1774424700422.jpg,fda018628ea500df,scale_with_item,True,0.205,True,clear,none_shown,,,,mango on scale
+sonnet_w10,v1.0,sweep_c2,1531,sheet_383.jpg,106,1778118596815.jpg,6151436cbe855dde,scale_with_item,True,0.085,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1532,sheet_383.jpg,2866,1776649472419.jpg,af24c06bddba32cb,scale_with_item,True,1.180,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1533,sheet_384.jpg,9832,1773881537976.jpg,c7bbf9ebedc27a02,scale_with_item,True,0.060,True,clear,none_shown,,,,Creamdae ice cream cup on scale; no printed weight visible
+sonnet_w10,v1.0,sweep_c2,1534,sheet_384.jpg,9584,1773987265914.jpg,84a315cb43c942f1,scale_with_item,True,,,not_visible,none_shown,,,,carrot on scale; weight row shows dim all-segment (blank) pattern
+sonnet_w10,v1.0,sweep_c2,1535,sheet_384.jpg,10060,1773795261509.jpg,f2122b885578dd1b,scale_with_item,True,1.215,True,clear,none_shown,,,,"Tanduay bottle on scale, label partly visible"
+sonnet_w10,v1.0,sweep_c2,1536,sheet_384.jpg,318,1777261647519.jpg,b3af181386d19136,scale_with_item,True,0.860,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1537,sheet_385.jpg,6431,1774050015928.jpg,bacf38558cf5bf83,scale_with_item,True,0.090,True,clear,none_shown,,,,yam/sweet potato on scale
+sonnet_w10,v1.0,sweep_c2,1538,sheet_385.jpg,1749,1776741195448.jpg,1d8819bba3899886,scale_with_item,True,1.350,True,clear,none_shown,,,,Magnolia whole chicken in bag on scale; no printed weight visible on packaging
+sonnet_w10,v1.0,sweep_c2,1539,sheet_385.jpg,3203,1776820508925.jpg,c0c70dc3cce91093,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held; 55 proof
+sonnet_w10,v1.0,sweep_c2,1540,sheet_385.jpg,5422,1774581367386.jpg,bf2795daa2b31a7e,scale_with_item,True,,,ambiguous,none_shown,,,,"kangkong/greens bundle on scale; weight row partially dim/overlapping digits, appeared to show something like 0.080 but not confidently readable"
+sonnet_w10,v1.0,sweep_c2,1541,sheet_386.jpg,9698,1773905116686.jpg,30bbd1c4785e71d5,scale_with_item,True,0.250,True,clear,none_shown,,,,mango on scale
+sonnet_w10,v1.0,sweep_c2,1542,sheet_386.jpg,663,1777867220626.jpg,74fe9c95025b4def,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held
+sonnet_w10,v1.0,sweep_c2,1543,sheet_386.jpg,168,1778205789361.jpg,e565388b0213a653,scale_with_item,True,,,ambiguous,none_shown,,,,"mango on scale; digits unclear, appeared to show something like 0.016 but implausible for the item, not confidently readable"
+sonnet_w10,v1.0,sweep_c2,1544,sheet_386.jpg,7594,1774420505865.jpg,cc9e44c01540a5cd,scale_with_item,True,,,ambiguous,indeterminate,,,,sweet potato on an unusual industrial-style scale display; weight row not clearly identifiable
+sonnet_w10,v1.0,sweep_c2,1545,sheet_387.jpg,5442,1774580459547.jpg,e477ce73b6f04818,scale_with_item,True,0.165,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1546,sheet_387.jpg,6137,1773798921921.jpg,b83dd0c1ee6cacfe,scale_with_item,True,0.385,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w10,v1.0,sweep_c2,1547,sheet_387.jpg,9507,1773725500205.jpg,9417f16b8f136ddf,scale_with_item,True,0.290,True,clear,none_shown,,,,bag of rice/flour (Refina brand) on scale
+sonnet_w10,v1.0,sweep_c2,1548,sheet_387.jpg,6237,1773796250442.jpg,409a7fb6d2ddaa5b,scale_with_item,True,0.105,True,clear,none_shown,,,,"mango on scale, person's foot visible nearby"
+sonnet_w10,v1.0,sweep_c2,1549,sheet_388.jpg,10555,1777268008800.jpg,6350d588a17aa7da,scale_with_item,True,0.065,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w10,v1.0,sweep_c2,1550,sheet_388.jpg,64,1778297934439.jpg,7cc53ebc345c01ca,scale_with_item,True,,,ambiguous,none_shown,,,,"red sausage/candle-shaped item on scale; weight row partially dim, digits not confidently readable"
+sonnet_w10,v1.0,sweep_c2,1551,sheet_388.jpg,8497,1775779709298.jpg,9f38fb9de19b78a7,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held; 80 proof
+sonnet_w10,v1.0,sweep_c2,1552,sheet_388.jpg,13,1778292969948.jpg,18de5c1824f7b66c,scale_with_item,True,0.180,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1553,sheet_389.jpg,5570,1774408092953.jpg,cb89f16af2fd7b6d,scale_with_item,True,0.225,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1554,sheet_389.jpg,4231,1775870917301.jpg,6428b9971257ce6a,scale_with_item,True,0.495,True,clear,none_shown,,,,packaged sliced/rolled meat on scale
+sonnet_w10,v1.0,sweep_c2,1555,sheet_389.jpg,11128,1776823325240.jpg,4c1036a0c7232097,scale_with_item,True,0.235,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1556,sheet_389.jpg,6521,1774322723322.jpg,47135f27752f41bd,scale_with_item,True,0.355,True,clear,none_shown,,,,packaged meatballs/food cubes on scale
+sonnet_w10,v1.0,sweep_c2,1557,sheet_390.jpg,9018,1775612916802.jpg,b2269f6c914c169d,scale_with_item,True,,,ambiguous,none_shown,,,,"cabbage on scale; weight row digits partly dim/overlapping, appeared to show something like 0.910 but not confident"
+sonnet_w10,v1.0,sweep_c2,1558,sheet_390.jpg,11198,1776824310312.jpg,e85008f3928809f2,scale_with_item,True,0.170,True,clear,none_shown,,,,package labeled 'PORK SKINLESS (SMALL)' on scale; no numeric weight on the label itself
+sonnet_w10,v1.0,sweep_c2,1559,sheet_390.jpg,9082,1775606820345.jpg,f3fa91d2e5236e1c,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle standing on counter
+sonnet_w10,v1.0,sweep_c2,1560,sheet_390.jpg,5089,1773715106734.jpg,a9f1ae87fe60d4b3,scale_with_item,True,0.050,True,clear,none_shown,,,,Richoco wafer snack pack on scale
+sonnet_w10,v1.0,sweep_c2,1561,sheet_391.jpg,3341,1776223852044.jpg,fc571f32d0fc3735,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,multiple Tanduay Rhum Dark bottles on table; reading front bottle labeled 1 Liter
+sonnet_w10,v1.0,sweep_c2,1562,sheet_391.jpg,6108,1773708063594.jpg,e7132affecc7381f,scale_with_item,True,0.320,True,clear,none_shown,,,,small cabbage on scale
+sonnet_w10,v1.0,sweep_c2,1563,sheet_391.jpg,3160,1776825440952.jpg,5991c8f3b23e4998,scale_with_item,True,0.270,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w10,v1.0,sweep_c2,1564,sheet_391.jpg,9745,1773908466022.jpg,40ea97fb0e0d1bcc,scale_with_item,True,0.535,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1565,sheet_392.jpg,9542,1773905198044.jpg,b4cf5c68612482b5,scale_with_item,True,0.205,True,clear,none_shown,,,,wilted greens on scale
+sonnet_w10,v1.0,sweep_c2,1566,sheet_392.jpg,7663,1774490226443.jpg,14bdd12cb6dcdfd9,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held
+sonnet_w10,v1.0,sweep_c2,1567,sheet_392.jpg,7564,1774484717823.jpg,ac8e35ed6f72e180,scale_with_item,True,0.685,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1568,sheet_392.jpg,5165,1775867427427.jpg,e09496c316ee9192,scale_with_item,True,0.105,True,clear,none_shown,,,,carrot on white paper on scale
+sonnet_w10,v1.0,sweep_c2,1569,sheet_393.jpg,404,1777348887027.jpg,9962004a498e73ce,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held
+sonnet_w10,v1.0,sweep_c2,1570,sheet_393.jpg,585,1777865636254.jpg,72b2a601c40aeeed,scale_with_item,True,0.895,True,probable,none_shown,,,,cabbage on scale in crate of sweet potatoes; digit spacing slightly irregular
+sonnet_w10,v1.0,sweep_c2,1571,sheet_393.jpg,611,1777598342942.jpg,70d6854ab0e844a7,scale_with_item,True,,,not_visible,none_shown,,,,carrot on scale; weight row shows dim all-segment (blank) pattern
+sonnet_w10,v1.0,sweep_c2,1572,sheet_393.jpg,5022,1775700942770.jpg,54f95a759ce18579,scale_with_item,True,0.230,True,clear,none_shown,,,,fish on scale
+sonnet_w10,v1.0,sweep_c2,1573,sheet_394.jpg,6174,1773798851157.jpg,7f6377f87e36ffab,scale_with_item,True,,,ambiguous,none_shown,,,,"bag of sliced mixed vegetables on scale; digits partially dim/obscured, possibly 0.130 but not confident"
+sonnet_w10,v1.0,sweep_c2,1574,sheet_394.jpg,658,1777693017805.jpg,8c00962f57a5d9c4,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held; 80 proof
+sonnet_w10,v1.0,sweep_c2,1575,sheet_394.jpg,2713,1776222347007.jpg,3dfbd1a840d70c29,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Light bottle held
+sonnet_w10,v1.0,sweep_c2,1576,sheet_394.jpg,144,1778206713992.jpg,a81af0ab08037f4d,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,Tanduay Rhum Dark bottle held near vegetables
+sonnet_w10,v1.0,sweep_c2,1577,sheet_395.jpg,6423,1774323060792.jpg,f5b03a005cf049d2,scale_with_item,True,0.160,True,clear,none_shown,,,,leafy greens (kamote tops) on scale
+sonnet_w10,v1.0,sweep_c2,1578,sheet_395.jpg,9047,1775521637066.jpg,9c84d8d307bf627a,scale_with_item,True,0.100,True,clear,none_shown,,,,carrot on scale
+sonnet_w10,v1.0,sweep_c2,1579,sheet_395.jpg,3587,1775614062948.jpg,c8a3b87fbf3d088f,item_no_scale,,,,not_visible,none_shown,,,,Selecta Birthday 3-in-1 ice cream tub (Choco/Keso/Ube/Mango); no legible weight/volume text in frame
+sonnet_w10,v1.0,sweep_c2,1580,sheet_395.jpg,8527,1778718637090.jpg,418bf50b46e439c2,scale_with_item,True,,,not_visible,none_shown,,,,shrimp on scale; weight row shows dim all-segment (blank) pattern
+sonnet_w10,v1.0,sweep_c2,1581,sheet_396.jpg,11112,1776822847786.jpg,aae01c43c73bb8da,scale_with_item,True,0.445,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1582,sheet_396.jpg,9743,1773880172961.jpg,bb65470c59d58023,scale_with_item,True,0.455,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1583,sheet_396.jpg,9541,1773881448130.jpg,f2221a6a31dea43c,scale_with_item,True,0.175,True,clear,none_shown,,,,purple-leafed greens on scale
+sonnet_w10,v1.0,sweep_c2,1584,sheet_396.jpg,407,1777347222288.jpg,41e239af13aa21ab,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle held, store shelf with other bottles in background"
+sonnet_w10,v1.0,sweep_c2,1585,sheet_397.jpg,4399,1776132208357.jpg,89ecef35b2112ba5,scale_with_item,True,0.115,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w10,v1.0,sweep_c2,1586,sheet_397.jpg,9655,1773968867171.jpg,bb00c8d01b080054,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle standing on wooden table
+sonnet_w10,v1.0,sweep_c2,1587,sheet_397.jpg,5295,1775870217783.jpg,1c644e5c50b5f827,scale_with_item,True,0.175,True,clear,none_shown,,,,potato on scale
+sonnet_w10,v1.0,sweep_c2,1588,sheet_397.jpg,9629,1773886267246.jpg,a6f50a31f3cd026c,scale_with_item,True,0.295,True,clear,none_shown,,,,small fish on scale
+sonnet_w10,v1.0,sweep_c2,1589,sheet_398.jpg,2473,1777000137476.jpg,f332c79090222792,scale_with_item,True,0.490,True,clear,none_shown,,,,packaged meat wrapped in plastic on scale
+sonnet_w10,v1.0,sweep_c2,1590,sheet_398.jpg,595,1777597421143.jpg,81e97b13cbe95fbd,scale_with_item,True,0.670,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1591,sheet_398.jpg,6230,1773802209837.jpg,0647271d9b75ee12,scale_with_item,True,0.385,True,clear,none_shown,,,,Angelina bread loaf package on scale
+sonnet_w10,v1.0,sweep_c2,1592,sheet_398.jpg,4230,1775870885011.jpg,98f5b7c240637734,item_no_scale,,,,not_visible,none_shown,,,,Manna's Meat Products pork longganisa package resting on a metal surface; no scale display visible in frame
+sonnet_w10,v1.0,sweep_c2,1593,sheet_399.jpg,6483,1774052223072.jpg,07fe6fbf45b80858,scale_with_item,True,0.415,True,clear,none_shown,,,,fish on scale
+sonnet_w10,v1.0,sweep_c2,1594,sheet_399.jpg,9699,1773906098422.jpg,6ce62bce6f9e0b76,scale_with_item,True,0.165,True,clear,none_shown,,,,potato on scale
+sonnet_w10,v1.0,sweep_c2,1595,sheet_399.jpg,2436,1777082550477.jpg,9e62c83c3df1c1c4,scale_with_item,True,1.005,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1596,sheet_399.jpg,8523,1775697311922.jpg,ace0b3d8b2beefe6,scale_with_item,True,0.200,True,clear,none_shown,,,,mango on scale
+sonnet_w10,v1.0,sweep_c2,1597,sheet_400.jpg,4126,1775873451225.jpg,8262cb96fba2fbb2,scale_with_item,True,0.085,True,clear,none_shown,,,,
+sonnet_w10,v1.0,sweep_c2,1598,sheet_400.jpg,2813,1776393667792.jpg,6f1bd23f1967c308,item_no_scale,,,,not_visible,none_shown,100ML,100.0,mL,blue ice cream popsicle package held near a freezer; labeled 100ML ICE CREAM
+sonnet_w10,v1.0,sweep_c2,1599,sheet_400.jpg,9679,1773894539044.jpg,60b5ea58024475ea,scale_with_item,True,0.480,True,clear,none_shown,,,,Marca Pina Loaf bread package on scale
+sonnet_w10,v1.0,sweep_c2,1600,sheet_400.jpg,1017,1777346074747.jpg,652cc80125d24044,scale_with_item,True,,,not_visible,none_shown,,,,Magnolia Whole Chicken package on scale; weight row shows dim all-segment (blank) pattern; no printed weight on packaging
+sonnet_w11,v1.0,sweep_c2,1601,sheet_401.jpg,4128,1775873488121.jpg,23c83d207b8394ca,scale_with_item,True,0.250,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1602,sheet_401.jpg,9765,1773886876984.jpg,2c9f09509a99ea9d,scale_with_item,True,0.175,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1603,sheet_401.jpg,6419,1774050786039.jpg,e582db20836f47e4,scale_with_item,True,0.155,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1604,sheet_401.jpg,3546,1778895004740.jpg,f09b80aebbd7e6e2,scale_with_item,True,1.366,True,probable,none_shown,,,,"whole chicken on tray on scale; dim ghost segments overlap the lit digits, some uncertainty in exact reading"
+sonnet_w11,v1.0,sweep_c2,1605,sheet_402.jpg,10551,1777268364476.jpg,d384fd02ecc4ca67,scale_with_item,True,0.460,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1606,sheet_402.jpg,10757,1777421663470.jpg,07762ad6b40f13c5,scale_with_item,True,0.620,True,clear,none_shown,,,,STAB indicator shown
+sonnet_w11,v1.0,sweep_c2,1607,sheet_402.jpg,2551,1776664637228.jpg,05eb95b88d7abaaf,scale_with_item,True,0.205,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1608,sheet_402.jpg,7317,1774588589912.jpg,10e14490331f4053,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"multiple Tanduay Rhum Dark bottles; front bottles show 375 mL, larger bottle at right shows 750 mL"
+sonnet_w11,v1.0,sweep_c2,1609,sheet_403.jpg,9721,1773989432849.jpg,ce90f8142b74652a,scale_with_item,True,,,ambiguous,none_shown,,,,"candy/snack packet on scale; display shows dim ghosted segments, partial digits resembling '88.805' but not confidently legible"
+sonnet_w11,v1.0,sweep_c2,1610,sheet_403.jpg,9860,1773892141021.jpg,321f6006bd7f9276,scale_with_item,True,,,ambiguous,none_shown,,,,"potato on scale; display shows dim ghosting, apparent reading near '0.210' but a leading digit is obscured by ghost segments"
+sonnet_w11,v1.0,sweep_c2,1611,sheet_403.jpg,3177,1776827254483.jpg,64584e711408043c,scale_with_item,True,0.180,True,probable,none_shown,,,,dim ghost segments overlap the lit digits
+sonnet_w11,v1.0,sweep_c2,1612,sheet_403.jpg,8069,1775881882251.jpg,15c2fa26de59a376,scale_with_item,True,0.090,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1613,sheet_404.jpg,726,1777595766266.jpg,f84a9e04b19ab699,scale_with_item,True,1.515,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1614,sheet_404.jpg,5024,1775700458430.jpg,3638753ca1f2db64,scale_with_item,True,0.165,True,clear,none_shown,,,,STAB indicator shown
+sonnet_w11,v1.0,sweep_c2,1615,sheet_404.jpg,6216,1773802824028.jpg,3604c8e02484fed6,scale_with_item,True,1.245,True,probable,none_shown,,,,Tanduay Rhum Light bottle on store scale
+sonnet_w11,v1.0,sweep_c2,1616,sheet_404.jpg,9385,1774319135134.jpg,71ab75ed35dbb520,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held by hand among onions/tomatoes, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1617,sheet_405.jpg,10063,1773796204071.jpg,15af640fcab71211,scale_with_item,True,,,not_visible,none_shown,,,,"Tanduay Rhum Dark bottle on scale; weight row shows only dim unlit-segment ghosting, no legible digits lit"
+sonnet_w11,v1.0,sweep_c2,1618,sheet_405.jpg,1738,1776646665531.jpg,7d5577bdcb26c1ff,scale_with_item,True,0.215,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1619,sheet_405.jpg,5137,1775868072963.jpg,510a4f04160bc0c8,scale_with_item,True,0.630,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1620,sheet_405.jpg,2503,1777084303422.jpg,fcc58b44c57ea3cd,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"hand holding Tanduay Rhum Dark bottle, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1621,sheet_406.jpg,9532,1773905988816.jpg,a2220829368bf44d,scale_with_item,True,0.710,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1622,sheet_406.jpg,3146,1776824863348.jpg,854693e121df3b50,scale_with_item,True,0.510,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1623,sheet_406.jpg,11125,1776823437851.jpg,418787d1d7e98cd2,scale_with_item,True,,,not_visible,none_shown,,,,root vegetable on scale platter; the scale's digital display is not visible in frame
+sonnet_w11,v1.0,sweep_c2,1624,sheet_406.jpg,2653,1776217091902.jpg,d35671185a87502f,scale_with_item,True,0.070,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1625,sheet_407.jpg,4591,1776299049825.jpg,c16528fed875dd1f,scale_with_item,True,0.345,True,clear,none_shown,,,,fish in plastic bag
+sonnet_w11,v1.0,sweep_c2,1626,sheet_407.jpg,2363,1776396503628.jpg,0b1f826e691865ae,scale_with_item,True,0.180,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1627,sheet_407.jpg,2470,1777000082105.jpg,29f502f3d7ddb665,scale_with_item,True,0.935,True,clear,none_shown,,,,wrapped item in tied plastic bag
+sonnet_w11,v1.0,sweep_c2,1628,sheet_407.jpg,9675,1773995804259.jpg,d0f35dab82b93ba0,scale_with_item,True,0.480,True,clear,none_shown,,,,stacked bags of grain/rice on scale; Angelina Medium Grain rice bag visible but no printed weight legible
+sonnet_w11,v1.0,sweep_c2,1629,sheet_408.jpg,8765,1775705078796.jpg,207686b41ef4927d,scale_with_item,True,0.175,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1630,sheet_408.jpg,9540,1773905272520.jpg,5c7f01b105c548d0,scale_with_item,True,0.150,True,clear,none_shown,,,,STAB indicator shown
+sonnet_w11,v1.0,sweep_c2,1631,sheet_408.jpg,5095,1773797794747.jpg,70808a3a6b7308e1,scale_with_item,True,,,not_visible,none_shown,,,,"fish in bowl on scale platter; weight row appears blank/unlit, no digits visible"
+sonnet_w11,v1.0,sweep_c2,1632,sheet_408.jpg,9448,1773727248322.jpg,c8aafc645a583c7b,scale_with_item,True,0.195,True,clear,none_shown,,,,frozen Chicken Hilog package
+sonnet_w11,v1.0,sweep_c2,1633,sheet_409.jpg,7611,1774492523967.jpg,0ee8adaa90896584,scale_with_item,True,,,not_visible,none_shown,,,,"carrot on scale; display shows only dim unlit-segment ghosting, no legible reading"
+sonnet_w11,v1.0,sweep_c2,1634,sheet_409.jpg,10793,1777426817280.jpg,6cb928e253179b72,label_closeup,,,,not_visible,none_shown,Net Volume: 92ml,92.0,mL,"Joyday Frutti Frizz popsicle package closeup, no scale"
+sonnet_w11,v1.0,sweep_c2,1635,sheet_409.jpg,10719,1777603931599.jpg,9a17ebad006f1a7c,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle on wood surface, no scale"
+sonnet_w11,v1.0,sweep_c2,1636,sheet_409.jpg,402,1777351827659.jpg,37c7984dfa717533,item_no_scale,,,,not_visible,none_shown,750 ml,750.0,mL,"Emperador Light brandy bottle held by hand, no scale; label also shows '55 Solera'"
+sonnet_w11,v1.0,sweep_c2,1637,sheet_410.jpg,4521,1776129579958.jpg,04087e2517eb36f5,scale_with_item,True,0.275,True,clear,none_shown,,,,frozen meat pieces in plastic bag; STAB indicator shown
+sonnet_w11,v1.0,sweep_c2,1638,sheet_410.jpg,10558,1777268091356.jpg,41f139a33d594d88,scale_with_item,True,0.125,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1639,sheet_410.jpg,6145,1773708349461.jpg,fc9a6f0e607df303,scale_with_item,True,0.270,True,clear,none_shown,,,,STAB indicator shown
+sonnet_w11,v1.0,sweep_c2,1640,sheet_410.jpg,11465,1776992674135.jpg,afa13e27b03f2284,scale_with_item,True,0.095,True,clear,none_shown,,,,STAB indicator shown
+sonnet_w11,v1.0,sweep_c2,1641,sheet_411.jpg,2549,1776735370673.jpg,6cb4788e1ead494a,scale_with_item,True,0.060,True,probable,none_shown,,,,dim ghost segments overlap the lit digits
+sonnet_w11,v1.0,sweep_c2,1642,sheet_411.jpg,61,1778296878188.jpg,316ef9e1a7822960,scale_with_item,True,0.135,True,clear,none_shown,,,,shrimp on scale; STAB indicator shown
+sonnet_w11,v1.0,sweep_c2,1643,sheet_411.jpg,1701,1776648984264.jpg,ed6b026bb9a265ee,scale_with_item,True,0.550,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1644,sheet_411.jpg,5373,1774577345600.jpg,0569fe296d85974c,label_closeup,,,,not_visible,none_shown,Net 40g,40.0,g,"Joy Bar Pearl Milk Tea popsicle package, no scale"
+sonnet_w11,v1.0,sweep_c2,1645,sheet_412.jpg,6951,1778111462361.jpg,035deb64ad3d3321,scale_with_item,True,0.870,True,clear,none_shown,,,,"different scale model (non-Micromatic, round buttons)"
+sonnet_w11,v1.0,sweep_c2,1646,sheet_412.jpg,7863,1773969879877.jpg,a59e47ab3108e67b,scale_with_item,True,0.615,True,probable,none_shown,,,,"bread loaf package on scale, digits slightly blurred"
+sonnet_w11,v1.0,sweep_c2,1647,sheet_412.jpg,7825,1773890443902.jpg,2e64057b987c2eec,scale_with_item,True,0.186,True,probable,none_shown,,,,"carrot on scale, bottom of display partially cropped in frame"
+sonnet_w11,v1.0,sweep_c2,1648,sheet_412.jpg,2692,1776220345488.jpg,46e73c8943593832,scale_with_item,True,0.250,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1649,sheet_413.jpg,5177,1775864373996.jpg,d9de19f741f354bc,scale_with_item,True,0.915,True,clear,none_shown,,,,chicken carcass
+sonnet_w11,v1.0,sweep_c2,1650,sheet_413.jpg,5418,1778810671864.jpg,241ace2e21ca2c5d,scale_with_item,True,0.280,True,probable,none_shown,,,,half cabbage on scale; some dim ghosting overlaps digits
+sonnet_w11,v1.0,sweep_c2,1651,sheet_413.jpg,7848,1773883233206.jpg,65e10f03512638e8,scale_with_item,True,0.160,True,clear,none_shown,,,,
+sonnet_w11,v1.0,sweep_c2,1652,sheet_413.jpg,623,1777688551093.jpg,3c71fb9d8ba04969,scale_with_item,True,1.430,True,clear,none_shown,,,,whole chicken
+sonnet_w11,v1.0,sweep_c2,1653,sheet_414.jpg,6220,1773808941897.jpg,d191be05ce077bce,scale_with_item,True,0.675,True,clear,none_shown,,,,Angelina Super Loaf bread
+sonnet_w11,v1.0,sweep_c2,1654,sheet_414.jpg,6984,1778032299820.jpg,5addfe1c539139b8,scale_with_item,True,0.560,True,clear,none_shown,,,,plastic bag of brown food item on scale
+sonnet_w11,v1.0,sweep_c2,1655,sheet_414.jpg,9674,1773993354525.jpg,2ad4055d17a9480e,scale_with_item,True,0.595,True,probable,none_shown,,,,Pullman bread loaf on scale; hand partially obscures display
+sonnet_w11,v1.0,sweep_c2,1656,sheet_414.jpg,5150,1776041662364.jpg,cc00fd36adf8fe47,scale_with_item,True,,,ambiguous,none_shown,,,,"small potato/yam on scale; display shows dim ghost segments, possible reading near 0.080 but not confidently legible"
+sonnet_w11,v1.0,sweep_c2,1657,sheet_415.jpg,9021,1775520762406.jpg,c21d62c0004cc901,scale_with_item,True,0.930,True,clear,none_shown,,,,cabbage
+sonnet_w11,v1.0,sweep_c2,1658,sheet_415.jpg,9703,1773968547419.jpg,5252139fa221e2ca,scale_with_item,True,0.255,True,clear,none_shown,,,,mango
+sonnet_w11,v1.0,sweep_c2,1659,sheet_415.jpg,321,1777262622909.jpg,d0ec05cd3107e11c,scale_with_item,True,0.535,True,clear,none_shown,,,,cabbage
+sonnet_w11,v1.0,sweep_c2,1660,sheet_415.jpg,6940,1775548537259.jpg,2452a7a066390ac0,scale_with_item,True,,,not_visible,none_shown,,,,"bag of rice on scale; display shows dim all-segment ghost pattern, no legible digits"
+sonnet_w11,v1.0,sweep_c2,1661,sheet_416.jpg,9742,1773880058913.jpg,d4ed15ec3504a326,scale_with_item,True,0.220,True,clear,none_shown,,,,cabbage leaf/piece
+sonnet_w11,v1.0,sweep_c2,1662,sheet_416.jpg,9467,1773796063992.jpg,58f68623968f0c0d,scale_with_item,True,0.375,True,clear,none_shown,,,,Topps candy bag
+sonnet_w11,v1.0,sweep_c2,1663,sheet_416.jpg,10688,1777603000450.jpg,959d776c34abf3d9,scale_with_item,True,0.290,True,clear,none_shown,,,,purple/red leafy greens on scale
+sonnet_w11,v1.0,sweep_c2,1664,sheet_416.jpg,9089,1775527334175.jpg,0bd04749c0ac94ce,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,hand holding Tanduay Rhum Dark bottle; smaller bottle also visible at right
+sonnet_w11,v1.0,sweep_c2,1665,sheet_417.jpg,42,1778472655168.jpg,eea70f9cccffb5c9,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held by hand, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1666,sheet_417.jpg,6548,1773799243548.jpg,fdcb8c2f98ae5858,scale_with_item,True,0.185,True,clear,none_shown,,,,sweet potato
+sonnet_w11,v1.0,sweep_c2,1667,sheet_417.jpg,8528,1775703409637.jpg,85b7b98b902059b8,scale_with_item,True,0.115,True,clear,none_shown,,,,shrimp on paper towel
+sonnet_w11,v1.0,sweep_c2,1668,sheet_417.jpg,2435,1777082514393.jpg,5fdaa52d4c7b0437,scale_with_item,True,0.765,True,clear,none_shown,,,,cabbage
+sonnet_w11,v1.0,sweep_c2,1669,sheet_418.jpg,5465,1774582973934.jpg,e6874f29df0c42f0,item_no_scale,,,,not_visible,none_shown,250 ml,250.0,mL,"Tanduay Rhum Dark 250ml bottle on table, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1670,sheet_418.jpg,341,1777261769223.jpg,0d7803159a47fa36,scale_with_item,True,0.085,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1671,sheet_418.jpg,2453,1776995806083.jpg,216bf9e84dc89e1d,scale_with_item,True,0.115,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1672,sheet_418.jpg,9691,1773894475229.jpg,055f881c590dbf6c,scale_with_item,True,0.385,True,clear,none_shown,,,,Angelina Junior White rice bag on scale amid bottled drinks
+sonnet_w11,v1.0,sweep_c2,1673,sheet_419.jpg,794,1777424929442.jpg,982092dd41f38127,scale_with_item,True,0.795,True,clear,none_shown,,,,cabbage
+sonnet_w11,v1.0,sweep_c2,1674,sheet_419.jpg,7014,1774054303772.jpg,1776eac2d517b3e6,scale_with_item,True,0.245,True,clear,none_shown,,,,carrot with greens
+sonnet_w11,v1.0,sweep_c2,1675,sheet_419.jpg,3169,1776825373179.jpg,bfd559b102a5235d,scale_with_item,True,0.085,True,clear,none_shown,,,,sweet potato
+sonnet_w11,v1.0,sweep_c2,1676,sheet_419.jpg,2472,1776997872884.jpg,b347450cfb1b6e29,scale_with_item,True,0.555,True,clear,none_shown,,,,chicken legs/wings
+sonnet_w11,v1.0,sweep_c2,1677,sheet_420.jpg,8063,1776039808160.jpg,96c34233495d7f6d,scale_with_item,True,,,ambiguous,none_shown,,,,"sweet potato on scale; display shows dim ghosting, apparent partial digits around '0.815' but not confidently legible"
+sonnet_w11,v1.0,sweep_c2,1678,sheet_420.jpg,7660,1774489683855.jpg,501f3374ea738545,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum E.S.Q. Dark bottle held by hand, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1679,sheet_420.jpg,11173,1776825436340.jpg,eb1ddb55b270a21f,label_closeup,,,,not_visible,none_shown,Net Wt. 640g,640.0,g,"BongBong's Loaf Bread package (label photographed upside down), no scale"
+sonnet_w11,v1.0,sweep_c2,1680,sheet_420.jpg,7597,1774419693565.jpg,7030799f41b4db64,scale_with_item,True,0.285,True,clear,none_shown,,,,sweet potato
+sonnet_w11,v1.0,sweep_c2,1681,sheet_421.jpg,4924,1775526681860.jpg,1b3ee2c648ef9afe,scale_with_item,True,0.105,True,clear,none_shown,,,,fish in metal bowl/pan resting on scale platter
+sonnet_w11,v1.0,sweep_c2,1682,sheet_421.jpg,3166,1776825123299.jpg,a82ff6ca56731037,scale_with_item,True,0.186,True,clear,none_shown,,,,sweet potato/purple yam
+sonnet_w11,v1.0,sweep_c2,1683,sheet_421.jpg,664,1777601900153.jpg,adb52d83c56e5d14,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"hand holding Tanduay Rhum Dark bottle, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1684,sheet_421.jpg,8526,1775784476725.jpg,7b8ae8c43a1ba983,scale_with_item,True,0.340,True,clear,none_shown,,,,mango
+sonnet_w11,v1.0,sweep_c2,1685,sheet_422.jpg,9508,1773728655187.jpg,522d934223ef9ef0,scale_with_item,True,0.290,True,clear,none_shown,,,,bread package (label photographed upside down)
+sonnet_w11,v1.0,sweep_c2,1686,sheet_422.jpg,9520,1773968131271.jpg,bf65db825529355f,scale_with_item,True,,,ambiguous,none_shown,,,,"cabbage on scale; apparent reading resembles '7.670', implausible for a single cabbage and likely a dim-segment ghost adding a false leading digit; true value could not be confirmed"
+sonnet_w11,v1.0,sweep_c2,1687,sheet_422.jpg,4423,1776127130043.jpg,656a6e911e0b9030,scale_with_item,True,0.135,True,clear,none_shown,,,,sweet potato/carrot
+sonnet_w11,v1.0,sweep_c2,1688,sheet_422.jpg,4986,1775703864310.jpg,92c9ab9dee811721,scale_with_item,True,0.095,True,clear,none_shown,,,,white yam/taro
+sonnet_w11,v1.0,sweep_c2,1689,sheet_423.jpg,2717,1776310505870.jpg,4efb32a9a60847ba,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,"Tanduay Rhum Dark 1 Liter bottle held by hand, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1690,sheet_423.jpg,8098,1776049910993.jpg,2f1cc90ac0771bc8,scale_with_item,True,0.415,True,clear,none_shown,,,,fish
+sonnet_w11,v1.0,sweep_c2,1691,sheet_423.jpg,6208,1773804233190.jpg,be8333cd4d7aa149,scale_with_item,True,0.550,True,probable,none_shown,,,,smoothie/drink cup on scale; leading digit shows some ghosting ambiguity between 0 and 8
+sonnet_w11,v1.0,sweep_c2,1692,sheet_423.jpg,10575,1777272017120.jpg,96c010f0bdd38ae0,scale_with_item,True,0.135,True,clear,none_shown,,,,tilapia fish
+sonnet_w11,v1.0,sweep_c2,1693,sheet_424.jpg,10694,1777602066247.jpg,391cdb6bd2cb128b,scale_with_item,True,0.075,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1694,sheet_424.jpg,9855,1773892991184.jpg,1e3da34be27fd69d,scale_with_item,True,0.355,True,clear,none_shown,,,,potato/mango
+sonnet_w11,v1.0,sweep_c2,1695,sheet_424.jpg,918,1777422762958.jpg,d87e9faa0d81e373,scale_with_item,True,0.220,True,clear,none_shown,,,,shrimp
+sonnet_w11,v1.0,sweep_c2,1696,sheet_424.jpg,4432,1776130050587.jpg,78065faa0579a754,scale_with_item,True,1.350,True,clear,none_shown,,,,whole chicken
+sonnet_w11,v1.0,sweep_c2,1697,sheet_425.jpg,8756,1775705128583.jpg,e2eee50ab867b902,scale_with_item,True,0.125,True,clear,none_shown,,,,kangkong bundle
+sonnet_w11,v1.0,sweep_c2,1698,sheet_425.jpg,9449,1773723160425.jpg,7bcbc03b50bb4eca,scale_with_item,True,0.185,True,clear,none_shown,,,,frozen meat package (FoodMas)
+sonnet_w11,v1.0,sweep_c2,1699,sheet_425.jpg,6222,1773812504533.jpg,02f9c165ad5d35fc,scale_with_item,True,,,not_visible,none_shown,,,,"Angelina Super Loaf bread on scale; display shows dim ghost pattern only, no legible digits"
+sonnet_w11,v1.0,sweep_c2,1700,sheet_425.jpg,4483,1776138308713.jpg,557d974abbc3eb7f,item_no_scale,,,,not_visible,none_shown,,,,"cheese ice cream cup on glass display case, no scale visible; no legible printed weight"
+sonnet_w11,v1.0,sweep_c2,1701,sheet_426.jpg,7622,1774419935184.jpg,4ea977892cc6fa8f,scale_with_item,True,0.155,True,clear,none_shown,,,,bagged salad/slaw
+sonnet_w11,v1.0,sweep_c2,1702,sheet_426.jpg,2710,1776308480565.jpg,485a1ded50c1c189,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Light bottle held by hand, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1703,sheet_426.jpg,5088,1773715080261.jpg,f24e069492fc55d1,scale_with_item,True,0.025,True,clear,none_shown,,,,Sky Flakes crackers package
+sonnet_w11,v1.0,sweep_c2,1704,sheet_426.jpg,7020,1774335225645.jpg,dd4d15838b894b26,scale_with_item,True,0.085,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1705,sheet_427.jpg,8508,1775700624753.jpg,f4aab22e885eb9a2,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle held by hand among bottled drinks, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1706,sheet_427.jpg,5359,1774578259278.jpg,2c76445038b0fc19,scale_with_item,True,0.365,True,clear,none_shown,,,,fish
+sonnet_w11,v1.0,sweep_c2,1707,sheet_427.jpg,8099,1775871024505.jpg,526c931c052b1387,scale_with_item,True,0.570,True,clear,none_shown,,,,fish
+sonnet_w11,v1.0,sweep_c2,1708,sheet_427.jpg,2809,1776385169633.jpg,0a0d89540e0dd486,scale_with_item,True,1.265,True,clear,none_shown,,,,fish (tuna-like)
+sonnet_w11,v1.0,sweep_c2,1709,sheet_428.jpg,8439,1775788789312.jpg,801e58af329583ca,scale_with_item,True,0.265,True,clear,none_shown,,,,sweet potato
+sonnet_w11,v1.0,sweep_c2,1710,sheet_428.jpg,6493,1774325627925.jpg,7329acda93d0f10b,scale_with_item,True,0.060,True,clear,none_shown,,,,cup (yogurt/drink)
+sonnet_w11,v1.0,sweep_c2,1711,sheet_428.jpg,9685,1773995638751.jpg,6e9e1add44737805,scale_with_item,True,0.305,True,clear,none_shown,,,,Angelina Junior White rice bag
+sonnet_w11,v1.0,sweep_c2,1712,sheet_428.jpg,7661,1774426681127.jpg,2a0892e5b2abd090,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Light bottle held by hand, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1713,sheet_429.jpg,345,1777262739143.jpg,0fcb6c7705c70b8f,scale_with_item,True,0.235,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1714,sheet_429.jpg,4736,1776217696528.jpg,ab0fc54d08b36506,scale_with_item,True,1.080,True,clear,none_shown,,,,shrimp in bowl on scale
+sonnet_w11,v1.0,sweep_c2,1715,sheet_429.jpg,6428,1774053484269.jpg,826025a806054d8e,scale_with_item,True,0.090,True,clear,none_shown,,,,round brown fruit/nut
+sonnet_w11,v1.0,sweep_c2,1716,sheet_429.jpg,1768,1776737842836.jpg,8a04125bfcd3bebf,item_no_scale,,,,not_visible,none_shown,,,,"Ginebra S. Miguel bottle held on liquor store shelf, no scale visible; no printed volume clearly legible"
+sonnet_w11,v1.0,sweep_c2,1717,sheet_430.jpg,8954,1773889524530.jpg,c9780dc8bb0db152,scale_with_item,True,0.095,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1718,sheet_430.jpg,10055,1773727459221.jpg,8756e3a60f16a89c,scale_with_item,True,0.705,True,clear,none_shown,,,,Emperador Original bottle on scale
+sonnet_w11,v1.0,sweep_c2,1719,sheet_430.jpg,324,1777261959607.jpg,226f4e63b124e886,scale_with_item,True,0.260,True,clear,none_shown,,,,bagged coleslaw/vegetables
+sonnet_w11,v1.0,sweep_c2,1720,sheet_430.jpg,2778,1776385925454.jpg,19b0b45098b577bf,scale_with_item,True,1.285,True,clear,none_shown,,,,whole chicken
+sonnet_w11,v1.0,sweep_c2,1721,sheet_431.jpg,9444,1773722963286.jpg,a93f85f45024e0f6,scale_with_item,True,0.320,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1722,sheet_431.jpg,6479,1774051541070.jpg,7ea986d46098da73,scale_with_item,True,0.355,True,clear,none_shown,,,,fish
+sonnet_w11,v1.0,sweep_c2,1723,sheet_431.jpg,5129,1773708442153.jpg,2bb9600e74dbfec6,scale_with_item,True,0.155,True,clear,none_shown,,,,wrapped meat pieces
+sonnet_w11,v1.0,sweep_c2,1724,sheet_431.jpg,3159,1776910649737.jpg,f5dfe4762d84ff54,scale_with_item,True,0.145,True,clear,none_shown,,,,kangkong leaves on scale placed on chair
+sonnet_w11,v1.0,sweep_c2,1725,sheet_432.jpg,9042,1775531241381.jpg,2ae16284f7c70bbf,scale_with_item,True,0.090,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1726,sheet_432.jpg,3170,1776910077950.jpg,e1f6e4672a512dce,scale_with_item,True,0.080,True,clear,none_shown,,,,purple yam
+sonnet_w11,v1.0,sweep_c2,1727,sheet_432.jpg,673,1777687445173.jpg,4c6c1091c629834f,scale_with_item,True,0.285,True,clear,none_shown,,,,potato/mango
+sonnet_w11,v1.0,sweep_c2,1728,sheet_432.jpg,9572,1773881550993.jpg,ba79808e3363f12e,scale_with_item,True,0.230,True,clear,none_shown,,,,sweet potato
+sonnet_w11,v1.0,sweep_c2,1729,sheet_433.jpg,8766,1775704715596.jpg,37e642bf0992cdba,scale_with_item,True,0.260,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1730,sheet_433.jpg,6241,1773793442228.jpg,ded70928a171eae1,scale_with_item,True,0.170,True,clear,none_shown,,,,small mango/fruit
+sonnet_w11,v1.0,sweep_c2,1731,sheet_433.jpg,2690,1776303609415.jpg,9ca71c65477dd54c,scale_with_item,True,0.100,True,clear,none_shown,,,,fish
+sonnet_w11,v1.0,sweep_c2,1732,sheet_433.jpg,4895,1775524031164.jpg,7359f0a5b0fd7964,scale_with_item,True,0.505,True,clear,none_shown,,,,cabbage
+sonnet_w11,v1.0,sweep_c2,1733,sheet_434.jpg,9635,1773886590803.jpg,3c6636fad430b071,scale_with_item,True,0.560,True,clear,none_shown,,,,fish
+sonnet_w11,v1.0,sweep_c2,1734,sheet_434.jpg,4530,1776301886936.jpg,63ab8c1b27173ca2,scale_with_item,True,0.980,True,clear,none_shown,,,,cabbage
+sonnet_w11,v1.0,sweep_c2,1735,sheet_434.jpg,5110,1773719996651.jpg,a36d63b6f69838fd,scale_with_item,True,0.720,True,clear,none_shown,,,,bowl of shredded food (papaya salad?) on scale
+sonnet_w11,v1.0,sweep_c2,1736,sheet_434.jpg,1716,1776649918642.jpg,282148766b2b0eca,scale_with_item,True,0.140,True,clear,none_shown,,,,sweet potato on white board scale
+sonnet_w11,v1.0,sweep_c2,1737,sheet_435.jpg,10036,1778477470245.jpg,2229c857a3b5cbc0,item_no_scale,,,,not_visible,none_shown,,,,"Aice Sundae ice cream cup held by hand, no scale visible; no legible printed quantity"
+sonnet_w11,v1.0,sweep_c2,1738,sheet_435.jpg,11121,1776822647947.jpg,a3ca3abd4cb9ad40,scale_with_item,True,0.215,True,clear,none_shown,,,,sweet potato
+sonnet_w11,v1.0,sweep_c2,1739,sheet_435.jpg,8450,1775696701551.jpg,d485d0631261ca17,scale_with_item,True,0.080,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1740,sheet_435.jpg,2451,1776994655930.jpg,989299b03dc6746d,scale_with_item,True,0.180,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1741,sheet_436.jpg,9712,1773988960633.jpg,9e6ff89aa7733a23,scale_with_item,True,,,not_visible,none_shown,,,,"mango on scale; display shows dim unlit-segment ghosting, no legible digits"
+sonnet_w11,v1.0,sweep_c2,1742,sheet_436.jpg,2360,1776470598522.jpg,821bb87f54e71edc,scale_with_item,True,,,not_visible,none_shown,,,,"kangkong bundle on scale; display shows dim unlit-segment ghosting, no legible digits"
+sonnet_w11,v1.0,sweep_c2,1743,sheet_436.jpg,5170,1775865120721.jpg,5e9abf1df1398030,scale_with_item,True,0.190,True,clear,none_shown,,,,chicken foot/part
+sonnet_w11,v1.0,sweep_c2,1744,sheet_436.jpg,922,1777517927297.jpg,84be1836bd372e77,scale_with_item,True,0.390,True,clear,none_shown,,,,shrimp
+sonnet_w11,v1.0,sweep_c2,1745,sheet_437.jpg,821,1777425039905.jpg,17dfaf73a44aaf9e,scale_with_item,True,0.145,True,clear,none_shown,,,,carrot
+sonnet_w11,v1.0,sweep_c2,1746,sheet_437.jpg,10810,1777423632952.jpg,21ba2a34a0304792,scale_with_item,True,0.060,True,clear,none_shown,,,,red popsicle on scale
+sonnet_w11,v1.0,sweep_c2,1747,sheet_437.jpg,9672,1773995718571.jpg,13d36223bdfafc10,scale_with_item,True,0.665,True,clear,none_shown,,,,Angelina Super Loaf bread bags stacked on scale
+sonnet_w11,v1.0,sweep_c2,1748,sheet_437.jpg,2254,1776395923046.jpg,f724a5e6082abb1b,item_no_scale,,,,not_visible,none_shown,1.5 L,1.5,L,"Royal orange soda bottle held by hand, no scale visible"
+sonnet_w11,v1.0,sweep_c2,1749,sheet_438.jpg,417,1777268705057.jpg,fee23d2ad11732bd,scale_with_item,True,0.215,True,clear,none_shown,,,,Wonder Bread loaf
+sonnet_w11,v1.0,sweep_c2,1750,sheet_438.jpg,4590,1776298397192.jpg,9bbbe074e4f2d68b,scale_with_item,True,0.475,True,clear,none_shown,,,,three fish in metal bowl on scale
+sonnet_w11,v1.0,sweep_c2,1751,sheet_438.jpg,5290,1775869558061.jpg,6f6447586637858b,scale_with_item,True,0.305,True,clear,none_shown,,,,green fruit (unripe mango?)
+sonnet_w11,v1.0,sweep_c2,1752,sheet_438.jpg,9822,1773909362454.jpg,e980bc6876fb258d,scale_with_item,True,0.575,True,clear,none_shown,,,,multiple fish in bowl on scale
+sonnet_w11,v1.0,sweep_c2,1753,sheet_439.jpg,11449,1776991432802.jpg,fa6404e4975b6546,scale_with_item,True,0.325,True,clear,none_shown,,,,cabbage half
+sonnet_w11,v1.0,sweep_c2,1754,sheet_439.jpg,10695,1777602853674.jpg,97f4785b6e3debe1,scale_with_item,True,0.125,True,clear,none_shown,,,,sweet potato
+sonnet_w11,v1.0,sweep_c2,1755,sheet_439.jpg,6618,1773802035860.jpg,927889fa2ef3b904,scale_with_item,True,0.040,True,clear,none_shown,,,,Cereal Milk Choco snack bar
+sonnet_w11,v1.0,sweep_c2,1756,sheet_439.jpg,8453,1775785791442.jpg,8281576620eeec8a,scale_with_item,True,0.960,True,clear,none_shown,,,,wrapped item in plastic bag
+sonnet_w11,v1.0,sweep_c2,1757,sheet_440.jpg,9813,1773910157109.jpg,874b25db89e227c8,scale_with_item,True,0.465,True,clear,none_shown,,,,fish
+sonnet_w11,v1.0,sweep_c2,1758,sheet_440.jpg,5434,1774581306285.jpg,35ad7fbe064095c2,scale_with_item,True,,,ambiguous,none_shown,,,,"carrot with greens on scale; display shows dim ghosting, apparent reading near '0.880' not confidently legible"
+sonnet_w11,v1.0,sweep_c2,1759,sheet_440.jpg,910,1777428159499.jpg,6ce3a2510c15326a,scale_with_item,True,0.195,True,clear,none_shown,,,,mango
+sonnet_w11,v1.0,sweep_c2,1760,sheet_440.jpg,9320,1774317320283.jpg,4a7d19cf75de6dc1,scale_with_item,True,,,ambiguous,none_shown,,,,"carrot on scale; display shows dim ghosting, apparent partial digits around '0.14x' not confidently legible"
+sonnet_w12,v1.0,sweep_c2,1761,sheet_441.jpg,9646,1773992412689.jpg,35f01a7b08d42f7f,scale_with_item,True,0.055,True,clear,none_shown,,,,small candy bag on scale; other unweighed packages visible on table
+sonnet_w12,v1.0,sweep_c2,1762,sheet_441.jpg,8451,1775704222199.jpg,1674641ab1cafd3c,scale_with_item,True,0.840,True,clear,none_shown,,,,whole raw chicken; egg trays and baskets in background
+sonnet_w12,v1.0,sweep_c2,1763,sheet_441.jpg,1473,1777426324259.jpg,bbf3a8b8b86aa0fe,scale_with_item,True,1.030,True,clear,none_shown,,,,
+sonnet_w12,v1.0,sweep_c2,1764,sheet_441.jpg,4640,1776300542419.jpg,815f2e684aadf4a6,scale_with_item,True,0.400,True,clear,none_shown,,,,shrimp in metal bowl on scale
+sonnet_w12,v1.0,sweep_c2,1765,sheet_442.jpg,1989,1776911870625.jpg,eccc8313c3d7d58c,scale_with_item,True,1.165,True,clear,none_shown,,,,
+sonnet_w12,v1.0,sweep_c2,1766,sheet_442.jpg,5158,1775867857802.jpg,fbb5e5ef043926c0,scale_with_item,True,,,not_visible,none_shown,,,,root vegetable on scale; display segments too dim to read reliably
+sonnet_w12,v1.0,sweep_c2,1767,sheet_442.jpg,9725,1773896324536.jpg,0efb0dbf8c3b5ca5,scale_with_item,True,0.230,True,clear,none_shown,,,,"blue plastic package with printed label on scale, label text not legible"
+sonnet_w12,v1.0,sweep_c2,1768,sheet_442.jpg,10840,1777518981407.jpg,4fd27b34fa52afd1,scale_with_item,True,,,ambiguous,none_shown,,,,"whole chicken in metal tray; display digits blurred, possibly around 1.1-1.2 but not legible with confidence"
+sonnet_w12,v1.0,sweep_c2,1769,sheet_443.jpg,6149,1773799726236.jpg,3b2345d75c7b2b9d,scale_with_item,True,,,not_visible,none_shown,,,,sweet potato/yam under black umbrella; display shows dim ghost segments consistent with blank/unlit display per instrument rule
+sonnet_w12,v1.0,sweep_c2,1770,sheet_443.jpg,4649,1776301772108.jpg,fcdf3bd62efe9c8e,scale_with_item,True,0.255,True,clear,none_shown,,,,vacuum packed meat cubes
+sonnet_w12,v1.0,sweep_c2,1771,sheet_443.jpg,2542,1776665196688.jpg,b8212c315aa66023,scale_with_item,True,0.210,True,clear,none_shown,,,,root vegetable amid onion baskets
+sonnet_w12,v1.0,sweep_c2,1772,sheet_443.jpg,5366,1774578559193.jpg,119904561108913f,scale_with_item,True,0.300,True,clear,none_shown,,,,whole fish on scale
+sonnet_w12,v1.0,sweep_c2,1773,sheet_444.jpg,1514,1777429289375.jpg,d424d02b48e93914,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Light bottle held on wooden table, no scale visible"
+sonnet_w12,v1.0,sweep_c2,1774,sheet_444.jpg,10053,1773797402365.jpg,b00785094e57eae6,scale_with_item,True,,,ambiguous,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle on scale platter; display digits dim/reflective, not legible with confidence"
+sonnet_w12,v1.0,sweep_c2,1775,sheet_444.jpg,11458,1776993122225.jpg,82c5fca57dd87af0,scale_with_item,True,0.095,True,clear,none_shown,,,,small rock/stone on scale
+sonnet_w12,v1.0,sweep_c2,1776,sheet_444.jpg,5474,1774582915282.jpg,df0cd9b7e5100826,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle on sari-sari store counter, no scale"
+sonnet_w12,v1.0,sweep_c2,1777,sheet_445.jpg,704,1777596770182.jpg,c1d6be2ca941a33e,scale_with_item,True,1.525,True,clear,none_shown,,,,
+sonnet_w12,v1.0,sweep_c2,1778,sheet_445.jpg,1745,1776649090270.jpg,3e97cc0c476ec191,scale_with_item,True,0.185,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1779,sheet_445.jpg,9344,1774054953136.jpg,6adffbcf708088ab,scale_with_item,True,0.715,True,clear,none_shown,,,,whole chicken
+sonnet_w12,v1.0,sweep_c2,1780,sheet_445.jpg,8952,1773885616038.jpg,dbb01d89913cf82a,scale_with_item,True,0.095,True,clear,none_shown,,,,sweet potato on foil-covered platter
+sonnet_w12,v1.0,sweep_c2,1781,sheet_446.jpg,6432,1774050039441.jpg,4046d4a2c2fddca9,scale_with_item,True,0.190,True,clear,none_shown,,,,root vegetable on scale
+sonnet_w12,v1.0,sweep_c2,1782,sheet_446.jpg,2268,1776391531652.jpg,927def51344f335f,item_no_scale,,,,not_visible,none_shown,1.5 L,1.5,L,"Sprite bottle held in hand near store crates, no scale"
+sonnet_w12,v1.0,sweep_c2,1783,sheet_446.jpg,6947,1778110965949.jpg,f39ddcbe4cdd802f,scale_with_item,True,0.615,True,clear,kg,,,,cabbage on scale; scale panel prints 'WEIGHT (kg)' as a column header
+sonnet_w12,v1.0,sweep_c2,1784,sheet_446.jpg,1905,1776991910605.jpg,bb7341b592fa729d,item_no_scale,,,,not_visible,none_shown,1.75 L,1.75,L,Royal orange soda bottle held; 'FREE 250' promo text also visible; no scale
+sonnet_w12,v1.0,sweep_c2,1785,sheet_447.jpg,5023,1775701001223.jpg,1b5781fc2755646a,scale_with_item,True,0.255,True,clear,none_shown,,,,fish on scale
+sonnet_w12,v1.0,sweep_c2,1786,sheet_447.jpg,334,1777951342485.jpg,4b6f1ff87acfab9d,scale_with_item,True,0.050,True,clear,none_shown,,,,small round item on scale
+sonnet_w12,v1.0,sweep_c2,1787,sheet_447.jpg,2283,1779160352724.jpg,54e837d248fe312a,label_closeup,,,,not_visible,none_shown,115ML ICE CREAM,115.0,mL,"ice cream tube package held near freezer, no scale"
+sonnet_w12,v1.0,sweep_c2,1788,sheet_447.jpg,5667,1774489489373.jpg,5c4721855dba9e35,scale_with_item,True,0.185,True,clear,none_shown,,,,vacuum packed meat cubes
+sonnet_w12,v1.0,sweep_c2,1789,sheet_448.jpg,7856,1773884813993.jpg,51d9f170d605c9c5,scale_with_item,True,,,ambiguous,none_shown,,,,"'Fruit Twister' ice pop package on scale; thumb partially obstructs display, digits resemble 0.080 but not certain"
+sonnet_w12,v1.0,sweep_c2,1790,sheet_448.jpg,9680,1773993582616.jpg,627ceeb7fab28e6b,scale_with_item,True,0.385,True,clear,none_shown,Approx. Wt. 17.6 oz (500 grams),500.0,g,'Cream Bread' bag; alt unit 17.6 oz also printed on package
+sonnet_w12,v1.0,sweep_c2,1791,sheet_448.jpg,8496,1775699593319.jpg,e7956746349b5221,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Light bottle held, no scale"
+sonnet_w12,v1.0,sweep_c2,1792,sheet_448.jpg,9318,1774318876014.jpg,cc53e813ed62e2f5,scale_with_item,True,0.080,True,probable,none_shown,,,,carrots on scale; wire basket shadow/reflection overlays display digits
+sonnet_w12,v1.0,sweep_c2,1793,sheet_449.jpg,2488,1777083266744.jpg,dbfbf05d2e2c1e90,scale_with_item,True,0.200,True,clear,none_shown,,,,bagged item on scale near garlic/onion packaging in background
+sonnet_w12,v1.0,sweep_c2,1794,sheet_449.jpg,6464,1774048647575.jpg,72a84b825ac4ab69,label_closeup,,,,not_visible,none_shown,Net Wt. 228g,228.0,g,"Bingo Vanilla sandwich cookies package, no scale"
+sonnet_w12,v1.0,sweep_c2,1795,sheet_449.jpg,10168,1774402278722.jpg,e0b484c1a48a7df2,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held in store, no scale"
+sonnet_w12,v1.0,sweep_c2,1796,sheet_449.jpg,4896,1775524054557.jpg,7b3c246af8cf367f,scale_with_item,True,0.695,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1797,sheet_450.jpg,2477,1777084903130.jpg,279f2d60a93407c1,scale_with_item,True,0.580,True,probable,none_shown,,,,meat in plastic bag on scale; faint ghost segment precedes the digits
+sonnet_w12,v1.0,sweep_c2,1798,sheet_450.jpg,8127,1775869814076.jpg,ce69573bc0d7747c,scale_with_item,True,0.265,True,clear,none_shown,,,,raw meat piece on scale
+sonnet_w12,v1.0,sweep_c2,1799,sheet_450.jpg,8419,1775695123528.jpg,313976797aeb9920,scale_with_item,True,0.765,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1800,sheet_450.jpg,5466,1774576014115.jpg,6149664c1292127e,item_no_scale,,,,not_visible,none_shown,250 ml,250.0,mL,"Tanduay Rhum Dark small bottle held in store, no scale"
+sonnet_w12,v1.0,sweep_c2,1801,sheet_451.jpg,7852,1773884706627.jpg,7866a6fc11d332a9,scale_with_item,True,0.055,True,clear,none_shown,,,,"yellow tub/container on scale, no legible printed text on container"
+sonnet_w12,v1.0,sweep_c2,1802,sheet_451.jpg,7826,1773971869548.jpg,c7f8fc94049269fe,scale_with_item,True,0.045,True,clear,none_shown,,,,root vegetable under green umbrella; unit price '160' and total price '7.20' also shown on display
+sonnet_w12,v1.0,sweep_c2,1803,sheet_451.jpg,6435,1774050620834.jpg,7ea3f84c979f6152,scale_with_item,True,0.165,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1804,sheet_451.jpg,7606,1774484790805.jpg,f2e53b71933f187d,scale_with_item,True,0.080,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1805,sheet_452.jpg,9834,1773881589995.jpg,a40dcc4fe34e507f,scale_with_item,True,0.425,True,clear,none_shown,,,,"red tub on scale amid market stall boxes, no legible printed text on tub"
+sonnet_w12,v1.0,sweep_c2,1806,sheet_452.jpg,5432,1774580661885.jpg,f9de27ecd63b100b,scale_with_item,True,0.255,True,probable,none_shown,,,,sweet potato/yam on scale amid cabbages; leading digit partly obscured by STAB indicator
+sonnet_w12,v1.0,sweep_c2,1807,sheet_452.jpg,9310,1774053858283.jpg,dad1f7255e004ed3,scale_with_item,True,0.165,True,clear,none_shown,,,,bundle of leafy purple-green herbs on scale
+sonnet_w12,v1.0,sweep_c2,1808,sheet_452.jpg,9306,1774052786895.jpg,aa1ea0cb7c301ecf,scale_with_item,True,0.195,True,clear,none_shown,,,,bundle of kangkong (water spinach) on scale
+sonnet_w12,v1.0,sweep_c2,1809,sheet_453.jpg,2928,1776654206585.jpg,71eb0737db269e2d,label_closeup,,,,not_visible,none_shown,100ML ICE CREAM,100.0,mL,"Cornetto ice cream cone held near freezer, no scale"
+sonnet_w12,v1.0,sweep_c2,1810,sheet_453.jpg,2666,1776219055894.jpg,a50110bf4d944ec7,scale_with_item,True,0.455,True,probable,none_shown,,,,two raw chicken pieces on scale
+sonnet_w12,v1.0,sweep_c2,1811,sheet_453.jpg,6115,1773727456601.jpg,795b44a43474ee21,scale_with_item,True,0.515,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1812,sheet_453.jpg,6195,1773800623728.jpg,46b684f53836b86c,scale_with_item,True,0.530,True,clear,none_shown,,,,fish in white bowl on scale
+sonnet_w12,v1.0,sweep_c2,1813,sheet_454.jpg,11162,1776826201620.jpg,07a536a2713844a9,label_closeup,,,,not_visible,none_shown,,,,"Selecta Pistachio ice cream tub held near store, no scale; no net weight visible in this crop"
+sonnet_w12,v1.0,sweep_c2,1814,sheet_454.jpg,8941,1773972237484.jpg,3d83fb6d4fc9f5bc,scale_with_item,True,0.080,True,clear,none_shown,,,,small root on foil-covered scale platter
+sonnet_w12,v1.0,sweep_c2,1815,sheet_454.jpg,9762,1773887712968.jpg,2a59146ab9fcb532,scale_with_item,True,0.290,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w12,v1.0,sweep_c2,1816,sheet_454.jpg,10767,1777421323431.jpg,63f43d1cf89acbc6,scale_with_item,True,0.100,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1817,sheet_455.jpg,3173,1776819652322.jpg,074512ffe84c6b72,scale_with_item,True,0.235,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1818,sheet_455.jpg,7586,1774418991961.jpg,a54588ddcb2cfeed,scale_with_item,True,0.135,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w12,v1.0,sweep_c2,1819,sheet_455.jpg,8109,1776047616984.jpg,5b51389ba6e36f07,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held, no scale"
+sonnet_w12,v1.0,sweep_c2,1820,sheet_455.jpg,2541,1776665156649.jpg,f7f979fefca1d5be,scale_with_item,True,0.020,True,probable,none_shown,,,,carrot on scale amid onions; light weight for a whole carrot but digits read as shown
+sonnet_w12,v1.0,sweep_c2,1821,sheet_456.jpg,9574,1773970167809.jpg,80fe0283f98ff178,scale_with_item,True,0.110,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1822,sheet_456.jpg,148,1778125483806.jpg,e2f50c08571e30d5,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Dark bottle held; small size text near cap partially visible but not confidently legible
+sonnet_w12,v1.0,sweep_c2,1823,sheet_456.jpg,2446,1777087660681.jpg,c93a87c29008db87,scale_with_item,True,0.070,True,clear,none_shown,,,,"sweet potato/kamote on scale; background box printed '72 x 55 gms 3.9 Kg' refers to that packaging, not this item"
+sonnet_w12,v1.0,sweep_c2,1824,sheet_456.jpg,2355,1776396282051.jpg,cfffb0cd730f281a,scale_with_item,True,0.875,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1825,sheet_457.jpg,9677,1773897262269.jpg,bfaffa588d501fb6,scale_with_item,True,0.480,True,clear,none_shown,,,,green plastic-wrapped package on scale; brand text on wrap not legible
+sonnet_w12,v1.0,sweep_c2,1826,sheet_457.jpg,2739,1776387107488.jpg,86f5552446059569,scale_with_item,True,1.080,True,clear,none_shown,,,,cabbage held/tilted on scale
+sonnet_w12,v1.0,sweep_c2,1827,sheet_457.jpg,4224,1776047829089.jpg,971b9eae0d1d0403,scale_with_item,True,0.285,True,clear,none_shown,,,,vacuum packed meat cubes on scale
+sonnet_w12,v1.0,sweep_c2,1828,sheet_457.jpg,5124,1773718811362.jpg,dec8dc19ddf81ff8,scale_with_item,True,0.250,True,clear,none_shown,,,,white egg-shaped item on scale
+sonnet_w12,v1.0,sweep_c2,1829,sheet_458.jpg,9321,1774317342151.jpg,da00820fb2d545ed,scale_with_item,True,0.195,True,probable,none_shown,,,,carrot on scale; display dim
+sonnet_w12,v1.0,sweep_c2,1830,sheet_458.jpg,6119,1773708410254.jpg,c0592e2d5908e33a,scale_with_item,True,0.190,True,clear,none_shown,,,,cabbage wrapped in plain plastic on scale
+sonnet_w12,v1.0,sweep_c2,1831,sheet_458.jpg,7844,1773973044005.jpg,948d8b49059e002a,scale_with_item,True,,,not_visible,none_shown,,,,"fish in bowl on scale; display shows only dim unlit ghost segments, no legible digits"
+sonnet_w12,v1.0,sweep_c2,1832,sheet_458.jpg,8281,1775704789893.jpg,7e5af1c2637a2819,scale_with_item,True,1.230,True,clear,none_shown,,,,raw meat/ribs on scale
+sonnet_w12,v1.0,sweep_c2,1833,sheet_459.jpg,6211,1773812272836.jpg,31d241870f94fe29,scale_with_item,True,,,ambiguous,none_shown,,,,"small Tanduay Rhum bottle on scale; display dim and reflective, digits not confidently legible (resembles 0.5xx)"
+sonnet_w12,v1.0,sweep_c2,1834,sheet_459.jpg,2358,1776386023352.jpg,69fccaacd96c1a0f,scale_with_item,True,0.720,True,clear,none_shown,,,,cabbage on scale amid cardboard boxes
+sonnet_w12,v1.0,sweep_c2,1835,sheet_459.jpg,11457,1776991797025.jpg,ba7b4c8d57bdbc6a,scale_with_item,True,0.095,True,clear,none_shown,,,,sweet potato/kamote on scale
+sonnet_w12,v1.0,sweep_c2,1836,sheet_459.jpg,332,1777950920797.jpg,9414103792128c61,scale_with_item,True,,,not_visible,none_shown,,,,"small sweet potato on scale amid onions; display shows dim unlit ghost segments, no legible digits"
+sonnet_w12,v1.0,sweep_c2,1837,sheet_460.jpg,8764,1775705671058.jpg,1497af08095d2815,scale_with_item,True,0.160,True,clear,none_shown,,,,bundle of herbs on scale
+sonnet_w12,v1.0,sweep_c2,1838,sheet_460.jpg,7566,1774491515371.jpg,d2f1a8ae0d2c7227,scale_with_item,True,,,not_visible,none_shown,,,,"cabbage on scale; display shows dim unlit ghost segments, no legible digits"
+sonnet_w12,v1.0,sweep_c2,1839,sheet_460.jpg,10159,1774487681368.jpg,135f0605b57b1cf7,label_closeup,,,,not_visible,none_shown,Net Content: 64ml (60g),64.0,mL,"'BITES TIME!' Vanilla Toffee Caramel ice cream bar held at freezer, no scale; alt spec 60g also printed"
+sonnet_w12,v1.0,sweep_c2,1840,sheet_460.jpg,7583,1774492004787.jpg,57676dc9b4dda629,scale_with_item,True,0.295,True,clear,none_shown,,,,bundle of kangkong on scale
+sonnet_w12,v1.0,sweep_c2,1841,sheet_461.jpg,886,1777449250045.jpg,015cdb7d3de14eae,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle held in store, no scale"
+sonnet_w12,v1.0,sweep_c2,1842,sheet_461.jpg,6484,1774052254116.jpg,7fd8a05ef9dd9c56,scale_with_item,True,0.835,True,clear,none_shown,,,,whole fish on scale
+sonnet_w12,v1.0,sweep_c2,1843,sheet_461.jpg,5176,1778544885060.jpg,2b95f221debc95d0,scale_with_item,True,1.160,True,clear,none_shown,,,,fish wrapped in plastic on scale
+sonnet_w12,v1.0,sweep_c2,1844,sheet_461.jpg,5322,1774577733824.jpg,7136473d8b8f6120,scale_with_item,True,0.105,True,clear,none_shown,,,,"leafy greens on scale, camera angle mirrored"
+sonnet_w12,v1.0,sweep_c2,1846,sheet_462.jpg,9726,1773884885815.jpg,07ebcf4acb872a04,scale_with_item,True,0.190,True,clear,none_shown,,,,vacuum packed meat cubes on scale
+sonnet_w12,v1.0,sweep_c2,1847,sheet_462.jpg,5624,1774410843839.jpg,bf45781612e620f0,item_no_scale,,,,not_visible,none_shown,,,,"Coca-Cola bottle, no scale; bottle size not visible in this crop"
+sonnet_w12,v1.0,sweep_c2,1849,sheet_463.jpg,11476,1776997843488.jpg,2f269b8179a11757,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Light bottle on patterned blue background, no scale"
+sonnet_w12,v1.0,sweep_c2,1850,sheet_463.jpg,833,1777426009770.jpg,c294c5f97c5e25aa,scale_with_item,True,1.115,True,clear,none_shown,,,,chicken parts on scale at market stall
+sonnet_w12,v1.0,sweep_c2,1851,sheet_463.jpg,858,1777535167804.jpg,ab10ff719a2610bc,scale_with_item,True,0.610,True,clear,none_shown,,,,fish on scale
+sonnet_w12,v1.0,sweep_c2,1852,sheet_463.jpg,3174,1776821582466.jpg,e29e021100ec1e58,scale_with_item,True,0.140,True,clear,none_shown,,,,small carrot with green stem on scale
+sonnet_w12,v1.0,sweep_c2,1853,sheet_464.jpg,9037,1775522477113.jpg,2dbc5afabdf32e5e,scale_with_item,True,0.265,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w12,v1.0,sweep_c2,1854,sheet_464.jpg,9091,1775608018781.jpg,204af80833e1743c,item_no_scale,,,,not_visible,none_shown,700mL,700.0,mL,"GSM Blue Mojito flavored spirit bottle held in store, no scale"
+sonnet_w12,v1.0,sweep_c2,1855,sheet_464.jpg,2353,1776387122738.jpg,3e6b221cc1300fb2,scale_with_item,True,0.950,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1856,sheet_464.jpg,7837,1773970801786.jpg,346ce1e3a1499f8f,scale_with_item,True,0.090,True,clear,none_shown,Net wt. 90g,90.0,g,Butter Coconut crackers package (two packs) on scale
+sonnet_w12,v1.0,sweep_c2,1857,sheet_465.jpg,45,1778471435461.jpg,0f2d574bae3b95f7,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle held near store shelves, no scale"
+sonnet_w12,v1.0,sweep_c2,1858,sheet_465.jpg,1800,1776644930412.jpg,eb0bb8ffd1b8ac35,scale_with_item,True,0.325,True,clear,none_shown,,,,mango on scale
+sonnet_w12,v1.0,sweep_c2,1859,sheet_465.jpg,5288,1775869937944.jpg,bf8e950fca47cba9,scale_with_item,True,0.270,True,clear,none_shown,,,,mango on scale
+sonnet_w12,v1.0,sweep_c2,1860,sheet_465.jpg,797,1777447762886.jpg,f16671ad77caa599,scale_with_item,True,0.845,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1861,sheet_466.jpg,3582,1775614173417.jpg,f941f8f1d9545ebc,label_closeup,,,,not_visible,none_shown,,,,"Cornetto Chocolate ice cream cone in freezer case, no scale; no quantity visible on this side of package"
+sonnet_w12,v1.0,sweep_c2,1862,sheet_466.jpg,1448,1777424652242.jpg,de69a9fedac319c0,scale_with_item,True,1.120,True,clear,none_shown,,,,cabbage on scale amid produce baskets
+sonnet_w12,v1.0,sweep_c2,1863,sheet_466.jpg,10750,1777421117662.jpg,722fa829823b47e6,scale_with_item,True,0.300,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1864,sheet_466.jpg,9286,1774062582225.jpg,f8645472420c9890,scale_with_item,True,0.380,True,probable,none_shown,,,,"cabbage on scale; lower display rows show unusual overlapping digits, weight row read with some uncertainty"
+sonnet_w12,v1.0,sweep_c2,1865,sheet_467.jpg,822,1777425061394.jpg,ec09e31a71f63062,scale_with_item,True,0.285,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1866,sheet_467.jpg,9486,1773798068433.jpg,566b0cbf1c0cd0f2,scale_with_item,True,0.805,True,clear,none_shown,,,,"frosted pink tub on scale; lid text 'Berry Vanilla Glow' visible, no quantity printed"
+sonnet_w12,v1.0,sweep_c2,1867,sheet_467.jpg,9426,1773726694680.jpg,edb180c9d1e32d19,scale_with_item,True,0.095,True,clear,none_shown,,,,bag of shredded vegetables on scale
+sonnet_w12,v1.0,sweep_c2,1868,sheet_467.jpg,7839,1773970055622.jpg,2b57359991ca669f,scale_with_item,True,0.105,True,clear,none_shown,NET WT. 3.46 oz (98g),98.0,g,'Mr. Chips' Nacho Cheese corn chips on scale; alt spec 3.46 oz also printed
+sonnet_w12,v1.0,sweep_c2,1869,sheet_468.jpg,2621,1776304922237.jpg,bd235591f1c379ee,scale_with_item,True,0.245,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w12,v1.0,sweep_c2,1870,sheet_468.jpg,3158,1776825933886.jpg,6f2b0c4d7ee0255e,scale_with_item,True,0.140,True,clear,none_shown,,,,wilted herb bundle on scale
+sonnet_w12,v1.0,sweep_c2,1871,sheet_468.jpg,9476,1773794076602.jpg,4719565c5e75920d,scale_with_item,True,0.480,True,clear,none_shown,,,,fish on metal tray scale
+sonnet_w12,v1.0,sweep_c2,1872,sheet_468.jpg,2931,1776654288235.jpg,f535428b9cfcd3d2,label_closeup,,,,not_visible,none_shown,,,,"Magnum White Almond ice cream bar held near freezer, no scale; no net weight visible in this crop"
+sonnet_w12,v1.0,sweep_c2,1873,sheet_469.jpg,7620,1774419222148.jpg,bcf013c941456ef6,scale_with_item,True,0.110,True,clear,none_shown,,,,shredded vegetables in plastic on scale
+sonnet_w12,v1.0,sweep_c2,1874,sheet_469.jpg,8071,1775875188968.jpg,eee7cab8da8d3a4e,scale_with_item,True,0.115,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1875,sheet_469.jpg,9428,1773727761275.jpg,673fd33a58ad94f9,scale_with_item,True,0.200,True,probable,none_shown,,,,kangkong bundle on scale; display partly overlapped by keypad labels
+sonnet_w12,v1.0,sweep_c2,1876,sheet_469.jpg,9015,1775522691096.jpg,25b467fc72498ad9,scale_with_item,True,0.685,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1877,sheet_470.jpg,4912,1775530219467.jpg,102ef05e7ae45f6a,scale_with_item,True,0.200,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w12,v1.0,sweep_c2,1878,sheet_470.jpg,2630,1776215064142.jpg,aed9f3bda062c6c1,scale_with_item,True,0.205,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w12,v1.0,sweep_c2,1879,sheet_470.jpg,662,1777865984899.jpg,cbe13359cb3ed1ba,item_no_scale,,,,not_visible,none_shown,,,,"Emperador Coffee Brandy bottle held amid vegetables, no scale; no volume text visible in this crop"
+sonnet_w12,v1.0,sweep_c2,1880,sheet_470.jpg,5428,1774581470817.jpg,c06232f790421e8d,scale_with_item,True,,,not_visible,none_shown,,,,"sweet potato on scale; display shows dim unlit ghost segments, no legible digits"
+sonnet_w12,v1.0,sweep_c2,1881,sheet_471.jpg,6518,1774322421401.jpg,88685a7ff040cd16,scale_with_item,True,0.370,True,clear,none_shown,,,,vacuum packed meat cubes on scale
+sonnet_w12,v1.0,sweep_c2,1882,sheet_471.jpg,9854,1773892963943.jpg,7bcc908d2e6b1067,scale_with_item,True,0.245,True,clear,none_shown,,,,mango on scale
+sonnet_w12,v1.0,sweep_c2,1883,sheet_471.jpg,8424,1775779307771.jpg,680b7766cf734fdd,scale_with_item,True,0.395,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1884,sheet_471.jpg,111,1778121830667.jpg,a29e4e88fd519d71,scale_with_item,True,0.125,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1885,sheet_472.jpg,2413,1776469764962.jpg,59873ca19f8dcfb0,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle held near freezer, no scale"
+sonnet_w12,v1.0,sweep_c2,1886,sheet_472.jpg,8049,1775880603819.jpg,646baa4a72d5dd0f,scale_with_item,True,0.435,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1887,sheet_472.jpg,8118,1775877799535.jpg,00571cfdd8484aaf,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle held on wooden table, no scale"
+sonnet_w12,v1.0,sweep_c2,1888,sheet_472.jpg,7668,1774489830838.jpg,3b64cbdd5b88ab58,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum E.S.Q. Dark bottle held in store, no scale"
+sonnet_w12,v1.0,sweep_c2,1889,sheet_473.jpg,9410,1774056767059.jpg,30580e5d1034009d,scale_with_item,True,0.695,True,clear,none_shown,,,,bundle of sausage links on scale
+sonnet_w12,v1.0,sweep_c2,1890,sheet_473.jpg,881,1777539239173.jpg,8395a962cce64f1e,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Light bottle held in store, no scale"
+sonnet_w12,v1.0,sweep_c2,1891,sheet_473.jpg,4600,1776298033144.jpg,0dc914a5bbc5c539,scale_with_item,True,0.045,True,clear,none_shown,,,,small fish on scale
+sonnet_w12,v1.0,sweep_c2,1892,sheet_473.jpg,5470,1774576102499.jpg,28710a086a4550dd,other,,,,not_visible,none_shown,375 mL,375.0,mL,"row of Tanduay Rhum Dark bottles on store shelf, no scale; multiple bottles visible"
+sonnet_w12,v1.0,sweep_c2,1893,sheet_474.jpg,5408,1774582398125.jpg,0bc03fe316f2bf97,scale_with_item,True,0.765,True,clear,none_shown,,,,cabbage on scale
+sonnet_w12,v1.0,sweep_c2,1894,sheet_474.jpg,2452,1776994676139.jpg,53ec7a1cb87507c5,scale_with_item,True,0.390,True,clear,none_shown,,,,carrot on scale amid produce stall
+sonnet_w12,v1.0,sweep_c2,1895,sheet_474.jpg,8442,1775695333825.jpg,6256a93f19c8450c,scale_with_item,True,0.040,True,clear,none_shown,,,,small carrot piece on scale
+sonnet_w12,v1.0,sweep_c2,1896,sheet_474.jpg,8433,1775695258667.jpg,04bbb5fe9526b5e3,scale_with_item,True,0.175,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w12,v1.0,sweep_c2,1897,sheet_475.jpg,909,1778051582975.jpg,f753839aca0a82e4,scale_with_item,True,0.170,True,clear,none_shown,,,,mango on scale
+sonnet_w12,v1.0,sweep_c2,1898,sheet_475.jpg,166,1778127561352.jpg,1e70942b3e404b03,scale_with_item,True,0.350,True,probable,none_shown,,,,mango on scale; display digits slightly blurred
+sonnet_w12,v1.0,sweep_c2,1899,sheet_475.jpg,5082,1773800535487.jpg,d3b719e1d1e42d67,scale_with_item,True,0.085,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1900,sheet_475.jpg,400,1777346037443.jpg,287c3b382181555c,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle held, no scale"
+sonnet_w12,v1.0,sweep_c2,1901,sheet_476.jpg,9730,1773884336792.jpg,25b568a5743c271b,scale_with_item,True,0.235,True,clear,none_shown,,,,packaged item on scale at market stall
+sonnet_w12,v1.0,sweep_c2,1902,sheet_476.jpg,2392,1776391939743.jpg,80857cffcfab1537,scale_with_item,True,0.425,True,clear,none_shown,,,,fish on scale
+sonnet_w12,v1.0,sweep_c2,1903,sheet_476.jpg,928,1777512253587.jpg,ae3fa989c1866ed7,scale_with_item,True,0.065,True,clear,none_shown,,,,two small meatballs/dumplings on scale
+sonnet_w12,v1.0,sweep_c2,1904,sheet_476.jpg,2635,1776305121639.jpg,0ab15a73b67efdfb,scale_with_item,True,0.295,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w12,v1.0,sweep_c2,1905,sheet_477.jpg,939,1777254711693.jpg,2c6bc39099cd1a8d,scale_with_item,True,1.055,True,probable,none_shown,,,,cabbage on scale amid chayote produce; keypad glyph overlaps part of display
+sonnet_w12,v1.0,sweep_c2,1906,sheet_477.jpg,2660,1776305038857.jpg,242a54eecc9e6fd7,scale_with_item,True,0.080,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1907,sheet_477.jpg,10684,1777601981214.jpg,2db122bcdcc65ae0,scale_with_item,True,0.190,True,clear,none_shown,,,,bagged mixed vegetables on scale
+sonnet_w12,v1.0,sweep_c2,1908,sheet_477.jpg,5080,1773800048867.jpg,dd9f899f434951d8,scale_with_item,True,0.120,True,probable,none_shown,,,,sweet potato/yam on scale; keypad overlaps part of display
+sonnet_w12,v1.0,sweep_c2,1909,sheet_478.jpg,932,1777539467046.jpg,dfd8dd6890b66a57,scale_with_item,True,0.290,True,clear,none_shown,,,,wrapped bread roll on scale
+sonnet_w12,v1.0,sweep_c2,1910,sheet_478.jpg,9865,1773884648703.jpg,8d91e6b7c19c40ca,scale_with_item,True,0.350,True,clear,none_shown,,,,shrimp on scale
+sonnet_w12,v1.0,sweep_c2,1911,sheet_478.jpg,1785,1779240183295.jpg,f3841f1da472bc94,item_no_scale,,,,not_visible,none_shown,,,,"Emperador Light Brandy bottle held, no scale; no volume text visible in this crop"
+sonnet_w12,v1.0,sweep_c2,1912,sheet_478.jpg,9664,1773994323267.jpg,0eacd5ae3a2b6e2f,item_no_scale,,,,not_visible,none_shown,,,,"'1521 S.T.L' Premium Light Brandy bottle held, no scale; no volume text visible in this crop"
+sonnet_w12,v1.0,sweep_c2,1913,sheet_479.jpg,62,1778296289481.jpg,626c6cf4432df6e8,scale_with_item,True,0.065,True,clear,none_shown,,,,red sausage on scale
+sonnet_w12,v1.0,sweep_c2,1914,sheet_479.jpg,9333,1774052314118.jpg,16718b53419ad54c,scale_with_item,True,0.125,True,clear,none_shown,,,,carrot on scale
+sonnet_w12,v1.0,sweep_c2,1915,sheet_479.jpg,8440,1775696548894.jpg,c6707e6807a01fb9,scale_with_item,True,0.125,True,clear,none_shown,,,,sweet potato/kamote on scale
+sonnet_w12,v1.0,sweep_c2,1916,sheet_479.jpg,11420,1779243896007.jpg,80b957155f361b93,item_no_scale,,,,not_visible,none_shown,,,,Pepsi bottle held in store; partial volume text at label edge not confidently legible
+sonnet_w12,v1.0,sweep_c2,1917,sheet_480.jpg,9809,1773913068065.jpg,19fd2981cceecb5f,scale_with_item,True,0.485,True,clear,none_shown,,,,fish on scale; strong glare on keypad area
+sonnet_w12,v1.0,sweep_c2,1918,sheet_480.jpg,5407,1774579198308.jpg,ccd594707166e572,scale_with_item,True,0.300,True,clear,none_shown,,,,vacuum packed meat cubes on scale
+sonnet_w12,v1.0,sweep_c2,1919,sheet_480.jpg,5962,1774409852103.jpg,a02c0e69d72c8d1e,scale_with_item,True,0.070,True,clear,none_shown,,,,red sausage on scale
+sonnet_w12,v1.0,sweep_c2,1920,sheet_480.jpg,3185,1776911545636.jpg,bc2e212a9e35bcc5,scale_with_item,True,0.845,True,clear,none_shown,,,,whole chicken with legs on scale
+sonnet_w13,v1.0,sweep_c2,1921,sheet_481.jpg,6494,1774325650212.jpg,e7aefd963c34d327,scale_with_item,True,0.265,True,clear,none_shown,,,,ice cream tub on scale
+sonnet_w13,v1.0,sweep_c2,1922,sheet_481.jpg,9764,1773910924514.jpg,bc3b149ba3c2e601,scale_with_item,True,0.090,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,1923,sheet_481.jpg,4646,1776301307789.jpg,9f86a01eb464b999,scale_with_item,True,0.165,True,clear,none_shown,,,,vacuum-packed sausages/meat rolls on scale
+sonnet_w13,v1.0,sweep_c2,1924,sheet_481.jpg,6547,1773799224074.jpg,50c6ecfde9e161a0,scale_with_item,True,0.075,True,clear,none_shown,,,,root vegetable on scale
+sonnet_w13,v1.0,sweep_c2,1925,sheet_482.jpg,10590,1777270388412.jpg,61abb1d92c9cc68e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held, no scale visible"
+sonnet_w13,v1.0,sweep_c2,1926,sheet_482.jpg,6217,1773727834863.jpg,3409eb1705344dc1,scale_with_item,True,0.700,True,clear,none_shown,,,,bread loaf on scale
+sonnet_w13,v1.0,sweep_c2,1927,sheet_482.jpg,9695,1773902897772.jpg,e850a0abfc3d9d73,scale_with_item,True,0.265,True,clear,none_shown,,,,mango on scale
+sonnet_w13,v1.0,sweep_c2,1928,sheet_482.jpg,6212,1773802701911.jpg,fad203c03867a9f6,scale_with_item,True,0.500,True,clear,none_shown,,,,bottle placed on scale
+sonnet_w13,v1.0,sweep_c2,1929,sheet_483.jpg,9670,1773993482923.jpg,66dd4665becd53ef,scale_with_item,True,0.595,True,clear,none_shown,,,,bread loaf on scale
+sonnet_w13,v1.0,sweep_c2,1930,sheet_483.jpg,335,1777951388200.jpg,a996498222861514,scale_with_item,True,0.130,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,1931,sheet_483.jpg,6215,1773812421087.jpg,2f57fd3f26606075,scale_with_item,True,,,ambiguous,none_shown,,,,digits 1216 legible but decimal point not clearly lit; likely 1.216 but placement cannot be confirmed
+sonnet_w13,v1.0,sweep_c2,1932,sheet_483.jpg,1744,1776649072227.jpg,6b15fe099a25301a,scale_with_item,True,0.155,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,1933,sheet_484.jpg,6128,1773708620870.jpg,05eac33d53ba66a0,scale_with_item,True,0.230,True,clear,none_shown,,,,leafy greens on scale
+sonnet_w13,v1.0,sweep_c2,1934,sheet_484.jpg,1752,1776648500898.jpg,279f3af7cbe7ee1b,scale_with_item,True,0.316,True,clear,none_shown,,,,whole raw chicken on scale
+sonnet_w13,v1.0,sweep_c2,1935,sheet_484.jpg,5437,1774654823727.jpg,5f79bdaa32a9914c,scale_with_item,True,0.165,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,1936,sheet_484.jpg,9314,1774053578699.jpg,274b602adf0def85,scale_with_item,True,0.220,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,1937,sheet_485.jpg,675,1777686950700.jpg,1822efcd31530cf2,scale_with_item,True,0.230,True,clear,none_shown,,,,mango on scale
+sonnet_w13,v1.0,sweep_c2,1938,sheet_485.jpg,2377,1776469186829.jpg,93386bd2524bccf9,scale_with_item,True,0.980,True,clear,none_shown,,,,large piece of meat on scale
+sonnet_w13,v1.0,sweep_c2,1939,sheet_485.jpg,7812,1773889782015.jpg,3cb4f31f33c32bdb,scale_with_item,True,0.310,True,clear,none_shown,,,,leafy greens on scale; photo taken at an angle
+sonnet_w13,v1.0,sweep_c2,1940,sheet_485.jpg,6520,1774322707751.jpg,476cd1834f7b6f9b,scale_with_item,True,0.155,True,clear,none_shown,,,,bag of sausages on scale
+sonnet_w13,v1.0,sweep_c2,1941,sheet_486.jpg,7768,1777942980843.jpg,46566fb3a7bcac63,label_closeup,,,,not_visible,none_shown,,,,"ice cream sundae cup, no scale visible; no legible weight/volume text"
+sonnet_w13,v1.0,sweep_c2,1942,sheet_486.jpg,2534,1776664743490.jpg,da3b8da229ba35fb,scale_with_item,True,0.185,True,clear,none_shown,,,,wrapped item on scale
+sonnet_w13,v1.0,sweep_c2,1943,sheet_486.jpg,5376,1774661734763.jpg,e4b8c5438b4ba360,label_closeup,,,,not_visible,none_shown,,,,"ice cream cup (ube flavor), no scale visible; no legible weight/volume text"
+sonnet_w13,v1.0,sweep_c2,1944,sheet_486.jpg,4403,1776132929403.jpg,17ca7fa73b9d4b7f,scale_with_item,True,0.275,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,1945,sheet_487.jpg,9225,1774067440918.jpg,44cb23ba01e71772,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum bottle held, no scale visible"
+sonnet_w13,v1.0,sweep_c2,1946,sheet_487.jpg,11487,1776994722909.jpg,d80ef44eadff45f7,scale_with_item,True,0.260,True,clear,none_shown,,,,melon on scale
+sonnet_w13,v1.0,sweep_c2,1947,sheet_487.jpg,5156,1775870134690.jpg,fe0e175fb1b1af35,scale_with_item,True,0.290,True,clear,none_shown,,,,two sweet potatoes on scale
+sonnet_w13,v1.0,sweep_c2,1948,sheet_487.jpg,8964,1773888665355.jpg,c57020756d4bf4bc,scale_with_item,True,1.135,True,clear,none_shown,,,,item in green bag on scale
+sonnet_w13,v1.0,sweep_c2,1949,sheet_488.jpg,2602,1776217013916.jpg,4f9ee7aeeb83f192,scale_with_item,True,0.750,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,1950,sheet_488.jpg,8100,1775870653680.jpg,2d600c59d3702410,scale_with_item,True,0.300,True,clear,none_shown,,,,fish on scale
+sonnet_w13,v1.0,sweep_c2,1951,sheet_488.jpg,1012,1777346455424.jpg,8c3768b3f103d8c4,scale_with_item,True,1.230,True,clear,none_shown,,,,packaged whole chicken (Magnolia brand) on scale
+sonnet_w13,v1.0,sweep_c2,1952,sheet_488.jpg,9642,1773994547444.jpg,192a5be9af06e1d1,scale_with_item,True,0.080,True,clear,none_shown,,,,small cup with meat/fat pieces on scale
+sonnet_w13,v1.0,sweep_c2,1953,sheet_489.jpg,5365,1774578544095.jpg,fb61a7be019b684d,scale_with_item,True,0.270,True,clear,none_shown,,,,fish on scale
+sonnet_w13,v1.0,sweep_c2,1954,sheet_489.jpg,1724,1776646512306.jpg,0d8459b80700b561,scale_with_item,True,0.140,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,1955,sheet_489.jpg,7570,1774420258005.jpg,fbfe412a9a8787d2,scale_with_item,True,0.345,True,clear,none_shown,,,,cabbage on scale; photo taken at an angle
+sonnet_w13,v1.0,sweep_c2,1956,sheet_489.jpg,323,1777948595873.jpg,00c1739e4b4584dd,scale_with_item,True,0.395,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,1957,sheet_490.jpg,598,1777694188731.jpg,5ca8ce1b7ee25a4b,scale_with_item,True,,,not_visible,none_shown,,,,"cabbage on scale; display mostly dim/blank with only an isolated lit fragment, reading cannot be determined"
+sonnet_w13,v1.0,sweep_c2,1958,sheet_490.jpg,9432,1773799398937.jpg,c47a3214cfc96857,scale_with_item,True,0.300,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,1959,sheet_490.jpg,4543,1776299770654.jpg,17cc48bc820627de,scale_with_item,True,0.070,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,1960,sheet_490.jpg,9597,1773906260777.jpg,895b7e2e8b6f7ee6,scale_with_item,True,0.215,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,1961,sheet_491.jpg,2860,1776653163110.jpg,4ee183ef4a7e2bc7,scale_with_item,True,1.050,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,1962,sheet_491.jpg,6150,1773799754040.jpg,e4e187cc394d08ed,scale_with_item,True,0.245,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,1963,sheet_491.jpg,5230,1775862970116.jpg,3b9e315c13bd3623,scale_with_item,True,0.190,True,clear,none_shown,,,,fish on scale
+sonnet_w13,v1.0,sweep_c2,1964,sheet_491.jpg,147,1778201828553.jpg,2c73304b21e1b230,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle held, no scale visible"
+sonnet_w13,v1.0,sweep_c2,1965,sheet_492.jpg,4404,1776132518616.jpg,deecd380bc9de5dc,scale_with_item,True,0.100,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,1966,sheet_492.jpg,6120,1773800517810.jpg,bc5c81bb671dddb0,scale_with_item,True,0.160,True,clear,none_shown,,,,wrapped cabbage on scale
+sonnet_w13,v1.0,sweep_c2,1967,sheet_492.jpg,609,1777694385419.jpg,3eda33dcc72c4db7,scale_with_item,True,0.105,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,1968,sheet_492.jpg,8430,1775697087288.jpg,c3f617914850ddde,scale_with_item,True,0.220,True,clear,none_shown,,,,leafy greens on scale
+sonnet_w13,v1.0,sweep_c2,1969,sheet_493.jpg,7810,1773889647638.jpg,0cc79929075fbb5c,scale_with_item,True,0.770,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,1970,sheet_493.jpg,9798,1773881173619.jpg,8438881ab4bcb34c,scale_with_item,True,0.060,True,clear,none_shown,,,,snack/chips bag on scale
+sonnet_w13,v1.0,sweep_c2,1971,sheet_493.jpg,8131,1775873562731.jpg,f185b75ccbe192c4,scale_with_item,True,0.255,True,clear,none_shown,,,,wrapped diced meat on scale
+sonnet_w13,v1.0,sweep_c2,1972,sheet_493.jpg,7857,1773969628676.jpg,c2ecc1bd302598b1,scale_with_item,True,0.040,True,clear,none_shown,,,,ice cream bar (Boom Boom) on scale
+sonnet_w13,v1.0,sweep_c2,1973,sheet_494.jpg,804,1777424248156.jpg,a52012d5b6034d99,scale_with_item,True,0.885,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,1974,sheet_494.jpg,328,1777950318584.jpg,d6b14b776306217f,scale_with_item,True,0.700,True,clear,none_shown,,,,leafy greens on scale
+sonnet_w13,v1.0,sweep_c2,1975,sheet_494.jpg,10037,1778477131307.jpg,c42db715d5b50185,item_no_scale,,,,not_visible,none_shown,Net Contains. 60mL,60.0,mL,"ice cream popsicle held, no scale visible; package text small/blurry, transcription approximate"
+sonnet_w13,v1.0,sweep_c2,1976,sheet_494.jpg,7868,1773974049258.jpg,f31ba5842228fd87,scale_with_item,True,0.630,True,clear,none_shown,,,,"bowl of shrimp/small fish on scale; a second scale is visible in the background with a different reading, not this tile's display"
+sonnet_w13,v1.0,sweep_c2,1977,sheet_495.jpg,7815,1773882713802.jpg,7a73399946e99dc0,scale_with_item,True,0.500,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w13,v1.0,sweep_c2,1978,sheet_495.jpg,9800,1773969875004.jpg,43ed6f90be8503bd,scale_with_item,True,0.060,True,clear,none_shown,Net Weight. 60 g (2.12 oz.),60.0,g,cheese curls bag on scale
+sonnet_w13,v1.0,sweep_c2,1979,sheet_495.jpg,9636,1773886620270.jpg,07482268f3c4b1a2,scale_with_item,True,0.600,True,clear,none_shown,,,,fish on scale
+sonnet_w13,v1.0,sweep_c2,1980,sheet_495.jpg,8500,1775779877128.jpg,cfc7315ab560694e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held, no scale visible"
+sonnet_w13,v1.0,sweep_c2,1981,sheet_496.jpg,9465,1773969114204.jpg,5d211387600ed970,scale_with_item,True,0.025,True,clear,none_shown,Net Weight: 25 g (0.88 oz.),25.0,g,packaged vegetable mix on scale
+sonnet_w13,v1.0,sweep_c2,1982,sheet_496.jpg,2545,1776749961182.jpg,4348ff54d200563c,scale_with_item,True,,,not_visible,none_shown,,,,"carrot on scale; display shows blank/dim pattern, no legible digits"
+sonnet_w13,v1.0,sweep_c2,1983,sheet_496.jpg,5370,1774580517059.jpg,0ba738d2bf637f8c,label_closeup,,,,not_visible,none_shown,,,,"assorted ice cream popsicles in freezer basket, no scale visible"
+sonnet_w13,v1.0,sweep_c2,1984,sheet_496.jpg,861,1778051678635.jpg,a17d2a22a7b1b7e3,scale_with_item,True,0.505,True,clear,none_shown,,,,eel/fish on scale
+sonnet_w13,v1.0,sweep_c2,1985,sheet_497.jpg,6436,1774050633777.jpg,5234d2db8dbfda72,scale_with_item,True,0.275,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,1986,sheet_497.jpg,8432,1775696443378.jpg,dbd2290b1e13c953,scale_with_item,True,0.150,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w13,v1.0,sweep_c2,1987,sheet_497.jpg,153,1778207630817.jpg,f666770ba8c4c963,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Light bottle held amid vegetable stalls, no scale visible"
+sonnet_w13,v1.0,sweep_c2,1988,sheet_497.jpg,9522,1773904637681.jpg,786f37936b25ef6d,scale_with_item,True,0.275,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,1989,sheet_498.jpg,9084,1775609179561.jpg,c09abc4446600d13,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle, no scale visible"
+sonnet_w13,v1.0,sweep_c2,1990,sheet_498.jpg,2625,1776305195768.jpg,fa15ae503c503e86,scale_with_item,True,0.535,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,1991,sheet_498.jpg,114,1778211382116.jpg,9d9d96ae2866e457,scale_with_item,True,0.385,True,clear,none_shown,,,,chicken parts on scale
+sonnet_w13,v1.0,sweep_c2,1992,sheet_498.jpg,1650,1777010291768.jpg,c6ca368242afe7e5,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Select Blended Rum bottle, no scale visible; no legible weight/volume text"
+sonnet_w13,v1.0,sweep_c2,1993,sheet_499.jpg,9512,1773725735542.jpg,4ba107b62c6f2119,scale_with_item,True,0.205,True,clear,none_shown,,,,frozen pork tocino bag on scale
+sonnet_w13,v1.0,sweep_c2,1994,sheet_499.jpg,2416,1776386773975.jpg,2fd42c23a114ea1e,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle, no scale visible"
+sonnet_w13,v1.0,sweep_c2,1995,sheet_499.jpg,8494,1775698835856.jpg,75fa27e9d1a31363,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle, no scale visible"
+sonnet_w13,v1.0,sweep_c2,1996,sheet_499.jpg,11130,1776822920800.jpg,cead306b3ec642e0,scale_with_item,True,0.190,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,1997,sheet_500.jpg,10764,1777422306223.jpg,340838b3720cb524,scale_with_item,True,0.375,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w13,v1.0,sweep_c2,1998,sheet_500.jpg,5133,1775867329458.jpg,1f69c869c04e6a55,scale_with_item,True,0.560,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,1999,sheet_500.jpg,17,1778295212989.jpg,8021d3b25384ec08,scale_with_item,True,0.125,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2000,sheet_500.jpg,5081,1773710825223.jpg,07fdcd3acfcebdce,scale_with_item,True,0.160,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,2001,sheet_501.jpg,3206,1776827802827.jpg,160299e2cfceac36,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Light bottle, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2002,sheet_501.jpg,169,1778205819178.jpg,961581695330c9eb,scale_with_item,True,0.340,True,clear,none_shown,,,,mango on scale
+sonnet_w13,v1.0,sweep_c2,2003,sheet_501.jpg,5145,1775868838952.jpg,57dca9705d935d2a,scale_with_item,True,0.130,True,clear,none_shown,,,,wrapped meat/dumpling on scale
+sonnet_w13,v1.0,sweep_c2,2004,sheet_501.jpg,4395,1776132453575.jpg,35e28f0a27d46bd6,scale_with_item,True,0.210,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w13,v1.0,sweep_c2,2005,sheet_502.jpg,5220,1775863707869.jpg,aa029eeddf5b5bce,scale_with_item,True,0.085,True,clear,none_shown,,,,small fish on scale
+sonnet_w13,v1.0,sweep_c2,2006,sheet_502.jpg,9431,1773799370823.jpg,1e4bc45951cc9617,scale_with_item,True,0.155,True,clear,none_shown,,,,root vegetable on scale
+sonnet_w13,v1.0,sweep_c2,2007,sheet_502.jpg,728,1777601766799.jpg,2864115bd2947efc,scale_with_item,True,1.805,True,clear,none_shown,,,,whole chicken on scale
+sonnet_w13,v1.0,sweep_c2,2008,sheet_502.jpg,2498,1777085492873.jpg,86466e9b4bbdd879,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,"Tanduay Rhum Dark bottle, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2009,sheet_503.jpg,6580,1773795717766.jpg,238c6610fc74d43e,scale_with_item,True,0.090,True,clear,none_shown,Net wt. 90g,90.0,g,butter coconut biscuit pack on scale
+sonnet_w13,v1.0,sweep_c2,2010,sheet_503.jpg,149,1778206671843.jpg,4d5b7b838d622dbd,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2011,sheet_503.jpg,10789,1777519353534.jpg,711d4c1dfdb78b0f,scale_with_item,True,0.195,True,clear,none_shown,,,,cup with corn/sago (halo-halo style) on scale
+sonnet_w13,v1.0,sweep_c2,2012,sheet_503.jpg,9731,1773987657615.jpg,deb49c866a7fcd42,scale_with_item,True,,,not_visible,none_shown,,,,snack chips bag on scale; display shows uniform blank 8.8.8.8 pattern per instrument guidance
+sonnet_w13,v1.0,sweep_c2,2013,sheet_504.jpg,671,1777687409747.jpg,08d34a02c2c7e3b8,scale_with_item,True,0.190,True,clear,none_shown,,,,mango on scale
+sonnet_w13,v1.0,sweep_c2,2014,sheet_504.jpg,855,1777448700919.jpg,25d92b38d3eeac29,scale_with_item,True,0.095,True,clear,none_shown,,,,fish on scale
+sonnet_w13,v1.0,sweep_c2,2015,sheet_504.jpg,9462,1773796810156.jpg,ff73c543a1de83be,scale_with_item,True,0.430,True,clear,none_shown,,,,snack bar pack (Flavor Combo) on scale
+sonnet_w13,v1.0,sweep_c2,2016,sheet_504.jpg,914,1777513546558.jpg,2b80a275439cf7a9,scale_with_item,True,0.185,True,clear,none_shown,,,,mango on scale
+sonnet_w13,v1.0,sweep_c2,2017,sheet_505.jpg,7013,1774054271365.jpg,d5e5e5d379406ea0,scale_with_item,True,0.115,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2018,sheet_505.jpg,6441,1774049917490.jpg,ff759339b46e405b,scale_with_item,True,0.120,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2019,sheet_505.jpg,2622,1776303110616.jpg,151cd7d68f1e49a7,scale_with_item,True,0.290,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w13,v1.0,sweep_c2,2020,sheet_505.jpg,10766,1777421755758.jpg,7aca0d1ae4296bc5,scale_with_item,True,0.100,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2021,sheet_506.jpg,5070,1773800189490.jpg,2c7881cf8223365f,scale_with_item,True,0.825,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,2022,sheet_506.jpg,5149,1775870622897.jpg,9f3942ae2bb49681,scale_with_item,True,0.130,True,clear,none_shown,,,,string beans/greens on scale
+sonnet_w13,v1.0,sweep_c2,2023,sheet_506.jpg,8519,1778719757016.jpg,bccfcb978cf73173,scale_with_item,True,0.225,True,clear,none_shown,,,,mango on scale
+sonnet_w13,v1.0,sweep_c2,2024,sheet_506.jpg,656,1777601949991.jpg,7d46eb808a31d0c7,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2025,sheet_507.jpg,7617,1774491675133.jpg,bc5cd2ded6a37912,scale_with_item,True,0.205,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2026,sheet_507.jpg,959,1777253278975.jpg,713dc824f76802f7,scale_with_item,True,1.020,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,2027,sheet_507.jpg,9548,1773880766376.jpg,14f74b079f1896f4,scale_with_item,True,0.170,True,clear,none_shown,,,,kangkong bundle on scale
+sonnet_w13,v1.0,sweep_c2,2028,sheet_507.jpg,9845,1773889635148.jpg,3774737fc8ba3618,scale_with_item,True,0.570,True,clear,none_shown,Net Wt. 500g,500.0,g,packaged bread loaf (Medium Loaf) on scale
+sonnet_w13,v1.0,sweep_c2,2029,sheet_508.jpg,9791,1773880935545.jpg,9856e1982ab86234,scale_with_item,True,0.045,True,clear,none_shown,,,,biscuit pack (Rebisco Marie) on scale
+sonnet_w13,v1.0,sweep_c2,2030,sheet_508.jpg,6438,1774049249659.jpg,040ad740569612c0,scale_with_item,True,0.130,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2031,sheet_508.jpg,911,1777428179809.jpg,cfe31cebbe039e87,scale_with_item,True,0.265,True,clear,none_shown,,,,mango on scale
+sonnet_w13,v1.0,sweep_c2,2032,sheet_508.jpg,2474,1777084057296.jpg,da13bddf711e8f75,scale_with_item,True,0.535,True,clear,none_shown,,,,chicken parts (gizzard/neck) on scale
+sonnet_w13,v1.0,sweep_c2,2033,sheet_509.jpg,1780,1776740577575.jpg,0a9fe951f44197b7,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle held, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2034,sheet_509.jpg,921,1777517887594.jpg,85058fad7ce5afea,scale_with_item,True,0.300,True,clear,none_shown,,,,shrimp on scale
+sonnet_w13,v1.0,sweep_c2,2035,sheet_509.jpg,760,1777604112930.jpg,45ac7f5979d9d2d2,item_no_scale,,,,not_visible,none_shown,70ml,70.0,mL,"No.1 Ice Candy sachet held, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2036,sheet_509.jpg,6168,1773708244006.jpg,17a2028d3e000e86,scale_with_item,True,0.400,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2037,sheet_510.jpg,96,1778122218230.jpg,f89b383b81b152ad,scale_with_item,True,0.910,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,2038,sheet_510.jpg,9533,1773906021179.jpg,c6a2f6a3653b5fef,scale_with_item,True,0.725,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,2039,sheet_510.jpg,5087,1773709379973.jpg,f190879ef562d30b,scale_with_item,True,0.625,True,clear,none_shown,,,,whole chicken in bowl on scale
+sonnet_w13,v1.0,sweep_c2,2040,sheet_510.jpg,108,1778118622131.jpg,1d5b96ea89fc91ce,scale_with_item,True,0.200,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2041,sheet_511.jpg,6173,1773812164406.jpg,7d888af1281ea890,scale_with_item,True,0.250,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2042,sheet_511.jpg,9763,1773887739451.jpg,92842ee920d3d3cd,scale_with_item,True,0.540,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,2043,sheet_511.jpg,422,1777950782257.jpg,a9d0d1642a8c69ad,scale_with_item,True,0.050,True,clear,none_shown,,,,sausage on scale
+sonnet_w13,v1.0,sweep_c2,2044,sheet_511.jpg,589,1777866753074.jpg,90ecaebb830d6ff6,scale_with_item,True,0.350,True,probable,none_shown,,,,"cabbage on scale; digits dim/low-contrast, read after brightness/contrast enhancement"
+sonnet_w13,v1.0,sweep_c2,2045,sheet_512.jpg,5161,1775868174809.jpg,fc3e77903a6858df,scale_with_item,True,0.175,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2046,sheet_512.jpg,9368,1774061513558.jpg,fcdd64b1cb00305c,scale_with_item,True,0.760,True,clear,none_shown,,,,fish on scale
+sonnet_w13,v1.0,sweep_c2,2047,sheet_512.jpg,1914,1777078148145.jpg,51d5fd16dfae1092,item_no_scale,,,,not_visible,none_shown,Net Content: 64ml (56g),64.0,mL,"yogurt bites snack held, no scale visible; package also states 56g"
+sonnet_w13,v1.0,sweep_c2,2048,sheet_512.jpg,5325,1774575668995.jpg,f85bc29752780cd6,scale_with_item,True,0.075,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2049,sheet_513.jpg,58,1778470011633.jpg,a5dadb5f8576ec13,scale_with_item,True,0.160,True,clear,none_shown,,,,piece of meat/fat on scale
+sonnet_w13,v1.0,sweep_c2,2050,sheet_513.jpg,5090,1773715137816.jpg,10f018a3f8001f74,scale_with_item,True,0.095,True,clear,none_shown,,,,snack pack on scale
+sonnet_w13,v1.0,sweep_c2,2051,sheet_513.jpg,926,1777426854806.jpg,a4031a673f089e61,scale_with_item,True,0.065,True,clear,none_shown,,,,red sausage (Bossing) on scale
+sonnet_w13,v1.0,sweep_c2,2052,sheet_513.jpg,1712,1776649232786.jpg,7ef0b389de346220,scale_with_item,True,0.285,True,clear,none_shown,,,,wrapped kangkong bundle on scale
+sonnet_w13,v1.0,sweep_c2,2053,sheet_514.jpg,7847,1773883189773.jpg,f52d9256973e2840,scale_with_item,True,0.090,True,clear,none_shown,,,,fish on scale
+sonnet_w13,v1.0,sweep_c2,2054,sheet_514.jpg,5429,1774581490985.jpg,11c6dd7e541e8f04,scale_with_item,True,0.406,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,2055,sheet_514.jpg,2439,1776995220657.jpg,3a4ec60934ddd689,scale_with_item,True,0.675,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,2056,sheet_514.jpg,10718,1777603487789.jpg,9fcf6c8dfda41841,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Light bottle, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2057,sheet_515.jpg,9345,1774054991030.jpg,ac6aba73266a3133,scale_with_item,True,0.910,True,clear,none_shown,,,,whole chicken on scale
+sonnet_w13,v1.0,sweep_c2,2058,sheet_515.jpg,4934,1775526859874.jpg,3ece0b98f7c87aae,scale_with_item,True,0.885,True,clear,none_shown,,,,pile of small fish on scale
+sonnet_w13,v1.0,sweep_c2,2059,sheet_515.jpg,2500,1776998427187.jpg,054afda9ba692dc0,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Light bottle held, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2060,sheet_515.jpg,4422,1776127113573.jpg,0342f35f0da7f1af,scale_with_item,True,0.080,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2061,sheet_516.jpg,4528,1776301845969.jpg,c61c2e4ddbf6aeef,scale_with_item,True,0.490,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,2062,sheet_516.jpg,351,1777950244310.jpg,db27efb7ffaa3ecf,scale_with_item,True,,,not_visible,none_shown,,,,chicken parts on scale; display shows uniform blank 8.8.8.8 pattern per instrument guidance
+sonnet_w13,v1.0,sweep_c2,2063,sheet_516.jpg,6194,1773711409747.jpg,961938e6afcc7a84,scale_with_item,True,0.630,True,clear,none_shown,,,,fish on scale
+sonnet_w13,v1.0,sweep_c2,2064,sheet_516.jpg,7587,1774419012187.jpg,6b536985e3d6f53d,scale_with_item,True,0.240,True,probable,none_shown,,,,"dried fish fillet on scale; photograph rotated 90 degrees, digits read after mental reorientation"
+sonnet_w13,v1.0,sweep_c2,2065,sheet_517.jpg,10771,1777422910603.jpg,717a3c6510e5a40e,scale_with_item,True,1.125,True,clear,none_shown,,,,whole chicken on scale
+sonnet_w13,v1.0,sweep_c2,2066,sheet_517.jpg,8116,1775877740968.jpg,97b328c062640279,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,"Tanduay Rhum Dark bottle held, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2067,sheet_517.jpg,4942,1775611159628.jpg,4bb8736595ee489f,label_closeup,,,,not_visible,none_shown,100mL,100.0,mL,"Selecta Double Dutch ice cream tub, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2068,sheet_517.jpg,6198,1773711879584.jpg,7bd4d6642b67f121,scale_with_item,True,0.335,True,clear,none_shown,,,,fish on scale
+sonnet_w13,v1.0,sweep_c2,2069,sheet_518.jpg,2601,1776216983984.jpg,56725d7e6f7d10bd,scale_with_item,True,0.530,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,2070,sheet_518.jpg,9705,1773989319129.jpg,4ef337f214d3b892,scale_with_item,True,0.280,True,clear,none_shown,,,,mango on scale
+sonnet_w13,v1.0,sweep_c2,2071,sheet_518.jpg,10700,1777601209121.jpg,96021dbc131e3a8e,scale_with_item,True,0.980,True,clear,none_shown,,,,packaged whole chicken (Magnolia brand) on scale
+sonnet_w13,v1.0,sweep_c2,2072,sheet_518.jpg,1723,1776646495548.jpg,071c1aac09aa18c3,scale_with_item,True,0.090,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w13,v1.0,sweep_c2,2073,sheet_519.jpg,9382,1774058914174.jpg,328fd94847b4fe28,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2074,sheet_519.jpg,5583,1774489619717.jpg,6e2ea23538f5a3b6,scale_with_item,True,0.130,True,clear,none_shown,,,,carrot on scale
+sonnet_w13,v1.0,sweep_c2,2075,sheet_519.jpg,9804,1773883963138.jpg,06f6341329900f47,scale_with_item,True,0.165,True,clear,none_shown,,,,fish on scale
+sonnet_w13,v1.0,sweep_c2,2076,sheet_519.jpg,803,1777424230746.jpg,10e336737001ec69,scale_with_item,True,0.365,True,clear,none_shown,,,,cabbage on scale
+sonnet_w13,v1.0,sweep_c2,2077,sheet_520.jpg,3204,1776821270331.jpg,85f4f3592202ab30,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held, no scale visible"
+sonnet_w13,v1.0,sweep_c2,2078,sheet_520.jpg,9643,1773994629573.jpg,d83d5d9dfba06fc9,scale_with_item,True,0.040,True,clear,none_shown,,,,Creamline mini cup ice cream on scale
+sonnet_w13,v1.0,sweep_c2,2079,sheet_520.jpg,6231,1773815281492.jpg,ee4b9d01f1bb0cfb,scale_with_item,True,0.180,True,clear,none_shown,,,,mango on scale
+sonnet_w13,v1.0,sweep_c2,2080,sheet_520.jpg,1714,1776649893182.jpg,84201fbb9e76cbc9,scale_with_item,True,0.075,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w14,v1.0,sweep_c2,2081,sheet_521.jpg,6490,1774054677955.jpg,20563504039987e6,item_no_scale,,,,not_visible,none_shown,48ml,48.0,mL,Selecta Avocado Choco ice cream bar wrapper on wood surface; no scale in frame
+sonnet_w14,v1.0,sweep_c2,2082,sheet_521.jpg,4401,1776132886873.jpg,fb1d85dde0481395,scale_with_item,True,0.110,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w14,v1.0,sweep_c2,2083,sheet_521.jpg,10721,1777603552084.jpg,cc291db0fe603924,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Rhum Light Smooth Spirit bottle in freezer, no scale visible, no legible volume text in frame"
+sonnet_w14,v1.0,sweep_c2,2084,sheet_521.jpg,9836,1773973041380.jpg,db9e4378167b10e6,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Rhum Dark bottle on stainless table in shop, no scale visible"
+sonnet_w14,v1.0,sweep_c2,2085,sheet_522.jpg,9563,1773879918449.jpg,a3c157112b7ec7be,scale_with_item,True,0.220,True,clear,none_shown,,,,sweet potato on scale; unit/total price rows dim and blank
+sonnet_w14,v1.0,sweep_c2,2086,sheet_522.jpg,5157,1775870147518.jpg,853253a412160c4f,scale_with_item,True,0.400,True,clear,none_shown,,,,sweet potato on scale platter lined with paper
+sonnet_w14,v1.0,sweep_c2,2087,sheet_522.jpg,7573,1774419506561.jpg,46073a835c38f0f9,scale_with_item,True,0.450,True,clear,none_shown,,,,cabbage on scale
+sonnet_w14,v1.0,sweep_c2,2088,sheet_522.jpg,5399,1774575765116.jpg,c78aa60daa79be6c,label_closeup,,,,not_visible,none_shown,,,,Angelino Bakeshop Junior White pandesal bag beside empty scale platter; no printed weight visible
+sonnet_w14,v1.0,sweep_c2,2089,sheet_523.jpg,666,1777687783179.jpg,23805cea1705f2f8,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held by hand near egg trays; label prints 750 mL
+sonnet_w14,v1.0,sweep_c2,2090,sheet_523.jpg,5510,1774055120439.jpg,42306ea02fad8eb3,scale_with_item,True,0.090,True,clear,none_shown,,,,carrot on scale platter covered with cardboard/paper
+sonnet_w14,v1.0,sweep_c2,2091,sheet_523.jpg,5486,1778811481915.jpg,41859dbef576d290,scale_with_item,True,0.680,True,clear,none_shown,,,,raw meat on scale
+sonnet_w14,v1.0,sweep_c2,2092,sheet_523.jpg,5963,1774404463927.jpg,6c0332dcad5a2642,scale_with_item,True,0.070,True,clear,none_shown,,,,red sausage/chorizo on scale
+sonnet_w14,v1.0,sweep_c2,2093,sheet_524.jpg,11454,1776992550790.jpg,c5f94ab5b1ee6efe,scale_with_item,True,0.360,True,clear,none_shown,,,,bundle of leafy greens on scale
+sonnet_w14,v1.0,sweep_c2,2094,sheet_524.jpg,5352,1774579704684.jpg,5d94926ac1e703be,label_closeup,,,,not_visible,none_shown,Net Wt. 90g,90.0,g,Nissin Butter Coconut biscuit pack
+sonnet_w14,v1.0,sweep_c2,2095,sheet_524.jpg,4084,1776388434309.jpg,bef79e279a049bf0,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum ESQ Dark mini bottle on top of a printed document; no scale visible; volume text on label too small to read reliably
+sonnet_w14,v1.0,sweep_c2,2096,sheet_524.jpg,11456,1776991693813.jpg,7d2aafd40e7cb88e,scale_with_item,True,0.540,True,clear,none_shown,,,,bundle of yardlong beans/leafy vegetable on scale
+sonnet_w14,v1.0,sweep_c2,2097,sheet_525.jpg,4408,1776212830564.jpg,17678bde0fbc87de,scale_with_item,True,0.090,True,clear,none_shown,,,,"carrot on scale, photographer reflection visible on display glass"
+sonnet_w14,v1.0,sweep_c2,2098,sheet_525.jpg,7589,1774491760949.jpg,b2ca7ea875c91a6c,scale_with_item,True,0.050,True,clear,none_shown,,,,small tuber/ginger on scale
+sonnet_w14,v1.0,sweep_c2,2099,sheet_525.jpg,9550,1773902971896.jpg,4a164393aaa63acf,scale_with_item,True,0.180,True,clear,none_shown,,,,sweet potato on scale near squash in crates
+sonnet_w14,v1.0,sweep_c2,2100,sheet_525.jpg,4977,1775701664633.jpg,48a53e26f8d13c6d,scale_with_item,True,0.545,True,clear,none_shown,,,,cabbage on scale
+sonnet_w14,v1.0,sweep_c2,2101,sheet_526.jpg,8101,1778890771601.jpg,348bb290ac187193,scale_with_item,True,0.800,True,clear,none_shown,,,,fish (milkfish) on scale atop paper
+sonnet_w14,v1.0,sweep_c2,2102,sheet_526.jpg,7867,1773973930883.jpg,bdb54a353fd026a9,scale_with_item,True,0.380,True,clear,none_shown,,,,bowl of shrimp/shellfish on scale
+sonnet_w14,v1.0,sweep_c2,2103,sheet_526.jpg,8042,1776039623609.jpg,ea138292835c85c5,scale_with_item,True,1.090,True,clear,none_shown,,,,cabbage on scale in shop
+sonnet_w14,v1.0,sweep_c2,2104,sheet_526.jpg,3465,1776829009556.jpg,5537ed9355ad72a6,item_no_scale,,,,not_visible,none_shown,1.5 Litres,1.5,L,Coca-Cola bottle held by hand in store; label prints 1.5 Litres
+sonnet_w14,v1.0,sweep_c2,2105,sheet_527.jpg,5381,1774577271150.jpg,1b5467951d58cb7f,item_no_scale,,,,not_visible,none_shown,,,,disposable cup with lid on cloth; no scale in frame
+sonnet_w14,v1.0,sweep_c2,2106,sheet_527.jpg,9017,1775521766118.jpg,8c78b36786ddecbc,scale_with_item,True,0.730,True,clear,none_shown,,,,"cabbage on scale; leading dash before digits is a tare/stability indicator, not part of the number"
+sonnet_w14,v1.0,sweep_c2,2107,sheet_527.jpg,9301,1774052701723.jpg,5ab3fdee19269d86,scale_with_item,True,0.515,True,clear,none_shown,,,,cabbage on scale
+sonnet_w14,v1.0,sweep_c2,2108,sheet_527.jpg,322,1777262649463.jpg,5c1a2bd6384c6074,scale_with_item,True,0.940,True,clear,none_shown,,,,cabbage on scale at outdoor market stall
+sonnet_w14,v1.0,sweep_c2,2109,sheet_528.jpg,6519,1774321980544.jpg,46750a222129fdc3,scale_with_item,True,0.270,True,clear,none_shown,,,,frozen meat cubes in plastic wrap on scale
+sonnet_w14,v1.0,sweep_c2,2110,sheet_528.jpg,9782,1773969797946.jpg,7920dc698345e91d,scale_with_item,True,0.025,True,clear,none_shown,,,,small cracker/biscuit pack on scale
+sonnet_w14,v1.0,sweep_c2,2111,sheet_528.jpg,10685,1777602475551.jpg,205c68adec34aaf8,scale_with_item,True,0.265,True,clear,none_shown,,,,"mixed chopped vegetables (carrot, cabbage) in plastic bag on scale"
+sonnet_w14,v1.0,sweep_c2,2112,sheet_528.jpg,8521,1778719797959.jpg,109371e0fbdfa71e,scale_with_item,True,0.305,True,clear,none_shown,,,,mango on scale among produce stall
+sonnet_w14,v1.0,sweep_c2,2113,sheet_529.jpg,9573,1773970145366.jpg,18774f48c99e1fa3,scale_with_item,True,0.090,True,clear,none_shown,,,,carrot with leaves on scale atop wooden stand
+sonnet_w14,v1.0,sweep_c2,2114,sheet_529.jpg,6176,1773710298188.jpg,8c7dc8131993162b,scale_with_item,True,0.200,True,clear,none_shown,,,,mixed vegetables in plastic bag on scale
+sonnet_w14,v1.0,sweep_c2,2115,sheet_529.jpg,146,1778126959908.jpg,563cfb0cb66f5dd9,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light Smooth Spirit bottle held by hand; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2116,sheet_529.jpg,9749,1773911403883.jpg,4c3e460143908005,scale_with_item,True,0.195,True,clear,none_shown,,,,bundle of leafy greens on scale
+sonnet_w14,v1.0,sweep_c2,2117,sheet_530.jpg,5128,1773710057903.jpg,b872ab8d227eea00,scale_with_item,True,0.075,True,clear,none_shown,,,,red sausage/hotdog weighed inside a plastic basin placed on the scale
+sonnet_w14,v1.0,sweep_c2,2118,sheet_530.jpg,5155,1775870120546.jpg,f74fb07798bf3d1b,scale_with_item,True,0.140,True,clear,none_shown,,,,sweet potato on scale lined with paper
+sonnet_w14,v1.0,sweep_c2,2119,sheet_530.jpg,2447,1777087686780.jpg,79b008a68ede461a,scale_with_item,True,0.185,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w14,v1.0,sweep_c2,2120,sheet_530.jpg,7794,1776476149668.jpg,c0712c7bdfe749db,scale_with_item,True,0.065,True,clear,none_shown,,,,red sausage on scale platter
+sonnet_w14,v1.0,sweep_c2,2121,sheet_531.jpg,865,1778032137756.jpg,ec2986979ece58b8,scale_with_item,True,0.075,True,clear,none_shown,,,,pale root vegetable on scale near produce stall
+sonnet_w14,v1.0,sweep_c2,2122,sheet_531.jpg,2458,1776995327834.jpg,e5f2801a2146b380,scale_with_item,True,0.180,True,clear,none_shown,,,,carrot on scale near eggs and tomatoes
+sonnet_w14,v1.0,sweep_c2,2123,sheet_531.jpg,6246,1773710910396.jpg,5ad7d02efc42dc2f,scale_with_item,True,0.275,True,clear,none_shown,,,,meat cuts on scale at market stall
+sonnet_w14,v1.0,sweep_c2,2124,sheet_531.jpg,2489,1777089157421.jpg,fa3924e60d9e40f2,scale_with_item,True,0.120,True,clear,none_shown,,,,fish on scale
+sonnet_w14,v1.0,sweep_c2,2125,sheet_532.jpg,4945,1775610322449.jpg,3d354e760bc0db7d,label_closeup,,,,not_visible,none_shown,1.25L,1.25,L,"Selecta Birthday Espesyal Choco Berry Fudge ice cream tub lid, frosted"
+sonnet_w14,v1.0,sweep_c2,2126,sheet_532.jpg,8044,1775865773310.jpg,9c097c34e07702ab,scale_with_item,True,0.485,True,clear,none_shown,,,,cabbage on scale on market table
+sonnet_w14,v1.0,sweep_c2,2127,sheet_532.jpg,9437,1773722758503.jpg,5bc01e38f272cd99,scale_with_item,True,0.135,True,clear,none_shown,,,,small tuber/bulb on scale
+sonnet_w14,v1.0,sweep_c2,2128,sheet_532.jpg,5627,1774403746019.jpg,0af9d01b238aa5f5,item_no_scale,,,,not_visible,none_shown,1.5 Litre,1.5,L,Coca-Cola Real Taste bottle standing on table in store; label prints 1.5 Litre
+sonnet_w14,v1.0,sweep_c2,2129,sheet_533.jpg,6620,1773802199707.jpg,a78997a62912bfa4,scale_with_item,True,0.060,True,clear,none_shown,,,,Purefoods Strawberry Crisp snack stick on scale; package name visible but no printed weight legible
+sonnet_w14,v1.0,sweep_c2,2130,sheet_533.jpg,5439,1778810757045.jpg,ae2ba72b2bef551d,scale_with_item,True,0.200,True,clear,none_shown,,,,carrot with greens on scale
+sonnet_w14,v1.0,sweep_c2,2131,sheet_533.jpg,5425,1774655020459.jpg,b5e2016972076003,scale_with_item,True,0.360,True,clear,none_shown,,,,sweet potato on scale near baskets of produce
+sonnet_w14,v1.0,sweep_c2,2132,sheet_533.jpg,11461,1776993172642.jpg,a071191abe7ff24d,scale_with_item,True,0.150,True,clear,none_shown,,,,"carrot on scale, close-up framing crops the bottom of the display slightly"
+sonnet_w14,v1.0,sweep_c2,2133,sheet_534.jpg,9683,1773895757118.jpg,4498643c4d2863d6,scale_with_item,True,0.480,True,clear,none_shown,,,,Angelina Medium Loaf bread pack on scale; small rotated print near top-right corner of the bag resembles a net-weight figure but is not legible enough to transcribe confidently
+sonnet_w14,v1.0,sweep_c2,2134,sheet_534.jpg,9069,1775529598136.jpg,731aac73862c6476,scale_with_item,True,,,not_visible,none_shown,,,,"fish on scale platter; weight row shows dim unlit segments (blank/unstabilized display), not a legible reading"
+sonnet_w14,v1.0,sweep_c2,2135,sheet_534.jpg,2742,1776386555126.jpg,aeed0bdb6eedbeaa,scale_with_item,True,1.085,True,clear,none_shown,,,,cabbage on scale with wrapped/taped platter
+sonnet_w14,v1.0,sweep_c2,2136,sheet_534.jpg,9708,1773882825671.jpg,ede967455c486c8e,scale_with_item,True,0.275,True,clear,none_shown,,,,small fruit (mango) on scale near produce boxes
+sonnet_w14,v1.0,sweep_c2,2137,sheet_535.jpg,2471,1776997343731.jpg,1f2bd99cb48e9ccc,scale_with_item,True,0.375,True,clear,none_shown,,,,raw chicken leg quarter on tissue paper on scale
+sonnet_w14,v1.0,sweep_c2,2138,sheet_535.jpg,11478,1776998458729.jpg,6dc8bb102ab94f82,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Rhum Light bottle on marbled countertop; no scale visible, no legible volume text in this crop"
+sonnet_w14,v1.0,sweep_c2,2139,sheet_535.jpg,7764,1776651813618.jpg,632ecfc62a0e8496,label_closeup,,,,not_visible,none_shown,Net Volume: 48ml,48.0,mL,Joyday Choco Crunch ice cream bar wrapper
+sonnet_w14,v1.0,sweep_c2,2140,sheet_535.jpg,11131,1776822939034.jpg,6384bece43e78c87,scale_with_item,True,0.320,True,clear,none_shown,,,,twisted carrot(s) on scale near leafy vegetables
+sonnet_w14,v1.0,sweep_c2,2141,sheet_536.jpg,9693,1773902858887.jpg,ed9d08fe852a6866,scale_with_item,True,0.200,True,clear,none_shown,,,,mango on scale near melons in crates
+sonnet_w14,v1.0,sweep_c2,2142,sheet_536.jpg,9534,1773881236191.jpg,59752e65ba24c24b,scale_with_item,True,0.520,True,clear,none_shown,,,,"cabbage on scale amid eggplants and other vegetables; leading dash before digits is a tare/stability indicator, not part of the number"
+sonnet_w14,v1.0,sweep_c2,2143,sheet_536.jpg,1474,1777426342424.jpg,96096ebc14ea35f8,scale_with_item,True,1.205,True,clear,none_shown,,,,whole raw chicken on scale atop cardboard boxes
+sonnet_w14,v1.0,sweep_c2,2144,sheet_536.jpg,167,1778205746623.jpg,3b1fe06be0da7b5b,scale_with_item,True,0.155,True,clear,none_shown,,,,"mango on scale set on a cardboard box, near a pile of mangoes"
+sonnet_w14,v1.0,sweep_c2,2145,sheet_537.jpg,5242,1776037487188.jpg,6fd97adc6db55f9a,item_no_scale,,,,not_visible,none_shown,100ml,100.0,mL,Slice Sorbetes Creamy Keso tub in freezer/rack with other frozen items; no scale in frame
+sonnet_w14,v1.0,sweep_c2,2146,sheet_537.jpg,2525,1776734991256.jpg,5b625dfbfe8a0222,scale_with_item,True,0.795,True,clear,none_shown,,,,cabbage being placed on scale by hand holding a plastic bag
+sonnet_w14,v1.0,sweep_c2,2147,sheet_537.jpg,5665,1774412785430.jpg,ac6a1acc578da2c8,label_closeup,,,,not_visible,none_shown,NET WT. 225 g,225.0,g,CDO Funtastyk Young Pork Tocino frozen pack
+sonnet_w14,v1.0,sweep_c2,2148,sheet_537.jpg,2457,1776995305854.jpg,20519a336f13f1bd,scale_with_item,True,0.130,True,clear,none_shown,,,,carrot on scale near basket of eggs
+sonnet_w14,v1.0,sweep_c2,2149,sheet_538.jpg,9716,1773882486142.jpg,c03c52cbd63348d1,scale_with_item,True,0.210,True,clear,none_shown,,,,"small mango on scale set atop a plastic crate, near pile of white melons"
+sonnet_w14,v1.0,sweep_c2,2150,sheet_538.jpg,8417,1775696654048.jpg,d59031ae84c562c4,scale_with_item,True,0.630,True,clear,none_shown,,,,cabbage on scale in busy market stall
+sonnet_w14,v1.0,sweep_c2,2151,sheet_538.jpg,9744,1773880259655.jpg,fab58f2fe6942a20,scale_with_item,True,0.685,True,clear,none_shown,,,,cabbage on scale near crates of goods
+sonnet_w14,v1.0,sweep_c2,2152,sheet_538.jpg,9475,1773795191072.jpg,48f83948ed06c38f,scale_with_item,True,0.575,True,clear,none_shown,,,,fish (milkfish) on scale on outdoor table
+sonnet_w14,v1.0,sweep_c2,2153,sheet_539.jpg,9579,1773904871234.jpg,097e66416420c7d5,scale_with_item,True,0.205,True,clear,none_shown,,,,carrot on scale in bright sunlight with glare on platter
+sonnet_w14,v1.0,sweep_c2,2154,sheet_539.jpg,8532,1775704358152.jpg,8be78f094758a783,scale_with_item,True,0.165,True,clear,none_shown,,,,small sausage/chorizo bundle on scale near egg trays
+sonnet_w14,v1.0,sweep_c2,2155,sheet_539.jpg,668,1777687162314.jpg,0e96904839f676f5,scale_with_item,True,0.220,True,clear,none_shown,,,,mango on scale set on bamboo slat flooring
+sonnet_w14,v1.0,sweep_c2,2156,sheet_539.jpg,9529,1773902622496.jpg,1b586879669fe65a,scale_with_item,True,0.520,True,clear,none_shown,,,,cabbage on scale near squash in crates
+sonnet_w14,v1.0,sweep_c2,2157,sheet_540.jpg,5172,1776037943911.jpg,2cb65b6b33bbf442,scale_with_item,True,0.795,True,clear,none_shown,,,,chicken piece on scale outdoors near bamboo railing
+sonnet_w14,v1.0,sweep_c2,2158,sheet_540.jpg,9546,1773906683600.jpg,460418cb25586e99,scale_with_item,True,0.180,True,clear,none_shown,,,,"bundle of leafy greens and yardlong beans on scale, bananas hanging above"
+sonnet_w14,v1.0,sweep_c2,2159,sheet_540.jpg,5154,1775869744244.jpg,dc3e512bbfec5c7a,scale_with_item,True,0.220,True,clear,none_shown,,,,sweet potato on scale lined with paper
+sonnet_w14,v1.0,sweep_c2,2160,sheet_540.jpg,3164,1776827091594.jpg,4f8c9262ac315dff,scale_with_item,True,0.280,True,clear,none_shown,,,,small yam/tuber on scale near canned drinks and crates
+sonnet_w14,v1.0,sweep_c2,2161,sheet_541.jpg,1726,1776649709554.jpg,7e3365d7d3c44711,scale_with_item,True,0.145,True,clear,none_shown,,,,sweet potato on scale near stacked plastic wares
+sonnet_w14,v1.0,sweep_c2,2162,sheet_541.jpg,7603,1774420357365.jpg,e187f61b75bc2a32,scale_with_item,True,0.140,True,clear,none_shown,,,,carrot with greens on scale on concrete floor
+sonnet_w14,v1.0,sweep_c2,2163,sheet_541.jpg,4202,1775879095187.jpg,5e0dee47c05b7b43,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle on woven mat; no scale visible; label prints 750 mL
+sonnet_w14,v1.0,sweep_c2,2164,sheet_541.jpg,2396,1776469431533.jpg,88ea4fc044e7379a,scale_with_item,True,0.855,True,clear,none_shown,,,,red fish (snapper) on scale outdoors on green tarp
+sonnet_w14,v1.0,sweep_c2,2165,sheet_542.jpg,358,1777265961539.jpg,250d701f9a82b2b7,scale_with_item,True,,,not_visible,none_shown,,,,"Whole Dressed Chicken pack (CLS Poultry Supply Corp) on scale; weight row shows dim unlit segments (blank/unstabilized), no printed weight visible on the package itself"
+sonnet_w14,v1.0,sweep_c2,2166,sheet_542.jpg,8039,1775880978355.jpg,30c794940bae6b51,scale_with_item,True,,,not_visible,none_shown,,,,cabbage on scale amid squash and banana blossom; weight row shows dim unlit segments (blank/unstabilized)
+sonnet_w14,v1.0,sweep_c2,2167,sheet_542.jpg,6939,1775537447626.jpg,d7c1ca5552a0bf75,scale_with_item,True,2.250,True,clear,none_shown,,,,rice or grain in a plastic bag on scale
+sonnet_w14,v1.0,sweep_c2,2168,sheet_542.jpg,413,1777268758159.jpg,068828b168aa4f78,scale_with_item,True,0.430,True,clear,none_shown,,,,sliced Tasty Bread pack on scale near bottled drinks
+sonnet_w14,v1.0,sweep_c2,2169,sheet_543.jpg,9718,1773903580895.jpg,1d35cfdd9990c4d5,scale_with_item,True,0.200,True,clear,none_shown,,,,sausage/chorizo links in labeled plastic bag on scale
+sonnet_w14,v1.0,sweep_c2,2170,sheet_543.jpg,10976,1776738833462.jpg,aa2cc81ea8290fb9,label_closeup,,,,not_visible,none_shown,200mL,200.0,mL,Floatie Vanilla Ice Cream tub lid among many other ice cream tubs in a freezer case
+sonnet_w14,v1.0,sweep_c2,2171,sheet_543.jpg,9478,1773794137721.jpg,fb68f6c55f7a06ae,scale_with_item,True,0.590,True,clear,none_shown,,,,"fish on scale set on bamboo slat surface, ice pack visible nearby"
+sonnet_w14,v1.0,sweep_c2,2172,sheet_543.jpg,1798,1776644880904.jpg,7b1a8a826e6514ef,scale_with_item,True,0.195,True,clear,none_shown,,,,mango on scale indoors near a cart
+sonnet_w14,v1.0,sweep_c2,2173,sheet_544.jpg,6177,1773708479965.jpg,e96237c946adefdd,scale_with_item,True,0.170,True,clear,none_shown,,,,chopped cabbage and carrot mix in a plastic bag on scale
+sonnet_w14,v1.0,sweep_c2,2174,sheet_544.jpg,6171,1778895373926.jpg,b1d347fff201b506,scale_with_item,True,0.230,True,clear,none_shown,,,,carrot on scale near a red plastic crate
+sonnet_w14,v1.0,sweep_c2,2175,sheet_544.jpg,101,1778206343210.jpg,bfd6e3fb7deb8a63,scale_with_item,True,0.206,True,clear,none_shown,,,,carrot with greens on scale under a green tarp
+sonnet_w14,v1.0,sweep_c2,2176,sheet_544.jpg,9623,1773969852875.jpg,7dcefb19512526b0,scale_with_item,True,0.920,True,clear,none_shown,,,,fish (bonito/tuna) on scale outdoors near a tree trunk
+sonnet_w14,v1.0,sweep_c2,2177,sheet_545.jpg,2394,1776393346150.jpg,e17fbd284d1ed769,scale_with_item,True,0.598,True,clear,none_shown,,,,fish on scale on wooden slats
+sonnet_w14,v1.0,sweep_c2,2178,sheet_545.jpg,6153,1773709262456.jpg,c9c331ac472a39f8,scale_with_item,True,0.100,True,clear,none_shown,,,,small root vegetable on scale near crates of jackfruit
+sonnet_w14,v1.0,sweep_c2,2179,sheet_545.jpg,5079,1773711016863.jpg,f8ee1ace51a52a4b,scale_with_item,True,0.520,True,clear,none_shown,,,,bundle of leafy greens on scale amid other produce stalls
+sonnet_w14,v1.0,sweep_c2,2180,sheet_545.jpg,8499,1775698080902.jpg,c6efdcfe39e5a5a2,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light Smooth Spirit bottle held by hand; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2181,sheet_546.jpg,2537,1776664198218.jpg,a2f13a2f0d10e565,scale_with_item,True,0.210,True,clear,none_shown,,,,bundle of leafy greens (kamote tops) on scale
+sonnet_w14,v1.0,sweep_c2,2182,sheet_546.jpg,3208,1776830018487.jpg,275d2457aa0502ac,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held by hand; label prints 750 mL
+sonnet_w14,v1.0,sweep_c2,2183,sheet_546.jpg,7019,1774335208664.jpg,ff6f7782466c0809,scale_with_item,True,0.040,True,clear,none_shown,,,,small carrot on scale
+sonnet_w14,v1.0,sweep_c2,2184,sheet_546.jpg,9825,1773881460694.jpg,3b0978bb89ec9c8b,scale_with_item,True,0.060,True,clear,none_shown,60mL,60.0,mL,Selecta Boom Boom Cookies & Cream ice cream bar on scale in a store
+sonnet_w14,v1.0,sweep_c2,2185,sheet_547.jpg,6945,1775546270810.jpg,4b0b4c3418a88db9,scale_with_item,True,2.230,True,clear,none_shown,,,,"white plastic grocery bag with unclear contents on scale, sacks of grain in background"
+sonnet_w14,v1.0,sweep_c2,2186,sheet_547.jpg,8359,1775702743590.jpg,96b16d6eff739d69,item_no_scale,,,,not_visible,none_shown,1.75L,1.75,L,"Sprite bottle held by hand in sari-sari store; label prints 1.75L, with additional promo text 'FREE 250 mL' below it"
+sonnet_w14,v1.0,sweep_c2,2187,sheet_547.jpg,5162,1775868742792.jpg,54d6b19d73b20080,scale_with_item,True,0.145,True,clear,none_shown,,,,small carrot on scale near a wall
+sonnet_w14,v1.0,sweep_c2,2188,sheet_547.jpg,63,1778297547324.jpg,fc3d46760d98d3e9,scale_with_item,True,0.070,True,clear,none_shown,,,,"red sausage on scale, green bucket in background"
+sonnet_w14,v1.0,sweep_c2,2189,sheet_548.jpg,4597,1776298459830.jpg,dadf11c3a5520a2e,scale_with_item,True,0.505,True,clear,none_shown,,,,fish (mackerel/tanigue) on scale near another weighing scale
+sonnet_w14,v1.0,sweep_c2,2190,sheet_548.jpg,9648,1773986875251.jpg,7dfe8d911bcfd7e6,scale_with_item,True,0.030,True,clear,none_shown,,,,Selecta ice cream stick pack on scale near a bakery display case
+sonnet_w14,v1.0,sweep_c2,2191,sheet_548.jpg,4971,1775526918098.jpg,f3c741beeca5b973,scale_with_item,True,0.330,True,clear,none_shown,,,,shrimp in a metal bowl on scale
+sonnet_w14,v1.0,sweep_c2,2192,sheet_548.jpg,165,1778127401460.jpg,3e868e7233e411a6,scale_with_item,True,0.260,True,clear,none_shown,,,,mango on scale near a basket of lychee/rambutan
+sonnet_w14,v1.0,sweep_c2,2193,sheet_549.jpg,2428,1777001165612.jpg,3e60d0057b908890,scale_with_item,True,0.475,True,clear,none_shown,,,,cabbage on scale near red crate
+sonnet_w14,v1.0,sweep_c2,2194,sheet_549.jpg,2694,1776303699104.jpg,89c07ece5f5c6f49,scale_with_item,True,0.525,True,clear,none_shown,,,,small whole fish bundle on scale near a bucket
+sonnet_w14,v1.0,sweep_c2,2195,sheet_549.jpg,2448,1776995857843.jpg,3547cd91398a8a72,scale_with_item,True,0.210,True,clear,none_shown,,,,small yam/tuber on scale
+sonnet_w14,v1.0,sweep_c2,2196,sheet_549.jpg,1736,1776646622099.jpg,4bab2e7588c3b91b,scale_with_item,True,0.095,True,clear,none_shown,,,,carrot on scale platter covered with white paper
+sonnet_w14,v1.0,sweep_c2,2197,sheet_550.jpg,2450,1776994624363.jpg,dd8ddf3525921a3a,scale_with_item,True,0.090,True,clear,none_shown,,,,carrot on scale near tomatoes and other carrots
+sonnet_w14,v1.0,sweep_c2,2198,sheet_550.jpg,1606,1777082752314.jpg,7ad019a179fc94fa,scale_with_item,True,1.875,True,clear,none_shown,,,,Magnolia Whole Chicken pack on scale near crates of bottled drinks
+sonnet_w14,v1.0,sweep_c2,2199,sheet_550.jpg,82,1778206201155.jpg,e47528d6b39fd4fa,scale_with_item,True,0.390,True,clear,none_shown,,,,cabbage on scale under a green umbrella
+sonnet_w14,v1.0,sweep_c2,2200,sheet_550.jpg,2459,1777082673380.jpg,aac1b4ffc9bb5616,scale_with_item,True,0.120,True,clear,none_shown,,,,red sausage on scale near a Fiesta-branded box
+sonnet_w14,v1.0,sweep_c2,2201,sheet_551.jpg,9628,1773886246825.jpg,ca1ee2410114c0a4,scale_with_item,True,0.200,True,clear,none_shown,,,,small fish (bonito) on scale at market stall
+sonnet_w14,v1.0,sweep_c2,2202,sheet_551.jpg,9606,1773884190809.jpg,c48343ee9fde5668,scale_with_item,True,0.870,True,clear,none_shown,,,,whole raw chicken on scale at market
+sonnet_w14,v1.0,sweep_c2,2203,sheet_551.jpg,9867,1773883596330.jpg,4235641f47582f48,scale_with_item,True,0.430,True,clear,none_shown,,,,shrimp on scale near sacks
+sonnet_w14,v1.0,sweep_c2,2204,sheet_551.jpg,2415,1776391365074.jpg,f876bb3b87a54c0f,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held by hand near a checkout counter with scanner; label prints 750 mL
+sonnet_w14,v1.0,sweep_c2,2205,sheet_552.jpg,9847,1773891283380.jpg,4c45687d8717e79b,label_closeup,,,,not_visible,none_shown,Net Wt. 350 g,350.0,g,Anglin Junior White bread pack
+sonnet_w14,v1.0,sweep_c2,2206,sheet_552.jpg,9818,1773883700236.jpg,8c05b8d0338ad7f8,scale_with_item,True,0.340,True,clear,none_shown,,,,fish in a clear plastic bag on scale
+sonnet_w14,v1.0,sweep_c2,2207,sheet_552.jpg,3181,1776829224723.jpg,96c9ee2efeb014c3,scale_with_item,True,,,not_visible,none_shown,,,,"carrot on scale; weight row shows dim unlit segments (blank/unstabilized), not a legible reading"
+sonnet_w14,v1.0,sweep_c2,2208,sheet_552.jpg,5358,1774578240019.jpg,232d30207750d8d4,scale_with_item,True,0.340,True,clear,none_shown,,,,fish (milkfish) on scale
+sonnet_w14,v1.0,sweep_c2,2209,sheet_553.jpg,4950,1778900089135.jpg,9ca0ffdf31e5cc28,label_closeup,,,,not_visible,none_shown,1.7 Liters,1.7,L,"Dan Eric's Grand Ice Cream, Cheese flavor, tub lid close-up"
+sonnet_w14,v1.0,sweep_c2,2210,sheet_553.jpg,9645,1773996590729.jpg,2f7a701b966bc4b4,scale_with_item,True,0.070,True,clear,none_shown,,,,Magnum Classic ice cream bar on scale outdoors
+sonnet_w14,v1.0,sweep_c2,2211,sheet_553.jpg,2657,1776217709047.jpg,6a3d3d6f007d116a,scale_with_item,True,0.185,True,clear,none_shown,,,,carrot on scale placed on a chair seat
+sonnet_w14,v1.0,sweep_c2,2212,sheet_553.jpg,6196,1773712164338.jpg,f3965253af53729c,scale_with_item,True,0.495,True,clear,none_shown,,,,elongated white fish (needlefish) on scale indoors
+sonnet_w14,v1.0,sweep_c2,2213,sheet_554.jpg,2665,1776307760923.jpg,9a6e7440b440c76e,scale_with_item,True,0.530,True,clear,none_shown,,,,raw chicken cuts (thigh and head/neck portion) on tissue on scale
+sonnet_w14,v1.0,sweep_c2,2214,sheet_554.jpg,8356,1778725481233.jpg,9e47eb45dae39a6b,scale_with_item,True,0.485,True,probable,none_shown,,,,iced drink cup from '37 Degrees Coffee' on scale; one digit partly obscured by screen glare/reflection
+sonnet_w14,v1.0,sweep_c2,2215,sheet_554.jpg,5584,1774489649019.jpg,f315ca48f6ecc630,scale_with_item,True,0.170,True,clear,none_shown,,,,sweet potato on scale
+sonnet_w14,v1.0,sweep_c2,2216,sheet_554.jpg,4638,1776300436934.jpg,f98e638df6d97f38,scale_with_item,True,0.440,True,clear,none_shown,,,,shrimp in a metal bowl on scale near buckets
+sonnet_w14,v1.0,sweep_c2,2217,sheet_555.jpg,674,1777686916618.jpg,2ba3c60aceec9f8e,scale_with_item,True,0.175,True,clear,none_shown,,,,small mango on scale near a plastic crate and other mangoes
+sonnet_w14,v1.0,sweep_c2,2218,sheet_555.jpg,1784,1776736392936.jpg,8b9759b2f80271dc,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle standing near papers/documents; no scale visible; label prints 750 mL
+sonnet_w14,v1.0,sweep_c2,2219,sheet_555.jpg,9830,1778645301344.jpg,7607f78c6c312d8d,label_closeup,,,,not_visible,none_shown,100mL,100.0,mL,Selecta Speculoos Cheesecake ice cream tub held by hand in a freezer with other tubs
+sonnet_w14,v1.0,sweep_c2,2220,sheet_555.jpg,11156,1776826064153.jpg,bd28fe6e7fc3fc1b,label_closeup,,,,not_visible,none_shown,,,,"Selecta Ice Pop Berry/Choco bar package on cardboard box; a printed weight figure near the top-right reads approximately '35' but the unit letter is cut off at the edge of the frame, so not transcribed"
+sonnet_w14,v1.0,sweep_c2,2221,sheet_556.jpg,9100,1775613273380.jpg,29239e51a09eb5aa,scale_with_item,True,,,not_visible,none_shown,,,,"shrimp on scale outdoors; weight row shows dim unlit segments (blank/unstabilized), not a legible reading"
+sonnet_w14,v1.0,sweep_c2,2222,sheet_556.jpg,5668,1774489514501.jpg,63ed1cd62ed12772,scale_with_item,True,0.285,True,clear,none_shown,,,,sausages in a plastic pack on scale
+sonnet_w14,v1.0,sweep_c2,2223,sheet_556.jpg,676,1777686988012.jpg,0a2cf6361dce0902,scale_with_item,True,0.265,True,clear,none_shown,,,,mango on scale near a crate of rambutan
+sonnet_w14,v1.0,sweep_c2,2224,sheet_556.jpg,8055,1775881103195.jpg,31c9a69e88e6452a,scale_with_item,True,0.200,True,clear,none_shown,,,,bundle of purple/green leafy vegetable (kamote tops) on scale near squash
+sonnet_w14,v1.0,sweep_c2,2225,sheet_557.jpg,4595,1776298923766.jpg,f0872d2ea3e915d7,scale_with_item,True,0.115,True,clear,none_shown,,,,fish on scale; photo and display are rotated 90 degrees but digits are legible
+sonnet_w14,v1.0,sweep_c2,2226,sheet_557.jpg,5186,1775866616903.jpg,cd543c97e005e0c5,scale_with_item,True,0.395,True,clear,none_shown,,,,chicken piece on scale next to an SM shopping bag
+sonnet_w14,v1.0,sweep_c2,2227,sheet_557.jpg,9717,1773882501184.jpg,a1e5492ebf45b19f,scale_with_item,True,0.290,True,clear,none_shown,,,,"small potato on scale set atop a plastic crate, melons in background"
+sonnet_w14,v1.0,sweep_c2,2228,sheet_557.jpg,9656,1773994245927.jpg,22763f0c7150ffcd,item_no_scale,,,,not_visible,none_shown,,,,"1521 S.T.L. Premium Light Brandy bottle on a wooden table; no scale visible, no volume text legible in this crop"
+sonnet_w14,v1.0,sweep_c2,2229,sheet_558.jpg,9815,1773907932808.jpg,577bc75cdbe538e2,scale_with_item,True,0.405,True,clear,none_shown,,,,fish (milkfish) on scale on a wooden table with bottles behind
+sonnet_w14,v1.0,sweep_c2,2230,sheet_558.jpg,7600,1774491955960.jpg,03bda9d36d6139a1,scale_with_item,True,0.180,True,clear,none_shown,,,,small yam/tuber on scale outdoors
+sonnet_w14,v1.0,sweep_c2,2231,sheet_558.jpg,6219,1773727914271.jpg,f774190490df06ae,scale_with_item,True,0.450,True,clear,none_shown,,,,Carlos Big Loaf bread pack on scale
+sonnet_w14,v1.0,sweep_c2,2232,sheet_558.jpg,5680,1778202162943.jpg,98ee3918dd2053c7,scale_with_item,True,0.175,True,clear,none_shown,,,,chopped cabbage in a plastic bag on scale
+sonnet_w14,v1.0,sweep_c2,2233,sheet_559.jpg,9575,1773880017223.jpg,272a7b360184c2cd,scale_with_item,True,0.090,True,clear,none_shown,,,,carrot on scale near crates and jugs
+sonnet_w14,v1.0,sweep_c2,2234,sheet_559.jpg,5143,1776036692916.jpg,70fd86cde8f52e30,scale_with_item,True,0.505,True,clear,none_shown,,,,"cabbage on scale in a sari-sari store, seasoning packets hanging behind"
+sonnet_w14,v1.0,sweep_c2,2235,sheet_559.jpg,9564,1773904961875.jpg,7af472010201ed2d,scale_with_item,True,0.280,True,clear,none_shown,,,,small yam/tuber on scale in bright sunlight
+sonnet_w14,v1.0,sweep_c2,2236,sheet_559.jpg,11192,1776824531854.jpg,757214295316fb8c,scale_with_item,True,0.190,True,clear,none_shown,,,,Holiday Bacon frozen pack on scale
+sonnet_w14,v1.0,sweep_c2,2237,sheet_560.jpg,4947,1775612130542.jpg,a5dc72d97746a53e,label_closeup,,,,not_visible,none_shown,1.25 L,1.25,L,Selecta Double Dutch Bestsellers ice cream tub lid
+sonnet_w14,v1.0,sweep_c2,2238,sheet_560.jpg,10745,1777600569159.jpg,9bf033a5c2070913,scale_with_item,True,0.250,True,clear,none_shown,,,,Chorizo de Cebu garlic sausage vacuum pack on scale
+sonnet_w14,v1.0,sweep_c2,2239,sheet_560.jpg,9714,1773989018786.jpg,5da99f0a8027a85b,scale_with_item,True,,,not_visible,none_shown,,,,"mango on scale near stacked plastic trays; weight row shows dim unlit segments (blank/unstabilized), not a legible reading"
+sonnet_w14,v1.0,sweep_c2,2240,sheet_560.jpg,6943,1775545770318.jpg,50dbe4c35926bfd3,scale_with_item,True,2.229,True,probable,none_shown,,,,white plastic bag containing rice or grain on scale; a plastic wrap over the display causes slight glare/distortion
+sonnet_w14,v1.0,sweep_c2,2241,sheet_561.jpg,665,1777601470609.jpg,e053b31a1c547683,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held by hand in a store with other Tanduay bottles; label prints 750 mL
+sonnet_w14,v1.0,sweep_c2,2242,sheet_561.jpg,1636,1777080111886.jpg,5c5db75fbf6d02a0,item_no_scale,,,,not_visible,none_shown,,,,"blue foil sachet (paste/condiment product) held by hand near an ID badge; no scale visible, printed text too small to transcribe confidently"
+sonnet_w14,v1.0,sweep_c2,2243,sheet_561.jpg,8058,1775867223246.jpg,41e30154199c3ae7,scale_with_item,True,0.285,True,clear,none_shown,,,,bundle of leafy herb on scale near bottled condiments
+sonnet_w14,v1.0,sweep_c2,2244,sheet_561.jpg,9810,1773883277998.jpg,1abae9ea28327013,scale_with_item,True,0.175,True,clear,none_shown,,,,fish (red snapper) on scale near a wrapped bundle
+sonnet_w14,v1.0,sweep_c2,2245,sheet_562.jpg,2870,1776649814052.jpg,a7d9bddbef30afad,scale_with_item,True,1.415,True,clear,none_shown,,,,cabbage on scale against a blue tarp
+sonnet_w14,v1.0,sweep_c2,2246,sheet_562.jpg,9562,1773879902283.jpg,05666ef3c8eedae1,scale_with_item,True,0.150,True,clear,none_shown,,,,small yam/tuber on scale near a basket and jug
+sonnet_w14,v1.0,sweep_c2,2247,sheet_562.jpg,6868,1775533986021.jpg,1494203af69eecda,label_closeup,,,,not_visible,none_shown,Net Volume 35 ml,35.0,mL,Joyday KoKoMi ice pop held by hand near a freezer case
+sonnet_w14,v1.0,sweep_c2,2248,sheet_562.jpg,9080,1775527286850.jpg,eda997b2399548b3,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark Gold Seal bottle held by hand near ginger produce; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2249,sheet_563.jpg,9706,1773882765110.jpg,ad068581b2fe3a06,scale_with_item,True,0.140,True,clear,none_shown,,,,"small mango on scale near boxes, more mangoes on the table"
+sonnet_w14,v1.0,sweep_c2,2250,sheet_563.jpg,9506,1773723721844.jpg,c6c0027cafebbd6d,scale_with_item,True,0.290,True,clear,none_shown,,,,Tasty Bread pack on scale near soda bottles
+sonnet_w14,v1.0,sweep_c2,2251,sheet_563.jpg,9811,1773883336722.jpg,ce4b23134c7a3ee9,scale_with_item,True,0.300,True,clear,none_shown,,,,fish (pompano) on scale near sacks
+sonnet_w14,v1.0,sweep_c2,2252,sheet_563.jpg,9702,1773968507179.jpg,8307eff6943c838c,scale_with_item,True,0.200,True,clear,none_shown,,,,mango on scale with two more mangoes beside it on a striped tablecloth
+sonnet_w14,v1.0,sweep_c2,2253,sheet_564.jpg,9613,1773885833708.jpg,4b06294e1812875b,scale_with_item,True,0.385,True,clear,none_shown,,,,fish on scale outdoors near bamboo structures; a hand partly covers the unit/total price rows
+sonnet_w14,v1.0,sweep_c2,2254,sheet_564.jpg,4979,1775701719010.jpg,c8f0f9f980fb6258,scale_with_item,True,0.160,True,clear,none_shown,,,,chopped mixed vegetables (coleslaw-style mix) in a plastic pack on scale
+sonnet_w14,v1.0,sweep_c2,2255,sheet_564.jpg,8130,1775873546893.jpg,407d10569b130c66,scale_with_item,True,0.185,True,clear,none_shown,,,,sausages in a labeled plastic pack on a tissue on scale
+sonnet_w14,v1.0,sweep_c2,2256,sheet_564.jpg,1732,1776649617036.jpg,941a6d57cbc90960,scale_with_item,True,0.095,True,clear,none_shown,,,,carrot on scale near black plastic bags
+sonnet_w14,v1.0,sweep_c2,2257,sheet_565.jpg,2041,1776822109517.jpg,f94a4601d7396a36,scale_with_item,True,1.090,True,clear,none_shown,,,,whole raw chicken on scale
+sonnet_w14,v1.0,sweep_c2,2258,sheet_565.jpg,2430,1776994489572.jpg,2fd124a123e9ba31,scale_with_item,True,0.750,True,clear,none_shown,,,,cabbage on scale near tomatoes and carrots
+sonnet_w14,v1.0,sweep_c2,2259,sheet_565.jpg,2454,1777083908163.jpg,2d5ab6a6ac5eae0c,scale_with_item,True,0.130,True,clear,none_shown,,,,carrot on scale near jars in a store
+sonnet_w14,v1.0,sweep_c2,2260,sheet_565.jpg,5521,1774056980157.jpg,431e2a2e0bb60ca9,scale_with_item,True,1.165,True,clear,none_shown,,,,whole raw chicken on scale
+sonnet_w14,v1.0,sweep_c2,2261,sheet_566.jpg,8422,1775695875846.jpg,19a7a8e92681d7e1,scale_with_item,True,0.580,True,clear,none_shown,,,,cabbage on scale near other cabbages and onions
+sonnet_w14,v1.0,sweep_c2,2262,sheet_566.jpg,10557,1777268437195.jpg,66bb05ebaacc9b56,scale_with_item,True,0.140,True,clear,none_shown,,,,"carrot on scale, close-up view"
+sonnet_w14,v1.0,sweep_c2,2263,sheet_566.jpg,5168,1776039269345.jpg,514d91c0fb6e0061,scale_with_item,True,0.095,True,clear,none_shown,,,,carrot on scale in a store with toys and jarred goods
+sonnet_w14,v1.0,sweep_c2,2264,sheet_566.jpg,884,1777514051755.jpg,07370dafa3c96210,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Rhum Light bottle held by hand outdoors; no scale visible, no volume text legible in this crop"
+sonnet_w14,v1.0,sweep_c2,2265,sheet_567.jpg,9738,1773886794639.jpg,02fce2f46c6c9a11,scale_with_item,True,0.805,True,clear,none_shown,,,,cabbage on scale near a pitcher and water bottle
+sonnet_w14,v1.0,sweep_c2,2266,sheet_567.jpg,10693,1777602541850.jpg,b73fba9b5d67d1a5,scale_with_item,True,0.105,True,clear,none_shown,,,,"carrot on scale, close-up view"
+sonnet_w14,v1.0,sweep_c2,2267,sheet_567.jpg,4424,1776127149469.jpg,e29000e8c3ef1c98,scale_with_item,True,0.185,True,clear,none_shown,,,,"carrot on scale, close-up view"
+sonnet_w14,v1.0,sweep_c2,2268,sheet_567.jpg,6223,1773802325114.jpg,3ab648da39227837,scale_with_item,True,0.665,True,clear,none_shown,,,,Angelina Super Loaf bread pack on scale in a store
+sonnet_w14,v1.0,sweep_c2,2269,sheet_568.jpg,5078,1773710986019.jpg,cdb59540aa678558,scale_with_item,True,0.325,True,clear,none_shown,,,,bundle of leafy greens on scale amid other produce on the ground
+sonnet_w14,v1.0,sweep_c2,2270,sheet_568.jpg,1725,1776649693699.jpg,004d2c03e5bfa32c,scale_with_item,True,0.095,True,clear,none_shown,,,,small yam/tuber on scale near black plastic bags
+sonnet_w14,v1.0,sweep_c2,2271,sheet_568.jpg,4127,1775873471135.jpg,d10d4d1192cfacdb,scale_with_item,True,0.125,True,clear,none_shown,,,,"carrot on scale, close-up view"
+sonnet_w14,v1.0,sweep_c2,2272,sheet_568.jpg,37,1778296827222.jpg,ae6327ddab15c68a,scale_with_item,True,0.095,True,clear,none_shown,,,,small fish on scale near a knife and baskets
+sonnet_w14,v1.0,sweep_c2,2273,sheet_569.jpg,9846,1773889662528.jpg,998974df79086262,scale_with_item,True,0.765,True,clear,none_shown,,,,Super Loaf bread pack on scale
+sonnet_w14,v1.0,sweep_c2,2274,sheet_569.jpg,9330,1774066305867.jpg,0e08673a5cb75d5e,scale_with_item,True,0.155,True,clear,none_shown,,,,carrot on scale near a red package
+sonnet_w14,v1.0,sweep_c2,2275,sheet_569.jpg,5604,1774403539215.jpg,755e405240bba0f8,label_closeup,,,,not_visible,none_shown,NET WT. 25g,25.0,g,"Sky Flakes Crackers pack, no scale in frame"
+sonnet_w14,v1.0,sweep_c2,2276,sheet_569.jpg,2527,1776664067183.jpg,c987ee0dc107d3e3,scale_with_item,True,0.780,True,clear,none_shown,,,,cabbage on scale in an open market area
+sonnet_w14,v1.0,sweep_c2,2277,sheet_570.jpg,9824,1773881437391.jpg,7402ebf9b5798a7f,scale_with_item,True,0.050,True,clear,none_shown,,,,Cornetto ice cream cone standing upright on scale
+sonnet_w14,v1.0,sweep_c2,2278,sheet_570.jpg,2599,1776301846976.jpg,15f1d5dec6cf5f46,scale_with_item,True,0.890,True,clear,none_shown,,,,cabbage on scale near tomatoes and carrots
+sonnet_w14,v1.0,sweep_c2,2279,sheet_570.jpg,2762,1776472475505.jpg,e0fc030fb7b95a6f,scale_with_item,True,1.035,True,clear,none_shown,,,,several sweet potatoes on scale near eggplant and beans
+sonnet_w14,v1.0,sweep_c2,2280,sheet_570.jpg,9746,1773908577053.jpg,3d25e965e40de795,scale_with_item,True,0.710,True,clear,none_shown,,,,"cabbage on scale, close-up view"
+sonnet_w14,v1.0,sweep_c2,2281,sheet_571.jpg,9447,1773726986413.jpg,73ce8602a36f1ce1,scale_with_item,True,0.225,True,clear,none_shown,,,,"carrot on scale, close-up view"
+sonnet_w14,v1.0,sweep_c2,2282,sheet_571.jpg,6105,1773800293872.jpg,c34f71ecd55ee1f8,scale_with_item,True,0.315,True,clear,none_shown,,,,cabbage on scale near crates of seedless grapes and bananas
+sonnet_w14,v1.0,sweep_c2,2283,sheet_571.jpg,141,1778201901035.jpg,90df3f220d16bdb3,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held by hand in a store with noodle packets; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2284,sheet_571.jpg,2626,1776302518046.jpg,4d3f4c822a512855,scale_with_item,True,0.195,True,clear,none_shown,,,,sweet potato on scale on a bamboo table
+sonnet_w14,v1.0,sweep_c2,2285,sheet_572.jpg,1604,1777005819149.jpg,19559e27cb667b4c,scale_with_item,True,1.305,True,clear,none_shown,,,,Magnolia Whole Chicken pack on scale near sacks
+sonnet_w14,v1.0,sweep_c2,2286,sheet_572.jpg,577,1777867854599.jpg,277d4ba1c12710c0,scale_with_item,True,0.810,True,clear,none_shown,,,,cabbage on scale near squash and a pail of mung beans
+sonnet_w14,v1.0,sweep_c2,2287,sheet_572.jpg,5228,1775863381129.jpg,3e5e5a87cb250e05,scale_with_item,True,0.720,True,clear,none_shown,,,,fish (milkfish) on scale against a teal wall
+sonnet_w14,v1.0,sweep_c2,2288,sheet_572.jpg,8124,1775870054902.jpg,92781cf05a18717c,scale_with_item,True,0.250,True,clear,none_shown,,,,pork cut on scale near butchering tools and a wooden chopping block
+sonnet_w14,v1.0,sweep_c2,2289,sheet_573.jpg,596,1777597441362.jpg,b56891f8a5927a71,scale_with_item,True,0.990,True,clear,none_shown,,,,cabbage on scale on a patterned cloth
+sonnet_w14,v1.0,sweep_c2,2290,sheet_573.jpg,9370,1774054564206.jpg,2daa6dd90aacbf42,scale_with_item,True,0.165,True,clear,none_shown,,,,elongated fish (needlefish) on scale near a wooden bench
+sonnet_w14,v1.0,sweep_c2,2291,sheet_573.jpg,9423,1773722303363.jpg,4ba1d8b83e6472e5,scale_with_item,True,0.790,True,clear,none_shown,,,,cabbage on scale near red plastic crates of dragon fruit
+sonnet_w14,v1.0,sweep_c2,2292,sheet_573.jpg,4529,1776301860959.jpg,59babc5afc9cd969,scale_with_item,True,0.765,True,clear,none_shown,,,,cabbage on scale near a printed cloth bag
+sonnet_w14,v1.0,sweep_c2,2293,sheet_574.jpg,3163,1776827067355.jpg,c635ad5168437c72,scale_with_item,True,0.065,True,clear,none_shown,,,,sweet potato on scale near canned drinks and bottled goods
+sonnet_w14,v1.0,sweep_c2,2294,sheet_574.jpg,9682,1778724253291.jpg,8799d22ae1c4c0ed,scale_with_item,True,0.925,True,clear,none_shown,,,,Checkerum sliced bread pack on scale near a glass display case
+sonnet_w14,v1.0,sweep_c2,2295,sheet_574.jpg,904,1778030154190.jpg,b75e0642a865422d,scale_with_item,True,0.235,True,clear,none_shown,,,,sliced bread pack on scale outdoors near a store
+sonnet_w14,v1.0,sweep_c2,2296,sheet_574.jpg,8047,1775866987799.jpg,8e6b1526ea30abe2,scale_with_item,True,0.390,True,clear,none_shown,,,,small cabbage on scale near bottled goods on a wire shelf
+sonnet_w14,v1.0,sweep_c2,2297,sheet_575.jpg,9634,1773886564370.jpg,1e4c8fd57c6b8e7d,scale_with_item,True,0.495,True,clear,none_shown,,,,fish on scale near a sack
+sonnet_w14,v1.0,sweep_c2,2298,sheet_575.jpg,5333,1774574690666.jpg,64ef5910d703f67a,scale_with_item,True,0.155,True,clear,none_shown,,,,carrot on scale in bright sunlight near cucumbers
+sonnet_w14,v1.0,sweep_c2,2299,sheet_575.jpg,7835,1773970295431.jpg,110add3b960a98dd,scale_with_item,True,0.638,True,clear,none_shown,,,,Happy Jump branded pail/bucket item on scale in a store with beverage coolers
+sonnet_w14,v1.0,sweep_c2,2300,sheet_575.jpg,4797,1776305219475.jpg,0d672389094068fe,scale_with_item,True,0.090,True,clear,none_shown,,,,small pieces of chicken meat on scale platter
+sonnet_w14,v1.0,sweep_c2,2301,sheet_576.jpg,860,1778033609607.jpg,a05707cad897c606,scale_with_item,True,0.785,True,clear,none_shown,,,,fish on scale set atop stacked woven trays
+sonnet_w14,v1.0,sweep_c2,2302,sheet_576.jpg,2598,1776301825184.jpg,06eaaa3e629f5c0b,scale_with_item,True,0.575,True,clear,none_shown,,,,cabbage on scale outdoors
+sonnet_w14,v1.0,sweep_c2,2303,sheet_576.jpg,4648,1776301747946.jpg,2265994596dc56fa,scale_with_item,True,0.150,True,clear,none_shown,,,,meat/pork cubes in a vacuum-sealed plastic pack on scale
+sonnet_w14,v1.0,sweep_c2,2304,sheet_576.jpg,10554,1777269071139.jpg,444dba9deee7958c,scale_with_item,True,0.645,True,clear,none_shown,,,,bundle of yardlong beans and leafy greens on scale near garlic
+sonnet_w14,v1.0,sweep_c2,2305,sheet_577.jpg,6201,1773812900757.jpg,87fff91c3edeb45f,scale_with_item,True,,,not_visible,none_shown,,,,"Creamdae ice cream cup on scale; weight row shows dim unlit segments (blank/unstabilized), not a legible reading"
+sonnet_w14,v1.0,sweep_c2,2306,sheet_577.jpg,7864,1773884072152.jpg,82545546e2fadcd3,scale_with_item,True,0.480,True,clear,none_shown,,,,Angelina Medium Loaf bread pack on scale in a store
+sonnet_w14,v1.0,sweep_c2,2307,sheet_577.jpg,2623,1776215406341.jpg,19ece8c6f1eabeaf,scale_with_item,True,0.125,True,clear,none_shown,,,,sweet potato on scale in an open-air market
+sonnet_w14,v1.0,sweep_c2,2308,sheet_577.jpg,2631,1776306205710.jpg,579033fcfc88e7f7,scale_with_item,True,0.150,True,clear,none_shown,,,,sweet potato on scale near a red crate and bananas
+sonnet_w14,v1.0,sweep_c2,2309,sheet_578.jpg,748,1777595503592.jpg,9f4ac5b00276a8ad,scale_with_item,True,1.035,True,clear,none_shown,,,,fish (tuna/bonito) wrapped in foil on scale near a person with a clipboard
+sonnet_w14,v1.0,sweep_c2,2310,sheet_578.jpg,10030,1778477044611.jpg,4ee9d334717eb744,label_closeup,,,,not_visible,none_shown,950mL,950.0,mL,Creamline 2in1 Family Duo (Cookies & Cream / Chocolate Swirl) ice cream tub lid held by hand near a freezer
+sonnet_w14,v1.0,sweep_c2,2311,sheet_578.jpg,9302,1774052718350.jpg,0cfc44a508eda4b2,scale_with_item,True,0.650,True,clear,none_shown,,,,small cabbage on scale near a fuel container
+sonnet_w14,v1.0,sweep_c2,2312,sheet_578.jpg,8444,1775695381639.jpg,866c8ffd710240d6,scale_with_item,True,0.160,True,clear,none_shown,,,,carrot on scale set on a box labeled BTM
+sonnet_w14,v1.0,sweep_c2,2313,sheet_579.jpg,2463,1777086859145.jpg,5069092ba2443891,scale_with_item,True,0.990,True,clear,none_shown,,,,Whole Dressed Chicken pack (Cal's Poultry Supply Corp) on scale near vegetables
+sonnet_w14,v1.0,sweep_c2,2314,sheet_579.jpg,2090,1776910783168.jpg,333fc3aad3ef6477,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held by hand near an ID badge; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2315,sheet_579.jpg,8930,1775705493362.jpg,655ba1652896ab2e,scale_with_item,True,0.310,True,clear,none_shown,,,,small tin can containing grain on scale against a blue tarp
+sonnet_w14,v1.0,sweep_c2,2316,sheet_579.jpg,4985,1775703820780.jpg,a904c339c84460e4,scale_with_item,True,0.095,True,clear,none_shown,,,,"small yam/tuber on scale, close-up view"
+sonnet_w14,v1.0,sweep_c2,2317,sheet_580.jpg,2354,1776389395684.jpg,3617bd0afc636f8b,scale_with_item,True,0.755,True,clear,none_shown,,,,cabbage on scale on a wooden bench
+sonnet_w14,v1.0,sweep_c2,2318,sheet_580.jpg,6460,1774054535931.jpg,d26b101f420fb119,label_closeup,,,,not_visible,none_shown,,,,"Loaded! Chocolate-filled Snack package on a weathered wooden surface; no scale in frame, no printed weight visible"
+sonnet_w14,v1.0,sweep_c2,2319,sheet_580.jpg,396,1777348954310.jpg,2923620721ade836,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held by hand near egg trays; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2320,sheet_580.jpg,9527,1773879682009.jpg,e61cfd45d4127f8a,scale_with_item,True,0.845,True,clear,none_shown,,,,cabbage on scale near bottled water and crates
+sonnet_w14,v1.0,sweep_c2,2321,sheet_581.jpg,5660,1774413964641.jpg,9f2456428ebf1bee,scale_with_item,True,0.260,True,clear,none_shown,,,,shrimp in a metal bowl on scale
+sonnet_w14,v1.0,sweep_c2,2322,sheet_581.jpg,2718,1776307247220.jpg,319396472a9f6343,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Light bottle held by hand in a store with canned goods; label prints 750 mL
+sonnet_w14,v1.0,sweep_c2,2323,sheet_581.jpg,7567,1774418784565.jpg,6844ca2ba155ca35,scale_with_item,True,0.560,True,clear,none_shown,,,,small cabbage on scale near a basket and canister
+sonnet_w14,v1.0,sweep_c2,2324,sheet_581.jpg,5694,1774574791282.jpg,e757419623e4e050,scale_with_item,True,0.085,True,clear,none_shown,,,,"carrot on scale, close-up view with someone's feet visible"
+sonnet_w14,v1.0,sweep_c2,2325,sheet_582.jpg,9334,1774052340594.jpg,a37730afefd51de5,scale_with_item,True,0.175,True,clear,none_shown,,,,carrot on scale near a red crate
+sonnet_w14,v1.0,sweep_c2,2326,sheet_582.jpg,5091,1773715319615.jpg,f4ec2ee64f638d6e,scale_with_item,True,0.270,True,clear,none_shown,,,,Marie biscuit multipack on scale near a sign reading SLIPPE(RS)
+sonnet_w14,v1.0,sweep_c2,2327,sheet_582.jpg,8208,1773971193417.jpg,e5a39e12deb022a4,item_no_scale,,,,not_visible,none_shown,,,,"C2 Apple Green Tea bottle held by hand near freezer cases; no scale visible, no volume text legible in this crop"
+sonnet_w14,v1.0,sweep_c2,2328,sheet_582.jpg,1733,1776649632742.jpg,3a00e2bf8d2f3a17,scale_with_item,True,0.115,True,clear,none_shown,,,,carrot on scale near stacked black plastic bags
+sonnet_w14,v1.0,sweep_c2,2329,sheet_583.jpg,3008,1776300544641.jpg,00ea9aa80cfe2aab,scale_with_item,True,1.265,True,clear,none_shown,,,,Magnolia Whole Chicken pack on scale near fruit and bananas
+sonnet_w14,v1.0,sweep_c2,2330,sheet_583.jpg,9049,1775521680332.jpg,cf4de2bd841caa1a,scale_with_item,True,0.245,True,clear,none_shown,,,,carrot on scale near a blue tarp
+sonnet_w14,v1.0,sweep_c2,2331,sheet_583.jpg,605,1777865693797.jpg,89671f7a57148c37,scale_with_item,True,0.100,True,clear,none_shown,,,,carrot on scale atop a crate of sweet potatoes
+sonnet_w14,v1.0,sweep_c2,2332,sheet_583.jpg,7213,1773706365009.jpg,21a9a1c138d7f7ec,scale_with_item,True,0.190,True,probable,none_shown,,,,meat cubes in a vacuum-sealed plastic pack on scale; photo is rotated 90 degrees and a white cord partly overlays the display digits
+sonnet_w14,v1.0,sweep_c2,2333,sheet_584.jpg,5183,1775866994637.jpg,3b34a86fe248b120,scale_with_item,True,0.400,True,clear,none_shown,,,,raw chicken cuts (breast and leg) on scale in a store
+sonnet_w14,v1.0,sweep_c2,2334,sheet_584.jpg,6586,1773800281542.jpg,9dee6b48771927d2,scale_with_item,True,0.290,True,clear,none_shown,,,,Nissin Butter Coconut biscuit pack on scale near a Coca-Cola crate
+sonnet_w14,v1.0,sweep_c2,2335,sheet_584.jpg,9724,1773896292098.jpg,e711e21dbae1a49a,scale_with_item,True,0.205,True,clear,none_shown,,,,meat pack on scale on a green-tiled counter
+sonnet_w14,v1.0,sweep_c2,2336,sheet_584.jpg,852,1777423520722.jpg,49327c58b0ef666e,scale_with_item,True,0.055,True,clear,none_shown,,,,small fish on scale set on a weathered stone ledge
+sonnet_w14,v1.0,sweep_c2,2337,sheet_585.jpg,5662,1774413249999.jpg,e0fb15b0de6ad622,scale_with_item,True,0.260,True,clear,none_shown,,,,shrimp in a blue plastic bag on scale near patio chairs
+sonnet_w14,v1.0,sweep_c2,2338,sheet_585.jpg,4598,1776298510903.jpg,80c52e171dfb9276,scale_with_item,True,0.680,True,clear,none_shown,,,,"fish (mackerel/tanigue) on scale, another weighing scale visible in background"
+sonnet_w14,v1.0,sweep_c2,2339,sheet_585.jpg,9733,1773885517689.jpg,725add9253d70518,scale_with_item,True,0.160,True,clear,none_shown,,,,half a cabbage (cut open) on scale
+sonnet_w14,v1.0,sweep_c2,2340,sheet_585.jpg,6413,1774049112652.jpg,a768652d8c94bcdb,scale_with_item,True,0.480,True,clear,none_shown,,,,cabbage on scale in a store near bottled goods
+sonnet_w14,v1.0,sweep_c2,2341,sheet_586.jpg,9551,1773903003651.jpg,d1b475ba65cfd886,scale_with_item,True,0.245,True,clear,none_shown,,,,sweet potato on scale near squash and a red crate
+sonnet_w14,v1.0,sweep_c2,2342,sheet_586.jpg,9872,1773881745906.jpg,f910316c4e355323,scale_with_item,True,0.205,True,clear,none_shown,,,,red sausage pack on scale in a store with canned goods
+sonnet_w14,v1.0,sweep_c2,2343,sheet_586.jpg,1648,1777083385295.jpg,0327d488f2ed784b,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held by hand near a shelf of bottles; volume text on the label is blurred but reads consistent with 750 mL
+sonnet_w14,v1.0,sweep_c2,2344,sheet_586.jpg,8,1778293018458.jpg,5e8a433a70f4387b,scale_with_item,True,0.125,True,clear,none_shown,,,,bundle of wilted purple/green leafy herb on scale near a red crate
+sonnet_w14,v1.0,sweep_c2,2345,sheet_587.jpg,41,1778469570765.jpg,34e433179d8f56b4,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held by hand near patio chairs; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2346,sheet_587.jpg,9829,1773968311172.jpg,28070cc07f98600b,scale_with_item,True,0.220,True,clear,none_shown,,,,Selecta Birthday Hapi Pack ice cream cup on scale
+sonnet_w14,v1.0,sweep_c2,2347,sheet_587.jpg,100,1778206320808.jpg,b00e370e9af973bd,scale_with_item,True,0.135,True,clear,none_shown,,,,carrot on scale under an umbrella
+sonnet_w14,v1.0,sweep_c2,2348,sheet_587.jpg,35,1778297064811.jpg,9d4e6076a9fbebb9,scale_with_item,True,0.095,True,clear,none_shown,,,,small fish (sardine) on scale near an old red scale in the background
+sonnet_w14,v1.0,sweep_c2,2349,sheet_588.jpg,5467,1774577332057.jpg,de2a1a282be5c584,item_no_scale,,,,not_visible,none_shown,250 ml,250.0,mL,Tanduay Rhum Dark bottle held by hand in a store; label prints 250 ml
+sonnet_w14,v1.0,sweep_c2,2350,sheet_588.jpg,8113,1778889668450.jpg,d1d347c5834aa8db,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum E.S.Q. Dark bottle held by hand near onions and tomatoes; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2351,sheet_588.jpg,1795,1776645496113.jpg,c48c9b03dbe1d90a,scale_with_item,True,0.175,True,clear,none_shown,,,,mango on scale near fruit-branded boxes
+sonnet_w14,v1.0,sweep_c2,2352,sheet_588.jpg,8498,1775700572874.jpg,f9e01ea2eb8c2e8e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held by hand near stacked bottled water; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2353,sheet_589.jpg,397,1777263761511.jpg,b512acd5f360f4d5,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held by hand; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2354,sheet_589.jpg,117,1778124728402.jpg,59e7ba66a4df2f02,scale_with_item,True,0.160,True,clear,none_shown,,,,chicken foot/wing piece on tissue on scale on a corrugated metal table
+sonnet_w14,v1.0,sweep_c2,2355,sheet_589.jpg,9596,1773906229982.jpg,ca26e2987e91fd78,scale_with_item,True,0.155,True,clear,none_shown,,,,carrot on scale near a red crate
+sonnet_w14,v1.0,sweep_c2,2356,sheet_589.jpg,10559,1777268936959.jpg,a5ecb39c410d3b85,scale_with_item,True,0.175,True,clear,none_shown,,,,"carrot on scale, close-up view"
+sonnet_w14,v1.0,sweep_c2,2357,sheet_590.jpg,3150,1776825532809.jpg,fa33d04378999c96,scale_with_item,True,1.670,True,clear,none_shown,,,,cabbage on scale in an outdoor market aisle
+sonnet_w14,v1.0,sweep_c2,2358,sheet_590.jpg,3184,1776910979078.jpg,8e79592282b2f15e,scale_with_item,True,0.910,True,clear,none_shown,,,,whole raw chicken on scale near plastic sacks
+sonnet_w14,v1.0,sweep_c2,2359,sheet_590.jpg,8110,1775876256860.jpg,74a5c1f2d82f22f3,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum E.S.Q. Dark bottle held by hand near a water dispenser and gas cylinders; label prints 375 mL
+sonnet_w14,v1.0,sweep_c2,2360,sheet_590.jpg,2619,1776215955208.jpg,55fc0bcb8231779d,scale_with_item,True,0.345,True,clear,none_shown,,,,bundle of leafy greens (kangkong) on scale near sweet potatoes and a red bowl
+sonnet_w14,v1.0,sweep_c2,2361,sheet_591.jpg,98,1778121094914.jpg,9d345ed48bfab4cf,scale_with_item,True,0.085,True,clear,none_shown,,,,carrot on scale near baskets of tomatoes and calamansi
+sonnet_w14,v1.0,sweep_c2,2362,sheet_591.jpg,2613,1776216469178.jpg,bdf6500084761bc4,scale_with_item,True,0.230,True,clear,none_shown,,,,chopped cabbage and carrot mix on scale near snack packs
+sonnet_w14,v1.0,sweep_c2,2363,sheet_591.jpg,8653,1778630688636.jpg,9bb864e3d99340b7,label_closeup,,,,not_visible,none_shown,100mL,100.0,mL,small ice cream cup held by hand over an open chest freezer
+sonnet_w14,v1.0,sweep_c2,2364,sheet_591.jpg,1782,1779239822529.jpg,b2977af410c0e74b,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Light bottle held by hand near an ID badge; label prints 750 mL
+sonnet_w14,v1.0,sweep_c2,2365,sheet_592.jpg,10905,1776996921871.jpg,86614ff7e6a51a45,scale_with_item,True,1.095,True,clear,none_shown,,,,whole raw chicken on scale on a wooden table
+sonnet_w14,v1.0,sweep_c2,2366,sheet_592.jpg,812,1777424411909.jpg,7f5398fa34527879,scale_with_item,True,0.125,True,clear,none_shown,,,,carrot on scale near leafy greens and green onions
+sonnet_w14,v1.0,sweep_c2,2367,sheet_592.jpg,1778,1776737789107.jpg,df5edcc286678b78,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held by hand in front of a liquor store shelf with tequila bottles; label prints 750 mL
