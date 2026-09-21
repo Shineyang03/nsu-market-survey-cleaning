@@ -221,10 +221,79 @@ gen byte pkg_seen = 0
 foreach s in son swp rsc hir {
 	replace pkg_seen = 1 if !missing(pkg_`s') & trim(pkg_`s') != "" & pkg_`s' != "NA"
 }
-gen byte mL_rule_pending = pkg_seen & photo_src != "human (mL rule)" & photo_src != "human"
+* mL_rule_pending is defined below, once has_pkg_qty exists.
+
+* ---- A PACKAGE QUANTITY IS A READING TOO ----------------------------------------
+* `has_reading' used to mean "a scale display was read", which silently equated "no
+* display" with "no evidence". Under the mL rule a printed volume is evidence -- it is
+* the PREFERRED evidence where both exist -- so a photograph of a label with a legible
+* quantity is a read photograph, not an unread one.
+*
+* The cost of the old definition was not cosmetic: it reported Check 2 coverage as 75%
+* when 89% of the tier has evidence, and it hid 333 usable package labels behind a
+* count of 616 "no reading" rows.
+*
+* Parsed from the FIRST trusted reader that recorded a label, in the same precedence as
+* the display reading. Haiku is excluded here for the same reason it is excluded there.
+gen str80 pkg_text = ""
+foreach s in rsc hir son swp {
+	replace pkg_text = pkg_`s' if pkg_text == "" & !missing(pkg_`s') & trim(pkg_`s') != ""
+}
+
+* Volume first, then mass. A label reading "Net Content: 64ml (60g)" is a volume that
+* also states its mass, and the mL rule wants the volume.
+gen double pkg_qty  = .
+gen str4   pkg_unit = ""
+
+* number immediately followed by a volume unit
+gen str80 _m = regexs(0) if regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(ml|millilit[a-z]*)")
+replace pkg_qty  = real(regexs(1)) if regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(ml|millilit[a-z]*)")
+replace pkg_unit = "mL" if !missing(pkg_qty)
+
+* litres -> mL, only where no mL figure was found
+replace pkg_qty  = real(regexs(1))*1000 ///
+	if missing(pkg_qty) & regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(lit[a-z]*|l)\b")
+replace pkg_unit = "mL" if pkg_unit == "" & !missing(pkg_qty)
+
+* mass, only where no volume was found at all
+replace pkg_qty  = real(regexs(1)) ///
+	if missing(pkg_qty) & regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(g|gram[a-z]*)\b")
+replace pkg_unit = "g" if pkg_unit == "" & !missing(pkg_qty)
+replace pkg_qty  = real(regexs(1))*1000 ///
+	if missing(pkg_qty) & regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(kg|kilo[a-z]*)\b")
+replace pkg_unit = "g" if pkg_unit == "" & !missing(pkg_qty)
+drop _m
+
+gen byte has_pkg_qty = !missing(pkg_qty)
+
+* THE mL RULE, stated as one condition. A printed volume governs where one exists --
+* over a scale display and over the field record. Applied from a MODEL reading here,
+* which is a change: it was previously human-only. The owner ruled on 2026-09-21 that
+* the printed volume governs whenever it is available, without that qualification.
+gen byte ml_rule_applied = 0
+replace photo_g    = pkg_qty  if has_pkg_qty & pkg_unit == "mL"
+replace photo_unit = "mL"     if has_pkg_qty & pkg_unit == "mL"
+replace ml_rule_applied = 1   if has_pkg_qty & pkg_unit == "mL"
+replace photo_src = photo_src + " + mL label" if ml_rule_applied & photo_src != ""
+replace photo_src = "package label (mL)"      if ml_rule_applied & photo_src == ""
+
+* a printed MASS, only where nothing else gave a value
+replace photo_g    = pkg_qty if missing(photo_g) & has_pkg_qty & pkg_unit == "g"
+replace photo_unit = "g"     if missing(photo_unit) & has_pkg_qty & pkg_unit == "g"
+replace photo_src  = "package label (g)" if photo_src == "" & !missing(photo_g)
 
 gen byte has_reading = !missing(photo_g)
 gen byte from_human  = inlist(photo_src, "human", "human (mL rule)")
+gen byte evidence_is_label = (strpos(photo_src, "package label") > 0) | ml_rule_applied
+
+* A label was SEEN but no quantity could be parsed from it, so a person must look. It
+* no longer covers labels the rule can read, because the rule now reads them.
+gen byte mL_rule_pending = pkg_seen & !has_pkg_qty
+
+label var pkg_qty      "Quantity parsed from the printed package label"
+label var pkg_unit     "Its dimension: mL where a volume was printed, else g"
+label var has_pkg_qty  "A usable quantity was printed on the packaging"
+label var ml_rule_applied "The printed volume governed this row"
 
 label var photo_g    "Resolved reading from the photograph, grams (or mL under the mL rule)"
 label var photo_src  "Which reader the resolved value came from"
@@ -255,6 +324,7 @@ di as txt _n "  by the rule that set the published value:"
 tab pub_rule has_reading, row
 
 order id image_code filename photo_g photo_unit photo_src from_human has_reading ///
+      evidence_is_label ml_rule_applied pkg_text pkg_qty pkg_unit has_pkg_qty ///
       mL_rule_pending pkg_seen raw_tick raw_weight corrected_weight pub_unit pub_rule ///
       pull_item harmonized_nsu_unit pull_province pull_municipal_city ///
       market_name store_stall_name vendor_id ///

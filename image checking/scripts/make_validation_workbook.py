@@ -55,6 +55,26 @@ ANSWER_COLS = [
     ("notes", 40, "anything that qualifies your answer"),
 ]
 
+# ---- ADJUDICATION MODE ---------------------------------------------------------
+# A DELIBERATE REVERSAL OF THE BLINDING, and the reason matters.
+#
+# The measure mode above hides everything, because a reader shown "we published 800"
+# would confirm rather than read, and the point there is to obtain an independent
+# reading. That job is done.
+#
+# Adjudication is a different question: "here is a proposed change -- should it be
+# made?" It cannot be asked without showing the proposal, and docs/adjudication_playbook.md
+# is explicit that a reviewer adjudicating a judgement call should have every verdict
+# pre-filled, because confirm/override is cheap and decide-from-scratch is not.
+#
+# The two modes must never be mixed. A reading taken in adjudicate mode is not
+# independent evidence and must not be used as ground truth.
+ADJ_ANSWER_COLS = [
+    ("approve", 12, "yes / no -- apply the proposed value?"),
+    ("correct_value", 15, "if not approving, what the display actually reads"),
+    ("notes", 40, "anything that qualifies your answer"),
+]
+
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
@@ -62,11 +82,26 @@ def main(argv=None) -> int:
     ap.add_argument("--out", required=True)
     ap.add_argument("--px", type=int, default=820,
                     help="embedded image width; big enough to read a display")
+    ap.add_argument("--mode", choices=["measure", "adjudicate"], default="measure",
+                    help="measure: blind, nothing shown (ground truth). "
+                         "adjudicate: shows the proposal for approve/reject. "
+                         "Never use an adjudicate reading as ground truth.")
+    ap.add_argument("--show", default="",
+                    help="adjudicate mode: comma-separated columns from --ids to "
+                         "display as locked context")
     args = ap.parse_args(argv)
 
+    answer_cols = ADJ_ANSWER_COLS if args.mode == "adjudicate" else ANSWER_COLS
+    show = [c.strip() for c in args.show.split(",") if c.strip()] \
+        if args.mode == "adjudicate" else []
+
     ids = pd.read_csv(args.ids)
+    missing_show = [c for c in show if c not in ids.columns]
+    if missing_show:
+        print(f"--show names columns not in {args.ids}: {missing_show}", file=sys.stderr)
+        return 2
     bridge = pd.read_csv(BRIDGE)[["id", "filename", "photo_path"]]
-    df = ids[["id"]].merge(bridge, on="id", how="left")
+    df = ids[["id"] + show].merge(bridge, on="id", how="left")
     if df.photo_path.isna().any():
         print("some ids have no photograph in the bridge", file=sys.stderr)
         return 2
@@ -96,7 +131,7 @@ def main(argv=None) -> int:
     ws = wb.active
     ws.title = "read the display"
 
-    hdr = ["row", "image_code", "photograph"] + [c for c, _, _ in ANSWER_COLS]
+    hdr = ["row", "image_code", "photograph"] + show + [c for c, _, _ in answer_cols]
     ws.append(hdr)
     for i, h in enumerate(hdr, start=1):
         c = ws.cell(row=1, column=i)
@@ -108,7 +143,10 @@ def main(argv=None) -> int:
     ws.column_dimensions["A"].width = 6
     ws.column_dimensions["B"].width = 16
     ws.column_dimensions["C"].width = int(args.px / 7.2)
-    for i, (name, width, _) in enumerate(ANSWER_COLS, start=4):
+    for i, name in enumerate(show, start=4):
+        ws.column_dimensions[get_column_letter(i)].width = 17
+    ans0 = 4 + len(show)
+    for i, (name, width, _) in enumerate(answer_cols, start=ans0):
         ws.column_dimensions[get_column_letter(i)].width = width
 
     # A closed vocabulary on `legible` and `scale_present`: free text there would have to
@@ -147,12 +185,20 @@ def main(argv=None) -> int:
         # 37 of 40 v1 answers returned as floats. The numeric comparison survived, so
         # nothing was lost that mattered, but the exact-string check the instrument
         # promises was simply unavailable.
-        dc = ws.cell(row=row, column=4)
-        dc.number_format = "@"
+        for k, name in enumerate(show, start=4):
+            c = ws.cell(row=row, column=k, value=r[name])
+            c.alignment = Alignment(vertical="top", horizontal="left", wrap_text=True)
+            c.fill = PatternFill("solid", fgColor="EFEFEF")   # locked context
 
-        dv_leg.add(ws.cell(row=row, column=5))
-        dv_yn.add(ws.cell(row=row, column=6))
-        for col in (4, 5, 6, 7):
+        if args.mode == "adjudicate":
+            dv_yn.add(ws.cell(row=row, column=ans0))               # approve
+            ws.cell(row=row, column=ans0 + 1).number_format = "@"  # correct_value
+        else:
+            ws.cell(row=row, column=ans0).number_format = "@"      # display_text
+            dv_leg.add(ws.cell(row=row, column=ans0 + 1))
+            dv_yn.add(ws.cell(row=row, column=ans0 + 2))
+
+        for col in range(ans0, ans0 + len(answer_cols)):
             ws.cell(row=row, column=col).alignment = Alignment(
                 vertical="top", horizontal="left", wrap_text=True)
 

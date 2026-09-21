@@ -129,6 +129,26 @@ order id image_code rule_verdict photo_g photo_unit photo_src from_human ///
 gsort rule_verdict -offby
 export delimited using "${imgqc}\photo_rule_proposal.csv", replace
 
+* ---- the override rows, laid out for an APPROVE/REJECT review -------------------
+* The rule applies these automatically. They are exported for a person anyway, because
+* the hold set showed what model-vs-published disagreement actually selects for: of 37
+* held rows a person read, the model was wrong on 29 and the PUBLISHED value was right
+* on 27. These 87 are the same signal at smaller magnitude, and none has been read by a
+* person. Applying them unreviewed would very likely inject more error than it removes.
+preserve
+	keep if rule_verdict == "override"
+	gen double published_now  = corrected_weight
+	gen double proposed_value = round(photo_g, 0.1)
+	gen double times_off      = round(offby, 0.01)
+	keep id image_code pull_item raw_tick raw_weight published_now proposed_value ///
+	     photo_unit times_off photo_src pub_rule
+	gsort -times_off
+	export delimited using "${imgqc}\override_review_ids.csv", replace
+	qui count
+	di as res _n "  override rows exported for review: " r(N)
+	di as txt "  ${imgqc}\override_review_ids.csv"
+restore
+
 preserve
 	keep if rule_verdict == "hold"
 	gsort -offby
