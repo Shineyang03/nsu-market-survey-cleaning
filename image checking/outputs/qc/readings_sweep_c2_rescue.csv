@@ -1,0 +1,4 @@
+reader,prompt_version,tag,label,sheet,id,filename,img_sha16,photo_type,item_on_scale,display_text,has_decimal,display_legible,display_unit_shown,package_text,package_qty,package_unit,notes
+opus_rescue,v1.0,sweep_c2_rescue,0001,sheet_001.jpg,917,1778034809067.jpg,55473d3497ee35aa,scale_with_item,True,0.195,True,probable,none_shown,,,,"single mango on platter; glare across the display, first digit confidently 0"
+opus_rescue,v1.0,sweep_c2_rescue,0002,sheet_001.jpg,2442,1776999995962.jpg,775b088992bc81b7,scale_with_item,True,0.120,True,clear,none_shown,,,,single camote tuber on platter
+opus_rescue,v1.0,sweep_c2_rescue,0003,sheet_001.jpg,2620,1776215538254.jpg,061d51d45e0f3eec,scale_with_item,True,0.365,True,clear,none_shown,,,,bundle of camote tops on platter

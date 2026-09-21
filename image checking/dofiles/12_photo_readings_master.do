@@ -117,6 +117,17 @@ save "`p_swp'"
 qui count
 di as txt "  sweep_c2 ........... " r(N)
 
+* The rescue pass. Three photographs failed a streamed read ONCE during sheet
+* generation, were painted as UNREADABLE tiles and recorded as such in the manifest,
+* and were correctly reported unread. They were never corrupt -- see the retry now in
+* cached_photo -- and were re-rendered and read on their own sheet. Loaded as its own
+* pass so the recovery stays visible rather than being quietly folded into the sweep.
+load_pass, file("${imgqc}/readings_sweep_c2_rescue.csv") pass("sweep rescue") suffix("rsc")
+tempfile p_rsc
+save "`p_rsc'"
+qui count
+di as txt "  sweep_c2 rescue .... " r(N)
+
 * human -- a different schema, from the workbook rather than a reader
 capture confirm file "${imgqc}/human_verdicts_v1.csv"
 if _rc == 0 {
@@ -142,7 +153,7 @@ di as txt "  human_v1 ........... " r(N)
 ********************************************************************************
 
 use "`p_son'", clear
-foreach f in p_hai p_hir p_swp p_hum {
+foreach f in p_hai p_hir p_swp p_rsc p_hum {
 	merge 1:1 id using "``f''", nogen
 }
 
@@ -179,6 +190,7 @@ norm_g g_hum v_hum `KGSPLIT'
 norm_g g_hir v_hir `KGSPLIT'
 norm_g g_son v_son `KGSPLIT'
 norm_g g_swp v_swp `KGSPLIT'
+norm_g g_rsc v_rsc `KGSPLIT'
 norm_g g_hai v_hai `KGSPLIT'
 
 gen double photo_g    = .
@@ -186,6 +198,8 @@ gen str16  photo_src  = ""
 gen str4   photo_unit = ""
 
 * precedence, best evidence last-applied-wins is avoided: each branch guards on missing
+replace photo_g = g_rsc  if missing(photo_g) & !missing(g_rsc)
+replace photo_src = "rescue read"   if photo_src == "" & !missing(g_rsc)
 replace photo_g = g_swp  if missing(photo_g) & !missing(g_swp)
 replace photo_src = "sonnet sweep"  if photo_src == "" & !missing(g_swp)
 replace photo_g = g_son  if missing(photo_g) & !missing(g_son)
@@ -204,7 +218,7 @@ replace photo_src  = "human (mL rule)" if reading_source == "package" & !missing
 
 * A model row that saw a package label: the rule is NOT applied, and the flag says so.
 gen byte pkg_seen = 0
-foreach s in son swp hir {
+foreach s in son swp rsc hir {
 	replace pkg_seen = 1 if !missing(pkg_`s') & trim(pkg_`s') != "" & pkg_`s' != "NA"
 }
 gen byte mL_rule_pending = pkg_seen & photo_src != "human (mL rule)" & photo_src != "human"
@@ -245,9 +259,10 @@ order id image_code filename photo_g photo_unit photo_src from_human has_reading
       pull_item harmonized_nsu_unit pull_province pull_municipal_city ///
       market_name store_stall_name vendor_id ///
       v_hum raw_hum reading_source h_glare_flag h_notes ///
-      v_hir v_son v_swp v_hai g_hum g_hir g_son g_swp g_hai ///
-      type_son type_hir type_swp type_hai leg_son leg_hir leg_swp leg_hai ///
-      pkg_son pkg_hir pkg_swp pkg_hai
+      v_hir v_son v_swp v_rsc v_hai g_hum g_hir g_son g_swp g_rsc g_hai ///
+      type_son type_hir type_swp type_rsc type_hai ///
+      leg_son leg_hir leg_swp leg_rsc leg_hai ///
+      pkg_son pkg_hir pkg_swp pkg_rsc pkg_hai
 gsort id
 export delimited using "${imgqc}\photo_readings_master.csv", replace
 
