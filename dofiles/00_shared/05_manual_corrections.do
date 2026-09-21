@@ -138,6 +138,83 @@ drop _isg _ismL _cg _cmL _dual _maj
 
 
 ********************************************************************************
+**# 1d. Row-level dimension verdicts, from the field photographs
+********************************************************************************
+* Sections 1 and 1c decide a dimension for a whole ITEM and a whole CASE, because
+* until the photographs were read those were the only grains the evidence supported.
+* A photograph speaks about ONE weighing, and it can say something the other two
+* cannot: that a single row in a case is a declared pack volume while its neighbours
+* were weighed. That is the distinction issue #40 is about, and neither an item-level
+* verdict nor a case majority can express it.
+*
+* KEYED ON `id', DELIBERATELY DIFFERENT FROM SECTION 6's LEDGER. That one uses a
+* content key because the workbook a reviewer annotated may predate the id registry.
+* This ledger has the opposite provenance: it is built FROM the registry, through
+* "image checking/dofiles/01_photo_bridge.do", so every row already carries a durable
+* id. A content key would also be wrong here rather than merely unnecessary -- content
+* keys are not unique (80 snap verdicts sit on 73 keys, because a cell can hold two
+* identical readings from different vendors), and a photograph of one vendor's bottle
+* must not relabel another vendor's.
+*
+* IT MAY LEGITIMATELY SPLIT A CASE ACROSS DIMENSIONS, which is why section 1c's
+* "no case holds both dimensions" assertion is not repeated after this block. That
+* invariant is a property of the case-majority RULE, not a fact about the world: it
+* holds because 1c forces it. A photograph showing a printed 355 mL on one stall and a
+* scale reading on the next is evidence that the case genuinely holds both, and
+* re-imposing the majority here would discard the better evidence to preserve the
+* weaker rule's tidiness.
+*
+* EMPTY IS THE NORMAL STATE until Check 1 reports. An absent or header-only file is
+* not an error and does not halt; a file with rows that match nothing IS an error,
+* on the same reasoning section 6 gives -- a verdict falling out of the build is a
+* decision being silently lost.
+
+capture confirm file "${root}\Data Cleaning\reference\reviewed\unit_verdicts.csv"
+if _rc {
+	di as txt "1d. no row-level dimension ledger yet (expected before Check 1 reports)"
+}
+else {
+	preserve
+		import delimited using ///
+			"${root}\Data Cleaning\reference\reviewed\unit_verdicts.csv", ///
+			clear varnames(1) encoding("utf-8") stringcols(2 3 4 5)
+		qui count
+		local n_uv = r(N)
+		if `n_uv' > 0 {
+			* one id, one verdict -- a second answer on the same weighing is a
+			* review that was run twice without reconciling, not a tie to break
+			isid id
+			assert inlist(unit_verdict, "g", "mL")
+			gen byte _uv = cond(unit_verdict == "g", 1, 2)
+			keep id _uv
+		}
+		tempfile unitled
+		save "`unitled'"
+	restore
+
+	if `n_uv' > 0 {
+		merge 1:1 id using "`unitled'", keep(1 2 3) gen(_m_uv)
+
+		count if _m_uv == 2
+		if r(N) > 0 {
+			di as error "`r(N)' dimension verdict(s) match no weighing in this build."
+			di as error "An id in the ledger has no row here -- the weighing was dropped"
+			di as error "upstream, or the ledger was built against another vintage."
+			di as error "Reconcile it; do not delete the ledger row."
+			list id if _m_uv == 2, noobs
+			exit 459
+		}
+
+		count if _m_uv == 3 & corrected_unit != _uv & !mi(corrected_unit)
+		local n_flip = r(N)
+		replace corrected_unit = _uv if _m_uv == 3 & !mi(corrected_unit)
+		di as result "1d. photo dimension ledger: `n_uv' verdict(s) -> `n_flip' relabelled"
+		drop _uv _m_uv
+	}
+}
+
+
+********************************************************************************
 **# 2. Decimal-point slips -- RETIRED, now handled by the snap
 ********************************************************************************
 * This section used to hold four blocks (ILOILO liquor, BADIANGAN whole chicken,
