@@ -1,32 +1,42 @@
 id,image_code,photo_unit,photo_src,raw_tick,raw_weight,pub_rule,pull_item,published_now,proposed_value,times_off
+3887,1775787569138,g,human,grams (g),.44999999,block governs,carrot,450,45,10
+9461,1773796774872,g,human,grams (g),.40000001,block governs,"crackers, cookies, buiscuits, chips/curls",400,40,10
 9424,1773724826947,g,human,grams (g),.60000002,block governs,cabbage,600,60,10
 6202,1773810007262,g,human,grams (g),.94999999,block governs,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",950,95,10
-9461,1773796774872,g,human,grams (g),.40000001,block governs,"crackers, cookies, buiscuits, chips/curls",400,40,10
-3887,1775787569138,g,human,grams (g),.44999999,block governs,carrot,450,45,10
 9994,1773731054952,mL,human (mL rule) + mL label,grams (g),700,log10 median,"drinks at restaurant, hotel, cafe, or kiosk",700,355,1.97
+5636,1774487860616,mL,package label (mL),Litres (L),.35499999,log10 median,"drinks at restaurant, hotel, cafe, or kiosk",355,185,1.92
+7053,1774332511873,mL,package label (mL),Litres (L),.1,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",100,190,1.9
 3147,1776824898275,g,sonnet sweep,grams (g),.72000003,log10 median,cabbage,720,380,1.89
+8486,1775786695913,mL,package label (mL),grams (g),100,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",100,188,1.88
 10053,1773797402365,mL,package label (mL),grams (g),675,log10 median,"liquor (e.g, whisky, coconut wine)",675,375,1.8
-2476,1777083419074,g,sonnet sweep,grams (g),.505,log10 median,chicken,505,905,1.79
 6249,1778895486631,g,sonnet sweep,grams (g),.505,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",505,905,1.79
+2476,1777083419074,g,sonnet sweep,grams (g),.505,log10 median,chicken,505,905,1.79
+10049,1773811478259,mL,sonnet C1 sweep + mL label,Litres (L),.67000002,log10 median,"liquor (e.g, whisky, coconut wine)",670,375,1.79
 2990,1776300455732,g,sonnet sweep,Kilograms (Kgs),1020,log10 median,camote,1020,1820,1.78
-7853,1773969444958,g,sonnet sweep,grams (g),.055,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",55,96,1.75
 6512,1774326845021,g,sonnet sweep,grams (g),.5600000000000001,log10 median,loaf bread,560,980,1.75
+7853,1773969444958,g,sonnet sweep,grams (g),.055,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",55,96,1.75
 4232,1775870946406,g,sonnet sweep,grams (g),.5600000000000001,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",560,950,1.7
+10716,1777687812909,mL,package label (mL),grams (g),63,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",63,100,1.59
+8655,1773976470427,g,sonnet C1 sweep,grams (g),165,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",165,106,1.56
+10174,1774498352696,g,package label (g),Litres (L),.75,log10 median,"liquor (e.g, whisky, coconut wine)",750,500,1.5
+7313,1774588629488,mL,package label (mL),Litres (L),.25,log10 median,"liquor (e.g, whisky, coconut wine)",250,375,1.5
 862,1777423282182,g,sonnet sweep,grams (g),.405,log10 median,fresh fish,405,605,1.49
 10037,1778477131307,mL,package label (mL),Litres (L),.085000001,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",85,60,1.42
 9581,1773880609490,g,sonnet sweep,grams (g),.13,log10 median,carrot,130,180,1.38
 3177,1776827254483,g,sonnet sweep,grams (g),.13,log10 median,carrot,130,180,1.38
 6548,1773799243548,g,sonnet sweep,grams (g),.13500001,log10 median,camote,135,185,1.37
 8130,1775873546893,g,sonnet sweep,grams (g),.13500001,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",135,185,1.37
-827,1778030672629,g,sonnet sweep,grams (g),.14,log10 median,carrot,140,190,1.36
 1606,1777082752314,g,sonnet sweep,Kilograms (Kgs),1375,log10 median,chicken,1375,1875,1.36
+827,1778030672629,g,sonnet sweep,grams (g),.14,log10 median,carrot,140,190,1.36
 9381,1774314777086,mL,package label (mL),grams (g),375,log10 median,"liquor (e.g, whisky, coconut wine)",375,275,1.36
+8852,1775782246519,mL,package label (mL),Litres (L),.11,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",110,150,1.36
 118,1778210891441,g,sonnet sweep,grams (g),.27000001,log10 median,chicken,270,200,1.35
-2626,1776302518046,g,sonnet sweep,grams (g),.145,log10 median,camote,145,195,1.34
 917,1778034809067,g,rescue read,grams (g),.145,log10 median,mango,145,195,1.34
+2626,1776302518046,g,sonnet sweep,grams (g),.145,log10 median,camote,145,195,1.34
+3938,1775791211912,mL,package label (mL),Litres (L),.75,log10 median,"liquor (e.g, whisky, coconut wine)",750,1000,1.33
 7854,1773969483700,g,sonnet sweep,grams (g),.059999999,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",60,80,1.33
-797,1777447762886,g,sonnet sweep,grams (g),.64499998,log10 median,cabbage,645,845,1.31
 613,1777867916089,g,sonnet sweep,grams (g),.064999998,log10 median,carrot,65,85,1.31
+797,1777447762886,g,sonnet sweep,grams (g),.64499998,log10 median,cabbage,645,845,1.31
 603,1777598588927,g,sonnet sweep,grams (g),.66500002,log10 median,camote tops,665,865,1.3
 6097,1773799244319,g,sonnet sweep,grams (g),.66500002,log10 median,cabbage,665,865,1.3
 3161,1776909770980,g,sonnet sweep,grams (g),.14,log10 median,camote tops,140,180,1.29
@@ -35,54 +45,66 @@ id,image_code,photo_unit,photo_src,raw_tick,raw_weight,pub_rule,pull_item,publis
 9626,1773997708682,g,sonnet sweep,grams (g),.22,log10 median,fresh fish,220,280,1.27
 3157,1776825052293,g,sonnet sweep,grams (g),.22499999,log10 median,camote tops,225,285,1.27
 3164,1776827091594,g,sonnet sweep,grams (g),.22,log10 median,camote,220,280,1.27
+5635,1774487845654,mL,package label (mL),Litres (L),.19,log10 median,"drinks at restaurant, hotel, cafe, or kiosk",190,150,1.27
 9685,1773995638751,g,sonnet sweep,grams (g),.38499999,log10 median,loaf bread,385,305,1.26
+10339,1774660621821,g,package label (g),grams (g),250,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",250,200,1.25
 9657,1773797422524,g,sonnet sweep,grams (g),.85000002,log10 median,"liquor (e.g, whisky, coconut wine)",850,685,1.24
 6464,1774048647575,g,package label (g),grams (g),.28,log10 median,"crackers, cookies, buiscuits, chips/curls",280,228,1.23
-9550,1773902971896,g,sonnet sweep,grams (g),.15000001,log10 median,camote,150,180,1.2
+3588,1775612822785,mL,package label (mL),Kilograms (Kgs),1.025,block governs,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",1025,1250,1.22
 10965,1776822393755,g,sonnet tiled,grams (g),495,log10 median,"drinks at restaurant, hotel, cafe, or kiosk",495,595,1.2
+10169,1774403220438,g,package label (g),Litres (L),.375,log10 median,"liquor (e.g, whisky, coconut wine)",375,450,1.2
 8529,1778719053327,g,sonnet sweep,grams (g),.50999999,log10 median,"prawns, lobster, shrimp",510,610,1.2
-8977,1773969923664,g,sonnet sweep,grams (g),.039999999,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",40,48,1.2
 9471,1773969164870,g,human,grams (g),.025,block governs,"crackers, cookies, buiscuits, chips/curls",25,30,1.2
+9550,1773902971896,g,sonnet sweep,grams (g),.15000001,log10 median,camote,150,180,1.2
+8977,1773969923664,g,sonnet sweep,grams (g),.039999999,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",40,48,1.2
+10876,1777520211674,mL,package label (mL),grams (g),450,log10 median,loaf bread,450,375,1.2
+3695,1775612169217,g,package label (g),Kilograms (Kgs),1.02,block governs,"preserved or processed meat (tocino, tapa, longaniza, etc)",1020,1200,1.18
 82,1778206201155,g,sonnet sweep,grams (g),.33000001,log10 median,cabbage,330,390,1.18
 2627,1776302543943,g,sonnet sweep,grams (g),.32499999,log10 median,camote,325,385,1.18
-8978,1773969942457,g,sonnet sweep,grams (g),.050000001,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",50,58,1.16
+10029,1773802646728,g,sonnet C1 sweep,grams (g),50,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",50,58,1.16
 2526,1776664038742,g,sonnet sweep,grams (g),.255,log10 median,cabbage,255,295,1.16
+10027,1773721579894,g,sonnet C1 sweep,grams (g),50,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",50,58,1.16
+8978,1773969942457,g,sonnet sweep,grams (g),.050000001,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",50,58,1.16
 6137,1773798921921,g,sonnet sweep,grams (g),.33500001,log10 median,camote,335,385,1.15
 1914,1777078148145,mL,package label (mL),grams (g),56,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",56,64,1.14
 9688,1773992274197,g,sonnet sweep,grams (g),.41499999,log10 median,loaf bread,415,475,1.14
+1767,1776652094251,mL,package label (mL),grams (g),56,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",56,64,1.14
 2492,1777001240809,g,sonnet sweep,grams (g),.090000004,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",90,80,1.13
-2071,1776913164415,g,sonnet sweep,Kilograms (Kgs),1665,log10 median,fresh fish,1665,1865,1.12
+6621,1773797223664,g,sonnet C1 sweep,Litres (L),.045000002,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",45,40,1.13
 5112,1773803103151,g,sonnet sweep,grams (g),.67500001,log10 median,"liquor (e.g, whisky, coconut wine)",675,605,1.12
-4843,1775879036042,g,sonnet tiled,grams (g),435,log10 median,"drinks at restaurant, hotel, cafe, or kiosk",435,485,1.11
-323,1777948595873,g,sonnet sweep,grams (g),.35499999,log10 median,cabbage,355,395,1.11
+2071,1776913164415,g,sonnet sweep,Kilograms (Kgs),1665,log10 median,fresh fish,1665,1865,1.12
 8356,1778725481233,g,sonnet sweep,grams (g),435,log10 median,"drinks at restaurant, hotel, cafe, or kiosk",435,485,1.11
 5417,1774580368257,g,sonnet sweep,grams (g),.38999999,log10 median,cabbage,390,350,1.11
 9466,1773796034639,g,sonnet sweep,grams (g),.035,log10 median,"crackers, cookies, buiscuits, chips/curls",35,39,1.11
+323,1777948595873,g,sonnet sweep,grams (g),.35499999,log10 median,cabbage,355,395,1.11
+4843,1775879036042,g,sonnet tiled,grams (g),435,log10 median,"drinks at restaurant, hotel, cafe, or kiosk",435,485,1.11
 9847,1773891283380,g,package label (g),grams (g),.38499999,log10 median,loaf bread,385,350,1.1
-11054,1777266085340,g,sonnet hi-res,grams (g),610,log10 median,"drinks at restaurant, hotel, cafe, or kiosk",610,670,1.1
 1473,1777426324259,g,sonnet sweep,Kilograms (Kgs),1130,log10 median,chicken,1130,1030,1.1
+11054,1777266085340,g,sonnet hi-res,grams (g),610,log10 median,"drinks at restaurant, hotel, cafe, or kiosk",610,670,1.1
 824,1778028816971,g,sonnet sweep,grams (g),.1,log10 median,carrot,100,108,1.08
-4736,1776217696528,g,sonnet sweep,grams (g),1,block governs,"prawns, lobster, shrimp",1000,1080,1.08
 2075,1776918401916,g,sonnet sweep,Kilograms (Kgs),1080,log10 median,fresh fish,1080,1000,1.08
+4736,1776217696528,g,sonnet sweep,grams (g),1,block governs,"prawns, lobster, shrimp",1000,1080,1.08
 10159,1774487681368,mL,package label (mL),grams (g),60,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",60,64,1.07
-9596,1773906229982,g,sonnet sweep,grams (g),.16500001,log10 median,carrot,165,155,1.06
+5378,1774580584508,mL,package label (mL),Litres (L),.47999999,block governs,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",480,450,1.07
 1727,1776649758366,g,sonnet sweep,grams (g),.155,log10 median,camote,155,165,1.06
+9596,1773906229982,g,sonnet sweep,grams (g),.16500001,log10 median,carrot,165,155,1.06
 2451,1776994655930,g,sonnet sweep,grams (g),.19,log10 median,carrot,190,180,1.06
-801,1777448168057,g,sonnet sweep,grams (g),.64999998,log10 median,cabbage,650,680,1.05
-9325,1774053469296,g,sonnet sweep,grams (g),.185,log10 median,carrot,185,195,1.05
-6165,1773799670502,g,sonnet sweep,grams (g),.17,log10 median,carrot,170,178,1.05
 2508,1779157255515,g,sonnet sweep,grams (g),.41999999,log10 median,loaf bread,420,400,1.05
-1013,1777944747570,g,sonnet sweep,Kilograms (Kgs),1235,log10 median,chicken,1235,1285,1.04
-2477,1777084903130,g,sonnet sweep,grams (g),.5600000000000001,log10 median,chicken,560,580,1.04
+9325,1774053469296,g,sonnet sweep,grams (g),.185,log10 median,carrot,185,195,1.05
+801,1777448168057,g,sonnet sweep,grams (g),.64999998,log10 median,cabbage,650,680,1.05
+6165,1773799670502,g,sonnet sweep,grams (g),.17,log10 median,carrot,170,178,1.05
 5406,1774575064281,g,sonnet sweep,grams (g),.285,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",285,295,1.04
 9366,1774061474372,g,sonnet sweep,grams (g),.51499999,log10 median,fresh fish,515,535,1.04
-908,1778051558507,g,sonnet sweep,grams (g),.125,log10 median,mango,125,130,1.04
 854,1777448667164,g,sonnet sweep,grams (g),.28999999,log10 median,fresh fish,290,280,1.04
+908,1778051558507,g,sonnet sweep,grams (g),.125,log10 median,mango,125,130,1.04
+2477,1777084903130,g,sonnet sweep,grams (g),.5600000000000001,log10 median,chicken,560,580,1.04
+1013,1777944747570,g,sonnet sweep,Kilograms (Kgs),1235,log10 median,chicken,1235,1285,1.04
 7694,1774421610417,g,sonnet sweep,grams (g),.16,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",160,155,1.03
 5486,1778811481915,g,sonnet sweep,grams (g),.66000003,block governs,pork,660,680,1.03
-5189,1775874611009,g,package label (g),grams (g),20.5,log10 median,"crackers, cookies, buiscuits, chips/curls",21,20.5,1.02
-11193,1776824550467,g,package label (g),grams (g),.22499999,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",225,230,1.02
 5175,1776040289161,g,sonnet sweep,grams (g),.95999998,log10 median,chicken,960,980,1.02
-6430,1774053528900,g,sonnet sweep,grams (g),.23999999,log10 median,camote,240,245,1.02
 7686,1774424700422,g,sonnet sweep,grams (g),.2,log10 median,mango,200,205,1.02
+8647,1773976395733,g,sonnet C1 sweep,grams (g),45,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",45,46,1.02
 2692,1776220345488,g,sonnet sweep,grams (g),.245,log10 median,fresh fish,245,250,1.02
+5189,1775874611009,g,package label (g),grams (g),20.5,log10 median,"crackers, cookies, buiscuits, chips/curls",21,20.5,1.02
+6430,1774053528900,g,sonnet sweep,grams (g),.23999999,log10 median,camote,240,245,1.02
+11193,1776824550467,g,package label (g),grams (g),.22499999,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",225,230,1.02

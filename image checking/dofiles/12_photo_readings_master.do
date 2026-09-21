@@ -122,6 +122,16 @@ di as txt "  sweep_c2 ........... " r(N)
 * and were correctly reported unread. They were never corrupt -- see the retry now in
 * cached_photo -- and were re-rendered and read on their own sheet. Loaded as its own
 * pass so the recovery stays visible rather than being quietly folded into the sweep.
+* The Check 1 sweep. Same instrument, same presentation, different population: its
+* tier is flat groups, dual-ticked cases, liquids ticked as a mass and solids ticked as
+* Litres, and 93% of those photographs show no scale at all against 83% WITH one in
+* Check 2's. Its value is overwhelmingly in package_text rather than display_text.
+load_pass, file("${imgqc}/readings_sweep_c1.csv") pass("sweep_c1") suffix("sc1")
+tempfile p_sc1
+save "`p_sc1'"
+qui count
+di as txt "  sweep_c1 ........... " r(N)
+
 load_pass, file("${imgqc}/readings_sweep_c2_rescue.csv") pass("sweep rescue") suffix("rsc")
 tempfile p_rsc
 save "`p_rsc'"
@@ -153,7 +163,7 @@ di as txt "  human_v1 ........... " r(N)
 ********************************************************************************
 
 use "`p_son'", clear
-foreach f in p_hai p_hir p_swp p_rsc p_hum {
+foreach f in p_hai p_hir p_swp p_sc1 p_rsc p_hum {
 	merge 1:1 id using "``f''", nogen
 }
 
@@ -190,6 +200,7 @@ norm_g g_hum v_hum `KGSPLIT'
 norm_g g_hir v_hir `KGSPLIT'
 norm_g g_son v_son `KGSPLIT'
 norm_g g_swp v_swp `KGSPLIT'
+norm_g g_sc1 v_sc1 `KGSPLIT'
 norm_g g_rsc v_rsc `KGSPLIT'
 norm_g g_hai v_hai `KGSPLIT'
 
@@ -198,6 +209,8 @@ gen str16  photo_src  = ""
 gen str4   photo_unit = ""
 
 * precedence, best evidence last-applied-wins is avoided: each branch guards on missing
+replace photo_g = g_sc1  if missing(photo_g) & !missing(g_sc1)
+replace photo_src = "sonnet C1 sweep" if photo_src == "" & !missing(g_sc1)
 replace photo_g = g_rsc  if missing(photo_g) & !missing(g_rsc)
 replace photo_src = "rescue read"   if photo_src == "" & !missing(g_rsc)
 replace photo_g = g_swp  if missing(photo_g) & !missing(g_swp)
@@ -218,7 +231,7 @@ replace photo_src  = "human (mL rule)" if reading_source == "package" & !missing
 
 * A model row that saw a package label: the rule is NOT applied, and the flag says so.
 gen byte pkg_seen = 0
-foreach s in son swp rsc hir {
+foreach s in son swp sc1 rsc hir {
 	replace pkg_seen = 1 if !missing(pkg_`s') & trim(pkg_`s') != "" & pkg_`s' != "NA"
 }
 * mL_rule_pending is defined below, once has_pkg_qty exists.
@@ -236,7 +249,7 @@ foreach s in son swp rsc hir {
 * Parsed from the FIRST trusted reader that recorded a label, in the same precedence as
 * the display reading. Haiku is excluded here for the same reason it is excluded there.
 gen str80 pkg_text = ""
-foreach s in rsc hir son swp {
+foreach s in rsc hir son swp sc1 {
 	replace pkg_text = pkg_`s' if pkg_text == "" & !missing(pkg_`s') & trim(pkg_`s') != ""
 }
 
@@ -329,10 +342,11 @@ order id image_code filename photo_g photo_unit photo_src from_human has_reading
       pull_item harmonized_nsu_unit pull_province pull_municipal_city ///
       market_name store_stall_name vendor_id ///
       v_hum raw_hum reading_source h_glare_flag h_notes ///
-      v_hir v_son v_swp v_rsc v_hai g_hum g_hir g_son g_swp g_rsc g_hai ///
-      type_son type_hir type_swp type_rsc type_hai ///
-      leg_son leg_hir leg_swp leg_rsc leg_hai ///
-      pkg_son pkg_hir pkg_swp pkg_rsc pkg_hai
+      v_hir v_son v_swp v_sc1 v_rsc v_hai ///
+      g_hum g_hir g_son g_swp g_sc1 g_rsc g_hai ///
+      type_son type_hir type_swp type_sc1 type_rsc type_hai ///
+      leg_son leg_hir leg_swp leg_sc1 leg_rsc leg_hai ///
+      pkg_son pkg_hir pkg_swp pkg_sc1 pkg_rsc pkg_hai
 gsort id
 export delimited using "${imgqc}\photo_readings_master.csv", replace
 

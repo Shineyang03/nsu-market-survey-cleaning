@@ -1,0 +1,1021 @@
+reader,prompt_version,tag,label,sheet,id,filename,img_sha16,photo_type,item_on_scale,display_text,has_decimal,display_legible,display_unit_shown,package_text,package_qty,package_unit,notes
+sonnet_c01,v1.0,sweep_c1,0001,sheet_001.jpg,1292,1777336193068.jpg,4b0242509d7af59d,item_no_scale,,,,not_visible,none_shown,,,,Emperador Light Brandy bottle held; small print on label not confidently legible
+sonnet_c01,v1.0,sweep_c1,0002,sheet_001.jpg,2094,1776834379861.jpg,e205d744fa25193b,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle
+sonnet_c01,v1.0,sweep_c1,0003,sheet_001.jpg,1647,1779069081293.jpg,73998d42b09c03f1,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark label close-up
+sonnet_c01,v1.0,sweep_c1,0004,sheet_001.jpg,9238,1774315985818.jpg,697a3885bae8ec8e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0005,sheet_002.jpg,383,1777347101481.jpg,4dc7556ff7787061,label_closeup,,,,not_visible,none_shown,NET WT. 3.17 oz (90g),90.0,g,also printed as 3.17 oz; Chicharron ni Mang Juan
+sonnet_c01,v1.0,sweep_c1,0006,sheet_002.jpg,8985,1773970909551.jpg,7bb7dea508e6332e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,multiple bottles on shelf
+sonnet_c01,v1.0,sweep_c1,0007,sheet_002.jpg,2912,1776736487467.jpg,d69acc79c2f3dc2e,item_no_scale,,,,not_visible,none_shown,,,,"Gatorade Blue Bolt bottle, mostly obscured by hand, volume text not visible"
+sonnet_c01,v1.0,sweep_c1,0008,sheet_002.jpg,4484,1776215259367.jpg,0810d21c365c4e94,label_closeup,,,,not_visible,none_shown,,,,"Selecta Chocolate Ice Cream in a Cup, top view; no net weight/volume visible in this crop"
+sonnet_c01,v1.0,sweep_c1,0009,sheet_003.jpg,5257,1775876358732.jpg,8509a7688facd44b,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,standing on rice sack
+sonnet_c01,v1.0,sweep_c1,0010,sheet_003.jpg,5390,1774580005412.jpg,67444c93381092c1,item_no_scale,,,,not_visible,none_shown,,,,volume area covered by price sticker
+sonnet_c01,v1.0,sweep_c1,0011,sheet_003.jpg,6362,1774501640248.jpg,19abff58f5645c70,item_no_scale,,,,not_visible,none_shown,,,,larger-format bottles lying down; volume text not confidently legible
+sonnet_c01,v1.0,sweep_c1,0012,sheet_003.jpg,363,1777352442145.jpg,b7ca822c23e44d67,other,,,,not_visible,none_shown,10 X 31g packs (Net Wt. 310g),310.0,g,"multiple items in frame (Coca-Cola, Mega, Royal, Rebisco, Nescafe); reading legible tag on Rebisco Butter Sandwich package"
+sonnet_c01,v1.0,sweep_c1,0013,sheet_004.jpg,2819,1776392322850.jpg,01f72a9d106a71b9,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,among Lady's Choice and Best Foods products
+sonnet_c01,v1.0,sweep_c1,0014,sheet_004.jpg,7961,1778900270449.jpg,57dc45b1310c1a59,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0015,sheet_004.jpg,3941,1775706080998.jpg,20203020bf143f46,label_closeup,,,,not_visible,none_shown,,,,"Net Wt. printed on Angelina Super Loaf bag but digits not clearly legible, folded packaging"
+sonnet_c01,v1.0,sweep_c1,0016,sheet_004.jpg,6738,1775537487686.jpg,3df08d7c3682b84f,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf
+sonnet_c01,v1.0,sweep_c1,0017,sheet_005.jpg,6346,1774501592429.jpg,b7e72d73f5af564e,label_closeup,,,,not_visible,none_shown,45g,45.0,g,printed as serving size on nutrition facts panel (1 serving per package); total package net weight not separately confirmed
+sonnet_c01,v1.0,sweep_c1,0018,sheet_005.jpg,4869,1776043393623.jpg,5e6e551758e72a03,item_no_scale,,,,not_visible,none_shown,,,,"label variant among boxes, volume digits not visible in frame"
+sonnet_c01,v1.0,sweep_c1,0019,sheet_005.jpg,8023,1776049802477.jpg,04835db2bafc06b3,label_closeup,,,,not_visible,none_shown,250g,250.0,g,"Champion Longganiza Roll, Virginia Food"
+sonnet_c01,v1.0,sweep_c1,0020,sheet_005.jpg,9838,1773968504838.jpg,7a4f9936e35c903d,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0021,sheet_006.jpg,10609,1778466263402.jpg,c8ef90d471ef04d2,label_closeup,,,,not_visible,none_shown,150 GRAMS,150.0,g,Argentina Corned Beef can
+sonnet_c01,v1.0,sweep_c1,0022,sheet_006.jpg,5237,1775875117430.jpg,e0dbc3c6b7c14e66,label_closeup,,,,not_visible,none_shown,60mL,60.0,mL,Selecta Boom Boom Cookies & Cream
+sonnet_c01,v1.0,sweep_c1,0023,sheet_006.jpg,8654,1773887826102.jpg,401f14692af2c24c,scale_with_item,True,0.070,True,clear,none_shown,,,,
+sonnet_c01,v1.0,sweep_c1,0024,sheet_006.jpg,6070,1774589741334.jpg,af921ff4dd8db9bc,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0025,sheet_007.jpg,4091,1776388139929.jpg,74aca4067b6675cf,label_closeup,,,,not_visible,none_shown,,,,"Net Wt. printed but digits not clearly legible, folded packaging"
+sonnet_c01,v1.0,sweep_c1,0026,sheet_007.jpg,5648,1774487932497.jpg,13f9e191baae256c,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0027,sheet_007.jpg,4779,1776385065597.jpg,98f6889629fd1fd8,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0028,sheet_007.jpg,10157,1774412067072.jpg,28b7cb55697c2285,label_closeup,,,,not_visible,none_shown,,,,"Selecta Rainbow Pop, no legible net quantity, price P10 visible only"
+sonnet_c01,v1.0,sweep_c1,0029,sheet_008.jpg,4478,1776214259126.jpg,e682cea3c593a752,label_closeup,,,,not_visible,none_shown,Per Serving 100mL (1 serving per container),100.0,mL,serving size implies container size; separate net volume not printed on visible face
+sonnet_c01,v1.0,sweep_c1,0030,sheet_008.jpg,5969,1774409741847.jpg,706f688f3fcd644e,label_closeup,,,,not_visible,none_shown,,,,Net Wt. printed but quantity digits obscured by wrapper fold/tear
+sonnet_c01,v1.0,sweep_c1,0031,sheet_008.jpg,11170,1776824887273.jpg,17ba425492252c4a,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0032,sheet_008.jpg,7784,1776478094390.jpg,53217c175fa6bc3c,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf
+sonnet_c01,v1.0,sweep_c1,0033,sheet_009.jpg,6399,1774402907644.jpg,81b3f356bd3ae132,other,,,,not_visible,none_shown,NET WT. 200G,200.0,g,multiple snack packages in frame; reading legible Bossing Toginitos tag
+sonnet_c01,v1.0,sweep_c1,0034,sheet_009.jpg,5939,1774410905753.jpg,6a21f325ae40257e,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf
+sonnet_c01,v1.0,sweep_c1,0035,sheet_009.jpg,5256,1776043989643.jpg,3cbdadb7eac86282,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0036,sheet_009.jpg,2827,1776392360472.jpg,a273e57c1d84e7e9,item_no_scale,,,,not_visible,none_shown,,,,cream label variant; volume digits not clearly visible in frame
+sonnet_c01,v1.0,sweep_c1,0037,sheet_010.jpg,4093,1776388970705.jpg,18aa5caf810471ab,other,,,,not_visible,none_shown,,,,"multiple items scattered in cluttered scene, no single legible weight/volume"
+sonnet_c01,v1.0,sweep_c1,0038,sheet_010.jpg,3082,1776302259943.jpg,8914859da21ef25f,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Johnnie Walker Black Label bottle also visible in background, not focal item"
+sonnet_c01,v1.0,sweep_c1,0039,sheet_010.jpg,1924,1777076642512.jpg,748f990e923a1153,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0040,sheet_010.jpg,4613,1776305144864.jpg,634050ddef1a8df0,item_no_scale,,,,not_visible,none_shown,,,,packaging shows a volume figure but glare obscures leading digit(s); appears to end in '50 mL'
+sonnet_c01,v1.0,sweep_c1,0041,sheet_011.jpg,1523,1777430069442.jpg,fb238710ecffedc2,item_no_scale,,,,not_visible,none_shown,500 mL,500.0,mL,"Tanduay Rhum Light, larger bottle"
+sonnet_c01,v1.0,sweep_c1,0042,sheet_011.jpg,2264,1776395059581.jpg,e39e48fe3f8cfb44,item_no_scale,,,,not_visible,none_shown,290 mL,290.0,mL,Royal orange soda
+sonnet_c01,v1.0,sweep_c1,0043,sheet_011.jpg,6876,1775528829981.jpg,79773f8016014f4a,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0044,sheet_011.jpg,10979,1776737958644.jpg,3b65c4b82a72a25e,other,,,,not_visible,none_shown,,,,cluttered freezer scene with multiple items; no legible weight/volume text
+sonnet_c01,v1.0,sweep_c1,0045,sheet_012.jpg,7325,1774659753878.jpg,e219caad52115059,item_no_scale,,,,not_visible,none_shown,,,,volume text below frame edge (bottle panned/cropped)
+sonnet_c01,v1.0,sweep_c1,0046,sheet_012.jpg,8839,1775779507786.jpg,290f66babd0af93b,scale_with_item,True,,,not_visible,none_shown,Net Volume: 65ml,65.0,mL,Joyday ice cream bar resting on scale; scale display not visible in frame
+sonnet_c01,v1.0,sweep_c1,0047,sheet_012.jpg,6363,1774400853723.jpg,3c6705f9567c72d5,item_no_scale,,,,not_visible,none_shown,,,,"bottle held at angle, volume digits blurred"
+sonnet_c01,v1.0,sweep_c1,0048,sheet_012.jpg,4060,1776309427143.jpg,a5b51b64113f5834,label_closeup,,,,not_visible,none_shown,Net Weight: 48 g,48.0,g,Wafello Italian Wafer Chocolate
+sonnet_c01,v1.0,sweep_c1,0049,sheet_013.jpg,9228,1774317804725.jpg,ccec27e72aace74e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0050,sheet_013.jpg,2915,1776735779565.jpg,9a1c31a566130ad4,item_no_scale,,,,not_visible,none_shown,190 mL,190.0,mL,Coca-Cola bottle
+sonnet_c01,v1.0,sweep_c1,0051,sheet_013.jpg,5041,1775708484777.jpg,3860f251f9fd3ab8,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum E.S.Q. Export Grade
+sonnet_c01,v1.0,sweep_c1,0052,sheet_013.jpg,8228,1773971026011.jpg,f827a01f2fddb673,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0053,sheet_014.jpg,8650,1773885030131.jpg,f6c63fdd2268b791,scale_with_item,True,-0.160,True,clear,none_shown,,,,"negative value shown, possibly tare offset"
+sonnet_c01,v1.0,sweep_c1,0054,sheet_014.jpg,2310,1779160189812.jpg,1b2ef76b24af68f2,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark, larger bottle"
+sonnet_c01,v1.0,sweep_c1,0055,sheet_014.jpg,2919,1776737567582.jpg,404256937c599072,item_no_scale,,,,not_visible,none_shown,290mL,290.0,mL,Sting Strawberry Flavor
+sonnet_c01,v1.0,sweep_c1,0056,sheet_014.jpg,8026,1775885882663.jpg,322b75f3bd42269b,label_closeup,,,,not_visible,none_shown,Net Wt. 250g,250.0,g,multiple hotdog packages present; reading the focal held package
+sonnet_c01,v1.0,sweep_c1,0057,sheet_015.jpg,8029,1778900102234.jpg,59e5d08e8ed1a74a,label_closeup,,,,not_visible,none_shown,,,,"Net Wt. printed but digits folded/obscured; possibly same brand/size as #0056, not independently confirmed"
+sonnet_c01,v1.0,sweep_c1,0058,sheet_015.jpg,3077,1776218813867.jpg,1ec0da4420002d89,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0059,sheet_015.jpg,6501,1774054009423.jpg,68fc7472daa4b170,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,some glare on label
+sonnet_c01,v1.0,sweep_c1,0060,sheet_015.jpg,1190,1778035448649.jpg,05fccd84084124fe,item_no_scale,,,,not_visible,none_shown,700mL,700.0,mL,GSM Blue Mojito flavored spirit
+sonnet_c01,v1.0,sweep_c1,0061,sheet_016.jpg,4616,1776382106995.jpg,320245019e6b916c,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"1521 S.T.L. Premium Light Brandy, bottle lying down"
+sonnet_c01,v1.0,sweep_c1,0062,sheet_016.jpg,5267,1775873644323.jpg,2b719003ebb6a98f,item_no_scale,,,,not_visible,none_shown,,,,volume digits area covered by hand/sticker
+sonnet_c01,v1.0,sweep_c1,0063,sheet_016.jpg,56,1778472860477.jpg,84956a604d020050,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf
+sonnet_c01,v1.0,sweep_c1,0064,sheet_016.jpg,1048,1777944270901.jpg,0320294a9ee1cea0,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light
+sonnet_c01,v1.0,sweep_c1,0065,sheet_017.jpg,8487,1775786753695.jpg,3d994de85059cd93,label_closeup,,,,not_visible,none_shown,100ml,100.0,mL,Alice Sorbetes Ube Time
+sonnet_c01,v1.0,sweep_c1,0066,sheet_017.jpg,8206,1773968364051.jpg,4ce71b0ffc5394b9,item_no_scale,,,,not_visible,none_shown,355ml,355.0,mL,"small text near neck, read with moderate confidence"
+sonnet_c01,v1.0,sweep_c1,0067,sheet_017.jpg,5258,1776045521734.jpg,76083f2078b8c381,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light
+sonnet_c01,v1.0,sweep_c1,0068,sheet_017.jpg,3942,1775700851614.jpg,e66e64ff37481775,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf
+sonnet_c01,v1.0,sweep_c1,0069,sheet_018.jpg,5803,1774405395445.jpg,0ed52d01dc41e1fc,label_closeup,,,,not_visible,none_shown,,,,Pinoy Classics Pinipig Strawberry; small nutrition panel visible but total net weight not clearly legible
+sonnet_c01,v1.0,sweep_c1,0070,sheet_018.jpg,10336,1774662091870.jpg,63db5268804d5046,label_closeup,,,,not_visible,none_shown,Net Wt. 250 g,250.0,g,"partially obscured by packaging fold, read with moderate confidence"
+sonnet_c01,v1.0,sweep_c1,0071,sheet_018.jpg,7095,1774056271849.jpg,bb40fcebab7a5efe,scale_with_item,True,,,not_visible,none_shown,Net Wt. 250g,250.0,g,scale display cropped out of frame
+sonnet_c01,v1.0,sweep_c1,0072,sheet_018.jpg,7775,1776477352231.jpg,e92da750f436e123,item_no_scale,,,,not_visible,none_shown,,,,volume text at bottom too small/blurred to read confidently
+sonnet_c01,v1.0,sweep_c1,0073,sheet_019.jpg,5649,1774486983297.jpg,32b9e0a5ea8e85a0,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum E.S.Q. Dark
+sonnet_c01,v1.0,sweep_c1,0074,sheet_019.jpg,3338,1776304538746.jpg,83af49b0b0c7a730,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0075,sheet_019.jpg,11109,1777424044850.jpg,a6e702ddcb31ff58,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Winner Cooked Ham
+sonnet_c01,v1.0,sweep_c1,0076,sheet_019.jpg,8986,1773970926154.jpg,7593a5472bbfef04,item_no_scale,,,,not_visible,none_shown,,,,"multiple bottles, front bottle backlit; volume text not confidently legible"
+sonnet_c01,v1.0,sweep_c1,0077,sheet_020.jpg,8860,1775783206410.jpg,c402041c2121fe20,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0078,sheet_020.jpg,5749,1774575962254.jpg,6733c8d9c1e24ae4,label_closeup,,,,not_visible,none_shown,NET WT. 1.0K,1.0,kg,printed as '1.0K' on Sunny Hotdog Regular package
+sonnet_c01,v1.0,sweep_c1,0079,sheet_020.jpg,10331,1774576353834.jpg,90845f8e278d7498,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,multiple hotdog packages present; reading the focal Champion Jumbo package
+sonnet_c01,v1.0,sweep_c1,0080,sheet_020.jpg,7496,1774070950784.jpg,2d642ac22bd7a62a,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light
+sonnet_c01,v1.0,sweep_c1,0081,sheet_021.jpg,5264,1776045657960.jpg,3fd0c2b14a5dbaca,item_no_scale,,,,not_visible,none_shown,,,,volume text too small to read confidently
+sonnet_c01,v1.0,sweep_c1,0082,sheet_021.jpg,10176,1774403325152.jpg,87ef048e35b18094,item_no_scale,,,,not_visible,none_shown,,,,"smaller bottle, volume digits obscured by glare"
+sonnet_c01,v1.0,sweep_c1,0083,sheet_021.jpg,3589,1775612599609.jpg,70766746d8f9863d,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Gardenia bread also visible in background, not focal item"
+sonnet_c01,v1.0,sweep_c1,0084,sheet_021.jpg,10987,1776738160874.jpg,c648875188c00e8d,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0085,sheet_022.jpg,10042,1773801901250.jpg,83ba0d91d684d5ec,scale_with_item,True,0.055,True,clear,none_shown,,,,
+sonnet_c01,v1.0,sweep_c1,0086,sheet_022.jpg,8664,1773887620896.jpg,56674d82d89cef79,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0087,sheet_022.jpg,5942,1774487641705.jpg,c105f7a1dafc2a3e,scale_with_item,True,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,"Angelina Medium Loaf on scale, display not visible in frame"
+sonnet_c01,v1.0,sweep_c1,0088,sheet_022.jpg,3938,1775791211912.jpg,a34074306297a8ed,other,,,,not_visible,none_shown,1000 mL,1000.0,mL,"multiple bottles present (UFC sauce, Tanduay Rhum 375 mL also visible); reading the most prominent legible quantity on the cola-type bottle"
+sonnet_c01,v1.0,sweep_c1,0089,sheet_023.jpg,6623,1773797838490.jpg,2d4e2b9d4bada34a,scale_with_item,True,,,ambiguous,none_shown,,,,"digits partially visible, reads approximately '88.xx' but not confidently resolved"
+sonnet_c01,v1.0,sweep_c1,0090,sheet_023.jpg,5384,1774580458824.jpg,e4162b40b5348f98,item_no_scale,,,,not_visible,none_shown,,,,"label bottom cropped out of frame, volume text not visible"
+sonnet_c01,v1.0,sweep_c1,0091,sheet_023.jpg,7063,1774324236086.jpg,163ee4d3075a5ec6,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,"multiple loaves present, reading legible tag on one bag"
+sonnet_c01,v1.0,sweep_c1,0092,sheet_023.jpg,8035,1775885678386.jpg,3b4144179dcfd06d,label_closeup,,,,not_visible,none_shown,NET WT.: 1 kg,1.0,kg,Big Shot Hotdog Sweet Style Jumbo
+sonnet_c01,v1.0,sweep_c1,0093,sheet_024.jpg,6004,1774593848071.jpg,ece1a71559d2654b,scale_with_item,True,0.090,True,clear,none_shown,,,,garlic bulbs on scale
+sonnet_c01,v1.0,sweep_c1,0094,sheet_024.jpg,9226,1774315915816.jpg,40107a8ead52362b,item_no_scale,,,,not_visible,none_shown,,,,"smaller bottle variant, faint volume text ~2xx mL, not confidently resolved"
+sonnet_c01,v1.0,sweep_c1,0095,sheet_024.jpg,9236,1774317848611.jpg,44084292e028fb1f,item_no_scale,,,,not_visible,none_shown,,,,"distinct glass bottle shape, volume text present but not legible at this resolution"
+sonnet_c01,v1.0,sweep_c1,0096,sheet_024.jpg,8374,1775707002722.jpg,b700a5fd2c54f39e,item_no_scale,,,,not_visible,none_shown,,,,"Emperador Original Classic Brandy Liqueur; volume text below visible label portion, obscured by hand"
+sonnet_c01,v1.0,sweep_c1,0097,sheet_025.jpg,10161,1774490421972.jpg,52e9a10b52dce23b,label_closeup,,,,not_visible,none_shown,60mL,60.0,mL,Selecta Watermelon Slice
+sonnet_c01,v1.0,sweep_c1,0098,sheet_025.jpg,6872,1778814797759.jpg,0ffeda78cae91f2f,label_closeup,,,,not_visible,none_shown,Net Weight: 55 ml,55.0,mL,Aice Milk Melon
+sonnet_c01,v1.0,sweep_c1,0099,sheet_025.jpg,6888,1775528873503.jpg,897bfc216b96d2b5,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark, larger bottle"
+sonnet_c01,v1.0,sweep_c1,0100,sheet_025.jpg,5614,1774488239826.jpg,933351570315333b,label_closeup,,,,not_visible,none_shown,,,,Rebisco Family Flavor Bunch; net weight printed at top edge but cropped out of frame
+sonnet_c01,v1.0,sweep_c1,0101,sheet_026.jpg,6869,1775534740777.jpg,48184d75d01565b0,label_closeup,,,,not_visible,none_shown,Net Weight: 50 ml,50.0,mL,Aice Chocolate Stick
+sonnet_c01,v1.0,sweep_c1,0102,sheet_026.jpg,4471,1776138601469.jpg,9b487223ca0fca1a,other,,,,not_visible,none_shown,,,,ice cream bar behind glass reflection; reflective surface obscures package text
+sonnet_c01,v1.0,sweep_c1,0103,sheet_026.jpg,10600,1777269676396.jpg,3611ccf4486d7b96,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,"Angelina Party Loaf, rainbow-colored bread"
+sonnet_c01,v1.0,sweep_c1,0104,sheet_026.jpg,6616,1773797464472.jpg,270827543e8e8bc0,scale_with_item,True,0.060,True,clear,none_shown,,,,Crispy Balls chocolate snack on scale
+sonnet_c01,v1.0,sweep_c1,0105,sheet_027.jpg,531,1777428403137.jpg,b38168062cab9ca7,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0106,sheet_027.jpg,7779,1776648034424.jpg,0b0d43a5bcec4cea,item_no_scale,,,,not_visible,none_shown,,,,viewing back/side panel of bottle; volume figure not visible in this crop
+sonnet_c01,v1.0,sweep_c1,0107,sheet_027.jpg,1070,1777946468229.jpg,b79e616c408383fb,label_closeup,,,,not_visible,none_shown,NET WT. 300g,300.0,g,NeuBake White Bread
+sonnet_c01,v1.0,sweep_c1,0108,sheet_027.jpg,6614,1773797426003.jpg,0df1d8d1b7e65003,scale_with_item,True,-0.040,True,clear,none_shown,,,,"leading dash visible, possibly tare/negative indicator; Choco Malt snack bar on scale"
+sonnet_c01,v1.0,sweep_c1,0109,sheet_028.jpg,5838,1774411745837.jpg,eef92b9b2d699371,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,Sunny Hotdog Jumbo
+sonnet_c01,v1.0,sweep_c1,0110,sheet_028.jpg,5635,1774487845654.jpg,e0fffeef2801b8c1,item_no_scale,,,,not_visible,none_shown,150ml,150.0,mL,"Coca-Cola bottle, read from small sticker near cap, moderate confidence"
+sonnet_c01,v1.0,sweep_c1,0111,sheet_028.jpg,10162,1774404519664.jpg,ce6a2b4f65e5670b,label_closeup,,,,not_visible,none_shown,60mL,60.0,mL,"Selecta Watermelon Slice, price tag P10 also visible"
+sonnet_c01,v1.0,sweep_c1,0112,sheet_028.jpg,4201,1775879072680.jpg,878e0ec0b210e378,item_no_scale,,,,not_visible,none_shown,,,,back label showing cocktail recipe; front volume label not visible in this crop
+sonnet_c01,v1.0,sweep_c1,0113,sheet_029.jpg,2811,1778902498104.jpg,ab9516b97a801143,scale_with_item,True,0.070,True,clear,none_shown,,,,
+sonnet_c01,v1.0,sweep_c1,0114,sheet_029.jpg,8030,1775885356539.jpg,0cf954560b874a89,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Champion Chicken Hotdog Jumbo
+sonnet_c01,v1.0,sweep_c1,0115,sheet_029.jpg,6677,1775525820057.jpg,1034fd283397cfc2,scale_with_item,True,-0.175,True,clear,none_shown,,,,leading dash visible; leafy vegetables on scale
+sonnet_c01,v1.0,sweep_c1,0116,sheet_029.jpg,1177,1778034717177.jpg,cb01899045cca6d5,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0117,sheet_030.jpg,6887,1778815236320.jpg,0ea6403282f48218,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark, larger bottle"
+sonnet_c01,v1.0,sweep_c1,0118,sheet_030.jpg,5378,1774580584508.jpg,cba43c07ca3381d8,label_closeup,,,,not_visible,none_shown,450mL,450.0,mL,"ice cream tub; Nutrition Facts panel also shows 4 servings per container, 100ml serving size"
+sonnet_c01,v1.0,sweep_c1,0119,sheet_030.jpg,11176,1776825735809.jpg,a8b47efdf383ec79,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0120,sheet_030.jpg,5028,1775788706512.jpg,6580954771ee4ad6,label_closeup,,,,not_visible,none_shown,35ml,35.0,mL,Selecta Ice Pop
+sonnet_c01,v1.0,sweep_c1,0121,sheet_031.jpg,5061,1775704365418.jpg,a3af6a7275776e00,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf
+sonnet_c01,v1.0,sweep_c1,0122,sheet_031.jpg,536,1777429357482.jpg,99e139232f4abff5,item_no_scale,,,,not_visible,none_shown,,,,standard Light label; volume digits too small to resolve confidently at this angle
+sonnet_c01,v1.0,sweep_c1,0123,sheet_031.jpg,10582,1777271568490.jpg,39e55be896ea01b4,label_closeup,,,,not_visible,none_shown,,,,Boom Boom Chocolate; top of package where volume is normally printed is cropped out of frame
+sonnet_c01,v1.0,sweep_c1,0124,sheet_031.jpg,381,1777345409391.jpg,48b401b59f21bf63,label_closeup,,,,not_visible,none_shown,NET WT. 30g x 10 (300g),300.0,g,"Fita Crackers, printed as individual 30g x 10 packs"
+sonnet_c01,v1.0,sweep_c1,0125,sheet_032.jpg,5027,1775711345221.jpg,ad34a553560af50e,other,,,,not_visible,none_shown,,,,Miki-Miki Choco snack; small text on wrapper not legible at this resolution
+sonnet_c01,v1.0,sweep_c1,0126,sheet_032.jpg,6884,1775610420807.jpg,92faf333d013656a,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark, larger bottle"
+sonnet_c01,v1.0,sweep_c1,0127,sheet_032.jpg,5042,1775708519463.jpg,c7e5b1c636ec3bdb,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark, bottle lying down"
+sonnet_c01,v1.0,sweep_c1,0128,sheet_032.jpg,8880,1775709284179.jpg,189083699ffd1ebf,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,"multiple loaves visible, reading consistent tag across several bags"
+sonnet_c01,v1.0,sweep_c1,0129,sheet_033.jpg,3033,1776227231095.jpg,224bf3c4e9fc9d0d,label_closeup,,,,not_visible,none_shown,NET WT. 3.17 oz (90g),90.0,g,also printed as 3.17 oz; Chicharron ni Mang Juan
+sonnet_c01,v1.0,sweep_c1,0130,sheet_033.jpg,5236,1776037418184.jpg,84749992bf5258b3,label_closeup,,,,not_visible,none_shown,85 ml,85.0,mL,Aice Sweet Corn; other Aice flavors also visible but not focal/legible
+sonnet_c01,v1.0,sweep_c1,0131,sheet_033.jpg,6885,1775549609232.jpg,401c75faf75b4111,item_no_scale,,,,not_visible,none_shown,,,,"large bottle format similar to 750 mL variants seen elsewhere, digits not clearly resolved in this crop"
+sonnet_c01,v1.0,sweep_c1,0132,sheet_033.jpg,3074,1776299812505.jpg,f47773ccff5c401b,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0133,sheet_034.jpg,10538,1777689521355.jpg,2a9151fe5af3f76f,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf
+sonnet_c01,v1.0,sweep_c1,0134,sheet_034.jpg,8652,1773890050274.jpg,94ae31fdd309fa2e,scale_with_item,True,0.350,True,clear,none_shown,,,,shaved ice dessert cup on scale
+sonnet_c01,v1.0,sweep_c1,0135,sheet_034.jpg,5965,1774408736938.jpg,75129c8f6d46261e,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Champion Hotdog
+sonnet_c01,v1.0,sweep_c1,0136,sheet_034.jpg,6500,1774055479832.jpg,8158cad915f850bd,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0137,sheet_035.jpg,7319,1774578508415.jpg,715fed127b8bb3ae,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0138,sheet_035.jpg,10583,1777270869437.jpg,1ebfa568d0b3920d,label_closeup,,,,not_visible,none_shown,,,,"Selecta Chocolate Ice Cream in a Cup, top view; net weight/volume not visible in this crop"
+sonnet_c01,v1.0,sweep_c1,0139,sheet_035.jpg,7962,1776048487930.jpg,0e1a4570b1e253b9,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0140,sheet_035.jpg,9224,1774316507097.jpg,4578e9f57b0262e9,item_no_scale,,,,not_visible,none_shown,,,,volume digit uncertain - bottle appears smaller format but text not confidently resolved
+sonnet_c01,v1.0,sweep_c1,0141,sheet_036.jpg,1182,1778034791656.jpg,cdc8c4c41da9ec82,item_no_scale,,,,not_visible,none_shown,350 mL,350.0,mL,Ginebra San Miguel Gin
+sonnet_c01,v1.0,sweep_c1,0142,sheet_036.jpg,11110,1777508319613.jpg,efe25df2cff4d733,label_closeup,,,,not_visible,none_shown,Net Wt. 250g,250.0,g,multiple hotdog/frank packages present (CDO Idol Cheesedog also visible); reading the focal Winner Franks package
+sonnet_c01,v1.0,sweep_c1,0143,sheet_036.jpg,5265,1776037620326.jpg,6aeee4739cf39ebd,other,,,,not_visible,none_shown,,,,"two bottles in frame: Tanduay Rhum Light and Tanduay Rhum Dark, both appear standard 375 mL though digits not clearly legible on either"
+sonnet_c01,v1.0,sweep_c1,0144,sheet_036.jpg,8484,1775706438997.jpg,aa0979827d6c7f3b,label_closeup,,,,not_visible,none_shown,,,,"small container held in hand, volume text present but partially cut off/blurred, appears to end in '..ml'"
+sonnet_c01,v1.0,sweep_c1,0145,sheet_037.jpg,5238,1775875800167.jpg,f4d0d06db7ec1cc8,label_closeup,,,,not_visible,none_shown,Net Content: 70 mL,70.0,mL,Classic Pinipig Chocolate
+sonnet_c01,v1.0,sweep_c1,0146,sheet_037.jpg,10160,1774497628089.jpg,2ab65bd98d72bb2e,label_closeup,,,,not_visible,none_shown,55 ml,55.0,mL,"Aice Milk Melon, partially visible, matches same product read elsewhere in this sweep"
+sonnet_c01,v1.0,sweep_c1,0147,sheet_037.jpg,5255,1775874969211.jpg,91067162d7ed60c2,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0148,sheet_037.jpg,9233,1774057215150.jpg,dd334959fba4cb98,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,among eggs and crackers
+sonnet_c01,v1.0,sweep_c1,0149,sheet_038.jpg,10874,1777599750633.jpg,9c04e609d081ad81,label_closeup,,,,not_visible,none_shown,,,,Manolette Loaf Bread; no net weight visible in this crop
+sonnet_c01,v1.0,sweep_c1,0150,sheet_038.jpg,8485,1778717600945.jpg,3b927517ed6c2dd8,label_closeup,,,,not_visible,none_shown,100ml,100.0,mL,Alice Sorbetes Creamy Keso
+sonnet_c01,v1.0,sweep_c1,0151,sheet_038.jpg,6081,1774589803811.jpg,43e14a93254265cf,item_no_scale,,,,not_visible,none_shown,,,,bottle shape similar to confirmed 750 mL variants elsewhere but digits not independently confirmed here
+sonnet_c01,v1.0,sweep_c1,0152,sheet_038.jpg,5051,1775709022631.jpg,8c422a32feca2abc,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,1521 Premium Light Brandy S.T.L.
+sonnet_c01,v1.0,sweep_c1,0153,sheet_039.jpg,3480,1776834027388.jpg,d363b8effba585f3,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0154,sheet_039.jpg,7313,1774588629488.jpg,6bf90bd8148f5929,other,,,,not_visible,none_shown,375 mL,375.0,mL,"multiple 'Bunso' branded bottles in background, not fully legible; reading the clearer Tanduay Rhum Dark bottle"
+sonnet_c01,v1.0,sweep_c1,0155,sheet_039.jpg,8878,1778286924811.jpg,cc6f250dbaaecf12,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf
+sonnet_c01,v1.0,sweep_c1,0156,sheet_039.jpg,10613,1778468780936.jpg,e7b14accd76d73a7,label_closeup,,,,not_visible,none_shown,Net Wt.150g,150.0,g,CDO Meat Loaf can
+sonnet_c01,v1.0,sweep_c1,0157,sheet_040.jpg,9840,1773912023145.jpg,31f5ce24c25e5e29,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0158,sheet_040.jpg,3936,1775701106065.jpg,9ab42cb2623cb3a4,item_no_scale,,,,not_visible,none_shown,,,,"larger Tanduay Light bottle, volume digits present but not confidently resolved"
+sonnet_c01,v1.0,sweep_c1,0159,sheet_040.jpg,4205,1776046863564.jpg,0b7a3851596a3e47,item_no_scale,,,,not_visible,none_shown,,,,bottle photographed upside-down/rotated; volume digits not confidently resolved due to orientation
+sonnet_c01,v1.0,sweep_c1,0160,sheet_040.jpg,361,1777352194077.jpg,4d0c18d0360acac4,label_closeup,,,,not_visible,none_shown,NET WT. 33g,33.0,g,Rebisco crackers
+sonnet_c01,v1.0,sweep_c1,0161,sheet_041.jpg,2257,1776389952520.jpg,f03fbd81ddcb44b6,item_no_scale,,,,not_visible,none_shown,240 mL,240.0,mL,Sting Red drink
+sonnet_c01,v1.0,sweep_c1,0162,sheet_041.jpg,9230,1774069271913.jpg,0179dec750631513,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0163,sheet_041.jpg,7055,1774057326141.jpg,5211aa80d29981d9,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,on '2 DOZ.' box
+sonnet_c01,v1.0,sweep_c1,0164,sheet_041.jpg,10723,1777604077708.jpg,b020c3d4df8ead71,label_closeup,,,,not_visible,none_shown,Net Wt. 640g,640.0,g,BongBong's Loaf Bread
+sonnet_c01,v1.0,sweep_c1,0165,sheet_042.jpg,3489,1776828213670.jpg,00e3dedd0870e7b7,item_no_scale,,,,not_visible,none_shown,1 LITER,1.0,L,"Tanduay Rhum Light, 1 Liter bottle"
+sonnet_c01,v1.0,sweep_c1,0166,sheet_042.jpg,7062,1774323911391.jpg,8794e1323a246cc0,label_closeup,,,,not_visible,none_shown,,,,"carton behind shows partial text '(40g) NET WT. 1.92 Kg' (unclear referent, likely case weight); the loaf's own Net Wt. label is not clearly legible in this crop"
+sonnet_c01,v1.0,sweep_c1,0167,sheet_042.jpg,4477,1776214176902.jpg,c1f892d340cf98ad,label_closeup,,,,not_visible,none_shown,,,,"Selecta Watermelon Slice; same product line as previously confirmed 60mL elsewhere in this sweep, but volume digits not visible in this particular crop"
+sonnet_c01,v1.0,sweep_c1,0168,sheet_042.jpg,3597,1775612271834.jpg,46314ef1a6471127,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,"multiple bread brands visible (Gardenia Classic, Presto); reading the clear central Angelina Super Loaf tag"
+sonnet_c01,v1.0,sweep_c1,0169,sheet_043.jpg,10985,1776738875572.jpg,70271af0af2efd1e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,bottle lying in freezer
+sonnet_c01,v1.0,sweep_c1,0170,sheet_043.jpg,4617,1776382150188.jpg,c96a36bb26e907b1,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,bottle lying sideways
+sonnet_c01,v1.0,sweep_c1,0171,sheet_043.jpg,1043,1777262550111.jpg,316a9d3c6a8a11db,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0172,sheet_043.jpg,5936,1774488822752.jpg,dd6d84e5e255116b,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,among eggs
+sonnet_c01,v1.0,sweep_c1,0173,sheet_044.jpg,11159,1776826924386.jpg,22dd909b75403ecb,label_closeup,,,,not_visible,none_shown,,,,Joyday Coffee Latte; small print likely states net volume similar to other Joyday bars but not confidently resolved here
+sonnet_c01,v1.0,sweep_c1,0174,sheet_044.jpg,6409,1774403488397.jpg,2b35bf41e052e9f9,label_closeup,,,,not_visible,none_shown,NET WT.: 1kg,1.0,kg,Big Shot Hotdog Classic Jumbo
+sonnet_c01,v1.0,sweep_c1,0175,sheet_044.jpg,10708,1777603602382.jpg,b6b7a2c5bd00f5d6,label_closeup,,,,not_visible,none_shown,,,,Cornetto Cookies & Dream cone; net weight/volume text not visible in this crop
+sonnet_c01,v1.0,sweep_c1,0176,sheet_044.jpg,6401,1774402936776.jpg,c28ab5c6578b7305,label_closeup,,,,not_visible,none_shown,NET WT. 450 g,450.0,g,CDO Funtastyk Young Pork Tocino
+sonnet_c01,v1.0,sweep_c1,0177,sheet_045.jpg,1199,1778033410996.jpg,51da966f8557d300,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf
+sonnet_c01,v1.0,sweep_c1,0178,sheet_045.jpg,5379,1774580598384.jpg,d22574cbc3920dca,label_closeup,,,,not_visible,none_shown,750mL,750.0,mL,Selecta Choco Almond Fudge
+sonnet_c01,v1.0,sweep_c1,0179,sheet_045.jpg,1518,1777430030659.jpg,2a8a274e7d78899a,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0180,sheet_045.jpg,7315,1774658946143.jpg,5d6f3bdb4b2d8e73,item_no_scale,,,,not_visible,none_shown,,,,"standard Light 375 mL bottle shape, digits not confidently resolved due to backlighting"
+sonnet_c01,v1.0,sweep_c1,0181,sheet_046.jpg,10339,1774660621821.jpg,2d54c41945e639ec,label_closeup,,,,not_visible,none_shown,Net Wt.: 200g,200.0,g,"Mini Hotdog package, digits partially cut off but legible"
+sonnet_c01,v1.0,sweep_c1,0182,sheet_046.jpg,5938,1774410490660.jpg,dcb7891bf4f9170b,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,"Angelina Super Loaf, bag rotated/upside-down"
+sonnet_c01,v1.0,sweep_c1,0183,sheet_046.jpg,770,1777685596576.jpg,c262759049d83bf2,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,among vegetables
+sonnet_c01,v1.0,sweep_c1,0184,sheet_046.jpg,1530,1777430856189.jpg,6a9da5a47c358dbb,other,,,,not_visible,none_shown,,,,"multiple Tanduay Rhum Dark bottles in a row; one appears labeled '1 liter', others show standard labels, volume text not confidently resolved for a single focal item"
+sonnet_c01,v1.0,sweep_c1,0185,sheet_047.jpg,11107,1777424244758.jpg,53f985f67079b728,label_closeup,,,,not_visible,none_shown,NET WT.: 250g,250.0,g,Winner Cooked Ham
+sonnet_c01,v1.0,sweep_c1,0186,sheet_047.jpg,10478,1777599881090.jpg,9aea201dd43bdeb6,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf in basket
+sonnet_c01,v1.0,sweep_c1,0187,sheet_047.jpg,3483,1776825145186.jpg,7a991e50e6038847,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0188,sheet_047.jpg,5620,1774402472556.jpg,5a0ba6b60f8f755d,label_closeup,,,,not_visible,none_shown,355G,355.0,g,Merzci Special Biscocho
+sonnet_c01,v1.0,sweep_c1,0189,sheet_048.jpg,4611,1776382776808.jpg,2273225226bc2b3f,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0190,sheet_048.jpg,5046,1775710124832.jpg,8853f5254996697f,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Rhum Light, bottle photographed at steep angle; volume digits not confidently resolved"
+sonnet_c01,v1.0,sweep_c1,0191,sheet_048.jpg,10593,1777269406781.jpg,684f5eeaefbfa75a,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf
+sonnet_c01,v1.0,sweep_c1,0192,sheet_048.jpg,7314,1774677411318.jpg,7f6ead3161727108,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,among eggs
+sonnet_c01,v1.0,sweep_c1,0193,sheet_049.jpg,7058,1774335136588.jpg,8aa0e9dce06c279a,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0194,sheet_049.jpg,10978,1776655296318.jpg,f8490ba54d7c1de3,other,,,,not_visible,none_shown,,,,cluttered freezer scene with multiple small dessert cups; no legible weight/volume text visible
+sonnet_c01,v1.0,sweep_c1,0195,sheet_049.jpg,10333,1774659975701.jpg,36684f1cada882e2,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Champion Hotdog
+sonnet_c01,v1.0,sweep_c1,0196,sheet_049.jpg,9227,1774315938943.jpg,0765b4df3bde2322,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"second Tanduay bottle visible in background, not focal"
+sonnet_c01,v1.0,sweep_c1,0197,sheet_050.jpg,3081,1776231834607.jpg,3b44461c810787d0,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0198,sheet_050.jpg,5650,1774489035970.jpg,834e2f3ce448195e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light
+sonnet_c01,v1.0,sweep_c1,0199,sheet_050.jpg,10051,1773802604662.jpg,885a592e6bbb5adb,scale_with_item,True,0.670,True,clear,none_shown,,,,Tanduay Rhum Light bottle on scale
+sonnet_c01,v1.0,sweep_c1,0200,sheet_050.jpg,4203,1775878336895.jpg,cb0c20ac4a327932,item_no_scale,,,,not_visible,none_shown,,,,Emperador Light; volume text not visible in this crop (label cropped)
+sonnet_c01,v1.0,sweep_c1,0201,sheet_051.jpg,1288,1777337964804.jpg,78f1a07e558500c9,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0202,sheet_051.jpg,4862,1776048955603.jpg,b1b852991452382e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0203,sheet_051.jpg,1767,1776652094251.jpg,813ea1880e611ec2,label_closeup,,,,not_visible,none_shown,Net Content: 64ml (56g),64.0,mL,also printed as 56g; Selecta Bites Time Strawberry Yoghurt
+sonnet_c01,v1.0,sweep_c1,0204,sheet_051.jpg,8409,1775783018549.jpg,35eb9dfe214b653b,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,Svelty Hotdog
+sonnet_c01,v1.0,sweep_c1,0205,sheet_052.jpg,4368,1776137877263.jpg,d92e62c2add32e6c,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,Sunny Hotdog Jumbo
+sonnet_c01,v1.0,sweep_c1,0206,sheet_052.jpg,2829,1776391483327.jpg,2f0e8a4cc2466a23,other,,,,not_visible,none_shown,750 mL,750.0,mL,"multiple Tanduay Rhum bottles (Dark and Light) in a row, all appear to be the 750 mL format; reading the clearest front label"
+sonnet_c01,v1.0,sweep_c1,0207,sheet_052.jpg,5632,1774488812223.jpg,b6b0853868fe2900,item_no_scale,,,,not_visible,none_shown,,,,"Coca-Cola bottle; volume text likely near bottom of label, not visible in this crop"
+sonnet_c01,v1.0,sweep_c1,0208,sheet_052.jpg,10181,1774486530671.jpg,85db29c2ed068b1c,item_no_scale,,,,not_visible,none_shown,,,,bottle shape matches earlier ~750mL glass variant; volume digits not visible in this crop
+sonnet_c01,v1.0,sweep_c1,0209,sheet_053.jpg,7321,1774588675917.jpg,83b2afe101cdeb11,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"multiple identical bottles, reading front one"
+sonnet_c01,v1.0,sweep_c1,0210,sheet_053.jpg,534,1777509823483.jpg,0550f826d43d0f1b,item_no_scale,,,,not_visible,none_shown,,,,bottle shape matches other ~750 mL variants but digits not clearly resolved in this crop
+sonnet_c01,v1.0,sweep_c1,0211,sheet_053.jpg,1645,1777000628681.jpg,b5ca68a3b889ea79,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0212,sheet_053.jpg,2418,1776471716952.jpg,5db40d0d953da235,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf
+sonnet_c01,v1.0,sweep_c1,0213,sheet_054.jpg,5732,1778202599474.jpg,5ceb1d05093de15c,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c01,v1.0,sweep_c1,0214,sheet_054.jpg,6402,1774490585830.jpg,e6a74e3daca992d3,label_closeup,,,,not_visible,none_shown,NET WT. 200G,200.0,g,Bossing Extra Cheesedogs
+sonnet_c01,v1.0,sweep_c1,0215,sheet_054.jpg,10732,1777604644278.jpg,9fe0cbb9e77c2d39,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf
+sonnet_c01,v1.0,sweep_c1,0216,sheet_054.jpg,1531,1777514184039.jpg,5dfc885144e9dfea,other,,,,not_visible,none_shown,375 mL,375.0,mL,"two identical Tanduay Rhum Light bottles, reading consistent label"
+sonnet_c01,v1.0,sweep_c1,0217,sheet_055.jpg,6723,1775538430005.jpg,1413b78673dbf1c7,label_closeup,,,,not_visible,none_shown,85ml,85.0,mL,Aice Sweet Corn
+sonnet_c01,v1.0,sweep_c1,0218,sheet_055.jpg,1047,1777346146343.jpg,f50de9f0a80b7344,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0219,sheet_055.jpg,5313,1775866793451.jpg,3b363ae89d70077b,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,Bingo Hotdog
+sonnet_c01,v1.0,sweep_c1,0220,sheet_055.jpg,10473,1778048544963.jpg,2140b70d37b053f1,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,on '1 DOZ.' box
+sonnet_c01,v1.0,sweep_c1,0221,sheet_056.jpg,5383,1774580439863.jpg,76b1fc1cc11bb3d8,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0222,sheet_056.jpg,2817,1776393883822.jpg,41d3f5ef616f204b,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0223,sheet_056.jpg,2422,1776471646247.jpg,272982625bdb0544,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,brand name reads 'Ungelina' (not 'Angelina') on this bag - possibly a different producer using similar packaging design
+sonnet_c01,v1.0,sweep_c1,0224,sheet_056.jpg,6407,1774402620375.jpg,82c6431a2f009b67,label_closeup,,,,not_visible,none_shown,428 g,428.0,g,"Ganado Premium Quality Meat Tocino; digit legibility moderate, partially obscured by hand"
+sonnet_c01,v1.0,sweep_c1,0225,sheet_057.jpg,2938,1776736102918.jpg,2258f1a7733cdfb6,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0226,sheet_057.jpg,2816,1776470802807.jpg,b9af745bf4aef000,item_no_scale,,,,not_visible,none_shown,,,,"top of label cropped, volume digits partially cut off, appears to end in '5 mL'"
+sonnet_c01,v1.0,sweep_c1,0227,sheet_057.jpg,5625,1774403706414.jpg,699de147c53ce06b,item_no_scale,,,,not_visible,none_shown,,,,Coca-Cola bottle; no legible net volume visible in this crop
+sonnet_c01,v1.0,sweep_c1,0228,sheet_057.jpg,10784,1777426275833.jpg,e579ea6226e58e1d,label_closeup,,,,not_visible,none_shown,Content: 100ml,100.0,mL,"Joyice Chocolate Joycone; text partially cropped/blurred, read with moderate confidence; Joyice Avocado & Chocolate Sundae box also visible in background"
+sonnet_c01,v1.0,sweep_c1,0229,sheet_058.jpg,7979,1775887085428.jpg,285d0e8269eafcb2,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,"multiple loaves present, reading clearest central tag"
+sonnet_c01,v1.0,sweep_c1,0230,sheet_058.jpg,2916,1776735792633.jpg,786de2ab29ccc55d,item_no_scale,,,,not_visible,none_shown,455 mL (15.39 FL OZ),455.0,mL,O2 Apple Flavored Green Tea
+sonnet_c01,v1.0,sweep_c1,0231,sheet_058.jpg,10027,1773721579894.jpg,c2bae4abf65cd3de,scale_with_item,True,0.058,True,probable,none_shown,,,,milk-flavored ice cream bar on scale
+sonnet_c01,v1.0,sweep_c1,0232,sheet_058.jpg,8856,1775714216947.jpg,f2cf9e82cbe0c84f,label_closeup,,,,not_visible,none_shown,Net Weight: 110 ml,110.0,mL,Aice Strawberry and Vanilla Flavored
+sonnet_c01,v1.0,sweep_c1,0233,sheet_059.jpg,8865,1775805467146.jpg,023cdb42ece94bec,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0234,sheet_059.jpg,5253,1775871473636.jpg,deec878739b685fa,other,,,,not_visible,none_shown,375 mL,375.0,mL,"multiple bottles tied together; front bottle reads 375 mL, one behind appears to be a larger 750 mL format"
+sonnet_c01,v1.0,sweep_c1,0235,sheet_059.jpg,5628,1774402590390.jpg,21b5b210c8b51241,item_no_scale,,,,not_visible,none_shown,,,,"Coca-Cola bottle; label largely obscured by handwritten marker text, no legible net volume"
+sonnet_c01,v1.0,sweep_c1,0236,sheet_059.jpg,10171,1774490271878.jpg,034f9f421359787b,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0237,sheet_060.jpg,5241,1776043774799.jpg,c6257c07e52cf984,label_closeup,,,,not_visible,none_shown,100mL,100.0,mL,"ice cream cup, Nutrition Facts also shows 110 Calories per serving"
+sonnet_c01,v1.0,sweep_c1,0238,sheet_060.jpg,8645,1773886670461.jpg,6969aa3036489662,scale_with_item,True,0.060,True,clear,none_shown,,,,Pinoy Classics Pinipig Strawberry on scale
+sonnet_c01,v1.0,sweep_c1,0239,sheet_060.jpg,10588,1777337684892.jpg,7eb90735d7d09435,label_closeup,,,,not_visible,none_shown,,,,Selecta Ice Pop Creamy Choco; no legible net volume visible in this crop
+sonnet_c01,v1.0,sweep_c1,0240,sheet_060.jpg,10612,1777337389204.jpg,1355633b992d3cef,label_closeup,,,,not_visible,none_shown,NET WEIGHT: 5 oz /155 g,155.0,g,also printed as 5 oz; Saba Mackerel can
+sonnet_c01,v1.0,sweep_c1,0241,sheet_061.jpg,3943,1775701719767.jpg,68a4fb920f96c76d,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf; multiple other bread brands visible nearby
+sonnet_c01,v1.0,sweep_c1,0242,sheet_061.jpg,9237,1774319049876.jpg,b24d3372d6a1ed0a,item_no_scale,,,,not_visible,none_shown,,,,hand obscures upper portion of label where volume text would be
+sonnet_c01,v1.0,sweep_c1,0243,sheet_061.jpg,8834,1775782103736.jpg,a146863d6592129f,label_closeup,,,,not_visible,none_shown,60mL,60.0,mL,"Selecta Watermelon Slice; multiple ice pop items also visible in freezer, this is the focal one"
+sonnet_c01,v1.0,sweep_c1,0244,sheet_061.jpg,10300,1774579830145.jpg,5e5b2c9e55052283,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0245,sheet_062.jpg,3492,1776826191681.jpg,64fad8a8278ef6ef,item_no_scale,,,,not_visible,none_shown,,,,Napoleon V.S.O.P. Brandy; small volume text visible at bottom of label but not confidently resolved (possibly '750 ml' or '75 cl')
+sonnet_c01,v1.0,sweep_c1,0246,sheet_062.jpg,3076,1776219278945.jpg,dae454a39f07dfc1,other,,,,not_visible,none_shown,,,,multiple Tanduay Rhum Light bottles in a row; volume text visible but digits not confidently resolved across bottles
+sonnet_c01,v1.0,sweep_c1,0247,sheet_062.jpg,533,1777507597856.jpg,2798b4fc42d9ab4b,item_no_scale,,,,not_visible,none_shown,,,,price sticker overlaps volume text area; bottle shape matches other confirmed 750 mL examples but digits not independently confirmed here
+sonnet_c01,v1.0,sweep_c1,0248,sheet_062.jpg,8854,1778287955974.jpg,05554e485d10ee7d,label_closeup,,,,not_visible,none_shown,100ML ICE CREAM,100.0,mL,vanilla ice cream cone package
+sonnet_c01,v1.0,sweep_c1,0249,sheet_063.jpg,5633,1774488830535.jpg,957b3a3793babf33,item_no_scale,,,,not_visible,none_shown,355 mL,355.0,mL,Coca-Cola glass bottle
+sonnet_c01,v1.0,sweep_c1,0250,sheet_063.jpg,767,1777864726889.jpg,082d6f58383b1d45,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,bottle lying on stool
+sonnet_c01,v1.0,sweep_c1,0251,sheet_063.jpg,529,1777511030776.jpg,c5679927a999d057,item_no_scale,,,,not_visible,none_shown,,,,large-format Tanduay Rhum Light bottle; volume digits not confidently resolved in this crop
+sonnet_c01,v1.0,sweep_c1,0252,sheet_063.jpg,8032,1776049835839.jpg,2efffcaa75fb8a40,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Hotdog with Cheese
+sonnet_c01,v1.0,sweep_c1,0253,sheet_064.jpg,1192,1778034032225.jpg,2f4b60cf8d069750,item_no_scale,,,,not_visible,none_shown,,,,"large-format Tanduay Rhum Light bottle, volume text not clearly resolved in this view"
+sonnet_c01,v1.0,sweep_c1,0254,sheet_064.jpg,1515,1777427540136.jpg,aa93d7406b2bff38,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c01,v1.0,sweep_c1,0255,sheet_064.jpg,2287,1776397841503.jpg,208d72fa3d66c353,label_closeup,,,,not_visible,none_shown,100ml,100.0,mL,"Alice Sorbetes Ube Time, same product as previously read elsewhere, partial visibility here"
+sonnet_c01,v1.0,sweep_c1,0256,sheet_064.jpg,5968,1774404406844.jpg,fea34cb053107649,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Champion Hotdog Jumbo
+sonnet_c02,v1.0,sweep_c1,0257,sheet_065.jpg,8386,1775707446497.jpg,3155e3030daf1cef,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c02,v1.0,sweep_c1,0258,sheet_065.jpg,10049,1773811478259.jpg,31a650c0772ca2ab,scale_with_item,True,0.870,True,clear,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on scale
+sonnet_c02,v1.0,sweep_c1,0259,sheet_065.jpg,8623,1773893510950.jpg,5924dbc4c6f14c0d,item_no_scale,,,,not_visible,none_shown,355 mL,355.0,mL,
+sonnet_c02,v1.0,sweep_c1,0260,sheet_065.jpg,10725,1777688419696.jpg,0afe01a7435b6226,label_closeup,,,,not_visible,none_shown,,,,"dark image, brand visible but no legible weight number"
+sonnet_c02,v1.0,sweep_c1,0261,sheet_066.jpg,10031,1773801763912.jpg,7a3fbbc43a4bd88a,scale_with_item,True,0.545,True,clear,none_shown,,,,2in1 Family Pack tub on scale; unit price/total price rows blank
+sonnet_c02,v1.0,sweep_c1,0262,sheet_066.jpg,7958,1778900032153.jpg,95871f16f704da8d,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0263,sheet_066.jpg,4083,1776309099406.jpg,5c2bfc5082e17277,label_closeup,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0264,sheet_066.jpg,10064,1773813582349.jpg,97d1b145add87024,scale_with_item,True,1.230,True,clear,none_shown,,,,Tanduay Rhum Dark bottle on scale
+sonnet_c02,v1.0,sweep_c1,0265,sheet_067.jpg,2822,1776471197595.jpg,bdd30ece567e8487,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,large bottle but label reads 375 mL as printed
+sonnet_c02,v1.0,sweep_c1,0266,sheet_067.jpg,4370,1776134992542.jpg,921504d2784cc5ce,label_closeup,,,,not_visible,none_shown,NET WT. 250G,250.0,g,
+sonnet_c02,v1.0,sweep_c1,0267,sheet_067.jpg,6875,1775610376826.jpg,79107fe6a2b00ffa,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,bread bag visible in background shows partial 500g text
+sonnet_c02,v1.0,sweep_c1,0268,sheet_067.jpg,2820,1776391427138.jpg,0209b8613bd32afc,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,multiple bottles
+sonnet_c02,v1.0,sweep_c1,0269,sheet_068.jpg,11169,1776827039530.jpg,9a2614da105ee929,label_closeup,,,,not_visible,none_shown,,,,"ice pop package, no legible weight/volume visible"
+sonnet_c02,v1.0,sweep_c1,0270,sheet_068.jpg,7777,1776653059437.jpg,96dc5a59982129de,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Light bottle on box, moderate confidence reading"
+sonnet_c02,v1.0,sweep_c1,0271,sheet_068.jpg,8486,1775786695913.jpg,39b0c95017006585,label_closeup,,,,not_visible,none_shown,188 mL,188.0,mL,"Aice Sorbetes cup, moderate confidence"
+sonnet_c02,v1.0,sweep_c1,0272,sheet_068.jpg,2911,1776651214013.jpg,2df6279c78c7649c,item_no_scale,,,,not_visible,none_shown,500 mL,500.0,mL,Nature's Spring water bottles
+sonnet_c02,v1.0,sweep_c1,0273,sheet_069.jpg,57,1778471914062.jpg,705df561fc18d9bb,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c02,v1.0,sweep_c1,0274,sheet_069.jpg,7311,1774661368471.jpg,ae5c42a6bce41fff,item_no_scale,,,,not_visible,none_shown,250 mL,250.0,mL,multiple bottles on shelf
+sonnet_c02,v1.0,sweep_c1,0275,sheet_069.jpg,7970,1776048520076.jpg,251541daadd22256,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0276,sheet_069.jpg,6889,1775547144880.jpg,4be00652e742dc73,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Light bottle
+sonnet_c02,v1.0,sweep_c1,0277,sheet_070.jpg,10713,1777603633024.jpg,7d3844cb6adcbe22,label_closeup,,,,not_visible,none_shown,,,,"Joyice Cookies & Cream cup, no legible weight/volume"
+sonnet_c02,v1.0,sweep_c1,0278,sheet_070.jpg,4726,1776213977772.jpg,ef252fe45d8d99a6,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Light bottle
+sonnet_c02,v1.0,sweep_c1,0279,sheet_070.jpg,5616,1774410602035.jpg,7db5d4b496fa1069,label_closeup,,,,not_visible,none_shown,,,,"Hansel biscuit bag, no visible net weight in crop"
+sonnet_c02,v1.0,sweep_c1,0280,sheet_070.jpg,5933,1774489358654.jpg,885b5685415e8cbe,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Dark bottle
+sonnet_c02,v1.0,sweep_c1,0281,sheet_071.jpg,10988,1776653953350.jpg,1f4694e1bdce080d,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"bottle lying on bread bags; bread bag shows partial 640g in corner, moderate confidence on bottle label"
+sonnet_c02,v1.0,sweep_c1,0282,sheet_071.jpg,5244,1778549157500.jpg,5d7b59042ff82cf8,label_closeup,,,,not_visible,none_shown,,,,"Creamline mini cup Ube, small print near barcode not confidently legible"
+sonnet_c02,v1.0,sweep_c1,0283,sheet_071.jpg,7769,1776651865639.jpg,0e45d2727437f558,label_closeup,,,,not_visible,none_shown,,,,"Joyday Sundae Chocolate cup, volume text too small to confirm"
+sonnet_c02,v1.0,sweep_c1,0284,sheet_071.jpg,5626,1774403724404.jpg,48b4f7e3f0632984,item_no_scale,,,,not_visible,none_shown,355 mL,355.0,mL,
+sonnet_c02,v1.0,sweep_c1,0285,sheet_072.jpg,3583,1775613004509.jpg,fcbf5c1df7e19897,label_closeup,,,,not_visible,none_shown,100ML ICE CREAM,100.0,mL,
+sonnet_c02,v1.0,sweep_c1,0286,sheet_072.jpg,8232,1773970962593.jpg,8d7688dc7654ca8f,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Light bottle held, volume text not legible"
+sonnet_c02,v1.0,sweep_c1,0287,sheet_072.jpg,5934,1774488281226.jpg,35938459571d0766,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,moderate confidence
+sonnet_c02,v1.0,sweep_c1,0288,sheet_072.jpg,11222,1777343377708.jpg,6de0bbddfe13fd88,label_closeup,,,,not_visible,none_shown,Net Volume: 65ml,65.0,mL,
+sonnet_c02,v1.0,sweep_c1,0289,sheet_073.jpg,8879,1778287550343.jpg,dca82029d12f9ad9,scale_with_item,True,0.655,True,clear,none_shown,,,,Tasty Super Loaf bread on scale
+sonnet_c02,v1.0,sweep_c1,0290,sheet_073.jpg,5622,1774410801796.jpg,6c50b84d4fe84e32,item_no_scale,,,,not_visible,none_shown,,,,"Coca-Cola bottle, volume text partially cropped at top edge, not confidently legible"
+sonnet_c02,v1.0,sweep_c1,0291,sheet_073.jpg,7061,1774054548741.jpg,6d9b522cd029c6da,scale_with_item,True,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf on scale; display appears unlit/blank
+sonnet_c02,v1.0,sweep_c1,0292,sheet_073.jpg,3337,1776306318044.jpg,a919b8a9e9034662,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0293,sheet_074.jpg,10335,1774576024042.jpg,64e2d4da0950ce14,label_closeup,,,,not_visible,none_shown,NET WT.: 250g,250.0,g,"second package shows partial 'Net 200...' text, possibly a different size"
+sonnet_c02,v1.0,sweep_c1,0294,sheet_074.jpg,5262,1776044052911.jpg,fd3c772882ba8174,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,second bottle behind shows 375 mL
+sonnet_c02,v1.0,sweep_c1,0295,sheet_074.jpg,1191,1778035474063.jpg,b51c40b7e48a5e40,item_no_scale,,,,not_visible,none_shown,1 LITER,1.0,L,"small text on neck, moderate confidence"
+sonnet_c02,v1.0,sweep_c1,0296,sheet_074.jpg,5615,1774488259651.jpg,441babc16668fc53,label_closeup,,,,not_visible,none_shown,,,,"Doowee Donut package; handwritten '110' is a price marking, not a weight"
+sonnet_c02,v1.0,sweep_c1,0297,sheet_075.jpg,1193,1778119983212.jpg,9141330290a576b0,item_no_scale,,,,not_visible,none_shown,350 mL,350.0,mL,
+sonnet_c02,v1.0,sweep_c1,0298,sheet_075.jpg,5946,1774410873566.jpg,bf902cae87a5750e,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c02,v1.0,sweep_c1,0299,sheet_075.jpg,6073,1774589224973.jpg,0d5669e832546a66,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0300,sheet_075.jpg,3333,1779155421695.jpg,ff33c0a6a0ef3684,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0301,sheet_076.jpg,1519,1777514106654.jpg,ff732c908c47230d,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,multiple bottles
+sonnet_c02,v1.0,sweep_c1,0302,sheet_076.jpg,49,1778471970936.jpg,488eb2f2f1a700dc,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c02,v1.0,sweep_c1,0303,sheet_076.jpg,1196,1778119861850.jpg,131122c98e9d3409,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c02,v1.0,sweep_c1,0304,sheet_076.jpg,2312,1779162514426.jpg,9bdd7a9ce741e633,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0305,sheet_077.jpg,364,1777265473503.jpg,d0a578344bdcae23,label_closeup,,,,not_visible,none_shown,NET WT. 25g,25.0,g,two SkyFlakes packs stacked
+sonnet_c02,v1.0,sweep_c1,0306,sheet_077.jpg,4865,1775877729373.jpg,a4bb9b06642f9723,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Light bottle, label too small to read volume"
+sonnet_c02,v1.0,sweep_c1,0307,sheet_077.jpg,4199,1776047423687.jpg,62c5bd5985be6a5b,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0308,sheet_077.jpg,10179,1774403038662.jpg,1cbe9213048da81e,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0309,sheet_078.jpg,10334,1774576007912.jpg,61fc2782e2f07f78,label_closeup,,,,not_visible,none_shown,NET WT.: 250g,250.0,g,Winner Cooked Ham
+sonnet_c02,v1.0,sweep_c1,0310,sheet_078.jpg,4951,1775534840811.jpg,a4640dd8f6b1d187,label_closeup,,,,not_visible,none_shown,Net Weight: 800 ml,800.0,mL,Aice Sorbetes 3in1 Choco Keso Ube
+sonnet_c02,v1.0,sweep_c1,0311,sheet_078.jpg,1188,1778119564613.jpg,ad97640da479ba75,item_no_scale,,,,not_visible,none_shown,1 LITER,1.0,L,Tanduay Light large bottle
+sonnet_c02,v1.0,sweep_c1,0312,sheet_078.jpg,4725,1776382514960.jpg,0179bf6490e1f2eb,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Light bottle, volume digits unclear at this resolution"
+sonnet_c02,v1.0,sweep_c1,0313,sheet_079.jpg,10177,1774490324734.jpg,1d4f1a24c05b3aa0,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Dark bottle held, label obscured by fingers/glare"
+sonnet_c02,v1.0,sweep_c1,0314,sheet_079.jpg,7053,1774332511873.jpg,57a0a6ff34b677b9,item_no_scale,,,,not_visible,none_shown,190mL,190.0,mL,"ice cream cup in freezer, moderate confidence"
+sonnet_c02,v1.0,sweep_c1,0315,sheet_079.jpg,8387,1775701861801.jpg,9e0e761b46ef5d5f,label_closeup,,,,not_visible,none_shown,NET WT. 450g,450.0,g,NeuBake White Bread
+sonnet_c02,v1.0,sweep_c1,0316,sheet_079.jpg,8881,1775708512205.jpg,c56f83e1ff20def3,item_no_scale,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,multiple bread bags; some Medium Loaf bags in frame show Net Wt. 450 g
+sonnet_c02,v1.0,sweep_c1,0317,sheet_080.jpg,8388,1775705814856.jpg,5117bd6c390ba129,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c02,v1.0,sweep_c1,0318,sheet_080.jpg,10726,1777604445375.jpg,b48912cbda93ca70,label_closeup,,,,not_visible,none_shown,,,,"BongBong's Loaf Bread, no weight visible in crop"
+sonnet_c02,v1.0,sweep_c1,0319,sheet_080.jpg,1200,1778036028293.jpg,0e5e721ffde63cd0,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c02,v1.0,sweep_c1,0320,sheet_080.jpg,3825,1776648320817.jpg,03fecca2621d05ad,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0321,sheet_081.jpg,1920,1776994583077.jpg,48e6b5fb2b55c5e8,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"glare from fingers, moderate confidence"
+sonnet_c02,v1.0,sweep_c1,0322,sheet_081.jpg,8024,1775885957277.jpg,8bc4f94e07c3a0ee,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,Shoppers Tocino Roll
+sonnet_c02,v1.0,sweep_c1,0323,sheet_081.jpg,9835,1773973004828.jpg,6f81eccc8d3a61af,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0324,sheet_081.jpg,6499,1774054732761.jpg,c903ca2df78160cc,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,moderate confidence
+sonnet_c02,v1.0,sweep_c1,0325,sheet_082.jpg,10174,1774498352696.jpg,f21f599a4c2bad0c,item_no_scale,,,,not_visible,none_shown,500g,500.0,g,"from background bread bag, moderate confidence; foreground Tanduay Rhum Light bottle has no legible volume text visible"
+sonnet_c02,v1.0,sweep_c1,0326,sheet_082.jpg,2335,1779161957294.jpg,9a69b05d0ff84cc2,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,Shoppers Tocino Roll
+sonnet_c02,v1.0,sweep_c1,0327,sheet_082.jpg,6726,1775536500554.jpg,74575884687d7d66,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0328,sheet_082.jpg,7093,1774325439579.jpg,42b41261542af8ce,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,"hotdog package, moderate confidence; Winner Cooked Ham NET WT 250g also visible at bottom of frame"
+sonnet_c02,v1.0,sweep_c1,0329,sheet_083.jpg,11368,1776997801806.jpg,52a45088f17b6406,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0330,sheet_083.jpg,5045,1775710085318.jpg,9bd3d8ddda9c3e87,label_closeup,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0331,sheet_083.jpg,11164,1776826627111.jpg,39b9edff79fa3851,label_closeup,,,,not_visible,none_shown,400mL ICE CREAM,400.0,mL,
+sonnet_c02,v1.0,sweep_c1,0332,sheet_083.jpg,8836,1775786625300.jpg,a94eedf534101793,scale_no_item,False,,,not_visible,none_shown,70ml,70.0,mL,"Aice Strawberry Crispy bar held in hand beside/above a visible scale, not placed on the platter"
+sonnet_c02,v1.0,sweep_c1,0333,sheet_084.jpg,3945,1775700904958.jpg,ee5bfcace11677bd,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c02,v1.0,sweep_c1,0334,sheet_084.jpg,6728,1775537972557.jpg,576ee6fa136148a1,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,partially obscured by cardboard box
+sonnet_c02,v1.0,sweep_c1,0335,sheet_084.jpg,4782,1776383974790.jpg,38eb2578da4f795f,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"large-shaped bottles, but label as printed reads 375 mL"
+sonnet_c02,v1.0,sweep_c1,0336,sheet_084.jpg,1928,1776993625709.jpg,d52df71c9699babe,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0337,sheet_085.jpg,3345,1776306406413.jpg,721099d6beb3c754,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,President brandy bottle
+sonnet_c02,v1.0,sweep_c1,0338,sheet_085.jpg,8659,1773886837476.jpg,fecca7ce0da15c36,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0339,sheet_085.jpg,8987,1773970558171.jpg,183a268b4118d55e,item_no_scale,,,,not_visible,none_shown,,,,label too small/blurred to read confidently
+sonnet_c02,v1.0,sweep_c1,0340,sheet_085.jpg,5747,1774575727299.jpg,57fb6bd1f06f04b2,label_closeup,,,,not_visible,none_shown,NET WT. 1.0K,1.0,kg,Sunny Hotdog Regular
+sonnet_c02,v1.0,sweep_c1,0341,sheet_086.jpg,6622,1773797805855.jpg,da6b5b3691f8f2a5,scale_with_item,True,0.045,True,probable,none_shown,,,,"decimal point not fully clear, read by analogy with consistent 0.XXX format used elsewhere on this scale"
+sonnet_c02,v1.0,sweep_c1,0342,sheet_086.jpg,567,1777425277081.jpg,fa09934d48b9d94d,label_closeup,,,,not_visible,none_shown,Net Wt. 500 g,500.0,g,PureFoods Tender Juicy hotdog
+sonnet_c02,v1.0,sweep_c1,0343,sheet_086.jpg,7776,1776653034168.jpg,0f246f3868ae6eea,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,large jug-shaped bottle but label as printed reads 375 mL
+sonnet_c02,v1.0,sweep_c1,0344,sheet_086.jpg,2810,1778900545894.jpg,95d8435399f8415c,scale_with_item,True,,,not_visible,none_shown,,,,"toothbrushes on scale; display shows dim unlit segments (blank), per instrument rule this is not a reading of 88888"
+sonnet_c02,v1.0,sweep_c1,0345,sheet_087.jpg,4609,1776304626807.jpg,4fec1eecd81ff1a4,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0346,sheet_087.jpg,7765,1777942658000.jpg,6b0ed5be86d801ab,label_closeup,,,,not_visible,none_shown,65ml,65.0,mL,"Aice Fruit Twister, moderate confidence"
+sonnet_c02,v1.0,sweep_c1,0347,sheet_087.jpg,8876,1775804484305.jpg,6890eed51d3d5307,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c02,v1.0,sweep_c1,0348,sheet_087.jpg,11163,1776826604080.jpg,4c22e3ee81b726e5,label_closeup,,,,not_visible,none_shown,100ml ICE CREAM,100.0,mL,
+sonnet_c02,v1.0,sweep_c1,0349,sheet_088.jpg,764,1777600704309.jpg,c73752a2e4f87795,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,multiple bottles
+sonnet_c02,v1.0,sweep_c1,0350,sheet_088.jpg,11372,1776912149374.jpg,5f9337aaac8a2cb6,item_no_scale,,,,not_visible,none_shown,,,,volume not clearly legible at this distance
+sonnet_c02,v1.0,sweep_c1,0351,sheet_088.jpg,7309,1774677443712.jpg,c8ec3d7134a95cbd,item_no_scale,,,,not_visible,none_shown,250 ml,250.0,mL,second bottle behind shows 375 ml
+sonnet_c02,v1.0,sweep_c1,0352,sheet_088.jpg,8859,1775712909901.jpg,92c8f5ea072cd3bd,item_no_scale,,,,not_visible,none_shown,,,,volume digits not legible at this resolution
+sonnet_c02,v1.0,sweep_c1,0353,sheet_089.jpg,3342,1776304607764.jpg,19b5aac385c86556,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0354,sheet_089.jpg,6351,1774500231841.jpg,e15dd870c47cd504,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0355,sheet_089.jpg,5047,1775787617246.jpg,02e75dd7c9a6935e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0356,sheet_089.jpg,4200,1776047439448.jpg,29329e43ffd826be,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0357,sheet_090.jpg,9234,1774060563602.jpg,e755129230f4325c,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0358,sheet_090.jpg,6722,1775539167190.jpg,b43a5ffea0673003,label_closeup,,,,not_visible,none_shown,,,,"Chocx ice cream bar, no visible weight/volume"
+sonnet_c02,v1.0,sweep_c1,0359,sheet_090.jpg,4077,1776389857328.jpg,c3ca2c466d92a9df,label_closeup,,,,not_visible,none_shown,,,,"Kimy Milky Stick, no legible weight/volume"
+sonnet_c02,v1.0,sweep_c1,0360,sheet_090.jpg,5382,1774577297508.jpg,b399073de4d6e938,label_closeup,,,,not_visible,none_shown,Net Weight 800 ml,800.0,mL,Joyice Avocado & Chocolate Sundae
+sonnet_c02,v1.0,sweep_c1,0361,sheet_091.jpg,6002,1774582903207.jpg,b8aad3ea3378d8eb,scale_with_item,True,0.090,True,clear,none_shown,,,,
+sonnet_c02,v1.0,sweep_c1,0362,sheet_091.jpg,3624,1775526701732.jpg,85e55111f1a71f2d,label_closeup,,,,not_visible,none_shown,Net Wt. 250g,250.0,g,Champion Hotdog Jumbo
+sonnet_c02,v1.0,sweep_c1,0363,sheet_091.jpg,10156,1774486311022.jpg,86ce5ae4d2129798,other,,,,not_visible,none_shown,,,,"ice cream menu board with prices and a person holding items; a wrapper held in foreground shows small print, not confidently legible"
+sonnet_c02,v1.0,sweep_c1,0364,sheet_091.jpg,6355,1774402031832.jpg,77c1d8aba7aa7cee,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,bread bag behind shows partial Net Wt.450 g
+sonnet_c02,v1.0,sweep_c1,0365,sheet_092.jpg,2304,1779161899818.jpg,df45d3b534ef3b57,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0366,sheet_092.jpg,6343,1774409129991.jpg,a1154b71a4617cb8,label_closeup,,,,not_visible,none_shown,60mL,60.0,mL,Selecta Boom Boom Pinipig Chocolate
+sonnet_c02,v1.0,sweep_c1,0367,sheet_092.jpg,10479,1777684018389.jpg,2bcc738922992efc,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c02,v1.0,sweep_c1,0368,sheet_092.jpg,8852,1775782246519.jpg,5d206a311b5fefdf,label_closeup,,,,not_visible,none_shown,150mL,150.0,mL,"read from nutrition facts serving size field, 1 serving per container"
+sonnet_c02,v1.0,sweep_c1,0369,sheet_093.jpg,5259,1775875026283.jpg,5123156767b737a9,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0370,sheet_093.jpg,252,1777947354203.jpg,9241bfca0e5043ab,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"handwritten shelf labels visible nearby, not part of the package"
+sonnet_c02,v1.0,sweep_c1,0371,sheet_093.jpg,7974,1776044883884.jpg,4654fcd2d6237aed,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,Emperador Light brandy
+sonnet_c02,v1.0,sweep_c1,0372,sheet_093.jpg,10727,1777604046680.jpg,b570f2cbffb5d481,label_closeup,,,,not_visible,none_shown,Net Wt. 640g,640.0,g,BongBong's Loaf Bread
+sonnet_c02,v1.0,sweep_c1,0373,sheet_094.jpg,7787,1776477244553.jpg,5f7c771d989ab9cf,label_closeup,,,,not_visible,none_shown,,,,Net Wt. label visible but digits cut off/not fully legible in this crop
+sonnet_c02,v1.0,sweep_c1,0374,sheet_094.jpg,4937,1775611098377.jpg,c950aa26a28df4d4,label_closeup,,,,not_visible,none_shown,35 mL ICE CREAM,35.0,mL,Selecta Ice Pop strawberry
+sonnet_c02,v1.0,sweep_c1,0375,sheet_094.jpg,7498,1774071677460.jpg,0dd1f4bc54381739,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0376,sheet_094.jpg,5250,1775873580978.jpg,3ca9b3b6aed03438,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"white sticker shows handwritten '...65 gms', not clearly legible as a full number"
+sonnet_c02,v1.0,sweep_c1,0377,sheet_095.jpg,8862,1778290507951.jpg,9a7a8268e0109957,label_closeup,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0378,sheet_095.jpg,7973,1776044848928.jpg,e438c1ff398d5fbb,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0379,sheet_095.jpg,2305,1776390048056.jpg,dea0867863e1d4ba,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0380,sheet_095.jpg,4063,1776309879733.jpg,ff88186a1c73ab1b,label_closeup,,,,not_visible,none_shown,,,,"GogumaLava Wafer, text too small to confidently read"
+sonnet_c02,v1.0,sweep_c1,0381,sheet_096.jpg,3588,1775612822785.jpg,6ac31890dd7949d2,label_closeup,,,,not_visible,none_shown,1.25L,1.25,L,Selecta Bestsellers Strawberries N' Creme
+sonnet_c02,v1.0,sweep_c1,0382,sheet_096.jpg,6504,1774054785673.jpg,ac1ddd98dd205fab,item_no_scale,,,,not_visible,none_shown,,,,volume text present but not confidently legible due to distance/resolution
+sonnet_c02,v1.0,sweep_c1,0383,sheet_096.jpg,7980,1776048341144.jpg,46bde8b77808205e,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c02,v1.0,sweep_c1,0384,sheet_096.jpg,3939,1775790300582.jpg,a807658e75e5aea7,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Rhum Dark bottle in center, label too small to read volume confidently; nearby bag shows '1kg' text"
+sonnet_c02,v1.0,sweep_c1,0385,sheet_097.jpg,6675,1775525996196.jpg,0434332396165b49,scale_with_item,True,0.175,True,clear,none_shown,,,,leafy vegetable
+sonnet_c02,v1.0,sweep_c1,0386,sheet_097.jpg,5727,1774578736024.jpg,52ce0e77e2e62415,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0387,sheet_097.jpg,2421,1779256614448.jpg,bc15e5bbb8fbb376,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c02,v1.0,sweep_c1,0388,sheet_097.jpg,6356,1774400777191.jpg,154acf3a7417d40d,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay ESQ variant bottle, volume text obscured by hand grip"
+sonnet_c02,v1.0,sweep_c1,0389,sheet_098.jpg,3335,1776225102295.jpg,c59be58b862d9713,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0390,sheet_098.jpg,8981,1773889320474.jpg,a7c0ff64fe00c561,item_no_scale,,,,not_visible,none_shown,,,,label too small/blurred to read
+sonnet_c02,v1.0,sweep_c1,0391,sheet_098.jpg,2828,1776471778187.jpg,0f3b6131d74be429,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Primera Light Premium Brandy, moderate confidence"
+sonnet_c02,v1.0,sweep_c1,0392,sheet_098.jpg,8846,1775786544329.jpg,63bb514f4f9b0399,label_closeup,,,,not_visible,none_shown,"100ml (Serving Size, 1 serving per container)",100.0,mL,"derived from nutrition facts serving size and servings-per-container fields, not a separate printed total"
+sonnet_c02,v1.0,sweep_c1,0393,sheet_099.jpg,10716,1777687812909.jpg,a3eb818f1cfd6898,label_closeup,,,,not_visible,none_shown,Net Content: 63 g (100 ml),63.0,g,Magnum Strawberry Panna; 100 ml equivalent also printed
+sonnet_c02,v1.0,sweep_c1,0394,sheet_099.jpg,1178,1778119938914.jpg,2028d12b77a4ea09,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0395,sheet_099.jpg,1045,1777342718762.jpg,523c4d21b8e74b25,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Light bottle, volume digits not clearly legible"
+sonnet_c02,v1.0,sweep_c1,0396,sheet_099.jpg,8408,1778723812829.jpg,65dedf630c7fe3cc,label_closeup,,,,not_visible,none_shown,Net Wt. 150g,150.0,g,Star Nutri-Meats Chicken Nuggets
+sonnet_c02,v1.0,sweep_c1,0397,sheet_100.jpg,8864,1775780357723.jpg,eb0a04090cc16b32,scale_with_item,True,,,not_visible,none_shown,375 mL,375.0,mL,"display shows dim unlit segments, appears blank"
+sonnet_c02,v1.0,sweep_c1,0398,sheet_100.jpg,10175,1774414176376.jpg,ac146c29456efb4a,item_no_scale,,,,not_visible,none_shown,,,,volume digits not visible in this crop
+sonnet_c02,v1.0,sweep_c1,0399,sheet_100.jpg,1926,1777077522003.jpg,c675da8d871e5bcb,item_no_scale,,,,not_visible,none_shown,,,,"small bottle, volume text blurred, not confidently legible"
+sonnet_c02,v1.0,sweep_c1,0400,sheet_100.jpg,5621,1774486882998.jpg,76479fe78518c446,label_closeup,,,,not_visible,none_shown,,,,"Hansel Crackers, only piece count (12 pcs) shown, no weight/volume printed"
+sonnet_c02,v1.0,sweep_c1,0401,sheet_101.jpg,5748,1774575948218.jpg,c4fd7fba2eadfcb4,label_closeup,,,,not_visible,none_shown,,,,"hotdog package, weight digits not clearly visible in crop"
+sonnet_c02,v1.0,sweep_c1,0402,sheet_101.jpg,1286,1777339529126.jpg,ac30597498a1e1ec,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0403,sheet_101.jpg,2724,1776222182260.jpg,cb81213c7744f33c,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c02,v1.0,sweep_c1,0404,sheet_101.jpg,5472,1774576207828.jpg,0cdda61f7d9696a1,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,multiple bottles
+sonnet_c02,v1.0,sweep_c1,0405,sheet_102.jpg,50,1778473689491.jpg,ef2b8b065b427314,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c02,v1.0,sweep_c1,0406,sheet_102.jpg,8840,1778287175971.jpg,315151c4e3d91bdf,label_closeup,,,,not_visible,none_shown,100mL,100.0,mL,ice cream cup
+sonnet_c02,v1.0,sweep_c1,0407,sheet_102.jpg,4198,1775878654375.jpg,54aa84e8dc810b8a,item_no_scale,,,,not_visible,none_shown,,,,"green-yellow Light label, volume digits not independently confirmed"
+sonnet_c02,v1.0,sweep_c1,0408,sheet_102.jpg,4080,1776388858232.jpg,e44546d572208a13,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0409,sheet_103.jpg,2282,1776397479738.jpg,6a93ae8cbc84c9df,scale_with_item,True,0.080,True,clear,none_shown,,,,
+sonnet_c02,v1.0,sweep_c1,0410,sheet_103.jpg,772,1777598675255.jpg,c5c4b494a0f93ccf,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0411,sheet_103.jpg,4948,1778900041256.jpg,ae4f13bcb819319a,label_closeup,,,,not_visible,none_shown,,,,"Buko Strawberry cup, no legible weight/volume"
+sonnet_c02,v1.0,sweep_c1,0412,sheet_103.jpg,5245,1775875910007.jpg,d9a07ba241ac147b,label_closeup,,,,not_visible,none_shown,,,,"Creamline Sundae cup, volume text obscured by fingers"
+sonnet_c02,v1.0,sweep_c1,0413,sheet_104.jpg,3937,1775706292928.jpg,a8ba0e2a57cfe1ca,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,moderate confidence
+sonnet_c02,v1.0,sweep_c1,0414,sheet_104.jpg,10653,1776908973703.jpg,e2e56ce3f2d151e5,label_closeup,,,,not_visible,none_shown,,,,"Joyday Milky Chocolate bar, no visible weight/volume"
+sonnet_c02,v1.0,sweep_c1,0415,sheet_104.jpg,1521,1777430805064.jpg,e46f07741925fd0f,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0416,sheet_104.jpg,6348,1774409810075.jpg,822dacecfb65bc1c,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0417,sheet_105.jpg,570,1777424807772.jpg,a39ae00a1da937fb,label_closeup,,,,not_visible,none_shown,NET WT. 500g,500.0,g,"Bossing Hungarian Sausage with Cheese, 5 pieces"
+sonnet_c02,v1.0,sweep_c1,0418,sheet_105.jpg,8227,1773971571913.jpg,abc4be4dcad14b2d,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0419,sheet_105.jpg,10026,1778477669525.jpg,ce3cc5e16df1e28f,scale_with_item,True,0.090,True,clear,none_shown,,,,
+sonnet_c02,v1.0,sweep_c1,0420,sheet_105.jpg,4365,1776134401261.jpg,87732e725197e7d1,scale_with_item,True,,,not_visible,none_shown,NET WT. 250g,250.0,g,"display not visible in this crop, only keypad partially shown"
+sonnet_c02,v1.0,sweep_c1,0421,sheet_106.jpg,2337,1776397959944.jpg,2283038645594644,item_no_scale,,,,not_visible,none_shown,,,,"faint print on frosted wrapper, possibly '250' followed by an unclear unit, not confidently legible"
+sonnet_c02,v1.0,sweep_c1,0422,sheet_106.jpg,5391,1774579635941.jpg,8d2cf1a9f54e4964,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0423,sheet_106.jpg,8847,1775786565134.jpg,64ff65fc52cf8ffb,label_closeup,,,,not_visible,none_shown,"110 ml (Serving Size, 1 per container)",110.0,mL,
+sonnet_c02,v1.0,sweep_c1,0424,sheet_106.jpg,4867,1775877124219.jpg,d1900ade9aaff72f,item_no_scale,,,,not_visible,none_shown,,,,"volume digits not visible, cropped/obscured by adjacent snack packages"
+sonnet_c02,v1.0,sweep_c1,0425,sheet_107.jpg,8355,1778725050167.jpg,e1be3d16561889f3,item_no_scale,,,,not_visible,none_shown,1000 mL,1000.0,mL,Wilkins Distilled water
+sonnet_c02,v1.0,sweep_c1,0426,sheet_107.jpg,371,1777353590886.jpg,11af3a4b16b7a975,label_closeup,,,,not_visible,none_shown,NET WT. 2.75 oz (78g),78.0,g,Nova Multigrain Snacks BBQ Flavor
+sonnet_c02,v1.0,sweep_c1,0427,sheet_107.jpg,8373,1775702597906.jpg,18df971429437904,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0428,sheet_107.jpg,6406,1774402602244.jpg,94fea942342d2461,label_closeup,,,,not_visible,none_shown,NET WT. 228 g,228.0,g,Ganado Premium Quality Meat Tocino
+sonnet_c02,v1.0,sweep_c1,0429,sheet_108.jpg,7320,1774659716671.jpg,34bba42f3303224b,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0430,sheet_108.jpg,1529,1777430844667.jpg,b1025610638e5259,item_no_scale,,,,not_visible,none_shown,,,,"multiple Tanduay Light bottles, volume digits not visible in this crop"
+sonnet_c02,v1.0,sweep_c1,0431,sheet_108.jpg,2502,1777085434210.jpg,b78df7d088a8ac0b,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0432,sheet_108.jpg,1522,1777451372050.jpg,41a45b0636cd4029,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0433,sheet_109.jpg,7629,1774488993737.jpg,e0a1e0a40bfa762e,scale_with_item,True,,,not_visible,none_shown,,,,"whole chicken on scale; all-8s pattern shown across every row, per instrument rule this is blank/unlit, not a reading"
+sonnet_c02,v1.0,sweep_c1,0434,sheet_109.jpg,10585,1777271620733.jpg,598e9e61c46a23ea,label_closeup,,,,not_visible,none_shown,100mL ICE CREAM,100.0,mL,
+sonnet_c02,v1.0,sweep_c1,0435,sheet_109.jpg,5818,1774405189819.jpg,fbee1c506ef20c13,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,additional bags in same photo show Net Wt. 450 g
+sonnet_c02,v1.0,sweep_c1,0436,sheet_109.jpg,3677,1775612728979.jpg,fd4f5ff3e22a1280,item_no_scale,,,,not_visible,none_shown,,,,label mostly obscured/blurred
+sonnet_c02,v1.0,sweep_c1,0437,sheet_110.jpg,8863,1775713353375.jpg,bf1eca2c7ade5963,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0438,sheet_110.jpg,7500,1774668188041.jpg,5e755cc578c7aa51,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0439,sheet_110.jpg,2095,1776920629474.jpg,3934c75c1198b103,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0440,sheet_110.jpg,6877,1775549559121.jpg,48603a5ee7c64869,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0441,sheet_111.jpg,1923,1776993582703.jpg,c3bba02c8de167af,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0442,sheet_111.jpg,1198,1778118985252.jpg,d41410a79c1dcee5,label_closeup,,,,not_visible,none_shown,NET WT. 450g,450.0,g,NeuBake White Bread
+sonnet_c02,v1.0,sweep_c1,0443,sheet_111.jpg,10298,1774667076804.jpg,caf4709f84a97412,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0444,sheet_111.jpg,6874,1775609497301.jpg,a8f1c438fbba5be7,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0445,sheet_112.jpg,1916,1776995744589.jpg,73491109d3617562,label_closeup,,,,not_visible,none_shown,,,,"Chocolate Crispy ice cream bar, no visible weight/volume in this crop"
+sonnet_c02,v1.0,sweep_c1,0446,sheet_112.jpg,11240,1777343157176.jpg,ec546072f7a2dd92,label_closeup,,,,not_visible,none_shown,Net Wt. 220 g,220.0,g,Angelina Tasty Bread 100% Toaster
+sonnet_c02,v1.0,sweep_c1,0447,sheet_112.jpg,2812,1776390001258.jpg,01158c3e9d236c05,scale_with_item,True,0.105,True,clear,none_shown,,,,
+sonnet_c02,v1.0,sweep_c1,0448,sheet_112.jpg,1187,1778119551341.jpg,b2cde466e0176f88,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0449,sheet_113.jpg,11158,1776826552744.jpg,a8d5d58be41ef865,label_closeup,,,,not_visible,none_shown,,,,"ice cream cone in freezer case, net weight/volume not legible due to glare"
+sonnet_c02,v1.0,sweep_c1,0450,sheet_113.jpg,6739,1775536381524.jpg,270c6dec76377748,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c02,v1.0,sweep_c1,0451,sheet_113.jpg,5260,1775876444225.jpg,9c24f8154ad18c23,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0452,sheet_113.jpg,2825,1776393844210.jpg,828e73478cd13324,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0453,sheet_114.jpg,1921,1777078231883.jpg,3d59c1d8a87b1d9d,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0454,sheet_114.jpg,10046,1773802894291.jpg,91719f271a49ae80,scale_with_item,True,0.070,True,probable,none_shown,,,,Aice Pineapple Stick package on scale
+sonnet_c02,v1.0,sweep_c1,0455,sheet_114.jpg,3695,1775612169217.jpg,135ed9c41ebbac08,label_closeup,,,,not_visible,none_shown,NET WT. 1.20 KG,1.2,kg,"Bossing Cheesedogs Kingsize, 17 pieces"
+sonnet_c02,v1.0,sweep_c1,0456,sheet_114.jpg,7990,1775886357251.jpg,05e50e9b61b3699b,label_closeup,,,,not_visible,none_shown,Net Wt. 360 g,360.0,g,Angelina Junior White
+sonnet_c02,v1.0,sweep_c1,0457,sheet_115.jpg,5489,1774577690606.jpg,39ea5c417ee7fa55,label_closeup,,,,not_visible,none_shown,Net Wt.: 200g,200.0,g,Virgina Pork Tocino All Lean
+sonnet_c02,v1.0,sweep_c1,0458,sheet_115.jpg,2721,1776312298797.jpg,6aa60ae75e896066,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,rotated text
+sonnet_c02,v1.0,sweep_c1,0459,sheet_115.jpg,5804,1774489560270.jpg,7564cb721f31a35c,label_closeup,,,,not_visible,none_shown,Net Weight 50 ml,50.0,mL,"Aice Chocolate Stick, rotated text"
+sonnet_c02,v1.0,sweep_c1,0460,sheet_115.jpg,4962,1775531477134.jpg,00b37ab02ccb0912,label_closeup,,,,not_visible,none_shown,Net Wt. 220 g,220.0,g,"Angelina Tasty Bread, rotated text"
+sonnet_c02,v1.0,sweep_c1,0461,sheet_116.jpg,8853,1778287141607.jpg,6568776eb430042b,label_closeup,,,,not_visible,none_shown,115ML ICE CREAM,115.0,mL,
+sonnet_c02,v1.0,sweep_c1,0462,sheet_116.jpg,10586,1777337940471.jpg,934ca1c2fd903eaf,label_closeup,,,,not_visible,none_shown,Net Weight: 43g,43.0,g,Yili Joyday Milky Chocolate
+sonnet_c02,v1.0,sweep_c1,0463,sheet_116.jpg,6873,1775533324811.jpg,9c3d1e70e78e556e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0464,sheet_116.jpg,5055,1775705120705.jpg,03965d95e4fccfec,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,rotated text
+sonnet_c02,v1.0,sweep_c1,0465,sheet_117.jpg,5371,1778283561160.jpg,26614297d853d7aa,label_closeup,,,,not_visible,none_shown,,,,"Bites Time! Crunchy Strawberry Yoghurt bar, no visible weight/volume"
+sonnet_c02,v1.0,sweep_c1,0466,sheet_117.jpg,7982,1776046841992.jpg,2d5f9128a58023bb,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c02,v1.0,sweep_c1,0467,sheet_117.jpg,2419,1776471776894.jpg,ab46b42acd5ac710,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c02,v1.0,sweep_c1,0468,sheet_117.jpg,1050,1777943899184.jpg,7789759cbd2c63f4,item_no_scale,,,,not_visible,none_shown,,,,"large Tanduay Light bottle, volume digits not clearly legible"
+sonnet_c02,v1.0,sweep_c1,0469,sheet_118.jpg,3590,1775613681980.jpg,f775bb03383d3306,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0470,sheet_118.jpg,10029,1773802646728.jpg,09878069d9852f9e,scale_with_item,True,0.058,True,probable,none_shown,,,,Aice Milk ice cream bar on scale
+sonnet_c02,v1.0,sweep_c1,0471,sheet_118.jpg,4081,1776310028153.jpg,37b7181031815ef9,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"handwritten price tag (₱162) visible nearby, unrelated to weight"
+sonnet_c02,v1.0,sweep_c1,0472,sheet_118.jpg,2308,1776397670573.jpg,7dc89c39aedbacf9,item_no_scale,,,,not_visible,none_shown,,,,"small bottle, volume text not clearly legible"
+sonnet_c02,v1.0,sweep_c1,0473,sheet_119.jpg,6071,1774590788670.jpg,1d6218254b355ee2,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0474,sheet_119.jpg,2831,1776393324541.jpg,964aa7478314d612,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"CLVB EMPI Very Smooth brandy, back label; 45 Proof also printed"
+sonnet_c02,v1.0,sweep_c1,0475,sheet_119.jpg,10163,1774498488109.jpg,e25f308820df825b,label_closeup,,,,not_visible,none_shown,,,,"Fruit Lolly Ice Pops, no explicit weight/volume printed, only calorie count shown"
+sonnet_c02,v1.0,sweep_c1,0476,sheet_119.jpg,4207,1775877706321.jpg,076b8ddf4289a73a,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay bottle back label with seals/barcode, no volume text visible in this crop"
+sonnet_c02,v1.0,sweep_c1,0477,sheet_120.jpg,7499,1774072010168.jpg,a5c37734e58be037,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0478,sheet_120.jpg,5240,1776040032343.jpg,7ffceb4d8340a571,label_closeup,,,,not_visible,none_shown,75mL,75.0,mL,Creamline Mini Cups Ube
+sonnet_c02,v1.0,sweep_c1,0479,sheet_120.jpg,7788,1777943065003.jpg,3b9e425f401f2308,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c02,v1.0,sweep_c1,0480,sheet_120.jpg,520,1777512241291.jpg,4d60cbb53784798f,label_closeup,,,,not_visible,none_shown,100mL ICE CREAM,100.0,mL,Selecta
+sonnet_c02,v1.0,sweep_c1,0481,sheet_121.jpg,2818,1778900250816.jpg,d5d588472ce4b086,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0482,sheet_121.jpg,10025,1773801599573.jpg,6d3d478b28476da8,scale_with_item,True,0.050,True,clear,none_shown,,,,Pinoy Classics Monggo Original on scale
+sonnet_c02,v1.0,sweep_c1,0483,sheet_121.jpg,7959,1776045255012.jpg,3da243650e8c9167,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0484,sheet_121.jpg,8648,1773886716522.jpg,fe3326d47c6062fa,scale_with_item,True,0.040,True,clear,none_shown,,,,Creamline Mini Cups Chocolate on scale
+sonnet_c02,v1.0,sweep_c1,0485,sheet_122.jpg,5802,1774412127462.jpg,7a095c38cf878f79,label_closeup,,,,not_visible,none_shown,750ml,750.0,mL,Selecta Birthday 3-in-1 tub
+sonnet_c02,v1.0,sweep_c1,0486,sheet_122.jpg,11165,1776826647844.jpg,288539092c390134,label_closeup,,,,not_visible,none_shown,"Serving size 100mL, 4 servings per container",,,"Selecta Bestsellers Choco Almond Fudge nutrition facts; total volume would be 400mL if servings info is accurate, but that total is not printed directly"
+sonnet_c02,v1.0,sweep_c1,0487,sheet_122.jpg,3486,1776834067692.jpg,80a17aac99f51f15,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0488,sheet_122.jpg,7054,1774332293536.jpg,14c3e79662963341,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0489,sheet_123.jpg,5636,1774487860616.jpg,b16842e2d4827dfa,item_no_scale,,,,not_visible,none_shown,185 mL,185.0,mL,Coca-Cola glass bottle
+sonnet_c02,v1.0,sweep_c1,0490,sheet_123.jpg,8230,1773972695961.jpg,adf00d3749c2d743,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Emperador Light Premium Brandy Liqueur, moderate confidence"
+sonnet_c02,v1.0,sweep_c1,0491,sheet_123.jpg,3481,1776828553177.jpg,a56219d14a7c8aff,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0492,sheet_123.jpg,2588,1779161456788.jpg,c43a90a8a5e6f280,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,
+sonnet_c02,v1.0,sweep_c1,0493,sheet_124.jpg,10709,1777604256218.jpg,634562021400252b,label_closeup,,,,not_visible,none_shown,,,,"Selecta New Ice Pop, partial volume text visible on right edge, not confidently legible"
+sonnet_c02,v1.0,sweep_c1,0494,sheet_124.jpg,5044,1775786997294.jpg,8800069f6e5c24ee,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0495,sheet_124.jpg,7310,1774575418126.jpg,ca904eef521e7366,item_no_scale,,,,not_visible,none_shown,250 ml,250.0,mL,
+sonnet_c02,v1.0,sweep_c1,0496,sheet_124.jpg,1925,1777077479914.jpg,8b61a6bce42e0b11,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0497,sheet_125.jpg,3626,1775527664265.jpg,e0400ece0276a46f,label_closeup,,,,not_visible,none_shown,,,,multiple hotdog packages; front 'MINI' package shows partial Net Wt. text with digits cut off
+sonnet_c02,v1.0,sweep_c1,0498,sheet_125.jpg,5052,1775709048288.jpg,6746c4b0089497cb,item_no_scale,,,,not_visible,none_shown,,,,"1521 Premium Light Brandy S.T.L., 27.5% Alc. by Vol shown, no volume digits visible in this crop"
+sonnet_c02,v1.0,sweep_c1,0499,sheet_125.jpg,8857,1775784790506.jpg,593e38065eae48f4,scale_with_item,True,,,not_visible,none_shown,375 mL,375.0,mL,"bottle lying on scale platter; display not visible in this crop, only keypad edge shown"
+sonnet_c02,v1.0,sweep_c1,0500,sheet_125.jpg,10043,1773721912619.jpg,ba76e51db04c2477,scale_with_item,True,0.485,True,clear,none_shown,,,,2in1 tub on scale
+sonnet_c02,v1.0,sweep_c1,0501,sheet_126.jpg,7056,1774335849272.jpg,c2d415c93b99edb4,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0502,sheet_126.jpg,3592,1775616241289.jpg,76c5d6a63925eb4f,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0503,sheet_126.jpg,8372,1775701723104.jpg,8e8292e71c05046d,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0504,sheet_126.jpg,6878,1778815188423.jpg,2c22fa5820d743bd,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c02,v1.0,sweep_c1,0505,sheet_127.jpg,6077,1774589272682.jpg,dcb86aa11c977bb7,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c02,v1.0,sweep_c1,0506,sheet_127.jpg,4607,1776383974068.jpg,d0bf195d466ec414,item_no_scale,,,,not_visible,none_shown,,,,"label rotated 90 degrees, volume text present but not confidently legible"
+sonnet_c02,v1.0,sweep_c1,0507,sheet_127.jpg,10032,1773721704543.jpg,e5eaba40c2ac350e,scale_with_item,True,,,ambiguous,none_shown,,,,"2in1 tub on scale; digit pattern resembles a stuck/blank 8-segment display, cannot confidently distinguish from a real reading"
+sonnet_c02,v1.0,sweep_c1,0508,sheet_127.jpg,8849,1775711440393.jpg,10dd0be19308f0dc,label_closeup,,,,not_visible,none_shown,400mL,400.0,mL,Selecta Birthday Hapi Pack Choco
+sonnet_c02,v1.0,sweep_c1,0509,sheet_128.jpg,7323,1774578541698.jpg,67cde30d86a364ab,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,second bottle behind shows 375 mL
+sonnet_c02,v1.0,sweep_c1,0510,sheet_128.jpg,7989,1775886644248.jpg,3ba408ac4e42068e,label_closeup,,,,not_visible,none_shown,Net Wt. 360 g,360.0,g,Angelina Junior White; background bag shows 500g
+sonnet_c02,v1.0,sweep_c1,0511,sheet_128.jpg,8855,1775714194065.jpg,d6a1a46692ef58d8,label_closeup,,,,not_visible,none_shown,NET WEIGHT: 40ml,40.0,mL,ice cream cone wrapper
+sonnet_c02,v1.0,sweep_c1,0512,sheet_128.jpg,3764,1775701056386.jpg,683e513712472add,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c03,v1.0,sweep_c1,0513,sheet_129.jpg,3628,1775527146168.jpg,ec93fb21ff5b4ae5,label_closeup,,,,not_visible,none_shown,NET WT.: 250g,250.0,g,"Cooked Ham package on metal surface, no scale display visible"
+sonnet_c03,v1.0,sweep_c1,0514,sheet_129.jpg,7065,1774054488658.jpg,2682a95e6f5a913f,scale_with_item,True,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,"Angelina Medium Loaf bread on Micromatic scale; display appears dim/unlit segments, not legible"
+sonnet_c03,v1.0,sweep_c1,0515,sheet_129.jpg,2046,1776834154952.jpg,1d441bc961a28785,label_closeup,,,,not_visible,none_shown,NET WT. 32g,32.0,g,"Nutrition Facts label held in hand, Republic Biscuit Corp product"
+sonnet_c03,v1.0,sweep_c1,0516,sheet_129.jpg,5630,1774487431379.jpg,2f808d0e2b1a8a9e,item_no_scale,,,,not_visible,none_shown,,,,"Coca-Cola bottle on glass counter, no printed volume visible in frame"
+sonnet_c03,v1.0,sweep_c1,0517,sheet_130.jpg,10337,1774577050806.jpg,80b34c815e95e269,label_closeup,,,,not_visible,none_shown,,,,Champion Jumbo Hotdog packages; 'Net Wt.:' visible but digits cut off/unclear
+sonnet_c03,v1.0,sweep_c1,0518,sheet_130.jpg,1185,1778118874044.jpg,67ee2c00272713a4,item_no_scale,,,,not_visible,none_shown,,,,Ginebra S.Miguel bottle held in hand; small text near base possibly a volume but not legibly readable
+sonnet_c03,v1.0,sweep_c1,0519,sheet_130.jpg,3627,1775527680631.jpg,8e5f767578c922b4,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,"Champion Jumbo Hotdog package, clearly legible"
+sonnet_c03,v1.0,sweep_c1,0520,sheet_130.jpg,8624,1773891250934.jpg,de862ecedaf422c8,item_no_scale,,,,not_visible,none_shown,240 mL,240.0,mL,Juicy Lemon green bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0521,sheet_131.jpg,48,1778468603208.jpg,8839a14e9a4829c5,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf bread bag held in hand
+sonnet_c03,v1.0,sweep_c1,0522,sheet_131.jpg,1933,1777076685477.jpg,779e484e81989936,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle on table
+sonnet_c03,v1.0,sweep_c1,0523,sheet_131.jpg,1646,1777083343543.jpg,8e2ab51935dd0139,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark small bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0524,sheet_131.jpg,3944,1775706119821.jpg,b7a394fd73012cdb,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf bag among Butter Coconut package and Coca-Cola bottles on tablecloth
+sonnet_c03,v1.0,sweep_c1,0525,sheet_132.jpg,10033,1773802718983.jpg,6c58e8bc9a34ab95,scale_with_item,True,0.070,True,clear,none_shown,,,,Small plastic cup with contents on scale platter
+sonnet_c03,v1.0,sweep_c1,0526,sheet_132.jpg,2289,1776392581851.jpg,3eb1f610669ea5bb,item_no_scale,,,,not_visible,none_shown,100mL ICE CREAM,100.0,mL,"Chocolate ice cream tub in freezer, Selecta brand"
+sonnet_c03,v1.0,sweep_c1,0527,sheet_132.jpg,10594,1777269437212.jpg,2f052b10960e7572,label_closeup,,,,not_visible,none_shown,,,,Angelina Super Loaf bag; 'Net Wt.' visible but digits obscured by glare
+sonnet_c03,v1.0,sweep_c1,0528,sheet_132.jpg,10054,1773807489212.jpg,f9a7d3286b7f6fb3,scale_with_item,True,0.690,True,clear,none_shown,,,,Tanduay Rhum Light small bottle on scale; bottle label text too small to read volume
+sonnet_c03,v1.0,sweep_c1,0529,sheet_133.jpg,8407,1775708439504.jpg,f7b00b618201ecd4,label_closeup,,,,not_visible,none_shown,NET WT.: 1 kg,1.0,kg,Big Shot Hotdog with Cheese Jumbo package held in hand
+sonnet_c03,v1.0,sweep_c1,0530,sheet_133.jpg,5623,1774410818005.jpg,34ca2597fa713fca,item_no_scale,,,,not_visible,none_shown,355 mL,355.0,mL,Coca-Cola glass bottle on floor among rice sacks
+sonnet_c03,v1.0,sweep_c1,0531,sheet_133.jpg,8816,1775712789370.jpg,8e7a006b35b73968,label_closeup,,,,not_visible,none_shown,NET WT. 3.17 oz (90g),90.0,g,"Chicharron Sukang Paombong flavored package held in hand; both oz and g printed, g recorded"
+sonnet_c03,v1.0,sweep_c1,0532,sheet_133.jpg,7318,1774661401189.jpg,18dfd43c4510bda8,label_closeup,,,,not_visible,none_shown,375 mL,375.0,mL,"Shelf of Tanduay Rhum Dark bottles, front two labels show 375 mL"
+sonnet_c03,v1.0,sweep_c1,0533,sheet_134.jpg,10730,1777604690679.jpg,039f916b51ae5b07,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,"Angelina Medium Loaf bag, partially visible nutrition facts panel"
+sonnet_c03,v1.0,sweep_c1,0534,sheet_134.jpg,1764,1776738075171.jpg,76ac53d4d0b2a195,label_closeup,,,,not_visible,none_shown,,,,"Magnum Almond ice cream bar held in hand, no weight/volume visible in frame"
+sonnet_c03,v1.0,sweep_c1,0535,sheet_134.jpg,4724,1776214635695.jpg,2526e53c019365bc,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle held by cap, on table"
+sonnet_c03,v1.0,sweep_c1,0536,sheet_134.jpg,527,1777430421385.jpg,8ee92a611a4f5b95,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0537,sheet_135.jpg,4367,1776137867235.jpg,68b96bd66ef360b7,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,"Pinoy Mini Hotdog package on cardboard, scale keypad visible in background but no display"
+sonnet_c03,v1.0,sweep_c1,0538,sheet_135.jpg,1287,1777340953983.jpg,d03a82a3d3b664e2,label_closeup,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle on shelf among Embassy Whisky (750 ml) and Tanduay Flavored Mixes
+sonnet_c03,v1.0,sweep_c1,0539,sheet_135.jpg,2821,1776471745779.jpg,5ad250ad4480da97,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on floor/table
+sonnet_c03,v1.0,sweep_c1,0540,sheet_135.jpg,3209,1776821208493.jpg,c72f4772a7215823,label_closeup,,,,not_visible,none_shown,1 L,1.0,L,"Alfonso I Light brandy bottle held in hand, back label shows '1 L 25% vol'"
+sonnet_c03,v1.0,sweep_c1,0541,sheet_136.jpg,251,1777690412955.jpg,8ea861b06e484d34,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0542,sheet_136.jpg,54,1778468656686.jpg,ac920c294788ab17,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf bag on shelf
+sonnet_c03,v1.0,sweep_c1,0543,sheet_136.jpg,5647,1774490230989.jpg,f44907d68a9ac583,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on pink table
+sonnet_c03,v1.0,sweep_c1,0544,sheet_136.jpg,7971,1778900326779.jpg,5250b7e5734c191a,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark large bottle in shop, smaller bottle visible behind"
+sonnet_c03,v1.0,sweep_c1,0545,sheet_137.jpg,8844,1775714119352.jpg,bc7157b2199c00f5,label_closeup,,,,not_visible,none_shown,,,,Aice Sorbetes Ube Time cup held in hand near freezer; small print not clearly legible
+sonnet_c03,v1.0,sweep_c1,0546,sheet_137.jpg,765,1777685560590.jpg,636376dd577c9e24,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,Tanduay Rhum Dark bottle held near vegetable stall
+sonnet_c03,v1.0,sweep_c1,0547,sheet_137.jpg,7977,1776046706675.jpg,9ed526e9587a3b60,item_no_scale,,,,not_visible,none_shown,1L,1.0,L,Primera Light Premium Brandy bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0548,sheet_137.jpg,4055,1776389140827.jpg,d636d60e6c714342,label_closeup,,,,not_visible,none_shown,,,,"Merienda Time Assorted Biscuits bucket, no weight/volume visible on front"
+sonnet_c03,v1.0,sweep_c1,0549,sheet_138.jpg,7488,1774072243465.jpg,c751e2e1440ebd86,item_no_scale,,,,not_visible,none_shown,100mL ICE CREAM,100.0,mL,Selecta Creamdae ice cream cup held near cooler
+sonnet_c03,v1.0,sweep_c1,0550,sheet_138.jpg,1935,1776993097870.jpg,d551fb1cb20fec90,item_no_scale,,,,not_visible,none_shown,750 ml,750.0,mL,Primera Light Brandy bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0551,sheet_138.jpg,8021,1776051260276.jpg,86fd2faaf97978e6,label_closeup,,,,not_visible,none_shown,NET WT 250g,250.0,g,Champion Tocino Roll package held in hand
+sonnet_c03,v1.0,sweep_c1,0552,sheet_138.jpg,2043,1776912071349.jpg,cb805a2545796cd0,label_closeup,,,,not_visible,none_shown,NET WT. 30g,30.0,g,"SkyFlakes Cracker Sandwich Condensada flavor held in hand; Chiz Curls bag visible beside, out of focus"
+sonnet_c03,v1.0,sweep_c1,0553,sheet_139.jpg,3596,1775616150438.jpg,78f68c4061487c05,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Pile of Angelina Medium Loaf and Super Loaf bread bags
+sonnet_c03,v1.0,sweep_c1,0554,sheet_139.jpg,6364,1774500323157.jpg,5afb3393166d75ef,label_closeup,,,,not_visible,none_shown,750 mL,750.0,mL,"Tanduay Rhum Dark bottle on shelf, sideways angle"
+sonnet_c03,v1.0,sweep_c1,0555,sheet_139.jpg,4476,1776215216335.jpg,837f46c6c61494fa,label_closeup,,,,not_visible,none_shown,45mL,45.0,mL,Selecta Rainbow Pop caramel-flavored milk ice stick package
+sonnet_c03,v1.0,sweep_c1,0556,sheet_139.jpg,2303,1776395778894.jpg,757b7cfd603e2a88,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand near store shelves
+sonnet_c03,v1.0,sweep_c1,0557,sheet_140.jpg,1404,1778208088887.jpg,a31be168c3cd48d4,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Light bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0558,sheet_140.jpg,9240,1774057251834.jpg,56203711202da35f,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held near egg trays
+sonnet_c03,v1.0,sweep_c1,0559,sheet_140.jpg,2423,1776471594856.jpg,56f6b5b8a1c15435,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf bag on ground outdoors
+sonnet_c03,v1.0,sweep_c1,0560,sheet_140.jpg,376,1777349069612.jpg,e92104b8fe172c9b,label_closeup,,,,not_visible,none_shown,NET WT. 25g,25.0,g,SkyFlakes Crackers package held in hand near egg trays
+sonnet_c03,v1.0,sweep_c1,0561,sheet_141.jpg,8842,1775714781916.jpg,dc5cd26bef729a7e,label_closeup,,,,not_visible,none_shown,,,,Sun Eric's Island Fruit Salad Ice Cream cup held in hand near window; small side text not clearly legible
+sonnet_c03,v1.0,sweep_c1,0562,sheet_141.jpg,10340,1774660632064.jpg,7870b4fd354e3482,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,"Champion Jumbo Hotdog package on metal scale platter, no digital display visible"
+sonnet_c03,v1.0,sweep_c1,0563,sheet_141.jpg,10796,1777426375215.jpg,9358a02dc1cb0afd,label_closeup,,,,not_visible,none_shown,,,,"Joyice Sandwich Cookies package, no weight/volume visible in frame"
+sonnet_c03,v1.0,sweep_c1,0564,sheet_141.jpg,7981,1775886442325.jpg,f765c0a0946daecf,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf bread among other bagged breads on shelf
+sonnet_c03,v1.0,sweep_c1,0565,sheet_142.jpg,4489,1776137592859.jpg,ac2cfc49c4f78d61,label_closeup,,,,not_visible,none_shown,,,,Primera Light Brandy bottle lying on metal table; small volume text at label edge not clearly legible
+sonnet_c03,v1.0,sweep_c1,0566,sheet_142.jpg,2941,1776737704886.jpg,bd6e86296975efcc,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand near scale (scale visible in background but item not on it)
+sonnet_c03,v1.0,sweep_c1,0567,sheet_142.jpg,4863,1776044292572.jpg,81e98c98904721ed,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Light bottle on paper document; volume text on label not clearly legible in this crop
+sonnet_c03,v1.0,sweep_c1,0568,sheet_142.jpg,3694,1775613572789.jpg,676398eaafceccd8,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Yellow Hotdog package on metal tray; Tanduay Rhum bottle partially visible in background
+sonnet_c03,v1.0,sweep_c1,0569,sheet_143.jpg,10038,1773802792303.jpg,a413b40fac0261dc,scale_with_item,True,0.075,True,clear,none_shown,,,,Pineapple Stick ice pop on scale platter
+sonnet_c03,v1.0,sweep_c1,0570,sheet_143.jpg,10024,1773794562661.jpg,53ba073c3202ea5a,scale_with_item,True,,,ambiguous,none_shown,,,,"Joyice Avocado & Chocolate ice cream tub on scale; display partly obstructed by an insect on the screen, digits not confidently readable"
+sonnet_c03,v1.0,sweep_c1,0571,sheet_143.jpg,3046,1776231793361.jpg,fa52d981432577c0,label_closeup,,,,not_visible,none_shown,NET WT. 90g,90.0,g,"Cheese Barrel snack package, Nutrition Facts panel held in hand; text near a fold, slightly uncertain"
+sonnet_c03,v1.0,sweep_c1,0572,sheet_143.jpg,3334,1776301120018.jpg,354aa0e6cdb0aa1f,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Dark small bottle on glass counter; volume text on label too small/blurry to read confidently
+sonnet_c03,v1.0,sweep_c1,0573,sheet_144.jpg,7064,1774324290219.jpg,2d5f83675fddee7b,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf bag among Wheat Bread and Super Loaf bags on shelf
+sonnet_c03,v1.0,sweep_c1,0574,sheet_144.jpg,2338,1776398776510.jpg,5989ac25c6b5eff8,label_closeup,,,,not_visible,none_shown,250g,250.0,g,Champion Longganisa Rice package held in hand near scale
+sonnet_c03,v1.0,sweep_c1,0575,sheet_144.jpg,4612,1776305122724.jpg,0eed532d94e51640,label_closeup,,,,not_visible,none_shown,,,,Large Tanduay Rhum Light bottle on cardboard box; volume text not visible in frame
+sonnet_c03,v1.0,sweep_c1,0576,sheet_144.jpg,7091,1774323559033.jpg,17d81b4bf81b4bba,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Champion Mini Hotdog package on metal tray near egg cartons
+sonnet_c03,v1.0,sweep_c1,0577,sheet_145.jpg,7059,1774333339584.jpg,79d6d27507e82d13,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Dark small bottle on glass table; volume text on label not clearly legible
+sonnet_c03,v1.0,sweep_c1,0578,sheet_145.jpg,362,1777352359477.jpg,4ac9d7b46619b37b,label_closeup,,,,not_visible,none_shown,Net Weight: 100 g. (3.5 oz.),100.0,g,"Labzter Lobster Crackers back label held in hand, both g and oz printed, g recorded"
+sonnet_c03,v1.0,sweep_c1,0579,sheet_145.jpg,7627,1774421893091.jpg,0b450e486ab9b213,scale_with_item,True,-0.990,True,clear,none_shown,,,,Bataan Chicken hotdog wrapped in plastic on scale platter; display shows minus/tare indicator before digits
+sonnet_c03,v1.0,sweep_c1,0580,sheet_145.jpg,2253,1776472463360.jpg,3f5d267862d112d2,item_no_scale,,,,not_visible,none_shown,190 mL,190.0,mL,Royal tru-orange carbonated drink bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0581,sheet_146.jpg,4486,1776215391739.jpg,9cbbd3c2fbe07ba9,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Light bottle lying on tarp; volume text not clearly legible in this angle
+sonnet_c03,v1.0,sweep_c1,0582,sheet_146.jpg,1189,1778035428959.jpg,a504d518a01a03a0,item_no_scale,,,,not_visible,none_shown,350 mL,350.0,mL,Ginebra S. Miguel gin bottle held in hand near store shelves
+sonnet_c03,v1.0,sweep_c1,0583,sheet_146.jpg,5935,1774491042363.jpg,3f2a4c992fd852f1,label_closeup,,,,not_visible,none_shown,,,,Tanduay Rhum Cocktail back label (recipe text) among Mirinda bottle crate; no weight/volume figure on this label
+sonnet_c03,v1.0,sweep_c1,0584,sheet_146.jpg,9229,1774061046029.jpg,97ab8bb0d9d7c609,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held near egg cartons in store
+sonnet_c03,v1.0,sweep_c1,0585,sheet_147.jpg,2096,1776919412817.jpg,234678d12882a140,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0586,sheet_147.jpg,7327,1774677488587.jpg,d4bad7f3a4e7b7c4,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle on table near egg cartons
+sonnet_c03,v1.0,sweep_c1,0587,sheet_147.jpg,7316,1774575514888.jpg,8efffdb095790158,item_no_scale,,,,not_visible,none_shown,,,,1521 Premium Light Brandy (S.T.L.) bottle held in hand; small volume text near bottom of label not confidently legible
+sonnet_c03,v1.0,sweep_c1,0588,sheet_147.jpg,3832,1776648221761.jpg,297308a3da4822b6,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf bag among boxes
+sonnet_c03,v1.0,sweep_c1,0589,sheet_148.jpg,4861,1775877071875.jpg,fcbe0f75d3667ffa,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle among Oishi Pillows and other snack packages
+sonnet_c03,v1.0,sweep_c1,0590,sheet_148.jpg,5746,1774575705896.jpg,120769783797d03b,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,"Sunny Hotdog package near scale keypad; only keypad buttons visible, no numeric display legible"
+sonnet_c03,v1.0,sweep_c1,0591,sheet_148.jpg,1068,1777352063028.jpg,e45f3f025aa1219c,label_closeup,,,,not_visible,none_shown,NET WT. 300g,300.0,g,Neu Bake White Bread Econo Pack on shelf
+sonnet_c03,v1.0,sweep_c1,0592,sheet_148.jpg,6506,1774055529398.jpg,3dcd4ea9be7436b5,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Dark bottle standing on wooden table among snack packages; volume text not clearly legible
+sonnet_c03,v1.0,sweep_c1,0593,sheet_149.jpg,5943,1774410130086.jpg,6388786d7b066237,label_closeup,,,,not_visible,none_shown,Net Wt. 450g,450.0,g,Angelina Medium Loaf bag on shelf near laptop
+sonnet_c03,v1.0,sweep_c1,0594,sheet_149.jpg,8662,1773895077924.jpg,421f99b8fb3c030a,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held in hand at eatery
+sonnet_c03,v1.0,sweep_c1,0595,sheet_149.jpg,5613,1774488195131.jpg,c1918fab1ccddf27,label_closeup,,,,not_visible,none_shown,Net Wt. 5.29 oz (150g),150.0,g,"Jack'n Jill Hello! Chocolate wafer sandwich package, 10 pieces, 15g x 10 packs; both oz and g printed, g recorded"
+sonnet_c03,v1.0,sweep_c1,0596,sheet_149.jpg,5254,1776039674873.jpg,4ee0f23a480d48ef,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on table among other bottles
+sonnet_c03,v1.0,sweep_c1,0597,sheet_150.jpg,10172,1778732627867.jpg,be82055bbec98bcb,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0598,sheet_150.jpg,11471,1776998764462.jpg,6f9746b3b74f2973,label_closeup,,,,not_visible,none_shown,Net Weight 43g,43.0,g,Joyday Milky Milk ice cream stick package in freezer
+sonnet_c03,v1.0,sweep_c1,0599,sheet_150.jpg,575,1777425671397.jpg,4d4a4ed2b9ce9dab,label_closeup,,,,not_visible,none_shown,Net Wt. 500 g,500.0,g,PureFoods Tender Juicy Hotdog package on red crate
+sonnet_c03,v1.0,sweep_c1,0600,sheet_150.jpg,5385,1774661788063.jpg,6167cca26a7b3727,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle in freezer/cooler area
+sonnet_c03,v1.0,sweep_c1,0601,sheet_151.jpg,7778,1776648004567.jpg,3e60c2db2d5bd94b,label_closeup,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle lying on dark surface
+sonnet_c03,v1.0,sweep_c1,0602,sheet_151.jpg,5235,1776035876669.jpg,a31cda946a5967ef,label_closeup,,,,not_visible,none_shown,Net Volume 52ml,52.0,mL,Joyday Cool Blueberry ice cream bar package among other frozen treats
+sonnet_c03,v1.0,sweep_c1,0603,sheet_151.jpg,5252,1775872529367.jpg,9a93599c66d57b24,label_closeup,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle lying on light surface
+sonnet_c03,v1.0,sweep_c1,0604,sheet_151.jpg,2049,1776919240574.jpg,32b2ebfe4d46a346,label_closeup,,,,not_visible,none_shown,Net Wt. 25g,25.0,g,SkyFlakes Crackers package held in hand near acknowledgement voucher form
+sonnet_c03,v1.0,sweep_c1,0605,sheet_152.jpg,10975,1776739572884.jpg,bb8ccce65a2f4c1d,label_closeup,,,,not_visible,none_shown,,,,"Small chocolate ice cream cup in freezer, no weight/volume visible in frame"
+sonnet_c03,v1.0,sweep_c1,0606,sheet_152.jpg,7978,1775886755793.jpg,e7fea70eab4ee44c,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,"Angelina Super Loaf bag on shelf; nearby bags also show 230g Cheese Bread, 500g Medium Loaf, 700g Super Loaf but not the tile's main subject"
+sonnet_c03,v1.0,sweep_c1,0607,sheet_152.jpg,10717,1777603662834.jpg,8b16b4082fde023d,label_closeup,,,,not_visible,none_shown,Net 65g,65.0,g,Joyice Pineapple ice pop package in freezer
+sonnet_c03,v1.0,sweep_c1,0608,sheet_152.jpg,3347,1776301205355.jpg,7785bd7dafeebc85,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle standing on glass counter
+sonnet_c03,v1.0,sweep_c1,0609,sheet_153.jpg,2288,1776394878362.jpg,a205be07507a7d10,label_closeup,,,,not_visible,none_shown,100mL,100.0,mL,Chocolate ice cream cup held in hand near open freezer
+sonnet_c03,v1.0,sweep_c1,0610,sheet_153.jpg,8483,1775781816590.jpg,0fd23c825f3e1aa9,label_closeup,,,,not_visible,none_shown,100 mL,100.0,mL,Aice Sorbetes Creamy Keso cup held in hand
+sonnet_c03,v1.0,sweep_c1,0611,sheet_153.jpg,8226,1773975222038.jpg,5ecb979567fb2ccb,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,"Tanduay Rhum Dark bottle on glass counter, person visible in background"
+sonnet_c03,v1.0,sweep_c1,0612,sheet_153.jpg,7324,1774658978213.jpg,eaf967cf31742e76,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Rhum Dark bottle among stacked boxes; no volume text legible on the bottle label itself, a background box shows partial '375 mL' text"
+sonnet_c03,v1.0,sweep_c1,0613,sheet_154.jpg,6505,1778654967623.jpg,128760f904b65edc,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Light bottle on patterned tablecloth; volume text not visible in frame
+sonnet_c03,v1.0,sweep_c1,0614,sheet_154.jpg,8875,1775709849528.jpg,9c17d787fcb1aeec,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,"Angelina Medium Loaf and Super Loaf bags, text upside down in frame"
+sonnet_c03,v1.0,sweep_c1,0615,sheet_154.jpg,10301,1774580146327.jpg,2c5a30ebf5d20915,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,Tanduay Rhum Dark bottle lying on ground
+sonnet_c03,v1.0,sweep_c1,0616,sheet_154.jpg,1179,1778119396093.jpg,4cef37558acfe86c,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held near store shelves
+sonnet_c03,v1.0,sweep_c1,0617,sheet_155.jpg,11174,1776825256237.jpg,d7f2ae5b2f2409af,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle on wooden table
+sonnet_c03,v1.0,sweep_c1,0618,sheet_155.jpg,3497,1776825179248.jpg,bdd495f0398643e6,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held near liquor shelf
+sonnet_c03,v1.0,sweep_c1,0619,sheet_155.jpg,4474,1776137957200.jpg,21e2299dac7d42c5,other,,,,not_visible,none_shown,,,,"Wrapped item (possibly food) on top of a large basin/tub; a 'COCO' label partly visible, no weight text legible"
+sonnet_c03,v1.0,sweep_c1,0620,sheet_155.jpg,8858,1775804758820.jpg,68a752fe798f2f14,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand near store shelves
+sonnet_c03,v1.0,sweep_c1,0621,sheet_156.jpg,7772,1776478334626.jpg,e246646942bc6570,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,Tanduay Rhum Dark bottle lying on white surface
+sonnet_c03,v1.0,sweep_c1,0622,sheet_156.jpg,365,1777265619164.jpg,ad2ab5cdc3ac2ef1,label_closeup,,,,not_visible,none_shown,NET WT. 125 grams,125.0,g,"Gardenia Butter Toast package back label, 5 slices, held in hand"
+sonnet_c03,v1.0,sweep_c1,0623,sheet_156.jpg,5941,1774487670726.jpg,72145baac3066abc,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf bag held in hand outdoors
+sonnet_c03,v1.0,sweep_c1,0624,sheet_156.jpg,369,1777268567002.jpg,85df1e1061ced258,label_closeup,,,,not_visible,none_shown,10 x 33 g packs (NET WT. 330g),330.0,g,Rebisco Crackers package back label with Nutrition Facts held in hand
+sonnet_c03,v1.0,sweep_c1,0625,sheet_157.jpg,8406,1775708427143.jpg,66acc486bff364ab,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,Sunny Hotdog package held in hand
+sonnet_c03,v1.0,sweep_c1,0626,sheet_157.jpg,2336,1776470866315.jpg,ab34fee879144741,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,Cheese Chicken Roll sausage package held in hand
+sonnet_c03,v1.0,sweep_c1,0627,sheet_157.jpg,5940,1774410258649.jpg,a329ff1615b61263,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf bag in a crate among other items
+sonnet_c03,v1.0,sweep_c1,0628,sheet_157.jpg,4488,1776138082740.jpg,6aecb2b0204ae68e,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum E.S.Q. Export Grade Dark bottle; no volume text clearly legible in frame
+sonnet_c03,v1.0,sweep_c1,0629,sheet_158.jpg,4614,1776303546838.jpg,accf0396ca297aac,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on speckled table
+sonnet_c03,v1.0,sweep_c1,0630,sheet_158.jpg,2092,1776912576870.jpg,3fc896af98362655,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand near store shelf
+sonnet_c03,v1.0,sweep_c1,0631,sheet_158.jpg,4956,1775531747371.jpg,0c4ab864fb44fd4a,label_closeup,,,,not_visible,none_shown,Net Wt. 220 g,220.0,g,Angelina Tasty Bread package on table
+sonnet_c03,v1.0,sweep_c1,0632,sheet_158.jpg,7969,1778899940417.jpg,501d3d9d3356a1e7,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle on table near cooler
+sonnet_c03,v1.0,sweep_c1,0633,sheet_159.jpg,7766,1776653201188.jpg,dba02f8494d92a30,label_closeup,,,,not_visible,none_shown,,,,Joyday Mochi Chocolate package on chair; no weight/volume legible
+sonnet_c03,v1.0,sweep_c1,0634,sheet_159.jpg,10155,1774406106537.jpg,e18a310b80ff5e12,label_closeup,,,,not_visible,none_shown,,,,"Creamline Cream Bar ice cream stick held in hand; Nutrition Facts panel visible but net weight/volume not legible, partly obscured by hand"
+sonnet_c03,v1.0,sweep_c1,0635,sheet_159.jpg,2044,1776919817462.jpg,b75405b145b40769,label_closeup,,,,not_visible,none_shown,NET WT. 30g,30.0,g,Fita Crackers package held in hand
+sonnet_c03,v1.0,sweep_c1,0636,sheet_159.jpg,47,1778472819537.jpg,31f97cc5e048da4d,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf bag held in hand near store entrance
+sonnet_c03,v1.0,sweep_c1,0637,sheet_160.jpg,757,1777600042760.jpg,caaed84b095f5bac,label_closeup,,,,not_visible,none_shown,100ML ICE CREAM,100.0,mL,"Chocolate ice cream cone/stick package with Nutrition Facts, held in hand"
+sonnet_c03,v1.0,sweep_c1,0638,sheet_160.jpg,253,1777608509595.jpg,2febf788ca46f3f9,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held near liquor shelf
+sonnet_c03,v1.0,sweep_c1,0639,sheet_160.jpg,2910,1776651197860.jpg,5dcf5e418b6886d6,item_no_scale,,,,not_visible,none_shown,350 mL,350.0,mL,Nature's Spring Drinking Water bottle held on wooden table
+sonnet_c03,v1.0,sweep_c1,0640,sheet_160.jpg,1298,1777340849098.jpg,6798c1955c0c1267,item_no_scale,,,,not_visible,none_shown,1 LITER,1.0,L,Tanduay Rhum Light large bottle held near store shelves
+sonnet_c03,v1.0,sweep_c1,0641,sheet_161.jpg,10537,1777866259500.jpg,36698f963fdd074b,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf bag in a box among other snack packages
+sonnet_c03,v1.0,sweep_c1,0642,sheet_161.jpg,6621,1773797223664.jpg,a6be2f51e5432a9b,scale_with_item,True,0.040,True,clear,none_shown,,,,Choco Malt 3-in-1 sachet on scale platter
+sonnet_c03,v1.0,sweep_c1,0643,sheet_161.jpg,11175,1776825279902.jpg,f39669437c924fa3,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Rhum Light bottle; volume text not visible, top of label cropped out of frame"
+sonnet_c03,v1.0,sweep_c1,0644,sheet_161.jpg,367,1777268451271.jpg,326f5e09b1f7fa51,label_closeup,,,,not_visible,none_shown,NET WT. 32g,32.0,g,Hansel biscuit package Nutrition Facts panel among bottles
+sonnet_c03,v1.0,sweep_c1,0645,sheet_162.jpg,4857,1776045804888.jpg,1714db03ee10f57a,label_closeup,,,,not_visible,none_shown,,,,Aice Chocolate Crispy ice cream bar package hanging in store; no weight/volume legible
+sonnet_c03,v1.0,sweep_c1,0646,sheet_162.jpg,6072,1774588560235.jpg,327bd8b7e44014bc,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on glass counter
+sonnet_c03,v1.0,sweep_c1,0647,sheet_162.jpg,8642,1773884965405.jpg,cfd9b98d5a1b6658,scale_with_item,True,-0.050,True,probable,none_shown,,,,"Doubee Chocolate Crispy ice cream package on scale platter; minus/tare sign visible before digits, last digit slightly uncertain"
+sonnet_c03,v1.0,sweep_c1,0648,sheet_162.jpg,1181,1778034001330.jpg,d1104153bfec216a,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand near store
+sonnet_c03,v1.0,sweep_c1,0649,sheet_163.jpg,6404,1774490618718.jpg,80033ca1b22fb15f,label_closeup,,,,not_visible,none_shown,Net Wt.: 1kg,1.0,kg,"Virginia Premium Hotdog Cheese Filled Jumbo package held in hand, text upside down"
+sonnet_c03,v1.0,sweep_c1,0650,sheet_163.jpg,7975,1776043638797.jpg,986d35513e780c42,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand near store shelves
+sonnet_c03,v1.0,sweep_c1,0651,sheet_163.jpg,6074,1774590822337.jpg,81160c04074a0ab6,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle standing on wooden counter
+sonnet_c03,v1.0,sweep_c1,0652,sheet_163.jpg,6408,1774403471351.jpg,43d89245901df2ba,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,"Virginia Premium Hotdog Regular package among raw chicken and other hotdog packages, text upside down"
+sonnet_c03,v1.0,sweep_c1,0653,sheet_164.jpg,8845,1778287897836.jpg,02f839e8f33d1074,label_closeup,,,,not_visible,none_shown,,,,Small ice cream cup held over open freezer; barcode area visible but weight/volume not legible
+sonnet_c03,v1.0,sweep_c1,0654,sheet_164.jpg,4943,1775534709603.jpg,dd4866472ef43e4d,label_closeup,,,,not_visible,none_shown,,,,Aice Sundae ice cream cup on granite counter; no weight/volume legible
+sonnet_c03,v1.0,sweep_c1,0655,sheet_164.jpg,4094,1776388176443.jpg,b9c1027beb527990,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf bag on top of freezer
+sonnet_c03,v1.0,sweep_c1,0656,sheet_164.jpg,4096,1776387574349.jpg,8a7210d6128aec44,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf and Super Loaf bags stacked among produce
+sonnet_c03,v1.0,sweep_c1,0657,sheet_165.jpg,3595,1775611693784.jpg,42b21af3d9298be4,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf bag on newspaper
+sonnet_c03,v1.0,sweep_c1,0658,sheet_165.jpg,2306,1776390568552.jpg,f1ae7dd66149ee7f,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Light bottle held in hand near store shelf
+sonnet_c03,v1.0,sweep_c1,0659,sheet_165.jpg,5618,1774486798706.jpg,e43926c28035fe67,label_closeup,,,,not_visible,none_shown,,,,"SkyFlakes Crackers bundle of 10 single packs; no gram weight visible, only a batch code"
+sonnet_c03,v1.0,sweep_c1,0660,sheet_165.jpg,4494,1776136475926.jpg,49b75b7b78c08b43,label_closeup,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum E.S.Q. Export Grade Dark bottle label close-up
+sonnet_c03,v1.0,sweep_c1,0661,sheet_166.jpg,2313,1776391223262.jpg,71ee5b6fbdc81055,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand near store shelves
+sonnet_c03,v1.0,sweep_c1,0662,sheet_166.jpg,4197,1775878624936.jpg,01c8f3b5701da44b,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,Tanduay Rhum Dark bottle lying on ground
+sonnet_c03,v1.0,sweep_c1,0663,sheet_166.jpg,11242,1777254270502.jpg,01bcc8993f13fc7e,label_closeup,,,,not_visible,none_shown,Net Wt. 220 g,220.0,g,Two Angelina Tasty Bread packages side by side
+sonnet_c03,v1.0,sweep_c1,0664,sheet_166.jpg,3629,1775527168011.jpg,b00a32a3af525952,label_closeup,,,,not_visible,none_shown,NET WT.: 250g,250.0,g,"Winner Sweet Ham package on metal scale platter, keypad edge visible but no numeric display"
+sonnet_c03,v1.0,sweep_c1,0665,sheet_167.jpg,10608,1778467248065.jpg,89897d924b31e853,label_closeup,,,,not_visible,none_shown,175 GRAMS,175.0,g,Argentina Corned Beef can among snack packages
+sonnet_c03,v1.0,sweep_c1,0666,sheet_167.jpg,5388,1774661243201.jpg,3e54aef44a1b6937,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Dark bottle held up; lower label with volume text cropped/blurred
+sonnet_c03,v1.0,sweep_c1,0667,sheet_167.jpg,758,1777600558478.jpg,2856d37e790310cd,label_closeup,,,,not_visible,none_shown,100ML Ice Cream,100.0,mL,Vanilla ice cream cone package Nutrition Facts panel held in hand near freezer
+sonnet_c03,v1.0,sweep_c1,0668,sheet_167.jpg,4479,1776138691876.jpg,a83e627ada067da9,label_closeup,,,,not_visible,none_shown,,,,Aice Sorbetes Ube Time cup on counter; no volume text legible on front label
+sonnet_c03,v1.0,sweep_c1,0669,sheet_168.jpg,7967,1776049308104.jpg,61cb3479cdea43fb,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Light bottle held in hand near liquor shelf
+sonnet_c03,v1.0,sweep_c1,0670,sheet_168.jpg,5057,1775787420817.jpg,09dbe3ecf1f01784,label_closeup,,,,not_visible,none_shown,Net Wt. 450g,450.0,g,Angelina Medium Loaf package on metal table
+sonnet_c03,v1.0,sweep_c1,0671,sheet_168.jpg,8646,1773887748065.jpg,a153fe4a035660e2,scale_with_item,True,1.120,True,probable,none_shown,,,,Coffee Crispy chocolate bar on scale platter
+sonnet_c03,v1.0,sweep_c1,0672,sheet_168.jpg,372,1777353668351.jpg,9206f34c47e34d35,label_closeup,,,,not_visible,none_shown,10 x 31g packs (Net Wt. 310g),310.0,g,Hansel assorted Butter Sandwich crackers package back label with Nutrition Facts
+sonnet_c03,v1.0,sweep_c1,0673,sheet_169.jpg,4859,1776044522959.jpg,854cebc964a07a2d,label_closeup,,,,not_visible,none_shown,,,,Creamline Cream Bar Buco Salad package in freezer; net weight number not clearly legible
+sonnet_c03,v1.0,sweep_c1,0674,sheet_169.jpg,10977,1776655674529.jpg,9bd917891fffe9e8,label_closeup,,,,not_visible,none_shown,,,,Joyday Chocolate ice cream cup in freezer case; no weight/volume legible
+sonnet_c03,v1.0,sweep_c1,0675,sheet_169.jpg,3343,1776222847971.jpg,2b2fd793e786bb55,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle standing on green table
+sonnet_c03,v1.0,sweep_c1,0676,sheet_169.jpg,378,1777349143406.jpg,10b761f97c94a7cd,label_closeup,,,,not_visible,none_shown,Net Wt. 10.58 oz (300g),300.0,g,"Jack'n Jill Presto Creams Chocolate sandwich cookies package, 30g x 10 packs, both oz and g printed, g recorded"
+sonnet_c03,v1.0,sweep_c1,0677,sheet_170.jpg,4473,1776137929149.jpg,189fff908f208095,other,,,,not_visible,none_shown,,,,"Plastic tub with violet-colored contents wrapped in plastic, in freezer case; no legible weight/label text"
+sonnet_c03,v1.0,sweep_c1,0678,sheet_170.jpg,8625,1773891121655.jpg,939fa4f0008e9cef,item_no_scale,,,,not_visible,none_shown,355 mL,355.0,mL,Coca-Cola glass bottle on wooden table outdoors
+sonnet_c03,v1.0,sweep_c1,0679,sheet_170.jpg,7312,1774578474144.jpg,8e308681f657274e,item_no_scale,,,,not_visible,none_shown,250 ml,250.0,mL,Tanduay Rhum Dark small bottle on table
+sonnet_c03,v1.0,sweep_c1,0680,sheet_170.jpg,573,1777456186888.jpg,0b16a354c97cc5df,label_closeup,,,,not_visible,none_shown,Net Wt. 500 g,500.0,g,PureFoods Tender Juicy Hotdog package among other frozen goods and eggs
+sonnet_c03,v1.0,sweep_c1,0681,sheet_171.jpg,6350,1774490387442.jpg,99519ef70e765284,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Dark bottle held in hand among plastic water bottles; volume text on label not clearly legible
+sonnet_c03,v1.0,sweep_c1,0682,sheet_171.jpg,10597,1777269946748.jpg,768bbea03fc89f45,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,Angelina Super Loaf bag among bottled drinks
+sonnet_c03,v1.0,sweep_c1,0683,sheet_171.jpg,773,1777600743533.jpg,cada55fb08288c2a,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,"Row of Tanduay Rhum Dark bottles, appear empty or near-empty, on metal counter"
+sonnet_c03,v1.0,sweep_c1,0684,sheet_171.jpg,10472,1778041326241.jpg,abffe15ed3e35c18,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand near store shelf
+sonnet_c03,v1.0,sweep_c1,0685,sheet_172.jpg,3080,1776301682695.jpg,a80f27f7cceebb82,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held in hand near glass display case
+sonnet_c03,v1.0,sweep_c1,0686,sheet_172.jpg,5049,1775788448426.jpg,6e4f947e1d4687cb,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Light bottle on white wall; small volume text above brand name not clearly legible
+sonnet_c03,v1.0,sweep_c1,0687,sheet_172.jpg,8207,1773969045648.jpg,d13297cda6d07f3c,item_no_scale,,,,not_visible,none_shown,,,,Coca-Cola bottle held in hand at Manolette store; volume text obscured by hand
+sonnet_c03,v1.0,sweep_c1,0688,sheet_172.jpg,5619,1774402453746.jpg,1f8a3ad11defbdda,label_closeup,,,,not_visible,none_shown,170g,170.0,g,Merzci Special Biscocho Pasalubong package
+sonnet_c03,v1.0,sweep_c1,0689,sheet_173.jpg,10048,1773813534835.jpg,a5f52792d236a60b,scale_with_item,True,0.000,True,clear,none_shown,,,,Tanduay Rhum Dark bottle on scale platter
+sonnet_c03,v1.0,sweep_c1,0690,sheet_173.jpg,384,1777347158989.jpg,628838d58d195b0d,label_closeup,,,,not_visible,none_shown,NET WT. 9.88 oz (280g),280.0,g,"Jack'n Jill Magic Flakes Cheese Flavored Crackers package held in hand, 28g x 10 packs"
+sonnet_c03,v1.0,sweep_c1,0691,sheet_173.jpg,4498,1776214314201.jpg,d0f2d8ebef8dae4c,item_no_scale,,,,not_visible,none_shown,250 ml,250.0,mL,Tanduay Rhum Dark small bottle lying on red tile floor
+sonnet_c03,v1.0,sweep_c1,0692,sheet_173.jpg,6353,1774401522422.jpg,f8d936d292ddbfc2,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum E.S.Q. bottle held in hand at cluttered store; volume text not clearly legible
+sonnet_c03,v1.0,sweep_c1,0693,sheet_174.jpg,6361,1774502979484.jpg,d168665584e7cde6,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle lying on cardboard
+sonnet_c03,v1.0,sweep_c1,0694,sheet_174.jpg,7495,1774668803951.jpg,ea9b76511fb90ac2,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held in hand near produce crate
+sonnet_c03,v1.0,sweep_c1,0695,sheet_174.jpg,4497,1776215670078.jpg,fc8eb6b6b57cf423,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle lying on concrete
+sonnet_c03,v1.0,sweep_c1,0696,sheet_174.jpg,5964,1774408724551.jpg,eb538fba99678497,label_closeup,,,,not_visible,none_shown,,,,Champion Hotdog package on tiled surface; no weight number visible in frame
+sonnet_c03,v1.0,sweep_c1,0697,sheet_175.jpg,1525,1777514907020.jpg,4c4f929c3c363783,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Light bottle held in hand outdoors
+sonnet_c03,v1.0,sweep_c1,0698,sheet_175.jpg,10599,1777269644886.jpg,23bd135c6dff30cb,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf bag among other bread packages
+sonnet_c03,v1.0,sweep_c1,0699,sheet_175.jpg,8643,1773993858080.jpg,a91b4597b1a85a4c,scale_with_item,True,-0.045,True,clear,none_shown,,,,Small ice cream package on scale near Selecta cooler
+sonnet_c03,v1.0,sweep_c1,0700,sheet_175.jpg,8025,1775885620628.jpg,3fa692d18f91ad00,label_closeup,,,,not_visible,none_shown,NET WT.: 250g,250.0,g,Champion Longganisa Roll package held in hand near Bingo snacks
+sonnet_c03,v1.0,sweep_c1,0701,sheet_176.jpg,8357,1778724484823.jpg,7a42c78e4bfb8bab,item_no_scale,,,,not_visible,none_shown,190 mL,190.0,mL,Coca-Cola plastic bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0702,sheet_176.jpg,7992,1776046913005.jpg,d7b32f2f4b0d38ca,label_closeup,,,,not_visible,none_shown,Net Wt. 360 g,360.0,g,Angelina Junior White bread bag held in hand
+sonnet_c03,v1.0,sweep_c1,0703,sheet_176.jpg,10332,1774659965797.jpg,129e940c8c3297f8,label_closeup,,,,not_visible,none_shown,,,,Hotdog package on wooden crate; brand/weight text cropped out of frame
+sonnet_c03,v1.0,sweep_c1,0704,sheet_176.jpg,1406,1778290874358.jpg,b7308953f4da6ede,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Light bottle held in hand near store shelves
+sonnet_c03,v1.0,sweep_c1,0705,sheet_177.jpg,7052,1774326588349.jpg,139b422ed5290b78,label_closeup,,,,not_visible,none_shown,100mL,100.0,mL,Selecta Chocolate ice cream cup held over open freezer
+sonnet_c03,v1.0,sweep_c1,0706,sheet_177.jpg,4499,1776214330047.jpg,621c04048b4e4a85,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on red tile floor
+sonnet_c03,v1.0,sweep_c1,0707,sheet_177.jpg,6400,1774402923270.jpg,fc643a42da59e3dd,label_closeup,,,,not_visible,none_shown,NET WT. 220g,220.0,g,Yummy Tender Pork Tocino package held in hand near store shelves
+sonnet_c03,v1.0,sweep_c1,0708,sheet_177.jpg,2045,1776835687537.jpg,b07703b7cfb18133,label_closeup,,,,not_visible,none_shown,,,,"Rebisco Bravo! Biscuits with Sesame Seeds package held in hand; no net weight visible, only calorie info"
+sonnet_c03,v1.0,sweep_c1,0709,sheet_178.jpg,5377,1774580571476.jpg,857353463b17d662,label_closeup,,,,not_visible,none_shown,,,,Selecta Mango ice cream cup on freezer ledge; no volume/weight number visible
+sonnet_c03,v1.0,sweep_c1,0710,sheet_178.jpg,7308,1774659679657.jpg,99a8264681f297a9,item_no_scale,,,,not_visible,none_shown,250 ml,250.0,mL,Tanduay Rhum Dark small bottle held near redemption voucher form
+sonnet_c03,v1.0,sweep_c1,0711,sheet_178.jpg,8983,1773970006997.jpg,8973904fabf86fe2,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Row of Tanduay Rhum Light bottles on shelf
+sonnet_c03,v1.0,sweep_c1,0712,sheet_178.jpg,1526,1777427205764.jpg,9b0d7b3e333399ba,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand near store shelf
+sonnet_c03,v1.0,sweep_c1,0713,sheet_179.jpg,11241,1777344385421.jpg,a916372c13fcab29,label_closeup,,,,not_visible,none_shown,Net Wt. 220 g,220.0,g,Angelina Tasty Bread package on metal counter
+sonnet_c03,v1.0,sweep_c1,0714,sheet_179.jpg,1931,1777078282391.jpg,045fe7b08410848d,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand near liquor shelf
+sonnet_c03,v1.0,sweep_c1,0715,sheet_179.jpg,6503,1774054060009.jpg,554886ccc0a7bfac,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Dark small bottle on white table; volume text not clearly legible at this distance
+sonnet_c03,v1.0,sweep_c1,0716,sheet_179.jpg,9241,1774322623684.jpg,ef77f72e7aa16191,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on store counter
+sonnet_c03,v1.0,sweep_c1,0717,sheet_180.jpg,9837,1773912261776.jpg,b8e26cb0faf76201,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on tablecloth near a scale
+sonnet_c03,v1.0,sweep_c1,0718,sheet_180.jpg,9232,1774317315241.jpg,8b03e86744134c8b,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held in hand near cigarette display
+sonnet_c03,v1.0,sweep_c1,0719,sheet_180.jpg,538,1777508237039.jpg,daf3db06dd2dd5cc,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Light bottle hanging near Milo sachets
+sonnet_c03,v1.0,sweep_c1,0720,sheet_180.jpg,3495,1776910843725.jpg,9dbf2965366d8469,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,Tanduay Rhum Dark large bottle held in hand near canned goods shelf
+sonnet_c03,v1.0,sweep_c1,0721,sheet_181.jpg,1409,1778292277496.jpg,c463f7758cfee27c,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand at store
+sonnet_c03,v1.0,sweep_c1,0722,sheet_181.jpg,7966,1776045143438.jpg,2eda305162690906,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle standing on counter near calculator
+sonnet_c03,v1.0,sweep_c1,0723,sheet_181.jpg,6069,1774592854443.jpg,8a4fbebd01c2c773,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on wooden counter
+sonnet_c03,v1.0,sweep_c1,0724,sheet_181.jpg,3482,1779246210245.jpg,47d76d27fb6c9edf,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held in hand near egg trays and poultry
+sonnet_c03,v1.0,sweep_c1,0725,sheet_182.jpg,10299,1774684116347.jpg,d5518b35b79d4ae5,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on shelf
+sonnet_c03,v1.0,sweep_c1,0726,sheet_182.jpg,366,1777265670677.jpg,14c3363ce34183ee,label_closeup,,,,not_visible,none_shown,10 x 25g pack (NET WT. 250g),250.0,g,SkyFlakes Crackers package held in hand
+sonnet_c03,v1.0,sweep_c1,0727,sheet_182.jpg,9242,1774061126622.jpg,7c24bb7b5848a491,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Rhum Dark bottle held in hand; volume text partly covered by hand, not confidently legible"
+sonnet_c03,v1.0,sweep_c1,0728,sheet_182.jpg,3679,1775613936082.jpg,8703384da00e7259,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Light bottle with '140' price tag; volume text cropped out of top of frame
+sonnet_c03,v1.0,sweep_c1,0729,sheet_183.jpg,2091,1776835552621.jpg,8d30c87518339f78,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand near store shelves
+sonnet_c03,v1.0,sweep_c1,0730,sheet_183.jpg,3591,1775611999212.jpg,05b57b2535a5496d,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,Tanduay Rhum Dark bottle lying on Korean-language newspaper
+sonnet_c03,v1.0,sweep_c1,0731,sheet_183.jpg,3336,1776222798625.jpg,c21ae7537f700ac2,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on green table near jars
+sonnet_c03,v1.0,sweep_c1,0732,sheet_183.jpg,10166,1774414136870.jpg,47d4874dcd1b46b8,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle held in hand near egg trays
+sonnet_c03,v1.0,sweep_c1,0733,sheet_184.jpg,3332,1776223786878.jpg,46c1b55fb8b788f4,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle on wooden counter near shelf
+sonnet_c03,v1.0,sweep_c1,0734,sheet_184.jpg,5932,1774410948239.jpg,dfc99b4ea7f30359,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle lying on wood plank
+sonnet_c03,v1.0,sweep_c1,0735,sheet_184.jpg,8504,1775786421750.jpg,e35bd58fbdedef71,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle on wooden counter near store
+sonnet_c03,v1.0,sweep_c1,0736,sheet_184.jpg,10338,1774577064742.jpg,59110031f5d66e34,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Multiple Champion Hotdog Jumbo packages on display
+sonnet_c03,v1.0,sweep_c1,0737,sheet_185.jpg,7976,1776046695778.jpg,fe0f432bad952a31,item_no_scale,,,,not_visible,none_shown,750 ml,750.0,mL,Primera Light Premium Brandy bottle held in hand near liquor shelf
+sonnet_c03,v1.0,sweep_c1,0738,sheet_185.jpg,5731,1774578777231.jpg,71c33ec6fd148e0d,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle on counter near fan
+sonnet_c03,v1.0,sweep_c1,0739,sheet_185.jpg,3678,1775613613912.jpg,8825b31c7269cbbd,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Dark bottle among hotdog packages and poultry; volume text not clearly legible
+sonnet_c03,v1.0,sweep_c1,0740,sheet_185.jpg,5970,1774409755766.jpg,5681896217246ab6,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Champion Hotdog Jumbo package on tiled floor
+sonnet_c03,v1.0,sweep_c1,0741,sheet_186.jpg,768,1777601180078.jpg,28f08b0316915287,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Multiple Tanduay Rhum Light bottles on shelf
+sonnet_c03,v1.0,sweep_c1,0742,sheet_186.jpg,2093,1776835112777.jpg,0e39e5a0ff030567,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Close-up of Tanduay Rhum Light bottle among other Tanduay bottles
+sonnet_c03,v1.0,sweep_c1,0743,sheet_186.jpg,522,1777860481412.jpg,5ab5c2d4030f2a3e,label_closeup,,,,not_visible,none_shown,,,,Ice cream cup held over open freezer display; no volume text legible in this crop
+sonnet_c03,v1.0,sweep_c1,0744,sheet_186.jpg,2725,1776220928814.jpg,8508d062a730f73b,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,Angelina Medium Loaf bag on shelf among candy
+sonnet_c03,v1.0,sweep_c1,0745,sheet_187.jpg,4858,1776049260699.jpg,9d8aebaa6cd9e0ab,label_closeup,,,,not_visible,none_shown,60mL,60.0,mL,Selecta Boom Boom! Cookies & Cream ice cream bar package
+sonnet_c03,v1.0,sweep_c1,0746,sheet_187.jpg,4056,1776309939077.jpg,e611d17204f6a7a7,label_closeup,,,,not_visible,none_shown,GROSS WT. 1.4KG,1.4,kg,Merienda Time Assorted Biscuits bucket
+sonnet_c03,v1.0,sweep_c1,0747,sheet_187.jpg,6076,1774580207254.jpg,84d3e71f51310bb9,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle on blue mat near store shelves
+sonnet_c03,v1.0,sweep_c1,0748,sheet_187.jpg,10989,1776654714045.jpg,0131f618593cd1a2,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Dark bottle among cloth and plastic-wrapped items; volume text too small/distant to read
+sonnet_c03,v1.0,sweep_c1,0749,sheet_188.jpg,4496,1776215641398.jpg,53561fd25a3218fe,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle lying on speckled surface
+sonnet_c03,v1.0,sweep_c1,0750,sheet_188.jpg,1789,1776651388342.jpg,fe15363144983761,label_closeup,,,,not_visible,none_shown,APPROX WT: 680g,680.0,g,Purefoods Pullman Loaf bread bag on counter
+sonnet_c03,v1.0,sweep_c1,0751,sheet_188.jpg,5386,1774661849287.jpg,cb9528fdd70a843b,item_no_scale,,,,not_visible,none_shown,,,,Tanduay Rhum Dark bottle standing on metal rack; volume text cropped out of frame
+sonnet_c03,v1.0,sweep_c1,0752,sheet_188.jpg,10611,1778469068670.jpg,58addbaa0782bcc9,label_closeup,,,,not_visible,none_shown,150g,150.0,g,Argentina Ready-to-use Giniling Ground Pork Mix can held in hand
+sonnet_c03,v1.0,sweep_c1,0753,sheet_189.jpg,11369,1776911505729.jpg,95fe94da0f79f634,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Dark bottle lying among green beans at market stall
+sonnet_c03,v1.0,sweep_c1,0754,sheet_189.jpg,1201,1778119254957.jpg,2e4d4ea788701d5a,label_closeup,,,,not_visible,none_shown,NET WT. 450g,450.0,g,NeuBake White Bread package held in hand
+sonnet_c03,v1.0,sweep_c1,0755,sheet_189.jpg,10158,1774413879659.jpg,b633cfb8d4f11fa4,label_closeup,,,,not_visible,none_shown,,,,"Sweet Corn Sticky snack package held in hand; no weight number visible, only expiry/batch code"
+sonnet_c03,v1.0,sweep_c1,0756,sheet_189.jpg,1644,1776999326900.jpg,b0d2e900e4959ff6,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand near boxes
+sonnet_c03,v1.0,sweep_c1,0757,sheet_190.jpg,10173,1774402319890.jpg,22a66e28cf04c65f,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand near cooler
+sonnet_c03,v1.0,sweep_c1,0758,sheet_190.jpg,10733,1777688366025.jpg,f9e80eef1b531c40,label_closeup,,,,not_visible,none_shown,,,,Angelina Medium Loaf bag in dim/dark setting; net weight not legible due to low light
+sonnet_c03,v1.0,sweep_c1,0759,sheet_190.jpg,1183,1778034806216.jpg,f8f7241f3cf5bdd3,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Emperador Light Premium Brandy Liqueur bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0760,sheet_190.jpg,3494,1776910833239.jpg,2485ba056a9802c2,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand near canned goods shelf
+sonnet_c03,v1.0,sweep_c1,0761,sheet_191.jpg,1930,1776994643601.jpg,cb2103f0b64f4bab,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand near liquor shelf
+sonnet_c03,v1.0,sweep_c1,0762,sheet_191.jpg,2255,1779161794123.jpg,39de512e5ca4d4b7,item_no_scale,,,,not_visible,none_shown,240 mL,240.0,mL,Sting energy drink bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0763,sheet_191.jpg,7968,1776049395170.jpg,6887b2b42802a7c6,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,Tanduay Rhum Light large bottle held in hand near store shelf
+sonnet_c03,v1.0,sweep_c1,0764,sheet_191.jpg,11224,1777342630939.jpg,5e925d31e54574b5,label_closeup,,,,not_visible,none_shown,,,,"Nice brand Sweet Corn Sticky package; no weight number visible, only expiry/batch code"
+sonnet_c03,v1.0,sweep_c1,0765,sheet_192.jpg,3037,1776217387334.jpg,632ace1eec26e863,label_closeup,,,,not_visible,none_shown,Net Wt. 90g,90.0,g,Green Panda Vegetable Flavor snack package held in hand
+sonnet_c03,v1.0,sweep_c1,0766,sheet_192.jpg,1042,1777346656635.jpg,0a75726163776798,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,Tanduay Rhum Light bottle held in hand
+sonnet_c03,v1.0,sweep_c1,0767,sheet_192.jpg,3623,1775526687330.jpg,f5dc7230aefdeb32,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,Champion Hotdog package among other hotdog and bread packages
+sonnet_c03,v1.0,sweep_c1,0768,sheet_192.jpg,3346,1776225196826.jpg,90bd7a248d028cc7,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,Tanduay Rhum Dark bottle held in hand near shelf
+sonnet_c04a,v1.0,sweep_c1,0769,sheet_193.jpg,7960,1778899376601.jpg,e3bd724c5b76d6ec,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0770,sheet_193.jpg,2826,1776470839268.jpg,ea19cf040e7ecdc9,item_no_scale,,,,not_visible,none_shown,,,,small print below the logo not clearly legible at this zoom
+sonnet_c04a,v1.0,sweep_c1,0771,sheet_193.jpg,4866,1776044242396.jpg,9a3f445e3fcedc01,item_no_scale,,,,not_visible,none_shown,,,,bottle lying on documents; volume/proof text obscured by hand and paper
+sonnet_c04a,v1.0,sweep_c1,0772,sheet_193.jpg,11370,1776912650718.jpg,b24b27312a22949c,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 55 PROOF
+sonnet_c04a,v1.0,sweep_c1,0773,sheet_194.jpg,2823,1778903605483.jpg,304c272704a95967,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0774,sheet_194.jpg,10875,1777604406727.jpg,a074ab6f2c3bc479,label_closeup,,,,not_visible,none_shown,NET WT. 450g,450.0,g,
+sonnet_c04a,v1.0,sweep_c1,0775,sheet_194.jpg,5840,1774411363628.jpg,3c15195181736779,label_closeup,,,,not_visible,none_shown,NET WT. 1.14 KG,1.14,kg,second package visible reads NET WT. 250g (Sonny Hotdog); a third hotdog package's weight text is not legible
+sonnet_c04a,v1.0,sweep_c1,0776,sheet_194.jpg,8843,1775714810437.jpg,665b1bc77372f3ad,item_no_scale,,,,not_visible,none_shown,,,,net weight text on cup lid not legible due to condensation/glare
+sonnet_c04a,v1.0,sweep_c1,0777,sheet_195.jpg,10596,1777269923556.jpg,7f6f0af548bac963,label_closeup,,,,not_visible,none_shown,,,,package cropped at frame edge; net weight digits not fully legible
+sonnet_c04a,v1.0,sweep_c1,0778,sheet_195.jpg,7326,1774575467832.jpg,c38493dc0b35fb45,item_no_scale,,,,not_visible,none_shown,,,,volume/proof text obscured by hand and frame crop
+sonnet_c04a,v1.0,sweep_c1,0779,sheet_195.jpg,3340,1776223830609.jpg,cfd5b77f5071bc2c,item_no_scale,,,,not_visible,none_shown,,,,label text too small/distant to read at this resolution
+sonnet_c04a,v1.0,sweep_c1,0780,sheet_195.jpg,4366,1776134423521.jpg,cd98ac8565d3d84a,scale_with_item,True,,,not_visible,none_shown,NET WT. 250g,250.0,g,digital display panel not visible in this crop
+sonnet_c04a,v1.0,sweep_c1,0781,sheet_196.jpg,5631,1774487452356.jpg,84ff98bc9e4714b5,item_no_scale,,,,not_visible,none_shown,355 mL,355.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0782,sheet_196.jpg,11373,1776997233452.jpg,3d95deaa218db7b5,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0783,sheet_196.jpg,382,1777347062393.jpg,efd5cc3f6fc2d772,label_closeup,,,,not_visible,none_shown,,,,small net-weight print near hand not legible
+sonnet_c04a,v1.0,sweep_c1,0784,sheet_196.jpg,1180,1778118837656.jpg,9b9f9c7a94d9bc78,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0785,sheet_197.jpg,10785,1777425667488.jpg,4bfbae4f37d05574,label_closeup,,,,not_visible,none_shown,,,,no numeric net weight/volume visible in this crop
+sonnet_c04a,v1.0,sweep_c1,0786,sheet_197.jpg,2047,1776834942187.jpg,8a4f9c60a8784aac,label_closeup,,,,not_visible,none_shown,,,,net weight text partially covered by hand
+sonnet_c04a,v1.0,sweep_c1,0787,sheet_197.jpg,4493,1776137129880.jpg,fc5ad4708a83773e,item_no_scale,,,,not_visible,none_shown,,,,label rotated on tiled floor; volume text not clearly legible
+sonnet_c04a,v1.0,sweep_c1,0788,sheet_197.jpg,10729,1777604511513.jpg,b76e9744510f128b,label_closeup,,,,not_visible,none_shown,,,,net weight figure at bottom edge partially cropped
+sonnet_c04a,v1.0,sweep_c1,0789,sheet_198.jpg,8353,1775781302698.jpg,5a4b164d81a0c883,item_no_scale,,,,not_visible,none_shown,,,,volume text on label not visible/legible in this orientation
+sonnet_c04a,v1.0,sweep_c1,0790,sheet_198.jpg,10178,1774484859060.jpg,7de172919f1560d7,item_no_scale,,,,not_visible,none_shown,,,,printed volume text not legible at this resolution
+sonnet_c04a,v1.0,sweep_c1,0791,sheet_198.jpg,3594,1775613751390.jpg,41c0da8ae81700a9,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c04a,v1.0,sweep_c1,0792,sheet_198.jpg,11177,1776825773444.jpg,888563ce8b4e33a0,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0793,sheet_199.jpg,7060,1774326733827.jpg,460585fd5ed4fb86,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0794,sheet_199.jpg,8518,1775788910296.jpg,01ef27aedea1c9bc,scale_with_item,True,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,digital display panel not visible in this crop
+sonnet_c04a,v1.0,sweep_c1,0795,sheet_199.jpg,8835,1775714024734.jpg,67fc982f5d124182,label_closeup,,,,not_visible,none_shown,70 ml,70.0,mL,printed as 'Net wt: 70ml' near the bottom of the wrapper
+sonnet_c04a,v1.0,sweep_c1,0796,sheet_199.jpg,3493,1776826208944.jpg,786fd8f088a884bd,item_no_scale,,,,not_visible,none_shown,1L,1.0,L,also printed 55 PROOF
+sonnet_c04a,v1.0,sweep_c1,0797,sheet_200.jpg,374,1777264071366.jpg,1393a7ed4ed55b4d,label_closeup,,,,not_visible,none_shown,NET WT. 130g,130.0,g,
+sonnet_c04a,v1.0,sweep_c1,0798,sheet_200.jpg,2256,1776389931883.jpg,b313b7109e2dd5af,item_no_scale,,,,not_visible,none_shown,190 mL,190.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0799,sheet_200.jpg,368,1777268519092.jpg,8efff75a2cd64d08,label_closeup,,,,not_visible,none_shown,NET WT. 3.0 oz (85g),85.0,g,also printed as 3.0 oz
+sonnet_c04a,v1.0,sweep_c1,0800,sheet_200.jpg,7767,1776653222691.jpg,83edbe3e6fff04ba,label_closeup,,,,not_visible,none_shown,,,,no net weight/volume visible in this crop; package text is in Indonesian
+sonnet_c04a,v1.0,sweep_c1,0801,sheet_201.jpg,5261,1776039725941.jpg,a01fbe07231d3d5b,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0802,sheet_201.jpg,8651,1773890021521.jpg,7223deb3ab903e8a,scale_with_item,True,0.235,True,clear,none_shown,,,,"item is a cup of shaved ice/halo-halo, not a labeled package"
+sonnet_c04a,v1.0,sweep_c1,0803,sheet_201.jpg,3485,1776828158636.jpg,0c444153e77735b2,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 55 PROOF
+sonnet_c04a,v1.0,sweep_c1,0804,sheet_201.jpg,4949,1778900069459.jpg,2dd987909eca8a92,item_no_scale,,,,not_visible,none_shown,,,,"inner label wrapped in plastic film, blurred and not legible"
+sonnet_c04a,v1.0,sweep_c1,0805,sheet_202.jpg,6879,1775536116553.jpg,01dde11f6fda57d2,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0806,sheet_202.jpg,8031,1775885374107.jpg,e4ce0e4faa75c254,label_closeup,,,,not_visible,none_shown,NET WT. 1 kg,1.0,kg,
+sonnet_c04a,v1.0,sweep_c1,0807,sheet_202.jpg,8410,1775784886247.jpg,c8ed86da7334a9d1,label_closeup,,,,not_visible,none_shown,NET WT. 1.14 KG,1.14,kg,
+sonnet_c04a,v1.0,sweep_c1,0808,sheet_202.jpg,6882,1775533369178.jpg,05ac2451a378d25a,item_no_scale,,,,not_visible,none_shown,,,,printed volume text not legible in this frame
+sonnet_c04a,v1.0,sweep_c1,0809,sheet_203.jpg,1922,1776993028365.jpg,3fdab101eb9b7604,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0810,sheet_203.jpg,4959,1775612301306.jpg,885a3f8ed4525958,label_closeup,,,,not_visible,none_shown,Net Wt. 220 g,220.0,g,
+sonnet_c04a,v1.0,sweep_c1,0811,sheet_203.jpg,10728,1777604131284.jpg,0f745a7ce3abefff,label_closeup,,,,not_visible,none_shown,,,,net weight text not visible in this crop
+sonnet_c04a,v1.0,sweep_c1,0812,sheet_203.jpg,2824,1776471237414.jpg,d2178113e61cf617,item_no_scale,,,,not_visible,none_shown,,,,volume text not legible; label appears worn/damaged
+sonnet_c04a,v1.0,sweep_c1,0813,sheet_204.jpg,10724,1777604396086.jpg,7212dc01e881e7a1,label_closeup,,,,not_visible,none_shown,,,,package shown inverted; net weight text not visible in this crop
+sonnet_c04a,v1.0,sweep_c1,0814,sheet_204.jpg,6365,1774493912027.jpg,5c69862b84c848c9,item_no_scale,,,,not_visible,none_shown,,,,volume text not visible; label mostly cropped out of frame
+sonnet_c04a,v1.0,sweep_c1,0815,sheet_204.jpg,5314,1776040190973.jpg,d57fbbca475a8b15,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,
+sonnet_c04a,v1.0,sweep_c1,0816,sheet_204.jpg,3349,1776303367093.jpg,ccd4d632ed6b8d9a,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0817,sheet_205.jpg,5488,1774575326944.jpg,dea6021b7be72b9c,label_closeup,,,,not_visible,none_shown,Net Wt.: 200g,200.0,g,
+sonnet_c04a,v1.0,sweep_c1,0818,sheet_205.jpg,6870,1775528704349.jpg,9e490ae6704277cb,label_closeup,,,,not_visible,none_shown,Net Weight: 55 ml,55.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0819,sheet_205.jpg,5387,1774661215436.jpg,cf8df8245d9ad081,item_no_scale,,,,not_visible,none_shown,,,,label too distant/small to read
+sonnet_c04a,v1.0,sweep_c1,0820,sheet_205.jpg,8516,1775698193896.jpg,eece260458283255,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,"reading taken from the visible Angelina Medium Loaf package; other packages (Sky Flakes, Happy Peanuts) in frame have their weight text not legible"
+sonnet_c04a,v1.0,sweep_c1,0821,sheet_206.jpg,1517,1777451333158.jpg,ab1d7f7c2dcae7ac,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0822,sheet_206.jpg,5487,1774583853417.jpg,6085632eaa85a74a,label_closeup,,,,not_visible,none_shown,Net Wt.: 200g,200.0,g,
+sonnet_c04a,v1.0,sweep_c1,0823,sheet_206.jpg,4864,1776047069712.jpg,2aa0fe96c26d7535,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0824,sheet_206.jpg,7991,1776048456731.jpg,0abcaf978cf9ecb1,label_closeup,,,,not_visible,none_shown,Net Wt. 360 g,360.0,g,
+sonnet_c04a,v1.0,sweep_c1,0825,sheet_207.jpg,11171,1776824904789.jpg,49faccb8d9d82be7,item_no_scale,,,,not_visible,none_shown,,,,volume text obscured by glare/reflection
+sonnet_c04a,v1.0,sweep_c1,0826,sheet_207.jpg,7774,1776477324925.jpg,750b6cd1256f8971,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0827,sheet_207.jpg,1046,1777262023515.jpg,72d26a05a6ebbc40,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,reading taken from the front-most legible bottle; several similar bottles in frame
+sonnet_c04a,v1.0,sweep_c1,0828,sheet_207.jpg,11472,1776998779590.jpg,d5e9020d591c4e55,label_closeup,,,,not_visible,none_shown,,,,no net weight/volume visible in this crop; text in Indonesian
+sonnet_c04a,v1.0,sweep_c1,0829,sheet_208.jpg,1513,1777512748384.jpg,0a2a442c6547058a,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 55 PROOF
+sonnet_c04a,v1.0,sweep_c1,0830,sheet_208.jpg,2417,1779256554597.jpg,80107960af216446,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c04a,v1.0,sweep_c1,0831,sheet_208.jpg,4204,1776046832023.jpg,5b029e4ed18aa86e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0832,sheet_208.jpg,5031,1775709894309.jpg,6f78cbb37daef2b0,label_closeup,,,,not_visible,none_shown,,,,no net weight visible in this crop
+sonnet_c04a,v1.0,sweep_c1,0833,sheet_209.jpg,3765,1775700322765.jpg,afa484b74776377e,item_no_scale,,,,not_visible,none_shown,,,,volume text not visible in this crop
+sonnet_c04a,v1.0,sweep_c1,0834,sheet_209.jpg,7354,1774661328825.jpg,aefb6445962d442a,label_closeup,,,,not_visible,none_shown,,,,net weight text on can not legible at this resolution
+sonnet_c04a,v1.0,sweep_c1,0835,sheet_209.jpg,6359,1774490427197.jpg,5fccd0fb0181b9b2,item_no_scale,,,,not_visible,none_shown,,,,label rotated; volume text not clearly legible
+sonnet_c04a,v1.0,sweep_c1,0836,sheet_209.jpg,7066,1774323955212.jpg,f7576159c07c4c9b,label_closeup,,,,not_visible,none_shown,48's x 1.41oz (40g) NET WT. 1.92 Kg,1.92,kg,"this is a case/carton label (48 units x 40g = 1.92 kg total), not a single-unit weight"
+sonnet_c04a,v1.0,sweep_c1,0837,sheet_210.jpg,5050,1775788469411.jpg,884e62e82b606550,item_no_scale,,,,not_visible,none_shown,,,,volume text not visible in this crop
+sonnet_c04a,v1.0,sweep_c1,0838,sheet_210.jpg,7773,1776478358010.jpg,3434617de6774d5a,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0839,sheet_210.jpg,10722,1777687617243.jpg,f2c3a52f7b9f8083,label_closeup,,,,not_visible,none_shown,,,,net weight text not visible in this crop
+sonnet_c04a,v1.0,sweep_c1,0840,sheet_210.jpg,3831,1776648566599.jpg,b13cad655df3b232,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04a,v1.0,sweep_c1,0841,sheet_211.jpg,2830,1778903677497.jpg,bc7582333c80f24b,item_no_scale,,,,not_visible,none_shown,,,,volume text obscured by hand
+sonnet_c04a,v1.0,sweep_c1,0842,sheet_211.jpg,2720,1776221047739.jpg,56cb5051b84e1460,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c04a,v1.0,sweep_c1,0843,sheet_211.jpg,1528,1777513502403.jpg,ae2bda274dac665f,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0844,sheet_211.jpg,3079,1776217500598.jpg,578f2ea03a81bcb8,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0845,sheet_212.jpg,8877,1775806162430.jpg,85262ee55250faa8,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c04a,v1.0,sweep_c1,0846,sheet_212.jpg,11470,1776998753360.jpg,3cffe30934b3a39d,label_closeup,,,,not_visible,none_shown,35 ml,35.0,mL,printed as 'Net Volume 35 ml' near the top of the wrapper
+sonnet_c04a,v1.0,sweep_c1,0847,sheet_212.jpg,3823,1776648487119.jpg,16323ba7269d3a2a,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0848,sheet_212.jpg,4481,1776138732583.jpg,60eff5f10755d59b,label_closeup,,,,not_visible,none_shown,Net Weight 350ml,350.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0849,sheet_213.jpg,5048,1775787640792.jpg,e565f1780e3061fe,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0850,sheet_213.jpg,10984,1776739525194.jpg,9f1eff7bc06531ac,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0851,sheet_213.jpg,7057,1774324642448.jpg,425d7f968b5f09de,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0852,sheet_213.jpg,3488,1776828194300.jpg,332a9a67df97758e,item_no_scale,,,,not_visible,none_shown,,,,volume text obscured by hand
+sonnet_c04a,v1.0,sweep_c1,0853,sheet_214.jpg,5819,1774406742877.jpg,9cc3a851dd76e877,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,second visible package (Angelina Tasty Bread) reads Net Wt. 220 g
+sonnet_c04a,v1.0,sweep_c1,0854,sheet_214.jpg,771,1777599365511.jpg,681d4667cc2eed93,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0855,sheet_214.jpg,4500,1776214346006.jpg,fbe79950998eea79,item_no_scale,,,,not_visible,none_shown,,,,volume text partly visible ('...mL') but not fully legible
+sonnet_c04a,v1.0,sweep_c1,0856,sheet_214.jpg,10039,1773721810011.jpg,c0652a2e91dbbb3d,scale_with_item,True,0.485,True,clear,none_shown,,,,item on scale is a retail tub; its own package text not read (not the field of interest here)
+sonnet_c04a,v1.0,sweep_c1,0857,sheet_215.jpg,7626,1774422284808.jpg,11ec02b9ca965ede,scale_with_item,True,1.085,True,probable,none_shown,,,,decimal point position not fully certain due to glare on the display
+sonnet_c04a,v1.0,sweep_c1,0858,sheet_215.jpg,2940,1776653551661.jpg,ee7141bbade6a306,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 55 PROOF
+sonnet_c04a,v1.0,sweep_c1,0859,sheet_215.jpg,2913,1776652693587.jpg,6ab4ce21b1298093,item_no_scale,,,,not_visible,none_shown,500 mL,500.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0860,sheet_215.jpg,10474,1778047155232.jpg,e8108a3c43cdd965,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0861,sheet_216.jpg,1524,1777430084329.jpg,915bfcbbb1d3e5e1,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0862,sheet_216.jpg,2267,1776391512334.jpg,8057f6a9efe20280,item_no_scale,,,,not_visible,none_shown,330ml,330.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0863,sheet_216.jpg,5944,1774409282460.jpg,ec8ff9f5722aef6e,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04a,v1.0,sweep_c1,0864,sheet_216.jpg,5801,1774412112617.jpg,d97b0fb605988120,label_closeup,,,,not_visible,none_shown,60mL,60.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0865,sheet_217.jpg,521,1777511264690.jpg,6e2d857124209f1b,label_closeup,,,,not_visible,none_shown,100mL,100.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0866,sheet_217.jpg,1915,1777075991715.jpg,03c9827996ff828e,label_closeup,,,,not_visible,none_shown,60mL,60.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0867,sheet_217.jpg,5392,1774579655086.jpg,239bcd19bfe046b4,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0868,sheet_217.jpg,5308,1775865303283.jpg,9c9eca128595c76c,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,
+sonnet_c04a,v1.0,sweep_c1,0869,sheet_218.jpg,4868,1776047115783.jpg,cf666c3ece19c422,item_no_scale,,,,not_visible,none_shown,,,,volume text partly visible but not fully legible
+sonnet_c04a,v1.0,sweep_c1,0870,sheet_218.jpg,8352,1775701277944.jpg,e01bf30523c3e7d5,item_no_scale,,,,not_visible,none_shown,355 mL,355.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0871,sheet_218.jpg,766,1777599323507.jpg,e42287e98f92fbc0,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0872,sheet_218.jpg,3946,1778901499242.jpg,ff38eee3adfa658d,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04a,v1.0,sweep_c1,0873,sheet_219.jpg,10044,1773794684669.jpg,b19a0501da4c1411,scale_with_item,True,,,not_visible,none_shown,,,,scale display shows unlit/blank segments; scale appears off or in standby
+sonnet_c04a,v1.0,sweep_c1,0874,sheet_219.jpg,2942,1776651831841.jpg,acb52b21c52df19c,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 55 PROOF
+sonnet_c04a,v1.0,sweep_c1,0875,sheet_219.jpg,5629,1774402623511.jpg,2a964efd2af3ad76,item_no_scale,,,,not_visible,none_shown,355 mL,355.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0876,sheet_219.jpg,7993,1775886978779.jpg,d1e721406841ea04,label_closeup,,,,not_visible,none_shown,Net Wt. 360 g,360.0,g,
+sonnet_c04a,v1.0,sweep_c1,0877,sheet_220.jpg,3348,1779155357707.jpg,f201e4becb0f3528,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0878,sheet_220.jpg,1520,1777428153089.jpg,c03d93954d0c3dea,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,reading taken from the front-most legible bottle; several similar bottles in frame
+sonnet_c04a,v1.0,sweep_c1,0879,sheet_220.jpg,3075,1776231108395.jpg,a98a9320f9fb7eeb,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 55 PROOF; several similar bottles in frame
+sonnet_c04a,v1.0,sweep_c1,0880,sheet_220.jpg,1069,1777954081119.jpg,05b1b2c93e59aafc,label_closeup,,,,not_visible,none_shown,Net Wt. 300g,300.0,g,
+sonnet_c04a,v1.0,sweep_c1,0881,sheet_221.jpg,5837,1774411147589.jpg,f4d685e02eb1223d,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,"other partially visible hotdog packages in frame have their own weight text, not legible"
+sonnet_c04a,v1.0,sweep_c1,0882,sheet_221.jpg,4487,1776138070235.jpg,fe2c19f154f2c9e0,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 65 PROOF
+sonnet_c04a,v1.0,sweep_c1,0883,sheet_221.jpg,1197,1778035373014.jpg,868f2f837cf30ad9,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04a,v1.0,sweep_c1,0884,sheet_221.jpg,6006,1774582688385.jpg,18f1725b8c8480bf,scale_with_item,True,0.090,True,clear,none_shown,,,,
+sonnet_c04a,v1.0,sweep_c1,0885,sheet_222.jpg,2920,1776737634155.jpg,b421e37218267f9a,item_no_scale,,,,not_visible,none_shown,1 Litre,1.0,L,
+sonnet_c04a,v1.0,sweep_c1,0886,sheet_222.jpg,6721,1778214339163.jpg,6a400cc41f1650da,label_closeup,,,,not_visible,none_shown,65 ml,65.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0887,sheet_222.jpg,3498,1776825193657.jpg,599df9ca98b24d7f,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,
+sonnet_c04a,v1.0,sweep_c1,0888,sheet_222.jpg,1290,1777345610839.jpg,1cfc149432daede6,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,also printed 55 Sinera (proof-equivalent)
+sonnet_c04a,v1.0,sweep_c1,0889,sheet_223.jpg,8984,1773970043292.jpg,4b0bf9167190e7b0,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04a,v1.0,sweep_c1,0890,sheet_223.jpg,1176,1778036254499.jpg,2c1da3103ed708c6,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0891,sheet_223.jpg,7957,1776049115420.jpg,2db79cc33741995f,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04a,v1.0,sweep_c1,0892,sheet_223.jpg,4058,1776388257981.jpg,63b4909b2d70df33,label_closeup,,,,not_visible,none_shown,,,,no net weight visible in this crop
+sonnet_c04a,v1.0,sweep_c1,0893,sheet_224.jpg,6676,1775525941018.jpg,b080e5b69940abb6,scale_with_item,True,0.175,True,clear,none_shown,,,,
+sonnet_c04a,v1.0,sweep_c1,0894,sheet_224.jpg,8655,1773976470427.jpg,d1f58d6a0a15f9cb,scale_with_item,True,0.106,True,probable,none_shown,,,,last digit has some uncertainty due to glare on the display
+sonnet_c04a,v1.0,sweep_c1,0895,sheet_224.jpg,1788,1776651644500.jpg,0aa293a5da530ddf,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c04a,v1.0,sweep_c1,0896,sheet_224.jpg,8861,1775709488913.jpg,6088568ce1d93682,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,also printed 80 PROOF
+sonnet_c04b,v1.0,sweep_c1,0897,sheet_225.jpg,6737,1778213758995.jpg,ca3fbe9e3654659a,scale_with_item,True,,,not_visible,none_shown,,,,"Bread package (American Bread) sits on a Micromatic scale platter; weight display shows only dim unlit segments (blank), consistent with the scale being off"
+sonnet_c04b,v1.0,sweep_c1,0898,sheet_225.jpg,10876,1777520211674.jpg,460457bcb46bb526,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0899,sheet_225.jpg,10169,1774403220438.jpg,13d5164aa173e64b,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04b,v1.0,sweep_c1,0900,sheet_225.jpg,10731,1777687563257.jpg,c107715aee5dbad1,label_closeup,,,,not_visible,none_shown,,,,Angelina Medium Loaf label close-up; net weight text not within this crop
+sonnet_c04b,v1.0,sweep_c1,0901,sheet_226.jpg,5266,1775872592321.jpg,95df782b922355f3,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0902,sheet_226.jpg,3078,1776300822376.jpg,8b4386a9fba32d36,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0903,sheet_226.jpg,10477,1777598717026.jpg,944ba027a682c341,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04b,v1.0,sweep_c1,0904,sheet_226.jpg,4938,1775610098763.jpg,c039f0c389b19f9b,label_closeup,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0905,sheet_227.jpg,5246,1778548607722.jpg,157a032969a06956,item_no_scale,,,,not_visible,none_shown,100mL,100.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0906,sheet_227.jpg,8626,1773891177882.jpg,a68b4ec9a266c409,item_no_scale,,,,not_visible,none_shown,240 mL,240.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0907,sheet_227.jpg,7350,1774658870488.jpg,44ff086c9a9d31d1,other,,,,not_visible,none_shown,260 grams,260.0,g,shelf of stacked Argentina corned beef/ginisa cans with price tags; 260 grams net wt legible on a can lid
+sonnet_c04b,v1.0,sweep_c1,0908,sheet_227.jpg,10536,1777690307386.jpg,025d61494f80de2b,label_closeup,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0909,sheet_228.jpg,4369,1776134980559.jpg,2d68e9ef9f6104e8,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,
+sonnet_c04b,v1.0,sweep_c1,0910,sheet_228.jpg,6075,1774592908022.jpg,5c20965fa18da74e,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0911,sheet_228.jpg,5967,1774404390984.jpg,1c6a327284393f65,label_closeup,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0912,sheet_228.jpg,9235,1774069329593.jpg,8fa67942853ed500,other,,,,not_visible,none_shown,,,,row of Tanduay bottles on a shelf with a price tag; no single item's volume clearly legible
+sonnet_c04b,v1.0,sweep_c1,0913,sheet_229.jpg,5059,1775708588871.jpg,723ca1cd91447b79,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04b,v1.0,sweep_c1,0914,sheet_229.jpg,8982,1773889339258.jpg,9135f16225b2dabd,item_no_scale,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0915,sheet_229.jpg,5372,1774661683262.jpg,b39479729236f21b,label_closeup,,,,not_visible,none_shown,65mL,65.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0916,sheet_229.jpg,4095,1776389004468.jpg,8fc59472855a3cc6,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04b,v1.0,sweep_c1,0917,sheet_230.jpg,4492,1776137101142.jpg,7e95aacfa189ee84,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0918,sheet_230.jpg,55,1778473772789.jpg,2d7f1b2960642f86,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04b,v1.0,sweep_c1,0919,sheet_230.jpg,2259,1776390756912.jpg,94bb96d26334c750,item_no_scale,,,,not_visible,none_shown,355 mL,355.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0920,sheet_230.jpg,6352,1774502934171.jpg,e3c3d74da347668e,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0921,sheet_231.jpg,7322,1774661434484.jpg,64c69d7db764ca79,other,,,,not_visible,none_shown,750 mL,750.0,mL,rack of multiple Tanduay Dark bottles; volume legible on the nearest bottle
+sonnet_c04b,v1.0,sweep_c1,0922,sheet_231.jpg,5612,1774488745307.jpg,209951ce191732cb,label_closeup,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0923,sheet_231.jpg,10587,1777336559260.jpg,a3939debfb7fa924,label_closeup,,,,not_visible,none_shown,60 mL,60.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0924,sheet_231.jpg,10052,1773796157555.jpg,31c91c8f5c0e6d5e,scale_with_item,True,,,not_visible,none_shown,,,,weight display mostly obscured by a plate/lid leaning against the scale; a Tanduay Rhum Light bottle stands on the platter
+sonnet_c04b,v1.0,sweep_c1,0925,sheet_232.jpg,5389,1774579981402.jpg,595cdce3b444652d,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0926,sheet_232.jpg,6881,1775536154801.jpg,a1301cd8e517bab5,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0927,sheet_232.jpg,1786,1776740619749.jpg,d07b62058b9b5b3c,label_closeup,,,,not_visible,none_shown,Net Wt. 600g,600.0,g,
+sonnet_c04b,v1.0,sweep_c1,0928,sheet_232.jpg,6886,1775609547789.jpg,e647b99a3d88a71d,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,a second Tanduay bottle (labeled 375 mL) is visible partially in the background
+sonnet_c04b,v1.0,sweep_c1,0929,sheet_233.jpg,379,1777345337232.jpg,22f5079db6246452,label_closeup,,,,not_visible,none_shown,NET WT. 30g,30.0,g,
+sonnet_c04b,v1.0,sweep_c1,0930,sheet_233.jpg,1516,1777513435151.jpg,48ff01552a36331d,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0931,sheet_233.jpg,8517,1775788152303.jpg,5ffc4a436e2546ca,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04b,v1.0,sweep_c1,0932,sheet_233.jpg,7964,1776044641556.jpg,bf797fce32f77824,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0933,sheet_234.jpg,3766,1775699549291.jpg,540d9d2508fdf886,item_no_scale,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0934,sheet_234.jpg,2918,1776653905320.jpg,dfff25928bd53fc7,label_closeup,,,,not_visible,none_shown,200mL,200.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0935,sheet_234.jpg,9239,1774316553618.jpg,a299c58f433aac92,item_no_scale,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0936,sheet_234.jpg,4092,1776387528833.jpg,861b54864098f233,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c04b,v1.0,sweep_c1,0937,sheet_235.jpg,8033,1775885653454.jpg,376e894ae0e566f3,label_closeup,,,,not_visible,none_shown,NET WT. 250g,250.0,g,
+sonnet_c04b,v1.0,sweep_c1,0938,sheet_235.jpg,3824,1776479874897.jpg,9efd545c02042ba8,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0939,sheet_235.jpg,2590,1776733041225.jpg,4ee0ae529e887162,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0940,sheet_235.jpg,4480,1776138711248.jpg,e686a81930603040,label_closeup,,,,not_visible,none_shown,Net Weight: 110 ml,110.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0941,sheet_236.jpg,3490,1776828640007.jpg,6d52f7ead15f2c63,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0942,sheet_236.jpg,8375,1775781363496.jpg,b08eb5882ce4f884,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0943,sheet_236.jpg,10580,1777270833478.jpg,e8332f4f58f8ffca,label_closeup,,,,not_visible,none_shown,60ml,60.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0944,sheet_236.jpg,7489,1774318221842.jpg,08e66ebb276d8879,item_no_scale,,,,not_visible,none_shown,,,,Aice Sorbetes Ube Time cup; net weight text present on lid but not legible at this resolution
+sonnet_c04b,v1.0,sweep_c1,0945,sheet_237.jpg,6615,1773797444550.jpg,3253193df42e8ecf,scale_with_item,True,0.045,True,clear,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0946,sheet_237.jpg,2586,1776667088722.jpg,3eb60b4255dc2a94,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,
+sonnet_c04b,v1.0,sweep_c1,0947,sheet_237.jpg,11367,1776998807092.jpg,259c4564c45a69a0,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0948,sheet_237.jpg,1194,1778119995357.jpg,a5ff20790302e1aa,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0949,sheet_238.jpg,6360,1774409847392.jpg,bb83814343d03366,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0950,sheet_238.jpg,1295,1777339590335.jpg,8beaa2f7c8d573e1,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,
+sonnet_c04b,v1.0,sweep_c1,0951,sheet_238.jpg,3487,1776834098980.jpg,ab7fc734c504a6ab,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,
+sonnet_c04b,v1.0,sweep_c1,0952,sheet_238.jpg,6349,1774493867383.jpg,56b452b01682058f,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0953,sheet_239.jpg,10330,1774576336501.jpg,4f882f2acd29a372,other,,,,not_visible,none_shown,,,,"chest freezer with multiple hotdog/ham packages (Champion Hotdog, Chicken Hotdog, Sweet Ham); no single item's weight legible"
+sonnet_c04b,v1.0,sweep_c1,0954,sheet_239.jpg,2097,1776921359991.jpg,fff5a5124772b71a,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0955,sheet_239.jpg,10795,1777425623269.jpg,b51f880f1aed01cf,label_closeup,,,,not_visible,none_shown,60mL,60.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0956,sheet_239.jpg,4082,1776387690974.jpg,b2ed58ab2077c898,item_no_scale,,,,not_visible,none_shown,,,,"Tanduay Rhum E.S.Q. Dark bottle, back label shown; volume not legible"
+sonnet_c04b,v1.0,sweep_c1,0957,sheet_240.jpg,6871,1778816191987.jpg,17e08aeb473b4e37,label_closeup,,,,not_visible,none_shown,65ml,65.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0958,sheet_240.jpg,1527,1777428189899.jpg,1e85e0056f0eb86e,item_no_scale,,,,not_visible,none_shown,,,,"volume text on label is blurred/glare-affected, not confidently legible"
+sonnet_c04b,v1.0,sweep_c1,0959,sheet_240.jpg,530,1777509910415.jpg,66095a38009b93df,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0960,sheet_240.jpg,5745,1774576430017.jpg,75c031935c509d6f,label_closeup,,,,not_visible,none_shown,NET WT. 1.0K,1.0,kg,
+sonnet_c04b,v1.0,sweep_c1,0961,sheet_241.jpg,2722,1776222112682.jpg,16b4eec52eb75c9f,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,
+sonnet_c04b,v1.0,sweep_c1,0962,sheet_241.jpg,2261,1779160067881.jpg,6dfe265fdb193beb,item_no_scale,,,,not_visible,none_shown,350 mL,350.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0963,sheet_241.jpg,3499,1779246255374.jpg,cad5f62867283cdf,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0964,sheet_241.jpg,8658,1773896656541.jpg,63ce8a4bd7a3199c,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0965,sheet_242.jpg,6357,1774402091651.jpg,9391e5a857143980,item_no_scale,,,,not_visible,none_shown,,,,volume text on label not clearly legible at this angle
+sonnet_c04b,v1.0,sweep_c1,0966,sheet_242.jpg,1049,1777263308966.jpg,3042d84d0ad52bdd,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0967,sheet_242.jpg,2723,1776223861369.jpg,7f3d024d1c3054d7,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04b,v1.0,sweep_c1,0968,sheet_242.jpg,43,1778468487334.jpg,06e77b8adbc9dd34,item_no_scale,,,,not_visible,none_shown,1 Liter,1.0,L,
+sonnet_c04b,v1.0,sweep_c1,0969,sheet_243.jpg,8647,1773976395733.jpg,f42bdbbba0f2af69,scale_with_item,True,0.046,True,probable,none_shown,,,,last digit blurred by motion; read as 6 from the segment pattern with moderate confidence
+sonnet_c04b,v1.0,sweep_c1,0970,sheet_243.jpg,10170,1774484797054.jpg,76f986f56a17d3e2,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0971,sheet_243.jpg,3829,1776479960686.jpg,31d98d0181776a6f,label_closeup,,,,not_visible,none_shown,Net Wt. 450 g,450.0,g,
+sonnet_c04b,v1.0,sweep_c1,0972,sheet_243.jpg,8819,1778290779420.jpg,970a1cc4b501000b,label_closeup,,,,not_visible,none_shown,wt: 90g,90.0,g,
+sonnet_c04b,v1.0,sweep_c1,0973,sheet_244.jpg,3339,1776303452287.jpg,d585b093fac8660d,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0974,sheet_244.jpg,10297,1774659599271.jpg,08d5b444af1299ec,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0975,sheet_244.jpg,8820,1775806326351.jpg,baabcba18cd4a9b1,label_closeup,,,,not_visible,none_shown,Net wt: 90g,90.0,g,
+sonnet_c04b,v1.0,sweep_c1,0976,sheet_244.jpg,8663,1773889569546.jpg,e927d1367062cebd,scale_with_item,True,,,not_visible,none_shown,375 mL,375.0,mL,weight display fully hidden behind the bottle; Tanduay Dark bottle stands on the Micromatic scale platter
+sonnet_c04b,v1.0,sweep_c1,0977,sheet_245.jpg,7780,1776651734445.jpg,9833b0a3735f1365,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0978,sheet_245.jpg,4491,1776212929440.jpg,cbae4775fc361ee5,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0979,sheet_245.jpg,7628,1774421938444.jpg,291e52d931535b93,scale_with_item,True,1.025,True,clear,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0980,sheet_245.jpg,6727,1775537260055.jpg,9c2786062bf5e065,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0981,sheet_246.jpg,5728,1774577815737.jpg,9edf07b413c32720,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0982,sheet_246.jpg,6403,1774490600214.jpg,feb787eea4eb2ce4,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,
+sonnet_c04b,v1.0,sweep_c1,0983,sheet_246.jpg,8028,1776051297668.jpg,922373be9aa0bfca,label_closeup,,,,not_visible,none_shown,Net Wt.: 250g,250.0,g,
+sonnet_c04b,v1.0,sweep_c1,0984,sheet_246.jpg,8649,1773886735467.jpg,e7cf8b6de72f12b5,scale_with_item,True,0.085,True,probable,none_shown,,,,last digit slightly blurred; read with moderate confidence
+sonnet_c04b,v1.0,sweep_c1,0985,sheet_247.jpg,5263,1775871540319.jpg,9d702ceece5e8b4d,other,,,,not_visible,none_shown,750 mL,750.0,mL,"two Tanduay bottles (Dark, Light) on a shelf; volume legible on the Dark bottle only"
+sonnet_c04b,v1.0,sweep_c1,0986,sheet_247.jpg,7348,1774577139040.jpg,0936c3e7f4a3798d,item_no_scale,,,,not_visible,none_shown,260 grams,260.0,g,
+sonnet_c04b,v1.0,sweep_c1,0987,sheet_247.jpg,5651,1774487289627.jpg,bca7d9be7045c71f,item_no_scale,,,,not_visible,none_shown,375 ml,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0988,sheet_247.jpg,3344,1776306384650.jpg,041c0dfb2993cfd3,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0989,sheet_248.jpg,4870,1775877774698.jpg,e889731d37218cfc,item_no_scale,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0990,sheet_248.jpg,5726,1778202548323.jpg,6c9fb5cb19b6e225,label_closeup,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0991,sheet_248.jpg,9839,1773889787804.jpg,b54d666c8c4e1386,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0992,sheet_248.jpg,10787,1777425540007.jpg,8c16bb309b4276ba,label_closeup,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0993,sheet_249.jpg,5251,1776037567471.jpg,0ec45f60955afc65,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0994,sheet_249.jpg,3484,1776826088377.jpg,d1820ceffcb2a8f8,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0995,sheet_249.jpg,10035,1773721757554.jpg,b41b4cd934bc4838,scale_with_item,True,0.490,True,clear,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,0996,sheet_249.jpg,10794,1777425977479.jpg,dd6d1e2d53fd23ee,label_closeup,,,,not_visible,none_shown,35 mL,35.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0997,sheet_250.jpg,11166,1776826988576.jpg,c2eddae0658b89ce,label_closeup,,,,not_visible,none_shown,,,,Loyloy Cookies & Cream Sundae cup; net weight text not clearly legible
+sonnet_c04b,v1.0,sweep_c1,0998,sheet_250.jpg,1044,1777256417817.jpg,171c39ec6e47433b,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,0999,sheet_250.jpg,6079,1774588598006.jpg,6c0b9fcbbee3cc45,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1000,sheet_250.jpg,532,1777430492733.jpg,86530678d852fe5e,item_no_scale,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,1001,sheet_251.jpg,6617,1773796976453.jpg,af42dea8ad0287a2,scale_with_item,True,0.040,True,clear,none_shown,,,,scale panel photographed rotated 90 degrees; digits read after mental rotation
+sonnet_c04b,v1.0,sweep_c1,1002,sheet_251.jpg,10712,1777604296257.jpg,ae3f6a579378b809,label_closeup,,,,not_visible,none_shown,100mL,100.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1003,sheet_251.jpg,6344,1774408101295.jpg,339cf1a3678e39eb,label_closeup,,,,not_visible,none_shown,,,,Selecta Boom Boom Cookies & Cream stick; volume text not clearly legible in this crop
+sonnet_c04b,v1.0,sweep_c1,1004,sheet_251.jpg,4615,1776303568033.jpg,93a8b34f4babb4b2,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1005,sheet_252.jpg,4064,1776389050618.jpg,8d051a8178a45e0b,label_closeup,,,,not_visible,none_shown,Net Weight: 48.9 g,48.9,g,
+sonnet_c04b,v1.0,sweep_c1,1006,sheet_252.jpg,2269,1776396841082.jpg,7dc9d74f017ac57a,item_no_scale,,,,not_visible,none_shown,230 ML,230.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1007,sheet_252.jpg,526,1777429293128.jpg,34b5cdc6d1199985,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1008,sheet_252.jpg,5937,1774409486785.jpg,6e4cff3dc2ab6566,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1009,sheet_253.jpg,4780,1776384322751.jpg,3a20fcdac9cdfbc7,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1010,sheet_253.jpg,10180,1774497723071.jpg,b4f81f65725639fd,item_no_scale,,,,not_visible,none_shown,750 mL,750.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1011,sheet_253.jpg,4783,1776307868335.jpg,962f7d36a095f098,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1012,sheet_253.jpg,6880,1775547040092.jpg,bf47875c05787619,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1013,sheet_254.jpg,2939,1776652850850.jpg,33dbb7abe545fbd1,item_no_scale,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,1014,sheet_254.jpg,5490,1774574703723.jpg,defef8ad85668ed7,label_closeup,,,,not_visible,none_shown,Net Wt.: 200g,200.0,g,
+sonnet_c04b,v1.0,sweep_c1,1015,sheet_254.jpg,6488,1774053841386.jpg,4746659ddc2c3cd4,label_closeup,,,,not_visible,none_shown,,,,
+sonnet_c04b,v1.0,sweep_c1,1016,sheet_254.jpg,3940,1775701678576.jpg,684ed76127681a34,label_closeup,,,,not_visible,none_shown,Net Wt. 640 g,640.0,g,a second bag (Medium Loaf) shows Net Wt. 450 g partially visible to its left
+sonnet_c04b,v1.0,sweep_c1,1017,sheet_255.jpg,4206,1775877669390.jpg,9eb44a6a80cceab5,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1018,sheet_255.jpg,10023,1773794534411.jpg,2dae786cd048bf0f,scale_with_item,True,0.060,True,clear,none_shown,,,,STAB indicator lit
+sonnet_c04b,v1.0,sweep_c1,1019,sheet_255.jpg,5043,1775786960083.jpg,068ac6264bbb7ad3,item_no_scale,,,,not_visible,none_shown,375 mL,375.0,mL,
+sonnet_c04b,v1.0,sweep_c1,1020,sheet_255.jpg,7781,1776651755188.jpg,75ba2a5f6513642e,item_no_scale,,,,not_visible,none_shown,,,,
