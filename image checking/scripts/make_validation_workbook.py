@@ -140,6 +140,16 @@ def main(argv=None) -> int:
         ws.row_dimensions[row].height = im.height * 0.76  # px -> points
         ws.add_image(XLImage(tmp), f"C{row}")
 
+        # display_text IS TEXT, and this was missed in v1 at real cost. Left as a
+        # General cell, Excel coerces the answer to a number the moment it is typed:
+        # a display read as `0.300` comes back as `0.3`, and the trailing zeros the
+        # whole instrument is built to preserve are gone before the file is saved.
+        # 37 of 40 v1 answers returned as floats. The numeric comparison survived, so
+        # nothing was lost that mattered, but the exact-string check the instrument
+        # promises was simply unavailable.
+        dc = ws.cell(row=row, column=4)
+        dc.number_format = "@"
+
         dv_leg.add(ws.cell(row=row, column=5))
         dv_yn.add(ws.cell(row=row, column=6))
         for col in (4, 5, 6, 7):

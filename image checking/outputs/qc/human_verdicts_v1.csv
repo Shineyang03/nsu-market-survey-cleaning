@@ -1,0 +1,41 @@
+image_code,h_display_raw,h_display_val,h_unit_named,h_exact_available,reading_source,h_legible_raw,h_legible_yes,h_glare_flag,h_scale_present,h_notes,id,filename
+1774487698787,0.24,0.24,,0,scale,Y,1,0,1,240 grams (0.24 kg),7639,1774487698787.jpg
+1778722214887,2.095,2.095,,0,scale,Y,1,0,1,,7226,1778722214887.jpg
+1773731054952,355 mL,355.0,ml,1,package,Y,1,0,1,both mL (355 mL) from packaging and 0.7 kg from scale are legible from the photo. We should prioritize the volume reading from the packagin (355 mL) in such cases.,9994,1773731054952.jpg
+1777427847332,0.065,0.065,,0,scale,Y,1,0,1,,924,1777427847332.jpg
+1773730396940,0.3,0.3,,0,scale,Y,1,0,1,,9999,1773730396940.jpg
+1775521072842,0.14,0.14,,0,scale,Y,1,0,1,scale turned sideways,9045,1775521072842.jpg
+1775875357769,0.56,0.56,,0,scale,Y,1,1,1,Not sure if tared (taring required weighing the empty container first I think),4196,1775875357769.jpg
+1776219074931,0.44,0.44,,0,scale,Y,1,0,1,,4312,1776219074931.jpg
+1773969164870,0.03,0.03,,0,scale,"Y (just about, a lot of glare)",1,1,1,,9471,1773969164870.jpg
+1773969859472,0.025,0.025,,0,scale,Y,1,0,1,,9799,1773969859472.jpg
+1775703652194,0.13,0.13,,0,scale,"Y (bad glare but on first digit only, which with commonsense we can infer should be 0)",1,1,1,,4996,1775703652194.jpg
+1778834502177,0.44,0.44,,0,scale,Y,1,0,1,,7843,1778834502177.jpg
+1775610644371,0.405,0.405,,0,scale,Y (bad glare),1,1,1,,9068,1775610644371.jpg
+1776665292134,0.27,0.27,,0,scale,Y (bad glare),1,1,1,,2535,1776665292134.jpg
+1774422255907,0.95,0.95,,0,scale,Y,1,0,1,scale turned sideways,7625,1774422255907.jpg
+1773880892030,0.025,0.025,,0,scale,Y,1,0,1,,9790,1773880892030.jpg
+1774492836874,0.3,0.3,,0,scale,Y (bad glare),1,1,1,,5918,1774492836874.jpg
+1777082700414,0.215,0.215,,0,scale,Y,1,0,1,,2460,1777082700414.jpg
+1773913217221,0.575,0.575,,0,scale,Y,1,0,1,,9817,1773913217221.jpg
+1778207894293,0.5,0.5,,0,scale,Y (very bad glare),1,1,1,,71,1778207894293.jpg
+1774576272386,800 mL,800.0,ml,1,package,Y,1,0,1,"scale present, but volume marked on pacakge (800 mL); prioritize the volume label",5375,1774576272386.jpg
+1778117239723,0.205,0.205,,0,scale,Y,1,0,1,,110,1778117239723.jpg
+1773730865630,355 mL,355.0,ml,1,package,Y,1,0,1,both mL from packaging and kg from scale are legible from the photo. We should prioritize the volume reading from the packaging in such cases.,9995,1773730865630.jpg
+1773728699938,0.67,0.67,,0,scale,Y,1,0,1,,9510,1773728699938.jpg
+1773810007262,0.095,0.095,,0,scale,Y,1,0,1,,6202,1773810007262.jpg
+1776735202324,0.06,0.06,,0,scale,Y (bad glare),1,1,1,,2548,1776735202324.jpg
+1775866549083,0.08,0.08,,0,scale,Y,1,0,1,,5184,1775866549083.jpg
+1773794488084,0.545,0.545,,0,scale,Y,1,0,1,,9479,1773794488084.jpg
+1778288077794,0.4,0.4,,0,scale,Y (bad glare),1,1,1,,8882,1778288077794.jpg
+1773796774872,0.04,0.04,,0,scale,Y,1,0,1,,9461,1773796774872.jpg
+1773730426188,0.45,0.45,,0,scale,Y,1,0,1,,10000,1773730426188.jpg
+1775696058786,0.52,0.52,,0,scale,Y,1,0,1,,8435,1775696058786.jpg
+1774669586277,0.045,0.045,,0,scale,Y,1,0,1,,10269,1774669586277.jpg
+1773724826947,0.06,0.06,,0,scale,Y,1,0,1,,9424,1773724826947.jpg
+1774578054508,1.175,1.175,,0,scale,Y,1,0,1,,5443,1774578054508.jpg
+1775787569138,0.045,0.045,,0,scale,Y (just about),1,1,1,,3887,1775787569138.jpg
+1773721978047,0.485,0.485,,0,scale,Y,1,0,1,"mL not legible from packaging, hence adopt the kg reading from the scale",10047,1773721978047.jpg
+1774419159052,0.105,0.105,,0,scale,Y,1,0,1,,7576,1774419159052.jpg
+1773721624084,0.49,0.49,,0,scale,Y,1,0,1,"mL not legible from packaging, hence adopt the kg reading from the scale",10028,1773721624084.jpg
+1774321355224,0.54,0.54,,0,scale,Y,1,0,1,"mL not legible from packaging, hence adopt the kg reading from the scale",6498,1774321355224.jpg

@@ -158,6 +158,104 @@ joined only after readings are recorded.
 Samples are drawn with a recorded seed, stored in the manifest, so a later session
 drawing the same population reproduces the same rows.
 
+## Human validation, `human_v1` (2026-09-20) — the first non-circular numbers
+
+40 photographs, drawn stratified from images where both model readers agreed a scale
+was present, read **blind by a person**: no typed value, no published value, no model
+reading, no item name, no stratum, nothing pre-filled.
+
+This is the only ground truth in the project that does not depend on the data being
+checked. Two different questions become answerable, and they are kept apart.
+
+### 1. Reader accuracy — model against the human
+
+| reader | gave a reading | correct |
+| :-- | ---: | ---: |
+| Haiku, tiled | 27 | **55.6%** |
+| Sonnet, tiled | 33 | **97.0%** |
+| Sonnet, hi-res | 24 | **100%** |
+
+**Sonnet reads these displays essentially correctly.** The earlier 82.6% "agreement with
+the typed value" was not reader error — it was the typed values being wrong. That gap is
+the whole reason the yardstick had to change.
+
+Haiku at 55.6% confirms the earlier verdict from an independent direction: it should not
+read digits.
+
+### 2. The published value against the photograph — Check 2's actual answer
+
+| | |
+| :-- | ---: |
+| published value matches the display | **86.5%** of 37 |
+| mismatches | **5** |
+| of which a decade slip (10× or more) | **4** |
+
+**Where the errors are:**
+
+| stratum | wrong / total |
+| :-- | ---: |
+| C2 block governs | **3 / 11** |
+| C2 review queue | **2 / 4** |
+| C2 magnitude | 0 / 10 |
+| C1 liquid as mass | 0 / 7 |
+| C1 solid as Litres | 0 / 3 |
+| C1 dual-ticked | 0 / 2 |
+
+Every error falls in `block governs` or `review queue`. **The bulk `magnitude`
+corrections are clean, 10 for 10** — the `< 10 → ×1,000` rule works where it does most
+of its work. The failures are concentrated exactly where `photo_review_queue.do`
+predicted they would be, which is the diagnostic doing its job.
+
+**The four decade slips**, all published 10× too high:
+
+| image code | display shows | typed | published | should be |
+| :-- | --: | --: | --: | --: |
+| `1773810007262` | `0.095` | 0.950 g | 950 | 95 |
+| `1773724826947` | `0.06` | 0.600 g | 600 | 60 |
+| `1773796774872` | `0.04` | 0.400 g | 400 | 40 |
+| `1775787569138` | `0.045` | 0.450 g | 450 | 45 |
+
+Three of these were flagged by the models before the human saw them. The human confirmed
+all three and found a fourth.
+
+**These are not population rates.** n=37, drawn from strata that deliberately
+over-sample the awkward cells. What they establish is that the failure mode is real, that
+it is concentrated where the diagnostics said, and that a model reader can find it.
+
+### What the returned workbook cost
+
+Three defects, recorded because two of them changed a number:
+
+- **Excel coerced 37 of 40 answers to numbers**, so `0.300` returned as `0.3`. The
+  workbook generator set a text format on the image code and not on the answer column.
+  Fixed for v2. The numeric comparison was unaffected; the exact-string check the
+  instrument promises was simply unavailable.
+- **The `legible` dropdown did not bind** — answers came back as free text
+  (`Y (bad glare)`). That turned out *more* informative than the closed vocabulary, and
+  is parsed into a glare flag rather than rejected. 10 of 40 rows carry one.
+- **A normalisation bug in the scoring reported a false positive twice.** Re-scaling the
+  raw typed value re-implements the block rule, and the version used did not cover the
+  litre branch, where a sub-0.01 litre entry is multiplied by 1,000,000. `0.001175 L`
+  scored as a mismatch against a display of `1.175` when the pipeline had published
+  `1175` — correct. Fixed by comparing the **published** value, which the pipeline
+  already computed, instead of recomputing one. This is precisely the rule the project's
+  `CLAUDE.md` states, and breaking it cost two wrong findings.
+
+### Open: package volume versus scale reading
+
+Three rows record a **package volume** rather than the scale display, on the reviewer's
+stated rule that a printed volume is preferred where both are visible. They are excluded
+from the scores above, because the question there is what the display said.
+
+**That rule needs a decision before it is encoded**, because it answers two questions at
+once. For Check 2 the scale reading is the relevant quantity — it is what the officer
+transcribed. For Check 1 and A23 the package volume may well be the better datum. On one
+of these rows the reviewer noted both were legible: `355 mL` printed, `0.7 kg` on the
+scale. A 355 mL container weighing 700 g is a real discrepancy, not a misread, and it
+matches an anomaly flagged independently in the `liquid as mass` stratum.
+
+Recording **both** readings would settle it without choosing. See the open items below.
+
 ## Calibration results, `calib_v1` (2026-09-19)
 
 148 images, stratified, 20 per cell. Two models read every image: Haiku and Sonnet,

@@ -1,0 +1,41 @@
+id,stratum,rawtick,raw_weight,corrected_weight,image_code,h_display_raw,reading_source,h_glare_flag,h_notes,m_haiku,m_sonnet,m_hires,human_g,haiku_g,sonnet_g,hires_g,typed_g,scale_row,ok_haiku,ok_sonnet,ok_hires,typed_ok,typed_ratio,typed_decade
+10028,C1 dual-ticked,grams (g),490,490,1773721624084,0.49,scale,0,"mL not legible from packaging, hence adopt the kg reading from the scale",.789,.49,.49,490,789,490,490,490,1,0,1,1,1,1,0
+10047,C1 dual-ticked,grams (g),485,485,1773721978047,0.485,scale,0,"mL not legible from packaging, hence adopt the kg reading from the scale",,.485,,485,,485,,485,1,,1,,1,1,0
+9424,C2 block governs,grams (g),.60000002,600,1773724826947,0.06,scale,0,,.08,.06,.06,60,80,60,60,600.0000199999999,1,0,1,1,0,10,1
+9510,C2 magnitude,grams (g),.67000002,670,1773728699938,0.67,scale,0,,.67,.67,.67,670,670,670,670,670.0000200000001,1,1,1,1,1,1,0
+9999,C1 liquid as mass,grams (g),300,300,1773730396940,0.3,scale,0,,,.3,,300,,300,,300,1,,1,,1,1,0
+10000,C1 liquid as mass,grams (g),450,450,1773730426188,0.45,scale,0,,,.45,,450,,450,,450,1,,1,,1,1,0
+9995,C1 liquid as mass,grams (g),760,760,1773730865630,355 mL,package,0,both mL from packaging and kg from scale are legible from the photo. We should prioritize the volume reading from the packaging in such cases.,.66,.76,.78,355,660,760,780,760,0,,,,,,
+9994,C1 liquid as mass,grams (g),700,700,1773731054952,355 mL,package,0,both mL (355 mL) from packaging and 0.7 kg from scale are legible from the photo. We should prioritize the volume reading from the packagin (355 mL) in such cases.,,,,355,,,,700,0,,,,,,
+9479,C2 magnitude,grams (g),.54500002,545,1773794488084,0.545,scale,0,,.545,.545,.545,545,545,545,545,545.0000200000001,1,1,1,1,1,1,0
+9461,C2 review queue,grams (g),.40000001,400,1773796774872,0.04,scale,0,,.04,.04,.04,40,40,40,40,400.00001,1,1,1,1,0,10,1
+6202,C2 review queue,grams (g),.94999999,950,1773810007262,0.095,scale,0,,.005,.095,.095,95,5,95,95,949.99999,1,0,1,1,0,10,1
+9790,C2 magnitude,grams (g),.025,25,1773880892030,0.025,scale,0,,.025,.025,.025,25,25,25,25,25,1,1,1,1,1,1,0
+9817,C2 block governs,grams (g),.57499999,575,1773913217221,0.575,scale,0,,.515,.575,.575,575,515,575,575,574.99999,1,0,1,1,1,1,0
+9471,C2 block governs,grams (g),.025,25,1773969164870,0.03,scale,1,,.035,.03,,30,35,30,,25,1,0,1,,0,.8333333333333334,0
+9799,C2 block governs,grams (g),.025,25,1773969859472,0.025,scale,0,,.025,.025,.025,25,25,25,25,25,1,1,1,1,1,1,0
+6498,C2 block governs,grams (g),.54000002,540,1774321355224,0.54,scale,0,"mL not legible from packaging, hence adopt the kg reading from the scale",.54,.54,.54,540,540,540,540,540.0000200000001,1,1,1,1,1,1,0
+7576,C2 block governs,grams (g),.105,105,1774419159052,0.105,scale,0,,.105,.105,.105,105,105,105,105,105,1,1,1,1,1,1,0
+7625,C1 solid as Litres,Litres (L),.94999999,950,1774422255907,0.95,scale,0,scale turned sideways,.85,.95,.958,950,850,950,958,949.99999,1,0,1,1,1,1,0
+7639,C1 liquid as mass,grams (g),.23999999,240,1774487698787,0.24,scale,0,240 grams (0.24 kg),.007,.24,.24,240,7,240,240,239.99999,1,0,1,1,1,1,0
+5918,C1 liquid as mass,grams (g),300,300,1774492836874,0.3,scale,1,,,1.3,,300,,1300,,300,1,,0,,1,1,0
+5375,C1 dual-ticked,Litres (L),.80000001,800,1774576272386,800 mL,package,0,"scale present, but volume marked on pacakge (800 mL); prioritize the volume label",,,,800,,,,800.00001,0,,,,,,
+5443,C1 solid as Litres,Litres (L),.001175,1175,1774578054508,1.175,scale,0,,.115,1.175,1.175,1175,115,1175,1175,1.175,1,0,1,1,1,1,0
+10269,C2 review queue,grams (g),.045000002,45,1774669586277,0.045,scale,0,,.045,.045,.045,45,45,45,45,45.00000199999999,1,1,1,1,1,1,0
+9045,C2 magnitude,grams (g),.14,140,1775521072842,0.14,scale,0,scale turned sideways,.135,,,140,135,,,140,1,0,,,1,1,0
+9068,C1 liquid as mass,grams (g),.405,405,1775610644371,0.405,scale,1,,,,,405,,,,405,1,,,,1,1,0
+8435,C2 block governs,grams (g),.51999998,520,1775696058786,0.52,scale,0,,.52,.52,.52,520,520,520,520,519.9999800000001,1,1,1,1,1,1,0
+4996,C2 magnitude,grams (g),.13,130,1775703652194,0.13,scale,1,,.13,.13,.13,130,130,130,130,130,1,1,1,1,1,1,0
+3887,C2 block governs,grams (g),.44999999,450,1775787569138,0.045,scale,1,,,.045,,45,,45,,449.99999,1,,1,,0,10,1
+5184,C2 review queue,grams (g),.079999998,80,1775866549083,0.08,scale,0,,.05,.08,.08,80,50,80,80,79.99999800000001,1,0,1,1,1,1,0
+4196,C2 block governs,grams (g),.5600000000000001,560,1775875357769,0.56,scale,1,Not sure if tared (taring required weighing the empty container first I think),.5600000000000001,.5600000000000001,.5600000000000001,560,560,560,560,560,1,1,1,1,1,1,0
+4312,C1 liquid as mass,grams (g),440,440,1776219074931,0.44,scale,0,,.14,.44,.44,440,140,440,440,440,1,0,1,1,1,1,0
+2535,C2 block governs,grams (g),.27000001,270,1776665292134,0.27,scale,1,,.08,,,270,80,,,270.00001,1,0,,,1,1,0
+2548,C2 magnitude,grams (g),.059999999,60,1776735202324,0.06,scale,1,,,.06,,60,,60,,59.999999,1,,1,,1,1,0
+2460,C2 magnitude,grams (g),.215,215,1777082700414,0.215,scale,0,,215,.215,.215,215,215,215,215,215,1,1,1,1,1,1,0
+924,C2 magnitude,grams (g),.064999998,65,1777427847332,0.065,scale,0,,,.065,,65,,65,,64.99999800000001,1,,1,,1,1,0
+110,C2 magnitude,grams (g),.205,205,1778117239723,0.205,scale,0,,.205,.205,.205,205,205,205,205,205,1,1,1,1,1,1,0
+71,C2 magnitude,grams (g),.5,500,1778207894293,0.5,scale,1,,,,,500,,,,500,1,,,,1,1,0
+8882,C1 solid as Litres,Litres (L),.40000001,400,1778288077794,0.4,scale,1,,,.4,,400,,400,,400.00001,1,,1,,1,1,0
+7226,C2 block governs,Kilograms (Kgs),2060,2060,1778722214887,2.095,scale,0,,2095,2.095,2.095,2095,2095,2095,2095,2060,1,1,1,1,1,.9832935560859188,0
+7843,C1 liquid as mass,grams (g),.44,440,1778834502177,0.44,scale,0,,.44,.44,.44,440,440,440,440,440,1,1,1,1,1,1,0
