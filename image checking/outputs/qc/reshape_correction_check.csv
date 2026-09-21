@@ -1,0 +1,32 @@
+key,obs_type,reshape_says,raw_weight,raw_tick,pull_item,pull_province,pull_municipal_city,pull_nsu_unit,vendor_id,in_raw,id,corrected_weight,corrected_unit,snap_rule,published_matches
+uuid:977ea27a-b6c4-4a59-b7f0-90a410cca1bc,small_size,250.0,250.0,grams (g),Cabbage,ILOILO,LEMERY,Bilog,45U0ZA9A,True,7807,250.0,g,log10 median,True
+uuid:977ea27a-b6c4-4a59-b7f0-90a410cca1bc,large_size,880.0,880.0,grams (g),Cabbage,ILOILO,LEMERY,Bilog,45U0ZA9A,True,7809,880.0,g,log10 median,True
+uuid:3dda771d-4745-4534-b4f9-4a54d67cca0d,small_size,80.0,80.0,grams (g),Carrot,ILOILO,CABATUAN,Bilog,7YTYU2EI,True,6158,80.0,g,log10 median,True
+uuid:3dda771d-4745-4534-b4f9-4a54d67cca0d,large_size,220.0,220.0,grams (g),Carrot,ILOILO,CABATUAN,Bilog,7YTYU2EI,True,6160,220.0,g,log10 median,True
+uuid:e1608bd2-c512-417d-87a1-3659cba17f76,small_size,75.0,75.0,grams (g),Carrot,ILOILO,LEMERY,Bilog,XWHJ4ORI,True,7829,75.0,g,log10 median,True
+uuid:e1608bd2-c512-417d-87a1-3659cba17f76,medium_size,85.0,85.0,grams (g),Carrot,ILOILO,LEMERY,Bilog,XWHJ4ORI,True,7830,85.0,g,log10 median,True
+uuid:e1608bd2-c512-417d-87a1-3659cba17f76,large_size,115.0,115.0,grams (g),Carrot,ILOILO,LEMERY,Bilog,XWHJ4ORI,True,7831,115.0,g,log10 median,True
+uuid:88853cde-61a2-41cf-aa26-df2b661a5952,medium_size,450.0,450.0,grams (g),Loaf Bread,ILOILO,ANILAO,Gagmay nga putos,21K77H8W,True,5394,450.0,g,log10 median,True
+uuid:88853cde-61a2-41cf-aa26-df2b661a5952,large_size,640.0,640.0,grams (g),Loaf Bread,ILOILO,ANILAO,Gagmay nga putos,21K77H8W,True,5395,640.0,g,log10 median,True
+uuid:c87422d3-48ce-452e-a212-ce4a9ac13184,large_size,670.0,670.0,grams (g),Loaf Bread,ILOILO,ANILAO,Gagmay nga putos,KCLCRGM7,True,5398,670.0,g,log10 median,True
+uuid:c074ca44-8bae-42bc-b923-d42a3f6d1c25,large_size,1005.0,1005.0,grams (g),Cabbage,ILOILO,MIAGAO,Bilog,4KIZSAE8,True,8147,1005.0,g,log10 median,True
+uuid:a6db9ca1-0869-472e-92a8-4f9d84a0eb43,large_size,1140.0,1140.0,grams (g),Cabbage,ILOILO,AJUY,Bilog,GJ3HETVD,True,5074,1140.0,g,log10 median,True
+uuid:a92f2e45-6a5e-41d7-aaa6-f9f42025a9f1,large_size,1290.0,1290.0,grams (g),Mango,CAPIZ,PILAR,"Papaya, mango, banana",U8UC87GD,True,4631,1290.0,g,block governs,True
+uuid:36940434-299b-45b7-b8e6-d63befa573cf,large_size,1170.0,1170.0,grams (g),Cabbage,ILOILO,LEGANES,Bilog,2TX3GWME,True,7705,1170.0,g,log10 median,True
+uuid:ccaf3063-7cf7-493e-b1ab-88c16e32f45a,large_size,1165.0,1165.0,grams (g),"Preserved or Processed Meat (Tocino, Tapa, Longaniza, etc)",ILOILO,LEGANES,Putos,NIH8DHBZ,True,7803,1165.0,g,log10 median,True
+uuid:776c2eb4-1175-4274-ba70-52dcc09565b3,large_size,1245.0,1245.0,grams (g),Camote tops,ILOILO,POTOTAN,Bugkos,FQYUMF6W,True,8761,1245.0,g,block governs,True
+uuid:ff49b9ad-724c-4961-82ef-3f7b50f99857,large_size,1280.0,1280.0,grams (g),Camote tops,NEGROS OCCIDENTAL,MOISES PADILLA (MAGALLON),Bugkos,5UXL3ISV,True,11035,1280.0,g,block governs,True
+uuid:ac6b9ada-e057-4d59-b9c5-e3d26277669f,medium_size,1015.0,1015.0,grams (g),Chicken,NEGROS OCCIDENTAL,PONTEVEDRA,Whole (chicken),4C70OPQB,True,11142,1015.0,g,log10 median,True
+uuid:ac6b9ada-e057-4d59-b9c5-e3d26277669f,large_size,1245.0,1245.0,grams (g),Chicken,NEGROS OCCIDENTAL,PONTEVEDRA,Whole (chicken),4C70OPQB,True,11143,1245.0,g,log10 median,True
+uuid:559f2cdd-7e86-4b0c-8a48-9218250fece3,large_size,1230.0,1230.0,grams (g),Chicken,NEGROS OCCIDENTAL,PONTEVEDRA,Whole (chicken),54IQYDSO,True,11146,1230.0,g,log10 median,True
+uuid:50a2fd6e-51d7-4aa1-a9c4-4b1161a61948,small_size,75.0,75.0,grams (g),Camote,ILOILO,CABATUAN,Bilog,KFLCXAEW,True,6140,75.0,g,log10 median,True
+uuid:50a2fd6e-51d7-4aa1-a9c4-4b1161a61948,medium_size,145.0,145.0,grams (g),Camote,ILOILO,CABATUAN,Bilog,KFLCXAEW,True,6141,145.0,g,log10 median,True
+uuid:50a2fd6e-51d7-4aa1-a9c4-4b1161a61948,large_size,205.0,205.0,grams (g),Camote,ILOILO,CABATUAN,Bilog,KFLCXAEW,True,6142,205.0,g,log10 median,True
+uuid:686026f3-2109-4487-8891-ab347de89417,small_size,850.0,850.0,grams (g),Fresh Fish,ILOILO,SANTA BARBARA,Bilog,C1TU2FTH,True,9617,850.0,g,log10 median,True
+uuid:686026f3-2109-4487-8891-ab347de89417,medium_size,290.0,290.0,grams (g),Fresh Fish,ILOILO,SANTA BARBARA,Bilog,C1TU2FTH,True,9618,290.0,g,log10 median,True
+uuid:686026f3-2109-4487-8891-ab347de89417,large_size,360.0,360.0,grams (g),Fresh Fish,ILOILO,SANTA BARBARA,Bilog,C1TU2FTH,True,9619,360.0,g,log10 median,True
+uuid:ea59ac9b-794a-450a-a6f8-d5fa5217efae,small_size,650.0,650.0,grams (g),Carrot,CAPIZ,MAMBUSAO,Bilog,SJY026ZY,True,4129,650.0,g,block governs,True
+uuid:ea59ac9b-794a-450a-a6f8-d5fa5217efae,medium_size,700.0,700.0,grams (g),Carrot,CAPIZ,MAMBUSAO,Bilog,SJY026ZY,True,4130,700.0,g,block governs,True
+uuid:ea59ac9b-794a-450a-a6f8-d5fa5217efae,large_size,85.0,85.0,grams (g),Carrot,CAPIZ,MAMBUSAO,Bilog,SJY026ZY,True,4131,85.0,g,log10 median,True
+uuid:04a36318-34cf-4838-909b-83713e626ea6,small_size,895.0,895.0,grams (g),Fresh Fish,ILOILO,BANATE,Putos,94RJWB9G,True,5639,895.0,g,block governs,True
+uuid:04a36318-34cf-4838-909b-83713e626ea6,medium_size,880.0,880.0,grams (g),Fresh Fish,ILOILO,BANATE,Putos,94RJWB9G,True,5640,880.0,g,block governs,True
