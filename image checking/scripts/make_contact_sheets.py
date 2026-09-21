@@ -110,6 +110,44 @@ def cached_photo(path: str, cell: int) -> Image.Image:
     return im
 
 
+def prefetch(paths, cell, workers=12):
+    """Warm the cache in parallel before any sheet is built.
+
+    THE BOTTLENECK IS THE NETWORK, NOT THE CPU. The photographs live on a streamed
+    Box drive, so each one is fetched over the wire on first access -- about 1.5
+    seconds for a 2-4 MB JPEG. Building 592 sheets sequentially measured at 10
+    sheets a minute, which is roughly 40 images a minute, and essentially all of
+    that was waiting.
+
+    Waiting parallelises. A dozen threads fetch a dozen images at once, and because
+    `cached_photo` writes each decoded thumbnail to local disk, the sequential pass
+    that follows reads everything from there instead of from Box.
+
+    The real fix is upstream and belongs to whoever runs this: pin the picture
+    folder to "Available offline" first. The project's CLAUDE.md says so for Stata
+    and the reason is identical here. This makes an unpinned folder tolerable; it
+    does not make it fast.
+
+    Failures are swallowed on purpose. A prefetch is an optimisation, and an image
+    that cannot be fetched here will raise again in build_sheet, where there is a
+    tile to mark UNREADABLE and a manifest row to record it.
+    """
+    from concurrent.futures import ThreadPoolExecutor
+
+    done = 0
+    total = len(paths)
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = [ex.submit(cached_photo, p, cell) for p in paths]
+        for f in futs:
+            try:
+                f.result()
+            except Exception:
+                pass
+            done += 1
+            if done % 200 == 0 or done == total:
+                print(f"  prefetched {done}/{total}", flush=True)
+
+
 def build_sheet(rows, cell, cols, label_h):
     """Compose one grid image. Returns (image, [(seq, cell_index), ...])."""
     n = len(rows)
@@ -167,6 +205,9 @@ def main(argv=None) -> int:
     ap.add_argument("--shuffle", action="store_true",
                     help="seeded shuffle after selection, so sheets do not cluster "
                          "by item or stratum")
+    ap.add_argument("--workers", type=int, default=12,
+                    help="threads used to prefetch images over the network. "
+                         "1 disables prefetching.")
     ap.add_argument("--cell", type=int, default=500, help="px per tile")
     ap.add_argument("--cols", type=int, default=3)
     ap.add_argument("--per-sheet", type=int, default=9)
@@ -221,6 +262,10 @@ def main(argv=None) -> int:
 
     outdir = os.path.join(SHEETDIR, args.out_tag)
     os.makedirs(outdir, exist_ok=True)
+
+    if args.workers > 1:
+        print(f"prefetching {len(df)} images with {args.workers} threads...")
+        prefetch(df.photo_path.tolist(), args.cell, workers=args.workers)
 
     manifest = []
     sheets = []
