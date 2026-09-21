@@ -90,13 +90,27 @@ def load_photo(path: str, cell: int) -> Image.Image:
     return im
 
 
-def cached_photo(path: str, cell: int) -> Image.Image:
-    """load_photo, memoised on local disk.
+def cached_photo(path: str, cell: int, attempts: int = 4) -> Image.Image:
+    """load_photo, memoised on local disk, retried on transient failure.
 
     Box streams these on demand, so the second read of an image costs as much as
     the first. Pass 2 re-reads a subset of pass 1, which is what makes the cache
     worth its complexity.
+
+    THE RETRY IS NOT DEFENSIVE PADDING; IT REPAIRS A REAL LOSS. On the Check 2
+    sweep three photographs (ids 917, 2620, 2442) failed to load exactly once,
+    were painted into their sheets as grey UNREADABLE tiles, and were recorded
+    `status="unreadable"` in the manifest. Readers then correctly reported they
+    could not read them. All three decode perfectly on a later attempt: the files
+    were never corrupt, a streamed read simply failed mid-flight.
+
+    A transient network error should not cost a photograph permanently, which is
+    what a single attempt plus a swallowed exception in build_sheet amounted to.
+    Failures are retried with a short backoff, and only a genuine, repeated
+    failure reaches the caller.
     """
+    import time
+
     os.makedirs(CACHE, exist_ok=True)
     key = f"{os.path.basename(path)}.{cell}.jpg"
     cpath = os.path.join(CACHE, key)
@@ -105,9 +119,18 @@ def cached_photo(path: str, cell: int) -> Image.Image:
             return Image.open(cpath).convert("RGB")
         except OSError:
             pass  # corrupt cache entry: fall through and rebuild it
-    im = load_photo(path, cell)
-    im.save(cpath, quality=88)
-    return im
+
+    last = None
+    for i in range(attempts):
+        try:
+            im = load_photo(path, cell)
+            im.save(cpath, quality=88)
+            return im
+        except Exception as exc:
+            last = exc
+            if i < attempts - 1:
+                time.sleep(0.5 * (i + 1))
+    raise last
 
 
 def prefetch(paths, cell, workers=12):
