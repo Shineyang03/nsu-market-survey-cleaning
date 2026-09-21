@@ -1,0 +1,4 @@
+id,pull_item,pull_province,pull_municipal_city,harmonized_nsu_unit,hetero_group,weight,image_code,photo_value,existing_verdict,existing_chose,existing_block,existing_anchor
+9424,cabbage,ILOILO,SAN RAFAEL,pack,province_median,.60000002,1773724826947,60,600,block,600,60
+6202,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",ILOILO,CABATUAN,pieces or units,small_size,.94999999,1773810007262,95,950,block,950,95
+9471,"crackers, cookies, buiscuits, chips/curls",ILOILO,SAN RAFAEL,putos,small_size,.025,1773969164870,30,25,block,25,250

@@ -1,0 +1,8 @@
+province,municipality,item,harmonized_nsu_unit,hetero_group,raw_unit,raw_weight,verdict,chose,block_says,anchor_says,id_at_review,image_code,photo_verdict,photo_unit,conflicts,dimension_unexpressed
+ILOILO,SAN RAFAEL,cabbage,pack,province_median,grams (g),.60000002,60,photo,600,60,9424,1773724826947,correct,g,1,0
+ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,small_size,grams (g),760,355,photo,,,9995,1773730865630,correct,mL,0,1
+ILOILO,TIGBAUAN,"drinks at restaurant, hotel, cafe, or kiosk",pieces or units,small_size,grams (g),700,355,photo,,,9994,1773731054952,correct,mL,0,1
+ILOILO,SAN RAFAEL,"crackers, cookies, buiscuits, chips/curls",pieces or units,small_size,grams (g),.40000001,40,photo,,,9461,1773796774872,correct,g,0,0
+ILOILO,CABATUAN,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",pieces or units,small_size,grams (g),.94999999,95,photo,950,95,6202,1773810007262,correct,g,1,0
+ILOILO,SAN RAFAEL,"crackers, cookies, buiscuits, chips/curls",putos,small_size,grams (g),.025,30,photo,25,250,9471,1773969164870,review,g,1,0
+CAPIZ,IVISAN,carrot,pieces or units,small_size,grams (g),.44999999,45,photo,,,3887,1775787569138,review,g,0,0
