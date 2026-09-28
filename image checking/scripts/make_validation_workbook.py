@@ -89,6 +89,18 @@ def main(argv=None) -> int:
     ap.add_argument("--show", default="",
                     help="adjudicate mode: comma-separated columns from --ids to "
                          "display as locked context")
+    # WHY AN ALTERNATIVE IMAGE SOURCE. The photograph a reader is shown is itself an
+    # experimental variable. A full 8MP market photograph and a rectified crop of the
+    # scale display are the SAME evidence presented two ways, and which one a reader
+    # does better on is a question this project has to answer before reading 8,000 of
+    # them. Pointing this script at a directory of prepared crops lets the same blind
+    # instrument be run over either presentation, so the two are comparable.
+    #
+    # Files must be named <image_code>.<ext>; the bridge still supplies the id-to-code
+    # join, so a crop cannot be silently attached to the wrong weighing.
+    ap.add_argument("--imgdir", default="",
+                    help="read images from this directory as <image_code>.png|jpg "
+                         "instead of the original photograph. For presentation A/Bs.")
     args = ap.parse_args(argv)
 
     answer_cols = ADJ_ANSWER_COLS if args.mode == "adjudicate" else ANSWER_COLS
@@ -162,7 +174,19 @@ def main(argv=None) -> int:
 
     for _, r in df.iterrows():
         row = int(r["seq"]) + 1
-        im = ImageOps.exif_transpose(Image.open(r["photo_path"])).convert("RGB")
+        src = r["photo_path"]
+        if args.imgdir:
+            cand = [os.path.join(args.imgdir, f"{r['image_code']}{e}")
+                    for e in (".png", ".jpg", ".jpeg")]
+            hit = next((p for p in cand if os.path.exists(p)), None)
+            if hit is None:
+                # Skipping silently would produce a workbook that quietly covers fewer
+                # rows than the draw, which is how a validation set stops being the set
+                # that was drawn.
+                print(f"--imgdir has no image for {r['image_code']}", file=sys.stderr)
+                return 2
+            src = hit
+        im = ImageOps.exif_transpose(Image.open(src)).convert("RGB")
         im.thumbnail((args.px, args.px), Image.LANCZOS)
         tmp = os.path.join(tmpdir, f"v_{int(r['seq']):03d}.jpg")
         im.save(tmp, quality=90)

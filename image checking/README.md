@@ -346,6 +346,18 @@ was not tried. `opencv-python` installs cleanly on this machine's Python 3.14.
 - **`05_manual_corrections.do` §1d is untested.** It was added but the build has not been
   re-run, because rebuilding would overwrite the outputs the sweep reads.
 
+- **A scale reading and a package label are not the same measurement, and no density
+  reconciles them.** A scale reading is whatever sat on the pan — for a packaged good
+  that is usually **gross**: contents plus wrapper, cup, stick or bottle. A printed
+  label states **net contents**. So where a case holds both kinds of number, converting
+  the volume to grams makes the two *comparable in units* without making them
+  *measurements of the same thing*; a residual gap remains, in the direction of the
+  scale reading being the larger. The gap is widest exactly where it matters most —
+  small items whose packaging is a large share of gross weight, such as an 85 mL
+  sorbetes sachet or a cone. Nothing in the collected data sizes it. Quote any
+  reconciled figure with this stated, and do not read a leftover discrepancy between a
+  weighed row and a label row as evidence that one of them is wrong.
+
 ## Not done
 
 - Check 1's own sweep — only its calibration sample has been read.
