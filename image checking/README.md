@@ -358,6 +358,53 @@ was not tried. `opencv-python` installs cleanly on this machine's Python 3.14.
   reconciled figure with this stated, and do not read a leftover discrepancy between a
   weighed row and a label row as evidence that one of them is wrong.
 
+## The display cropper, and what it turned out to be
+
+`scripts/rectify_display.py` cuts the WEIGHT display out of a photograph by matching the
+keypad and solving a homography. Two measurements, on top of the 38-of-40 in its header.
+
+**A cropped display is a better thing to read than a whole photograph.** The same reader
+read the same 38 photographs twice, blind, once as full photographs and once as crops:
+
+| | |
+| :-- | --: |
+| same number both ways | **35 / 38** |
+| crop marked legible | **38 / 38** |
+
+Of the three differences, **two are not disagreements**. On the full photograph the
+reader read the *package label*; on the crop they read the *scale display*, and the two
+say different things about the same weighing:
+
+| image | label | display | |
+| :-- | :-- | :-- | :-- |
+| `1773731054952` | 355 mL | 0.700 kg | a drink whose cup and ice weigh as much again |
+| `1773730865630` | 355 mL | 0.760 kg | |
+
+That is the gross-vs-net gap in the limits section above, measured rather than asserted.
+The third difference is a genuine digit ambiguity, `0.545` against `0.540`.
+
+**It is also a scale detector, which was not the intention.** On a seeded random sample
+of 150 photographs it located a display in 86 (57.3%). That looked like a coverage
+problem until it was cut against what the photographs actually contain:
+
+| the photograph is | cropper found | missed | |
+| :-- | --: | --: | --: |
+| a scale reading | **21** | **0** | **100%** |
+| a package label — nothing to crop | 0 | 15 | correctly |
+
+Perfect separation on the 36 sampled photographs that had already been read. So 57.3% is
+not a failure rate; it is roughly the share of photographs that contain a scale, and
+**whether the cropper succeeds is itself the routing signal** — scale photographs to the
+crop reader, label photographs to a full-photograph reader. n=36 is small and the claim
+deserves re-testing at scale, but the separation is clean and the marginal cases are not
+marginal in practice: the weakest match in the sample, 13 inliers, still produced a
+clean legible crop.
+
+**A correction to commit `1f5b0c4`.** Its message claims image `1775610644371` reads
+`1.300` where the human recorded `0.3`, and calls it a probable human error. That was a
+misreading of a montage, not a finding: both passes read `0.405`, and they agree. The
+image is not a disagreement and nothing rests on it.
+
 ## Not done
 
 - Check 1's own sweep — only its calibration sample has been read.
