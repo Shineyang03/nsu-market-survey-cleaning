@@ -279,21 +279,40 @@ drop _m
 
 gen byte has_pkg_qty = !missing(pkg_qty)
 
-* THE mL RULE, stated as one condition. A printed volume governs where one exists --
-* over a scale display and over the field record. Applied from a MODEL reading here,
-* which is a change: it was previously human-only. The owner ruled on 2026-09-21 that
-* the printed volume governs whenever it is available, without that qualification.
+* THE LABEL RULE. A legible printed quantity governs wherever one exists -- over a
+* scale display and over the field record -- whether it states a VOLUME or a MASS.
+*
+* IT USED TO BE VOLUME-ONLY, and the reason for widening it is a measurement rather
+* than a preference. A scale reading is whatever sat on the pan, which for a packaged
+* good is GROSS: contents plus cup, ice, stick or wrapper. A printed label states NET
+* contents. So where both are legible the label is the better measure of the thing the
+* project publishes -- what a vendor's unit contains -- and the scale reading carries a
+* packaging component that nothing in the data can subtract.
+*
+* MEASURED, on the 23 rows carrying both a printed mass and a scale reading: the scale
+* exceeds the label on 18 of 20 inspected, by a median of about 5% and up to 38%. That
+* systematic excess IS the packaging, and its sign is the prediction the rule makes.
+* The gap is item-dependent and not always small: a drink photographed beside its cup
+* read 355 mL printed against 0.700 kg weighed, because the cup and the ice weigh as
+* much again as the drink.
+*
+* TWO ROWS RUN THE OTHER WAY (ratios 0.74 and 0.77 -- the scale LIGHTER than the
+* label). A part-pack sold loose, a misread label, or a label belonging to something
+* else in frame would each do that. They are not explained here and are worth a look.
+*
+* Owner rulings: printed volume governs, 2026-09-21; widened to any legible printed
+* quantity, 2026-09-28.
 gen byte ml_rule_applied = 0
-replace photo_g    = pkg_qty  if has_pkg_qty & pkg_unit == "mL"
-replace photo_unit = "mL"     if has_pkg_qty & pkg_unit == "mL"
-replace ml_rule_applied = 1   if has_pkg_qty & pkg_unit == "mL"
-replace photo_src = photo_src + " + mL label" if ml_rule_applied & photo_src != ""
-replace photo_src = "package label (mL)"      if ml_rule_applied & photo_src == ""
-
-* a printed MASS, only where nothing else gave a value
-replace photo_g    = pkg_qty if missing(photo_g) & has_pkg_qty & pkg_unit == "g"
-replace photo_unit = "g"     if missing(photo_unit) & has_pkg_qty & pkg_unit == "g"
-replace photo_src  = "package label (g)" if photo_src == "" & !missing(photo_g)
+foreach U in mL g {
+	replace photo_g    = pkg_qty  if has_pkg_qty & pkg_unit == "`U'"
+	replace photo_unit = "`U'"    if has_pkg_qty & pkg_unit == "`U'"
+	replace ml_rule_applied = 1   if has_pkg_qty & pkg_unit == "`U'"
+	replace photo_src = photo_src + " + `U' label" ///
+		if has_pkg_qty & pkg_unit == "`U'" & photo_src != "" & ///
+		   strpos(photo_src, "label") == 0
+	replace photo_src = "package label (`U')" ///
+		if has_pkg_qty & pkg_unit == "`U'" & photo_src == ""
+}
 
 gen byte has_reading = !missing(photo_g)
 gen byte from_human  = inlist(photo_src, "human", "human (mL rule)")
@@ -306,7 +325,13 @@ gen byte mL_rule_pending = pkg_seen & !has_pkg_qty
 label var pkg_qty      "Quantity parsed from the printed package label"
 label var pkg_unit     "Its dimension: mL where a volume was printed, else g"
 label var has_pkg_qty  "A usable quantity was printed on the packaging"
-label var ml_rule_applied "The printed volume governed this row"
+* THE NAME IS NOW A MISNOMER and is kept deliberately. It flags the LABEL rule, which
+* since 2026-09-28 covers a printed mass as well as a printed volume. Renaming it would
+* change a column of photo_readings_master.csv while 109 overrides and 94 holds are
+* sitting in front of the owner for approval, keyed off that file. Rename it once those
+* are resolved, not before -- a column that disappears under a pending decision is worse
+* than a column that is badly named.
+label var ml_rule_applied "A printed label quantity governed this row (volume OR mass)"
 
 label var photo_g    "Resolved reading from the photograph, grams (or mL under the mL rule)"
 label var photo_src  "Which reader the resolved value came from"
