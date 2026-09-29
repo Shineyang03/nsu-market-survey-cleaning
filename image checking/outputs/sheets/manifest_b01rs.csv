@@ -1,0 +1,15 @@
+seq,sheet,cell,status,id,filename,photo_path,img_sha16,seed
+1,sheet_001.jpg,0,ok,86,1778207273700.jpg,../outputs/rect_all_dg_soft\1778207273700.png,9918d16a21a0dd83,20260919
+2,sheet_001.jpg,1,ok,1242,1777344123860.jpg,../outputs/rect_all_dg_soft\1777344123860.png,f0a709b482ef947c,20260919
+3,sheet_001.jpg,2,ok,1271,1777343970188.jpg,../outputs/rect_all_dg_soft\1777343970188.png,2b5e5b1e2abba757,20260919
+4,sheet_001.jpg,3,ok,1711,1779238260988.jpg,../outputs/rect_all_dg_soft\1779238260988.png,6b6ae94e55002d86,20260919
+5,sheet_001.jpg,4,ok,2469,1777084846273.jpg,../outputs/rect_all_dg_soft\1777084846273.png,252861ffd87ed95c,20260919
+6,sheet_001.jpg,5,ok,3318,1779154403023.jpg,../outputs/rect_all_dg_soft\1779154403023.png,08fc663982bb22f8,20260919
+7,sheet_001.jpg,6,ok,3955,1775788502467.jpg,../outputs/rect_all_dg_soft\1775788502467.png,be953215c80f53bf,20260919
+8,sheet_002.jpg,0,ok,4821,1775875230478.jpg,../outputs/rect_all_dg_soft\1775875230478.png,39395296f41d7a83,20260919
+9,sheet_002.jpg,1,ok,6651,1773721333286.jpg,../outputs/rect_all_dg_soft\1773721333286.png,b7fc662ae84d0c28,20260919
+10,sheet_002.jpg,2,ok,7291,1774676793396.jpg,../outputs/rect_all_dg_soft\1774676793396.png,7acfd8ba1dd307f7,20260919
+11,sheet_002.jpg,3,ok,7342,1778720875941.jpg,../outputs/rect_all_dg_soft\1778720875941.png,bd360a90f5866729,20260919
+12,sheet_002.jpg,4,ok,8168,1773976363007.jpg,../outputs/rect_all_dg_soft\1773976363007.png,a44edbc5f2a6f5bd,20260919
+13,sheet_002.jpg,5,ok,8288,1775781161811.jpg,../outputs/rect_all_dg_soft\1775781161811.png,c15ad51ee8956a19,20260919
+14,sheet_002.jpg,6,ok,8325,1775781242224.jpg,../outputs/rect_all_dg_soft\1775781242224.png,731f56e97c9e7f49,20260919

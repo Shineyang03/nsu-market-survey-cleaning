@@ -1,0 +1,12 @@
+seq,sheet,cell,status,id,filename,photo_path,img_sha16,seed
+1,sheet_001.jpg,0,ok,918,1777422762958.jpg,../outputs/rect_all\1777422762958.png,1190fe23aeac8a62,7
+2,sheet_001.jpg,1,ok,6113,1773725781491.jpg,../outputs/rect_all\1773725781491.png,1f9cbf6259bd7dcb,7
+3,sheet_001.jpg,2,ok,6338,1774406285283.jpg,../outputs/rect_all\1774406285283.png,ecfd730cb1a257fa,7
+4,sheet_001.jpg,3,ok,8196,1773972787723.jpg,../outputs/rect_all\1773972787723.png,624444baa9ce6e4a,7
+5,sheet_001.jpg,4,ok,6228,1773801489787.jpg,../outputs/rect_all\1773801489787.png,54fafd9ef270c931,7
+6,sheet_001.jpg,5,ok,95,1778119069967.jpg,../outputs/rect_all\1778119069967.png,eba6b04127b78a59,7
+7,sheet_001.jpg,6,ok,6560,1773723139557.jpg,../outputs/rect_all\1773723139557.png,82d1a42605e5f6b2,7
+8,sheet_001.jpg,7,ok,3563,1775527914859.jpg,../outputs/rect_all\1775527914859.png,e59eb4506e1be988,7
+9,sheet_001.jpg,8,ok,2000,1776823898165.jpg,../outputs/rect_all\1776823898165.png,684b6d703c63ba7e,7
+10,sheet_001.jpg,9,ok,2394,1776393346150.jpg,../outputs/rect_all\1776393346150.png,e4626e3b17de9869,7
+11,sheet_001.jpg,10,ok,7602,1774492676644.jpg,../outputs/rect_all\1774492676644.png,61608a3e6965218e,7

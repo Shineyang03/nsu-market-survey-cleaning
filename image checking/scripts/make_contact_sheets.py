@@ -116,7 +116,18 @@ def cached_photo(path: str, cell: int, cell_h: int = None,
     # cell_h is part of the key: a 700x700 thumbnail and a 700x250 one are different
     # images, and serving one where the other was asked for would silently change the
     # sheet a reader sees.
-    key = f"{os.path.basename(path)}.{cell}x{cell_h or cell}.jpg"
+    #
+    # THE PARENT DIRECTORY IS PART OF THE KEY TOO, and leaving it out was a live bug.
+    # The same image code exists under rect_all (as shot), rect_all_dg (de-ghosted) and
+    # any other presentation, with identical basenames. Keyed on the basename alone they
+    # collide, so whichever directory was tiled FIRST at a given cell size silently
+    # serves every later one. That defeats the whole point of having a de-ghosted
+    # presentation: a sheet built from rect_all_dg would be painted with as-shot crops
+    # and look exactly right while carrying the reading error it was built to remove.
+    # It is silent in both directions, and the only symptom is two sheets from different
+    # directories coming out byte-identical.
+    stem = os.path.basename(os.path.dirname(os.path.abspath(path))) or "_"
+    key = f"{stem}__{os.path.basename(path)}.{cell}x{cell_h or cell}.jpg"
     cpath = os.path.join(CACHE, key)
     if os.path.exists(cpath):
         try:

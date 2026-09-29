@@ -29,11 +29,17 @@ reading can be checked against the original.
 
 USAGE
     python deghost_crops.py --in ../outputs/rect_all --out ../outputs/rect_all_dg
+    python deghost_crops.py ... --ids ../outputs/tables/batch_crop_01_ids.csv
+
+The `--ids` form restricts the run to one reading batch, so a batch can be prepared
+without waiting for a full-directory sweep to reach its images. Ids are translated to
+image codes through the photo id bridge.
 """
 
 from __future__ import annotations
 
 import argparse
+import csv
 import os
 import sys
 import time
@@ -63,6 +69,8 @@ def main(argv=None) -> int:
     ap.add_argument("--out", dest="dst", required=True)
     ap.add_argument("--restart", dest="resume", action="store_false", default=True,
                     help="redo crops that already have a de-ghosted copy")
+    ap.add_argument("--ids", default=None,
+                    help="CSV with an `id` column; restrict the run to those weighings")
     args = ap.parse_args(argv)
 
     if not os.path.isdir(args.src):
@@ -71,6 +79,22 @@ def main(argv=None) -> int:
     os.makedirs(args.dst, exist_ok=True)
 
     names = sorted(f for f in os.listdir(args.src) if f.endswith(".png"))
+
+    if args.ids:
+        here = os.path.dirname(os.path.abspath(__file__))
+        bridge_path = os.path.normpath(
+            os.path.join(here, "..", "outputs", "bridge", "photo_id_bridge.csv"))
+        with open(bridge_path, encoding="utf-8-sig") as fh:
+            bridge = {r["id"]: r["filename"].replace(".jpg", "")
+                      for r in csv.DictReader(fh)}
+        with open(args.ids, encoding="utf-8-sig") as fh:
+            wanted = [r["id"] for r in csv.DictReader(fh)]
+        codes = {bridge[i] for i in wanted if i in bridge}
+        missing = len(wanted) - len(codes)
+        names = [f for f in names if f[:-4] in codes]
+        print(f"--ids: {len(wanted)} ids, {len(names)} have a crop"
+              + (f", {missing} not in the bridge" if missing else ""))
+
     todo = names if not args.resume else [
         f for f in names if not os.path.exists(os.path.join(args.dst, f))]
     print(f"{len(names)} crops, {len(todo)} to process")
