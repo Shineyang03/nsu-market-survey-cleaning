@@ -18,6 +18,14 @@ Desktop.ini
 # Data files stay in Box, not git
 *.dta
 
+# The full-set display crops: ~11,000 PNGs, derived, and reproducible from
+# image checking/scripts/rectify_display.py plus the photographs. Staging them was
+# slow enough on the Box drive to kill a commit, which is its own argument. The 38
+# in outputs/rect/ ARE tracked, deliberately: they are the worked example the
+# README's figures refer to, and they are small.
+image checking/outputs/rect_all/
+image checking/outputs/rect_all_run.log
+
 # The two inputs that are not ours to publish. Everything else in inputs/ IS tracked, so
 # a clone carries the CPI panel's sources and can rebuild everything downstream of the
 # crosswalk; these two have to be placed by hand before a rebuild from raw.

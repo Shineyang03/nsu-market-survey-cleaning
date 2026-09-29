@@ -138,6 +138,9 @@ def main(argv=None) -> int:
     ap.add_argument("--all", action="store_true", help="every photograph in the bridge")
     ap.add_argument("--out", required=True)
     ap.add_argument("--status", default="", help="where to write the per-image status")
+    ap.add_argument("--restart", dest="resume", action="store_false", default=True,
+                    help="ignore an existing status file and start over. The default "
+                         "is to resume, because a run this long WILL be interrupted.")
     ap.add_argument("--scale", type=float, default=0.5,
                     help="detect at this fraction of full resolution (default 0.5). "
                          "The crop is always cut at full resolution; see rectify().")
@@ -173,31 +176,65 @@ def main(argv=None) -> int:
     matcher = cv2.BFMatcher()
     print(f"detecting at scale {args.scale}; crops cut at full resolution")
 
-    # A full run is 11,449 photographs and hours long. It prints progress and a running
-    # hit rate, and flushes, because a silent job on a Box path is indistinguishable
-    # from a hung one -- which has already cost this project an afternoon.
-    rows, ok = [], 0
-    n = len(bridge)
-    t0 = time.time()
-    for i, (_, r) in enumerate(bridge.iterrows(), start=1):
-        crop, status = rectify(r["photo_path"], refkp, refdes, sift, matcher, args.scale)
-        if crop is not None:
-            cv2.imwrite(os.path.join(args.out, f"{r['image_code']}.png"), crop)
-            ok += 1
-        rows.append({"id": r["id"], "image_code": r["image_code"], "status": status})
-        if i % 100 == 0 or i == n:
-            el = time.time() - t0
-            rate = el / i
-            eta = (n - i) * rate / 60
-            print(f"  {i}/{n}  found {ok} ({100*ok/i:.0f}%)  "
-                  f"{rate:.2f}s/img  eta {eta:.0f} min", flush=True)
-
-    print(f"rectified {ok} of {n} in {(time.time()-t0)/60:.1f} min")
+    # ---- RESUME, AND WHY THIS FILE CHECKPOINTS -------------------------------------
+    # A full run is 11,449 photographs and hours long, which makes interruption a
+    # CERTAINTY rather than a risk: a closed session, a sleeping laptop, a Box
+    # reconnect. The first version of this loop wrote its status file once, at the end.
+    # It died at 8,300 of 11,449 and took the entire record of what had been tried with
+    # it -- the crops survived only because they happen to be written as they go, and
+    # there was no way to tell a photograph that had failed from one never reached.
+    #
+    # So: the status row is appended and flushed AS EACH IMAGE IS DONE, and a restart
+    # reads it back and skips what it already knows. An interruption now costs the
+    # seconds since the last image, not the hours since the start.
     dest = args.status or os.path.join(args.out, "_status.csv")
-    with open(dest, "w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=["id", "image_code", "status"])
+    done = {}
+    if args.resume and os.path.exists(dest):
+        with open(dest, newline="", encoding="utf-8") as fh:
+            for row in csv.DictReader(fh):
+                if row.get("image_code"):
+                    done[row["image_code"]] = row.get("status", "")
+        print(f"resuming: {len(done)} photographs already recorded in {dest}")
+
+    todo = bridge[~bridge.image_code.isin(done)]
+    n_skip = len(bridge) - len(todo)
+    n = len(todo)
+    if n_skip:
+        print(f"skipping {n_skip} already done; {n} to go")
+    if n == 0:
+        print("nothing left to do")
+        return 0
+
+    fresh = not os.path.exists(dest)
+    fh = open(dest, "a", newline="", encoding="utf-8")
+    w = csv.DictWriter(fh, fieldnames=["id", "image_code", "status"])
+    if fresh:
         w.writeheader()
-        w.writerows(rows)
+        fh.flush()
+
+    ok = sum(1 for s in done.values() if s.startswith("ok"))
+    t0 = time.time()
+    try:
+        for i, (_, r) in enumerate(todo.iterrows(), start=1):
+            crop, status = rectify(r["photo_path"], refkp, refdes, sift, matcher,
+                                   args.scale)
+            if crop is not None:
+                cv2.imwrite(os.path.join(args.out, f"{r['image_code']}.png"), crop)
+                ok += 1
+            w.writerow({"id": r["id"], "image_code": r["image_code"],
+                        "status": status})
+            fh.flush()          # the whole point: survive the process, not just the loop
+            if i % 100 == 0 or i == n:
+                el = time.time() - t0
+                rate = el / i
+                eta = (n - i) * rate / 60
+                seen = n_skip + i
+                print(f"  {seen}/{len(bridge)}  found {ok} ({100*ok/seen:.0f}%)  "
+                      f"{rate:.2f}s/img  eta {eta:.0f} min", flush=True)
+    finally:
+        fh.close()
+
+    print(f"rectified {ok} of {n_skip + n} in {(time.time()-t0)/60:.1f} min")
     print("status ->", dest)
     return 0
 
