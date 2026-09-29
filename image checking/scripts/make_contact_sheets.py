@@ -27,6 +27,31 @@ SAMPLES ARE SEEDED. --seed is recorded in the manifest, so a second session draw
 same population with the same seed gets the same rows, per the handover brief's
 requirement that spot samples be reproducible.
 
+TILE GEOMETRY DECIDES WHAT THE READER CAN SEE, and getting it wrong costs readings.
+
+A rectified display crop is 880x300. A reader is shown the SHEET, not the crop, and a
+sheet longer than about 2000px on its long side is scaled down to fit before it is ever
+looked at. Pack 17 crops into one column and each arrives at roughly a third of the
+resolution the crop actually holds -- the sheet looks fine, and faint displays that are
+perfectly legible at native size become unreadable.
+
+That cost is real and was measured. At 480x165 cells, 14 of 85 crops in one batch came
+back `ambiguous`; every one of them was legible once blown up, and a human reader settled
+eleven of the fourteen from the same crops. The lost information was never in the crop,
+it was thrown away by the sheet.
+
+    --cell 880 --cell-h 300 --cols 2 --per-sheet 12   ->  1760x1932, no downscale
+
+is the configuration to use for crops: twelve tiles at full native resolution, just
+inside the long-side limit. Two columns doubles throughput over one and costs nothing,
+because tiles are addressed by the label printed on them, never by position.
+
+USE ONE COLUMN, AND ONE SHEET, WHEN A HUMAN IS CHECKING. Two sheets sent together can be
+displayed side by side, and a human reading "left to right" then reads ACROSS them --
+tile 1, tile 9, tile 2, tile 10 -- which silently permutes every answer. That happened,
+and it looked exactly like a catastrophic disagreement (1 of 15) until the permutation
+was spotted; the true agreement was 15 of 15.
+
 THE DOWNSCALED CACHE GOES TO LOCAL DISK, never back into Box. The picture folder is
 ~30 GB inside a sync drive inside a git repo; writing 11,449 derived files beside it is
 the failure mode the project's CLAUDE.md warns about twice.
