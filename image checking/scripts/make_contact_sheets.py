@@ -76,7 +76,7 @@ def file_sha256(path: str, nbytes: int = 1 << 20) -> str:
     return h.hexdigest()[:16]
 
 
-def load_photo(path: str, cell: int) -> Image.Image:
+def load_photo(path: str, cell: int, cell_h: int = None) -> Image.Image:
     """Open, correct orientation, and downscale one field photograph.
 
     EXIF transpose is not optional. These were taken on phones held every which
@@ -86,11 +86,12 @@ def load_photo(path: str, cell: int) -> Image.Image:
     im = Image.open(path)
     im = ImageOps.exif_transpose(im)
     im = im.convert("RGB")
-    im.thumbnail((cell, cell), Image.LANCZOS)
+    im.thumbnail((cell, cell_h or cell), Image.LANCZOS)
     return im
 
 
-def cached_photo(path: str, cell: int, attempts: int = 4) -> Image.Image:
+def cached_photo(path: str, cell: int, cell_h: int = None,
+                 attempts: int = 4) -> Image.Image:
     """load_photo, memoised on local disk, retried on transient failure.
 
     Box streams these on demand, so the second read of an image costs as much as
@@ -112,7 +113,10 @@ def cached_photo(path: str, cell: int, attempts: int = 4) -> Image.Image:
     import time
 
     os.makedirs(CACHE, exist_ok=True)
-    key = f"{os.path.basename(path)}.{cell}.jpg"
+    # cell_h is part of the key: a 700x700 thumbnail and a 700x250 one are different
+    # images, and serving one where the other was asked for would silently change the
+    # sheet a reader sees.
+    key = f"{os.path.basename(path)}.{cell}x{cell_h or cell}.jpg"
     cpath = os.path.join(CACHE, key)
     if os.path.exists(cpath):
         try:
@@ -123,7 +127,7 @@ def cached_photo(path: str, cell: int, attempts: int = 4) -> Image.Image:
     last = None
     for i in range(attempts):
         try:
-            im = load_photo(path, cell)
+            im = load_photo(path, cell, cell_h)
             im.save(cpath, quality=88)
             return im
         except Exception as exc:
@@ -133,7 +137,7 @@ def cached_photo(path: str, cell: int, attempts: int = 4) -> Image.Image:
     raise last
 
 
-def prefetch(paths, cell, workers=12):
+def prefetch(paths, cell, cell_h=None, workers=12):
     """Warm the cache in parallel before any sheet is built.
 
     THE BOTTLENECK IS THE NETWORK, NOT THE CPU. The photographs live on a streamed
@@ -160,7 +164,7 @@ def prefetch(paths, cell, workers=12):
     done = 0
     total = len(paths)
     with ThreadPoolExecutor(max_workers=workers) as ex:
-        futs = [ex.submit(cached_photo, p, cell) for p in paths]
+        futs = [ex.submit(cached_photo, p, cell, cell_h) for p in paths]
         for f in futs:
             try:
                 f.result()
@@ -171,12 +175,20 @@ def prefetch(paths, cell, workers=12):
                 print(f"  prefetched {done}/{total}", flush=True)
 
 
-def build_sheet(rows, cell, cols, label_h):
-    """Compose one grid image. Returns (image, [(seq, cell_index), ...])."""
+def build_sheet(rows, cell, cols, label_h, cell_h=None):
+    """Compose one grid image. Returns (image, [(seq, cell_index), ...]).
+
+    `cell_h` lets the cell be shorter than it is wide. A full photograph is roughly
+    square and a square cell wastes nothing, but a rectified display crop is about 2.9:1
+    -- in a square cell two thirds of the sheet is blank paper, which costs three times
+    the sheets and three times the reading. Matching the cell to the content is the
+    difference between 11 crops on a sheet and 30.
+    """
+    cell_h = cell_h or cell
     n = len(rows)
     grid_rows = (n + cols - 1) // cols
     W = cols * cell
-    H = grid_rows * (cell + label_h)
+    H = grid_rows * (cell_h + label_h)
     sheet = Image.new("RGB", (W, H), (245, 245, 245))
     draw = ImageDraw.Draw(sheet)
     placed = []
@@ -184,11 +196,11 @@ def build_sheet(rows, cell, cols, label_h):
     for i, r in enumerate(rows):
         gx, gy = i % cols, i // cols
         x0 = gx * cell
-        y0 = gy * (cell + label_h)
+        y0 = gy * (cell_h + label_h)
         try:
-            im = cached_photo(r["photo_path"], cell)
+            im = cached_photo(r["photo_path"], cell, cell_h)
         except Exception as exc:  # a missing or unreadable file must not kill a sheet
-            draw.rectangle([x0, y0 + label_h, x0 + cell, y0 + cell + label_h],
+            draw.rectangle([x0, y0 + label_h, x0 + cell, y0 + cell_h + label_h],
                            fill=(220, 220, 220))
             draw.text((x0 + 8, y0 + label_h + 8), f"UNREADABLE\n{exc}",
                       fill=(150, 0, 0))
@@ -197,7 +209,7 @@ def build_sheet(rows, cell, cols, label_h):
 
         # centre the thumbnail in its cell
         ox = x0 + (cell - im.width) // 2
-        oy = y0 + label_h + (cell - im.height) // 2
+        oy = y0 + label_h + (cell_h - im.height) // 2
         sheet.paste(im, (ox, oy))
 
         # THE ONLY TEXT ON THE SHEET. A sequence number, nothing else.
@@ -231,7 +243,15 @@ def main(argv=None) -> int:
     ap.add_argument("--workers", type=int, default=12,
                     help="threads used to prefetch images over the network. "
                          "1 disables prefetching.")
+    ap.add_argument("--imgdir", default=None,
+                    help="read rectified crops from this directory as <image_code>.png "
+                         "instead of the full photograph. Photographs with no crop are "
+                         "dropped, not silently substituted.")
     ap.add_argument("--cell", type=int, default=500, help="px per tile")
+    ap.add_argument("--cell-h", dest="cell_h", type=int, default=None,
+                    help="tile HEIGHT, if the content is not square. A display crop is "
+                         "about 2.9:1, so a square cell wastes two thirds of the sheet "
+                         "and triples the number of sheets to read.")
     ap.add_argument("--cols", type=int, default=3)
     ap.add_argument("--per-sheet", type=int, default=9)
     args = ap.parse_args(argv)
@@ -280,6 +300,30 @@ def main(argv=None) -> int:
         # cabbages is primed for a fifth. Seeded, so the draw still reproduces.
         df = df.sample(frac=1.0, random_state=args.seed)
 
+    # ---- READ THE CROP INSTEAD OF THE PHOTOGRAPH ---------------------------------
+    # A rectified display crop is a far better thing to put in front of a reader than a
+    # tile of a whole market stall, and it is also much smaller, so many more fit on one
+    # sheet at full legibility. Pointing this builder at a crop directory changes the
+    # PRESENTATION and nothing else: the same draw, the same blinding, the same manifest
+    # keyed on image_code.
+    #
+    # A photograph with no crop is DROPPED here rather than silently falling back to the
+    # full image. The two are different reading tasks -- a display versus a package label
+    # -- and mixing them on one sheet under one prompt is how a reader starts answering
+    # the wrong question. Route them to separate runs.
+    if args.imgdir:
+        codes = df.filename.str.replace(".jpg", "", regex=False)
+        cand = codes.map(lambda c: os.path.join(args.imgdir, c + ".png"))
+        have = cand.map(os.path.exists)
+        n_drop = int((~have).sum())
+        if n_drop:
+            print(f"--imgdir: {n_drop} of {len(df)} have no crop and are dropped")
+        df = df[have].copy()
+        df["photo_path"] = cand[have]
+        if df.empty:
+            print("no images left after --imgdir filtering", file=sys.stderr)
+            return 2
+
     df = df.reset_index(drop=True)
     df["seq"] = range(1, len(df) + 1)
 
@@ -288,7 +332,8 @@ def main(argv=None) -> int:
 
     if args.workers > 1:
         print(f"prefetching {len(df)} images with {args.workers} threads...")
-        prefetch(df.photo_path.tolist(), args.cell, workers=args.workers)
+        prefetch(df.photo_path.tolist(), args.cell, args.cell_h,
+                 workers=args.workers)
 
     manifest = []
     sheets = []
@@ -296,7 +341,8 @@ def main(argv=None) -> int:
     for s0 in range(0, len(df), args.per_sheet):
         chunk = df.iloc[s0:s0 + args.per_sheet].to_dict("records")
         sheet_no = s0 // args.per_sheet + 1
-        sheet, placed = build_sheet(chunk, args.cell, args.cols, label_h)
+        sheet, placed = build_sheet(chunk, args.cell, args.cols, label_h,
+                                    args.cell_h)
         spath = os.path.join(outdir, f"sheet_{sheet_no:03d}.jpg")
         sheet.save(spath, quality=90)
         sheets.append(spath)
