@@ -1,0 +1,6 @@
+{"b03_label":"0445","id":"6183","role":"control","owner":"0.995","agent":"0.995","claude":"0.995","agent_correct":true,"claude_correct":true}
+{"b03_label":"0547","id":"7216","role":"disputed","owner":"0.160","agent":"0.180","claude":"0.160","agent_correct":false,"claude_correct":true,"note":"agent graded this clear and was wrong"}
+{"b03_label":"0567","id":"7428","role":"disputed","owner":"0.950","agent":"0.950","claude":"0.350","agent_correct":true,"claude_correct":false}
+{"b03_label":"0572","id":"7526","role":"disputed","owner":"0.290","agent":null,"claude":null,"agent_correct":false,"claude_correct":false,"note":"owner reads it as hard but legible; agent asserted not_visible, claude said ambiguous. Both wrong, and they agreed with each other"}
+{"b03_label":"0619","id":"8149","role":"control","owner":"0.700","agent":"0.700","claude":"0.700","agent_correct":true,"claude_correct":true}
+{"b03_label":"0659","id":"8396","role":"disputed","owner":"0.185","agent":"0.185","claude":"0.105","agent_correct":true,"claude_correct":false}

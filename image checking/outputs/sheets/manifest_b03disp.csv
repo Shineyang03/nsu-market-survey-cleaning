@@ -1,0 +1,7 @@
+seq,sheet,cell,status,id,filename,photo_path,img_sha16,seed
+1,sheet_001.jpg,0,ok,6183,1773712668292.jpg,../outputs/rect_all_dg\1773712668292.png,c7e00ea559ce8e88,20260919
+2,sheet_001.jpg,1,ok,7216,1773710545267.jpg,../outputs/rect_all_dg\1773710545267.png,66454fad3a935f6e,20260919
+3,sheet_001.jpg,2,ok,7428,1774320468139.jpg,../outputs/rect_all_dg\1774320468139.png,241f774d9780ddfc,20260919
+4,sheet_001.jpg,3,ok,7526,1774668647874.jpg,../outputs/rect_all_dg\1774668647874.png,42d370fb4c25a4dd,20260919
+5,sheet_001.jpg,4,ok,8149,1773880979405.jpg,../outputs/rect_all_dg\1773880979405.png,8dbcd43af482e46f,20260919
+6,sheet_001.jpg,5,ok,8396,1778723211269.jpg,../outputs/rect_all_dg\1778723211269.png,74bf18618a3364c0,20260919

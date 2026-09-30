@@ -1,8 +1,12 @@
-# Reading instrument `crop-v1.1`
+# Reading instrument `crop-v1.2`
 
-**Version `crop-v1.1`, 2026-09-29.** Adds the blank-display rule below; `crop-v1.0`
-readings remain valid, since the change only splits an answer that instrument left
-undefined. The coding manual for reading **rectified display
+**Version `crop-v1.2`, 2026-09-30.** `v1.1` added the blank-display rule; `v1.2` tightens
+`not_visible` after readers were measured against a human and one was found asserting
+"no display" on crops that plainly carried one. Readings made under `v1.0` and `v1.1`
+remain valid — both changes narrow an answer that was previously loose rather than
+redefining a settled one — but a `v1.0`/`v1.1` reader's `not_visible` rows are worth
+re-reading, because that is the answer the tightening affects. The coding manual for
+reading **rectified display
 crops** — the output of `scripts/rectify_display.py`, which cuts the Micromatic WEIGHT
 display out of a market photograph and straightens it.
 
@@ -115,9 +119,26 @@ there is nothing to say.
 1. **Never guess a number.** If the display is not legible, say so.
 2. **Read only what is in the picture.** You cannot see the object being weighed and
    must not reason about what it might weigh. There is no context to use, deliberately.
-3. **Some crops contain no display.** The cropper occasionally locks onto something that
-   is not a scale. Report `display_text: null`, `display_legible: "not_visible"`, and say
-   so in `notes`. That is a correct reading, not a failure.
+3. **`not_visible` should be rare, and you must earn it.** Every crop you are shown exists
+   *because* feature matching located a Micromatic scale body in the photograph and cut
+   the display out at a fixed offset from it. A display is therefore in frame by
+   construction. The cropper does occasionally lock onto something that is not a scale, so
+   `not_visible` is a real and correct answer — but it is an assertion that the evidence is
+   absent, not an admission that you could not read it, and the two are constantly
+   confused.
+
+   Before writing `not_visible`, satisfy yourself that you can see what the crop contains
+   INSTEAD of a display, and name it in `notes`. If you can make out a display bezel, a
+   rounded rectangle, a `WEIGHT` legend, or a row of segment cells — even a completely
+   unlit one — then a display is present and the answer is `clear` (blank) or `ambiguous`
+   (defeated you), never `not_visible`.
+
+   Rates observed across readers on the same material ranged from 0% to 6.9%. The high
+   figure came from the one reader independently shown to be wrong on checked tiles,
+   including a crop it called `not_visible` whose display in fact read `0.290`. If your
+   own rate is heading past about 2%, you are probably recording "I could not read it" as
+   "it was not there", which silently destroys evidence: a missing display says the
+   cropper failed and means nothing, while a present display carries a weight.
 4. **Report every tile you can see.**
 5. **Output only the JSON lines.** No commentary before or after, no markdown fences, no
    summary. One line per crop.
