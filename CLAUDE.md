@@ -1,5 +1,35 @@
 # Project instructions
 
+## A subagent writes to its assigned paths and nowhere else
+
+**Every subagent is told, in its own prompt, exactly which files it may create or modify:
+its one output file, and a private scratch directory that belongs to it alone. Everything
+else is read-only to it.** Name both paths explicitly. Do not rely on the agent inferring
+a sensible boundary.
+
+This is not hypothetical tidiness. Five readers were dispatched in parallel over one set
+of contact sheets, all sharing the session scratchpad, and three of them independently
+wrote helper scripts called `zoom_tile.py`, `zoom_digits.py` and `tile.py`. They
+overwrote each other mid-run. One reader noticed its own script had been replaced with a
+version importing a module that did not exist, and reported that "something outside this
+session" was editing its files — a frightening conclusion that was wrong, and took real
+work to disprove.
+
+Two things make this worse than ordinary clutter:
+
+* **It is silent.** An overwritten helper either still runs, and the reader trusts output
+  from code it did not write, or it fails in a way that looks like the reader's own bug.
+  Neither announces that a different process changed the file.
+* **An agent that can reach outside its lane can reach anywhere.** The same loose
+  boundary that lets a reader clobber a sibling's scratch file lets it clobber a
+  published crosswalk or a ledger of hand-adjudicated verdicts. The blast radius is set
+  by what the prompt forbids, not by what the task happens to need.
+
+So each parallel agent gets `scratchpad/<its own tag>/`, is told never to overwrite a
+file it did not create, and is told not to run `git` at all. Reading anything is fine;
+writing is confined. Ask each agent to confirm in its report that it wrote nothing
+outside its two permitted locations.
+
 ## Editing files: use Edit/Write. Never a heredoc.
 
 **Use the Edit and Write tools for every file change. Not "by default" — always.** They
