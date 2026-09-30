@@ -79,18 +79,19 @@ is the single most important field.
 - If you can read some digits but not all, use `null` here and put what you could see in
   `notes`.
 
-**A BLANK DISPLAY AND A MISSING DISPLAY ARE DIFFERENT ANSWERS, and the difference
-matters.** Both take `display_text: null`, but they are not the same finding:
+**A BLANK DISPLAY AND A MISSING DISPLAY ARE DIFFERENT ANSWERS.** Both take
+`display_text: null`, but they are not the same observation:
 
 | what you see | `display_legible` | `notes` |
 | :-- | :-- | :-- |
 | a display is in frame, powered or not, with no segments lit | `clear` | say "display present but blank" |
 | no display in the crop at all — the cropper locked onto something else | `not_visible` | say what is there instead |
 
-A blank display says the scale was not showing a weight when the photograph was taken,
-which is evidence the recorded number came from somewhere else — usually a package label.
-A missing display says only that the cropper failed, and carries no information about the
-weighing at all. Recording one as the other destroys that distinction.
+Record what is in the picture and stop there. **Do not infer why the display is blank, and
+do not reason about where the recorded weight came from** — that question is answered
+from the whole photograph under a different instrument, and answering it here would let
+one reading contaminate the other. Two checks that lean on each other agree by
+construction, which is worth nothing.
 
 **Read the WEIGHT row only.** The crop is cut to it, and the word `WEIGHT` is usually
 printed at the right-hand edge. If a second row is visible at the top or bottom of the
@@ -136,9 +137,14 @@ there is nothing to say.
    Rates observed across readers on the same material ranged from 0% to 6.9%. The high
    figure came from the one reader independently shown to be wrong on checked tiles,
    including a crop it called `not_visible` whose display in fact read `0.290`. If your
-   own rate is heading past about 2%, you are probably recording "I could not read it" as
-   "it was not there", which silently destroys evidence: a missing display says the
-   cropper failed and means nothing, while a present display carries a weight.
+   own rate is heading past about 2%, you are recording "I could not read it" as "it was
+   not there".
+
+   That substitution is costly in a way an honest `ambiguous` is not. A weighing marked
+   `not_visible` is dropped from the set of weighings that have a display reading at all,
+   so it is never compared against the published value — and it disappears silently,
+   counted as "no evidence existed" rather than as a check that failed. `ambiguous` keeps
+   the weighing visible as unresolved, which is the truth.
 4. **Report every tile you can see.**
 5. **Output only the JSON lines.** No commentary before or after, no markdown fences, no
    summary. One line per crop.
@@ -154,3 +160,22 @@ where the recorded number came off a package label and the label is the evidence
 
 A crop reading and a photograph reading of the same weighing are complementary, not
 duplicates. Neither supersedes the other.
+
+**THEY ARE ALSO KEPT INDEPENDENT ON PURPOSE, AND THAT IS THE POINT OF SEPARATING THEM.**
+The two instruments feed two different checks:
+
+| check | question | evidence | instrument |
+| :-- | :-- | :-- | :-- |
+| Check 1 | was this item weighed, or was the number taken off its packaging? | whether an item sits on the platter; whether a package with a legible printed quantity is in frame | whole photograph, `PROMPT.md` |
+| Check 2 | is the published weight right? | the display reading against the published value | display crop, this instrument |
+
+A reader working under one instrument must not reason about the other's question. A blank
+display is not evidence that a weight was copied from a label, and a legible label is not
+evidence that a display reading is wrong: each is an observation, and turning one into an
+argument about the other makes the two checks agree by construction.
+
+The corroboration happens **afterwards**, once both readings exist and neither was allowed
+to see the other. Where they agree, the agreement is worth something because it was not
+arranged. Where they disagree — a package reading `26 g` on a weighing whose display reads
+`0.290` — that disagreement is the finding, and it only survives because neither reader
+was permitted to explain it away.
