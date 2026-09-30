@@ -1,0 +1,144 @@
+{"label":"0433","display_text":null,"display_legible":"not_visible","display_unit_shown":"none_shown","notes":"display blank/off - only the dim ghost row is visible; foreground object obstructs the left of the frame"}
+{"label":"0434","display_text":"0.095","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0435","display_text":"0.450","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0436","display_text":"0.955","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0437","display_text":"0.680","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0438","display_text":"0.095","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim, low contrast; segments confirmed at high magnification"}
+{"label":"0439","display_text":"0.115","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; glare along the top edge"}
+{"label":"0440","display_text":"0.120","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0441","display_text":"0.165","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0442","display_text":"0.860","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0443","display_text":"0.475","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0444","display_text":"0.260","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0445","display_text":"0.995","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0446","display_text":"0.215","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0447","display_text":"0.600","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0448","display_text":"0.880","display_legible":"probable","display_unit_shown":"none_shown","notes":"ghost check done: the left verticals of both 8s are clearly lit, so these are 8s and not 3s"}
+{"label":"0449","display_text":null,"display_legible":"ambiguous","display_unit_shown":"none_shown","notes":"leading digits appear to be 1.0; the remaining digits are hidden behind a bright reflective object"}
+{"label":"0450","display_text":null,"display_legible":"ambiguous","display_unit_shown":"none_shown","notes":"very dim; the decimal point is lit but the digits cannot be separated from the ghost"}
+{"label":"0451","display_text":"0.195","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0452","display_text":"0.140","display_legible":"clear","display_unit_shown":"none_shown","notes":"an unlit leading digit cell is visible to the left of the 0"}
+{"label":"0453","display_text":"1.170","display_legible":"probable","display_unit_shown":"none_shown","notes":"the decimal point blooms into the leading 1"}
+{"label":"0454","display_text":"0.085","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0455","display_text":"0.105","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0456","display_text":null,"display_legible":"not_visible","display_unit_shown":"none_shown","notes":"display appears blank/off - only the dim ghost row is visible; heavy glare at the left"}
+{"label":"0457","display_text":"0.605","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0458","display_text":"0.350","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0459","display_text":"0.188","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; the leading 0 and the 1 show clean lit/unlit separation, so the last two digits are genuine 8s"}
+{"label":"0460","display_text":"0.255","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0461","display_text":"0.225","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0462","display_text":"1.050","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0463","display_text":"0.975","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0464","display_text":"1.170","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0465","display_text":"0.780","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0466","display_text":"0.535","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0467","display_text":"0.235","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0468","display_text":"1.745","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0469","display_text":"0.985","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0470","display_text":"0.895","display_legible":"probable","display_unit_shown":"none_shown","notes":"plastic wrap glare across the display; the third digit has an unlit lower-left, so 9 not 8"}
+{"label":"0471","display_text":"0.290","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0472","display_text":"0.355","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0473","display_text":"1.445","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0474","display_text":"1.200","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0475","display_text":"0.670","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0476","display_text":"0.685","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0477","display_text":"1.230","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0478","display_text":"0.480","display_legible":"probable","display_unit_shown":"none_shown","notes":"a vertical light streak smears the leading digit; blurred"}
+{"label":"0479","display_text":"0.480","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0480","display_text":"0.380","display_legible":"clear","display_unit_shown":"none_shown","notes":"checked: the second digit has no left verticals, so 3 not 8"}
+{"label":"0481","display_text":"0.575","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0482","display_text":"0.155","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0483","display_text":"0.100","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0484","display_text":"0.255","display_legible":"probable","display_unit_shown":"none_shown","notes":"very dim"}
+{"label":"0485","display_text":"0.115","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; leading digit confirmed as 0 (middle segment unlit), last digit as 5"}
+{"label":"0486","display_text":"0.245","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; last digit confirmed as 5 at high magnification"}
+{"label":"0487","display_text":"0.095","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0488","display_text":"0.395","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0489","display_text":"0.495","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0490","display_text":"0.495","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0491","display_text":"0.740","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0492","display_text":"0.480","display_legible":"probable","display_unit_shown":"none_shown","notes":"very dim; the 4 has no top bar and the last digit no middle, so lit/unlit separation holds"}
+{"label":"0493","display_text":"0.755","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; both trailing digits have unlit upper-right and lower-left, so 5s not 8s"}
+{"label":"0494","display_text":"0.645","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim"}
+{"label":"0495","display_text":"1.105","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0496","display_text":null,"display_legible":"ambiguous","display_unit_shown":"none_shown","notes":"very dim; appears to read 0.13 followed by a digit that cannot be settled"}
+{"label":"0497","display_text":"0.145","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim"}
+{"label":"0498","display_text":"0.125","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0499","display_text":"0.075","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0500","display_text":"0.120","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; partial obstruction at the left of the frame"}
+{"label":"0501","display_text":"0.115","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0502","display_text":"0.125","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0503","display_text":"0.105","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0504","display_text":null,"display_legible":"ambiguous","display_unit_shown":"none_shown","notes":"reads 0.11 followed by a digit crossed by glare; cannot decide between 0 and 8"}
+{"label":"0505","display_text":"1.365","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0506","display_text":"0.520","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0507","display_text":"0.380","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0508","display_text":"2.250","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim"}
+{"label":"0509","display_text":"0.120","display_legible":"probable","display_unit_shown":"none_shown","notes":"very dim; glare and an obstruction at the left of the frame"}
+{"label":"0510","display_text":"0.785","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0511","display_text":"1.475","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0512","display_text":"0.205","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0513","display_text":"0.110","display_legible":"probable","display_unit_shown":"none_shown","notes":"very dim"}
+{"label":"0514","display_text":"0.335","display_legible":"probable","display_unit_shown":"none_shown","notes":"very dim"}
+{"label":"0515","display_text":"0.115","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0516","display_text":"0.260","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0517","display_text":"0.215","display_legible":"clear","display_unit_shown":"none_shown","notes":"an unlit leading digit cell is visible to the left of the 0"}
+{"label":"0518","display_text":"0.265","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0519","display_text":null,"display_legible":"ambiguous","display_unit_shown":"none_shown","notes":"very dim; appears to read 0.235 but the segments cannot be separated from the ghost"}
+{"label":"0520","display_text":"0.230","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; third digit has no left verticals (3), last digit has no middle (0)"}
+{"label":"0521","display_text":"0.340","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0522","display_text":"0.065","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim"}
+{"label":"0523","display_text":"0.140","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0524","display_text":"0.070","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0525","display_text":null,"display_legible":"not_visible","display_unit_shown":"none_shown","notes":"display is in frame but completely blank/off; no segments lit at all"}
+{"label":"0526","display_text":null,"display_legible":"not_visible","display_unit_shown":"none_shown","notes":"display appears blank/off - only the dim ghost row is visible; heavy glare at the left"}
+{"label":"0527","display_text":null,"display_legible":"not_visible","display_unit_shown":"none_shown","notes":"display appears blank/off - only the dim ghost row is visible; heavy glare at the left"}
+{"label":"0528","display_text":"0.455","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim, glare at the left; both trailing digits confirmed as 5s at high magnification"}
+{"label":"0529","display_text":"0.125","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; obstruction at the left of the frame"}
+{"label":"0530","display_text":"0.275","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0531","display_text":"0.945","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0532","display_text":"0.115","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; obstruction at the left of the frame"}
+{"label":"0533","display_text":"0.065","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0534","display_text":"0.265","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0535","display_text":"0.275","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim"}
+{"label":"0536","display_text":"0.095","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim"}
+{"label":"0537","display_text":"0.125","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0538","display_text":"0.120","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0539","display_text":null,"display_legible":"not_visible","display_unit_shown":"none_shown","notes":"display appears blank/off - only the dim ghost row is visible"}
+{"label":"0540","display_text":"0.190","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0541","display_text":"1.225","display_legible":"probable","display_unit_shown":"none_shown","notes":"a stick and a hand cross the lower left of the display; the digits themselves read cleanly"}
+{"label":"0542","display_text":"0.390","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0543","display_text":"0.565","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0544","display_text":"0.635","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0545","display_text":"0.600","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0546","display_text":"0.450","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0547","display_text":"0.180","display_legible":"clear","display_unit_shown":"none_shown","notes":"third digit has both left verticals lit, so 8 not 6"}
+{"label":"0548","display_text":"0.125","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0549","display_text":"0.180","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0550","display_text":"0.150","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0551","display_text":"0.140","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0552","display_text":"0.870","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0553","display_text":"0.090","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0554","display_text":"0.110","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0555","display_text":"0.120","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0556","display_text":"0.685","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0557","display_text":"0.245","display_legible":"probable","display_unit_shown":"none_shown","notes":"very dim"}
+{"label":"0558","display_text":"0.350","display_legible":"probable","display_unit_shown":"none_shown","notes":"very dim"}
+{"label":"0559","display_text":"0.520","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0560","display_text":"0.610","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0561","display_text":"0.120","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0562","display_text":null,"display_legible":"ambiguous","display_unit_shown":"none_shown","notes":"very dim with glare; lit and ghost segments cannot be separated"}
+{"label":"0563","display_text":"0.205","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0564","display_text":"0.115","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0565","display_text":"0.210","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0566","display_text":"0.175","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0567","display_text":"0.950","display_legible":"probable","display_unit_shown":"none_shown","notes":"very dim; pixel probe confirms the second digit has an unlit lower-left, so 9 not 8, and the third has unlit upper-right and lower-left, so 5"}
+{"label":"0568","display_text":null,"display_legible":"not_visible","display_unit_shown":"indeterminate","notes":"no display in this crop - the cropper locked onto printed packaging"}
+{"label":"0569","display_text":"0.260","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; glare at the left of the frame"}
+{"label":"0570","display_text":"1.100","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0571","display_text":null,"display_legible":"not_visible","display_unit_shown":"none_shown","notes":"display appears blank/off - only the dim ghost row is visible"}
+{"label":"0572","display_text":null,"display_legible":"not_visible","display_unit_shown":"none_shown","notes":"display appears blank/off - only the dim ghost row is visible; heavy glare at the left"}
+{"label":"0573","display_text":"0.180","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim"}
+{"label":"0574","display_text":"0.280","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; glare at the left of the frame"}
+{"label":"0575","display_text":"0.250","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0576","display_text":null,"display_legible":"not_visible","display_unit_shown":"none_shown","notes":"display appears blank/off - only the dim ghost row is visible; glare at the left"}

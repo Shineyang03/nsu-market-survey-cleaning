@@ -1,6 +1,8 @@
-# Reading instrument `crop-v1.0`
+# Reading instrument `crop-v1.1`
 
-**Version `crop-v1.0`, 2026-09-29.** The coding manual for reading **rectified display
+**Version `crop-v1.1`, 2026-09-29.** Adds the blank-display rule below; `crop-v1.0`
+readings remain valid, since the change only splits an answer that instrument left
+undefined. The coding manual for reading **rectified display
 crops** — the output of `scripts/rectify_display.py`, which cuts the Micromatic WEIGHT
 display out of a market photograph and straightens it.
 
@@ -72,6 +74,19 @@ is the single most important field.
 - If the display is off, blank, or no display is present, use `null`.
 - If you can read some digits but not all, use `null` here and put what you could see in
   `notes`.
+
+**A BLANK DISPLAY AND A MISSING DISPLAY ARE DIFFERENT ANSWERS, and the difference
+matters.** Both take `display_text: null`, but they are not the same finding:
+
+| what you see | `display_legible` | `notes` |
+| :-- | :-- | :-- |
+| a display is in frame, powered or not, with no segments lit | `clear` | say "display present but blank" |
+| no display in the crop at all — the cropper locked onto something else | `not_visible` | say what is there instead |
+
+A blank display says the scale was not showing a weight when the photograph was taken,
+which is evidence the recorded number came from somewhere else — usually a package label.
+A missing display says only that the cropper failed, and carries no information about the
+weighing at all. Recording one as the other destroys that distinction.
 
 **Read the WEIGHT row only.** The crop is cut to it, and the word `WEIGHT` is usually
 printed at the right-hand edge. If a second row is visible at the top or bottom of the
