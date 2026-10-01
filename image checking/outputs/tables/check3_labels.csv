@@ -1,0 +1,169 @@
+id,pair_id,status,layer,label,side,size,itemsub,labA,labB,ratio
+3986,1,control_diff,harm,bilog,A,large_size,chicken,bilog,pieces or units,3.74
+5346,1,control_diff,harm,bilog,A,small_size,chicken,bilog,pieces or units,3.74
+5520,1,control_diff,harm,bilog,A,large_size,chicken,bilog,pieces or units,3.74
+10257,1,control_diff,harm,bilog,A,medium_size,chicken,bilog,pieces or units,3.74
+10263,1,control_diff,harm,bilog,A,medium_size,chicken,bilog,pieces or units,3.74
+10267,1,control_diff,harm,bilog,A,small_size,chicken,bilog,pieces or units,3.74
+474,1,control_diff,harm,pieces or units,B,small_size,chicken,bilog,pieces or units,3.74
+616,1,control_diff,harm,pieces or units,B,small_size,chicken,bilog,pieces or units,3.74
+725,1,control_diff,harm,pieces or units,B,large_size,chicken,bilog,pieces or units,3.74
+1142,1,control_diff,harm,pieces or units,B,medium_size,chicken,bilog,pieces or units,3.74
+1753,1,control_diff,harm,pieces or units,B,medium_size,chicken,bilog,pieces or units,3.74
+5186,1,control_diff,harm,pieces or units,B,large_size,chicken,bilog,pieces or units,3.74
+1493,2,control_diff,harm,putos,A,medium_size,crackers,putos,pack,.27
+5200,2,control_diff,harm,putos,A,small_size,crackers,putos,pack,.27
+6831,2,control_diff,harm,putos,A,small_size,crackers,putos,pack,.27
+6835,2,control_diff,harm,putos,A,medium_size,crackers,putos,pack,.27
+7458,2,control_diff,harm,putos,A,large_size,crackers,putos,pack,.27
+8972,2,control_diff,harm,putos,A,large_size,crackers,putos,pack,.27
+2250,2,control_diff,harm,pack,B,large_size,crackers,putos,pack,.27
+2389,2,control_diff,harm,pack,B,small_size,crackers,putos,pack,.27
+2390,2,control_diff,harm,pack,B,medium_size,crackers,putos,pack,.27
+5524,2,control_diff,harm,pack,B,large_size,crackers,putos,pack,.27
+5915,2,control_diff,harm,pack,B,medium_size,crackers,putos,pack,.27
+9979,2,control_diff,harm,pack,B,small_size,crackers,putos,pack,.27
+1764,3,control_diff,harm,putos,A,medium_size,ice cream,putos,pack,.5600000000000001
+6623,3,control_diff,harm,putos,A,large_size,ice cream,putos,pack,.5600000000000001
+6721,3,control_diff,harm,putos,A,medium_size,ice cream,putos,pack,.5600000000000001
+7302,3,control_diff,harm,putos,A,small_size,ice cream,putos,pack,.5600000000000001
+7657,3,control_diff,harm,putos,A,small_size,ice cream,putos,pack,.5600000000000001
+9494,3,control_diff,harm,putos,A,large_size,ice cream,putos,pack,.5600000000000001
+385,3,control_diff,harm,pack,B,small_size,ice cream,putos,pack,.5600000000000001
+6343,3,control_diff,harm,pack,B,small_size,ice cream,putos,pack,.5600000000000001
+6344,3,control_diff,harm,pack,B,small_size,ice cream,putos,pack,.5600000000000001
+6345,3,control_diff,harm,pack,B,small_size,ice cream,putos,pack,.5600000000000001
+8370,3,control_diff,harm,pack,B,small_size,ice cream,putos,pack,.5600000000000001
+8371,3,control_diff,harm,pack,B,small_size,ice cream,putos,pack,.5600000000000001
+2623,4,control_diff,harm,bilog,A,small_size,camote,bilog,binilog,1.33
+6287,4,control_diff,harm,bilog,A,large_size,camote,bilog,binilog,1.33
+7234,4,control_diff,harm,bilog,A,medium_size,camote,bilog,binilog,1.33
+7595,4,control_diff,harm,bilog,A,small_size,camote,bilog,binilog,1.33
+8063,4,control_diff,harm,bilog,A,large_size,camote,bilog,binilog,1.33
+9559,4,control_diff,harm,bilog,A,medium_size,camote,bilog,binilog,1.33
+335,4,control_diff,harm,binilog,B,medium_size,camote,bilog,binilog,1.33
+969,4,control_diff,harm,binilog,B,small_size,camote,bilog,binilog,1.33
+981,4,control_diff,harm,binilog,B,large_size,camote,bilog,binilog,1.33
+986,4,control_diff,harm,binilog,B,medium_size,camote,bilog,binilog,1.33
+1716,4,control_diff,harm,binilog,B,large_size,camote,bilog,binilog,1.33
+1725,4,control_diff,harm,binilog,B,small_size,camote,bilog,binilog,1.33
+2,5,control_same,cleaned,bilog,A,small_size,cabbage,bilog,binilog,.96
+2864,5,control_same,cleaned,bilog,A,small_size,cabbage,bilog,binilog,.96
+3800,5,control_same,cleaned,bilog,A,large_size,cabbage,bilog,binilog,.96
+5760,5,control_same,cleaned,bilog,A,medium_size,cabbage,bilog,binilog,.96
+8736,5,control_same,cleaned,bilog,A,medium_size,cabbage,bilog,binilog,.96
+10236,5,control_same,cleaned,bilog,A,large_size,cabbage,bilog,binilog,.96
+594,5,control_same,cleaned,binilog,B,small_size,cabbage,bilog,binilog,.96
+598,5,control_same,cleaned,binilog,B,large_size,cabbage,bilog,binilog,.96
+802,5,control_same,cleaned,binilog,B,large_size,cabbage,bilog,binilog,.96
+1321,5,control_same,cleaned,binilog,B,medium_size,cabbage,bilog,binilog,.96
+1434,5,control_same,cleaned,binilog,B,small_size,cabbage,bilog,binilog,.96
+3144,5,control_same,cleaned,binilog,B,medium_size,cabbage,bilog,binilog,.96
+2580,6,control_same,raw,lipid / lapad,A,medium_size,liquor,lipid / lapad,lapad,1
+4781,6,control_same,raw,lipid / lapad,A,small_size,liquor,lipid / lapad,lapad,1
+5729,6,control_same,raw,lipid / lapad,A,large_size,liquor,lipid / lapad,lapad,1
+6073,6,control_same,raw,lipid / lapad,A,medium_size,liquor,lipid / lapad,lapad,1
+6627,6,control_same,raw,lipid / lapad,A,large_size,liquor,lipid / lapad,lapad,1
+10053,6,control_same,raw,lipid / lapad,A,small_size,liquor,lipid / lapad,lapad,1
+145,6,control_same,raw,lapad,B,medium_size,liquor,lipid / lapad,lapad,1
+768,6,control_same,raw,lapad,B,medium_size,liquor,lipid / lapad,lapad,1
+1286,6,control_same,raw,lapad,B,medium_size,liquor,lipid / lapad,lapad,1
+1521,6,control_same,raw,lapad,B,medium_size,liquor,lipid / lapad,lapad,1
+4865,6,control_same,raw,lapad,B,medium_size,liquor,lipid / lapad,lapad,1
+8372,6,control_same,raw,lapad,B,medium_size,liquor,lipid / lapad,lapad,1
+5653,7,control_same,raw,large,A,small_size,loaf,large,dalagku nga putos,1
+5655,7,control_same,raw,large,A,small_size,loaf,large,dalagku nga putos,1
+5658,7,control_same,raw,large,A,medium_size,loaf,large,dalagku nga putos,1
+7515,7,control_same,raw,large,A,large_size,loaf,large,dalagku nga putos,1
+9094,7,control_same,raw,large,A,large_size,loaf,large,dalagku nga putos,1
+10593,7,control_same,raw,large,A,medium_size,loaf,large,dalagku nga putos,1
+4215,7,control_same,raw,dalagku nga putos,B,medium_size,loaf,large,dalagku nga putos,1
+4618,7,control_same,raw,dalagku nga putos,B,medium_size,loaf,large,dalagku nga putos,1
+4962,7,control_same,raw,dalagku nga putos,B,small_size,loaf,large,dalagku nga putos,1
+5053,7,control_same,raw,dalagku nga putos,B,small_size,loaf,large,dalagku nga putos,1
+8676,7,control_same,raw,dalagku nga putos,B,large_size,loaf,large,dalagku nga putos,1
+9500,7,control_same,raw,dalagku nga putos,B,large_size,loaf,large,dalagku nga putos,1
+2563,8,unknown,cleaned,bilog,A,medium_size,crackers,bilog,binilog,
+4173,8,unknown,cleaned,bilog,A,medium_size,crackers,bilog,binilog,
+4566,8,unknown,cleaned,bilog,A,large_size,crackers,bilog,binilog,
+5908,8,unknown,cleaned,bilog,A,small_size,crackers,bilog,binilog,
+9164,8,unknown,cleaned,bilog,A,small_size,crackers,bilog,binilog,
+9785,8,unknown,cleaned,bilog,A,large_size,crackers,bilog,binilog,
+228,8,unknown,cleaned,binilog,B,large_size,crackers,bilog,binilog,
+487,8,unknown,cleaned,binilog,B,small_size,crackers,bilog,binilog,
+489,8,unknown,cleaned,binilog,B,small_size,crackers,bilog,binilog,
+733,8,unknown,cleaned,binilog,B,medium_size,crackers,bilog,binilog,
+1382,8,unknown,cleaned,binilog,B,large_size,crackers,bilog,binilog,
+1483,8,unknown,cleaned,binilog,B,medium_size,crackers,bilog,binilog,
+2788,9,unknown,cleaned,bilog,A,medium_size,crackers,bilog,pieces or units,.88
+3442,9,unknown,cleaned,bilog,A,large_size,crackers,bilog,pieces or units,.88
+5196,9,unknown,cleaned,bilog,A,small_size,crackers,bilog,pieces or units,.88
+5355,9,unknown,cleaned,bilog,A,small_size,crackers,bilog,pieces or units,.88
+8609,9,unknown,cleaned,bilog,A,medium_size,crackers,bilog,pieces or units,.88
+9353,9,unknown,cleaned,bilog,A,large_size,crackers,bilog,pieces or units,.88
+5786,9,unknown,cleaned,pieces or units,B,large_size,crackers,bilog,pieces or units,.88
+5788,9,unknown,cleaned,pieces or units,B,large_size,crackers,bilog,pieces or units,.88
+6578,9,unknown,cleaned,pieces or units,B,small_size,crackers,bilog,pieces or units,.88
+7837,9,unknown,cleaned,pieces or units,B,medium_size,crackers,bilog,pieces or units,.88
+7838,9,unknown,cleaned,pieces or units,B,small_size,crackers,bilog,pieces or units,.88
+7839,9,unknown,cleaned,pieces or units,B,medium_size,crackers,bilog,pieces or units,.88
+3912,10,unknown,cleaned,bilog,A,large_size,fresh fish,bilog,binilog,1
+3914,10,unknown,cleaned,bilog,A,medium_size,fresh fish,bilog,binilog,1
+4594,10,unknown,cleaned,bilog,A,small_size,fresh fish,bilog,binilog,1
+5362,10,unknown,cleaned,bilog,A,small_size,fresh fish,bilog,binilog,1
+7278,10,unknown,cleaned,bilog,A,medium_size,fresh fish,bilog,binilog,1
+9633,10,unknown,cleaned,bilog,A,large_size,fresh fish,bilog,binilog,1
+647,10,unknown,cleaned,binilog,B,large_size,fresh fish,bilog,binilog,1
+860,10,unknown,cleaned,binilog,B,medium_size,fresh fish,bilog,binilog,1
+1164,10,unknown,cleaned,binilog,B,small_size,fresh fish,bilog,binilog,1
+2272,10,unknown,cleaned,binilog,B,small_size,fresh fish,bilog,binilog,1
+2803,10,unknown,cleaned,binilog,B,large_size,fresh fish,bilog,binilog,1
+2924,10,unknown,cleaned,binilog,B,medium_size,fresh fish,bilog,binilog,1
+651,11,unknown,raw,gamay nga cup,A,large_size,ice cream,gamay nga cup,maisot nga tasa,
+4775,11,unknown,raw,gamay nga cup,A,small_size,ice cream,gamay nga cup,maisot nga tasa,
+8649,11,unknown,raw,gamay nga cup,A,medium_size,ice cream,gamay nga cup,maisot nga tasa,
+10294,11,unknown,raw,gamay nga cup,A,small_size,ice cream,gamay nga cup,maisot nga tasa,
+11165,11,unknown,raw,gamay nga cup,A,large_size,ice cream,gamay nga cup,maisot nga tasa,
+11424,11,unknown,raw,gamay nga cup,A,medium_size,ice cream,gamay nga cup,maisot nga tasa,
+388,11,unknown,raw,maisot nga tasa,B,small_size,ice cream,gamay nga cup,maisot nga tasa,
+389,11,unknown,raw,maisot nga tasa,B,small_size,ice cream,gamay nga cup,maisot nga tasa,
+868,11,unknown,raw,maisot nga tasa,B,small_size,ice cream,gamay nga cup,maisot nga tasa,
+870,11,unknown,raw,maisot nga tasa,B,small_size,ice cream,gamay nga cup,maisot nga tasa,
+1173,11,unknown,raw,maisot nga tasa,B,small_size,ice cream,gamay nga cup,maisot nga tasa,
+1175,11,unknown,raw,maisot nga tasa,B,small_size,ice cream,gamay nga cup,maisot nga tasa,
+2720,12,unknown,raw,large,A,large_size,loaf,large,mabahoe nga putos,
+5658,12,unknown,raw,large,A,medium_size,loaf,large,mabahoe nga putos,
+6508,12,unknown,raw,large,A,small_size,loaf,large,mabahoe nga putos,
+6640,12,unknown,raw,large,A,medium_size,loaf,large,mabahoe nga putos,
+10598,12,unknown,raw,large,A,small_size,loaf,large,mabahoe nga putos,
+10990,12,unknown,raw,large,A,large_size,loaf,large,mabahoe nga putos,
+542,12,unknown,raw,mabahoe nga putos,B,large_size,loaf,large,mabahoe nga putos,
+778,12,unknown,raw,mabahoe nga putos,B,large_size,loaf,large,mabahoe nga putos,
+898,12,unknown,raw,mabahoe nga putos,B,large_size,loaf,large,mabahoe nga putos,
+1202,12,unknown,raw,mabahoe nga putos,B,large_size,loaf,large,mabahoe nga putos,
+1418,12,unknown,raw,mabahoe nga putos,B,large_size,loaf,large,mabahoe nga putos,
+1540,12,unknown,raw,mabahoe nga putos,B,large_size,loaf,large,mabahoe nga putos,
+3774,13,unknown,raw,medium,A,medium_size,loaf,medium,kasarangan nga putos,
+3828,13,unknown,raw,medium,A,small_size,loaf,medium,kasarangan nga putos,
+5123,13,unknown,raw,medium,A,large_size,loaf,medium,kasarangan nga putos,
+6378,13,unknown,raw,medium,A,large_size,loaf,medium,kasarangan nga putos,
+10080,13,unknown,raw,medium,A,small_size,loaf,medium,kasarangan nga putos,
+11385,13,unknown,raw,medium,A,medium_size,loaf,medium,kasarangan nga putos,
+154,13,unknown,raw,kasarangan nga putos,B,medium_size,loaf,medium,kasarangan nga putos,
+412,13,unknown,raw,kasarangan nga putos,B,medium_size,loaf,medium,kasarangan nga putos,
+891,13,unknown,raw,kasarangan nga putos,B,medium_size,loaf,medium,kasarangan nga putos,
+896,13,unknown,raw,kasarangan nga putos,B,medium_size,loaf,medium,kasarangan nga putos,
+1301,13,unknown,raw,kasarangan nga putos,B,small_size,loaf,medium,kasarangan nga putos,
+1413,13,unknown,raw,kasarangan nga putos,B,medium_size,loaf,medium,kasarangan nga putos,
+1069,14,unknown,raw,small,A,small_size,loaf,small,maisot nga putos,
+8240,14,unknown,raw,small,A,medium_size,loaf,small,maisot nga putos,
+8244,14,unknown,raw,small,A,medium_size,loaf,small,maisot nga putos,
+8248,14,unknown,raw,small,A,large_size,loaf,small,maisot nga putos,
+9852,14,unknown,raw,small,A,large_size,loaf,small,maisot nga putos,
+10668,14,unknown,raw,small,A,small_size,loaf,small,maisot nga putos,
+163,14,unknown,raw,maisot nga putos,B,small_size,loaf,small,maisot nga putos,
+418,14,unknown,raw,maisot nga putos,B,small_size,loaf,small,maisot nga putos,
+904,14,unknown,raw,maisot nga putos,B,small_size,loaf,small,maisot nga putos,
+1544,14,unknown,raw,maisot nga putos,B,small_size,loaf,small,maisot nga putos,
+1546,14,unknown,raw,maisot nga putos,B,small_size,loaf,small,maisot nga putos,
+1549,14,unknown,raw,maisot nga putos,B,small_size,loaf,small,maisot nga putos,

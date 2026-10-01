@@ -50,6 +50,21 @@ PHOTO_TYPES = {
 LEGIBLE = {"clear", "probable", "ambiguous", "not_visible"}
 UNITS_SHOWN = {"kg", "g", "none_shown", "indeterminate", None}
 
+# ---- the objects instrument (PROMPT_OBJECTS.md, objects-v2.0) ----------------------
+#
+# WHY THIS LIVES HERE RATHER THAN IN A SECOND PARSER. Everything this file does apart
+# from pulling named fields out of each JSON object is instrument-independent and worth
+# more than the field block: the manifest join, the label-to-id unblinding, duplicate
+# and missing-tile detection, and the coverage check that catches a sheet skipped whole.
+# A second parser would have to reproduce all of it, and a reproduced coverage check
+# that drifts is exactly the silent-duplication failure CLAUDE.md is about. So the
+# instrument is a switch, and only the field block differs.
+VISIBLE = {"clear", "partial", "unusable"}
+FORMS = {
+    "whole_animal", "portion", "whole_produce", "bundle", "packaged_unit",
+    "loose_in_container", "bottle", "prepared_serving", "other", "indeterminate",
+}
+
 OBJ_RE = re.compile(r"\{.*?\}")
 
 
@@ -83,6 +98,11 @@ def main(argv=None) -> int:
     ap.add_argument("--out", required=True)
     ap.add_argument("--raw-dir", default=None)
     ap.add_argument("--prompt-version", default="v1.0")
+    ap.add_argument("--instrument", default="display", choices=("display", "objects"),
+                    help="which coding manual produced these readings. `display' is "
+                         "PROMPT.md v1.0 (what does the scale read); `objects' is "
+                         "PROMPT_OBJECTS.md objects-v2.0 (what is the thing). The two "
+                         "record different fields and are not comparable.")
     ap.add_argument("--expect-readers", type=int, default=None,
                     help="how many readers every image should have. Defaults to the "
                          "observed maximum, which flags relative gaps but cannot "
@@ -124,6 +144,48 @@ def main(argv=None) -> int:
                 continue
             seen.add(lab)
 
+            m = by_label.loc[lab]
+
+            if args.instrument == "objects":
+                vis = o.get("visible")
+                if vis not in VISIBLE:
+                    problems.append({"reader": reader, "kind": "bad_visible",
+                                     "detail": f"{lab}: {vis}"})
+                fm = o.get("form")
+                if fm not in FORMS:
+                    problems.append({"reader": reader, "kind": "bad_form",
+                                     "detail": f"{lab}: {fm}"})
+                # Rule 2 of the objects manual forbids reporting a weight or volume.
+                # A reader that slips one in has read the wrong question, and the
+                # comparison downstream would then be made on numbers rather than on
+                # objects -- the exact failure the instrument is built to avoid.
+                desc = str(o.get("object") or "")
+                if re.search(r"\d+\s*(g|kg|ml|l|oz|lb)\b", desc, re.I):
+                    problems.append({"reader": reader, "kind": "quantity_in_object",
+                                     "detail": f"{lab}: {desc[:60]}"})
+                rows.append({
+                    "reader": reader,
+                    "prompt_version": args.prompt_version,
+                    "tag": args.tag,
+                    "label": lab,
+                    "sheet": m["sheet"],
+                    "id": int(m["id"]),
+                    "filename": m["filename"],
+                    "img_sha16": m.get("img_sha16", ""),
+                    "visible": vis,
+                    "object": o.get("object"),
+                    "form": fm,
+                    "container": o.get("container"),
+                    "container_material": o.get("container_material"),
+                    "count_visible": o.get("count_visible"),
+                    "size_cue": o.get("size_cue"),
+                    "colour": o.get("colour"),
+                    "product_text": o.get("product_text"),
+                    "distinguishing": o.get("distinguishing"),
+                    "notes": o.get("notes", ""),
+                })
+                continue
+
             pt = o.get("photo_type")
             if pt not in PHOTO_TYPES:
                 problems.append({"reader": reader, "kind": "bad_photo_type",
@@ -133,7 +195,6 @@ def main(argv=None) -> int:
                 problems.append({"reader": reader, "kind": "bad_display_legible",
                                  "detail": f"{lab}: {lg}"})
 
-            m = by_label.loc[lab]
             dt = o.get("display_text")
             dt = None if dt in ("", None) else str(dt).strip()
 
@@ -210,8 +271,12 @@ def main(argv=None) -> int:
         print("\nper reader:")
         print(df.groupby("reader").agg(n=("id", "size"),
                                        imgs=("id", "nunique")).to_string())
-        print("\nphoto_type:")
-        print(df.photo_type.value_counts(dropna=False).to_string())
+        cat = "form" if args.instrument == "objects" else "photo_type"
+        print(f"\n{cat}:")
+        print(df[cat].value_counts(dropna=False).to_string())
+        if args.instrument == "objects":
+            print("\nvisible:")
+            print(df.visible.value_counts(dropna=False).to_string())
     if len(pr):
         print("\nPROBLEMS:")
         print(pr.kind.value_counts().to_string())
