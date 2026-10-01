@@ -330,8 +330,39 @@ glow so everything decodes toward `8`.
 **This does not establish that no deterministic reader is possible.** One method was
 tested and it was the weakest plausible one. Every photograph shows the same Micromatic
 body with a rigid keypad, which is the standard case for feature matching against a
-reference image — match, solve a homography, rectify, crop at known coordinates. That
-was not tried. `opencv-python` installs cleanly on this machine's Python 3.14.
+reference image — match, solve a homography, rectify, crop at known coordinates.
+
+### That rectification was then built, and the reader retried on it. It is still not good enough.
+
+`rectify_display.py` does exactly what the paragraph above proposed, and it works: 6,939
+displays located in 11,449 photographs (61%). `sevenseg.py --crop` then reads those
+rectified crops with an adaptive mask — the red channel stretched between the crop's own
+60th and 99.5th percentiles under a gamma of 2.2, the same transform `deghost_crops.py`
+applies for human readers — instead of the absolute red threshold that produced the `8`s.
+
+Measured against **18 crops whose readings the project owner confirmed by hand**:
+
+| reader | exact matches |
+| :-- | ---: |
+| `sevenseg.py` on whole photographs | 0 of 15 readable, and `ok` on 14 of 18 |
+| `sevenseg.py --crop`, threshold swept 0.35 → 0.70 | best **3 of 15**, at 0.60 |
+
+**The failure moved but did not go away.** Digit decoding is now broadly right — the
+hardest crop in the set decoded as `0.290`, exactly, and both independent readers had got
+that one wrong. What breaks is segmentation: the crop still contains the `TARE`, `ZERO`
+and `STAB` legends and the odd glare speck, each of which becomes a spurious box, and a
+short box is read as a decimal point. So `0.145` arrives as `..0.145` and fails to parse.
+
+The remaining work is bounded and obvious — restrict the band to the digit row, impose a
+minimum blob area, require a decimal point to sit near the baseline. It was **not** done,
+for one reason worth recording: there are 18 ground-truth crops, and tuning three more
+thresholds against 18 observations produces a reader that works on those 18. Anyone
+picking this up should collect a few dozen more confirmed readings first, and hold some
+back.
+
+**Until then the deterministic reader is not in the pipeline and its output is not
+banked anywhere.** `--crop` exists so the next attempt starts from a measured baseline
+rather than from zero.
 
 ## Limits to state wherever these numbers are quoted
 

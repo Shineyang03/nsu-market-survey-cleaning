@@ -271,12 +271,102 @@ def read_display(path: str, max_side: int = 1600):
     return res
 
 
+# ---- reading a RECTIFIED CROP ------------------------------------------------
+#
+# `read_display` above works on a whole photograph and has to solve two problems at
+# once: find the display among three red rows, and decide which pixels are lit. On a
+# rectified crop the first problem is already solved -- the crop IS the WEIGHT row,
+# cut at a fixed offset from a matched scale body -- so only the second remains.
+#
+# AND THE SECOND PROBLEM IS WHAT `red_mask` GETS WRONG. It thresholds absolutely:
+# R > R_MIN, and R far enough above G and B. These photographs span bright stalls and
+# near-dark interiors, so no absolute threshold works for all of them. Measured against
+# eighteen crops with human-confirmed readings, that path returned `ok` on fourteen and
+# was wrong on essentially all of them -- almost always reading `8`, because the unlit
+# `8.8.8.8.8` ghost passes an absolute red test on a dim photograph. A confidently wrong
+# number is the worst output this file can produce.
+#
+# The fix is to stretch each crop over ITS OWN range instead, which is exactly what
+# `deghost_crops.py` does for human readers. Lit and unlit segments differ in
+# brightness, not hue, so the red channel normalised between the crop's own percentiles
+# separates them where a fixed cut cannot.
+
+CROP_PCT_LO, CROP_PCT_HI = 60, 99.5   # same percentiles deghost_crops.py uses
+CROP_GAMMA = 2.2                      # pushes mid-tones (the ghost) toward black
+CROP_ON = 0.42                        # normalised brightness that counts as lit
+
+
+def crop_mask(arr: np.ndarray, on: float = CROP_ON) -> np.ndarray:
+    """Boolean mask of lit segments in a rectified display crop.
+
+    Adaptive by construction: the percentile range is computed per crop, so a dark
+    photograph and a bright one are normalised to the same scale before thresholding.
+    """
+    r = arr[:, :, 0].astype(np.float32)          # PIL RGB; index 0 is red
+    r = ndimage.gaussian_filter(r, 1.2)          # kill sensor speckle
+    lo, hi = np.percentile(r, CROP_PCT_LO), np.percentile(r, CROP_PCT_HI)
+    if hi - lo < 1:
+        lo, hi = float(r.min()), float(max(r.max(), r.min() + 1))
+    z = np.clip((r - lo) / (hi - lo), 0, 1) ** CROP_GAMMA
+    return z >= on
+
+
+def read_crop(path: str, on: float = CROP_ON) -> dict:
+    """Decode one rectified display crop. Returns a dict; never raises."""
+    res = {"ocr_text": "", "ocr_value": None, "ocr_status": "",
+           "n_digits": 0, "n_unknown": 0, "lit_frac": 0.0}
+    try:
+        im = ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+    except Exception as exc:
+        res["ocr_status"] = f"unreadable_file: {type(exc).__name__}"
+        return res
+
+    mask = crop_mask(np.asarray(im), on)
+    res["lit_frac"] = float(mask.mean())
+    if not mask.any():
+        res["ocr_status"] = "nothing_lit"
+        return res
+
+    rows = np.where(mask.any(axis=1))[0]
+    sub = mask[rows[0]:rows[-1] + 1, :]
+    boxes = split_digits(sub)
+    if not boxes:
+        res["ocr_status"] = "no_digits"
+        return res
+
+    # Assemble left to right. A short box is the decimal point and is emitted in place,
+    # so 0 . 1 6 0 reconstructs as "0.160" rather than losing the separator.
+    out, ndig, nunk = [], 0, 0
+    for b in sorted(boxes, key=lambda d: d["x0"]):
+        if b["kind"] == "dot":
+            out.append(".")
+            continue
+        d = decode_digit(sub[b["y0"]:b["y1"], b["x0"]:b["x1"]])
+        ndig += 1
+        if d == "?":
+            nunk += 1
+        out.append(d)
+
+    text = "".join(out)
+    res.update(ocr_text=text, n_digits=ndig, n_unknown=nunk)
+    try:
+        res["ocr_value"] = float(text)
+        res["ocr_status"] = "ok" if nunk == 0 else "partial"
+    except ValueError:
+        res["ocr_status"] = "partial" if nunk else "unparsable"
+    return res
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--manifest", required=True,
                     help="CSV with photo_path (and seq/id) columns")
     ap.add_argument("--out", required=True)
     ap.add_argument("--limit", type=int, default=None)
+    ap.add_argument("--crop", action="store_true",
+                    help="inputs are rectified display crops, not whole photographs")
+    ap.add_argument("--on", type=float, default=CROP_ON,
+                    help="lit-segment threshold for --crop mode")
     args = ap.parse_args(argv)
 
     mf = pd.read_csv(args.manifest)
@@ -285,17 +375,19 @@ def main(argv=None) -> int:
 
     rows = []
     for i, r in mf.iterrows():
-        out = read_display(r["photo_path"])
+        out = (read_crop(r["photo_path"], args.on) if args.crop
+               else read_display(r["photo_path"]))
         out["seq"] = r.get("seq")
         out["id"] = r.get("id")
         out["filename"] = r.get("filename")
         rows.append(out)
-        print(f"  #{out['seq']:>4}  {out['ocr_text']:<10} "
-              f"rows={out['n_rows_found']:<3} {out['ocr_status']}")
+        extra = (f"lit={out['lit_frac']:.3f}" if args.crop
+                 else f"rows={out.get('n_rows_found')}")
+        print(f"  #{out['seq']:>4}  {out['ocr_text']:<10} {extra:<12} {out['ocr_status']}")
 
     df = pd.DataFrame(rows)
     cols = ["seq", "id", "filename", "ocr_text", "ocr_value", "ocr_status",
-            "n_rows_found", "n_digits", "n_unknown", "row_density"]
+            "n_rows_found", "n_digits", "n_unknown", "row_density", "lit_frac"]
     df = df[[c for c in cols if c in df.columns]]
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     df.to_csv(args.out, index=False)
