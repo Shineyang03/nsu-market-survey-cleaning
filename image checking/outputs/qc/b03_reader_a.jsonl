@@ -1,0 +1,84 @@
+{"label": "0001", "display_text": "0.530", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "very dim display; read by segment-window pixel means against the off segment in each cell"}
+{"label": "0002", "display_text": "0.740", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0003", "display_text": "0.945", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0004", "display_text": "0.630", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0005", "display_text": "0.645", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0006", "display_text": "0.205", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0007", "display_text": "0.220", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0008", "display_text": "0.275", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0009", "display_text": "0.330", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0010", "display_text": "0.345", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0011", "display_text": "0.130", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0012", "display_text": "0.230", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0013", "display_text": "0.275", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim display; read by segment-window pixel means"}
+{"label": "0014", "display_text": "1.160", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0015", "display_text": "0.235", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0016", "display_text": "0.680", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0017", "display_text": "0.085", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0018", "display_text": "0.115", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0019", "display_text": "0.045", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0020", "display_text": "0.075", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "dim but unlit segments measure zero, so the lit set is unambiguous"}
+{"label": "0021", "display_text": "0.145", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0022", "display_text": "0.160", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0023", "display_text": "1.530", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0024", "display_text": "1.320", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "dim; glare patch at left of frame, display itself unobstructed"}
+{"label": "0025", "display_text": "1.550", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0026", "display_text": "1.445", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0027", "display_text": "0.940", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0028", "display_text": "0.075", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0029", "display_text": "0.185", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "dim; third digit is 8 (all seven segments measure lit)"}
+{"label": "0030", "display_text": "0.270", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0031", "display_text": "0.120", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0032", "display_text": "0.170", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0033", "display_text": "0.335", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0034", "display_text": "1.250", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0035", "display_text": "0.310", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0036", "display_text": "1.035", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0037", "display_text": "1.770", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0038", "display_text": "0.870", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0039", "display_text": "0.810", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0040", "display_text": "0.310", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "glare blob over the right bezel, clear of the digits"}
+{"label": "0041", "display_text": "0.445", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0042", "display_text": "0.495", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "extremely faint display; segment pattern is coherent and unlit windows measure zero"}
+{"label": "0043", "display_text": "0.615", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0044", "display_text": "0.340", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0045", "display_text": "0.130", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0046", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present and dim with real segment dropout: digit 1 shows c,d,e,f only and digit 4 shows a,b,c,d only. Digits 2 and 3 read 1 and 6, so 0.16 then one digit that is 0 or 3"}
+{"label": "0047", "display_text": "0.145", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0048", "display_text": "0.120", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0049", "display_text": "0.180", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0050", "display_text": "0.680", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "extremely faint; read from segment windows where unlit segments measure exactly zero"}
+{"label": "0051", "display_text": "0.910", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "dim; second digit is 9 not 3 (upper-left segment measures lit, lower-left measures zero)"}
+{"label": "0052", "display_text": "0.020", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0053", "display_text": "1.065", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "bright reflection streak across the upper right, digits unobstructed"}
+{"label": "0054", "display_text": "1.085", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0055", "display_text": "0.415", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0056", "display_text": "0.555", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0057", "display_text": "0.560", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "glare spot over the second digit, segments still resolve"}
+{"label": "0058", "display_text": "0.495", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0059", "display_text": "0.570", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0060", "display_text": "0.210", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "dim; display sits about 10 px right of the usual position in this crop"}
+{"label": "0061", "display_text": "0.185", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0062", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present, very dim, with segments missing: digit 2 reads 2, digit 3 shows a,b,c,e,f with no bottom bar so it is 0 or 8, digit 4 shows only the lower-right stroke"}
+{"label": "0063", "display_text": "0.125", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0064", "display_text": "0.085", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0065", "display_text": "0.095", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0066", "display_text": "0.230", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "saturated glare streak crosses the first digit at the middle-bar position; the other six segments of that digit are lit, so it reads 0"}
+{"label": "0067", "display_text": "0.225", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0068", "display_text": "0.205", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "display sits about 20 px high in this crop; metal object in the lower left of frame, clear of the digits"}
+{"label": "0069", "display_text": "0.530", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0070", "display_text": "0.600", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0071", "display_text": "0.410", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0072", "display_text": "0.970", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0073", "display_text": "0.255", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0074", "display_text": "0.470", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0075", "display_text": "0.095", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0076", "display_text": "0.095", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0077", "display_text": "2.060", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "dim; leading digit is 2"}
+{"label": "0078", "display_text": "4.850", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "leading digit is 4"}
+{"label": "0079", "display_text": "1.115", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0080", "display_text": "0.765", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "very dim; second digit is 7 not 1 - its top bar measures lit across the full cell width while the gaps between cells measure zero"}
+{"label": "0081", "display_text": "0.165", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0082", "display_text": "0.140", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0083", "display_text": "0.110", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0084", "display_text": "0.125", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
