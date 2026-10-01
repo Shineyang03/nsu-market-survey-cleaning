@@ -1,5 +1,31 @@
 # Project instructions
 
+## Tell a subagent what already exists before it builds it
+
+**Before dispatching any agent, list `scripts/` (and the relevant do-file directory) and
+name in the prompt the tooling that already covers its task — including tooling that was
+TRIED AND FAILED, and what it scored.** An agent cannot read the repository's history. It
+will solve the problem in front of it, and it will solve it from scratch.
+
+Three readers were dispatched in parallel to read scale displays. Each independently
+built a seven-segment decoder — masking lit pixels, splitting digit boxes, sampling
+segment windows — at roughly 300,000 tokens apiece. `scripts/sevenseg.py` already does
+exactly that, and the README already recorded both that it fails and the specific method
+that had not yet been tried. Nobody told them, because nobody looked.
+
+The waste is the smaller half. The real cost is that **three independent decoders are
+three different rules**, tuned by three agents against whatever each happened to be
+looking at, none written down, all discarded when the agents exited. Any disagreement
+between their readings would then have to be re-diagnosed from scratch, and the diagnosis
+would be wrong, because the discrepancy would be in the code rather than in the data.
+That is the same silent-duplication failure as the rule below and the one above, at the
+scale of a whole method.
+
+So every dispatch prompt states: what exists, what it scored, and whether the agent may
+touch it. If an agent genuinely needs a capability the repository lacks, it reports that
+back and the capability is added ONCE, to the existing file, by the session — not
+reinvented per agent and thrown away.
+
 ## A subagent writes to its assigned paths and nowhere else
 
 **Every subagent is told, in its own prompt, exactly which files it may create or modify:
