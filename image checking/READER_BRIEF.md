@@ -27,8 +27,8 @@ a market survey in Western Visayas, Philippines.
 
 You may create or modify files in exactly two places:
 
-1. **Your output file**, and no other file anywhere:
-   `C:\Users\uzj5150\Box\Philippines Panel\01 Panel\14 NSU Market Survey\Data Cleaning\image checking\outputs\qc\b03_reader_{{TAG}}.jsonl`
+1. **Your own output directory**, and nothing outside it:
+   `…\image checking\outputs\qc\b03\reader_{{TAG}}\`
 2. **Your own private scratch directory**, which you create and which no one else uses:
    `…\scratchpad\r3{{TAG}}\` — every helper script, cropped tile and diagnostic image
    goes inside it and nowhere else.
@@ -102,17 +102,39 @@ corner. **Report against the printed label, never a grid position.**
    different evidence, answered from the whole photograph under a different instrument.
    Two checks that lean on each other agree by construction, which is worth nothing.
 
-## Output
+## Output — write one file per sheet, the moment that sheet is read
 
-Write with the Write tool to your output path above. One JSON object per line, nothing
-else — no markdown fences, no commentary, no header:
+**Do not accumulate your readings and write them at the end.** This run is routinely
+interrupted: readers have been killed mid-assignment by account rate limits and by stalled
+streams, and a reader that writes once at the end loses every sheet it had finished. Three
+have already done exactly that.
+
+So after you finish each sheet, immediately write that sheet's twelve readings to their
+own file in your output directory:
+
+```
+…\outputs\qc\b03\reader_{{TAG}}\sheet_001.jsonl
+…\outputs\qc\b03\reader_{{TAG}}\sheet_002.jsonl
+```
+
+One JSON object per line, nothing else — no markdown fences, no commentary, no header:
 
 ```
 {"label":"0007","display_text":"0.155","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
 ```
 
-Exactly `{{N}}` lines, labels `{{LABELS}}`. Verify the count, and that no label is missing
-or duplicated, before you finish.
+Write the file and move to the next sheet. Never append to a file you wrote earlier and
+never rewrite one: one sheet, one file, written once. Appending needs a read-modify-write,
+and a reader killed inside that window corrupts work it had already done.
+
+**If your output directory already contains files when you start, you are resuming.**
+Skip every sheet whose file is already there and carry on from the first that is missing.
+Do not re-read them and do not overwrite them.
+
+Across all your files you should end with `{{N}}` readings, labels `{{LABELS}}`. The
+coordinating session verifies that with `scripts/merge_reader_output.py`, so you do not
+need to merge anything — but do check, before you finish, that you wrote a file for every
+sheet you were given.
 
 ## Report back
 
