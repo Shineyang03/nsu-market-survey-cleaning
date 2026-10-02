@@ -1,0 +1,12 @@
+{"label":"0565","display_text":"0.210","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0566","display_text":"0.175","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0567","display_text":"0.950","display_legible":"probable","display_unit_shown":"none_shown","notes":"CONTAMINATED -- owner adjudicated this tile as 0.950 before this re-read. reader_d also had 0.950, reached by segment probing; this session originally read 0.350 and was wrong."}
+{"label":"0568","display_text":null,"display_legible":"not_visible","display_unit_shown":"indeterminate","notes":"no display in frame -- the crop shows printed packaging reading MADE IN GREEN; cropper locked onto text, not a scale"}
+{"label":"0569","display_text":null,"display_legible":"ambiguous","display_unit_shown":"none_shown","notes":"display present but very dim; bright object upper left"}
+{"label":"0570","display_text":"1.100","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim"}
+{"label":"0571","display_text":null,"display_legible":"ambiguous","display_unit_shown":"none_shown","notes":"display present -- bezel and WEIGHT legend visible -- but the row is a uniform ghost"}
+{"label":"0572","display_text":"0.290","display_legible":"probable","display_unit_shown":"none_shown","notes":"CONTAMINATED -- owner read 0.290 off this crop. reader_d had recorded not_visible, which was wrong: the bezel and WEIGHT legend are plainly in frame."}
+{"label":"0573","display_text":"0.180","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim"}
+{"label":"0574","display_text":null,"display_legible":"ambiguous","display_unit_shown":"none_shown","notes":"display present but very dim; glare across the left of the frame"}
+{"label":"0575","display_text":"0.250","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0576","display_text":null,"display_legible":"ambiguous","display_unit_shown":"none_shown","notes":"display present but very dim; glare across the left of the frame"}
