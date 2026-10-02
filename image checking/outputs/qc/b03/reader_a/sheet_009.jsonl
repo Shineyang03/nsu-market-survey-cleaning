@@ -1,0 +1,12 @@
+{"label":"0097","display_text":"0.105","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0098","display_text":"0.100","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0099","display_text":"0.525","display_legible":"clear","display_unit_shown":"none_shown","notes":"dim but segment windows separate cleanly (off 0-8, lit 49-94)"}
+{"label":"0100","display_text":"0.460","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0101","display_text":"0.435","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0102","display_text":"0.145","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0103","display_text":"0.150","display_legible":"clear","display_unit_shown":"none_shown","notes":"dim; digit 1 and digit 4 middle bars measure 5 and 10 against lit bars at 45-82, so both are 0"}
+{"label":"0104","display_text":"1.835","display_legible":"clear","display_unit_shown":"none_shown","notes":"leading digit is 1, not a suppressed blank; decimal point sits after it"}
+{"label":"0105","display_text":null,"display_legible":"clear","display_unit_shown":"none_shown","notes":"display present but blank - bezel and WEIGHT legend in frame, every segment window measures 4 or less where lit segments elsewhere on this sheet measure 25-200"}
+{"label":"0106","display_text":"0.525","display_legible":"clear","display_unit_shown":"none_shown","notes":"dim; digit 1 middle bar measures 2 against its own lit segments at 28-51, so it is a 0"}
+{"label":"0107","display_text":"0.665","display_legible":"clear","display_unit_shown":"none_shown","notes":"digits 2 and 3 have the upper-right segment off, so 6 not 8"}
+{"label":"0108","display_text":"0.535","display_legible":"clear","display_unit_shown":"none_shown","notes":""}

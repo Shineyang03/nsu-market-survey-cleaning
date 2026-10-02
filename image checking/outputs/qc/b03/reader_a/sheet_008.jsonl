@@ -1,0 +1,12 @@
+{"label":"0085","display_text":"0.155","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim; segment means decide it - digits 4 and 5 have lower-right lit (57,111) against upper-right off at ghost level (30,28)"}
+{"label":"0086","display_text":"0.210","display_legible":"clear","display_unit_shown":"none_shown","notes":"dim; digit 3 top bar measures 20 against its own lit segments at 76-95, so it is a 1 not a 7"}
+{"label":"0087","display_text":"0.065","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0088","display_text":"0.270","display_legible":"clear","display_unit_shown":"none_shown","notes":"very dim but de-ghosted cleanly - off segments measure 0, lit 23-39; digit 3 top bar is lit (28) so it is a 7"}
+{"label":"0089","display_text":"0.140","display_legible":"clear","display_unit_shown":"none_shown","notes":"dim; digit 4 middle bar lit and top bar at ghost level gives 4, digit 5 middle bar at ghost level gives 0"}
+{"label":"0090","display_text":"0.135","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0091","display_text":"0.335","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0092","display_text":"0.070","display_legible":"probable","display_unit_shown":"none_shown","notes":"glare streak across the last digit; its middle-segment window is dark, so 0 not 8"}
+{"label":"0093","display_text":"0.455","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0094","display_text":"0.620","display_legible":"clear","display_unit_shown":"none_shown","notes":""}
+{"label":"0095","display_text":"0.880","display_legible":"clear","display_unit_shown":"none_shown","notes":"checked for ghosting: middle bars of digits 2 and 3 measure 201 and 186, digits 1 and 4 measure 1 and 2"}
+{"label":"0096","display_text":"0.115","display_legible":"probable","display_unit_shown":"none_shown","notes":"dim and a foreground object covers the lower left of digit 1; digits 2-5 measure cleanly (off segments 0, lit 32-64)"}

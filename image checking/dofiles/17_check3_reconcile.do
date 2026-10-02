@@ -48,11 +48,20 @@ set more off
 set linesize 220
 do "00_photo_globals.do"
 
-capture confirm file "${imgqc}/readings_c3cal.csv"
+* ---- THE DIAL ------------------------------------------------------------------
+* Which readings to score. objects-v2.0 and objects-v2.1 are NOT comparable on size:
+* v2.0 has no `long_cm' at all, so the size section below is silently empty on it and
+* only the form/container overlap runs. Point this at one version's readings or the
+* other, never at a mixture.
+local READ "readings_c3cal_v21"
+
+capture confirm file "${imgqc}/`READ'.csv"
 if _rc {
-	di as err "17: no readings_c3cal.csv yet. Run, from image checking/scripts:"
+	di as err "17: no `READ'.csv yet. Run, from image checking/scripts:"
 	di as err "    python parse_readings.py --tag c3cal --instrument objects \\"
-	di as err "        --prompt-version objects-v2.0 --out ../outputs/qc/readings_c3cal.csv"
+	di as err "        --prompt-version objects-v2.1 \\"
+	di as err "        --raw-dir ../outputs/readings/raw/c3cal_v21 \\"
+	di as err "        --out ../outputs/qc/`READ'.csv"
 	exit 601
 }
 
@@ -68,11 +77,18 @@ rename label lblname
 tempfile reg
 save `reg'
 
-import delimited using "${imgqc}/readings_c3cal.csv", clear varnames(1) ///
+import delimited using "${imgqc}/`READ'.csv", clear varnames(1) ///
 	stringcols(_all) encoding("utf-8")
 destring id, replace force
+capture confirm variable long_cm
+if _rc {
+	gen str4 long_cm = ""
+	gen str4 size_ref = ""
+	gen str4 size_confidence = ""
+}
 keep id reader visible object form container container_material size_cue colour ///
-     distinguishing notes
+     distinguishing notes long_cm size_ref size_confidence
+destring long_cm, replace force
 
 * parse_readings.py names a reader after the FILE, so one reader checkpointing per
 * sheet arrives as 42 readers (`sonnetA_s01' ... `sonnetA_s42'). That is right for its
@@ -151,6 +167,108 @@ foreach f in form container {
 postclose `O'
 
 ********************************************************************************
+* 2b. SIZE -- the field v2.1 added, and the one the first calibration lacked
+*
+* `form' is a KIND taxonomy and cannot see a sachet against a pack. `long_cm' can.
+* The statistic is the ratio of the two sides' MEDIAN longest dimension, reported as a
+* SEPARATION = max(ratio, 1/ratio) so it is always >= 1 and direction-free: 1.0 means
+* the two labels photograph at the same size, 3.0 means one is three times the other.
+*
+* NO THRESHOLD IS SET HERE. Where to cut is exactly what the controls are for -- if
+* every known-different pair separates further than every known-same pair, the gap
+* between them IS the threshold, measured rather than assumed.
+*
+* A NOTE ON WHAT A LINEAR RATIO CAN AND CANNOT SEE. Weight scales roughly as the cube
+* of a length, so the weight test's +/-25% band is about 8% in linear terms -- far below
+* what a photograph resolves. A linear ratio is therefore a BLUNT instrument for weight
+* and a SHARP one for "is this the same size of object", which is the question Check 3
+* actually asks. Camote at 1.33x in weight is ~1.1x in length and should NOT separate.
+********************************************************************************
+tempname Z
+postfile `Z' long pair_id str14 status str40 labelA str40 labelB str24 reader ///
+	double medA double medB double sizeratio double separation long nA long nB ///
+	using "${imgqc}/_check3_size.dta", replace
+
+foreach r of local RD {
+	foreach p of local PAIRS {
+		preserve
+			quietly keep if pair_id==`p' & reader=="`r'" & visible!="unusable"
+			quietly count if side=="A" & long_cm<.
+			local nA = r(N)
+			quietly count if side=="B" & long_cm<.
+			local nB = r(N)
+			if `nA'==0 | `nB'==0 {
+				restore
+				continue
+			}
+			local st = status[1]
+			local la = laba[1]
+			local lb = labb[1]
+			quietly su long_cm if side=="A", detail
+			local mA = r(p50)
+			quietly su long_cm if side=="B", detail
+			local mB = r(p50)
+			if `mB' > 0 {
+				local rt = `mA'/`mB'
+				local sp = max(`rt', 1/`rt')
+				post `Z' (`p') ("`st'") ("`la'") ("`lb'") ("`r'") (`mA') (`mB') ///
+					(`rt') (`sp') (`nA') (`nB')
+			}
+		restore
+	}
+}
+postclose `Z'
+
+preserve
+	use "${imgqc}/_check3_size.dta", clear
+	quietly count
+	if r(N) == 0 {
+		di as txt _n "  SIZE: no `long_cm' in these readings -- objects-v2.0 did not"
+		di as txt "  record it. This is the gap v2.1 exists to close."
+	}
+	else {
+		di as res _n "{hline 88}"
+		di as res "SIZE SEPARATION -- median longest dimension, side A against side B"
+		di as res "{hline 88}"
+		di as txt %-14s "status" %10s "pairs" %10s "mean" %10s "min" %10s "max"
+		foreach s in control_diff control_same unknown {
+			quietly su separation if status=="`s'"
+			if r(N) > 0 {
+				di as txt %-14s "`s'" %10.0f r(N) %10.2f r(mean) %10.2f r(min) %10.2f r(max)
+			}
+		}
+		quietly su separation if status=="control_diff"
+		local sd_min = r(min)
+		quietly su separation if status=="control_same"
+		local ss_max = r(max)
+		di as txt _n "    known-different, WEAKEST separation ......... " %5.2f `sd_min'
+		di as txt "    known-same,      STRONGEST separation ....... " %5.2f `ss_max'
+		if (`sd_min' > `ss_max') {
+			di as res "    SIZE SEPARATES CLEANLY. Every known-different pair sits"
+			di as res "    further apart than every known-same pair. The threshold is"
+			di as res "    the gap: anything above " %4.2f `ss_max' " is a size difference the"
+			di as res "    photographs support."
+		}
+		else {
+			di as err "    SIZE DOES NOT SEPARATE CLEANLY -- the control ranges overlap."
+			di as err "    Read the per-pair table below before concluding anything."
+		}
+
+		di as res _n "  EVERY PAIR"
+		gsort status -separation
+		di as txt %-14s "status" %-24s "label A" %-24s "label B" %-12s "reader" ///
+			%8s "medA" %8s "medB" %9s "ratio" %9s "separat"
+		forvalues i = 1/`=_N' {
+			di as txt %-14s status[`i'] %-24s abbrev(labelA[`i'],24) ///
+				%-24s abbrev(labelB[`i'],24) %-12s abbrev(reader[`i'],12) ///
+				%8.0f medA[`i'] %8.0f medB[`i'] %9.2f sizeratio[`i'] %9.2f separation[`i']
+		}
+		export delimited using "${imgqc}/check3_size.csv", replace
+		di as res _n "wrote ${imgqc}/check3_size.csv"
+	}
+restore
+
+********************************************************************************
 * 3. DID THE CONTROLS BEHAVE?
 ********************************************************************************
 use "${imgqc}/_check3_overlap.dta", clear
@@ -218,15 +336,17 @@ di as res _n "wrote ${imgqc}/check3_overlap.csv"
 ********************************************************************************
 * 4. THE FREE TEXT, for a judgement pass
 ********************************************************************************
-import delimited using "${imgqc}/readings_c3cal.csv", clear varnames(1) ///
+import delimited using "${imgqc}/`READ'.csv", clear varnames(1) ///
 	stringcols(_all) encoding("utf-8")
 destring id, replace force
-keep id reader visible object form container size_cue colour distinguishing
+capture confirm variable long_cm
+if _rc gen str4 long_cm = ""
+keep id reader visible object form container size_cue colour distinguishing long_cm
 joinby id using `reg'
 keep pair_id status itemsub laba labb side lblname size reader visible object ///
-     form container size_cue colour distinguishing id
+     form container long_cm size_cue colour distinguishing id
 order pair_id status itemsub laba labb side lblname size reader visible object ///
-      form container size_cue colour distinguishing id
+      form container long_cm size_cue colour distinguishing id
 sort pair_id side reader id
 export delimited using "${imgqc}/check3_descriptions.csv", replace
 quietly count

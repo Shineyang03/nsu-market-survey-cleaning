@@ -1,57 +1,57 @@
 pair_id,status,labelA,labelB,field,reader,overlap,nA,nB,is_form
-1,control_diff,bilog,pieces or units,form,haikuB,.8333333333333334,6,6,1
-2,control_diff,putos,pack,form,haikuB,1,6,6,1
-3,control_diff,putos,pack,form,haikuB,.8333333333333334,6,6,1
-4,control_diff,bilog,binilog,form,haikuB,.8333333333333334,6,6,1
-5,control_same,bilog,binilog,form,haikuB,1,6,6,1
-6,control_same,lipid / lapad,lapad,form,haikuB,1,6,6,1
-7,control_same,large,dalagku nga putos,form,haikuB,1,6,6,1
-8,unknown,bilog,binilog,form,haikuB,1,6,6,1
-9,unknown,bilog,pieces or units,form,haikuB,1,6,6,1
-10,unknown,bilog,binilog,form,haikuB,1,6,6,1
-11,unknown,gamay nga cup,maisot nga tasa,form,haikuB,.3333333333333333,6,6,1
-12,unknown,large,mabahoe nga putos,form,haikuB,.8333333333333334,6,6,1
-13,unknown,medium,kasarangan nga putos,form,haikuB,.8333333333333334,6,6,1
-14,unknown,small,maisot nga putos,form,haikuB,1,6,6,1
-1,control_diff,bilog,pieces or units,form,sonnetA,.1666666666666667,6,6,1
-2,control_diff,putos,pack,form,sonnetA,1,6,6,1
-3,control_diff,putos,pack,form,sonnetA,1,6,6,1
-4,control_diff,bilog,binilog,form,sonnetA,1,6,6,1
-5,control_same,bilog,binilog,form,sonnetA,1,6,6,1
-6,control_same,lipid / lapad,lapad,form,sonnetA,1,6,6,1
-7,control_same,large,dalagku nga putos,form,sonnetA,1,6,6,1
-8,unknown,bilog,binilog,form,sonnetA,1,6,6,1
-9,unknown,bilog,pieces or units,form,sonnetA,1,6,6,1
-10,unknown,bilog,binilog,form,sonnetA,1,6,6,1
-11,unknown,gamay nga cup,maisot nga tasa,form,sonnetA,.8333333333333334,6,6,1
-12,unknown,large,mabahoe nga putos,form,sonnetA,1,6,6,1
-13,unknown,medium,kasarangan nga putos,form,sonnetA,1,6,6,1
-14,unknown,small,maisot nga putos,form,sonnetA,1,6,6,1
-1,control_diff,bilog,pieces or units,container,haikuB,.8333333333333334,6,6,0
-2,control_diff,putos,pack,container,haikuB,.8333333333333334,6,6,0
-3,control_diff,putos,pack,container,haikuB,.6666666666666667,6,6,0
-4,control_diff,bilog,binilog,container,haikuB,1,6,6,0
-5,control_same,bilog,binilog,container,haikuB,1,6,6,0
-6,control_same,lipid / lapad,lapad,container,haikuB,.6666666666666666,6,6,0
-7,control_same,large,dalagku nga putos,container,haikuB,1,6,6,0
-8,unknown,bilog,binilog,container,haikuB,.8333333333333334,6,6,0
-9,unknown,bilog,pieces or units,container,haikuB,1,6,6,0
-10,unknown,bilog,binilog,container,haikuB,1,6,6,0
-11,unknown,gamay nga cup,maisot nga tasa,container,haikuB,.3333333333333333,6,6,0
-12,unknown,large,mabahoe nga putos,container,haikuB,.8333333333333334,6,6,0
-13,unknown,medium,kasarangan nga putos,container,haikuB,.8333333333333334,6,6,0
-14,unknown,small,maisot nga putos,container,haikuB,1,6,6,0
-1,control_diff,bilog,pieces or units,container,sonnetA,.1666666666666667,6,6,0
-2,control_diff,putos,pack,container,sonnetA,1,6,6,0
-3,control_diff,putos,pack,container,sonnetA,.8333333333333334,6,6,0
-4,control_diff,bilog,binilog,container,sonnetA,1,6,6,0
-5,control_same,bilog,binilog,container,sonnetA,1,6,6,0
-6,control_same,lipid / lapad,lapad,container,sonnetA,1,6,6,0
-7,control_same,large,dalagku nga putos,container,sonnetA,1,6,6,0
-8,unknown,bilog,binilog,container,sonnetA,.8333333333333333,6,6,0
-9,unknown,bilog,pieces or units,container,sonnetA,.8333333333333333,6,6,0
-10,unknown,bilog,binilog,container,sonnetA,.6666666666666666,6,6,0
-11,unknown,gamay nga cup,maisot nga tasa,container,sonnetA,.8333333333333334,6,6,0
-12,unknown,large,mabahoe nga putos,container,sonnetA,1,6,6,0
-13,unknown,medium,kasarangan nga putos,container,sonnetA,1,6,6,0
-14,unknown,small,maisot nga putos,container,sonnetA,1,6,6,0
+1,control_diff,bilog,pieces or units,form,sonnetC,.1666666666666667,6,6,1
+2,control_diff,putos,pack,form,sonnetC,1,6,6,1
+3,control_diff,putos,pack,form,sonnetC,1,6,6,1
+4,control_diff,bilog,binilog,form,sonnetC,1,6,6,1
+5,control_same,bilog,binilog,form,sonnetC,1,6,6,1
+6,control_same,lipid / lapad,lapad,form,sonnetC,1,6,6,1
+7,control_same,large,dalagku nga putos,form,sonnetC,1,6,6,1
+8,unknown,bilog,binilog,form,sonnetC,1,6,6,1
+9,unknown,bilog,pieces or units,form,sonnetC,1,6,6,1
+10,unknown,bilog,binilog,form,sonnetC,1,6,6,1
+11,unknown,gamay nga cup,maisot nga tasa,form,sonnetC,.8333333333333334,6,6,1
+12,unknown,large,mabahoe nga putos,form,sonnetC,1,6,6,1
+13,unknown,medium,kasarangan nga putos,form,sonnetC,1,6,6,1
+14,unknown,small,maisot nga putos,form,sonnetC,1,6,6,1
+1,control_diff,bilog,pieces or units,form,sonnetD,.1666666666666667,6,6,1
+2,control_diff,putos,pack,form,sonnetD,1,6,6,1
+3,control_diff,putos,pack,form,sonnetD,1,6,6,1
+4,control_diff,bilog,binilog,form,sonnetD,1,6,6,1
+5,control_same,bilog,binilog,form,sonnetD,1,6,6,1
+6,control_same,lipid / lapad,lapad,form,sonnetD,1,6,6,1
+7,control_same,large,dalagku nga putos,form,sonnetD,1,6,6,1
+8,unknown,bilog,binilog,form,sonnetD,1,6,6,1
+9,unknown,bilog,pieces or units,form,sonnetD,1,6,6,1
+10,unknown,bilog,binilog,form,sonnetD,1,6,6,1
+11,unknown,gamay nga cup,maisot nga tasa,form,sonnetD,.8333333333333334,6,6,1
+12,unknown,large,mabahoe nga putos,form,sonnetD,1,6,6,1
+13,unknown,medium,kasarangan nga putos,form,sonnetD,1,6,6,1
+14,unknown,small,maisot nga putos,form,sonnetD,1,6,6,1
+1,control_diff,bilog,pieces or units,container,sonnetC,.1666666666666667,6,6,0
+2,control_diff,putos,pack,container,sonnetC,.6666666666666666,6,6,0
+3,control_diff,putos,pack,container,sonnetC,.8333333333333334,6,6,0
+4,control_diff,bilog,binilog,container,sonnetC,1,6,6,0
+5,control_same,bilog,binilog,container,sonnetC,1,6,6,0
+6,control_same,lipid / lapad,lapad,container,sonnetC,1,6,6,0
+7,control_same,large,dalagku nga putos,container,sonnetC,1,6,6,0
+8,unknown,bilog,binilog,container,sonnetC,.6666666666666666,6,6,0
+9,unknown,bilog,pieces or units,container,sonnetC,.6666666666666666,6,6,0
+10,unknown,bilog,binilog,container,sonnetC,.6666666666666666,6,6,0
+11,unknown,gamay nga cup,maisot nga tasa,container,sonnetC,.8333333333333333,6,6,0
+12,unknown,large,mabahoe nga putos,container,sonnetC,1,6,6,0
+13,unknown,medium,kasarangan nga putos,container,sonnetC,1,6,6,0
+14,unknown,small,maisot nga putos,container,sonnetC,1,6,6,0
+1,control_diff,bilog,pieces or units,container,sonnetD,.1666666666666667,6,6,0
+2,control_diff,putos,pack,container,sonnetD,.8333333333333334,6,6,0
+3,control_diff,putos,pack,container,sonnetD,.8333333333333334,6,6,0
+4,control_diff,bilog,binilog,container,sonnetD,1,6,6,0
+5,control_same,bilog,binilog,container,sonnetD,1,6,6,0
+6,control_same,lipid / lapad,lapad,container,sonnetD,1,6,6,0
+7,control_same,large,dalagku nga putos,container,sonnetD,1,6,6,0
+8,unknown,bilog,binilog,container,sonnetD,.8333333333333333,6,6,0
+9,unknown,bilog,pieces or units,container,sonnetD,.6666666666666666,6,6,0
+10,unknown,bilog,binilog,container,sonnetD,.6666666666666666,6,6,0
+11,unknown,gamay nga cup,maisot nga tasa,container,sonnetD,.5,6,6,0
+12,unknown,large,mabahoe nga putos,container,sonnetD,.8333333333333334,6,6,0
+13,unknown,medium,kasarangan nga putos,container,sonnetD,1,6,6,0
+14,unknown,small,maisot nga putos,container,sonnetD,1,6,6,0

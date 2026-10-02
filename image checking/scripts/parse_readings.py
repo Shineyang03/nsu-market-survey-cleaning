@@ -64,6 +64,14 @@ FORMS = {
     "whole_animal", "portion", "whole_produce", "bundle", "packaged_unit",
     "loose_in_container", "bottle", "prepared_serving", "other", "indeterminate",
 }
+SIZE_REF = {"hand", "scale_platter", "bottle", "coin", "tile", "other_object",
+            "none", None}
+SIZE_CONF = {"clear", "probable", "rough", None}
+# objects-v2.1 asks for a longest dimension in centimetres. The guard is wide on
+# purpose -- it is there to catch a reader answering in millimetres or copying a net
+# weight, not to second-guess an estimate. A market NSU runs from a coin-sized sachet
+# to a sack.
+LONG_CM_MIN, LONG_CM_MAX = 1, 200
 
 OBJ_RE = re.compile(r"\{.*?\}")
 
@@ -163,6 +171,30 @@ def main(argv=None) -> int:
                 if re.search(r"\d+\s*(g|kg|ml|l|oz|lb)\b", desc, re.I):
                     problems.append({"reader": reader, "kind": "quantity_in_object",
                                      "detail": f"{lab}: {desc[:60]}"})
+
+                # ---- v2.1 size fields. Absent under v2.0, so missing is not an error;
+                # present but out of vocabulary or implausible IS.
+                sr = o.get("size_ref")
+                if sr is not None and sr not in SIZE_REF:
+                    problems.append({"reader": reader, "kind": "bad_size_ref",
+                                     "detail": f"{lab}: {sr}"})
+                sc = o.get("size_confidence")
+                if sc is not None and sc not in SIZE_CONF:
+                    problems.append({"reader": reader, "kind": "bad_size_confidence",
+                                     "detail": f"{lab}: {sc}"})
+                lc = o.get("long_cm")
+                if lc is not None:
+                    try:
+                        lc = float(lc)
+                        if not (LONG_CM_MIN <= lc <= LONG_CM_MAX):
+                            problems.append({"reader": reader, "kind": "long_cm_range",
+                                             "detail": f"{lab}: {lc}"})
+                            lc = None
+                    except (TypeError, ValueError):
+                        problems.append({"reader": reader, "kind": "long_cm_not_number",
+                                         "detail": f"{lab}: {o.get('long_cm')!r}"})
+                        lc = None
+
                 rows.append({
                     "reader": reader,
                     "prompt_version": args.prompt_version,
@@ -175,9 +207,14 @@ def main(argv=None) -> int:
                     "visible": vis,
                     "object": o.get("object"),
                     "form": fm,
+                    "is_packaged": o.get("is_packaged"),
                     "container": o.get("container"),
                     "container_material": o.get("container_material"),
                     "count_visible": o.get("count_visible"),
+                    "inner_count": o.get("inner_count"),
+                    "long_cm": lc,
+                    "size_ref": sr,
+                    "size_confidence": sc,
                     "size_cue": o.get("size_cue"),
                     "colour": o.get("colour"),
                     "product_text": o.get("product_text"),

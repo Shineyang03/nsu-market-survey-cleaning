@@ -1,8 +1,13 @@
-# Reading instrument — objects — v2.0
+# Reading instrument — objects — v2.1
 
-**Version `objects-v2.0`, 2026-09-30.** The coding manual for describing **what is in**
+**Version `objects-v2.1`, 2026-10-01.** The coding manual for describing **what is in**
 an NSU market survey photograph, as opposed to what a scale display reads. It is
 committed, versioned, and its version is recorded against every reading made with it.
+
+> **`objects-v2.0` readings are not comparable with these on size.** v2.0 had no
+> structured size field, and its calibration failed for exactly that reason — see
+> *Changelog*. Readings made under v2.0 are kept (`outputs/readings/raw/c3cal/`) because
+> their free text is still evidence, but no size comparison may mix the two versions.
 
 `PROMPT.md` (`v1.0`) remains the instrument for Checks 1 and 2. It asks what number the
 photograph shows. **This file asks what the object is**, and the two are not
@@ -60,7 +65,7 @@ what it is called.
 For each photograph, output exactly one JSON object on its own line, with these keys:
 
 ```json
-{"label":"0007","visible":"clear","object":"whole chicken, plucked, uncooked","form":"whole_animal","container":"none","container_material":null,"count_visible":1,"size_cue":"roughly the size of two hands","colour":"pale yellow-pink","product_text":null,"distinguishing":"head and feet still attached","notes":""}
+{"label":"0007","visible":"clear","object":"whole chicken, plucked, uncooked","form":"whole_animal","is_packaged":false,"container":"none","container_material":null,"count_visible":1,"inner_count":null,"long_cm":34,"size_ref":"scale_platter","size_confidence":"probable","size_cue":"fills the metal tray, wings extending past its edge","colour":"pale yellow-pink","product_text":null,"distinguishing":"head and feet still attached","notes":""}
 ```
 
 **`label`** — the four digits from the tile's corner, as a string, without the `#`.
@@ -97,25 +102,78 @@ five to fifteen words. Say what it is, and what state it is in.
 | `other` | none of the above, but the object is identifiable |
 | `indeterminate` | you cannot tell |
 
+**THE OBJECT WINS OVER ITS PACKAGING.** A whole raw chicken sealed in a retail bag is
+`whole_animal`, not `packaged_unit` — what is being sold is a chicken. Use
+`packaged_unit` when the package *is* the unit, as with a bag of crackers whose contents
+are many small items. Record the packaging separately in `is_packaged` and `container`.
+
+**When the object IS its container** — a bottle of rum, a canned drink — set `form` to
+`bottle` and `container` to `bottle` or `can`. The repetition is expected, not an error.
+
+**`is_packaged`** — `true` if the object is sealed, wrapped or bagged for retail, `false`
+otherwise. This exists so packaging can be recorded without competing with `form`.
+
 **`container`** — what the object is in or on, if anything: `none`, `sachet`, `bag`,
-`cup`, `tub`, `bottle`, `can`, `box`, `tray`, `plate`, `cone`, `wrapper`, `net`, `other`.
+`cup`, `tub`, `bowl`, `dish`, `basin`, `bottle`, `can`, `box`, `tray`, `plate`, `cone`,
+`wrapper`, `net`, `freezer`, `other`.
+
+*`sachet` versus `bag`*: a `sachet` is a single-serve packet no larger than a palm. A
+`bag` is anything larger, or anything holding several items. If it is borderline, use
+`bag` and say so in `notes`.
+
+*A wrapped frozen bar or a soft pouch* is `form: packaged_unit` with
+`container: wrapper`. Say "bar" or "pouch" in `distinguishing`.
 
 **`container_material`** — `plastic`, `glass`, `metal`, `paper`, `foil`, `leaf`,
-`other`, or `null` if there is no container.
+`other`, or JSON `null` if there is no container. **Write `null`, not the string
+`"null"`.**
 
-**`count_visible`** — how many separate units of the thing are shown, as a number. Use
-`1` for a single object. Use `null` if they cannot be counted (a heap, a pile, a crowd of
-items).
+**`count_visible`** — how many separate units are shown of **the thing being sold**, as a
+number. A bag holding ten small packets is being sold as one bag, so `count_visible` is
+`1`. Use `null` only if the units cannot be counted at all — a heap or a pile.
 
-**`size_cue`** — **free text, and worth real effort.** Anything in the picture that tells
-a reader how big the object is: a hand holding it, a coin, a scale platter, a standard
-bottle, a crate, floor tiles. Say what the reference is and how the object compares.
-`"held in one hand, fills the palm"`, `"about a third the width of the scale platter"`,
-`"roughly two-thirds the height of the 1.5 L bottle beside it"`. `null` if there is
-nothing to judge by.
+**`inner_count`** — if the unit contains countable smaller items (ten packets inside one
+bag), how many, as a number. `null` otherwise. This matters because a multipack and a
+single packet can look alike in every other field.
 
-This field is how a size difference gets separated from a kind difference, so a vague
-answer here costs more than it looks.
+### Size — the four fields that matter most
+
+Many of the decisions this check feeds are about **size within one kind of object**: a
+sachet against a pack, a whole bird against a portion. Both members are `packaged_unit`
+or `whole_animal`, so `form` cannot tell them apart. **These fields are what does.**
+
+**`long_cm`** — **your best estimate of the object's LONGEST dimension, in whole
+centimetres.** A number, not a range, not a string. `null` only if there is genuinely
+nothing in the frame to judge scale by.
+
+Estimate it. You are not expected to be exact, and a rough number is far more useful than
+no number — what matters is that two photographs of genuinely different-sized things get
+noticeably different values. Useful anchors, in rough centimetres:
+
+| reference | size |
+| :-- | :-- |
+| an adult finger's width | 2 |
+| a large coin | 3 |
+| an adult palm, across | 9 |
+| an adult hand, wrist to fingertip | 19 |
+| a 1.5 L soft-drink bottle, tall | 32 |
+| a typical market scale platter, across | 30 |
+| a forearm | 45 |
+
+So: a snack sachet held in a palm is about `10`; a loaf of sliced bread about `28`; a
+whole chicken filling a tray about `34`; a single sweet potato about `12`.
+
+**`size_ref`** — what you judged `long_cm` against: `hand`, `scale_platter`, `bottle`,
+`coin`, `tile`, `other_object`, or `none` (you judged from the framing alone).
+
+**`size_confidence`** — `clear`, `probable`, or `rough`.
+Use `rough` freely. A `rough` estimate that is recorded is worth much more than a blank,
+because the comparison downstream uses medians across six photographs.
+
+**`size_cue`** — free text, the reasoning behind the number: `"held in one hand, fills
+the palm"`, `"about a third the width of the scale platter"`, `"roughly two-thirds the
+height of the 1.5 L bottle beside it"`. This is the audit trail for `long_cm`, so write
+it even when the number feels obvious. `null` only if there was nothing to go on.
 
 **`colour`** — the dominant colour or colours of the product itself, not its packaging.
 `null` if the product is not visible.
@@ -138,9 +196,14 @@ to say.
 
 1. **Describe only what is in the picture.** Do not infer the product from the setting,
    and do not guess a brand you cannot read.
-2. **Never report a weight or a volume in any field.** If a package states one, ignore it.
-   A different instrument records those, and reporting them here invites the comparison
-   this check exists to make to be made on numbers instead of objects.
+2. **Never report a printed weight or volume, in any field.** If a package states
+   `"Net Wt. 400 g"` or `"1.5 L"`, ignore it entirely — do not put it in `object`, in
+   `product_text`, in `notes`, or anywhere else. A different instrument records those.
+   **`long_cm` is not an exception and is not a weight**: it is your own visual estimate
+   of how long the object is, which is exactly what a printed net weight is not.
+   *This rule was broken 14 times under v2.0, always by copying a package figure into
+   `object`. If you catch yourself writing a number followed by `g`, `kg`, `ml` or `L`,
+   it is the wrong number.*
 3. **Do not name the local unit.** Do not write `putos`, `bilog`, `lapad`, `bundle` as
    your `object` description even if you recognise it. Those are the labels under test.
    Describe the thing, not the word for it.
@@ -214,3 +277,43 @@ State these wherever a verdict produced by it is reported.
 | version | date | change |
 | :-- | :-- | :-- |
 | objects-v2.0 | 2026-09-30 | first issue. Object description for Check 3; no overlap with `PROMPT.md` v1.0, which stays the instrument for Checks 1 and 2 |
+| objects-v2.1 | 2026-10-01 | **structured size**, plus eight fixes the first calibration surfaced |
+
+### Why v2.1 exists
+
+v2.0's calibration **failed, and the controls are what caught it.** Mean `form` overlap
+was 0.83 on pairs the weight test calls *different* against 1.00 on pairs it confirms
+*equivalent* — no separation at all. Only one positive control separated:
+
+| positive control | forms | overlap |
+| :-- | :-- | ---: |
+| chicken `bilog` / `pieces or units` | `whole_animal` vs `portion` | 0.17 |
+| crackers `putos` / `pack` | both `packaged_unit` | 1.00 |
+| ice cream `putos` / `pack` | both `packaged_unit` | 1.00 |
+| camote `bilog` / `binilog` | both `whole_produce` | 1.00 |
+
+**`form` is a KIND taxonomy, and three of the four controls differ in SIZE within one
+kind.** The readers saw the difference and wrote it down — crackers `putos` read *"small
+crinkled bag, about the width of the palm"* against `pack` *"large yellow plastic bag,
+covers most of the scale platter"* — but it sat in free text that nothing could score.
+
+So v2.1 adds `long_cm`, `size_ref` and `size_confidence`, which make size a number.
+
+**The eight other changes all come from the first readers' own reports**, which is what
+asking them for the instrument's defects was for:
+
+| v2.0 defect | v2.1 |
+| :-- | :-- |
+| no rule when object and container disagree (a whole chicken in a retail bag) | the object wins; packaging moves to `is_packaged` |
+| `form: bottle` duplicates `container: bottle` | stated as expected, not an error |
+| no `bowl`, `dish` or `basin` container | added, with `freezer` |
+| wrapped frozen bars and pouches had no slot | `packaged_unit` + `wrapper`, named in `distinguishing` |
+| multipack counting ambiguous — 1 bag or 10 packets? | `count_visible` is the unit sold; `inner_count` is new |
+| `sachet` versus `bag` subjective | a sachet is single-serve and palm-sized or less |
+| `"null"` written as a string twice | stated explicitly |
+| a printed weight copied into `object`, 14 times | Rule 2 rewritten, with the failure named |
+
+**Camote is recorded as out of reach rather than fixed.** Both sides read *"about
+one-third the width of the scale platter, roughly palm-length"*. The weight test puts
+them 1.33× apart, which is about 1.1× in linear dimension — below what a photograph
+shows. No instrument change will recover it.

@@ -1,0 +1,15 @@
+pair_id,status,item,labelA,labelB,provA,provB,prov_shared,munA,munB,mun_shared
+1,control_diff,chicken,bilog,pieces or units,4,4,3,30,21,5
+2,control_diff,crackers,putos,pack,4,2,2,39,10,4
+3,control_diff,ice cream,putos,pack,5,2,2,54,3,1
+4,control_diff,camote,bilog,binilog,4,2,1,46,5,0
+5,control_same,cabbage,bilog,binilog,5,4,4,79,11,2
+6,control_same,liquor,lipid / lapad,lapad,5,3,3,74,10,1
+7,control_same,loaf,large,dalagku nga putos,5,3,3,66,19,8
+8,unknown,crackers,bilog,binilog,3,1,0,45,6,0
+9,unknown,crackers,bilog,pieces or units,3,1,1,45,4,2
+10,unknown,fresh fish,bilog,binilog,4,2,1,59,12,0
+11,unknown,ice cream,gamay nga cup,maisot nga tasa,5,1,1,67,3,0
+12,unknown,loaf,large,mabahoe nga putos,5,1,1,66,8,0
+13,unknown,loaf,medium,kasarangan nga putos,5,1,1,69,10,0
+14,unknown,loaf,small,maisot nga putos,5,1,1,57,8,0
