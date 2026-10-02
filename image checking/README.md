@@ -52,6 +52,30 @@ Back in `image checking/dofiles`:
 13_apply_photo_rule.do        the override rule and what it proposes
 ```
 
+`13` writes a review queue. A person rules on it in Excel, and the answers come back
+through the same parser that reads the blind workbooks, in its other mode:
+
+```
+python parse_validation_workbook.py --mode adjudicate --shown proposed_value \
+    --xlsx ../outputs/qc/override_review_v2.xlsx \
+    --key  ../outputs/qc/override_review_v2_key.csv \
+    --out  ../outputs/qc/override_verdicts_v2.csv
+```
+
+Use `--shown photo_g` for the hold workbook, whose proposal column is named differently.
+**It exits non-zero on an unanswered row, a malformed value, or a rejection with no
+replacement**, so an incomplete review cannot be mistaken for a finished one.
+
+Re-running `13` once a verdict file exists also writes `override_review_new.csv` — the
+queue minus the rows already ruled on. Build the next workbook from *that*, not from the
+full queue: a rule change upstream regenerates the whole population, and handing back
+photographs someone has already judged invites them to disagree with themselves.
+
+**Which number a photograph yields** when it shows a display, a label, or both is
+**A25** in `docs/implicit_assumptions.md`. The one non-unit density this project applies
+— 0.9 g per mL for ice cream — is `${DENS_ICECREAM}` in `00_shared/00_globals.do`, with
+its derivation and the spread it papers over.
+
 **`stata -e` exits 0 even when a do-file errors.** Check the log for `r(` followed by a
 number and a semicolon. Check its **timestamp** too: a Stata invocation that never
 starts leaves the previous log in place, and reading it is indistinguishable from a

@@ -147,6 +147,47 @@ preserve
 	qui count
 	di as res _n "  override rows exported for review: " r(N)
 	di as txt "  ${imgqc}\override_review_ids.csv"
+
+	* ---- WHAT IS ACTUALLY STILL OUTSTANDING ------------------------------------
+	* The queue above is the full population, and it is regenerated whenever a rule
+	* upstream changes. Handing a reviewer the full file after each such change asks
+	* them to re-answer everything they have already answered, and a second answer to
+	* the same photograph is not new evidence -- it is an invitation to disagree with
+	* oneself and then have to adjudicate the adjudication.
+	*
+	* So the rows carrying a recorded verdict are subtracted here, and the remainder
+	* is exported separately. The verdict files are written by
+	* parse_validation_workbook.py --mode adjudicate; if they are absent this block
+	* is skipped and nothing downstream changes.
+	* NO NESTED PRESERVE. This block runs inside the override preserve above, so it
+	* parks the queue in a tempfile and reads it back rather than preserving again,
+	* which is r(621).
+	capture confirm file "${imgqc}\override_verdicts_v2.csv"
+	if _rc == 0 {
+		tempfile queue adjudicated
+		qui save "`queue'"
+
+		import delimited using "${imgqc}\override_verdicts_v2.csv", ///
+			clear stringcols(_all) varnames(1)
+		keep if trim(approve) != ""
+		keep image_code
+		duplicates drop
+		qui count
+		local n_adj = r(N)
+		qui save "`adjudicated'"
+
+		use "`queue'", clear
+		merge 1:1 image_code using "`adjudicated'", keep(master) nogen
+		gsort -times_off
+		export delimited using "${imgqc}\override_review_new.csv", replace
+		qui count
+		di as res "  of which NOT yet adjudicated: " r(N)
+		di as txt "  (`n_adj' verdicts already recorded)"
+		di as txt "  ${imgqc}\override_review_new.csv"
+	}
+	else {
+		di as txt "  (no verdict file yet -- the whole queue is outstanding)"
+	}
 restore
 
 preserve

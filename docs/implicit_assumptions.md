@@ -1254,6 +1254,30 @@ maximum permitted overrun — up to **0.92** for premium low-overrun product, an
 put the same number under both ticks. If field officers weighed everything and chose "Litres" for
 liquids, a density conversion would import error rather than remove it. A photograph showing the
 item on a scale or in a measuring vessel settles it; nothing in the collected data does.
+
+**Partly unparked by the photographs — see A25.** The photographs have now answered the
+question for one population, and only that one. Where a *printed package label* states a
+volume, the millilitre figure is unambiguously a volume: it was printed by a manufacturer,
+not ticked by an enumerator. A23's doubt was about the enumerator's tick, and it is
+untouched. So:
+
+- Where a label prints **both** a volume and a mass, the mass is taken and no density is
+  needed at all. Seven photographed packs do this.
+- Where a label prints a volume alone on a **single-serve wrapped bar**, beside a legible
+  scale reading, the weighed grams are taken, and again no density is needed.
+- Only what survives both — **127 ice cream rows whose label prints a volume and which
+  carry no usable scale reading** — is converted, at `${DENS_ICECREAM}` = 0.9 g per mL.
+
+**The density this unparking uses is 0.9, and that is nearer the top of the observed range
+than its middle.** The seven dual-printing packs each observe their own density directly:
+0.474, 0.509, 0.630, 0.875, 0.875, 0.938, 0.938 — median 0.875, mean 0.748. The ruling is
+the owner's (2026-10-02) and it is recorded as an assumption, not a measurement. A reader
+comparing a converted ice cream weight against anything else should know that the factor
+could plausibly be a third lower, and that the direction of the error is known: 0.9 makes
+converted weights **too heavy**. `00_shared/00_globals.do` carries the derivation.
+
+The litre *tick* remains parked exactly as described above. Nothing here licenses applying
+a density to a litre-ticked field reading.
 The count excluded prints on every run, and `n_g` over the published rows plus the 23
 excluded weighings reconciles to the pre-exclusion total.
 
@@ -1335,6 +1359,72 @@ labels the test calls `different`; it warns, with the list, on every `inconclusi
 equivalent are visibly different objects — which would mean the location-shift assumption
 behind a rank test is failing, most likely because one label is used loosely and the other
 precisely. The test compares centres and is blind to spread.
+
+---
+
+## A25 — Which number a photograph yields, when it shows more than one
+
+**Claims.** A photograph can show a scale display, a printed package label, or both, and the
+label can itself print a mass and a volume. Four rules pick between them, each narrowing the
+one before it.
+
+1. **A printed package quantity beats a scale display.** A scale weighs the packaging too; a
+   label states net contents, which is the quantity this project publishes. Measured on the
+   23 rows carrying both: the scale exceeds the label on 18 of 20 inspected, by a median of
+   about 5% and up to 38%. That systematic excess is the packaging.
+2. **On a label printing both a mass and a volume, the grams win.** Both describe the same
+   contents; the grams need no density. Moves 7 rows, all ice cream.
+3. **On a label printing a volume alone, beside a legible scale reading, the weighed grams
+   win — but only for a single-serve pack of ice cream**, at most
+   `${ICECREAM_SINGLE_ML}` = 250 mL. Fires on 1 row.
+4. **No reading may be negative or zero.** A non-positive value is *withdrawn to missing*,
+   not made absolute. Withdraws 9 reader values across 8 weighings.
+
+**Where.** `image checking/dofiles/12_photo_readings_master.do`, which resolves `photo_g`
+and `photo_unit`. The two thresholds and the item gate live in `00_shared/00_globals.do`.
+
+**Rests on it.** `13_apply_photo_rule.do` and everything downstream of it: the override
+proposals, the hold queue, and the Check 2 accuracy figure.
+
+**Status: ACCEPTED.** Rule 3 is the only one with a free parameter and it is the one with
+the least reach.
+
+**Why rule 3 is capped, and why the cap is not cosmetic.** Rule 3 rests on the packaging
+being negligible against the contents — true of a plastic wrapper and a wooden stick, false
+of anything else. Applied on item alone it selects four ice cream rows, two of which are
+**tubs**: 800 mL and 1.5 L. On the 1.5 L row it would replace a printed 1500 mL with a
+weighed 1048 g, a ratio of 0.70 that is the product's own aeration rather than an error to
+repair. Applied without the item gate it is worse still — it would take a liquor bottle's
+870 g against its printed 375 mL, adopting the glass as contents, and two restaurant drinks
+at 355 mL printed against 700 and 760 g recorded, where the cup and the ice weigh as much
+as the drink.
+
+So the gate is **item plus size**, and both halves are proxies for a property of the
+*photograph* — visibly light packaging — that no column records. 250 mL separates the two
+populations without splitting either: the single-serve packs here print 50, 60, 64, 95, 100
+and 110 mL, the tubs print 800 and 1500, and nothing lies between.
+
+**Why a non-positive reading is withdrawn rather than repaired.** Five of the six negatives
+match the field record exactly once the sign is dropped, which looks like permission to take
+the magnitude. It is not. Whether a reading matches the field record is the question Check 2
+asks, so repairing the reading with that agreement would answer the check with its own
+answer. The withdrawn values stay in the per-reader `v_*` columns.
+
+**Corroborated against the owner's own adjudications, which were made independently.** The
+94 hold and 109 override verdicts were recorded against the pre-rule values. These rules
+move 13 of those rows, and on all 13 the rule's output equals the verdict the owner wrote —
+including four `64 mL → 56 g` style corrections carrying the note that the grams were also
+printed. The agreement is evidence because the verdicts came first.
+
+**Checked by** `12_photo_readings_master.do` itself. It asserts that a label printing both
+dimensions always resolves to grams, and that rule 3 never fires on a row whose label stated
+a mass; both halt the build rather than passing as a no-op. The four counts print on every
+run.
+
+**What would overturn it.** For rule 3, a photographed single-serve pack whose wrapper is
+*not* negligible, or a tub under 250 mL. For rule 1, a label whose printed mass and printed
+volume describe different things — a mass that is drained weight, say, against a volume that
+is total contents.
 
 ---
 

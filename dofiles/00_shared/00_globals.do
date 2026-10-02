@@ -167,6 +167,68 @@ foreach d in "${build}" "${btemp}" "${btables}" "${bgraphs}" "${bdeliv}" "${bsum
 global THIN 3
 
 
+* ---- DENS_ICECREAM ------------------------------------------------------------
+* Grams per millilitre for ice cream, sorbet and edible ice, used wherever a printed
+* package VOLUME has to become a mass. ONE DEFINITION, for the same reason THIN has
+* one: a density that lives in two places is two densities.
+*
+* Owner ruling, 2026-10-02: 0.9 g per mL, for all ice cream. It is an assumption, not
+* a measurement, and it is recorded here so that a reader can find the number, see what
+* it rests on, and change it in one place.
+*
+* WHAT IT RESTS ON. Two photographs of wrapped single-serve bars, where the printed
+* volume and the scale reading are both legible: 50 mL printed against 45 g weighed.
+* The wrapper and stick are included in the weighed figure and are assumed negligible
+* against the contents -- which is the reason the ruling is confined to bars in thin
+* plastic, and the reason A25 prefers a scale reading to this factor wherever one
+* exists.
+*
+* THE IN-SAMPLE EVIDENCE IS WIDER THAN THE FACTOR, and a reader should know it before
+* leaning on a converted figure. Seven photographed packs print BOTH a volume and a
+* mass, which makes each one a direct observation of its own density:
+*
+*     64 mL (56 g)  0.875      95 mL (45 g)  0.474      100 mL (63 g)  0.630
+*     64 mL (56 g)  0.875     110 mL (56 g)  0.509
+*     64 mL (60 g)  0.938
+*     64 mL (60 g)  0.938                         median 0.875, mean 0.748
+*
+* So 0.9 sits near the top of the observed range, not in its middle, and the spread is
+* the product's own: ice cream is aerated, and overrun varies by brand and by line.
+* A23 sets out the regulatory floor (0.54) and the premium ceiling (0.92).
+*
+* Those seven rows do NOT themselves take this factor -- under A25 a printed mass wins,
+* so each uses its own printed grams. They are the calibration, not the population. The
+* factor applies to the ice cream rows whose label prints a volume ALONE and which
+* carry no scale reading: 125 of 368 at the last count.
+*
+* WHAT WOULD OVERTURN IT. More packs printing both figures, which would replace an
+* assumed constant with a measured distribution; or a split between branded bars and
+* street-vended sorbetes, which A23 expects to sit far lower and which no photograph
+* has yet settled.
+global DENS_ICECREAM 0.9
+
+* The item this density, and the scale-beats-volume carve-out in A25, apply to. A
+* substring of `pull_item', matched case-insensitively, because the full label is
+* "ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)" and a typo in a 56
+* character literal repeated across files is a silent no-op. Defined here so that
+* widening the carve-out to another light-packaged item is one edit, not a hunt.
+global ICECREAM_ITEM "ice cream"
+
+* The largest printed pack volume, in mL, that A25's scale-beats-volume carve-out will
+* fire on. The carve-out rests on the packaging being NEGLIGIBLE against the contents,
+* and that is a claim about a wrapped single-serve bar, not about ice cream generally.
+* A 1.5 L tub has a moulded tub and a lid; the owner approved the printed 1500 mL for
+* exactly such a row while approving the printed grams elsewhere, which is where this
+* cap comes from.
+*
+* 250 separates the two populations cleanly rather than splitting either: the
+* single-serve packs photographed here print 50, 60, 64, 95, 100 and 110 mL, and the
+* tubs print 800 and 1500. Nothing sits between them, so the value is not load-bearing
+* within a wide band -- but it IS a threshold, and a reader should treat it as the
+* arbitrary part of A25.
+global ICECREAM_SINGLE_ML 250
+
+
 ********************************************************************************
 * Shared programs
 ********************************************************************************

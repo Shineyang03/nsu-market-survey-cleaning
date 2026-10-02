@@ -1,0 +1,95 @@
+image_code,approve,approve_yes,correct_raw,shown_value,shown_unit,verdict_value,verdict_unit,verdict_basis,approve_with_value,value_moved,notes,id,filename
+1776382150188,no,0,750 mL,375.0,mL,750.0,mL,correct_value,0,0,"cannot read from bottle, but assuming enumerator entered correctly",4617,1776382150188.jpg
+1776043707559,no,0,45 g,95.0,mL,45.0,g,correct_value,0,0,"45 g also read from packaging, so we should always use that",5233,1776043707559.jpg
+1777687199972,no,0,355 g,955.0,g,355.0,g,correct_value,0,0,,670,1777687199972.jpg
+1776049347564,yes,1,,10000.0,mL,10000.0,mL,approved as shown,0,0,,4882,1776049347564.jpg
+1773909424751,no,0,170 g,70.0,g,170.0,g,correct_value,0,0,,9748,1773909424751.jpg
+1775881831214,no,0,445 g,995.0,g,445.0,g,correct_value,0,0,,8046,1775881831214.jpg
+1774320998883,no,0,885 g,85.0,g,885.0,g,correct_value,0,0,,9287,1774320998883.jpg
+1773969852875,no,0,320 g,920.0,g,320.0,g,correct_value,0,0,,9623,1773969852875.jpg
+1774323955212,no,0,450 g,40.0,g,450.0,g,correct_value,0,0,,7066,1774323955212.jpg
+1777343511311,yes,1,45 g,45.0,g,45.0,g,correct_value,1,0,,11246,1777343511311.jpg
+1778895306551,no,0,200 g,0.0,g,200.0,g,correct_value,0,0,,6117,1778895306551.jpg
+1773890518371,no,0,120 g,20.0,g,120.0,g,correct_value,0,0,,7820,1773890518371.jpg
+1775867745173,no,0,170 g,1700.0,g,170.0,g,correct_value,0,0,,5146,1775867745173.jpg
+1778724253291,no,0,425 g,925.0,g,425.0,g,correct_value,0,0,,9682,1778724253291.jpg
+1776665156649,no,0,120 g,20.0,g,120.0,g,correct_value,0,0,,2541,1776665156649.jpg
+1775699754212,yes,1,,10000.0,mL,10000.0,mL,approved as shown,0,0,,3788,1775699754212.jpg
+1777265670677,yes,1,,25.0,g,25.0,g,approved as shown,0,0,depends on the NSU used; individual package (small packets) is 25g; 10 packs is 250 g,366,1777265670677.jpg
+1773887748065,no,0,50 g,1120.0,g,50.0,g,correct_value,0,0,"ALTHOUGH mL shown on package, in this case the packaging is very light, hence the mismeasurement from weighing the packaging is expected to be smaller than the mismeasurement from applying a general density conversion from external sources.",8646,1773887748065.jpg
+1774488084234,yes,1,25 g,25.0,g,25.0,g,correct_value,1,0,,5605,1774488084234.jpg
+1774588675917,no,0,750 mL,375.0,mL,750.0,mL,correct_value,0,0,,7321,1774588675917.jpg
+1774058611117,yes,1,,30.0,g,30.0,g,approved as shown,0,0,,9349,1774058611117.jpg
+1774403539215,yes,1,25 g,25.0,g,25.0,g,correct_value,1,0,,5604,1774403539215.jpg
+1774401432433,yes,1,45 mL,45.0,mL,45.0,mL,correct_value,1,0,,6345,1774401432433.jpg
+1773797426003,no,0,40 g,-40.0,g,40.0,g,correct_value,0,0,"cannot read from package, using scale weight (packaging expected to be light)",6614,1773797426003.jpg
+1775875117430,yes,1,,60.0,mL,60.0,mL,approved as shown,0,0,,5237,1775875117430.jpg
+1773885030131,no,0,160 g,-160.0,g,160.0,g,correct_value,0,0,,8650,1773885030131.jpg
+1777448700919,no,0,395 g,95.0,g,395.0,g,correct_value,0,0,,855,1777448700919.jpg
+1774411363628,no,0,250 g,1140.0,g,250.0,g,correct_value,0,0,,5840,1774411363628.jpg
+1776304644527,no,0,750 mL,375.0,mL,750.0,mL,correct_value,0,0,,4610,1776304644527.jpg
+1776749502966,no,0,255 g,885.0,g,255.0,g,correct_value,0,0,,2552,1776749502966.jpg
+1773893158345,yes,1,,65.0,g,65.0,g,approved as shown,0,0,,9637,1773893158345.jpg
+1777352442145,yes,1,31 g,31.0,g,31.0,g,correct_value,1,0,31 g per individual pack; 310 g for 10 packs; depending on the NSU used?,363,1777352442145.jpg
+1777353668351,yes,1,,31.0,g,31.0,g,approved as shown,0,0,31 g per individual pack; 310 g for 10 packs; depending on the NSU used?,372,1777353668351.jpg
+1773730865630,yes,1,,355.0,mL,355.0,mL,approved as shown,0,0,,9995,1773730865630.jpg
+1776749986707,no,0,240 g,840.0,g,240.0,g,correct_value,0,0,,2546,1776749986707.jpg
+1774322623684,no,0,750 mL,375.0,mL,750.0,mL,correct_value,0,0,,9241,1774322623684.jpg
+1776997911798,no,0,750 mL,375.0,mL,750.0,mL,correct_value,0,0,,11477,1776997911798.jpg
+1776043770831,yes,1,,10000.0,mL,10000.0,mL,approved as shown,0,0,,4884,1776043770831.jpg
+1773986875251,yes,1,,30.0,g,30.0,g,approved as shown,0,0,,9648,1773986875251.jpg
+1778645527648,yes,1,,60.0,mL,60.0,mL,approved as shown,0,0,,9828,1778645527648.jpg
+1774409129991,yes,1,,60.0,mL,60.0,mL,approved as shown,0,0,,6343,1774409129991.jpg
+1774489560270,yes,1,,50.0,mL,50.0,mL,approved as shown,0,0,,5804,1774489560270.jpg
+1773722622896,yes,1,,85.0,g,85.0,g,approved as shown,0,0,,6545,1773722622896.jpg
+1775703284677,no,0,975 g,75.0,g,975.0,g,correct_value,0,0,,8478,1775703284677.jpg
+1773992412689,yes,1,,55.0,g,55.0,g,approved as shown,0,0,,9646,1773992412689.jpg
+1778814797759,yes,1,,55.0,mL,55.0,mL,approved as shown,0,0,,6872,1778814797759.jpg
+1776046490364,yes,1,,10000.0,mL,10000.0,mL,approved as shown,0,0,,4883,1776046490364.jpg
+1774581902994,no,0,405 g,908.0,g,405.0,g,correct_value,0,0,,5484,1774581902994.jpg
+1773813534835,no,0,680 mL,0.0,g,680.0,mL,correct_value,0,0,,10048,1773813534835.jpg
+1775528704349,yes,1,,55.0,mL,55.0,mL,approved as shown,0,0,,6870,1775528704349.jpg
+1776386530095,no,0,750 mL,375.0,mL,750.0,mL,correct_value,0,0,,2412,1776386530095.jpg
+1774421893091,no,0,990 g,-990.0,g,990.0,g,correct_value,0,0,,7627,1774421893091.jpg
+1773890538111,no,0,150 g,58.0,g,150.0,g,correct_value,0,0,,7821,1773890538111.jpg
+1776048791260,yes,1,,24.6,g,24.6,g,approved as shown,0,0,,4183,1776048791260.jpg
+1775881966545,no,0,170 g,8170.0,g,170.0,g,correct_value,0,0,,8054,1775881966545.jpg
+1777514184039,no,0,750 mL,375.0,mL,750.0,mL,correct_value,0,0,,1531,1777514184039.jpg
+1774577345600,yes,1,,40.0,g,40.0,g,approved as shown,0,0,,5373,1774577345600.jpg
+1774501592429,no,0,43 g,45.0,g,43.0,g,correct_value,0,0,,6346,1774501592429.jpg
+1773884965405,no,0,150 g,-50.0,g,150.0,g,correct_value,0,0,,8642,1773884965405.jpg
+1774318876014,no,0,220 g,80.0,g,220.0,g,correct_value,0,0,,9318,1774318876014.jpg
+1776825532809,no,0,670 g,1670.0,g,670.0,g,correct_value,0,0,,3150,1776825532809.jpg
+1774054677955,yes,1,,48.0,mL,48.0,mL,approved as shown,0,0,,6490,1774054677955.jpg
+1778028947163,no,0,85 g,685.0,g,85.0,g,correct_value,0,0,,863,1778028947163.jpg
+1778047155232,no,0,750 mL,375.0,mL,750.0,mL,correct_value,0,0,,10474,1778047155232.jpg
+1778816191987,yes,1,,65.0,mL,65.0,mL,approved as shown,0,0,,6871,1778816191987.jpg
+1773975938588,no,0,845 g,45.0,g,845.0,g,correct_value,0,0,including weight from container,9647,1773975938588.jpg
+1773797771519,yes,1,,1500.0,mL,1500.0,mL,approved as shown,0,0,,9489,1773797771519.jpg
+1777075991715,yes,1,,60.0,mL,60.0,mL,approved as shown,0,0,,1915,1777075991715.jpg
+1776045945900,yes,1,,10000.0,mL,10000.0,mL,approved as shown,0,0,,4881,1776045945900.jpg
+1777345409391,yes,1,,30.0,g,30.0,g,approved as shown,0,0,30 g per pack; showing 10 pack package,381,1777345409391.jpg
+1773993858080,no,0,45 g,-45.0,g,45.0,g,correct_value,0,0,,8643,1773993858080.jpg
+1776041702218,no,0,350 g,950.0,g,350.0,g,correct_value,0,0,,5152,1776041702218.jpg
+1778719778040,no,0,265 g,865.0,g,265.0,g,correct_value,0,0,,8520,1778719778040.jpg
+1777268567002,yes,1,,33.0,g,33.0,g,approved as shown,0,0,pack vs multi-pack weights,369,1777268567002.jpg
+1773730902464,yes,1,,1830.0,g,1830.0,g,approved as shown,0,0,,9996,1773730902464.jpg
+1775867539235,no,0,370 g,8370.0,g,370.0,g,correct_value,0,0,,5315,1775867539235.jpg
+1774412112617,yes,1,,60.0,mL,60.0,mL,approved as shown,0,0,,5801,1774412112617.jpg
+1776650704998,yes,1,,70.0,mL,70.0,mL,approved as shown,0,0,,1766,1776650704998.jpg
+1775703101721,yes,1,,1200.0,g,1200.0,g,approved as shown,0,0,1200 g for 17 pieces; depending on NSUs,8405,1775703101721.jpg
+1773910264761,no,0,530 g,1530.0,g,530.0,g,correct_value,0,0,,9816,1773910264761.jpg
+1775533986021,yes,1,,35.0,mL,35.0,mL,approved as shown,0,0,,6868,1775533986021.jpg
+1775704731507,no,0,455 g,195.0,g,455.0,g,correct_value,0,0,,8767,1775704731507.jpg
+1774491239222,yes,1,,1150.0,g,1150.0,g,approved as shown,0,0,1150 g for 15 pieces; depending on NSUs,5966,1774491239222.jpg
+1777687747924,no,0,100 mL,500.0,mL,100.0,mL,correct_value,0,0,,10711,1777687747924.jpg
+1779256979804,yes,1,,465.0,g,465.0,g,approved as shown,0,0,,2401,1779256979804.jpg
+1774315985818,no,0,750 mL,375.0,mL,750.0,mL,correct_value,0,0,,9238,1774315985818.jpg
+1775534776224,yes,1,,350.0,mL,350.0,mL,approved as shown,0,0,,4944,1775534776224.jpg
+1774062582225,no,0,790 g,380.0,g,790.0,g,correct_value,0,0,,9286,1774062582225.jpg
+1773722601564,yes,1,,75.0,g,75.0,g,approved as shown,0,0,,6544,1773722601564.jpg
+1776826647844,no,0,400 mL,100.0,mL,400.0,mL,correct_value,0,0,,11165,1776826647844.jpg
+1773885855980,no,0,390 g,880.0,g,390.0,g,correct_value,0,0,,9614,1773885855980.jpg
+1775525820057,no,0,175 g,-175.0,g,175.0,g,correct_value,0,0,,6677,1775525820057.jpg
+1775534740777,yes,1,,50.0,mL,50.0,mL,approved as shown,0,0,,6869,1775534740777.jpg
+1775875800167,yes,1,,70.0,mL,70.0,mL,approved as shown,0,0,,5238,1775875800167.jpg

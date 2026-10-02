@@ -27,11 +27,33 @@
 * the disagreement that established this stays visible in the data rather than only in
 * a commit message. It is not evidence.
 *
-* ---- THE mL RULE ---------------------------------------------------------------
-* Where a printed volume and a scale reading are both legible, the printed volume
-* governs (project owner, 2026-09-20). Applied ONLY on human-read rows: it overrides a
-* field record, and a model reading is not strong enough to do that. Model rows that
-* saw a package label carry `pkg_seen' so the rule's reach is visible.
+* ---- WHICH NUMBER GOVERNS, IN ORDER ----------------------------------------------
+* Four owner rulings, each narrowing the one before it. Taken together they say: use
+* the most direct statement of the contents, and never take a number whose use would
+* oblige an assumption that a better number avoids.
+*
+*   1. A printed package quantity beats a scale display (2026-09-20, widened
+*      2026-09-28). A scale weighs the packaging too; a label states net contents.
+*
+*   2. On a label printing BOTH a mass and a volume, the grams win (2026-10-02).
+*      Both describe the same contents, and the grams need no density.
+*
+*   3. On a label printing a volume ALONE, beside a legible scale reading, the
+*      weighed grams win -- but only where the packaging is visibly light, which in
+*      practice means ice cream bars (2026-10-02). See A25 in the body: applied
+*      generally this would adopt a liquor bottle's glass as its contents.
+*
+*   4. No reading may be negative or zero (2026-10-02). A non-positive value is
+*      withdrawn, not corrected; see the block above the precedence cascade.
+*
+* Ruling 1 is applied on model rows as well as human ones. The rest of the mL rule --
+* the `reading_source == "package"' branch -- stays confined to human-read rows,
+* because it overrides a field record and a model reading is not strong enough to do
+* that. Model rows that saw a package label carry `pkg_seen' so the reach is visible.
+*
+* Where a printed volume survives all of this and must still become a mass, the factor
+* is ${DENS_ICECREAM} and it is defined once in 00_shared/00_globals.do. It is NOT
+* applied in this file; this file resolves what the photograph says.
 *
 * ---- BLINDING -----------------------------------------------------------------
 * Nothing here reaches a reader. Every reading in this file was made against a tile
@@ -204,6 +226,36 @@ norm_g g_sc1 v_sc1 `KGSPLIT'
 norm_g g_rsc v_rsc `KGSPLIT'
 norm_g g_hai v_hai `KGSPLIT'
 
+* ---- A READING MUST BE STRICTLY POSITIVE ----------------------------------------
+* A mass and a volume are both non-negative quantities; nothing a scale or a label can
+* legitimately say makes one negative, and a weighing of exactly zero is the absence of
+* a reading rather than a reading of nothing. Owner ruling, 2026-10-02.
+*
+* WHAT IS ACTUALLY IN THE DATA. Eight non-positive readings, all from the C1 sweep: six
+* negative (-0.040, -0.045, -0.050, -0.160, -0.175, -0.990 kg) and two exactly zero.
+* The negatives are a leading minus that is almost certainly a ghost segment -- an
+* unlit bar on a display that glows dark red -- and not a scale left untared.
+*
+* THEY ARE SET MISSING, NOT MADE ABSOLUTE, and the distinction is the whole point.
+* Five of the six match the field record exactly once the sign is dropped, which looks
+* like permission to take the magnitude. It is not: whether a reading matches the field
+* record is the question Check 2 asks, so using that agreement to repair the reading
+* would decide the check with the check's own answer. A reading whose sign its reader
+* got wrong is a reading that cannot be trusted to the digit, so it is withdrawn and
+* the row falls through to the next reader in the precedence below, or becomes unread.
+*
+* Nothing is lost: the withdrawn value stays in v_* and the count prints every run.
+gen byte nonpositive_withdrawn = 0
+foreach s in hum hir son swp sc1 rsc hai {
+	qui count if !missing(g_`s') & g_`s' <= 0
+	if r(N) > 0 {
+		di as txt "  withdrew `r(N)' non-positive reading(s) from g_`s'"
+		replace nonpositive_withdrawn = 1 if !missing(g_`s') & g_`s' <= 0
+		replace g_`s' = . if g_`s' <= 0
+	}
+}
+label var nonpositive_withdrawn "A reader returned a non-positive value; it was withdrawn"
+
 gen double photo_g    = .
 gen str16  photo_src  = ""
 gen str4   photo_unit = ""
@@ -223,6 +275,14 @@ replace photo_g = g_hum  if !missing(g_hum)
 replace photo_src = "human"         if !missing(g_hum)
 
 replace photo_unit = "g" if !missing(photo_g)
+
+* THE SCALE DISPLAY, KEPT SEPARATELY. At this exact point photo_g is the resolved
+* reading of the scale and nothing else: the label rules below have not run. A25 needs
+* to compare a label against a display after the label has already overwritten
+* photo_g, so the display is captured here rather than reconstructed later -- the same
+* reason the build keeps w_block instead of letting a diagnostic re-derive it.
+gen double scale_g = photo_g
+label var scale_g "The resolved SCALE reading in grams, before any label rule"
 
 * THE mL RULE -- human rows only.
 replace photo_g    = v_hum  if reading_source == "package" & !missing(v_hum)
@@ -253,29 +313,56 @@ foreach s in rsc hir son swp sc1 {
 	replace pkg_text = pkg_`s' if pkg_text == "" & !missing(pkg_`s') & trim(pkg_`s') != ""
 }
 
-* Volume first, then mass. A label reading "Net Content: 64ml (60g)" is a volume that
-* also states its mass, and the mL rule wants the volume.
+* MASS FIRST, THEN VOLUME. A label reading "Net Content: 64ml (56g)" states the same
+* contents twice, and the grams are the better of the two: they are the quantity this
+* project publishes, and taking them costs no density assumption. Taking the volume
+* instead would oblige a conversion whose factor is not measured per pack.
+*
+* IT USED TO RUN THE OTHER WAY -- volume first, "the mL rule wants the volume". That
+* ordering was set when the only question was volume-against-scale; it was never a
+* judgement that a printed volume beats a printed mass on the SAME label. Owner
+* ruling, 2026-10-02: where a package states both, the grams always win.
+*
+* It moves seven rows, every one of them ice cream, and it removes the only rows where
+* a printed mass sat in the data unused beside the volume that displaced it. Those
+* seven are what DENS_ICECREAM is calibrated on; see 00_globals.do and A25.
 gen double pkg_qty  = .
 gen str4   pkg_unit = ""
 
-* number immediately followed by a volume unit
-gen str80 _m = regexs(0) if regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(ml|millilit[a-z]*)")
-replace pkg_qty  = real(regexs(1)) if regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(ml|millilit[a-z]*)")
-replace pkg_unit = "mL" if !missing(pkg_qty)
+* number immediately followed by a mass unit
+replace pkg_qty  = real(regexs(1)) ///
+	if regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(g|gram[a-z]*)\b")
+replace pkg_unit = "g" if !missing(pkg_qty)
+
+* kilograms -> g, only where no gram figure was found
+replace pkg_qty  = real(regexs(1))*1000 ///
+	if missing(pkg_qty) & regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(kg|kilo[a-z]*)\b")
+replace pkg_unit = "g" if pkg_unit == "" & !missing(pkg_qty)
+
+* volume, only where no mass was found at all
+replace pkg_qty  = real(regexs(1)) ///
+	if missing(pkg_qty) & regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(ml|millilit[a-z]*)")
+replace pkg_unit = "mL" if pkg_unit == "" & !missing(pkg_qty)
 
 * litres -> mL, only where no mL figure was found
 replace pkg_qty  = real(regexs(1))*1000 ///
 	if missing(pkg_qty) & regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(lit[a-z]*|l)\b")
 replace pkg_unit = "mL" if pkg_unit == "" & !missing(pkg_qty)
 
-* mass, only where no volume was found at all
-replace pkg_qty  = real(regexs(1)) ///
-	if missing(pkg_qty) & regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(g|gram[a-z]*)\b")
-replace pkg_unit = "g" if pkg_unit == "" & !missing(pkg_qty)
-replace pkg_qty  = real(regexs(1))*1000 ///
-	if missing(pkg_qty) & regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(kg|kilo[a-z]*)\b")
-replace pkg_unit = "g" if pkg_unit == "" & !missing(pkg_qty)
-drop _m
+* Does the label ALSO state the dimension it did not win on? Kept because it is the
+* only in-data observation of a pack's own density, and because the count is the
+* tripwire on the ordering above: if the mass-first branch ever stops matching, this
+* goes to zero and the assert below halts the build.
+gen byte pkg_states_both = ///
+	(regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(g|gram[a-z]*)\b") | ///
+	 regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(kg|kilo[a-z]*)\b")) & ///
+	(regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(ml|millilit[a-z]*)") | ///
+	 regexm(lower(pkg_text), "([0-9]+\.?[0-9]*) *(lit[a-z]*|l)\b"))
+label var pkg_states_both "The printed label gave BOTH a mass and a volume"
+
+* A label stating both must now resolve to grams. This is the ordering, asserted.
+qui count if pkg_states_both & pkg_unit != "g"
+assert r(N) == 0
 
 gen byte has_pkg_qty = !missing(pkg_qty)
 
@@ -313,6 +400,71 @@ foreach U in mL g {
 	replace photo_src = "package label (`U')" ///
 		if has_pkg_qty & pkg_unit == "`U'" & photo_src == ""
 }
+
+* ---- A25: A WEIGHED GRAM BEATS A PRINTED MILLILITRE, ON LIGHT PACKAGING ONLY -----
+* The label rule above prefers a printed quantity to a scale reading, because a scale
+* weighs the packaging too. Where the label prints a MASS that reasoning is complete
+* and this block does not fire.
+*
+* Where the label prints only a VOLUME it is incomplete, because taking the volume
+* does not end the problem -- it defers it to a density conversion, and that
+* conversion has an error of its own. On a wrapped ice cream bar the choice is
+* between two errors with very different sizes:
+*
+*     take the printed mL  ->  multiply by an ASSUMED 0.9 g/mL, when the packs that
+*                              state both run 0.47 to 0.94 (00_globals.do)
+*     take the weighed g   ->  carry the mass of a plastic wrapper and a wooden stick
+*
+* The wrapper is grams at most. The density assumption is tens of percent. So the
+* scale wins. Owner ruling, 2026-10-02.
+*
+* IT IS CONFINED TO ICE CREAM, AND THE DATA SAYS WHY. Seven rows have an mL-only label
+* beside a scale reading. Four are ice cream, where the two figures agree to within 2%
+* on three of them. One is liquor: 375 mL printed, 870 g weighed -- a ratio of 2.3,
+* which is the glass bottle. Two are restaurant drinks at 355 mL printed against 700
+* and 760 g recorded, where the cup and the ice weigh as much as the drink.
+*
+* Applied generally this rule would therefore adopt a bottle's tare as its contents on
+* the very rows the label rule exists to protect. The discriminator the owner named is
+* that the packaging is VISIBLY LIGHT -- plastic wrap and a stick -- which is a
+* property of the photograph, not a column. `${ICECREAM_ITEM}' is the available proxy,
+* and it is a gate on item, not a measurement of wrapper mass. Widening it to another
+* item needs the same two things this had: a reason the packaging is negligible, and a
+* look at the rows that would move.
+*
+* THE ITEM GATE ALONE IS TOO WIDE, and the owner's own adjudications caught it. Of the
+* four ice cream rows it selects, one prints 800 mL and one prints 1.5 L. Those are
+* TUBS. A moulded tub and lid are not a plastic wrapper, the premise fails, and on the
+* 1.5 L row the owner had already approved the printed 1500 mL against a weighed 1048 g
+* -- a ratio of 0.70, which is the product's own aeration and not an error to repair.
+*
+* So the carve-out is additionally capped at `${ICECREAM_SINGLE_ML}' mL of printed
+* volume, which is what "single-serve, in a wrapper" means in a column. It fires on one
+* row. That is a small return for a rule this long, and the length is the point: the
+* rows it must NOT fire on are the expensive ones.
+capture confirm string variable pull_item
+if _rc {
+	di as err "pull_item is not a string -- A25 cannot match on it; decode it first"
+	exit 459
+}
+
+gen byte scale_beats_volume = has_pkg_qty & pkg_unit == "mL" & ///
+	!missing(scale_g) & scale_g > 0 & ///
+	strpos(lower(pull_item), lower("${ICECREAM_ITEM}")) > 0 & ///
+	pkg_qty <= ${ICECREAM_SINGLE_ML}
+
+qui count if scale_beats_volume
+di as txt "  A25 scale-beats-volume (light packaging) ......... " r(N)
+
+replace photo_g         = scale_g if scale_beats_volume
+replace photo_unit      = "g"     if scale_beats_volume
+replace photo_src       = photo_src + " + scale over mL (A25)" if scale_beats_volume
+replace ml_rule_applied = 0       if scale_beats_volume
+label var scale_beats_volume "A25: mL-only label overridden by the weighed grams"
+
+* The carve-out must never touch a row whose label stated a mass -- that row is
+* already in grams and A25 has nothing to add. Asserted rather than assumed.
+assert pkg_states_both == 0 if scale_beats_volume
 
 gen byte has_reading = !missing(photo_g)
 gen byte from_human  = inlist(photo_src, "human", "human (mL rule)")
@@ -355,6 +507,18 @@ di as txt "  resolved from a human ............................ " r(N)
 qui count if mL_rule_pending
 di as txt "  package label seen, mL rule pending a human ...... " r(N)
 
+* ---- the 2026-10-02 rulings, counted every run -----------------------------------
+qui count if nonpositive_withdrawn
+di as txt "  non-positive readings withdrawn .................. " r(N)
+qui count if pkg_states_both
+di as txt "  labels printing BOTH mass and volume (grams win) . " r(N)
+qui count if scale_beats_volume
+di as txt "  A25 weighed grams taken over a printed mL ........ " r(N)
+qui count if has_pkg_qty & pkg_unit == "mL" & ///
+	strpos(lower(pull_item), lower("${ICECREAM_ITEM}")) > 0 & !scale_beats_volume
+di as txt "  ice cream rows still owed a density conversion ... " r(N)
+di as txt "    (at ${DENS_ICECREAM} g per mL -- 00_globals.do, A23, A25)"
+
 di as txt _n "  resolved reading by source:"
 tab photo_src if has_reading
 
@@ -363,6 +527,7 @@ tab pub_rule has_reading, row
 
 order id image_code filename photo_g photo_unit photo_src from_human has_reading ///
       evidence_is_label ml_rule_applied pkg_text pkg_qty pkg_unit has_pkg_qty ///
+      pkg_states_both scale_g scale_beats_volume nonpositive_withdrawn ///
       mL_rule_pending pkg_seen raw_tick raw_weight corrected_weight pub_unit pub_rule ///
       pull_item harmonized_nsu_unit pull_province pull_municipal_city ///
       market_name store_stall_name vendor_id ///

@@ -1,0 +1,21 @@
+id,image_code,photo_unit,photo_src,raw_tick,raw_weight,pub_rule,pull_item,published_now,proposed_value,times_off
+10022,1778476863778,g,package label (g),Litres (L),.11,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",110,56,1.96
+9472,1773725397529,g,sonnet sweep + g label,grams (g),.055,log10 median,"crackers, cookies, buiscuits, chips/curls",55,40,1.38
+6227,1773808882865,g,sonnet sweep + g label,grams (g),.47499999,log10 median,loaf bread,475,640,1.35
+9680,1773993582616,g,sonnet sweep + g label,grams (g),.38499999,log10 median,loaf bread,385,500,1.3
+7838,1773970030451,g,sonnet sweep + g label,grams (g),.029999999,log10 median,"crackers, cookies, buiscuits, chips/curls",30,24,1.25
+9845,1773889635148,g,sonnet sweep + g label,grams (g),.56999999,log10 median,loaf bread,570,500,1.14
+9789,1773967474115,g,sonnet sweep + g label,grams (g),.045000002,log10 median,"crackers, cookies, buiscuits, chips/curls",45,40,1.13
+6229,1773801430653,g,sonnet sweep + g label,grams (g),.38,log10 median,loaf bread,380,350,1.09
+9826,1773968256826,g,sonnet sweep + g label,grams (g),.064999998,log10 median,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",65,60,1.08
+7839,1773970055622,g,sonnet sweep + g label,grams (g),.105,log10 median,"crackers, cookies, buiscuits, chips/curls",105,98,1.07
+9784,1773968407167,g,sonnet sweep + g label,grams (g),.075000003,log10 median,"crackers, cookies, buiscuits, chips/curls",75,70,1.07
+9871,1773886941780,g,sonnet sweep + g label,grams (g),.23999999,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",240,225,1.07
+9510,1773728699938,g,human + g label,grams (g),.67000002,log10 median,loaf bread,670,640,1.05
+9500,1773723661219,g,sonnet sweep + g label,grams (g),.67500001,log10 median,loaf bread,675,640,1.05
+8474,1775701177913,g,sonnet hi-res + g label,grams (g),.47,log10 median,"drinks at restaurant, hotel, cafe, or kiosk",470,450,1.04
+5122,1773802376971,g,sonnet sweep + g label,grams (g),.465,log10 median,loaf bread,465,450,1.03
+11196,1776824662897,g,sonnet sweep + g label,grams (g),.19499999,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",195,200,1.03
+9511,1773723866617,g,sonnet sweep + g label,grams (g),.205,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",205,200,1.03
+7694,1774421610417,g,sonnet sweep,grams (g),.16,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",160,155,1.03
+11197,1776824685368,g,sonnet sweep + g label,grams (g),.22,log10 median,"preserved or processed meat (tocino, tapa, longaniza, etc)",220,225,1.02

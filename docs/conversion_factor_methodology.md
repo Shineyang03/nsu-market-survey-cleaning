@@ -639,6 +639,33 @@ Some items were recorded in both, across different vendors in one case. One verd
 item resolves the verdicted items; the rest take the **case majority** at 1 g per mL.
 **Appendix A.5** has the rule, the counts and the open check against the field photos.
 
+### Densities used
+
+One conversion factor other than 1 g per mL is applied anywhere in this project.
+
+| Item | Factor | Applies to | Defined in |
+| :-- | :-- | :-- | :-- |
+| Ice cream, sorbet, edible ice | **0.9 g per mL** | a *printed package volume* with no usable mass or scale reading — 127 weighings | `${DENS_ICECREAM}`, `00_shared/00_globals.do` |
+
+Everything else converts at 1 g per mL, which for the near-water items this survey covers
+is a relabel rather than a conversion.
+
+**The ice cream factor is an assumption and it has a known direction of error.** Seven
+photographed packs print both a volume and a mass, which makes each one a direct reading of
+its own density: 0.474, 0.509, 0.630, 0.875, 0.875, 0.938, 0.938 — median 0.875, mean
+0.748. Ice cream is aerated and the overrun varies by brand and by line, so the spread is
+the product's, not measurement noise. 0.9 sits near the top of that range, so **a converted
+ice cream weight is more likely too heavy than too light, potentially by a third.**
+
+Those seven packs do not themselves take the factor: where a label prints a mass, the mass
+is used (A25). The factor reaches only the rows with no better evidence. A reader who needs
+ice cream weights to be right rather than conservative should treat the converted rows as a
+sensitivity, not as a measurement — `photo_unit` and `ml_rule_applied` in
+`photo_readings_master.csv` identify them.
+
+**A25** states the four rules deciding which number a photograph yields; **A23** states what
+remains parked, which is the enumerator's litre *tick* as distinct from a printed label.
+
 ## 1.4 Attrition, and how each case is routed
 
 `07_cpi_factor.do` drops the **99** price-quantity rows whose recorded price was not the
