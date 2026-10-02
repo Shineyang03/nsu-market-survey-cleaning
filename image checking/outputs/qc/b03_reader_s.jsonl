@@ -34,3 +34,147 @@
 {"label": "0142", "display_text": "0.225", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
 {"label": "0143", "display_text": null, "display_legible": "not_visible", "display_unit_shown": "indeterminate", "notes": "no display in frame -- the crop shows a bright specular highlight on a wet surface, no bezel, no WEIGHT legend, no segment cells; cropper false positive"}
 {"label": "0144", "display_text": "0.515", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0145", "display_text": "0.150", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0146", "display_text": "0.315", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0147", "display_text": "0.150", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim, scratched bezel"}
+{"label": "0148", "display_text": "0.130", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0149", "display_text": "0.150", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0150", "display_text": "0.175", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0151", "display_text": "0.275", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0152", "display_text": "0.195", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0153", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present but very dim; segments not separable from ghost"}
+{"label": "0154", "display_text": "0.220", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0155", "display_text": "0.375", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0156", "display_text": "0.700", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0157", "display_text": "0.455", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0158", "display_text": "0.655", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0159", "display_text": "0.180", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0160", "display_text": "0.085", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0161", "display_text": "0.070", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0162", "display_text": "0.270", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0163", "display_text": "0.180", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0164", "display_text": "0.405", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "glare top left"}
+{"label": "0165", "display_text": "0.070", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0166", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present but very dim, heavy glare top left; a second row is visible"}
+{"label": "0167", "display_text": "0.170", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0168", "display_text": "0.145", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0169", "display_text": "0.120", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0170", "display_text": "0.160", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0171", "display_text": "0.105", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0172", "display_text": "0.250", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0173", "display_text": null, "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "display present but blank -- bezel and segment cells visible, nothing lit; an object fills the left of the frame"}
+{"label": "0174", "display_text": "0.185", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0175", "display_text": "0.350", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0176", "display_text": "0.730", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0177", "display_text": "0.850", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0178", "display_text": "2.280", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim, plastic across display"}
+{"label": "0179", "display_text": "0.485", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0180", "display_text": "1.030", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0181", "display_text": "1.055", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0182", "display_text": "1.320", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0183", "display_text": "1.405", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0184", "display_text": "0.560", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0185", "display_text": "1.200", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim; trailing zeros sit close to the ghost"}
+{"label": "0186", "display_text": "1.020", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0187", "display_text": "1.290", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0188", "display_text": "1.350", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0189", "display_text": "1.335", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0190", "display_text": "0.120", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0191", "display_text": "0.210", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0192", "display_text": "0.785", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0193", "display_text": "0.255", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0194", "display_text": "0.195", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0195", "display_text": "0.245", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0196", "display_text": "0.060", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0197", "display_text": "0.635", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0198", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present -- WEIGHT legend and bezel visible -- but reflective wrapping covers the digit row"}
+{"label": "0199", "display_text": "0.180", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0200", "display_text": "0.105", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0201", "display_text": "0.090", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0202", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present -- WEIGHT legend and bezel visible -- but an object covers the digit row"}
+{"label": "0203", "display_text": "0.715", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0204", "display_text": "0.755", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0205", "display_text": "0.175", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0206", "display_text": "0.255", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0207", "display_text": "0.115", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0208", "display_text": "0.200", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0209", "display_text": "0.210", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0210", "display_text": "0.200", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0211", "display_text": "0.730", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0212", "display_text": "0.540", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0213", "display_text": "0.470", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0214", "display_text": "0.645", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0215", "display_text": "0.425", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0216", "display_text": "0.390", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0217", "display_text": "0.540", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0218", "display_text": "0.675", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim; third digit faint"}
+{"label": "0219", "display_text": "0.580", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0220", "display_text": "0.250", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim, debris over left of display"}
+{"label": "0221", "display_text": "0.150", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0222", "display_text": "0.070", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0223", "display_text": "0.075", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0224", "display_text": "0.160", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0225", "display_text": "0.785", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0226", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present but very dim; glare lower left, digits not separable from ghost"}
+{"label": "0227", "display_text": "0.125", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0228", "display_text": "2.230", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0229", "display_text": "0.595", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0230", "display_text": "0.070", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0231", "display_text": "0.310", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0232", "display_text": "0.085", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim, specular fleck over second digit"}
+{"label": "0233", "display_text": "0.110", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0234", "display_text": "0.185", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0235", "display_text": "1.185", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0236", "display_text": "1.690", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0237", "display_text": "0.840", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0238", "display_text": "0.840", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0239", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present; second digit shows a partial glyph that is not a valid character -- possibly photographed mid-refresh"}
+{"label": "0240", "display_text": "0.110", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0241", "display_text": "0.250", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0242", "display_text": "0.270", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0243", "display_text": "0.225", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0244", "display_text": "0.290", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0245", "display_text": "1.135", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0246", "display_text": "0.330", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0247", "display_text": "0.370", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0248", "display_text": "0.515", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0249", "display_text": "0.500", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0250", "display_text": "0.080", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0251", "display_text": "0.070", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0252", "display_text": "0.065", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0253", "display_text": "0.500", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0254", "display_text": "0.210", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim, glare along top edge"}
+{"label": "0255", "display_text": "1.330", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0256", "display_text": "1.150", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "glare over right of display"}
+{"label": "0257", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present but very dim; digits not separable from ghost"}
+{"label": "0258", "display_text": "0.195", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0259", "display_text": "0.710", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "glare over last digit"}
+{"label": "0260", "display_text": "0.635", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0261", "display_text": "0.200", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0262", "display_text": "1.210", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "object across left of display; leading digit read from the visible stroke"}
+{"label": "0263", "display_text": "0.115", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0264", "display_text": "0.075", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim, bright object left of digits"}
+{"label": "0265", "display_text": "1.350", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0266", "display_text": "0.680", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0267", "display_text": "1.050", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0268", "display_text": "0.285", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0269", "display_text": null, "display_legible": "not_visible", "display_unit_shown": "indeterminate", "notes": "frame is entirely black -- no bezel, no WEIGHT legend, no segment cells, no features of any kind"}
+{"label": "0270", "display_text": "0.890", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0271", "display_text": "0.680", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim, glare along top edge"}
+{"label": "0272", "display_text": "0.355", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0273", "display_text": "0.770", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0274", "display_text": "0.695", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0275", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present but very dim; scratches over the digit row"}
+{"label": "0276", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present but very dim; digits not separable from ghost"}
+{"label": "0277", "display_text": "0.205", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0278", "display_text": "0.080", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim, grainy"}
+{"label": "0279", "display_text": "0.245", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim, grainy"}
+{"label": "0280", "display_text": "0.185", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0281", "display_text": null, "display_legible": "ambiguous", "display_unit_shown": "none_shown", "notes": "display present but dim; third digit shows a partial glyph that is not a valid character"}
+{"label": "0282", "display_text": "0.570", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0283", "display_text": "0.110", "display_legible": "probable", "display_unit_shown": "none_shown", "notes": "dim"}
+{"label": "0284", "display_text": "0.265", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0285", "display_text": "0.060", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0286", "display_text": "0.280", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": "a thin bright filament crosses the display"}
+{"label": "0287", "display_text": "0.730", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
+{"label": "0288", "display_text": "1.285", "display_legible": "clear", "display_unit_shown": "none_shown", "notes": ""}
