@@ -157,24 +157,42 @@ preserve
 	*
 	* So the rows carrying a recorded verdict are subtracted here, and the remainder
 	* is exported separately. The verdict files are written by
-	* parse_validation_workbook.py --mode adjudicate; if they are absent this block
-	* is skipped and nothing downstream changes.
+	* parse_validation_workbook.py --mode adjudicate.
+	*
+	* EVERY `override_verdicts_v*.csv' IS READ, not a named one. A review happens in
+	* rounds -- v2 answered 108 rows, a rule change surfaced 19 more, v3 answered
+	* those plus the one v2 left blank -- and a block naming a single round goes stale
+	* on the day the next round lands, silently, by re-asking questions that have
+	* already been answered. The file glob is the mechanism; a comment saying
+	* "remember to add v4" is not.
+	*
+	* A row answered in two rounds takes the LATEST round, because that is the order a
+	* reviewer revises in: v2 left `1774421610417' blank and v3 ruled on it.
+	*
 	* NO NESTED PRESERVE. This block runs inside the override preserve above, so it
 	* parks the queue in a tempfile and reads it back rather than preserving again,
 	* which is r(621).
-	capture confirm file "${imgqc}\override_verdicts_v2.csv"
-	if _rc == 0 {
+	local vfiles : dir "${imgqc}" files "override_verdicts_v*.csv"
+	local vfiles : list sort vfiles
+	if `:word count `vfiles'' > 0 {
 		tempfile queue adjudicated
 		qui save "`queue'"
 
-		import delimited using "${imgqc}\override_verdicts_v2.csv", ///
-			clear stringcols(_all) varnames(1)
-		keep if trim(approve) != ""
-		keep image_code
-		duplicates drop
+		local round = 0
+		foreach f of local vfiles {
+			local ++round
+			import delimited using "${imgqc}/`f'", clear stringcols(_all) varnames(1)
+			keep if trim(approve) != ""
+			keep image_code
+			gen int vround = `round'
+			if `round' > 1 append using "`adjudicated'"
+			qui save "`adjudicated'", replace
+		}
+		* latest round wins, one row per photograph
+		bysort image_code (vround): keep if _n == _N
 		qui count
 		local n_adj = r(N)
-		qui save "`adjudicated'"
+		qui save "`adjudicated'", replace
 
 		use "`queue'", clear
 		merge 1:1 image_code using "`adjudicated'", keep(master) nogen
@@ -182,7 +200,13 @@ preserve
 		export delimited using "${imgqc}\override_review_new.csv", replace
 		qui count
 		di as res "  of which NOT yet adjudicated: " r(N)
-		di as txt "  (`n_adj' verdicts already recorded)"
+		di as txt "  (`n_adj' verdicts recorded across " ///
+			`:word count `vfiles'' " round(s))"
+		* The `dir' macro returns each name ALREADY QUOTED, so it cannot be dropped
+		* into a display string -- "a.csv" "b.csv" inside quotes is an invalid name.
+		foreach f of local vfiles {
+			di as txt "     `f'"
+		}
 		di as txt "  ${imgqc}\override_review_new.csv"
 	}
 	else {
