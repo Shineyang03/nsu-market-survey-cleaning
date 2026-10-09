@@ -226,6 +226,34 @@ def main(argv=None) -> int:
     rd = jd[jd.has_reading == 1]
     c["dual_ml_rows"] = (rd[rd.photo_unit == "mL"].pull_item.value_counts().to_dict())
 
+    # ---- completion, across the whole must-check tier ---------------------------
+    # THE READING IS DONE AND THE SWEEP LOGS DO NOT SAY SO. 15_sweep_draw_c1.log
+    # reports "1,020 still to read", which was true the day it ran and was overtaken by
+    # later reading batches. Quoting a count of outstanding work from the log that
+    # SCHEDULED it is the same carried-forward error this file exists to stop, so the
+    # outstanding count is derived here from the master instead.
+    photoed = targeted & bridged
+    in_master = set(m.id)
+    resolved = set(m.loc[m.has_reading == 1, "id"])
+    c["tier_photographed"] = len(photoed)
+    c["tier_read"] = len(photoed & in_master)
+    c["tier_never_read"] = len(photoed - in_master)
+    c["tier_resolved"] = len(photoed & resolved)
+    c["tier_unresolved"] = c["tier_read"] - c["tier_resolved"]
+    check("tier read + never read = photographed",
+          c["tier_read"] + c["tier_never_read"], c["tier_photographed"])
+    check("tier resolved + unresolved = read",
+          c["tier_resolved"] + c["tier_unresolved"], c["tier_read"])
+
+    # what a remedy for the unresolved would have to do
+    un = m[m.id.isin(photoed) & (m.has_reading != 1)]
+    seen_pkg = pd.Series(False, index=un.index)
+    for col in PKG:
+        seen_pkg = seen_pkg | nonempty(un[col])
+    c["unresolved_one_reader"] = int((un[LEG].notna().sum(axis=1) == 1).sum())
+    c["unresolved_pkg_never_examined"] = int((~seen_pkg).sum())
+    c["unresolved_top_items"] = un.pull_item.value_counts().head(4).to_dict()
+
     # ---- readers ---------------------------------------------------------------
     c["resolved_by_source"] = m[m.has_reading == 1].photo_src.value_counts().to_dict()
 
