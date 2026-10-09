@@ -388,6 +388,65 @@ back.
 banked anywhere.** `--crop` exists so the next attempt starts from a measured baseline
 rather than from zero.
 
+## Decade only: the magnitude classifier and decimal-drift correction
+
+Check 2's commonest error is a moved decimal point — the display read `0.045` and 450 g
+was published. That needs the decade of the display, not its digits. Because the display
+is always `x.xxx` kg, the decade is fixed by **where the first non-zero digit sits** among
+the four positions, and that is a far easier question than reading a number: each
+position is only *zero* or *not zero*, at a location the rectified crop already fixes.
+
+`sevenseg.py --magnitude` answers it deterministically (no model): it fits a five-cell
+digit grid to the unlit `8.8.8.8.8` ghost, scores each segment against the crop's own lit
+level, and calls a position zero only when every seven-segment digit still consistent with
+it is 0. It returns `uncertain` rather than guess — on weak contrast, an ambiguous middle
+bar, a grid pinned at its search bounds, a missing decimal point, or disagreement across
+ten perturbed repeats. Its thresholds and their rationale are in `MAG_PARAMS`.
+
+`20_decimal_drift.do` then takes the decade from the display and the significant digits
+from the published value: `k = decade(display) − floor(log10(published g))`, proposal =
+published × 10^k. Status is `corrected`, `no_change` (checked, passed), `uncertain` (not
+checked: no photograph, no crop, or the classifier declined) or `invalid_input`
+(published in mL, missing or non-positive). Nothing is applied.
+
+```
+19_magnitude_labels.do        human-confirmed decade labels; tune/holdout split (frozen ledger)
+python ../scripts/sevenseg.py --magnitude --manifest ../outputs/decimal_drift/check2_crop_manifest.csv \
+    --crops ../outputs/rect_all --out ../outputs/decimal_drift/magnitude_check2.csv
+20_decimal_drift.do           the proposal, the Sonnet comparison, the human scoring
+```
+
+Run it on the **as-shot** crops (`rect_all`), not `rect_all_dg`: the de-ghosting gamma
+erases dim but lit segments. `rect_all/` is gitignored, so a clone or worktree holds only
+the few crops that were committed early; point `--crops` at the full folder on Box.
+
+**Measured, Check 2 (2,472 weighings):**
+
+| | |
+| :-- | --: |
+| crops the classifier committed on | 1,760 of 1,971 (89.3%) |
+| `corrected` | 13 |
+| `no_change` | 1,715 |
+| `uncertain` — 140 no crop, 11 no photograph, 207 classifier declined | 358 |
+| `invalid_input` — almost all published in mL | 386 |
+
+| against a person's reading | tune (67) | **holdout (65)** |
+| :-- | --: | --: |
+| classifier committed | 56 | **56** |
+| wrong decade when committed | 0 | **0** |
+| wrong automatic corrections | 0 | **0** |
+| decade errors passed as `no_change` | 0 | **0** |
+
+0 of 56 on the holdout bounds the confident error rate below roughly 5% (rule of three),
+no tighter. **The labels are not a random sample**: most are owner verdicts on rows where a
+model disagreed with the published value, so they over-represent hard displays and decade
+disputes. That suits measuring wrong corrections and does not give a population accuracy.
+
+**Against Sonnet** (agreement, not accuracy): on the 1,659 crops both read, they agree on
+the decade on 1,650. All 9 disagreements have a human label, and **the person sides with
+the classifier on all 9** — each is a Sonnet reading that would have moved a correct
+published weight by a factor of ten.
+
 ## Limits to state wherever these numbers are quoted
 
 - **No result here is a population rate.** The calibration strata deliberately

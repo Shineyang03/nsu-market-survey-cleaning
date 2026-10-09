@@ -1,0 +1,6 @@
+mag_status
+ok            1760
+uncertain      190
+no_display      21
+
+wrote ../outputs/decimal_drift/magnitude_check2.csv

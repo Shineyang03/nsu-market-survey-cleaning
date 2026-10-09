@@ -1,0 +1,1 @@
+id,image_code,first_nonzero_position,recognition_confidence,p1_state,p2_state,p3_state,p4_state,corrected_weight,sonnet_g,true_pos,split,decimal_shift,correction_status,sonnet_pos,true_shift

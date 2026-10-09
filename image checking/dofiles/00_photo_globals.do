@@ -55,3 +55,16 @@ global photodir "${root}\NSU Market Survey Launch\data\pictures"
 global photocw  "${root}\NSU Market Survey Launch\data\PSPS_NSU_Market_Survey_Photo_Crosswalk.xlsx"
 
 confirm file "${photocw}"
+
+* ---- the decade of a positive weight, defined once ------------------------------
+* floor(log10(w)), made safe at exact powers of ten. Stata's log10(1000) returns
+* 2.9999999999999996, so the bare expression puts 1,000 g in the 100s decade. The
+* round() absorbs representation error in w itself (999.9999999999 is the 1,000 it came
+* from); the 1e-9 nudge absorbs the error in log10. A genuine 999.999 g has
+* log10 = 2.99999957, far below the nudge, and stays in the 100s.
+* Used by 19_magnitude_labels.do and 20_decimal_drift.do, so the two cannot disagree.
+capture program drop decade_of
+program define decade_of
+	args newvar w
+	gen int `newvar' = floor(log10(round(`w', 1e-6)) + 1e-9) if `w' > 0 & !missing(`w')
+end

@@ -1,0 +1,10 @@
+id,image_code,first_nonzero_position,recognition_confidence,p1_state,p2_state,p3_state,p4_state,pull_item,corrected_weight,pub_rule,sonnet_g,true_pos,split,sonnet_pos
+7820,1773890518371,2,.034,zero,nonzero,nonzero,uncertain,camote,120,log10 median,20,2,tune,3
+9748,1773909424751,2,.001,zero,nonzero,nonzero,zero,camote tops,170,log10 median,70,2,tune,3
+9647,1773975938588,2,.044,zero,nonzero,nonzero,nonzero,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",845,block governs,45,2,tune,3
+9318,1774318876014,2,.002,zero,nonzero,nonzero,zero,carrot,220,log10 median,80,2,holdout,3
+8478,1775703284677,2,.049,zero,nonzero,nonzero,nonzero,fresh fish,975,log10 median,75,2,tune,3
+5315,1775867539235,2,.141,zero,nonzero,nonzero,zero,rice,370,log10 median,8370,2,holdout,1
+8054,1775881966545,2,.008,zero,nonzero,nonzero,zero,camote tops,170,log10 median,8170,2,tune,1
+3150,1776825532809,2,.011,zero,nonzero,nonzero,zero,cabbage,670,log10 median,1670,2,tune,1
+863,1778028947163,3,.037,zero,zero,nonzero,nonzero,"ice cream, sorbet, edible ice (eg., ice-lolli, halo-halo)",85,log10 median,685,3,holdout,2
