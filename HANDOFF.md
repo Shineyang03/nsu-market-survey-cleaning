@@ -4,6 +4,89 @@ Paste this whole file as your first message in the new session.
 
 ---
 
+## Status update, 2026-11-16
+
+Source: git history to 2026-10-09, project documents and project memory. The state of the
+GitHub issues was **not** re-checked; read them before acting. The sections below this one
+date from 2026-09-16 and are superseded where they differ.
+
+**Where the repo is.** Branch `main`, last commit `3bd7cf1` (2026-10-09), in sync with
+`origin/main`. 70 commits since 2026-09-16. The branch named further down
+(`fix/snap-kg-band-and-price-drops`) is no longer current.
+
+### What changed since 2026-09-16
+
+1. **Photograph verification (Check 1 and Check 2), 19 Sept to 5 Oct.** Every field
+   photograph was linked to its weighing. Check 1 reads package labels; Check 2 reads the
+   scale display. A human-scored validation set came first, then the readers were run in
+   batches with checkpointing. Per the commit messages: the cropping step produced 6,939
+   displays from 11,449 photographs; batch 3 finished 680 of 680 after six reader failures;
+   209 of 209 override verdicts were recorded in round 3 (`3a68be2`). Earlier, the model read
+   at 97% against the human and four published weights were found to be 10 times too high
+   (`a52d177`); 16 weight corrections, 3 dimension changes and 9 supersedes were finalised
+   (`4096bd9`).
+2. **Four owner rulings on which number a photograph yields** (2 Oct, assumption A25 in
+   `docs/implicit_assumptions.md`; summary in `CLAUDE.md`).
+3. **Folding rule.** Folding two spellings now needs positive evidence (`56fa2f7`); the
+   weight-uncertainty flags were retired and no weight is invented where none was typed
+   (`783588e`).
+4. **Inputs moved into the repo and the methodology rewritten** (`589c5d0`).
+5. **Reproducibility.** A generator for the price schedule the field used (`5563c37`); one
+   script that recomputes every headline figure and asserts they reconcile (`fe31da6`); the
+   outstanding-reading count is derived from the master, not from the log that scheduled
+   the run (`3bd7cf1`).
+6. **Process.** Two hooks (see `CLAUDE.md`); the reader dispatch brief is versioned at
+   `image checking/READER_BRIEF.md`; `docs/working_across_devices.md` explains how to work
+   from more than one computer.
+
+### Hangups and concerns on the record
+
+* **The readers do not all work.** The digit reading failed in the first calibration
+  (Check 2); `not_visible` was not reliable in the human comparison; one reader was isolated
+  as the failing one (`de1e061`). The object instrument works as a method but its scored
+  field does not (`e7826e8`). The unresolved folds turned out to be unresolvable by size
+  (`4987291`). The reader scores are not accuracy figures (`3f26e2d`).
+* **Being interrupted is normal**, so every reader checkpoints per sheet.
+* **Agents overwrote each other's helper scripts** and rebuilt a decoder that already
+  existed. Both are now rules in `CLAUDE.md`.
+* **Three staged photograph verdicts overwrote an earlier human decision** (`04a9dbd`); the
+  staging stopped there.
+* **The ice cream density of 0.9 g/mL leans heavy** and reaches 127 rows (A25).
+* **Box sync** can lock files during Stata runs; `putexcel` races it.
+
+### Loose ends found on 2026-11-16
+
+* **Three files have an uncommitted path fix.** The PSPS publication folder
+  `2_consumption` was renamed `02_consumption` in the Wave 1 Pub project. The old name no
+  longer exists in Box; the new one does. The committed `main` still points at the old name
+  in `dofiles/00_shared/00_globals.do`, `dofiles/90_diagnostics/scope_psps_exposure.py` and
+  `dofiles/price/NSU_Price.R`, so anything reading the PSPS consumption file fails until
+  the fix is committed. The edit is one line in each file. It has not been run.
+* **Stale documents:** this file (the sections below); `docs/attrition_ledger.md` (16 Sept,
+  already known stale in #8); `dofiles/README.md` (17 Sept, before the photograph work;
+  the photograph work is described in `image checking/README.md`); the "23 checks, all OK
+  at `8033446`" line below, which must be re-run.
+
+### Next steps
+
+Open as of the 2026-09-16 triage and not shown as closed in the git history (confirm each
+against its issue):
+
+1. Decisions for the owner: #27 (implicit assumptions), #28 (is "conventional" a unit
+   property or a cell assignment), #30 (province fallback, the blocker for Outcome 2), #31
+   (778 singleton groups and 8 unfixed outliers).
+2. Code: #18, three items left (`item_group` merge key in `07_cpi_factor.do`; the last
+   divergent normalizer in `tally_price_points.py`; the running sum in
+   `10_size_assignment.do`). Regenerate the attrition ledger (#8).
+3. Outcome 2 steps 20 to 30 are still unwritten (#7). #14 and #24 are actionable.
+4. New since then: commit and run the path fix above, re-run
+   `verify_documented_claims.py` and `verify_reproducibility.py`, update
+   `dofiles/README.md` for the photograph checks, then confirm with the owner what remains of
+   the override review after round 3.
+5. #15 is the owner's.
+
+---
+
 ## What the project is
 
 Philippine market survey (MS) weighings of non-standard units (NSUs) — a *putos*, a

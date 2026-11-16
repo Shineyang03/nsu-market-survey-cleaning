@@ -159,6 +159,77 @@ whose purpose is catching staleness must not depend on something that can go sta
 **Do not add a new script where an existing one or a do-file will do.** The diagnostic
 layer is already larger than the pipeline it validates.
 
+## How the owner wants to work here
+
+These were each stated by the owner or learned from a failure on this project.
+
+* **Discuss before implementing.** State the plan and the reasoning, then wait for a
+  go-ahead. Approval for one step is not approval for the follow-on steps it reveals. A bug
+  found mid-task is reported with its proposed fix, not fixed in passing. Running a
+  diagnostic to answer a question is fine; writing or changing pipeline code needs a
+  check-in first.
+* **Finish a task by committing and pushing it.** This is a solely owned repo
+  (`Shineyang03/nsu-market-survey-cleaning`): add, commit and push the files the task
+  touched, with no "confirming before I push" framing. Ask only when unrelated uncommitted
+  files are also present.
+* **Review material goes in a GitHub issue,** and the chat reply is the conclusion plus the
+  issue number. A correction to a figure already stated in an issue is a new comment on that
+  issue, not only a chat message.
+* **Point at exactly what needs review.** Name the rows and the columns (about six). Never
+  hand over a wide sheet and call it a review request.
+* **Find N before building a review.** Count the decisions and measure what each one moves,
+  then review the rule, not the instances, and state the stopping rule. Full method:
+  `docs/adjudication_playbook.md`.
+* **Every number comes from a script in `dofiles/`.** No throwaway code for anything whose
+  number is cited. Give the script a docstring saying what question it answers. Claims that
+  no build file produces go in `dofiles/90_diagnostics/verify_documented_claims.py`.
+* **Bulk model judgement runs in escalating batches with blind human spot-checks.** Persist
+  batch membership in a ledger so a still-running upstream job cannot reshuffle it. Never
+  quote an accuracy figure that rests only on Claude's own readings; say how many
+  independent readings are behind it.
+* **Delegate only mechanical work to cheaper models** (inventories, environment surveys,
+  repeated measurements). Say in one line what went to the agent. Judgement-heavy or
+  load-bearing work stays in the session.
+* **If the owner pushes back on a claim, re-measure** before conceding or defending.
+* **A heredoc edit that gets caught is fixed without narration.**
+
+## Facts that have already produced wrong findings
+
+* **`pull_price` is the price file.** The market-survey `pull_price` is preloaded from
+  `NSU_prices_from_Makayla.csv`, so the two are meant to be the same number and any gap is a
+  defect to explain, not a difference in kind. Measured in September: on price-quantity
+  cells only 76 of 510 price-file points have an identical `pull_price` in the same cell.
+  The leading hypothesis (a vintage mismatch between the SurveyCTO preload and the delivered
+  CSV) is unverified.
+* **Which number a photograph yields** (owner rulings of 2026-10-02, recorded as A25 in
+  `docs/implicit_assumptions.md`): a printed package quantity beats a scale display; on a
+  label printing both mass and volume the grams win; on a label printing only a volume
+  beside a legible scale reading the weighed grams win, for single-serve ice cream capped at
+  250 mL; no reading may be negative or zero, and non-positive readings are withdrawn to
+  missing, never made absolute. Approving a review row approves `photo_g` and `photo_unit`.
+  Ice cream density is an assumption of 0.9 g/mL (observed 0.474 to 0.938 on seven packs).
+* **GitHub's math renderer rejects `\operatorname`.** Use `\text`. Do not trust the markdown
+  API as proof that an expression renders; check a real browser render for the red "macros
+  are not allowed" box.
+
+## Hooks that enforce rules here
+
+The project's `.claude/` folder holds two hooks (they need `python` on the PATH and travel
+with this Box folder):
+
+* `hooks/block_shell_file_writes.py` (before any Bash call) blocks writing file content from
+  the shell.
+* `hooks/block_unstarted_work_claims.py` (when a turn ends) blocks a closing message that
+  promises work nothing in the turn did, such as "starting the re-read now".
+
+A hook is used where a text rule in this file had been broken repeatedly; its docstring has
+the reasoning. When a rule here keeps being broken, make it a hook rather than adding text.
+
+## Where things stand
+
+`HANDOFF.md` holds the status, open decisions and next steps (status update of 2026-11-16 at
+the top). The GitHub issues are the source of truth for open decisions.
+
 ## Everything else
 
 See `~/.claude/CLAUDE.md` for the general working style, Stata conventions, and the
