@@ -41,7 +41,7 @@ pd.set_option("display.width", 220)
 BOX = r"C:\Users\uzj5150\Box\Philippines Panel\01 Panel"
 DC = BOX + r"\14 NSU Market Survey\Data Cleaning"
 CONS = (BOX + r"\08 Analysis & Data\14 Wave 1_Pub\Household survey"
-              r"\5_outputs\2_publication_data\2_consumption\2_consumption.dta")
+              r"\5_outputs\2_publication_data\02_consumption\2_consumption.dta")
 # The consumption file carries municipal_code, not the municipality name.
 # NSU_Price.R joins the name from this mapping before grouping; do the same
 # so the key matches.

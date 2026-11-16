@@ -103,7 +103,7 @@ out_csv <- file.path(panel_root, "14 NSU Market Survey/Data Cleaning/inputs",
 #-------------------------------------------------------------------------------
 # Section 2: Load Data ---------------------------------------------------------
 ### REPO 2: 2_publication_data, not 3_publication_data.
-Cons_Data_path <- "08 Analysis & Data/14 Wave 1_Pub/Household survey/5_outputs/2_publication_data/2_consumption/2_consumption.dta"
+Cons_Data_path <- "08 Analysis & Data/14 Wave 1_Pub/Household survey/5_outputs/2_publication_data/02_consumption/2_consumption.dta"
 stopifnot(file.exists(Cons_Data_path))
 Cons_data <- read_dta(Cons_Data_path)
 

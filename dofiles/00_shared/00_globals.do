@@ -70,7 +70,7 @@ global cwfile  "${inputs}\cons_name_to_coicop_crosswalk.csv"
 * The PSPS household consumption file, for Outcome 2. Note 2_publication_data --
 * an earlier version of the extraction do-file read 3_publication_data, which does
 * not exist, so the file had never run.
-global psps_cons "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\08 Analysis & Data\14 Wave 1_Pub\Household survey\5_outputs\2_publication_data\2_consumption\2_consumption.dta"
+global psps_cons "C:\Users\\`c(username)'\Box\Philippines Panel\01 Panel\08 Analysis & Data\14 Wave 1_Pub\Household survey\5_outputs\2_publication_data\02_consumption\2_consumption.dta"
 
 * ---- outputs ------------------------------------------------------------------
 global output "${proj}\outputs"
