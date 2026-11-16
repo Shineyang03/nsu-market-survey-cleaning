@@ -56,12 +56,12 @@ date from 2026-09-16 and are superseded where they differ.
 
 ### Loose ends found on 2026-11-16
 
-* **Three files have an uncommitted path fix.** The PSPS publication folder
+* **Path fix committed, not yet run (`56fddac`).** The PSPS publication folder
   `2_consumption` was renamed `02_consumption` in the Wave 1 Pub project. The old name no
-  longer exists in Box; the new one does. The committed `main` still points at the old name
-  in `dofiles/00_shared/00_globals.do`, `dofiles/90_diagnostics/scope_psps_exposure.py` and
-  `dofiles/price/NSU_Price.R`, so anything reading the PSPS consumption file fails until
-  the fix is committed. The edit is one line in each file. It has not been run.
+  longer exists in Box; the new one does. The one-line fix in
+  `dofiles/00_shared/00_globals.do`, `dofiles/90_diagnostics/scope_psps_exposure.py` and
+  `dofiles/price/NSU_Price.R` was checked only for the new path's existence. Run the
+  pipeline step that reads the PSPS consumption file to confirm.
 * **Stale documents:** this file (the sections below); `docs/attrition_ledger.md` (16 Sept,
   already known stale in #8); `dofiles/README.md` (17 Sept, before the photograph work;
   the photograph work is described in `image checking/README.md`); the "23 checks, all OK
@@ -79,7 +79,7 @@ against its issue):
    divergent normalizer in `tally_price_points.py`; the running sum in
    `10_size_assignment.do`). Regenerate the attrition ledger (#8).
 3. Outcome 2 steps 20 to 30 are still unwritten (#7). #14 and #24 are actionable.
-4. New since then: commit and run the path fix above, re-run
+4. New since then: run the path fix above, re-run
    `verify_documented_claims.py` and `verify_reproducibility.py`, update
    `dofiles/README.md` for the photograph checks, then confirm with the owner what remains of
    the override review after round 3.
